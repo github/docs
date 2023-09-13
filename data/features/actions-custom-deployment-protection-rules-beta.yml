@@ -1,0 +1,6 @@
+# Reference: 9242
+# (Actions) Beta launch for custom deployment protection rules
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

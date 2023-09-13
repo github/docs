@@ -1,7 +1,7 @@
 import cx from 'classnames'
 
 import styles from './PermissionsStatement.module.scss'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 type Props = {
   permissions: string

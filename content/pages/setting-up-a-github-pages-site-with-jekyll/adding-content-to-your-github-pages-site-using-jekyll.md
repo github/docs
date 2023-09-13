@@ -35,14 +35,16 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-3. In the root of your publishing source, create a new file for your page called `PAGE-NAME.md`, replacing PAGE-NAME with a meaningful filename for the page.
-4. Add the following YAML frontmatter to the top of the file, replacing PAGE-TITLE with the page's title and URL-PATH with a path you want for the page's URL. For example, if the base URL of your site is `https://octocat.github.io` and your URL-PATH is `/about/contact/`, your page will be located at `https://octocat.github.io/about/contact`.
-  ```shell
-  layout: page
-  title: "PAGE-TITLE"
-  permalink: /URL-PATH
-  ```
-5. Below the frontmatter, add content for your page.
+1. In the root of your publishing source, create a new file for your page called `PAGE-NAME.md`, replacing PAGE-NAME with a meaningful filename for the page.
+1. Add the following YAML frontmatter to the top of the file, replacing PAGE-TITLE with the page's title and URL-PATH with a path you want for the page's URL. For example, if the base URL of your site is `https://octocat.github.io` and your URL-PATH is `/about/contact/`, your page will be located at `https://octocat.github.io/about/contact`.
+
+   ```shell
+   layout: page
+   title: "PAGE-TITLE"
+   permalink: /URL-PATH
+   ```
+
+1. Below the frontmatter, add content for your page.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
@@ -57,16 +59,18 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-3. Navigate to the `_posts` directory.
-4. Create a new file called `YYYY-MM-DD-NAME-OF-POST.md`, replacing YYYY-MM-DD with the date of your post and NAME-OF-POST with the name of your post.
-5. Add the following YAML frontmatter to the top of the file, including the post's title enclosed in quotation marks, the date and time for the post in YYYY-MM-DD hh:mm:ss -0000 format, and as many categories as you want for your post.
-  ```shell
-  layout: post
-  title: "POST-TITLE"
-  date: YYYY-MM-DD hh:mm:ss -0000
-  categories: CATEGORY-1 CATEGORY-2
-  ```
-5. Below the frontmatter, add content for your post.
+1. Navigate to the `_posts` directory.
+1. Create a new file called `YYYY-MM-DD-NAME-OF-POST.md`, replacing YYYY-MM-DD with the date of your post and NAME-OF-POST with the name of your post.
+1. Add the following YAML frontmatter to the top of the file, including the post's title enclosed in quotation marks, the date and time for the post in YYYY-MM-DD hh:mm:ss -0000 format, and as many categories as you want for your post.
+
+   ```shell
+   layout: post
+   title: "POST-TITLE"
+   date: YYYY-MM-DD hh:mm:ss -0000
+   categories: CATEGORY-1 CATEGORY-2
+   ```
+
+1. Below the frontmatter, add content for your post.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

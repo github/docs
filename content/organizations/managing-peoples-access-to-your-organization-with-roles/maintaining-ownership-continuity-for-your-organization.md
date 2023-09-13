@@ -42,7 +42,7 @@ If your organization is owned by an enterprise account, any enterprise owner can
 {% data reusables.organizations.people %}
 1. Select the person or people you'd like to promote to owner.
 
-  ![Screenshot of the first two users in a list of organization members. To the left of each member, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-members-selected-bulk.png)
+   ![Screenshot of the first two users in a list of organization members. To the left of each member, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-members-selected-bulk.png)
 1. Above the list of members, select the **X members selected...** dropdown menu and click **Change role**.
 
    ![Screenshot of the list of organization members. Above the list, a dropdown menu, labeled "2 members selected..." is outlined in dark orange.](/assets/images/help/teams/user-bulk-management-options.png)

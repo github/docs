@@ -26,19 +26,19 @@ shortTitle: 'Extending GitHub Actions Importer'
 
 ## Using custom transformers with {% data variables.product.prodname_actions_importer %}
 
-A custom transformer contains mapping logic that {% data variables.product.prodname_actions_importer %} can use to transform your plugins, tasks, runner labels, or environment variables to work with {% data variables.product.prodname_actions %}. Custom transformers are written with a domain-specific language (DSL) built on top of Ruby, and are defined within a file with the `.rb` file extension. 
+A custom transformer contains mapping logic that {% data variables.product.prodname_actions_importer %} can use to transform your plugins, tasks, runner labels, or environment variables to work with {% data variables.product.prodname_actions %}. Custom transformers are written with a domain-specific language (DSL) built on top of Ruby, and are defined within a file with the `.rb` file extension.
 
 You can use the `--custom-transformers` CLI option to specify which custom transformer files to use with the `audit`, `dry-run`, and `migrate` commands.
 
 For example, if custom transformers are defined in a file named `transformers.rb`, you can use the following command to use them with {% data variables.product.prodname_actions_importer %}:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers.rb
 ```
 
 Alternatively, you can use the glob pattern syntax to specify multiple custom transformer files. For example, if multiple custom transformer files are within a directory named `transformers`, you can provide them all to {% data variables.product.prodname_actions_importer %} with the following command:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers/*.rb
 ```
 
@@ -65,7 +65,7 @@ You can create custom transformers that {% data variables.product.prodname_actio
 
 The following example converts a build step that uses the "buildJavascriptApp" identifier to run various `npm` commands:
 
-```ruby{:copy}
+```ruby copy
 transform "buildJavascriptApp" do |item|
   command = ["build", "package", "deploy"].map do |script|
     "npm run #{script}"
@@ -109,19 +109,19 @@ You can customize the mapping between runners in your source CI/CD instance and 
 
 The following example shows a `runner` method that converts one runner label to one {% data variables.product.prodname_actions %} runner label in the resulting workflow.
 
-```ruby{:copy}
+```ruby copy
 runner "linux", "ubuntu-latest"
 ```
 
 You can also use the `runner` method to convert one runner label to multiple {% data variables.product.prodname_actions %} runner labels in the resulting workflow.
 
-```ruby{:copy}
+```ruby copy
 runner "big-agent", ["self-hosted", "xl", "linux"]
 ```
 
 {% data variables.product.prodname_actions_importer %} attempts to map the runner label as best it can. In cases where it cannot do this, the `ubuntu-latest` runner label is used as a default. You can use a special keyword with the `runner` method to control this default value. For example, the following custom transformer instructs {% data variables.product.prodname_actions_importer %} to use `macos-latest` as the default runner instead of `ubuntu-latest`.
 
-```ruby{:copy}
+```ruby copy
 runner :default, "macos-latest"
 ```
 
@@ -140,33 +140,33 @@ There are several ways you can set up custom transformers to map your environmen
 
 - The following example sets the value of any existing environment variables named `OCTO`, to `CAT` when transforming a pipeline.
 
-  ```ruby{:copy}
+  ```ruby copy
   env "OCTO", "CAT"
   ```
 
   You can also remove all instances of a specific environment variable so they are not transformed to an {% data variables.product.prodname_actions %} workflow. The following example removes all environment variables with the name `MONA_LISA`.
 
-  ```ruby{:copy}
+  ```ruby copy
   env "MONA_LISA", nil
   ```
 
 - You can also map your existing environment variables to secrets. For example, the following `env` method maps an environment variable named `MONALISA` to a secret named `OCTOCAT`.
 
-  ```ruby{:copy}
+  ```ruby copy
   env "MONALISA", secret("OCTOCAT")
   ```
 
-  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
+  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)."
 
 - You can also use regular expressions to update the values of multiple environment variables at once. For example, the following custom transformer removes all environment variables from the converted workflow:
 
-  ```ruby{:copy}
+  ```ruby copy
   env /.*/, nil
   ```
 
   The following example uses a regular expression match group to transform environment variable values to dynamically generated secrets.
 
-  ```ruby{:copy}
+  ```ruby copy
   env /^(.+)_SSH_KEY/, secret("%s_SSH_KEY)
   ```
 

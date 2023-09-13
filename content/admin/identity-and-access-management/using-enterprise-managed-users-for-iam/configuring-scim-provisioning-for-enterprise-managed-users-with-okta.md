@@ -1,6 +1,6 @@
 ---
 title: Configuring SCIM provisioning for Enterprise Managed Users with Okta
-shortTitle: Set up provisioning with Okta
+shortTitle: Configure SCIM with Okta
 intro: You can provision new users and manage their membership of your enterprise and teams using Okta as your identity provider.
 product: '{% data reusables.gated-features.emus %}'
 versions:
@@ -59,7 +59,7 @@ After your {% data variables.enterprise.prodname_emu_enterprise %} has been crea
 1. Click the **Sign On** tab.
 1. To make changes, click **Edit**.
 1. Under "Advanced Sign-on Settings", in the "Enterprise Name" text box, type your enterprise name. For example, if you access your enterprise at `https://github.com/enterprises/octoinc`, your enterprise name would be "octoinc".
-2. To save your enterprise name, click **Save**.
+1. To save your enterprise name, click **Save**.
 
 ## Configuring provisioning
 
@@ -73,12 +73,12 @@ To configure provisioning, the setup user with the **@<em>SHORT-CODE</em>_admin*
 1. To make changes, click **Edit**.
 1. Select **Enable API integration**.
 1. In the "API Token" field, enter the {% data variables.product.pat_v1 %} with the **admin:enterprise** scope belonging to the setup user.
-2. Click **Test API Credentials**. If the test is successful, a verification message will appear at the top of the screen.
-3. To save the token, click **Save**.
-4. In the settings menu, click **To App**.
-5. To the right of "Provisioning to App", to allow changes to be made, click **Edit**.
-6. Select **Enable** to the right of **Create Users**, **Update User Attributes**, and **Deactivate Users**.
-7. To finish configuring provisioning, click **Save**.
+1. Click **Test API Credentials**. If the test is successful, a verification message will appear at the top of the screen.
+1. To save the token, click **Save**.
+1. In the settings menu, click **To App**.
+1. To the right of "Provisioning to App", to allow changes to be made, click **Edit**.
+1. Select **Enable** to the right of **Create Users**, **Update User Attributes**, and **Deactivate Users**.
+1. To finish configuring provisioning, click **Save**.
 
 ## Assigning users and groups
 
@@ -88,7 +88,13 @@ After you have configured SAML SSO and provisioning, you will be able to provisi
 
 You can also automatically manage organization membership by adding groups to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 
-When assigning users, you can use the "Roles" attribute in the {% data variables.product.prodname_emu_idp_application %} application to set a user's role in your enterprise on {% data variables.product.product_name %}. For more information on roles, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+When assigning users, you can use the "Roles" attribute in the {% data variables.product.prodname_emu_idp_application %} application to set a user's role in your enterprise on {% data variables.product.product_name %}. For more information about the roles available to assign, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+
+{% note %}
+
+**Note:** You can only set the "Roles" attribute for an individual user, not a group. If you want to set roles for everyone in a group that's assigned to the {% data variables.product.prodname_emu_idp_application %} application, you must use the "Roles" attribute for each group member, individually.
+
+{% endnote %}
 
 ## Deprovisioning users and groups
 

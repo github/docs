@@ -12,11 +12,11 @@ topics:
 shortTitle: Stop a codespace
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About stopping and starting a codespace
 
@@ -40,11 +40,11 @@ Regardless of where you created or access your codespaces, you can view and mana
 
 {% data reusables.cli.cli-learn-more %}
 
- To stop a codespace use the `gh codespace stop` subcommand and then choose the codespace you want to stop from the list that's displayed.
+To stop a codespace use the `gh codespace stop` subcommand and then choose the codespace you want to stop from the list that's displayed.
 
- ```shell{:copy}
- gh codespace stop
- ```
+```shell copy
+gh codespace stop
+```
 
 {% endcli %}
 
@@ -56,11 +56,11 @@ Regardless of where you created or access your codespaces, you can view and mana
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 You can stop a codespace from the "Your codespaces" page (see [the web browser instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) or by using {% data variables.product.prodname_cli %} (see [the CLI instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## Restarting a codespace
 
@@ -77,17 +77,17 @@ You can stop a codespace from the "Your codespaces" page (see [the web browser i
 
 When you restart a codespace you can choose to open it in {% data variables.product.prodname_vscode %} or in your browser.
 
- - To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
+- To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
- ```shell{:copy}
- gh codespace code
- ```
+  ```shell copy
+  gh codespace code
+  ```
 
- - To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
+- To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
- ```shell{:copy}
- gh codespace open --web
- ```
+  ```shell copy
+  gh codespace open --web
+  ```
 
 {% endcli %}
 
@@ -99,11 +99,11 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.opening-codespace-in-jetbrains %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## Further reading
 

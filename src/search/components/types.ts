@@ -29,3 +29,19 @@ export type SearchResultsT = {
   meta: SearchResultsMeta
   hits: SearchResultHitT[]
 }
+
+export type SearchQueryT = {
+  query: string
+  debug: boolean
+}
+
+export type SearchValidationErrorT = {
+  error: string
+  // key: string
+}
+
+export type SearchT = {
+  search: SearchQueryT
+  results?: SearchResultsT
+  validationErrors: SearchValidationErrorT[]
+}

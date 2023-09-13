@@ -10,8 +10,7 @@ versions:
   ghec: '*'
 shortTitle: Build & test .NET
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

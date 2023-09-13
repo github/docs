@@ -21,14 +21,14 @@ The push protection feature of {% data variables.product.prodname_secret_scannin
 
 {% tip %}
 
-**Tip** 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed. For more information about bypassing push protection for a secret, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed)" and "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)" for the command line and the web UI, respectively. 
+**Tip**
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed. For more information about bypassing push protection for a secret, see "[Allowing a blocked secret to be pushed](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#allowing-a-blocked-secret-to-be-pushed)" and "[Bypassing push protection for a secret](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)" for the command line and the web UI, respectively.
 
 {% endtip %}
 
-{% ifversion push-protection-custom-link-orgs %} 
+{% ifversion push-protection-custom-link-orgs %}
 
-Organization admins can provide a custom link that will be included in the message from {% data variables.product.product_name %} when your push is blocked. This custom link can contain resources and advice specific to your organization and its policies.
+Organization owners can provide a custom link that will be included in the message from {% data variables.product.product_name %} when your push is blocked. This custom link can contain resources and advice specific to your organization and its policies.
 {% endif %}
 
 ## Resolving a blocked push on the command line
@@ -56,6 +56,6 @@ You can also remove the secret if the secret appears in an earlier commit in the
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
 
-To resolve a blocked commit in the web UI, you need to remove the secret from the file, or use the **Bypass protection** dropdown to allow the secret. For more information about bypassing push protection from the web UI, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."
+To resolve a blocked commit in the web UI, you need to remove the secret from the file, or use the options displayed in the dialog box to allow the secret. For more information about bypassing push protection from the web UI, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."
 
-If you confirm a secret is real, you need to remove the secret from the file. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
+If you confirm a secret is real, you need to remove the secret from the file. Once you remove the secret, you will be able to commit your changes.

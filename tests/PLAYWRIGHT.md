@@ -113,6 +113,38 @@ npm run playwright-test -- -g "view home page"
 
 ...will only run tests whose description contains that text.
 
+## Updating browser binaries
+
+When we upgrade the `@playwright/test` version, if you haven't already
+done it yourself, you might get an error from within Playwright that the
+browsers aren't up-to-date.
+
+In VSCode you might get this error:
+
+```sh
+Browser was not installed. Invoke 'Install Playwright Browsers' action to install missing browsers.
+```
+
+On the CLI you might get this:
+
+```sh
+  Error: browserType.launch: Executable doesn't exist at /Users/peterbe/Library/Caches/ms-playwright/webkit-1848/pw_run.sh
+  ╔═════════════════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+  ║ Please run the following command to download new browsers:              ║
+  ║                                                                         ║
+  ║     npx playwright install                                              ║
+  ║                                                                         ║
+  ║ <3 Playwright Team                                                      ║
+  ╚═════════════════════════════════════════════════════════════════════════╝
+```
+
+All you have to do is run:
+
+```sh
+npx playwright install
+```
+
 ## Debugging
 
 Writing tests can be difficult until all the locators feel like

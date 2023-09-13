@@ -4,13 +4,13 @@ intro: 'Use your favorite text editor, such as [{% data variables.product.prodna
 redirect_from:
   - /desktop/contributing-to-projects/making-changes-in-a-branch
 versions:
-  fpt: '*'
+  feature: desktop
 children:
-  - /managing-branches
-  - /committing-and-reviewing-changes-to-your-project
-  - /stashing-changes
-  - /viewing-the-branch-history
-  - /pushing-changes-to-github
+  - /managing-branches-in-github-desktop
+  - /committing-and-reviewing-changes-to-your-project-in-github-desktop
+  - /stashing-changes-in-github-desktop
+  - /viewing-the-branch-history-in-github-desktop
+  - /pushing-changes-to-github-from-github-desktop
 shortTitle: Make changes in a branch
 ---
 

@@ -1,1 +1,0 @@
-You can create a default codespace configuration for your repository that determines the environment of every new codespace anyone creates for that repository. The configuration defines a development container that can include frameworks, tools, extensions, and port forwarding. 

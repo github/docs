@@ -10,7 +10,6 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
   fpt: '*'
-  ghec: '*'
 type: how_to
 topics:
   - Discounts
@@ -22,13 +21,18 @@ topics:
 
 {% data reusables.dotcom_billing.coupon-expires %}
 
-You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
+{% note %}
+
+**Notes:**
+- You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
+- You cannot use coupons to pay for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise#about-billing-for-your-enterprise)."
+
+{% endnote %}
 
 ## Redeeming a coupon for your personal account
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-4. Under "Redeem your coupon", click **Choose** next to your *personal* account's username.
-   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button-for-personal-accounts.png)
+1. Under "Redeem your coupon", click **Choose** next to your _personal_ account's username.
 {% data reusables.dotcom_billing.redeem_coupon %}
 
 ## Redeeming a coupon for your organization
@@ -36,6 +40,5 @@ You cannot apply coupons to paid plans for {% data variables.product.prodname_ma
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-4. Under "Redeem your coupon", click **Choose** next to the *organization* you want to apply the coupon to. If you'd like to apply your coupon to a new organization that doesn't exist yet, click **Create a new organization**.
-   ![Choose button](/assets/images/help/settings/redeem-coupon-choose-button.png)
+1. Under "Redeem your coupon", click **Choose** next to the _organization_ you want to apply the coupon to. If you'd like to apply your coupon to a new organization that doesn't exist yet, click **Create a new organization**.
 {% data reusables.dotcom_billing.redeem_coupon %}

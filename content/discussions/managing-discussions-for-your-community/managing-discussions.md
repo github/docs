@@ -51,18 +51,18 @@ You can pin a discussion above the list of discussions for the repository or org
 
 This is what it looks like when you have a globally pinned discussion and a discussion pinned to the Ideas category.
 
-![Screenshot of a globally pinned discussion and a discussion pinned to the Ideas category](/assets/images/help/discussions/overview-pinned-discussions.png)
+![Screenshot of a globally pinned discussion and a discussion pinned to the Ideas category.](/assets/images/help/discussions/overview-pinned-discussions.png)
 
 ### Pinning a discussion globally
+
 {% endif %}
 
 You can pin up to four important discussions above the list of discussions for the repository or organization.
 
-
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion**.
+1. In the right sidebar, click {% octicon "pin" aria-hidden="true" %} **Pin discussion**.
 {% ifversion discussions-category-specific-pins %}
 
    ![Screenshot of the right sidebar of a discussion. The "Pin discussion" option is highlighted with an orange outline.](/assets/images/help/discussions/click-pin-discussion-with-category-pins.png){% else %}
@@ -73,6 +73,7 @@ You can pin up to four important discussions above the list of discussions for t
 1. Click **Pin discussion**.
 
 {% ifversion discussions-category-specific-pins %}
+
 ### Pinning a discussion to a category
 
 You can pin up to four important discussions above the list of discussions in a specific category.
@@ -80,7 +81,7 @@ You can pin up to four important discussions above the list of discussions in a 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Pin discussion to CATEGORY**.
+1. In the right sidebar, click {% octicon "pin" aria-hidden="true" %} **Pin discussion to CATEGORY**.
 
    ![Screenshot of the right sidebar of a discussion. The "Pin discussion to Q&A" option is outlined in dark orange.](/assets/images/help/discussions/pin-discussion-to-category.png)
 
@@ -94,7 +95,7 @@ Editing a pinned discussion will not change the discussion's category. For more 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pencil" aria-label="The pencil icon" %} **Edit pinned discussion**. {% ifversion discussions-category-specific-pins %}
+1. In the right sidebar, click {% octicon "pencil" aria-hidden="true" %} **Edit pinned discussion**. {% ifversion discussions-category-specific-pins %}
 
    ![Screenshot of the right sidebar of a discussion. The "Edit pinned discussion" option is outlined in dark orange.](/assets/images/help/discussions/edit-pinned-discussion-with-category-pins.png){% endif %}
 1. Customize the look of the pinned discussion.
@@ -114,13 +115,14 @@ You can unpin a globally pinned discussion. This will not delete the discussion,
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion**.
+1. In the right sidebar, click {% octicon "pin" aria-hidden="true" %} **Unpin discussion**.
 
-  ![Screenshot of the "Unpin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-unpin-discussion.png)
+   ![Screenshot of the right sidebar of a discussion. The "Unpin discussion" option is highlighted with an orange outline.](/assets/images/help/discussions/click-unpin-discussion.png)
 
 1. Read the warning, then click **Unpin discussion**.
 
 {% ifversion discussions-category-specific-pins %}
+
 ### Unpinning a discussion from a category
 
 You can unpin a discussion pinned to a specific category. This will not delete the discussion, but the discussion will no longer be displayed at the top of the category.
@@ -128,7 +130,7 @@ You can unpin a discussion pinned to a specific category. This will not delete t
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "pin" aria-label="The pin icon" %} **Unpin discussion from this category**.
+1. In the right sidebar, click {% octicon "pin" aria-hidden="true" %} **Unpin discussion from this category**.
 
    ![Screenshot of the right sidebar of a discussion. The "Unpin discussion from this category" option is outlined in dark orange.](/assets/images/help/discussions/unpin-discussion-from-category.png)
 
@@ -142,7 +144,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "arrow-right" aria-label="The right arrow icon" %} {% ifversion discussions-category-specific-pins %}**Transfer this discussion**{% else %}**Transfer discussion**{% endif %}.
+1. In the right sidebar, click {% octicon "arrow-right" aria-hidden="true" %} {% ifversion discussions-category-specific-pins %}**Transfer this discussion**{% else %}**Transfer discussion**{% endif %}.
 {% ifversion discussions-category-specific-pins %}
 
    ![Screenshot of the right sidebar of a discussion. The "Transfer this discussion" option is outlined in dark orange.](/assets/images/help/discussions/transfer-discussion-with-category-pin.png) {% else %}
@@ -157,7 +159,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "trash" aria-label="The trash arrow icon" %} **Delete discussion**.
+1. In the right sidebar, click {% octicon "trash" aria-hidden="true" %} **Delete discussion**.
 {% ifversion discussions-category-specific-pins %}
 
    ![Screenshot of the right sidebar of a discussion. The "Delete discussion" option is outlined in dark orange.](/assets/images/help/discussions/delete-discussion-with-category-pins.png){% endif %}
@@ -165,6 +167,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 1. Read the warning, then click **Delete this discussion**.
 
 {% ifversion discussions-closable %}
+
 ## Closing a discussion
 
 {% data reusables.discussions.closing-discussions %}
@@ -177,6 +180,8 @@ To transfer a discussion, you must have permissions to create discussions in the
 
 {% endif %}
 
+{% ifversion converting-issues-to-discussions %}
+
 ## Converting issues based on labels
 
 You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
@@ -187,3 +192,4 @@ You can convert all issues with the same label to discussions in bulk. Future is
 1. Next to the label you want to convert to issues, click **Convert issues**.
 1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
 1. Click **I understand, convert this issue to a discussion**.
+{% endif %}

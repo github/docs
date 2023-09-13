@@ -11,8 +11,7 @@ topics:
   - CI
 shortTitle: Build & test Go
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -36,7 +35,7 @@ We recommend that you have a basic understanding of the Go language. For more in
 
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
-```yaml{:copy}
+```yaml copy
 name: Go package
 
 on: [push]
@@ -51,7 +50,7 @@ jobs:
       - name: Set up Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
-          go-version: 1.15
+          go-version: '1.15'
 
       - name: Build
         run: go build -v ./...
@@ -70,7 +69,7 @@ The `setup-go` action is the recommended way of using Go with {% data variables.
 
 ### Using multiple versions of Go
 
-```yaml{:copy}
+```yaml copy
 name: Go
 
 on: [push]
@@ -98,7 +97,7 @@ jobs:
 
 You can configure your job to use a specific version of Go, such as `1.16.2`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest patch release of Go 1.16:
 
-```yaml{:copy}
+```yaml copy
       - name: Setup Go 1.16.x
         uses: {% data reusables.actions.action-setup-go %}
         with:
@@ -110,7 +109,7 @@ You can configure your job to use a specific version of Go, such as `1.16.2`. Al
 
 You can use `go get` to install dependencies:
 
-```yaml{:copy}
+```yaml copy
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Go
@@ -135,18 +134,19 @@ The `setup-go` action searches for the dependency file, `go.sum`, in the reposit
 
 You can use the `cache-dependency-path` parameter for cases when multiple dependency files are used, or when they are located in different subdirectories.
 
-```yaml{:copy}
+```yaml copy
       - name: Setup Go
       - uses: {% data reusables.actions.action-setup-go %}
         with:
           go-version: '1.17'
           cache-dependency-path: subdir/go.sum
 ```
+
 {% else %}
 
 When caching is enabled, the `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
 
-```yaml{:copy}
+```yaml copy
       - name: Setup Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
@@ -156,13 +156,14 @@ When caching is enabled, the `setup-go` action searches for the dependency file,
 
 Alternatively, you can use the `cache-dependency-path` parameter for cases when multiple dependency files are used, or when they are located in different subdirectories.
 
-```yaml{:copy}
+```yaml copy
       - uses: {% data reusables.actions.action-setup-go %}
         with:
           go-version: '1.17'
           cache: true
           cache-dependency-path: subdir/go.sum
 ```
+
 {% endif %}
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
@@ -173,7 +174,7 @@ If you have a custom requirement or need finer controls for caching, you can use
 
 You can use the same commands that you use locally to build and test your code. This example workflow demonstrates how to use `go build` and `go test` in a job:
 
-```yaml{:copy}
+```yaml copy
 name: Go
 on: [push]
 
@@ -201,7 +202,7 @@ After a workflow completes, you can upload the resulting artifacts for analysis.
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
-```yaml{:copy}
+```yaml copy
 name: Upload Go test results
 
 on: [push]

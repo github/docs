@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Clone a GitHub repo
 ---
 {% tip %}
@@ -21,10 +21,10 @@ shortTitle: Clone a GitHub repo
 
    ![Screenshot of the "URL" tab of the "Clone a Repository" window. Next to the "Local Path" field, a button, labeled "Choose", is highlighted with an orange outline.](/assets/images/help/desktop/clone-choose-button-url-mac.png)
 
-  {% note %}
+   {% note %}
 
-  **Note:** If the repository is configured to use LFS, you will be prompted to initialize {% data variables.large_files.product_name_short %}.
+   **Note:** If the repository is configured to use LFS, you will be prompted to initialize {% data variables.large_files.product_name_short %}.
 
-  {% endnote %}
+   {% endnote %}
 
 1. Click **Clone**.

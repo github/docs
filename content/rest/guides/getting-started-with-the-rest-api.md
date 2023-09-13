@@ -100,9 +100,11 @@ You can authenticate your request by adding a token.
 
 If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)", "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app), and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)", "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app), and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+
+For more information about best practices you can use to keep your tokens secure, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
 
 ### Authentication example
 
@@ -128,7 +130,7 @@ To keep your token secure, you can store your token as a secret and run your scr
 
 {% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 
@@ -153,7 +155,7 @@ To help keep your account secure, you can use {% data variables.product.prodname
 
 {% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 
@@ -326,7 +328,7 @@ To send a header in a `curl` command, use the `--header` or `-H` flag followed b
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"{% ifversion api-date-versioning %}\
+--header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
@@ -408,15 +410,17 @@ By default, the "List repository issues" operation returns thirty issues, sorted
 
 For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
-
-{% endnote %}
-
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 -f sort=updated -f direction=asc
 ```
+
+Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
+
+{% note %}
+
+In order to use {% data variables.product.prodname_cli %} with query parameters that are arrays, you must use {% data variables.product.prodname_cli %} version 2.31.0 or greater. For upgrade instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+
+{% endnote %}
 
 {% endcli %}
 
@@ -447,6 +451,8 @@ curl --request GET \
 --header "Authorization: Bearer YOUR-TOKEN"
 ```
 
+Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`.
+
 {% endcurl %}
 
 The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
@@ -459,16 +465,16 @@ The "Create an issue" operation uses the same path as the "List repository issue
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters. If the parameter is an array, you must append `[]` to the parameter name.
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+In order to use {% data variables.product.prodname_cli %} with body parameters that are arrays, you must use {% data variables.product.prodname_cli %} version 2.21.0 or greater. For upgrade instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
 
 {% endnote %}
 
 ```shell
-gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API"
+gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API" -f "labels[]=bug"
 ```
 
 {% endcli %}
@@ -705,7 +711,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255
@@ -762,7 +768,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255

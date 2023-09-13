@@ -14,7 +14,7 @@ topics:
 shortTitle: Add a billing manager
 ---
 
-Members of your organization's Owners team can give *billing manager* permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
+Members of your organization's Owners team can give _billing manager_ permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
 
 {% note %}
 
@@ -62,7 +62,7 @@ The invited person will receive an invitation email asking them to become a bill
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**.
-6. Type the username or email address of the person you want to add and click **Send invitation**.
+1. Type the username or email address of the person you want to add and click **Send invitation**.
 
 ## Further reading
 

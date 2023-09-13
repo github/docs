@@ -2,3 +2,4 @@
 # Slash Commands (Public Beta)
 versions:
   fpt: '*'
+  ghec: '*'

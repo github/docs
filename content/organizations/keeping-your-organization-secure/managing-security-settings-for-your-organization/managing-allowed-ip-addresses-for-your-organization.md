@@ -23,7 +23,10 @@ By default, authorized users can access your organization's resources from any I
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+**Notes:**
+
+- Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+- If you configure an IP allow list for your organization you won't be able to use {% data variables.product.prodname_github_codespaces %} for repositories owned by the organization.
 
 {% endnote %}
 {% endif %}
@@ -41,6 +44,7 @@ You can also configure allowed IP addresses at the enterprise account level, and
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -99,6 +103,8 @@ For more information about how to create an allow list for a {% data variables.p
 {% data reusables.identity-and-permissions.check-ip-address-step %}
 
 ## Deleting an allowed IP address
+
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

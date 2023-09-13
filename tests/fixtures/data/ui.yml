@@ -8,10 +8,6 @@ header:
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
-    localization_complete:
-      We publish frequent updates to our documentation, and translation of this page may still be in progress.
-      For the most current information, please visit the
-      <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
@@ -21,7 +17,7 @@ header:
   sign_up_cta: Sign up
   menu: Menu
 picker:
-  language_picker_default_text: Choose a language
+  language_picker_label: Language
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
 release_notes:
@@ -38,6 +34,7 @@ search:
   label: Search GitHub Docs
   n_results: '{n} results'
   one_result: 1 result
+  search_validation_error: Validation error with search query
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
@@ -87,6 +84,7 @@ contribution_cta:
   to_guidelines: Learn how to contribute
 parameter_table:
   body: Body parameters
+  webhook-body: Webhook request body parameters
   default: Default
   description: Description
   enum_description_title: Can be one of
@@ -100,6 +98,9 @@ parameter_table:
   type: Type
   single_enum_description: Value
 products:
+  button_text:
+    copy_to_clipboard: Copy to clipboard
+    copied: Copied!
   graphql:
     reference:
       implements: <code>{{ GraphQLItemTitle }}</code> Implements
@@ -133,6 +134,14 @@ products:
       actions_api_title: Actions
     versioning:
       about_versions: About REST API versions
+    overview:
+      permissions:
+        access: Access
+        endpoints: Endpoint
+        tokens: Token types
+        additionalPermissions: Additional permissions
+        uat: UAT
+        iat: IAT
     reference:
       in: In
       description: Description
@@ -177,43 +186,15 @@ products:
       marketplace: GitHub Marketplace
       sponsors_listing: Sponsored accounts
 footer:
-  all_rights_reserved: All rights reserved
+  support_heading: Help and support
+  legal_heading: Legal
+  imprint: Imprint
   terms: Terms
   privacy: Privacy
-  security: Security
-  product:
-    heading: Product
-    links:
-      features: Features
-      security: Security
-      enterprise: Enterprise
-      case_studies: Case Studies
-      pricing: Pricing
-      resources: Resources
-  platform:
-    heading: Platform
-    links:
-      developer_api: Developer API
-      partners: Partners
-      atom: Atom
-      electron: Electron
-      github_desktop: GitHub Desktop
-  support:
-    heading: Support
-    links:
-      help: Help
-      community_forum: Community Forum
-      training: Training
-      status: Status
-      contact_github: Contact GitHub
-  company:
-    heading: Company
-    links:
-      about: About
-      blog: Blog
-      careers: Careers
-      press: Press
-      shop: Shop
+  status: Status
+  pricing: Pricing
+  expert_services: Expert services
+  blog: Blog
 product_landing:
   quickstart: Quickstart
   reference: Reference

@@ -18,6 +18,6 @@ shortTitle: Validate domain settings
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. To test your appliance's DNS and SSL settings, under "Hostname", click **Test domain settings**.
+1. To test your appliance's DNS and SSL settings, under "Hostname", click **Test domain settings**.
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}

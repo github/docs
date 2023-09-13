@@ -1,0 +1,6 @@
+# Issue 10176
+# Ability to set a default base permission for projects in your organization
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

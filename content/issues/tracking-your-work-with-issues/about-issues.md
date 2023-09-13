@@ -49,9 +49,10 @@ You can @mention collaborators who have access to your repository in an issue to
 {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" and "[AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)."
 {% endif %}
 {% ifversion discussions %}
+
 ## Comparing issues and discussions
 
 Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see "[AUTOTITLE](/get-started/quickstart/communicating-on-github)."
 
-When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.
+{% ifversion converting-issues-to-discussions %}When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.{% endif %}
 {% endif %}

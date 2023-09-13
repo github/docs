@@ -31,7 +31,7 @@ If the default parent repository isn't correct, you can change both the parent r
 
 ![Screenshot of a pull request. The dropdown to edit the compare branch is expanded.](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
 
-When thinking about branches, remember that the *base branch* is **where** changes should be applied, the *head branch* contains **what** you would like to be applied.
+When thinking about branches, remember that the _base branch_ is **where** changes should be applied, the _head branch_ contains **what** you would like to be applied.
 
 When you change the base repository, you also change notifications for the pull request. Everyone that can push to the base repository will receive an email notification and see the new pull request in their dashboard the next time they sign in.
 
@@ -145,11 +145,11 @@ gh pr create --web
 
 1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
 
-  ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 
-  {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
+   {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
 
-  ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline](/assets/images/help/desktop/preview-dialog-merge-status.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline.](/assets/images/help/desktop/preview-dialog-merge-status.png)
 
 1. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
 {% data reusables.repositories.pr-title-description %}
@@ -162,9 +162,9 @@ gh pr create --web
 {% codespaces %}
 
 1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon.
-![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
+![Screenshot of the top of the "Source Control" side bar. The pull request icon is highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
 1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description.
-![GitHub pull request side bar](/assets/images/help/codespaces/codespaces-commit-pr.png)
+![Screenshot of the "{% data variables.product.prodname_dotcom %} Pull Request" side bar with a form for creating a pull request, including "Title" and "Description" fields.](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Click **Create**.
 
 For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
@@ -172,6 +172,7 @@ For more information on creating pull requests in {% data variables.product.prod
 {% endcodespaces %}
 
 {% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"

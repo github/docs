@@ -17,6 +17,7 @@ children:
   - /github-mobile
   - /keyboard-shortcuts
   - /github-command-palette
+  - /allowing-access-to-githubs-services-from-a-restricted-network
   - /troubleshooting-connectivity-problems
 ---
 

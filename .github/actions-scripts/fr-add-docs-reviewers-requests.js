@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { graphql } from '@octokit/graphql'
 
 import {
@@ -59,7 +60,7 @@ async function getAllOpenPRs() {
         headers: {
           authorization: `token ${process.env.TOKEN}`,
         },
-      }
+      },
     )
 
     prsRemaining = data.repository.pullRequests.pageInfo.hasPreviousPage
@@ -84,11 +85,11 @@ async function run() {
       !pr.isDraft &&
       !pr.labels.nodes.find((label) => label.name === 'Deploy train 🚂') &&
       pr.reviewRequests.nodes.find(
-        (requestedReviewers) => requestedReviewers.requestedReviewer?.name === process.env.REVIEWER
+        (requestedReviewers) => requestedReviewers.requestedReviewer?.name === process.env.REVIEWER,
       ) &&
       !pr.reviews.nodes
         .flatMap((review) => review.onBehalfOf.nodes)
-        .find((behalf) => behalf.name === process.env.REVIEWER)
+        .find((behalf) => behalf.name === process.env.REVIEWER),
   )
   if (prs.length === 0) {
     console.log('No PRs found. Exiting.')
@@ -137,7 +138,7 @@ async function run() {
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
-    }
+    },
   )
 
   // Get the project ID

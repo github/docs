@@ -58,9 +58,9 @@ ROOT=tests/fixtures jest tests/rendering-fixtures/
 
 ### Exceptions
 
-The top-level product names in the fixture content needs to be a pefect
+The top-level product names in the fixture content needs to be a perfect
 subset of the product names in the real content. That's because they
-get compiled in to the Next rewrite functionalty so we can support
+get compiled in to the Next rewrite functionality so we can support
 URLs that actually are `free-pro-team@latest` without mentioning it in
 the URL.
 

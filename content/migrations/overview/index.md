@@ -9,3 +9,5 @@ versions:
 children:
   - /about-githubs-migration-tooling
   - /planning-your-migration-to-github
+  - /about-locked-repositories
+---

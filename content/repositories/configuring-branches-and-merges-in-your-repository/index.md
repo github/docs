@@ -11,7 +11,8 @@ topics:
 children:
   - /managing-branches-in-your-repository
   - /configuring-pull-request-merges
-  - /defining-the-mergeability-of-pull-requests
+  - /managing-protected-branches
+  - /managing-rulesets
 shortTitle: Branches and merges
 ---
 

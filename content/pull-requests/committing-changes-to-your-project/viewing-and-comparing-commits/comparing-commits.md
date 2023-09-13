@@ -30,7 +30,7 @@ Here's an example of a [comparison between two branches](https://github.com/octo
 
 ## Comparing tags
 
-Comparing release tags will show you changes to your repository since the last release. 
+Comparing release tags will show you changes to your repository since the last release.
 For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/comparing-releases)."
 
 To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.
@@ -53,7 +53,7 @@ You can compare your base repository and any forked repository. This is the view
 
 To compare branches on different repositories, preface the branch names with user names. For example, by specifying `octocat:main` for `base` and `octo-org:main` for `compare`, you can compare the `main` branch of the repositories respectively owned by `octocat` and `octo-org`.
 
-Here's an example of a [comparison between two repositories](https://github.com/github/linguist/compare/master...octocat:master).
+Here's an example of a [comparison between two repositories](https://github.com/github-linguist/linguist/compare/master...octocat:master).
 
 ## Comparisons across commits
 

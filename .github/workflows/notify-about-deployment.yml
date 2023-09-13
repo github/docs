@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -38,7 +38,7 @@ jobs:
         id: get-number
         timeout-minutes: 3
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: .github/actions-scripts/find-past-built-pr.js
 
       - name: Find content directory changes comment
@@ -61,4 +61,7 @@ jobs:
             🚀 **This pull request has gone into production!**
 
             The SHA of https://docs.github.com/_build matches the merge commit in this PR.
+
+            If you don't see updates when expected, try adding a random query string to the URL like `?bla=1234` and see if that helps.
+            If that shows the expected content, it would indicate that the CDN is "overly caching" the page still. It will eventually update, but it can take a while.
           edit-mode: replace

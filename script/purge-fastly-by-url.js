@@ -12,7 +12,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import { program } from 'commander'
 import { execSync } from 'child_process'
-import libLanguages from '../lib/languages.js'
+import libLanguages from '#src/languages/lib/languages.js'
 import { getPathWithoutLanguage } from '../lib/path-utils.js'
 
 const languageCodes = Object.keys(libLanguages)
@@ -22,12 +22,12 @@ const purgeCommand = 'curl -s -X PURGE -H "Fastly-Soft-Purge:1"'
 
 program
   .description(
-    'Purge the Fastly cache for a single URL or a batch of URLs in a file, plus all language variants of the given URL(s).'
+    'Purge the Fastly cache for a single URL or a batch of URLs in a file, plus all language variants of the given URL(s).',
   )
   .option('-s, --single <URL>', `provide a single ${requiredUrlPrefix} URL`)
   .option(
     '-b, --batch <FILE>',
-    `provide a path to a file containing a list of ${requiredUrlPrefix} URLs`
+    `provide a path to a file containing a list of ${requiredUrlPrefix} URLs`,
   )
   .option('-d, --dry-run', 'print URLs to be purged without actually purging')
   .parse(process.argv)
@@ -44,7 +44,7 @@ if (!singleUrl && !batchFile) {
 
 if (singleUrl && !singleUrl.startsWith(requiredUrlPrefix)) {
   console.error(
-    `error: cannot purge ${singleUrl} because URLs must start with ${requiredUrlPrefix}.\n`
+    `error: cannot purge ${singleUrl} because URLs must start with ${requiredUrlPrefix}.\n`,
   )
   process.exit(1)
 }
@@ -70,7 +70,7 @@ if (batchFile) {
     .forEach((url) => {
       if (!url.startsWith(requiredUrlPrefix)) {
         console.error(
-          `error: cannot purge ${url} because URLs must start with ${requiredUrlPrefix}.\n`
+          `error: cannot purge ${url} because URLs must start with ${requiredUrlPrefix}.\n`,
         )
         process.exit(1)
       }

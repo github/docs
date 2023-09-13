@@ -43,11 +43,17 @@ There are costs associated with storing codespaces. You should therefore delete 
 {% webui %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "trash" aria-label="The trash icon" %} Delete**.
+1. To the right of the codespace you want to delete, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "trash" aria-hidden="true" %} Delete**.
 
    ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Delete" option.](/assets/images/help/codespaces/delete-codespace.png)
 
 {% endwebui %}
+
+{% note %}
+
+**Note**: You may have prebuild codespaces that are consuming additional storage which are not displayed on this dashboard. To delete them, follow the steps for “[Deleting a prebuild configuration](/codespaces/prebuilding-your-codespaces/managing-prebuilds#deleting-a-prebuild-configuration).”
+
+{% endnote %}
 
 {% vscode %}
 
@@ -85,7 +91,6 @@ You can use {% data variables.product.prodname_cli %} to delete several or all o
 
 {% endvscode %}
 
-
 {% cli %}
 
 You can delete several or all of your codespaces with a single command, using `gh codespace delete` followed by one of these flags:
@@ -102,7 +107,7 @@ By default you are prompted to confirm deletion of any codespaces that contain u
 
 Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
 
-```
+```shell
 gh codespace delete --repo octo-org/octo-repo --days 7
 ```
 
@@ -127,8 +132,8 @@ For more information, click the "{% data variables.product.prodname_cli %}" tab 
 {% cli %}
 
 1. Enter one of these commands to display a list of codespaces.
-   * `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization.
-   * `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
+   - `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization.
+   - `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
    You must be an owner of the specified organization.
 1. In the list of codespaces, navigate to the codespace you want to delete.
 1. To delete the selected codespace press <kbd>Enter</kbd>.
@@ -140,6 +145,7 @@ For more information, click the "{% data variables.product.prodname_cli %}" tab 
 You can also use the REST API to delete codespaces for your organization. For more information, see "[AUTOTITLE](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
 
 ## Further reading
+
 - "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"
 - "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"

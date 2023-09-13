@@ -12,7 +12,7 @@ shortTitle: Customize runners
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow. 
+If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow.
 
 To see which packages are already installed by default, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
 
@@ -40,7 +40,7 @@ jobs:
 
 {% note %}
 
-**Note:** Always run `sudo apt-get update` before installing a package. In case the `apt` index is stale, this command fetches and re-indexes any available packages, which helps prevent package installation failures. 
+**Note:** Always run `sudo apt-get update` before installing a package. In case the `apt` index is stale, this command fetches and re-indexes any available packages, which helps prevent package installation failures.
 
 {% endnote %}
 
@@ -73,6 +73,7 @@ jobs:
 The following example demonstrates how to use [Chocolatey](https://community.chocolatey.org/packages) to install the {% data variables.product.prodname_dotcom %} CLI as part of a job.
 
 {% raw %}
+
 ```yaml
 name: Build on Windows
 on: push
@@ -83,4 +84,5 @@ jobs:
       - run: choco install gh
       - run: gh version
 ```
+
 {% endraw %}

@@ -36,7 +36,7 @@ export const Breadcrumbs = ({ inHeader }: Props) => {
             const title = `${breadcrumb.title}`
             return [
               !breadcrumb.href ? (
-                <span data-testid="breadcrumb-title" key={title} title={title} className="px-2">
+                <span data-testid="breadcrumb-title" key={title} className="px-2">
                   {breadcrumb.title}
                 </span>
               ) : (
@@ -49,7 +49,7 @@ export const Breadcrumbs = ({ inHeader }: Props) => {
                       'Link--primary mr-2 color-fg-muted',
                       // Show the last breadcrumb if it's in the header, but not if it's in the article
                       // If there's only 1 breadcrumb, show it
-                      !inHeader && i === arr.length - 1 && arr.length !== 1 && 'd-none'
+                      !inHeader && i === arr.length - 1 && arr.length !== 1 && 'd-none',
                     )}
                   >
                     {breadcrumb.title}

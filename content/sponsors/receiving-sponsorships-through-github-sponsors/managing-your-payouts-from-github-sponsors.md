@@ -29,4 +29,3 @@ If you use a fiscal host to receive payouts, you can view your current payout an
 1. Under "Payout overview", view your last payout amount and estimated next payout amount.
 {% data reusables.sponsors.edit-bank-information %}
 1. If you use a Stripe Connect account to receive payouts, under "Payout receipts", you can export payout information as PDF files.
-   ![Screenshot of payout receipts section](/assets/images/help/sponsors/payout-receipts.png)

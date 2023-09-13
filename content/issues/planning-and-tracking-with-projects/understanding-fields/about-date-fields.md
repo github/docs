@@ -23,8 +23,6 @@ If your project makes use of date fields, you can use the roadmap layout to view
 
 {% data reusables.projects.new-field %}
 1. Select **Date**
-   ![Screenshot showing the date option](/assets/images/help/projects-v2/new-field-date.png)
 1. Click **Save**.
-   ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."

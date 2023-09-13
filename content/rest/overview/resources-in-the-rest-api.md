@@ -13,6 +13,7 @@ topics:
 ---
 
 {% ifversion api-date-versioning %}
+
 ## API version
 
 Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
@@ -90,7 +91,7 @@ You can authenticate your request by sending a token in the `Authorization` head
 ```shell
 curl --request GET \
 --url "{% data variables.product.api_url_code %}/octocat" \
---header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %}\
+--header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
@@ -103,6 +104,7 @@ curl --request GET \
 If you try to use a REST API endpoint without a token or with a token that has insufficient permissions, you will receive a `404 Not Found` or `403 Forbidden` response.
 
 {% ifversion fpt or ghes or ghec %}
+
 ### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -157,7 +159,7 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:
 
 ```shell
-$ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
+curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
 In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner`
@@ -168,7 +170,7 @@ For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in th
 with a Content-Type of 'application/json':
 
 ```shell
-$ curl -i --header "Authorization: Bearer YOUR-TOKEN" -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
+curl -i --header "Authorization: Bearer YOUR-TOKEN" -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ## Root endpoint
@@ -196,7 +198,7 @@ receive request bodies:
 
         {"message":"Problems parsing JSON"}
 
-2. Sending the wrong type of JSON values will result in a `400 Bad
+1. Sending the wrong type of JSON values will result in a `400 Bad
    Request` response.
 
         HTTP/2 400
@@ -204,7 +206,7 @@ receive request bodies:
 
         {"message":"Body should be a JSON object"}
 
-3. Sending invalid fields will result in a `422 Unprocessable Entity`
+1. Sending invalid fields will result in a `422 Unprocessable Entity`
    response.
 
         HTTP/2 422
@@ -238,7 +240,7 @@ Resources may also send custom validation errors (where `code` is `custom`). Cus
 ## HTTP redirects
 
 The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is *not* an
+request may result in a redirection. Receiving an HTTP redirection is _not_ an
 error and clients should follow that redirect. Redirect responses will have a
 `Location` header field which contains the URI of the resource to which the
 client should repeat the requests.
@@ -313,7 +315,6 @@ Different types of API requests to {% data variables.location.product_location %
 
 {% data reusables.enterprise.rate_limit %}
 
-
 #### Rate limits for requests from personal accounts
 
 You can make direct API requests that you authenticate with a {% data variables.product.pat_generic %}. An {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} can also make a request on your behalf after you authorize the app. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)," and "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
@@ -339,7 +340,7 @@ For unauthenticated requests, the rate limit allows for up to 60 requests per ho
 
 #### Rate limits for requests from {% data variables.product.prodname_github_apps %}
 
-Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
+Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)."
 
 #### Rate limits for requests from {% data variables.product.prodname_actions %}
 
@@ -369,7 +370,7 @@ Header name | Description
 `x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
 `x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
 `x-ratelimit-used` | The number of requests you've made in the current rate limit window.
-`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 #### Checking your rate limit status with the REST API
 
@@ -394,7 +395,6 @@ If you exceed the rate limit, the response will have a `403` status and the `x-r
 ```
 
 If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
-
 
 ### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
 
@@ -439,7 +439,7 @@ If your application triggers an additional rate limit, you'll receive an informa
 > }
 ```
 
-You should wait and try your request again after a few minutes. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. Otherwise, you should not retry your request until the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header.
+You should wait and try your request at a later time. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. If the `x-ratelimit-remaining` header is `0`, you should not retry your request until after the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header. Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 {% ifversion fpt or ghec %}
 
@@ -635,10 +635,10 @@ A link that looks like this:
 
 Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
-* [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
-* [Using the `Time-Zone` header](#using-the-time-zone-header)
-* [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
-* [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
+- [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
+- [Using the `Time-Zone` header](#using-the-time-zone-header)
+- [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
+- [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
 
 Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
@@ -653,7 +653,7 @@ These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this
 It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
+curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github-linguist/linguist/contents/new_file.md
 ```
 
 This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the API to manage contents generates a git commit for each addition or change and uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos#contents)." This header will determine the timezone used for generating that current timestamp.

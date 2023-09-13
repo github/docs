@@ -12,13 +12,13 @@ featuredLinks:
     - /repositories/working-with-files/managing-files/adding-a-file-to-a-repository
     - /repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
   popular:
-    - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
+    - /repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches
     - /repositories/releasing-projects-on-github/about-releases
     - /repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes
     - /repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
   guideCards:
     - /repositories/creating-and-managing-repositories/deleting-a-repository
-    - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule
+    - /repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule
     - /repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility
 changelog:
   label: repos

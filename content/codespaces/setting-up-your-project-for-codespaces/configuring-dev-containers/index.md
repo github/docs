@@ -9,5 +9,6 @@ children:
   - /setting-a-minimum-specification-for-codespace-machines
   - /adding-features-to-a-devcontainer-file
   - /automatically-opening-files-in-the-codespaces-for-a-repository
+  - /specifying-recommended-secrets-for-a-repository
 ---
 

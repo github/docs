@@ -28,8 +28,6 @@ For more information about personal accounts on {% data variables.product.produc
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
 1. Under "Select the academic status", select **Teacher**.
-
-   ![Screenshot of selection of "Teacher" academic status](/assets/images/help/education/academic-status-teacher.png)
 {% data reusables.education.select-email-address %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}

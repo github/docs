@@ -40,7 +40,7 @@ You cannot use `feature:` to specify multiple concurrent versions, as this is no
 
 ## Schema enforcement
 
-The schema for validating the feature versioning lives in [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](/tests/linting/lint-versioning.js).
+The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](tests/linting/lint-versioning.js).
 
 ## Script to remove feature tags
 

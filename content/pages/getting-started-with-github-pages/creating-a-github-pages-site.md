@@ -69,3 +69,4 @@ To customize your site even more, you can use Jekyll, a static site generator wi
 - "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)"
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)"
 - "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)"
+- "[AUTOTITLE](/pages/getting-started-with-github-pages/troubleshooting-404-errors-for-github-pages-sites)"
