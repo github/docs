@@ -44,7 +44,7 @@ Draft tasks are text items that are added to your tasklist. Draft tasks appear i
 
 1. If the text field is not already focused, click **Add item to Tasks**.
   
-  ![Screenshot of a tasklist. The "Add item to Tasks" field is highlighted with an orange rectangle.](/assets/images/help/projects-v2/tasklist-omnibar.png)
+   ![Screenshot of a tasklist. The "Add item to Tasks" field is highlighted with an orange rectangle.](/assets/images/help/projects-v2/tasklist-omnibar.png)
   
 1. Add some draft tasks to sketch out this work. Type your draft task and then press <kbd>Enter</kbd> after each one.
 
@@ -59,7 +59,7 @@ You can convert your draft tasks into issues. You can convert draft tasks when y
 
 1. Next to the "Design new landing page" draft task, click {% octicon "kebab-horizontal" aria-label="tracking block item menu" %}.
   
-  ![Screenshot of a tasklist. To the right of a draft task, the tracking block item menu is outlined in orange.](/assets/images/help/projects-v2/tasklist-draft-context-menu.png)
+   ![Screenshot of a tasklist. To the right of a draft task, the tracking block item menu is outlined in orange.](/assets/images/help/projects-v2/tasklist-draft-context-menu.png)
   
 1. In the menu, click **Convert to issue**.
 
@@ -69,7 +69,7 @@ You can now assign yourself to the new issue without leaving your tasklist.
 
 1. Next to the "Design new landing page" issue in your tasklist, click {% octicon "kebab-horizontal" aria-label="tracking block item menu" %}.
 
-  ![Screenshot of a tasklist. To the right of a task, the tracking block item menu, which is labeled with a horizontal kebab icon, is outlined in dark orange.](/assets/images/help/projects-v2/tasklists-item-context-menu.png) 
+   ![Screenshot of a tasklist. To the right of a task, the tracking block item menu, which is labeled with a horizontal kebab icon, is outlined in dark orange.](/assets/images/help/projects-v2/tasklists-item-context-menu.png) 
   
 1. In the context menu, click **Set assignees**.
 1. In the list of people, select yourself.
@@ -95,7 +95,7 @@ You can create multiple tasklists in a single issue. Each tasklist has its own t
 
 1. At the top of the issue description (the opening comment), click {% octicon "kebab-horizontal" aria-label="Show options" %}.
   
-  ![Screenshot of an issue containing a tasklist. The "Show options" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/edit-issue-tasklist.png)
+   ![Screenshot of an issue containing a tasklist. The "Show options" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/edit-issue-tasklist.png)
   
 1. In the menu, click **Edit**.
 1. In the issue description, below your first tasklist, add the Markdown below:
