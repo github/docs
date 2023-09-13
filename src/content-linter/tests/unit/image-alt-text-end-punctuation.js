@@ -17,8 +17,7 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
     const result = await runRule(imageAltTextEndPunctuation, { markdown })
     const errors = result.markdown
     expect(errors.length).toBe(2)
-    expect(errors[0].lineNumber).toBe(3)
-    expect(errors[1].lineNumber).toBe(5)
+    expect(errors.map((error) => error.lineNumber)).toEqual([3, 5])
     expect(errors[0].errorRange).toEqual([3, 28])
     expect(errors[1].errorRange).toEqual([3, 7])
     expect(errors[0].fixInfo).toEqual({

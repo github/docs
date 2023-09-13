@@ -34,6 +34,11 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'internal-link-punctuation': {
+    // GHD008
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
   'no-github-docs-domains': {
     // GHD020
     severity: 'error',
