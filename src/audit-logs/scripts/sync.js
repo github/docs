@@ -116,11 +116,7 @@ async function main() {
 
       // GHEC events
       if (event._allowlists.includes('business')) {
-        // If an event is on the business and business_server allowlist,
-        // it is an enterprise type event
-        if (event._allowlists.includes('business_server')) {
-          auditLogData.ghec.enterprise.push(minimalEvent)
-        }
+        auditLogData.ghec.enterprise.push(minimalEvent)
 
         if (event._allowlists.includes('organization')) {
           auditLogData.ghec.organization.push(minimalEvent)
