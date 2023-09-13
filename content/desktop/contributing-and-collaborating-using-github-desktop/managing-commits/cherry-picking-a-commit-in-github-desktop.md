@@ -40,6 +40,8 @@ You can also use cherry-picking when collaborating with a team. Some projects in
 
    ![Screenshot of the "History" tab and the "Current Branch" dropdown view. The cursor hovers over the "my-feature" branch, and "plus one" icons indicate the addition of one commit.](/assets/images/help/desktop/cherry-picking.png)
 
+2. After dropping to the respective branch, you can notice that the current branch will be changed to the targetted branch. Then, you need to push the changes to the target branch to see the changes.
+
 ## Further reading
 
 - [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation
