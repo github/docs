@@ -15,6 +15,14 @@ export function isStringQuoted(text) {
   // ends with either a single or double quote
   // and optionally ends with a question mark or exclamation point
   // because that punctuation can exist outside of the quoted string
-  const regex = /^['"].*['"][?!]?$/
-  return text.match(regex)
+  return /^['"].*['"][?!]?$/.test(text)
+}
+
+export function isStringPunctuated(text) {
+  // String ends with punctuation of either
+  // . ? ! and optionally ends with single
+  // or double quotes. This also allows
+  // for single or double quotes before
+  // the punctuation.
+  return /^.*[.?!]['"]?$/.test(text)
 }
