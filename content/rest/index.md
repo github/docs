@@ -85,6 +85,7 @@ children:
   - /teams
   - /users
   - /webhooks
+  - /classroom
 ---
 
 
