@@ -38,8 +38,8 @@ includeGuides:
   - /admin/identity-and-access-management/using-cas-for-enterprise-iam/using-cas
   - /admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam
-  - /admin/administering-your-instance/accessing-the-administrative-shell-ssh
-  - /admin/configuration/administering-your-instance-from-the-management-console
+  - /admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
   - /admin/configuration/configuring-network-settings/configuring-a-hostname
   - /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
   - /admin/configuration/configuring-network-settings/configuring-built-in-firewall-rules
@@ -55,7 +55,7 @@ includeGuides:
   - /admin/configuration/connecting-your-enterprise-account-to-github-enterprise-cloud
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-host-keys-for-your-instance
-  - /admin/administering-your-instance/enabling-and-scheduling-maintenance-mode
+  - /admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise
   - /admin/configuration/hardening-security-for-your-enterprise/enabling-private-mode
   - /admin/configuration/hardening-security-for-your-enterprise/enabling-subdomain-isolation
@@ -64,20 +64,20 @@ includeGuides:
   - /admin/overview/initializing-github-ae
   - /admin/configuration/configuring-network-settings/network-ports
   - /admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
-  - /admin/administering-your-instance/site-admin-dashboard
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/site-admin-dashboard
   - /admin/configuration/hardening-security-for-your-enterprise/troubleshooting-tls-errors
   - /admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/accessing-the-monitor-dashboard
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
   - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/recommended-alert-thresholds
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/setting-up-external-monitoring
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/recommended-alert-thresholds
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/setting-up-external-monitoring
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
-  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs
   - /support/learning-about-github-support/about-github-support
   - /admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise
   - /admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
@@ -103,7 +103,7 @@ includeGuides:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
-  - /admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
+  - /admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-ssh-keys
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-users-across-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
@@ -138,9 +138,9 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
-  - /admin/configuration/administering-your-instance-from-the-management-console/about-the-management-console
-  - /admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console
-  - /admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console
-  - /admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/about-the-management-console
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
 

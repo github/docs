@@ -35,11 +35,11 @@ After setting up a subscription, you can enable {% data variables.product.prodna
 
 ## Requesting or granting access to {% data variables.product.prodname_copilot_for_business %}
 
-Organization members can request access to {% data variables.product.prodname_copilot_for_business %} from their organization's owners.
+Organization members can request access to {% data variables.product.prodname_copilot_for_business %} from their organization's owners. 
 
 ### Submitting a request for {% data variables.product.prodname_copilot_for_business %}
 
-As a member of an organization, you can request access to {% data variables.product.prodname_copilot_for_business %} from your organization's owners. This can be done through a few different ways, including:
+As a member of an organization, you can request access to {% data variables.product.prodname_copilot_for_business %} from your organization's owners. This can be done in a couple of different ways:
 
 - From the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot) for your personal account
 
@@ -48,8 +48,6 @@ As a member of an organization, you can request access to {% data variables.prod
 - From an empty repository in the organization
 
   ![Screenshot from the top of an empty repository with the option ask admin for access to {% data variables.product.prodname_copilot_for_business %}.](/assets/images/help/copilot/request-cfb-access-empty-repo.png)
-
-- During creation of a pull request in a repository in the organization
 
 ### Managing requests for {% data variables.product.prodname_copilot_for_business %}
 
@@ -60,7 +58,7 @@ As an owner of an organization, you can manage requests for {% data variables.pr
 1. In the "Access" section of the sidebar, click {% octicon "bell" aria-label="The notifications bell" %} **Requests from members**.
 1. To accept the request and grant the member access to {% data variables.product.prodname_copilot_for_business %}, click **Buy {% data variables.product.prodname_copilot_business_short %}**.
 
-All requests for {% data variables.product.prodname_copilot_for_business %} are grouped together under "{% data variables.product.prodname_copilot_business_short %}".
+All requests for {% data variables.product.prodname_copilot_for_business %} are grouped together under "{% data variables.product.prodname_copilot_business_short %}."
 
 ## About privacy for {% data variables.product.prodname_copilot_for_business %}
 

@@ -21,7 +21,7 @@ You can use the **Add tasklist** button to quickly add a tasklist to your issue.
 1. Navigate to the issue you want to contain your new tasklist. You can also create a new issue.
 1. At the bottom of the issue description, click {% octicon "plus" aria-hidden="true" %} **Add tasklist**.
 
-  ![Screenshot of an issue. The "Add tasklist" button is highlighted with an orange outline.](/assets/images/help/projects-v2/add-tasklist-ui.png)
+   ![Screenshot of an issue. The "Add tasklist" button is highlighted with an orange outline.](/assets/images/help/projects-v2/add-tasklist-ui.png)
 
 1. You can then add issues, pull requests, and draft tasks to your new tasklist. For more information, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/managing-tasks-in-a-tasklist)."
 
