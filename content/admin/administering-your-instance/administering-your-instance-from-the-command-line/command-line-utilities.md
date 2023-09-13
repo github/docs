@@ -8,6 +8,7 @@ redirect_from:
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
   - /admin/configuration/configuring-your-enterprise/command-line-utilities
+  - /admin/administering-your-instance/command-line-utilities
 versions:
   ghes: '*'
 type: reference

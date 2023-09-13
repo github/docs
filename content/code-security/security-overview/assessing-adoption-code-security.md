@@ -24,6 +24,10 @@ You can use security overview to see which repositories and teams have already e
 
 ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, and search field.](/assets/images/help/security-overview/security-coverage-view-summary.png)
 
+{% ifversion security-overview-export-data %}
+You can download a CSV file of the data displayed on the "Security coverage" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages)."
+{% endif %}
+
 ## Viewing the enablement of code security features for an organization
 
 {% data reusables.security-overview.information-varies-GHAS %}

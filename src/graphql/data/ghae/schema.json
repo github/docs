@@ -12239,6 +12239,39 @@
       ]
     },
     {
+      "name": "ContributingGuidelines",
+      "kind": "objects",
+      "id": "contributingguidelines",
+      "href": "/graphql/reference/objects#contributingguidelines",
+      "description": "<p>The Contributing Guidelines for a repository.</p>",
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the Contributing Guidelines.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for the Contributing Guidelines.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for the Contributing Guidelines.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
       "name": "ContributionCalendar",
       "kind": "objects",
       "id": "contributioncalendar",
@@ -33310,6 +33343,14 @@
           ]
         },
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the organization was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "auditLog",
           "description": "<p>Audit log entries of the organization.</p>",
           "type": "OrganizationAuditEntryConnection!",
@@ -48080,6 +48121,14 @@
           "id": "repositorycontactlink",
           "kind": "objects",
           "href": "/graphql/reference/objects#repositorycontactlink"
+        },
+        {
+          "name": "contributingGuidelines",
+          "description": "<p>Returns the contributing guidelines for this repository.</p>",
+          "type": "ContributingGuidelines",
+          "id": "contributingguidelines",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#contributingguidelines"
         },
         {
           "name": "createdAt",

@@ -7,6 +7,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/configuring-collectd
   - /admin/enterprise-management/monitoring-your-appliance/configuring-collectd
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/configuring-collectd
 versions:
   ghes: '*'
 type: how_to
