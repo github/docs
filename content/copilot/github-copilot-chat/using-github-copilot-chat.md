@@ -91,6 +91,17 @@ When {% data variables.product.prodname_copilot_chat %} provides code suggestion
     - To generate a unit test for the file, type a request like, `Write a unit test for this file`. Alternatively, highlight the code you want to generate a unit test for, then ask a question like, `Write a unit test for this code`.
     - To generate a fix for a bug in the file, type a request like, `Fix this bug`.
 
+## Using {% data variables.product.prodname_copilot_chat %} inside your code
+
+1. Highlight part of your code and place the cursor under it
+1. Use the  `CMD + i` (Mac) or `Ctrl + i` (PC) keyboard shortcut to open {% data variables.product.prodname_copilot_chat %} directly in your source code
+1. You can use the `/` key to immediately select from a list of commands what to do to the code you highlighted or ask {% data variables.product.prodname_copilot_chat %} anything you want
+1. The result will show up in your source code as a difference view that you can edit and apply
+
+The following example shows how to add JSDoc style comments to a JavaScript function using this inline functionality. 
+
+![screen recording of the interaction](https://github.com/github/docs/assets/13508/098a1e2f-5941-442d-8157-86b0a4666f42)
+
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
 
 To share feedback about {% data variables.product.prodname_copilot_chat %}, you can use the **share feedback** button in the {% data variables.product.prodname_copilot_chat %} window.
