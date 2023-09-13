@@ -61232,6 +61232,14 @@
           "href": "/graphql/reference/unions#ruleparameters"
         },
         {
+          "name": "repositoryRuleset",
+          "description": "<p>The repository ruleset associated with this rule configuration.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset"
+        },
+        {
           "name": "type",
           "description": "<p>The type of rule.</p>",
           "type": "RepositoryRuleType!",

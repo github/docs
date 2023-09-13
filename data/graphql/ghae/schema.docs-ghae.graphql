@@ -37102,6 +37102,11 @@ type RepositoryRule implements Node {
   parameters: RuleParameters
 
   """
+  The repository ruleset associated with this rule configuration
+  """
+  repositoryRuleset: RepositoryRuleset
+
+  """
   The type of rule.
   """
   type: RepositoryRuleType!
