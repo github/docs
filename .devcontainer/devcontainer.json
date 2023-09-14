@@ -31,9 +31,8 @@
                 "bierner.markdown-preview-github-styles",
                 "streetsidesoftware.code-spell-checker",
                 "alistairchristie.open-reusables",
-                "github.copilot",
-                "github.copilotChat",
-                "github.copilotLabs"
+                "GitHub.copilot",
+                "GitHub.copilot-chat"
             ]
         }
     },
