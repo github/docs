@@ -224,7 +224,7 @@ You can access environment variable values using the `env` context{% ifversion a
 
 In addition to runner environment variables, {% data variables.product.prodname_actions %} allows you to set and read `env` key values using contexts. Environment variables and contexts are intended for use at different points in the workflow.
 
-The `run` steps in a workflow, or in a referenced action, are processed by a runner. As a result, you can use runner environment variables here, using the appropriate syntax for the shell you are using on the runner - for example, `$NAME` for the bash shell on a Linux runner, or `$env:NAME` for PowerShell on a Windows runner. In most cases you can also use contexts, with the syntax `${{ CONTEXT.PROPERTY }}`, to access the same value. The difference is that the context will be interpolated and replaced by a string before the job is sent to a runner. 
+The `run` steps in a workflow, or in a referenced action, are processed by a runner. As a result, you can use runner environment variables here, using the appropriate syntax for the shell you are using on the runner - for example, `$NAME` for the bash shell on a Linux runner, or `$env:NAME` for PowerShell on a Windows runner. In most cases you can also use contexts, with the syntax {% raw %}`${{ CONTEXT.PROPERTY }}`{% endraw %}, to access the same value. The difference is that the context will be interpolated and replaced by a string before the job is sent to a runner. 
 
 However, you cannot use runner environment variables in parts of a workflow that are processed by {% data variables.product.prodname_actions %} and are not sent to the runner. Instead, you must use contexts. For example, an `if` conditional, which determines whether a job or step is sent to the runner, is always processed by {% data variables.product.prodname_actions %}. You must therefore use a context in an `if` conditional statement to access the value of an variable.
 
@@ -251,9 +251,10 @@ jobs:
 
 In this modification of the earlier example, we've introduced an `if` conditional. The workflow step is now only run if `DAY_OF_WEEK` is set to "Monday". We access this value from the `if` conditional statement by using the [`env` context](/actions/learn-github-actions/contexts#env-context). The `env` context is not required for the variables referenced within the `run` command. They are referenced as runner environment variables and are interpolated after the job is received by the runner. We could, however, have chosen to interpolate those variables before sending the job to the runner, by using contexts. The resulting output would be the same. 
 
+{% raw %}
+
 ```yaml
 run: echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"
-```
 
 {% note %}
 
