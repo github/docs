@@ -69,6 +69,7 @@ children:
   - apps
   - webhooks
   - rest
+  - crescent
   - graphql
   - github-cli
   - discussions
