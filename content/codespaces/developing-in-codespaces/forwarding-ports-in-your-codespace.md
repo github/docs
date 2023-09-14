@@ -14,11 +14,11 @@ topics:
   - Developer
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About forwarded ports
 
@@ -183,7 +183,7 @@ You can see the port labels when you list the forwarded ports for a codespace. T
 
 {% endcli %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Forwarding a port
 
@@ -191,4 +191,4 @@ For information on how to forward a port in a codespace to a port on your local 
 
 Alternatively, you can use {% data variables.product.prodname_cli %} to forward a port. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this page.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

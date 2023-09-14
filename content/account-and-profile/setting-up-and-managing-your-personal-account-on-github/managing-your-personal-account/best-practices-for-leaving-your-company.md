@@ -20,7 +20,7 @@ Before you leave your company, make sure you update the following information in
 - Unverify your company email address by [deleting it in your Email settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
 - [Change your primary email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address) from your company email to your personal email.
 - [Verify your new primary email address](/get-started/signing-up-for-github/verifying-your-email-address).
-- [Change your GitHub username](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) to remove any references to your company or organization, if necessary.
+- [Change your GitHub username](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username) to remove any references to your company or organization, if necessary.
 - If you've enabled two-factor (2FA) authentication for your personal account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Leaving organizations

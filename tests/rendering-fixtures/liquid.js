@@ -1,5 +1,6 @@
 import { getDataByLanguage } from '../../lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
+import { supported } from '../../lib/enterprise-server-releases.js'
 
 describe('spotlight', () => {
   test('renders styled warnings', async () => {
@@ -152,6 +153,8 @@ describe('ifversion', () => {
   // the matchesPerVersion object contains a list of conditions that
   // should match per version tested, but we also operate against it
   // to find out versions that shouldn't match
+  const ghesLast = `enterprise-server@${supported[supported.length - 1]}`
+  const ghesPenultimate = `enterprise-server@${supported[supported.length - 2]}`
   const matchesPerVersion = {
     'free-pro-team@latest': [
       'condition-a',
@@ -162,7 +165,7 @@ describe('ifversion', () => {
       'condition-l',
     ],
     'enterprise-cloud@latest': ['condition-c', 'condition-j', 'condition-l'],
-    'enterprise-server@3.6': [
+    [ghesLast]: [
       'condition-c',
       'condition-e',
       'condition-f',
@@ -174,7 +177,7 @@ describe('ifversion', () => {
       'condition-n',
       'condition-o',
     ],
-    'enterprise-server@3.7': [
+    [ghesPenultimate]: [
       'condition-c',
       'condition-e',
       'condition-f',
@@ -228,5 +231,71 @@ describe('misc Liquid', () => {
       .get()
     expect(texts[0]).toBe(url)
     expect(texts[1]).toBe('Pricing')
+  })
+})
+
+describe('data tag', () => {
+  test('injects data reusables with the right whitespace', async () => {
+    const $ = await getDOM('/get-started/liquid/data')
+
+    // This proves that the two injected reusables tables work.
+    // CommonMark is finicky if the indentation isn't perfect, so
+    // if you don't get exactly 2 tables, something is wrong, and if it's
+    // wrong it's most likely because of the leading whitespaces.
+    expect($('#article-contents table').length).toBe(2)
+
+    // To truly understand this test, you have to see
+    // http://localhost:4000/en/get-started/liquid/data to understand it.
+    // The page uses `{% data ... %}` within the bodies of bullet points.
+    // If the whitespace isn't correct and working, the bullet points
+    // would get confused and think the bullet point "body" is a new
+    // bullet point on its own.
+    expect($('#article-contents ol').length).toBe(3)
+    expect($('#article-contents ol li').length).toBe(2 + 1 + 2)
+
+    // In the very first bullet point we inject something that multiple
+    // linebreaks in it. The source looks like this:
+    //
+    //    1. Bullet point
+    //
+    //       {% data reusables.injectables.multiple_numbers %}
+    //
+    // (The code comment itself here has 3 spaces of manual indentation)
+    // What's important is that all the expected lines of that reusables
+    // stick inside this `ul li` block.
+    const liText = $('#article-contents ol li').first().text()
+    expect(liText).toMatch(/Bullet point\nOne\nTwo\nThree\nFour/)
+
+    // The code block uses `{% data ... %}` and it should be indented
+    // so that it aligns perfectly with the code block itself.
+    // One of the injected data reusables contains multiple lines.
+    // It's important that each line from that starts at the far
+    // left. No more or less whitespace.
+    const codeBlock = $('#article-contents li pre').text()
+    expect(codeBlock).toMatch(/^One\n/)
+    expect(codeBlock).toMatch(/^One\nTwo\n/)
+    expect(codeBlock).toMatch(/^One\nTwo\nThree\n/)
+
+    // The code block also a reusables that is just one line.
+    expect(codeBlock).toMatch(/One Two Three Four\n/)
+
+    // On its own, if you look at
+    // tests/fixtures/data/reusables/injectables/paragraphs.md, you'll
+    // see each line is NOT prefixed with whitespace indentation.
+    // But because `{% data reusables.injectables.paragraphs %}` is
+    // inserted with some indentation, that's replicated on every line.
+    const li = $('#article-contents li')
+      .filter((_, element) => {
+        return $(element).text().trim().startsWith('Point 1')
+      })
+      .eq(0)
+    // You can't really test the exact whitespace with cheerio,
+    // of the original HTML, but it doesn't actually matter. What
+    // matters is that within the bullet point, that starts with "Point 1",
+    // it *contains* all the paragraphs
+    // from tests/fixtures/data/reusables/injectables/paragraphs.md.
+    expect(li.text()).toMatch(/Paragraph one/)
+    expect(li.text()).toMatch(/Paragraph two/)
+    expect(li.text()).toMatch(/Paragraph three/)
   })
 })

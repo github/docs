@@ -1,6 +1,4 @@
-import { addError, ellipsify } from 'markdownlint-rule-helpers'
-
-import { getCodeFenceTokens, getCodeFenceLines } from '../helpers/utils.js'
+import { addError, ellipsify, filterTokens, newLineRe } from 'markdownlint-rule-helpers'
 
 export const codeFenceLineLength = {
   names: ['GHD001', 'code-fence-line-length'],
@@ -10,9 +8,8 @@ export const codeFenceLineLength = {
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD001(params, onError) {
     const MAX_LINE_LENGTH = String(params.config.maxLength || 60)
-    const codeFenceTokens = getCodeFenceTokens(params)
-    codeFenceTokens.forEach((token) => {
-      const lines = getCodeFenceLines(token)
+    filterTokens(params, 'fence', (token) => {
+      const lines = token.content.split(newLineRe)
       lines.forEach((line, index) => {
         if (line.length > MAX_LINE_LENGTH) {
           // The token line number is the line number of the first line of the

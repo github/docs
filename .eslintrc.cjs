@@ -5,44 +5,58 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  parser: '@babel/eslint-parser',
-  extends: ['eslint:recommended', 'standard', 'plugin:import/errors', 'prettier'],
+  extends: [
+    "eslint:recommended",
+    "standard",
+    "plugin:import/errors",
+    "prettier",
+  ],
   parserOptions: {
-    ecmaVersion: 11,
-    requireConfigFile: 'false',
-    babelOptions: { configFile: './.babelrc' },
-    sourceType: 'module',
+    ecmaVersion: 2022,
+    requireConfigFile: "false",
+    sourceType: "module",
   },
-  ignorePatterns: ['tmp/*', '!/.*', '/.next/', 'script/bookmarklets/*', 'rest-api-description/'],
+  ignorePatterns: [
+    "tmp/*",
+    "!/.*",
+    "/.next/",
+    "script/bookmarklets/*",
+    "src/open-source/scripts/add-pr-links.js",
+    "src/open-source/scripts/pr-link-source.js",
+    "rest-api-description/",
+  ],
   rules: {
-    'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
+    "import/no-extraneous-dependencies": ["error", { packageDir: "." }],
   },
   overrides: [
     {
-      files: ['**/tests/**/*.js'],
+      files: ["**/tests/**/*.js"],
       env: {
         jest: true,
       },
     },
     {
-      files: ['**/*.tsx', '**/*.ts'],
-      plugins: ['@typescript-eslint', 'jsx-a11y'],
-      extends: ['plugin:jsx-a11y/recommended'],
-      parser: '@typescript-eslint/parser',
+      files: ["**/*.tsx", "**/*.ts"],
+      plugins: ["@typescript-eslint", "primer-react", "jsx-a11y"],
+      extends: [
+        "plugin:primer-react/recommended",
+        "plugin:jsx-a11y/recommended",
+      ],
+      parser: "@typescript-eslint/parser",
       rules: {
-        camelcase: 'off',
-        'no-unused-vars': 'off',
-        'no-undef': 'off',
-        'no-use-before-define': 'off',
-        '@typescript-eslint/no-unused-vars': ['error'],
-        'jsx-a11y/no-onchange': 'off',
+        camelcase: "off",
+        "no-unused-vars": "off",
+        "no-undef": "off",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "jsx-a11y/no-onchange": "off",
       },
     },
   ],
   settings: {
-    'import/resolver': {
+    "import/resolver": {
       typescript: true,
-      node: true
-    }
-  }
-}
+      node: true,
+    },
+  },
+};

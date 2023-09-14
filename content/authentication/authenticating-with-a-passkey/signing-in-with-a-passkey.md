@@ -23,13 +23,13 @@ Passkeys can also be used across nearby devices. For example, perhaps you want t
 
 ## Signing in with a passkey linked to your primary device
 
-1. Navigate to the login page for {% data variables.product.prodname_dotcom_the_website %} at [https://github.com/login](https://github.com/login).
+1. Navigate to the login page for {% data variables.product.prodname_dotcom_the_website %} at [https://github.com/login?passkey=true](https://github.com/login?passkey=true).
 1. Click **{% octicon "passkey-fill" aria-hidden="true" %} Sign in with a passkey**.
 1. Follow the prompts of the passkey provider to select a passkey that is accessible from the device you are using, and complete the authentication process. For example, when prompted, you might touch a fingerprint sensor or enter your PIN.
 
 ## Signing in with a passkey using a nearby device
 
-1. Navigate to the login page for {% data variables.product.prodname_dotcom_the_website %} at [https://github.com/login](https://github.com/login).
+1. Navigate to the login page for {% data variables.product.prodname_dotcom_the_website %} at [https://github.com/login?passkey=true](https://github.com/login?passkey=true).
 1. Click **{% octicon "passkey-fill" aria-hidden="true" %} Sign in with a passkey**.
 1. Follow the prompts of the passkey provider to select a passkey that's accessible as a nearby device (such as a phone or a tablet).
 1. Continue to follow the prompts of the passkey provider to start the authentication process. For example, you might choose to scan a QR code, or trigger a push notification to the nearby device.

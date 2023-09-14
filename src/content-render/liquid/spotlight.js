@@ -10,7 +10,7 @@ const template =
 
 function getClasses(tagName) {
   const color = tags[tagName]
-  return `border rounded-1 mb-4 p-3 f5 color-border-${color}-emphasis color-bg-${color}`
+  return `border rounded-1 my-3 p-3 f5 color-border-${color}-emphasis color-bg-${color}`
 }
 
 export const Spotlight = {

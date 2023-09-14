@@ -86,7 +86,10 @@ Keep lines in code samples to about 60 characters, to avoid requiring readers to
 
 Within code blocks:
 - Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml)" in the `github/docs` repository.
-- Do not use markup before the command output.
+- Do not use HTML to style or markup a code block.
+- Style any placeholders that people need to replace with their own values in all caps.
+  - **Use:** `git checkout -b BRANCH-NAME`
+  - **Avoid:** `git checkout -b <branch-name>`
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
   - If you show a command and the command's output, do not make the code block copyable.
 - If your code example includes `{` or `}` that should render, wrap that section in <code>&#123% raw %&#125;</code> <code>&#123% endraw %&#125;</code> to disable Liquid processing for that section.
@@ -102,7 +105,7 @@ Within code blocks:
     GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;
     </pre>
 
-- If your code example includes content that should be parsed (for example, HTML tags to format text), wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
+- If your code example includes content that should be parsed, wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
 
 ### Commands
 
@@ -136,9 +139,9 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
-### File and directory names
+### File names and directory names
 
-Use inline codeblocks to refer to file and directory names. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
+Use backticks to format references to file names and directory names in a monospaced font. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
 
 - **Use:** In your `README.md` file, add info about your repository.
 - **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
@@ -259,9 +262,9 @@ Do not use screenshots of command-line interfaces to convey commands and their o
 
 When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
-### Filenames
+### File names for images
 
-Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
+Be descriptive when naming image files: include the name, action, and UI element in the file name. Mirror product language. Use kebab case. Do not use Liquid conditionals in file names. If replacing an image, use the exact file name.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
 - **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
@@ -375,12 +378,12 @@ This text is only an example. Always use the license text from the project you a
 `````
 ## Legal notice
 
-Portions have been adapted from [PROJECT](/link/to/project) under the MIT license:
+Portions have been adapted from [PROJECT](/LINK/TO/PROJECT) under the MIT license:
 
 ```
 MIT License
 
-Copyright <YEAR> <COPYRIGHT HOLDER>
+Copyright YEAR COPYRIGHT-HOLDER
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -403,13 +406,13 @@ For any link that points to another {% data variables.product.prodname_docs %} p
 
 Usage examples:
 
-- For links to other pages: `For more information, see "[AUTOTITLE](/path/to/page)."`
-- For links to sections in other pages: `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
-- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME)."`
+- For links to other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE)."`
+- For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
+- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/PATH/TO/PAGE?tool=TOOLNAME)."`
 
-Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[Header text](#section-link)."`
+Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[HEADER-TITLE](#SECTION-LINK)."`
 
-For links to external documentation, type out the full article name: `For more information, see [Page or article title](https://some-docs.com/path/to/page) in the X documentation.`
+For links to external documentation, type out the full article name: `For more information, see [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
 
 Do not include quotation marks within a hyperlink.
 
@@ -464,12 +467,12 @@ For more information, see "[HEADER TITLE](#HEADER-TITLE)."
 To link to a specific header in a different article, use this format:
 
 ```
-For more information, see "[AUTOTITLE](path-to-article#HEADER-TITLE)."
+For more information, see "[AUTOTITLE](PATH-TO-ARTICLE#HEADER-TITLE)."
 ```
 
 To link to two or more specific headers in a different article, use this format:
 ```
-For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."
+For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and "[HEADER-TITLE-2](PATH-TO-ARTICLE#SECTION-LINK-2)" in "ARTICLE-TITLE."
 ```
 
 ### Links to a specific tool
@@ -508,6 +511,19 @@ Formatting unordered lists:
 - If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).
 
 When introducing a list, avoid phrasing like “the following” or “these”, terms which are difficult to localize. Instead, be descriptive, yet general enough to allow a list to scale or change without having to update the description.
+
+## Placeholders
+
+Style any placeholder text in all caps. If a placeholder is multiple words, connect the words with dashes (kebab-case). If you use a placeholder, explain what someone might replace it with. This helps people modify examples to fit their needs and helps identify placeholders for people who use assistive technology.
+
+**Use:**
+- In the following example, replace YOUR-REPOSITORY with the name of your repository. `git init YOUR-REPOSITORY`
+- Click **Add USERNAME.** Where USERNAME is the username of the person you want to add.
+
+**Avoid:**
+- `git init your repository`
+- `git init <your-repository>`
+- Click **Add _username_.**
 
 ## Procedural steps
 
@@ -559,7 +575,7 @@ This section describes additional conventions that are specific to GitHub produc
 
 Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g. from `v1` to `v2`) easier to manage for products like {% data variables.product.prodname_ghe_server %}, which might not have the same action version available until a future {% data variables.product.prodname_ghe_server %} release.
 
-Actions reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
+Actions reusables are located in `/data/reusables/actions/` and have a file name like `action-<action_name>.md`
 
 For example, to use the `actions/checkout` action in an example, use its reusable:
 
@@ -631,7 +647,7 @@ For more information, see "[Using SHAs](/actions/learn-github-actions/finding-an
 ### {% data variables.product.prodname_codespaces %}
 
 When referring to the product {% data variables.product.prodname_codespaces %}, always include "{% data variables.product.company_short %}", except in these circumstances:
-- In the `shortTitle` front matter (i.e. the abbreviated version of the article title).
+- In the `shortTitle` front matter.
 - In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
 
 Variables: `{% raw %}{% data variables.product.prodname_github_codespaces %}{% endraw %}` ("GitHub Codespaces") and `{% raw %}{% data variables.product.prodname_codespaces %}{% endraw %}` ("Codespaces").
@@ -737,6 +753,12 @@ A release note for a security fix answers the following questions.
 - > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, {% data variables.product.company_short %} has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). {% data variables.product.company_short %} has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
 
 - > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
+
+#### Base image and package updates
+
+We also include base image and dependent package updates in the "Security fixes" section, since these updates often address security issues. We consolidate all of these updates in the following note.
+
+> Packages have been updated to the latest security versions.
 
 ### Bug fixes
 
@@ -1084,24 +1106,22 @@ Use quotation marks around article titles, whether the article is hosted on GitH
 For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
 
 ## Short titles
-We use short titles to populate the sidebar navigation. They should give users contextual understanding of the article, but align to the following standards:
+We use short titles to populate the sidebar navigation. Since short titles appear in the sidebar navigation, they can use context to convey meaning and be slightly less precise than full titles. The goal of short titles is to help people find the content that they are looking for without having sidebar navigation items that are too long. Short titles give people contextual understanding of an article and align to the following standards.
 
-- Short titles are 2-3 words long, yet should still convey the full meaning of the title.
-- To help cut words, look at the title in context:
-  - Are there words in the breadcrumb that you can omit in the short title?
-  - Remove repeated words possible
-- Don’t introduce new words in short titles that aren’t in the full title
-- Short titles should be parallel to short titles for similar content
-  - **Use:**
-    - Organizations and teams
-    - Enterprise accounts
-- Short titles should still mimic format of the full title
-  - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, try to find a verb but you can use a nouns when needed
+- Short titles are 2-3 words long.
+  - For categories, short titles must be less than 27 characters.
+  - For map topics, short titles must be less than 30 characters.
+  - For articles, short titles must be less than 31 characters and are ideally between 20 and 25 characters.
+- Short titles use the base form of verbs instead of gerunds.
+  - **Use:** "Configure notifications" instead of "Configuring notifications."
+- Short titles for categories, map topics, and articles can omit product and feature names if it is clear what product or feature they relate to.
+  - **Use:** "Configure notifications" as the short title for "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)" since the article is in the "{% data variables.product.prodname_dependabot_alerts %}" map topic.
+- Short titles do not introduce new words that are not in the full title.
+- Short titles should be parallel to short titles for similar content.
+  - **Use:** "Organizations and teams" and "Enterprise accounts"
+  - **Avoid:** "Organizations and teams" and "Managing enterprise accounts"
 
-| Instead of | Use |
-|---|---|
-| Authenticating to {% data variables.product.company_short %} | Authentication |
-| Installing and configuring GHE Server | Installation and configuration |
+Writing short titles can be challenging. To help get short titles under the character count, consider the short title in context. Remove any repeated words if possible and any product or feature names that are in the map topic or category that the content belongs to.
 
 ## User interface elements
 
@@ -1116,7 +1136,7 @@ Use bold to describe UI elements that can be interacted with.
 
 Use code formatting for branch names.
 - `main`
-- `<username>.github.io`
+- `USERNAME.github.io`
 
 ### Buttons
 

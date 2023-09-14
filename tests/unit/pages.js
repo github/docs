@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 import path from 'path'
 import { loadPages } from '../../lib/page-data.js'
-import libLanguages from '../../lib/languages.js'
+import libLanguages from '#src/languages/lib/languages.js'
 import { liquid } from '#src/content-render/index.js'
 import patterns from '../../lib/patterns.js'
 import GithubSlugger from 'github-slugger'

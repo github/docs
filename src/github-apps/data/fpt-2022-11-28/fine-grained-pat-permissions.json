@@ -2189,7 +2189,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
         "additional-permissions": [],
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
@@ -2624,7 +2624,9 @@
         "subcategory": "forks",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/forks",
-        "additional-permissions": [],
+        "additional-permissions": [
+          "contents"
+        ],
         "access": "write"
       },
       {
@@ -2759,6 +2761,24 @@
         "additional-permissions": [
           "pages"
         ],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "enable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "disable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "additional-permissions": [],
         "access": "write"
       },
       {
@@ -3689,6 +3709,17 @@
         "requestPath": "/repos/{owner}/{repo}/dispatches",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "additional-permissions": [
+          "administration"
+        ],
+        "access": "read"
       },
       {
         "category": "git",
@@ -6309,6 +6340,15 @@
     "title": "Repository security advisories",
     "displayTitle": "Repository permissions for \"Repository security advisories\"",
     "permissions": [
+      {
+        "category": "security-advisories",
+        "slug": "list-repository-security-advisories-for-an-organization",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/security-advisories",
+        "additional-permissions": [],
+        "access": "write"
+      },
       {
         "category": "security-advisories",
         "slug": "list-repository-security-advisories",

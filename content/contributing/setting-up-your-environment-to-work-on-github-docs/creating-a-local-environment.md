@@ -71,9 +71,9 @@ The [`script/bookmarklets`](https://github.com/github/docs/tree/main/script/book
 
 ### Enabling different languages
 
-By default, the local server does not run with all supported languages enabled.  If you need to run a local server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  
+By default, the local server does not run with all supported languages enabled.  If you need to run a local server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.
 
-For example, to enable Japanese and Portuguese in addition to English, you can edit `package.json` and set `ENABLED_LANGUAGES='en,ja,pt'` in the `start` script. Then restart the server for the change to take effect. 
+For example, to enable Japanese and Portuguese in addition to English, you can edit `package.json` and set `ENABLED_LANGUAGES='en,ja,pt'` in the `start` script. Then restart the server for the change to take effect.
 
 {% note %}
 
@@ -81,11 +81,11 @@ For example, to enable Japanese and Portuguese in addition to English, you can e
 
 {% endnote %}
 
-The supported language codes are defined in [`lib/languages.js`](https://github.com/github/docs/blob/main/lib/languages.js).
+The supported language codes are defined in [`src/languages/lib/languages.js`](https://github.com/github/docs/blob/main/src/languages/lib/languages.js).
 
 ## Using {% data variables.product.prodname_github_codespaces %}
 
-As an alternative to running {% data variables.product.prodname_docs %} locally, you can use {% data variables.product.prodname_github_codespaces %}. {% data variables.product.prodname_github_codespaces %} enable you to edit, preview, and test your changes directly from your browser. 
+As an alternative to running {% data variables.product.prodname_docs %} locally, you can use {% data variables.product.prodname_github_codespaces %}. {% data variables.product.prodname_github_codespaces %} enable you to edit, preview, and test your changes directly from your browser.
 
 For more information about using a codespace for working on {% data variables.product.company_short %} documentation, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)."
 
@@ -97,4 +97,4 @@ For more information about using a codespace for working on {% data variables.pr
 - [Middleware](https://github.com/github/docs/blob/main/middleware/README.md)
 - [Scripts](https://github.com/github/docs/blob/main/script/README.md)
 - [Styles](https://github.com/github/docs/blob/main/stylesheets/README.md)
-- [Tests](https://github.com/github/docs/blob/main/tests/README.md) 
+- [Tests](https://github.com/github/docs/blob/main/tests/README.md)

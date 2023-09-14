@@ -25,7 +25,7 @@ You must store workflow files in the `.github/workflows` directory of your repos
 
 ## `name`
 
-The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's "Actions" tab. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
+{% data reusables.actions.workflows.workflow-syntax-name %}
 
 {% ifversion actions-run-name %}
 
@@ -236,7 +236,7 @@ The value of this parameter is a string specifying the data type of the input. T
 
 ### Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
 
-You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow. 
+You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow.
 
 #### Example: Setting the `GITHUB_TOKEN` permissions for an entire workflow
 
@@ -329,7 +329,7 @@ A `map` of variables that are available to all steps in the job. You can set var
 
 {% data reusables.repositories.actions-env-var-note %}
 
-## Example of `jobs.<job_id>.env`
+### Example of `jobs.<job_id>.env`
 
 ```yaml
 jobs:
@@ -354,7 +354,7 @@ jobs:
 
 A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+{% data variables.product.prodname_dotcom %} only displays the first 1,000 checks, however, you can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 ### Example of `jobs.<job_id>.steps`
 
@@ -441,7 +441,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ## `jobs.<job_id>.steps[*].name`
 
@@ -570,7 +570,7 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as an encrypted secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
@@ -623,6 +623,10 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
+Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun)" and "[`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun)."
+
+You can also use a `run` step to run a script. For more information, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow)."
+
 ## `jobs.<job_id>.steps[*].shell`
 
 You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
@@ -638,65 +642,65 @@ You can override the default shell settings in the runner's operating system usi
 | Windows | `pwsh` | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead.| `pwsh -command ". '{0}'"`. |
 | Windows | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
-### Example: Running a script using bash
+### Example: Running a command using Bash
 
 ```yaml
 steps:
   - name: Display the path
-    run: echo $PATH
     shell: bash
+    run: echo $PATH
 ```
 
-### Example: Running a script using Windows `cmd`
+### Example: Running a command using Windows `cmd`
 
 ```yaml
 steps:
   - name: Display the path
-    run: echo %PATH%
     shell: cmd
+    run: echo %PATH%
 ```
 
-### Example: Running a script using PowerShell Core
+### Example: Running a command using PowerShell Core
 
 ```yaml
 steps:
   - name: Display the path
-    run: echo ${env:PATH}
     shell: pwsh
-```
-
-### Example: Using PowerShell Desktop to run a script
-
-```yaml
-steps:
-  - name: Display the path
     run: echo ${env:PATH}
-    shell: powershell
 ```
 
-### Example: Running a python script
+### Example: Using PowerShell Desktop to run a command
 
 ```yaml
 steps:
   - name: Display the path
+    shell: powershell
+    run: echo ${env:PATH}
+```
+
+### Example: Running an inline Python script
+
+```yaml
+steps:
+  - name: Display the path
+    shell: python
     run: |
       import os
       print(os.environ['PATH'])
-    shell: python
 ```
 
 ### Custom shell
 
-You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
+You can set the `shell` value to a template string using `command [options] {0} [more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
 
 For example:
 
 ```yaml
 steps:
   - name: Display the environment variables and their values
+    shell: perl {0}
     run: |
       print %ENV
-    shell: perl {0}
 ```
 
 The command used, `perl` in this example, must be installed on the runner.
@@ -712,9 +716,9 @@ For information about the software included on GitHub-hosted runners, see "[AUTO
 For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
 - `bash`/`sh`:
-  - Fail-fast behavior using `set -eo pipefail`: This option is set when `shell: bash` is explicitly specified. It is not applied by default.
+  - By default, fail-fast behavior is enforced using `set -e` for both `sh` and `bash`. When `shell: bash` is specified, `-o pipefail` is also applied to enforce early exit from pipelines that generate a non-zero exit status.
   - You can take full control over shell parameters by providing a template string to the shell options. For example, `bash {0}`.
-  - sh-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
+  - `sh`-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
 
 - `powershell`/`pwsh`
   - Fail-fast behavior when possible. For `pwsh` and `powershell` built-in shell, we will prepend `$ErrorActionPreference = 'stop'` to script contents.
@@ -1045,7 +1049,7 @@ When a job is used to call a reusable workflow, you can use `with` to provide a 
 
 Any inputs that you pass must match the input specifications defined in the called workflow.
 
-Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
+Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
 
 ### Example of `jobs.<job_id>.with`
 

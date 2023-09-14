@@ -32,7 +32,7 @@ For the steps required to install a certificate, refer to the documentation for 
 
 Most actions are written in JavaScript and run using Node.js, which does not use the operating system certificate store. For the self-hosted runner application to use the certificate, you must set the `NODE_EXTRA_CA_CERTS` environment variable on the runner machine.
 
-You can set the environment variable as a system environment variable, or declare it in a file named _.env_ in the self-hosted runner application directory.
+You can set the environment variable as a system environment variable, or declare it in a file called `.env` in the self-hosted runner application directory (that is, the directory into which you downloaded and unpacked the runner software).
 
 For example:
 
@@ -50,7 +50,7 @@ If you use Docker container actions or service containers in your workflows, you
 
 {% data reusables.actions.enterprise-http-proxy %}
 
-If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
+If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://IP-ADDRESS` when setting or changing your {% data variables.product.prodname_actions %} configuration.
 
 ## Runners not connecting to {% data variables.product.prodname_ghe_server %} with a new hostname
 

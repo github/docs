@@ -189,7 +189,7 @@ This means that you cannot automate the creation of accounts. But if you want to
 [generating-ssh-keys]: /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/site-policy/github-terms/github-terms-of-service
 [collaborator]: /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-[outside-collaborator]: /organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization
+[outside-collaborator]: /organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /organizations/organizing-members-into-teams/adding-organization-members-to-a-team
 
 ## Further reading

@@ -34,33 +34,40 @@ jobs:
         id: set-matrix
         with:
           script: |
-            // We only want to run the 'translations' suite when we know
+            // We only want to run the 'languages' suite when we know
             // we're on the private docs-internal repo because only that
-            // one has ability to clone the remote (private) translations
+            // one has ability to clone the remote (private) languages
             // repos.
             // You can run multiple paths per suite as space-separated in `path`.
+            // Note that *if you add* to this, remember to also add that
+            // to the **required checks** in the branch protection rules.
             return [
+              { name: 'assets', path: 'src/assets/tests', },
+              // { name: 'audit-logs', path: 'src/assets/audit-logs', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'color-schemes', path: 'src/color-schemes/tests', },
               { name: 'content', path: 'tests/content', },
+              { name: 'content-linter', path: 'src/content-linter/tests', },
               { name: 'content-render', path: 'src/content-render/tests', },
               { name: 'events', path: 'src/events/tests', },
               { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
               { name: 'github-apps', path: 'src/github-apps/tests', },
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'landings', path: 'src/landings/tests', },
-              // { name: 'learning-track', path: 'src/learning-track/tests', },
-              { name: 'linting', path: 'src/content-linter/tests', },
+              { name: 'learning-track', path: 'src/learning-track/tests', },
               { name: 'observability', path: 'src/observability/tests' },
               { name: 'pageinfo', path: 'src/pageinfo/tests', },
               { name: 'redirects', path: 'src/redirects/tests', },
+              { name: 'release-notes', path: 'src/release-notes/tests', },
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
               { name: 'rest', path: 'src/rest/tests', },
               { name: 'routing', path: 'tests/routing', },
               { name: 'search', path: 'src/search/tests', },
+              { name: 'secret-scanning', path: 'src/secret-scanning/tests',},
               { name: 'shielding', path: 'src/shielding/tests', },
               context.payload.repository.full_name === 'github/docs-internal' &&
-                { name: 'translations', path: 'tests/translations', },
+                { name: 'languages', path: 'src/languages/tests', },
               { name: 'unit', path: 'tests/unit', },
               // { name: 'tools', path: 'src/tools/tests', }
               { name: 'webhooks', path: 'src/webhooks/tests', },
@@ -81,10 +88,10 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - uses: ./.github/actions/setup-elasticsearch
-        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -105,21 +112,21 @@ jobs:
         run: |
           # If either of these fail, it means our fixture content's internal
           # links can and should be updated.
-          ./script/update-internal-links.js --dry-run --check --strict \
+          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/content \
             --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
             --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
-          ./script/update-internal-links.js --dry-run --check --strict \
+          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
             tests/fixtures/data
 
       - name: Clone all translations
-        if: ${{ matrix.name == 'translations' }}
+        if: ${{ matrix.name == 'languages' }}
         uses: ./.github/actions/clone-translations
         with:
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Gather files changed
-        if: ${{ matrix.name == 'linting' }}
+        if: ${{ matrix.name == 'content-linter' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}
@@ -152,11 +159,7 @@ jobs:
           echo __ format, write to get_diff_files.txt __
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
-      - name: Cache nextjs build
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+      - uses: ./.github/actions/cache-nextjs
 
       - name: Run build script
         run: npm run build
@@ -169,7 +172,7 @@ jobs:
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
         run: npm run index-test-fixtures
 
       - name: Run tests
@@ -178,8 +181,8 @@ jobs:
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
           # By default, when `process.env.NODE_ENV === 'test'` it forces the
           # tests run only in English. The exception is the
-          # `tests/translations/` suite which needs all languages to be set up.
-          ENABLED_LANGUAGES: ${{ matrix.name == 'translations' && 'all' || '' }}
+          # `languages` suite which needs all languages to be set up.
+          ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
           ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'tests/fixtures' || '' }}
           TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
         run: npm test -- ${{ matrix.path }}/

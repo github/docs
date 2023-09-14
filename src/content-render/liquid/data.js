@@ -13,10 +13,11 @@ export default {
     }
 
     this.path = tagToken.args
+    this.tagToken = tagToken
   },
 
   async render(scope) {
-    const text = getDataByLanguage(this.path, scope.environments.currentLanguage)
+    let text = getDataByLanguage(this.path, scope.environments.currentLanguage)
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'data ${this.path}' in the scope.`
@@ -28,6 +29,33 @@ export default {
       return
     }
 
-    return this.liquid.parseAndRender(text.trim(), scope.environments)
+    // Any time what we're about to replace in here has more than one line,
+    // if the use of `{% data ... %}` was itself indented, from the left,
+    // keep *that* indentation, in replaced output, for every line.
+    //
+    // For example:
+    //
+    //   1. Bullet point
+    //      {% data variables.foo.bar %}
+    //
+    // In this example, the `{% data ...` starts with 3 whitespaces
+    // (based on the `1. Bull...` in the example). So put 3 whitespaces
+    // in front every line of the output.
+    if (text.split('\n').length > 0) {
+      const { input, begin } = this.tagToken
+      let i = 1
+      while (input.charAt(begin - i) === ' ') {
+        i++ // this goes one character "to the left"
+      }
+      const goBack = input.slice(begin - i, begin)
+      if (goBack.charAt(0) === '\n' && goBack.length > 1) {
+        const numSpaces = goBack.length - 1
+        text = text.trim().replace(/^/gm, ' '.repeat(numSpaces)).trim()
+      }
+    } else {
+      text = text.trim()
+    }
+
+    return this.liquid.parseAndRender(text, scope.environments)
   },
 }

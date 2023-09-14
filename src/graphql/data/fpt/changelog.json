@@ -4,6 +4,82 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>repositoryRuleset</code> was added to object type <code>RepositoryRule</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-09-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>ContributingGuidelines</code> was added</p>",
+          "<p>Field <code>contributingGuidelines</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-09-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>archivedAt</code> was added to object type <code>Organization</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-09-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>EnterpriseConnection</code> was added</p>",
+          "<p>Type <code>EnterpriseEdge</code> was added</p>",
+          "<p>Type <code>EnterpriseMembershipType</code> was added</p>",
+          "<p>Type <code>EnterpriseOrder</code> was added</p>",
+          "<p>Type <code>EnterpriseOrderField</code> was added</p>",
+          "<p>Field <code>enterprises</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-09-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AddPullRequestReviewThreadReplyInput</code> was added</p>",
+          "<p>Type <code>AddPullRequestReviewThreadReplyPayload</code> was added</p>",
+          "<p>Type <code>PullRequestBranchUpdateMethod</code> was added</p>",
+          "<p>Field <code>githubEnterpriseImporterIpAddresses</code> was added to object type <code>GitHubMetadata</code></p>",
+          "<p>Field <code>addPullRequestReviewThreadReply</code> was added to object type <code>Mutation</code></p>",
+          "<p>Input field <code>updateMethod</code> of type <code>PullRequestBranchUpdateMethod</code> was added to input object type <code>UpdatePullRequestBranchInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-08-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>Organization.repositories</code></p>",
           "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>Repository.forks</code></p>",
           "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>RepositoryOwner.repositories</code></p>",

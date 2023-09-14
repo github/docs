@@ -14,6 +14,14 @@ topics:
 
 ## About the GraphQL Explorer
 
+{% ifversion ghec or ghae %}
+{% note %}
+
+**Note**: If your {% data variables.product.prodname_ghe_cloud %} organization uses {% data variables.product.prodname_dotcom %}'s IP allow list, you won't be able to use the GraphQL Explorer. Instead, we recommend using an alternative GraphQL client IDE.
+
+{% endnote %}
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 [GraphQL Explorer](/graphql/overview/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."

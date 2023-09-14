@@ -34,7 +34,7 @@ If your organization requires two-factor authentication and you're a member, own
 
 To remove yourself from your organization:
 - As an organization member or owner, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)."
-- As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository)."
+- As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/removing-an-outside-collaborator-from-an-organization-repository)."
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}

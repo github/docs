@@ -59,6 +59,12 @@ Enterprise owners who create an organization owned by the enterprise account aut
 
 Enterprise owners can invite existing organizations to join their enterprise account.
 
+{% note %}
+
+**Note:** If you're taking part in a trial of {% data variables.product.prodname_ghe_cloud %}, adding an organization to the trial enterprise may disable certain features in the organization. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)."
+
+{% endnote %}
+
 If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts. If you're not, you can ask an owner of the enterprise account that currently owns the organization to transfer the organization to your enterprise account instead. For more information, see "[Transferring an organization between enterprise accounts](#transferring-an-organization-between-enterprise-accounts)."
 
 When you invite an organization to join your enterprise account, at least one owner needs to accept the invitation. Then, you must give a final approval for the transfer.
@@ -79,7 +85,7 @@ Enterprise owners can transfer existing organizations between enterprise account
 
 {% note %}
 
-**Note:** You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %}.
+**Note:** You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %} or an enterprise account that is currently enrolled in a trial of {% data variables.product.prodname_ghe_cloud %}.
 
 {% endnote %}
 

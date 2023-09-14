@@ -13,12 +13,11 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+permissions: 'Organization owners can create teams and can control whether all organization members can also create teams. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."'
 topics:
   - Organizations
   - Teams
 ---
-
-Only organization owners and maintainers of a parent team can create a new child team under a parent. Owners can also restrict creation permissions for all teams in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -42,7 +41,7 @@ Only organization owners and maintainers of a parent team can create a new child
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.team-notifications %}
 {% data reusables.organizations.create_team %}
-1. Optionally, [give the team access to organization repositories](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository).
+1. Optionally, give the team access to organization repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
 
 {% ifversion ghes %}
 

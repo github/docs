@@ -1,5 +1,5 @@
 import { OctocatHeader } from 'src/landings/components/OctocatHeader'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const HomePageHero = () => {
   const { t } = useTranslation(['header', 'homepage'])

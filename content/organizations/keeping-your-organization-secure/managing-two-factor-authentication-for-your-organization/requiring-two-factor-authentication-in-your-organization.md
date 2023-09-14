@@ -88,4 +88,4 @@ If any members or outside collaborators are removed from the organization when y
 - "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
 - "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)"
 - "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/reinstating-a-former-outside-collaborators-access-to-your-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/reinstating-a-former-outside-collaborators-access-to-your-organization)"

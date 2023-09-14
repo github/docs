@@ -64,4 +64,4 @@ body:
     attributes:
       value: |
         Once all tasks are completed, please mention `@github/docs-content` for next steps.
-        /cc @github/partner-engineering for :eyes:.
+        /cc @github/technology-partnerships-and-engineering for :eyes:.

@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 type: how_to
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -56,7 +56,7 @@ When creating a secret {% ifversion actions-configuration-variables %} or variab
 {%- ifversion actions-configuration-variables %}
 1. Click the **Secrets** or **Variables** tab, and create the secret or variable with your desired values and options.
 
-   For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)" or "[AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)."
+   For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization)" or "[AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)."
 {%- else %}
 1. Click **New secret**.
 1. Type a name for your secret in the **Name** input box.
@@ -67,7 +67,7 @@ When creating a secret {% ifversion actions-configuration-variables %} or variab
 
 ## Share self-hosted runners within an organization
 
-Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
+Organization owners can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
 
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
 

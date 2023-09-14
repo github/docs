@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 
@@ -89,7 +89,7 @@ export const Survey = () => {
       <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
-      <input type="text" className="d-none" name="survey-token" aria-hidden="true" />
+      <input type="text" className="d-none" name="survey-token" />
 
       {state !== ViewState.END && (
         <div className="radio-group mb-2" role="radiogroup" aria-labelledby="survey-title">

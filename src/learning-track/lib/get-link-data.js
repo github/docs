@@ -36,7 +36,12 @@ async function processLink(link, context, option) {
   const href = removeFPTFromPath(path.join('/', context.currentLanguage, version, linkPath))
 
   const linkedPage = findPage(href, context.pages, context.redirects)
-  if (!linkedPage) return null
+  if (!linkedPage) {
+    // This can happen when the link depends on Liquid conditionals,
+    // like...
+    //    - '{% ifversion ghes %}/admin/foo/bar{% endifversion %}'
+    return null
+  }
 
   const result = { href, page: linkedPage }
 

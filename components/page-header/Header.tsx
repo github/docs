@@ -15,10 +15,10 @@ import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 import { useHasAccount } from 'components/hooks/useHasAccount'
-import { LanguagePicker } from './LanguagePicker'
+import { LanguagePicker } from 'src/languages/components/LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Search } from 'src/search/components/Search'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { VersionPicker } from 'components/page-header/VersionPicker'
@@ -48,6 +48,7 @@ export const Header = () => {
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
   const { width } = useWidth()
+  const returnFocusRef = useRef(null)
 
   useEffect(() => {
     function onScroll() {
@@ -142,6 +143,7 @@ export const Header = () => {
   return (
     <>
       <div
+        data-container="header"
         className={cx(
           'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
           styles.header,
@@ -335,8 +337,10 @@ export const Header = () => {
                   icon={ThreeBarsIcon}
                   aria-label="Open Sidebar"
                   onClick={openSidebar}
+                  ref={returnFocusRef}
                 />
                 <Dialog
+                  returnFocusRef={returnFocusRef}
                   isOpen={isSidebarOpen}
                   onDismiss={closeSidebar}
                   aria-labelledby="menu-title"

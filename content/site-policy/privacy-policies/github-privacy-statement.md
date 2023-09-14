@@ -303,7 +303,7 @@ We transfer personal data from the European Union, the United Kingdom, and Switz
 
 If you have a privacy inquiry or concerns about the way GitHub is handling your personal data, please let us know immediately. We want to help. You may contact us by filling out the [Privacy contact form](https://support.github.com/contact/privacy). We will respond promptly.
 
-Our addresses are:
+Our address is:
 
 **GitHub Privacy Team**
 
@@ -311,16 +311,6 @@ GitHub, Inc. <br/>
 88 Colin P. Kelly Jr. St. <br/>
 San Francisco, CA 94107 <br/>
 United States
-
-[Privacy contact form](https://support.github.com/contact/privacy)
-
-**GitHub Data Protection Officer**
-
-c/o DP Dock DPO Services GmbH, <br/>
-Attn: GitHub BV, Gut Projensdorf, <br/>
-24161 Altenholz, Germany
-
-CC: GitHub BV, Vijzelstraat 68-72, 1017 HL Amsterdam, The Netherlands
 
 [Privacy contact form](https://support.github.com/contact/privacy)
 

@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -37,7 +37,7 @@ jobs:
         id: comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: .github/actions-scripts/deleted-assets-pr-comment.js
+        run: src/assets/scripts/deleted-assets-pr-comment.js
 
       - name: Find possible previous comment
         if: ${{ steps.comment.outputs.markdown != '' }}

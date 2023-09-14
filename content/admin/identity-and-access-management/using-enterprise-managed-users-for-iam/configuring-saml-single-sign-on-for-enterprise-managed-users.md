@@ -63,7 +63,7 @@ To configure your IdP, follow the instructions they provide for configuring the 
 
        To download the PingFederate connector, navigate to the **Add-ons** tab and select **GitHub EMU Connector 1.0**.
 
-{% indented_data_reference reusables.enterprise-accounts.public-beta-pingfed-for-emu spaces=3 %}
+     {% data reusables.enterprise-accounts.public-beta-pingfed-for-emu %}
 
 1. To configure the {% data variables.product.prodname_emu_idp_application %} application and your IdP, click the link below and follow the instructions provided by your IdP:
 

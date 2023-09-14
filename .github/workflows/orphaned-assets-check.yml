@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout English repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
@@ -41,7 +41,10 @@ jobs:
         run: |
           set -e
 
-          ./script/find-orphaned-assets.js | xargs git rm
+          filesToRemove=`./src/assets/scripts/find-orphaned-assets.js`
+          [ -z "$filesToRemove" ] && exit 0
+
+          echo $filesToRemove | xargs git rm
 
           git status
 

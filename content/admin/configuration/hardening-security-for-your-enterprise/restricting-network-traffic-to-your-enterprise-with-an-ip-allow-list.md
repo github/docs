@@ -73,6 +73,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -109,6 +110,8 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.identity-and-permissions.check-ip-address-step %}
 
 ### Deleting an allowed IP address
+
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -183,6 +186,8 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.identity-and-permissions.check-ip-address-step %}
 
 ## Deleting an allowed IP address
+
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

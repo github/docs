@@ -1,7 +1,7 @@
 import { GitPullRequestIcon } from '@primer/octicons-react'
 
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const Contribution = () => {
   const { relativePath } = useMainContext()

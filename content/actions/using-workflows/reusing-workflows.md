@@ -155,13 +155,13 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
    {% note %}
 
-   **Note**: Environment secrets are encrypted strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+   **Note**: Environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}strings that are stored in an environment that you've defined for a repository. Environment secrets are only available to workflow jobs that reference the appropriate environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 
    {% endnote %}
 
 1. Pass the input or secret from the caller workflow.
 
-{% indented_data_reference reusables.actions.pass-inputs-to-reusable-workflows spaces=3 %}
+   {% data reusables.actions.pass-inputs-to-reusable-workflows %}
 
 ### Example reusable workflow
 

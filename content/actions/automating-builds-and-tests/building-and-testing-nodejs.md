@@ -16,8 +16,9 @@ topics:
   - Node
   - JavaScript
 shortTitle: Build & test Node.js
+layout: inline
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -37,38 +38,48 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 {% data variables.product.prodname_dotcom %} provides a Node.js starter workflow that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the starter workflow. For more information, see the [Node.js starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
+{% data reusables.actions.workflows.starter-workflows %}
 
-```yaml copy
+To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+
+```yaml annotate copy
+# {% data reusables.actions.workflows.workflow-syntax-name %}
 name: Node.js CI
 
+# This example workflow assumes that the default branch for your repository is `main`. If the default branch has a different name, edit this example and add your repository's default branch.
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
 
+#
 jobs:
   build:
 
+    {% data reusables.actions.example-github-runner-comment %}
     runs-on: ubuntu-latest
 
+    # This job uses a matrix strategy to run the job four times, once for each specified Node version. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x, 20.x]
-
+#
     steps:
+      {% data reusables.actions.workflows.workflow-checkout-step-explainer %}
       - uses: {% data reusables.actions.action-checkout %}
+      # This step uses the `actions/setup-node` action to set up Node.js for each version indicated by the `matrix.node-version` key above.
       - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
         uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+      # This step runs `npm ci` to install any dependencies listed in your `package.json` file.
       - run: npm ci
+      # This step runs the `build` script if there is one specified under the `scripts` key in your `package.json` file.
       - run: npm run build --if-present
+      # This step runs the `test` script that is specified under the `scripts` key in your `package.json` file.
       - run: npm test
 ```
-
-{% data reusables.actions.example-github-runner %}
 
 ## Specifying the Node.js version
 
@@ -178,7 +189,7 @@ steps:
   run: yarn --frozen-lockfile
 ```
 
-Alternatively, you can install the dependencies defined in the _package.json_ file. 
+Alternatively, you can install the dependencies defined in the _package.json_ file.
 
 ```yaml copy
 steps:
@@ -195,7 +206,7 @@ steps:
 
 {% data reusables.actions.setup-node-intro %}
 
-To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 In the example below, the secret `NPM_TOKEN` stores the npm authentication token. The `setup-node` action configures the _.npmrc_ file to read the npm authentication token from the `NODE_AUTH_TOKEN` environment variable. When using the `setup-node` action to create an _.npmrc_ file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
 

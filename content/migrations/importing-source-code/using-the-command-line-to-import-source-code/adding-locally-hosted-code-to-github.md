@@ -91,7 +91,7 @@ After you've initialized a Git repository, you can push the repository to {% dat
 
 {% data reusables.migrations.create-empty-repo %}
 1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
-	 
+
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
@@ -167,4 +167,5 @@ After you've initialized a Git repository, you can push the repository to {% dat
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)"{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"{% endif %}

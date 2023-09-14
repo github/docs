@@ -22,6 +22,7 @@ This guide shows you how to set up an example PHP project {% data reusables.code
 
 ## Step 1: Open the project in a codespace
 
+{% data reusables.getting-started.sign-in-dotcom %}
 1. Go to https://github.com/microsoft/vscode-remote-try-php.
 {% data reusables.codespaces.use-this-template %}
 
@@ -83,8 +84,8 @@ The default development container, or "dev container," for {% data variables.pro
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
 
-* Run `composer install`, after the dev container is created, to install the dependencies listed in a `composer.json` file.
-* Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+- Run `composer install`, after the dev container is created, to install the dependencies listed in a `composer.json` file.
+- Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 1. In the `devcontainer.json` file, delete the two commented-out lines about features:
 
@@ -160,7 +161,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing any Composer dependencies, and the "Composer" extension will be available for use.
 

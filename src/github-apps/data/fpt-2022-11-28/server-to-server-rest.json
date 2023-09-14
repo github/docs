@@ -3485,6 +3485,18 @@
       "requestPath": "/repos/{owner}/{repo}/languages"
     },
     {
+      "slug": "enable-private-vulnerability-reporting-for-a-repository",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
+      "slug": "disable-private-vulnerability-reporting-for-a-repository",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
       "slug": "get-rules-for-a-branch",
       "subcategory": "rules",
       "verb": "get",
@@ -3681,6 +3693,12 @@
       "subcategory": "global-advisories",
       "verb": "get",
       "requestPath": "/advisories/{ghsa_id}"
+    },
+    {
+      "slug": "list-repository-security-advisories-for-an-organization",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/security-advisories"
     },
     {
       "slug": "list-repository-security-advisories",

@@ -96,14 +96,14 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           ref: 'main'
           persist-credentials: 'false'
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # pin @3.5.2
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -151,7 +151,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
@@ -184,7 +184,7 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           path: ./user-code
           ref: ${{ env.COMMIT_REF }}
@@ -201,7 +201,7 @@ jobs:
           rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
           rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
           rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
-          rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
+          rsync -rptovR ./user-code/src/./**/*.tsx ./src
           rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
 
       - uses: ./.github/actions/warmup-remotejson-cache

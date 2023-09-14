@@ -1,25 +1,18 @@
 import { useRouter } from 'next/router'
-import { useEffect, useRef } from 'react'
-import { TreeView } from '@primer/react'
-import cx from 'classnames'
+import { useEffect, useState } from 'react'
+import { NavList } from '@primer/react'
 
-import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
-import { Link } from 'components/Link'
-import { RestCollapsibleSection } from 'src/rest/components/RestCollapsibleSection'
-import { ProductCollapsibleSection } from 'components/sidebar/ProductCollapsibleSection'
+import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
+import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
 
 export const SidebarProduct = () => {
   const router = useRouter()
-  const sidebarRef = useRef<HTMLDivElement>(null)
-
   const {
     currentProduct,
     // For the sidebar we only need the short titles so we can use the
     // more "compressed" tree that is as light as possible.
     sidebarTree,
   } = useMainContext()
-  const { t } = useTranslation(['products'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
 
   useEffect(() => {
@@ -36,64 +29,14 @@ export const SidebarProduct = () => {
     return null
   }
 
-  // remove query string and hash
-  const routePath = `/${router.locale}${router.asPath.split('?')[0].split('#')[0]}`
-
   const productSection = () => (
     <div className="ml-3" data-testid="product-sidebar">
-      <TreeView aria-label="product sidebar">
+      <NavList aria-label="Product sidebar">
         {sidebarTree &&
-          sidebarTree.childPages.map((childPage, i) => {
-            const isStandaloneCategory = childPage.childPages.length === 0
-            const childTitle = childPage.title
-            const isActive =
-              routePath.includes(childPage.href + '/') || routePath === childPage.href
-
-            return (
-              <div key={childPage.title}>
-                {isStandaloneCategory ? (
-                  <TreeView.Item
-                    id={childPage.href}
-                    current={routePath === childPage.href}
-                    key={childPage.href + i}
-                    onSelect={(e) => {
-                      if (
-                        e.nativeEvent instanceof KeyboardEvent &&
-                        e.nativeEvent.code === 'Enter'
-                      ) {
-                        // Need to grab the a tag inside the TreeView.Item
-                        const aLink = document.getElementById(childPage.href)?.firstChild?.lastChild
-                          ?.lastChild?.lastChild as HTMLElement
-                        if (aLink) aLink.click()
-                        e?.stopPropagation()
-                      }
-                    }}
-                  >
-                    <Link href={childPage.href} className="color-fg-default no-underline">
-                      {childTitle}
-                    </Link>
-                  </TreeView.Item>
-                ) : (
-                  <TreeView.Item
-                    defaultExpanded={isActive}
-                    id={childPage.href}
-                    key={childPage.href + i}
-                    current={routePath === childPage.href}
-                  >
-                    {childTitle}
-                    <TreeView.SubTree>
-                      <ProductCollapsibleSection
-                        routePath={routePath}
-                        title={childTitle}
-                        page={childPage}
-                      />
-                    </TreeView.SubTree>
-                  </TreeView.Item>
-                )}
-              </div>
-            )
-          })}
-      </TreeView>
+          sidebarTree.childPages.map((childPage) => (
+            <NavListItem key={childPage.href} childPage={childPage} />
+          ))}
+      </NavList>
     </div>
   )
 
@@ -113,89 +56,148 @@ export const SidebarProduct = () => {
     return (
       <>
         <div className="ml-3">
-          <TreeView aria-label="rest sidebar">
-            {conceptualPages.map((childPage, i) => {
-              const childTitle = childPage.title
-              const isActive =
-                routePath.includes(childPage.href + '/') || routePath === childPage.href
+          <NavList aria-label="REST sidebar">
+            {conceptualPages.map((childPage) => (
+              <NavListItem key={childPage.href} childPage={childPage} />
+            ))}
 
-              return (
-                <div key={childTitle}>
-                  {childPage.href.includes('quickstart') ? (
-                    <TreeView.Item
-                      id={childPage.href}
-                      key={childPage.href + i}
-                      current={isActive}
-                      onSelect={(e) => {
-                        if (
-                          e.nativeEvent instanceof KeyboardEvent &&
-                          e.nativeEvent.code === 'Enter'
-                        ) {
-                          document.getElementById(childPage.href)?.click()
-                          e?.stopPropagation()
-                        }
-                      }}
-                    >
-                      <Link
-                        href={childPage.href}
-                        className={cx('d-block no-underline width-full color-fg-default')}
-                      >
-                        {childTitle}
-                      </Link>
-                    </TreeView.Item>
-                  ) : (
-                    <TreeView.Item
-                      id={childPage.href}
-                      key={childPage.href + i}
-                      defaultExpanded={isActive}
-                    >
-                      {childTitle}
-                      <TreeView.SubTree>
-                        <ProductCollapsibleSection
-                          routePath={routePath}
-                          title={childTitle}
-                          page={childPage}
-                        />
-                      </TreeView.SubTree>
-                    </TreeView.Item>
-                  )}
-                </div>
-              )
-            })}
-          </TreeView>
+            <hr data-testid="rest-sidebar-reference" />
+            {restPages.map((category) => (
+              <RestNavListItem key={category.href} category={category} />
+            ))}
+          </NavList>
         </div>
-        <div className="my-3">
-          <div
-            role="separator"
-            aria-hidden="true"
-            data-view-component="true"
-            className="mb-3"
-          ></div>
-          <span data-testid="rest-sidebar-reference" className={cx('f6 pl-3 color-fg-muted')}>
-            {t('rest.reference.api_reference')}
-          </span>
-        </div>
-        <TreeView>
-          {restPages.map((childPage, i) => {
-            const childTitle = childPage.title
-
-            return (
-              <RestCollapsibleSection
-                key={childPage.href + i}
-                routePath={routePath}
-                title={childTitle}
-                page={childPage}
-              />
-            )
-          })}
-        </TreeView>
       </>
     )
   }
 
   return (
-    <div data-testid="sidebar" ref={sidebarRef} style={{ overflowY: 'auto' }} className="pt-3">
+    <div data-testid="sidebar" style={{ overflowY: 'auto' }} className="pt-3">
       {isRestPage ? restSection() : productSection()}
     </div>
+  )
+}
+
+function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
+  const { push, asPath, locale } = useRouter()
+  const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
+  const isActive = routePath === childPage.href
+
+  return (
+    <NavList.Item
+      defaultOpen={childPage.childPages.length > 0 && routePath.includes(childPage.href)}
+      href={childPage.href}
+      aria-current={isActive ? 'page' : false}
+      onClick={(event) => {
+        // XXX TODO: If the `childPage.href` is an external link, don't try to do anything fancy here.
+        event.preventDefault()
+        push(childPage.href)
+      }}
+    >
+      {childPage.title}
+      {childPage.childPages.length > 0 && (
+        <NavList.SubNav aria-label={childPage.title} sx={{ '*': { fontSize: 1 } }}>
+          {childPage.childPages.map((childPage) => (
+            <NavListItem key={childPage.href} childPage={childPage} />
+          ))}
+        </NavList.SubNav>
+      )}
+    </NavList.Item>
+  )
+}
+
+function RestNavListItem({ category }: { category: ProductTreeNode }) {
+  const { push, query, asPath, locale } = useRouter()
+  const [visibleAnchor, setVisibleAnchor] = useState('')
+  const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
+  const miniTocItems =
+    query.productId === 'rest' ||
+    // These pages need the Article Page mini tocs instead of the Rest Pages
+    asPath.includes('/rest/guides') ||
+    asPath.includes('/rest/overview') ||
+    asPath.includes('/rest/quickstart')
+      ? []
+      : useAutomatedPageContext().miniTocItems
+
+  useEffect(() => {
+    if (
+      !asPath.includes('guides') &&
+      !asPath.includes('overview') &&
+      !asPath.includes('quickstart')
+    ) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.target.id) {
+              const anchor = '#' + entry.target.id.split('--')[0]
+              if (entry.isIntersecting === true) setVisibleAnchor(anchor)
+            } else if (asPath.includes('#')) {
+              setVisibleAnchor('#' + asPath.split('#')[1])
+            } else {
+              setVisibleAnchor('')
+            }
+          })
+        },
+        { rootMargin: '0px 0px -85% 0px' },
+      )
+      // TODO: When we add the ## About the {title} API to each operation
+      // we can remove the h2 here
+      const headingsList = Array.from(document.querySelectorAll('h2, h3'))
+
+      headingsList.forEach((heading) => {
+        observer.observe(heading)
+      })
+
+      return () => {
+        observer.disconnect()
+      }
+    }
+  }, [miniTocItems])
+
+  return (
+    <NavList.Item
+      defaultOpen={routePath.includes(category.href)}
+      href={category.href}
+      className="f5"
+    >
+      {category.title}
+      {category.childPages.length > 0 && (
+        <NavList.SubNav aria-label={category.title} sx={{ '*': { fontSize: 1 } }}>
+          {category.childPages.map((childPage) => {
+            return (
+              <NavList.Item
+                defaultOpen={routePath.includes(childPage.href)}
+                key={childPage.href}
+                onClick={(event) => {
+                  event.preventDefault()
+                  push(childPage.href)
+                }}
+              >
+                {childPage.title}
+
+                {routePath === childPage.href && miniTocItems.length > 0 && (
+                  <NavList.SubNav aria-label={childPage.title}>
+                    {miniTocItems.map((item) => {
+                      const isAnchorCurrent = visibleAnchor === item.contents.href
+                      return (
+                        <NavList.Item
+                          key={item.contents.href}
+                          href={item.contents.href}
+                          id={item.contents.href}
+                          aria-current={isAnchorCurrent ? 'location' : false}
+                          onClick={() => setVisibleAnchor(item.contents.href)}
+                        >
+                          {item.contents.title}
+                        </NavList.Item>
+                      )
+                    })}
+                  </NavList.SubNav>
+                )}
+              </NavList.Item>
+            )
+          })}
+        </NavList.SubNav>
+      )}
+    </NavList.Item>
   )
 }

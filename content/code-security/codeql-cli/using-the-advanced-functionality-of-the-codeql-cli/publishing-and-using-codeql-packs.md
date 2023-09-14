@@ -246,7 +246,25 @@ The following properties are supported in `qlpack.yml` files.
     exclude:
       precision: medium
   ```
-  
+
+#### `groups`
+
+- Optional.
+- Defines logical groupings of packs in a {% data variables.product.prodname_codeql %} workspace. Using groups is a way to apply pack operations to subsets of packs in a workspace. For example, the following pack is defined to be a part of the `java` and the `experimental` groups:
+
+  ```yaml
+  groups:
+    - java
+    - experimental
+  ```
+
+  Running `codeql pack publish --groups java,-experimental` will publish all of the packs in the `java` group, _except_ the `experimental` packs. You can run the `codeql pack ls --groups [-]<group>[,[-]<group>...]` command to list the packs in a workspace that match the specified set of groups.
+
+  A {% data variables.product.prodname_codeql %} pack in the given workspace is included in the list if:
+
+  - It is in at least one of the groups listed without a minus sign (this condition is automatically satisfied if there are no groups listed without a minus sign), and
+  - It is not in any group listed with a minus sign.
+
 #### `library`
 
 - Required by library packs.
@@ -281,7 +299,7 @@ The following properties are supported in `qlpack.yml` files.
 - Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
   ```yaml
-  authors: author1@github.com,author2@github.com 
+  authors: author1@github.com,author2@github.com
   ```
 
 #### `license`
@@ -302,7 +320,7 @@ The following properties are supported in `qlpack.yml` files.
 - Optional, deprecated. Use the `dependencies` property instead.
 - Previously used to define the names of any {% data variables.product.prodname_codeql %} packs that this {% data variables.product.prodname_codeql %} pack depends on, as an array. This gives the pack access to any libraries, database schema, and query suites defined in the dependency. For example:
   ```yaml
-  libraryPathDependencies: codeql/javascript-all 
+  libraryPathDependencies: codeql/javascript-all
   ```
 
 #### `dbscheme`
@@ -356,7 +374,7 @@ In most cases, the `codeql-pack.lock.yml` file is only relevant for query packs 
 
 ## Examples of custom {% data variables.product.prodname_codeql %} packs
 
-When you write custom queries or tests, you should save them in custom {% data variables.product.prodname_codeql %} packs. For simplicity, try to organize each pack logically. For more information, see "[{% data variables.product.prodname_codeql %} pack structure](#codeql-pack-structure)." Save files for queries and tests in separate packs and, where possible, organize custom packs into specific folders for each target language. This is particularly useful if you intend to publish your {% data variables.product.prodname_codeql %} packs so they can be shared with others or used in code scanning. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+When you write custom queries or tests, you should save them in custom {% data variables.product.prodname_codeql %} packs. For simplicity, try to organize each pack logically. For more information, see "[{% data variables.product.prodname_codeql %} pack structure](#codeql-pack-structure)." Save files for queries and tests in separate packs and, where possible, organize custom packs into specific folders for each target language. This is particularly useful if you intend to publish your {% data variables.product.prodname_codeql %} packs so they can be shared with others or used in code scanning. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 
 ### {% data variables.product.prodname_codeql %} packs for custom libraries
 

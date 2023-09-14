@@ -35,7 +35,7 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
   await page.getByTestId('product-sidebar').getByText('Quickstart').click()
-  await page.getByTestId('product-sidebar').getByRole('group', { name: 'Hello World' }).click()
+  await page.getByTestId('product-sidebar').getByText('Hello World').click()
   await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
@@ -155,34 +155,6 @@ test.describe('tool picker', () => {
   })
 })
 
-test('filter article cards', async ({ page }) => {
-  await page.goto('/code-security/guides')
-  const articleCards = page.getByTestId('article-cards')
-  await expect(articleCards.getByText('Secure quickstart')).toBeVisible()
-  await expect(articleCards.getByText('Securing your organization')).toBeVisible()
-
-  // For both the type and topic dropdowns, with the Primer component we use it
-  // ends creating a button to open the dropdowns so that's why we're clicking
-  // a button here to expand the option items.
-
-  // all the articles are displayed, filter by topic
-  await page.getByTestId('card-filter-topics').getByRole('button', { name: 'All' }).click()
-  await page.getByTestId('topics-dropdown').getByText('Organizations').click()
-  await expect(articleCards.getByText('Secure quickstart')).not.toBeVisible()
-  await expect(articleCards.getByText('Securing your organization')).toBeVisible()
-
-  // now show all the articles again and then filter by type
-  await page
-    .getByTestId('card-filter-topics')
-    .getByRole('button', { name: 'Organizations' })
-    .click()
-  await page.getByTestId('topics-dropdown').getByText('All').click()
-  await page.getByTestId('card-filter-types').getByRole('button', { name: 'All' }).click()
-  await page.getByTestId('types-dropdown').getByText('Quickstart').click()
-  await expect(articleCards.getByText('Secure quickstart')).toBeVisible()
-  await expect(articleCards.getByText('Securing your organization')).not.toBeVisible()
-})
-
 test('navigate with side bar into article inside a map-topic inside a category', async ({
   page,
 }) => {
@@ -190,9 +162,9 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/actions')
-  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
+  await page.getByTestId('sidebar').getByText('Category').click()
   await page.getByText('Map & Topic').click()
-  await page.getByLabel('<article> link').click()
+  await page.getByText('<article>').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
@@ -449,9 +421,9 @@ test.describe('test nav at different viewports', () => {
 
 test.describe('survey', () => {
   test('happy path, thumbs up and enter email', async ({ page }) => {
-    await page.goto('/get-started/foo/for-playwright')
-
     let fulfilled = 0
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
@@ -461,6 +433,8 @@ test.describe('survey', () => {
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
     })
+
+    await page.goto('/get-started/foo/for-playwright')
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
     await page.locator('[for=survey-yes]').click()
@@ -468,15 +442,16 @@ test.describe('survey', () => {
     await page.getByPlaceholder('email@example.com').fill('test@example.com')
 
     await page.getByRole('button', { name: 'Send' }).click()
-    // Because it sent one about the thumbs and then another with the email.
-    expect(fulfilled).toBe(2)
+    // One for the page view event, one for the thumbs up click, one for
+    // the submission.
+    expect(fulfilled).toBe(1 + 2)
     await expect(page.getByTestId('survey-end')).toBeVisible()
   })
 
   test('thumbs down without filling in the form sends an API POST', async ({ page }) => {
-    await page.goto('/get-started/foo/for-playwright')
-
     let fulfilled = 0
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
@@ -487,8 +462,11 @@ test.describe('survey', () => {
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.goto('/get-started/foo/for-playwright')
+
     await page.locator('[for=survey-yes]').click()
-    expect(fulfilled).toBe(1)
+    // One for the page view event and one for the thumbs up click
+    expect(fulfilled).toBe(1 + 1)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()
@@ -500,11 +478,8 @@ test.describe('rest API reference pages', () => {
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
     await page.getByTestId('sidebar').getByText('Actions').click()
-    await page.getByTestId('rest-subcategory').getByRole('link', { name: 'Artifacts' }).click()
-    await page
-      .getByTestId('rest-subcategory')
-      .getByRole('link', { name: 'About artifacts in GitHub Actions' })
-      .click()
+    await page.getByTestId('sidebar').getByLabel('Artifacts').click()
+    await page.getByLabel('About artifacts in GitHub Actions').click()
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })

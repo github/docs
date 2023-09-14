@@ -70,7 +70,7 @@
 - /github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
 
-/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 - /articles/configuring-webhooks-for-organization-events-in-your-business-account
 - /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account
@@ -261,7 +261,7 @@
 /enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise
 - /billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
 
-/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
+/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization
 - /organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
 
 # The initializing-github-ae.md article is referenced in these code files:

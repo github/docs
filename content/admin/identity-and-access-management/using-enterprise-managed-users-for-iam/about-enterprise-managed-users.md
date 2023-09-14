@@ -31,7 +31,7 @@ In your IdP, you can give each {% data variables.enterprise.prodname_managed_use
 
 {% endif %}
 
-You can grant {% data variables.enterprise.prodname_managed_users %} access to and the ability to contribute to repositories within your enterprise, but {% data variables.enterprise.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. For more information, see "[Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}](#abilities-and-restrictions-of-enterprise-managed-users)."
+You can grant {% data variables.enterprise.prodname_managed_users %} access to and the ability to contribute to repositories within your enterprise, but {% data variables.enterprise.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. For more information, see "[Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}](#abilities-and-restrictions-of-managed-user-accounts)."
 
 The usernames of your enterprise's {% data variables.enterprise.prodname_managed_users %} and their profile information, such as display names and email addresses, are set by through your IdP and cannot be changed by the users themselves. For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
@@ -95,7 +95,9 @@ To discover how a member was added to an organization, you can filter the member
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
-- {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts. {% data variables.enterprise.prodname_managed_users_caps %} can install a {% data variables.product.prodname_github_app %} on an organization if the app does not request organization permissions and if the {% data variables.enterprise.prodname_managed_user %} has admin access to the repositories that they are granting the app access to.
+- {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
+- {% data variables.enterprise.prodname_managed_users_caps %} can install {% data variables.product.prodname_github_app %} on a repository if the app does not request organization permissions and if the {% data variables.enterprise.prodname_managed_user %} has admin access to the repositories that they are granting the app access to.
+- {% data variables.enterprise.prodname_managed_users_caps %} can install {% data variables.product.prodname_github_app %} on an organization if the {% data variables.enterprise.prodname_managed_user %} is an organization owner.
 - You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
 - If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 - {% data reusables.enterprise-accounts.emu-forks %}
@@ -115,7 +117,9 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
    Your contact on the GitHub Sales team will work with you to create your new {% data variables.enterprise.prodname_emu_enterprise %}. You'll need to provide the email address for the user who will set up your enterprise and a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-1. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SSO is successfully enabled. The setup user's username is your enterprise's shortcode suffixed with `_admin`.
+1. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password and saving the recovery codes for the user. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer be allowed to access enterprise or organization settings once SSO is configured, unless an SSO recovery code is used. 
+
+   The setup user's username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`. If you need to sign in as the setup user later, you can enter the username and password at any login page. A link to the login page is also provided on the SSO page, for convenience. 
 
    {% note %}
 
@@ -123,7 +127,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
    {% endnote %}
 
-1. After you log in as the setup user, we recommend enabling two-factor authentication. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+1. After you log in as the setup user, we recommend enabling two-factor authentication. The setup user's password and two-factor credentials can also be used to enter sudo mode, which is required to take sensitive actions. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
 
 1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using another identity provider, like Okta or PingFederate (public beta), you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 

@@ -5,6 +5,8 @@ sections:
       An attacker with access to the password hash of the root site administrator user for the instance's Management Console could make requests to the password API endpoint from outside of the instance. 
     - |
       Packages have been updated to the latest security versions. 
+    - |
+      An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a re-opened Pull Request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and was assigned [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765).
   bugs:
     - |
       If MinIO was configured for external blob storage on an instance with GitHub Actions enabled and MinIO was configured for bucket replication, the instance's credential validation with MinIO would occasionally fail. 
@@ -34,8 +36,6 @@ sections:
       Events related to repository notifications did not appear in the audit log. 
     - |
       On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, a committer would not receive an email notification for a secret scanning alert where push protections were bypassed. 
-    - |
-      In some cases, users could reopen a pull request that should not have been able to be reopened. 
     - |
       On an instance with a GitHub Advanced Security license, if a user filtered by a custom pattern on an organizations "Code & security analysis" page using an invalid query, the entire GitHub Advanced Security disappeared and an error reading "Sorry, something went wrong loading GitHub Advanced Security settings" appeared. 
     - |
@@ -78,3 +78,5 @@ sections:
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

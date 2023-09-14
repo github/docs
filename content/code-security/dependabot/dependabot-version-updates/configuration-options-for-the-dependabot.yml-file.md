@@ -329,28 +329,26 @@ If you use the same configuration as in the example above, bumping the `requests
 {% ifversion dependabot-version-updates-groups %}
 ### `groups`
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+{% data reusables.dependabot.dependabot-version-updates-groups-semver %}
 
-When you first configure a group, you specify a group name that will display in pull request titles and branch names. In the example below, the name of the group is `dev-dependencies`.
+{% data reusables.dependabot.dependabot-version-updates-supported-options-for-groups %}
 
-You then define `patterns` (strings of characters) that match with a dependency name (or multiple dependency names) to include those dependencies in the group.
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
 
-If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal.
+{% data variables.product.prodname_dependabot %} creates groups in the order they appear in your `dependabot.yml` file. If a dependency update could belong to more than one group, it is only assigned to the first group it matches with.
 
-You can also use `exclude-patterns` to exclude certain dependencies from the group. If a dependency is excluded from a group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version.
-
-Note that you can't use `@dependabot ignore` with pull requests for grouped updates. If you want to ignore version updates for a dependency, you must configure an [`ignore`](#ignore) rule for the dependency in the `dependabot.yml` file.
+If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal. {% data variables.product.prodname_dotcom %} reports in the logs if a group is empty. For more information, see "[{% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-fails-to-group-a-set-of-dependencies-into-a-single-pull-request)."
 
 When a scheduled update runs, {% data variables.product.prodname_dependabot %} will refresh pull requests for grouped updates using the following rules:
 - if all the same dependencies need to be updated to the same versions, {% data variables.product.prodname_dependabot %} will rebase the branch.
 - if all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 - if the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 
-{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+You can also manage pull requests for grouped version updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-version-updates-with-comment-commands)."
 
 {% endif %}
 
@@ -364,7 +362,7 @@ Dependencies can be ignored either by adding them to `ignore` or by using the `@
 
 Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
 
-You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
+You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`, or by using the `@dependabot show DEPENDENCY_NAME ignore conditions` comment command. If you wish to unblock updates for a dependency ignored this way, re-open the pull request. This clears the `ignore` conditions that were set when the pull request was closed and resumes those {% data variables.product.prodname_dependabot %} version updates for the dependency. To update the dependency to a newer version, merge the pull request. {% ifversion dependabot-version-updates-groups %}In pull requests for grouped version updates, you can also use the `@dependabot unignore` commands to clear `ignore` settings for dependencies.{% endif %}
 
 For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
@@ -378,7 +376,9 @@ You can use the `ignore` option to customize which dependencies are updated. The
 | `versions` | Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.</br>For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`. |
 | <code><span style="white-space: nowrap;">update-types</span></code> | Use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies.</br>Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. |
 
-{% data reusables.dependabot.option-affects-security-updates %}
+When used alone, the `ignore.versions` key affects both {% data variables.product.prodname_dependabot %} updates, but the `ignore.update-types` key affects only {% data variables.product.prodname_dependabot_version_updates %}.
+
+However, if `versions` and `update-types` are used together in the same `ignore` rule, both {% data variables.product.prodname_dependabot %} updates are affected, unless the configuration uses `target-branch` to check for version updates on a non-default branch.
 
 ```yaml
 # Use `ignore` to specify dependencies that should not be updated
@@ -470,7 +470,6 @@ updates:
       - ruby-github # only access to registries associated with this ecosystem/directory
     schedule:
       interval: "monthly"
-
 ```
 
 {% endraw %}
@@ -628,6 +627,8 @@ updates:
 ### `registries`
 
 To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. {% data reusables.dependabot.dependabot-updates-registries %} For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
+
+{% data reusables.dependabot.advanced-private-registry-config-link %}
 
 To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
@@ -802,7 +803,7 @@ When {% data variables.product.prodname_dependabot %} edits a manifest file to u
 
 | Option | Action |
 |--------|--------|
-| `auto` | Try to differentiate between between apps and libraries. Use `increase` for apps and `widen` for libraries.|
+| `auto` | Try to differentiate between apps and libraries. Use `increase` for apps and `widen` for libraries.|
 | `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
 | `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
 | `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
@@ -811,7 +812,7 @@ When {% data variables.product.prodname_dependabot %} edits a manifest file to u
 
 The following table shows an example of how `versioning-strategy` can be used.
 
-| Current constraint | Current version | New version | Strategy | New constraint | 
+| Current constraint | Current version | New version | Strategy | New constraint |
 |--------------------|-----------------|-------------|----------|----------------|
 | ^1.0.0 | 1.0.0 | 1.2.0 | `widen` | ^1.0.0 |
 | ^1.0.0 | 1.0.0 | 1.2.0 | `increase` | ^1.2.0 |
@@ -921,9 +922,11 @@ updates:
 
 You must provide the required settings for each configuration `type` that you specify. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
+{% data reusables.dependabot.advanced-private-registry-config-link %}
+
 ### `composer-repository`
 
-The `composer-repository` type supports username and password.
+The `composer-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -940,9 +943,9 @@ registries:
 
 ### `docker-registry`
 
-{% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+{% data variables.product.prodname_dependabot %} works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
-The `docker-registry` type supports username and password.
+The `docker-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1004,7 +1007,7 @@ registries:
 
 ### `git`
 
-The `git` type supports username and password.
+The `git` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1061,7 +1064,8 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1069,10 +1073,9 @@ The `maven-repository` type supports username and password.
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
-    replaces-base: true
 ```
 
 {% endraw %}
@@ -1083,7 +1086,7 @@ registries:
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
@@ -1092,7 +1095,7 @@ registries:
 
 ### `npm-registry`
 
-The `npm-registry` type supports username and password, or token.
+The `npm-registry` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
@@ -1159,7 +1162,7 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 ### `nuget-feed`
 
-The `nuget-feed` type supports username and password, or token.
+The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1189,7 +1192,7 @@ registries:
 
 ### `python-index`
 
-The `python-index` type supports username and password, or token.
+The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1221,7 +1224,7 @@ registries:
 
 ### `rubygems-server`
 
-The `rubygems-server` type supports username and password, or token.
+The `rubygems-server` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}

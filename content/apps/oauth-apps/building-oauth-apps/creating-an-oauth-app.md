@@ -42,18 +42,18 @@ For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/diff
 {% data reusables.user-settings.oauth_apps %}
 1. Click **New OAuth App**.
 
-  {% note %}
+   {% note %}
 
-  **Note:** If you haven't created an app before, this button will say, **Register a new application**.
+   **Note:** If you haven't created an app before, this button will say, **Register a new application**.
 
-  {% endnote %}
+   {% endnote %}
 1. In "Application name", type the name of your app.
 
-  {% warning %}
+   {% warning %}
 
-  **Warning:**  Only use information in your {% data variables.product.prodname_oauth_app %} that you consider public. Avoid using sensitive data, such as internal URLs, when creating an {% data variables.product.prodname_oauth_app %}.
+   **Warning:**  Only use information in your {% data variables.product.prodname_oauth_app %} that you consider public. Avoid using sensitive data, such as internal URLs, when creating an {% data variables.product.prodname_oauth_app %}.
 
-  {% endwarning %}
+   {% endwarning %}
 
 1. In "Homepage URL", type the full URL to your app's website.
 1. Optionally, in "Application description", type a description of your app that users will see.

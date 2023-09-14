@@ -1,3 +1,3 @@
 - You must enable the following publicly accessible endpoints:
-  -  `https:///_services/token/.well-known/openid-configuration`
-  -  `https:///_services/token/.well-known/jwks`
+  - `https://HOSTNAME/_services/token/.well-known/openid-configuration`
+  - `https://HOSTNAME/_services/token/.well-known/jwks`
