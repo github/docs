@@ -7,6 +7,7 @@ import { incorrectAltTextLength } from './image-alt-text-length.js'
 import { internalLinksLang } from './internal-links-lang.js'
 import { internalLinksSlash } from './internal-links-slash.js'
 import { imageAltTextExcludeStartWords } from './image-alt-text-exclude-start-words.js'
+import { listFirstWordCapitalization } from './list-first-word-capitalization.js'
 import { internalLinkPunctuation } from './internal-link-punctuation.js'
 
 export const gitHubDocsMarkdownlint = {
@@ -19,6 +20,7 @@ export const gitHubDocsMarkdownlint = {
     internalLinksLang,
     internalLinksSlash,
     imageAltTextExcludeStartWords,
+    listFirstWordCapitalization,
     internalLinkPunctuation,
   ],
 }
