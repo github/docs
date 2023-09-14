@@ -13,4 +13,4 @@
    }
    ```
 
-  The `devcontainer.json` file should now look similar to this, depending on which image you chose:
+   The `devcontainer.json` file should now look similar to this, depending on which image you chose:

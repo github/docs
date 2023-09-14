@@ -130,7 +130,7 @@ You can filter closed items by their close reason.
 
 ## Filtering by the tracked-by field
 
-You can filter for issues that being tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can filter for issues that are tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 | Qualifier  | Example
 | ---------- | -------------
@@ -147,6 +147,8 @@ You can use the `{number}days` syntax to filter for when items were last updated
 | <code>last-updated:<em>NUMBER</em>days</code> | **last-updated:1day** will show items last updated one or more days ago.
 |                                               | **last-updated:7days** will show items last updated seven or more days ago.
 |                                               | **-last-updated:10days** will show items that have been updated in the last ten days.
+
+{% data reusables.projects.last-updated-explanation %}
 
 ## Filtering number, date, and iteration fields
 

@@ -161,7 +161,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
 1. Pass the input or secret from the caller workflow.
 
-{% indented_data_reference reusables.actions.pass-inputs-to-reusable-workflows spaces=3 %}
+   {% data reusables.actions.pass-inputs-to-reusable-workflows %}
 
 ### Example reusable workflow
 

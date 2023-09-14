@@ -10,7 +10,8 @@ topics:
   - Webhooks
 children:
   - /creating-webhooks
-  - /configuring-your-server-to-receive-payloads
+  - /handling-webhook-deliveries
   - /securing-your-webhooks
+  - /disabling-webhooks
+  - /best-practices-for-using-webhooks
 ---
-
