@@ -139,16 +139,11 @@ If you publish a package that is linked to a repository, {% data variables.produ
 
 {% note %}
 
-**Note:** Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+**Notes:** 
+- Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+- You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
 
 {% endnote %}
-
-{% tip %}
-
-**Tip:** Remember that your workflow's job(s) might require additional permissions to access packages, see the `packages` scope in "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
-
-{% endtip %}
-
 
 ### {% data variables.product.prodname_actions %} access for packages scoped to personal accounts
 
