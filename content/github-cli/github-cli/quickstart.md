@@ -60,7 +60,7 @@ If you run the `repo` subcommand from within the directory of a local Git reposi
 
 ### Cloning a repository
 
-Enter `gh clone OWNER/REPO`. For example, `gh clone octo-org/octo-repo` clones the `octo-org/octo-repo` repository to the directory from which you ran this command on your local computer.
+Enter `gh repo clone OWNER/REPO`. For example, `gh repo clone octo-org/octo-repo` clones the `octo-org/octo-repo` repository to the directory from which you ran this command on your local computer.
 
 ### Creating a repository
 
