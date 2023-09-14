@@ -255,6 +255,9 @@ In this modification of the earlier example, we've introduced an `if` conditiona
 
 ```yaml
 run: echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"
+```
+
+{% endraw %}
 
 {% note %}
 
