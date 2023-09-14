@@ -3,6 +3,12 @@ release_candidate: false
 deprecated: false
 intro: |
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  
+  {% warning %}
+  
+  **Warning**: This release contains known issues that can impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.0-known-issues)" section of these release notes.
+  
+  {% endwarning %}
 sections:
   # Remove section heading if the section contains no notes.
 
