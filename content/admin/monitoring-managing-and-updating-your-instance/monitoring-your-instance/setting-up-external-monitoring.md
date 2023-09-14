@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/setting-up-external-monitoring
   - /admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/setting-up-external-monitoring
 versions:
   ghes: '*'
 type: how_to

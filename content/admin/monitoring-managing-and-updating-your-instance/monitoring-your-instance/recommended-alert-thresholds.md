@@ -8,6 +8,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/recommended-alert-thresholds
   - /admin/enterprise-management/recommended-alert-thresholds
   - /admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/recommended-alert-thresholds
 versions:
   ghes: '*'
 type: reference

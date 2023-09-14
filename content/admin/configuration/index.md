@@ -13,7 +13,6 @@ versions:
 topics:
   - Enterprise
 children:
-  - /administering-your-instance-from-the-management-console
   - /configuring-user-applications-for-your-enterprise
   - /hardening-security-for-your-enterprise
   - /configuring-network-settings

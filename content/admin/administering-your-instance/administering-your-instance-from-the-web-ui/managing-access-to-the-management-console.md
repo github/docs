@@ -1,7 +1,9 @@
 ---
 title: Managing access to the Management Console
-shortTitle: Manage access
+shortTitle: Manage Management Console access
 intro: '{% ifversion enterprise-management-console-multi-user-auth %}You can increase the security of {% data variables.location.product_location %} by creating or deleting {% data variables.enterprise.management_console %} users. As the root site administrator, you {% else %}You {% endif %}can access the {% data variables.enterprise.management_console %} as well as configure {% data variables.enterprise.management_console %} authentication rate limits.'
+redirect_from:
+  - /admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console
 versions:
   ghes: '*'
 type: how_to

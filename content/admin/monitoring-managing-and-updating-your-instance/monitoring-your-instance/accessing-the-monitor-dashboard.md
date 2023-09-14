@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/accessing-the-monitor-dashboard
   - /admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/accessing-the-monitor-dashboard
 versions:
   ghes: '*'
 type: how_to

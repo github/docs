@@ -1,7 +1,9 @@
 ---
 title: Accessing the Management Console
-shortTitle: Access
+shortTitle: Access Management Console
 intro: 'You can access the {% data variables.enterprise.management_console %} {% ifversion ghes < 3.8 %}using the {% data variables.enterprise.management_console %} password{% elsif enterprise-management-console-multi-user-auth %}as the root site administrator or a {% data variables.enterprise.management_console %} user{% endif %}.'
+redirect_from:
+  - /admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console
 versions:
   ghes: '*'
 type: how_to
