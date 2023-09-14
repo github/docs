@@ -9,6 +9,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /reviewing-your-organization-or-enterprises-audit-logs-for-copilot-for-business
   - /managing-access-for-copilot-for-business-in-your-organization
   - /managing-policies-for-copilot-for-business-in-your-organization
   - /enabling-and-setting-up-github-copilot-for-business  
