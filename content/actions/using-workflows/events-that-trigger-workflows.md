@@ -404,7 +404,6 @@ For example, you can run a workflow when the `checks_requested` activity has occ
 on:
   merge_group:
     types: [checks_requested]
-
 ```
 
 {% endif %}

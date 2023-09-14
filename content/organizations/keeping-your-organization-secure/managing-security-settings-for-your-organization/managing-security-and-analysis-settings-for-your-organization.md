@@ -52,7 +52,7 @@ You can enable or disable features for all repositories.
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories and public npm packages these repositories may depend on.{% endif %}{% ifversion ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %} This option controls whether or not {% data variables.secret-scanning.user_alerts %} are enabled. {% data variables.secret-scanning.partner_alerts_caps %} always runs on all public repositories.
 
 {%- ifversion org-enable-code-scanning %}
-- **{% data variables.product.prodname_code_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories{% elsif ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled{% elsif ghes or ghae %}repositories that are eligible for default setup using {% data variables.product.prodname_codeql %} where {% data variables.product.prodname_GH_advanced_security %} is enabled{% endif %}. {% data reusables.code-scanning.default-setup-info-link %} For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning)."
+- **{% data variables.product.prodname_code_scanning_caps %}** - Your changes affect {% ifversion fpt %}public repositories{% elsif ghec %}public repositories, and private or internal repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled{% elsif ghes or ghae %}repositories that are eligible for default setup using {% data variables.product.prodname_codeql %} where {% data variables.product.prodname_GH_advanced_security %} is enabled{% endif %}. {% data reusables.code-scanning.default-setup-info-link %} For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 {%- endif %}
 
 {% endif %}
@@ -90,13 +90,13 @@ You can use security overview to find a set of repositories and enable or disabl
 1. When you are ready to make the changes, click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
 
 {% ifversion org-enable-code-scanning %}
-  {% note %}
+   {% note %}
 
-  **Notes:**
-    - {% data reusables.code-scanning.limitation-org-enable-all %}{% ifversion bulk-code-scanning-query-suite %}
-    - Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning-at-scale##configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% endif %}
+   **Notes:**
+   - {% data reusables.code-scanning.limitation-org-enable-all %}{% ifversion bulk-code-scanning-query-suite %}
+   - Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %}" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}."{% endif %}
 
-  {% endnote %}
+   {% endnote %}
 {% endif %}
 
 {% data reusables.security.displayed-information %}

@@ -19,7 +19,7 @@ These extra logs are enabled by setting secrets{% ifversion actions-configuratio
 - {% data reusables.actions.permissions-statement-secrets-environment %}
 - {% data reusables.actions.permissions-statement-secrets-and-variables-organization %}
 
-For more information on setting secrets{% ifversion actions-configuration-variables %} and variables, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)" and "[AUTOTITLE](/actions/learn-github-actions/variables)."{% else %}, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."{% endif %}
+For more information on setting secrets{% ifversion actions-configuration-variables %} and variables, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" and "[AUTOTITLE](/actions/learn-github-actions/variables)."{% else %}, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."{% endif %}
 
 {% ifversion debug-reruns %}
 

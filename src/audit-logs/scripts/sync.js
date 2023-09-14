@@ -10,11 +10,11 @@
  * per page.
  */
 import { existsSync } from 'fs'
-import { writeFile } from 'fs/promises'
+import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
-import { getContents } from '../../../script/helpers/git-utils.js'
+import { getContents, getCommitSha } from '../../../script/helpers/git-utils.js'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')
@@ -63,6 +63,13 @@ async function main() {
   const ref = 'main'
   const schemaFilePath = 'data/schema.json'
   const schemaEvents = JSON.parse(await getContents(owner, repo, ref, schemaFilePath))
+  const mainSha = await getCommitSha(owner, repo, `heads/${ref}`)
+
+  // update pipeline config data
+  const configFilepath = `src/audit-logs/lib/config.json`
+  const configData = JSON.parse(await readFile(configFilepath, 'utf8'))
+  configData.sha = mainSha
+  await writeFile(configFilepath, JSON.stringify(configData, null, 2))
 
   // translate allowLists values into the versions and audit log page the event
   // belongs to -- for versions:
@@ -109,11 +116,7 @@ async function main() {
 
       // GHEC events
       if (event._allowlists.includes('business')) {
-        // If an event is on the business and business_server allowlist,
-        // it is an enterprise type event
-        if (event._allowlists.includes('business_server')) {
-          auditLogData.ghec.enterprise.push(minimalEvent)
-        }
+        auditLogData.ghec.enterprise.push(minimalEvent)
 
         if (event._allowlists.includes('organization')) {
           auditLogData.ghec.organization.push(minimalEvent)

@@ -49,6 +49,7 @@ If your migration source is Bitbucket Server, you can migrate repositories. We c
 
 Currently, the following data is **not** migrated.
 
+- Personal repositories owned by users
 - Branch permissions
 - Commit comments
 - Repository settings

@@ -20,7 +20,7 @@ shortTitle: About Git LFS billing
 
 {% note %}
 
-**Note:** On September 1st, 2023, the free entitlement for {% data variables.large_files.product_name_short %} is increasing. If you use {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}, you will receive 10GiB of free storage and 10GiB a month of free bandwidth. If you use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}, you will receive 250GiB of free storage and 250GiB a month of free bandwidth. Learn more about this change in the [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/61362).
+**Note:** On October 1st, 2023, the free entitlement for {% data variables.large_files.product_name_short %} is increasing. If you use {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}, you will receive 10GiB of free storage and 10GiB a month of free bandwidth. If you use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}, you will receive 250GiB of free storage and 250GiB a month of free bandwidth. Learn more about this change in the [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/61362).
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ shortTitle: About Git LFS billing
 
 {% note %}
 
-**Note:** On September 1st, 2023, the billing model for {% data variables.large_files.product_name_short %} is changing. Data packs will be replaced by metered billing. Learn more about this change in the [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/61362).
+**Note:** On October 1st, 2023, the billing model for {% data variables.large_files.product_name_short %} is changing. Data packs will be replaced by usage-based billing. Learn more about this change in the [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/61362).
 
 {% endnote %}
 

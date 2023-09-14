@@ -38,6 +38,29 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 
 {% endif %}
 
+{% ifversion repository-actions-runners %}
+
+## Viewing available runners for a repository
+
+{% note %}
+
+**Note:** This feature is currently in beta and subject to change.
+
+{% endnote %}
+
+{% data reusables.actions.about-viewing-runner-list %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.repository-runners %}
+1. Click the **Self hosted** tab at the top of the list of runners.
+1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+{% data reusables.actions.copy-runner-label %}
+
+{% data reusables.actions.actions-tab-new-runners-note %}
+
+{% endif %}
+
 ## Using default labels to route jobs
 
 A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
