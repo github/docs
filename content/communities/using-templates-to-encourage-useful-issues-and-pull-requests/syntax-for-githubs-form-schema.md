@@ -28,7 +28,7 @@ For example, the following form definition includes four form elements: a text a
   attributes:
     label: Operating System
     description: What operating system are you using?
-    placeholder: Example: macOS Big Sur
+    placeholder: "Example: macOS Big Sur"
     value: operating system
   validations:
     required: true
