@@ -30,7 +30,7 @@ You can add multiple public keys to your account on {% data variables.product.pr
 {% ifversion upload-expired-or-revoked-gpg-key %}
 To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
 
-![A verified commit whose key expired](/assets/images/help/settings/gpg-verified-with-expired-key.png)
+![Screenshot of a list of commits. One commit is marked with a "Verified" label. Below the label, a dropdown explains that the commit was signed, but the key has now expired.](/assets/images/help/settings/gpg-verified-with-expired-key.png)
 {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -41,16 +41,15 @@ When verifying a signature, {% data variables.product.product_name %} extracts t
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-3. Click **New GPG key**.
-   ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
-4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
-   ![The key field](/assets/images/help/settings/gpg-key-paste.png)
-5. Click **Add GPG key**.
-   ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+1. Next to the "GPG keys" header, click **New GPG key**.
+1. In the "Title" field, type a name for your GPG key.
+1. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
+1. Click **Add GPG key**.
+1. To confirm the action, authenticate to your {% data variables.product.prodname_dotcom %} account.
 
 {% ifversion upload-expired-or-revoked-gpg-key %}
 {% else %}
+
 ## Updating an expired GPG key
 
 When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.

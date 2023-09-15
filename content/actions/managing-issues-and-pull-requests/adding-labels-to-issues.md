@@ -14,8 +14,7 @@ topics:
   - Workflows
   - Project management
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -29,10 +28,10 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
 ## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-2. {% data reusables.actions.make-workflow-file %}
-3. Copy the following YAML contents into your workflow file.
+1. {% data reusables.actions.make-workflow-file %}
+1. Copy the following YAML contents into your workflow file.
   
-    ```yaml{:copy}
+    ```yaml copy
     name: Label issues
     on:
       issues:
@@ -56,10 +55,10 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
                 })
     ```
 
-4. Customize the `script` parameter in your workflow file:
+1. Customize the `script` parameter in your workflow file:
    - The `issue_number`, `owner`, and `repo` values are automatically set using the `context` object. You do not need to change these.
    - Change the value for `labels` to the list of labels that you want to add to the issue. Separate multiple labels with commas. For example, `["help wanted", "good first issue"]`. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
-5. {% data reusables.actions.commit-workflow %}
+1. {% data reusables.actions.commit-workflow %}
 
 ## Testing the workflow
 
@@ -68,8 +67,8 @@ Every time an issue in your repository is opened or reopened, this workflow will
 Test out your workflow by creating an issue in your repository.
 
 1. Create an issue in your repository. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
-2. To see the workflow run that was triggered by creating the issue, view the history of your workflow runs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
-3. When the workflow completes, the issue that you created should have the specified labels added.
+1. To see the workflow run that was triggered by creating the issue, view the history of your workflow runs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+1. When the workflow completes, the issue that you created should have the specified labels added.
 
 ## Next steps
 

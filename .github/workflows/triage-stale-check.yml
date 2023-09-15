@@ -6,7 +6,7 @@ name: Public Repo Stale Check
 
 on:
   schedule:
-    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+    - cron: '20 16 * * 1-5' # Run every weekday at 16:20 UTC / 8:20 PST
 
 permissions:
   issues: write
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/stale@1160a2240286f5da8ec72b1c0816ce2481aabf84
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          stale-issue-message: 'A stale label has been added to this issue becuase it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
+          stale-issue-message: 'A stale label has been added to this issue because it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
           days-before-issue-stale: 60
           days-before-issue-close: 3
           exempt-issue-labels: 'help wanted,never-stale,waiting for review'
@@ -42,7 +42,7 @@ jobs:
           days-before-pr-close: -1 # Never close
           remove-stale-when-updated: false
           operations-per-run: 100
-          only-labels: 'waiting for review'
+          only-pr-labels: 'waiting for review'
           # The hope is that by setting the stale-pr-label to the same label
           # as the label that the stale check looks for, this will result in
           # a comment being posted every 14 days as an infinite loop, which is what

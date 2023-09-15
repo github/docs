@@ -37,21 +37,22 @@ To configure an LMS to connect to {% data variables.product.prodname_classroom %
 
 ## Linking a Canvas course with a classroom
 
-You can link your Moodle course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Canvas, see the [Canvas website](https://www.instructure.com/canvas/).
+You can link your Canvas course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Canvas, see the [Canvas website](https://www.instructure.com/canvas/).
 
 An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-canvas-for-github-classroom)."
 
 1. Sign into [Canvas](https://www.instructure.com/canvas/#login).
 1. Select the Canvas course to integrate with {% data variables.product.prodname_classroom %}.
-2. Click "Settings" in the left sidebar, then click the "Apps" tab.
-3. Click the **+ App** button.
-4. Under "Configuration Type", select **By Client ID** from the dropdown menu.
-5. Under "Client ID", input the Client ID that your LMS administrator created when registering your LMS instance with {% data variables.product.prodname_classroom %}.
-6. Click **Submit**, then click **Install**.
-7. Refresh the page, and you should see a **GitHub Classroom** link in the course sub-navigation menu on the right hand side of the course details page. Note that the name may be different if your LMS admin named it something else when registering your LMS.
-8. Clicking the **GitHub Classroom** link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
+1. Click "Settings" in the left sidebar, then click the "Apps" tab.
+1. Click the **+ App** button.
+1. Under "Configuration Type", select **By Client ID** from the dropdown menu.
+1. Under "Client ID", input the Client ID that your LMS administrator created when registering your LMS instance with {% data variables.product.prodname_classroom %}.
+1. Click **Submit**, then click **Install**.
+1. Refresh the page, and you should see a **GitHub Classroom** link in the course sub-navigation menu on the right hand side of the course details page. Note that the name may be different if your LMS admin named it something else when registering your LMS.
+1. Clicking the **GitHub Classroom** link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
+
 ## Linking a Moodle course with a classroom
 
 You can link your Moodle course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Moodle, see the [Moodle website](https://moodle.org).
@@ -62,10 +63,11 @@ You must be using Moodle version 3.0 or greater.
 
 1. Sign into [Moodle](https://moodle.org/login/).
 1. Select the Moodle course to integrate with {% data variables.product.prodname_classroom %}.
-2. Under "External Tools, under "General", you should see a button with the name "GitHub Classroom". Note that the name may be different if your LMS admin named it something else when registering your LMS.
-3. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
+1. Under "External Tools, under "General", you should see a button with the name "GitHub Classroom". Note that the name may be different if your LMS admin named it something else when registering your LMS.
+1. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
+
 ## Linking a Sakai course with a classroom
 
 You can link your Sakai course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Sakai, see the [Sakai website](https://www.sakailms.org/).
@@ -73,13 +75,12 @@ You can link your Sakai course with a classroom in {% data variables.product.pro
 An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-moodle-for-github-classroom)."
 
 1. Sign into your Sakai instance.
-2. Select the Sakai course to integrate with {% data variables.product.prodname_classroom %}.
-3. Click on **External Tools**.
-4. Click on **Tool Links**.
-5. Clicking the "GitHub Classroom" link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
+1. Select the Sakai course to integrate with {% data variables.product.prodname_classroom %}.
+1. Click on **External Tools**.
+1. Click on **Tool Links**.
+1. Clicking the "GitHub Classroom" link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
-
 
 ## Importing a roster from your LMS
 

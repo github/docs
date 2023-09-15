@@ -22,5 +22,4 @@ When calling the GraphQL API, you must specify nested subfields until you return
 
 For more information, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#field)."
 
-
 <!-- Content after this section is automatically generated -->

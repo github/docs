@@ -16,6 +16,12 @@ shortTitle: About billing
 ---
 ## About billing for {% data variables.product.prodname_registry %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% data reusables.package_registry.packages-billing %}
 
 {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
@@ -26,15 +32,13 @@ shortTitle: About billing
 
 {% endnote %}
 
-{% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
-{% endif %}
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 Data transfer resets every month, while storage usage does not.
 
 {% rowheaders %}
 
-Product | Storage | Data transfer (per month)
+Plan | Storage | Data transfer (per month)
 ------- | ------- | ---------
 {% data variables.product.prodname_free_user %} | 500MB | 1GB
 {% data variables.product.prodname_pro %} | 2GB | 10GB

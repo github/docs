@@ -1,0 +1,3 @@
+# Documentation for enterprise only (>=3.7) specifying that admins need to provide their own Azure Maps token
+versions:
+  ghes: '>=3.7'

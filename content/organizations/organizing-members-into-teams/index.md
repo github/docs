@@ -29,6 +29,7 @@ children:
   - /managing-code-review-settings-for-your-team
   - /renaming-a-team
   - /changing-team-visibility
+  - /configuring-team-notifications
   - /synchronizing-a-team-with-an-identity-provider-group
   - /moving-a-team-in-your-organizations-hierarchy
   - /requesting-to-add-a-child-team
@@ -39,4 +40,3 @@ children:
   - /deleting-a-team
 shortTitle: Organize members into teams
 ---
-

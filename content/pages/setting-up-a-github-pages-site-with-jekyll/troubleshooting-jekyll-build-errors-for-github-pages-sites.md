@@ -43,7 +43,7 @@ If Jekyll encounters an error building your {% data variables.product.prodname_p
 If you received a generic error message, check for common issues.
 - You're using unsupported plugins. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#plugins)."{% ifversion fpt or ghec %}
 - Your repository has exceeded our repository size limits. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)"{% endif %}
-- You changed the `source` setting in your *_config.yml* file. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
+- You changed the `source` setting in your __config.yml_ file. {% ifversion pages-custom-workflow %}If you publish your site from a branch, {% endif %}{% data variables.product.prodname_pages %} overrides this setting during the build process.
 - A filename in your published files contains a colon (`:`) which is not supported.
 
 If you received a specific error message, review the troubleshooting information for the error message below.
@@ -52,9 +52,9 @@ If you received a specific error message, review the troubleshooting information
 
 ## Config file error
 
-This error means that your site failed to build because the *_config.yml* file contains syntax errors.
+This error means that your site failed to build because the __config.yml_ file contains syntax errors.
 
-To troubleshoot, make sure that your *_config.yml* file follows these rules:
+To troubleshoot, make sure that your __config.yml_ file follows these rules:
 
 {% data reusables.pages.yaml-rules %}
 
@@ -74,32 +74,25 @@ To troubleshoot, search the file in the error message and the file's layouts for
 
 ## File does not exist in includes directory
 
-This error means that your code references a file that doesn't exist in your *_includes* directory.
+This error means that your code references a file that doesn't exist in your __includes_ directory.
 
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the *_includes* directory, copy or move the files into the *_includes* directory.
-
-{% ifversion ghes < 3.9 %}
-## File is a symlink
-
-This error means that your code references a symlinked file that does not exist in the published files for your site.
-
-{% data reusables.pages.search-for-includes %} If any of the files you've referenced are symlinked, copy or move the files into the *_includes* directory.
-{% endif %}
+{% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the __includes_ directory, copy or move the files into the __includes_ directory.
 
 ## File is not properly UTF-8 encoded
 
 This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
 
-To troubleshoot, force UTF-8 encoding by adding the following line to your *_config.yml* file:
+To troubleshoot, force UTF-8 encoding by adding the following line to your __config.yml_ file:
+
 ```yaml
 encoding: UTF-8
 ```
 
 ## Invalid highlighter language
 
-This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/) in your configuration file.
+This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](https://pygments.org/) in your configuration file.
 
-To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/). For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#syntax-highlighting)."
+To troubleshoot, update your __config.yml_ file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](https://pygments.org/). For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#syntax-highlighting)."
 
 ## Invalid post date
 
@@ -107,7 +100,7 @@ This error means that a post on your site contains an invalid date in the filena
 
 To troubleshoot, make sure all dates are formatted as YYYY-MM-DD HH:MM:SS for UTC and are actual calendar dates. To specify a time zone with an offset from UTC, use the format YYYY-MM-DD HH:MM:SS +/-TTTT, like `2014-04-18 11:30:00 +0800`.
 
-If you specify a date format in your *_config.yml* file, make sure the format is correct.
+If you specify a date format in your __config.yml_ file, make sure the format is correct.
 
 ## Invalid Sass or SCSS
 
@@ -125,9 +118,9 @@ If do you want to use the submodule, make sure you use `https://` when referenci
 
 ## Invalid YAML in data file
 
-This error means that one of more files in the *_data* folder contains invalid YAML.
+This error means that one of more files in the __data_ folder contains invalid YAML.
 
-To troubleshoot, make sure the YAML files in your *_data* folder follow these rules:
+To troubleshoot, make sure the YAML files in your __data_ folder follow these rules:
 
 {% data reusables.pages.yaml-rules %}
 
@@ -162,19 +155,11 @@ If you do want to use a submodule, initialize the submodule. For more informatio
 
 ## Relative permalinks configured
 
-This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your *_config.yml* file.
+This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your __config.yml_ file.
 
 Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see "[Permalinks](https://jekyllrb.com/docs/permalinks/)" in the Jekyll documentation.
 
-To troubleshoot, remove the `relative_permalinks` line from your *_config.yml* file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)."
-
-{% ifversion ghes < 3.9 %}
-## Symlink does not exist within your site's repository
-
-This error means that your site includes a symbolic link (symlink) that does not exist in the published files for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.
-
-To troubleshoot, determine if the file in the error message is used to build your site. If not, or if you don't want the file to be a symlink, delete the file. If the symlinked file is necessary to build your site, make sure the file or directory the symlink references is in the published files for your site. To include external assets, consider using {% ifversion fpt or ghec %}`git submodule` or {% endif %}a third-party package manager such as [Bower](https://bower.io/).{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/using-submodules-with-github-pages)."{% endif %}
-{% endif %}
+To troubleshoot, remove the `relative_permalinks` line from your __config.yml_ file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)."
 
 ## Syntax error in 'for' loop
 

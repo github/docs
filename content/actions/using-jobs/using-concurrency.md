@@ -8,8 +8,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -17,6 +16,7 @@ versions:
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
 
 {% ifversion github-runner-dashboard %}
+
 ## Monitoring your current jobs in your organization or enterprise
 
 {% data reusables.actions.github-hosted-runners-check-concurrency %}

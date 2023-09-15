@@ -1,11 +1,45 @@
-Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. 
+Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 {% ifversion fpt or ghec %}- The destination machine can be either a [{% data variables.product.prodname_dotcom %}-hosted runner](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group), or a [self-hosted runner](#choosing-self-hosted-runners).{% else %}
-- The destination machine can be a [self-hosted runner](#choosing-self-hosted-runners).{% endif %} 
+- The destination machine can be a [self-hosted runner](#choosing-self-hosted-runners).{% endif %}
 {% ifversion target-runner-groups %}- You can target runners based on the labels assigned to them, or their group membership, or a combination of these.{% else %}
 - You can target runners based on the labels assigned to them.{% endif %}
-- You can provide `runs-on` as a single string or as an array of strings. 
-- If you specify an array of strings, your workflow will execute on any runner that matches all of the specified `runs-on` values. 
+- You can provide `runs-on` as:
+  - a single string
+  - a single variable containing a string
+  - an array of strings, variables containing strings, or a combination of both
+  - a `key: value` pair using the `group` or `label` keys
+- If you specify an array of strings or variables, your workflow will execute on any runner that matches all of the specified `runs-on` values. For example, here the job will only run on a self-hosted runner that has the labels `linux`, `x64`, and `gpu`:
+
+  ```yaml
+  runs-on: [self-hosted, linux, x64, gpu]
+  ```
+
+  For more information, see "[Choosing self-hosted runners](#choosing-self-hosted-runners)."
+- You can mix strings and variables in an array. For example:
+
+  {% raw %}
+
+  ```yaml
+  on:
+    workflow_dispatch:
+      inputs:
+        chosen-os:
+          required: true
+          type: choice
+          options:
+          - Ubuntu
+          - macOS
+
+  jobs:
+    test:
+      runs-on: [self-hosted, "${{ inputs.chosen-os }}"]
+      steps:
+      - run: echo Hello world!
+  ```
+
+  {% endraw %}
+
 - If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 {% ifversion fpt or ghec or ghes %}
@@ -29,7 +63,9 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/abou
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ### Choosing self-hosted runners
+
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
@@ -40,7 +76,7 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/abou
 runs-on: [self-hosted, linux]
 ```
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
 
 {% ifversion target-runner-groups %}
 

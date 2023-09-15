@@ -15,8 +15,7 @@ topics:
   - GitHub Connect
 shortTitle: Use GitHub Connect for actions
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions

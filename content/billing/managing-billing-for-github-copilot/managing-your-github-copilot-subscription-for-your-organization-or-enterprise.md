@@ -25,16 +25,27 @@ You can set up a {% data variables.product.prodname_copilot_for_business %} subs
 
 Before you can start using {% data variables.product.prodname_copilot_business_short %} in your enterprise, you will need to set up a subscription.
 
+### Customers under a Microsoft Enterprise Agreement
+
+{% data reusables.copilot.signup-procedure-enterprise-msft-ea %}
+
+### Customers under a direct GitHub contract
+
 {% data reusables.copilot.signup-procedure-enterprise %}
 
 {% endif %}
+
+{% ifversion fpt %}
+
 ## Setting up a {% data variables.product.prodname_copilot_business_short %} subscription for your organization
 
 Before you can start using {% data variables.product.prodname_copilot %} in your organization account, you will need to set up a subscription.
 
 {% data reusables.copilot.signup-procedure-org %}
 
-##  Modifying your {% data variables.product.prodname_copilot_business_short %} subscription
+{% endif %}
+
+## Modifying your {% data variables.product.prodname_copilot_business_short %} subscription
 
 {% ifversion ghec %}
 
@@ -51,6 +62,7 @@ You can modify your {% data variables.product.prodname_copilot_business_short %}
 You can modify the policies for the use of {% data variables.product.prodname_copilot %} suggestions that match public code in your enterprise, and the access to your {% data variables.product.prodname_copilot %} subscription. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)."
 
 ### Modifying your {% data variables.product.prodname_copilot_business_short %} settings for your organization
+
 {% endif %}
 You can configure {% data variables.product.prodname_copilot %} in your organization, including granting and revoking access to individuals and teams, and determining whether to block suggestions that match public code. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
 
@@ -59,7 +71,6 @@ You can configure {% data variables.product.prodname_copilot %} in your organiza
 {% ifversion ghec %}
 
 You can either disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise or for a specific organization.
-
 
 ### Canceling your {% data variables.product.prodname_copilot_business_short %} subscription for your enterprise account
 

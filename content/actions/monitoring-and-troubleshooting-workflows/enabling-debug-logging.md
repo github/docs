@@ -10,8 +10,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 These extra logs are enabled by setting secrets{% ifversion actions-configuration-variables %} or variables{% endif %} in the repository containing the workflow, so the same permissions requirements will apply:
@@ -20,7 +19,7 @@ These extra logs are enabled by setting secrets{% ifversion actions-configuratio
 - {% data reusables.actions.permissions-statement-secrets-environment %}
 - {% data reusables.actions.permissions-statement-secrets-and-variables-organization %}
 
-For more information on setting secrets{% ifversion actions-configuration-variables %} and variables, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)" and "[AUTOTITLE](/actions/learn-github-actions/variables)."{% else %}, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."{% endif %}
+For more information on setting secrets{% ifversion actions-configuration-variables %} and variables, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" and "[AUTOTITLE](/actions/learn-github-actions/variables)."{% else %}, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."{% endif %}
 
 {% ifversion debug-reruns %}
 
@@ -32,8 +31,8 @@ Additionally, anyone who has access to run a workflow can enable runner diagnost
 
 Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. Two extra log files are added to the log archive:
 
-* The runner process log, which includes information about coordinating and setting up runners to execute jobs.
-* The worker process log, which logs the execution of a job.
+- The runner process log, which includes information about coordinating and setting up runners to execute jobs.
+- The worker process log, which logs the execution of a job.
 
 1. To enable runner diagnostic logging, set the following secret{% ifversion actions-configuration-variables %} or variable{% endif %} in the repository that contains the workflow: `ACTIONS_RUNNER_DEBUG` to `true`.{% ifversion actions-configuration-variables %} If both the secret and variable are set, the value of the secret takes precedence over the variable.{% endif %}
 1. To download runner diagnostic logs, download the log archive of the workflow run. The runner diagnostic logs are contained in the `runner-diagnostic-logs` folder. For more information on downloading logs, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs)."

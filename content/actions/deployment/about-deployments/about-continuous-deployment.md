@@ -13,8 +13,7 @@ topics:
   - CD
 shortTitle: About continuous deployment
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About continuous deployment
@@ -31,7 +30,7 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 
 {% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. For more information about these features, see "[AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)" and "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 ## Using OpenID Connect to access cloud resources
 
@@ -48,4 +47,3 @@ You can configure your CD workflow to run when a {% data variables.product.produ
 - [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)
 - [AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment){% ifversion fpt or ghec %}
 - "[AUTOTITLE](/billing/managing-billing-for-github-actions)"{% endif %}
-

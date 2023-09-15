@@ -49,8 +49,28 @@
         margin-top: 1rem;
       }
 
-      [class~="extended-markdown"] {
+      [class~="ghd-tool"] {
         margin-top: 1rem;
+      }
+
+      // for one level deep of nested ordered lists we switch bullet points
+      // from the custom numbers to letters
+      ol {
+        padding-left: 2em;
+        counter-reset: revert;
+
+        > li {
+          list-style-type: lower-alpha;
+          padding-left: 0.5rem;
+
+          &:before {
+            all: unset;
+          }
+
+          &:after {
+            all: unset;
+          }
+        }
       }
     }
 

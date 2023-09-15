@@ -42,7 +42,7 @@ Every time a codespace is created or restarted, it's assigned a new {% data vari
 The token's scope will vary depending on the access you have to the repository where the codespace was created:
 
 - **If you have write access to the repository**: The token will be scoped for read/write access to the repository.
-- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository, and the token is updated to have read and write access to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
+- **If you only have read access to the repository**: The token will only allow the code to be cloned from the source repository. If you make a commit in the codespace, or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically creates a fork of the repository, or links the codespace to an existing fork if you already have one for the upstream repository. The token is updated to have read and write access to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
 - **If you've authorized your codespace to access other repositories**: The token will be scoped for read or read/write access to the source repository and to any other repositories to which you've authorized access. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces#authorizing-requested-permissions)."
 
 ### Codespace connections
@@ -78,15 +78,15 @@ Codespaces are designed to be security hardened by default. To help maintain thi
 
 ### Using secrets to access sensitive information
 
-Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
+Always use secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME` to see the value of a secret.
 
 The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
 
 Secrets are not copied into the environment if you don't have write access to the codespace's repository.
 
 For more information on secrets, see:
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces)"
 
 ### Working with other people's contributions and repositories
 
@@ -94,11 +94,11 @@ When you create a codespace from a PR branch from a fork, the token in the codes
 - For a private repository, the codespace is granted access to both the fork and parent.
 - For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
 
-We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces) into the environment.
+We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces) into the environment.
 
 {% note %}
 
-**Note:** The scope of the token in the codespace can change if you create a codespace from a fork to which you only have read access, then make a commit in the codespace. In this situation, as with any other repository, {% data variables.product.prodname_github_codespaces %} automatically creates a new fork, or links your codespace to an existing fork owned by your account, and updates the token to have read and write access to the newly linked fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
+**Note:** The scope of the token in the codespace can change if you create a codespace from a fork to which you only have read access, then make a commit or push a new branch in the codespace. In this situation, as with any other repository, {% data variables.product.prodname_github_codespaces %} automatically creates a new fork, or links your codespace to an existing fork owned by your account, and updates the token to have read and write access to the newly linked fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
 
 When {% data variables.product.prodname_github_codespaces %} links your codespace to an existing fork, this existing fork can be either a fork of the fork from which you created a codespace, or your own fork of the shared upstream repository.
 
@@ -124,4 +124,6 @@ Any additional {% data variables.product.prodname_vscode_shortname %} extensions
 
 #### Using Settings Sync
 
-{% data variables.product.prodname_vscode_shortname %}'s Settings Sync can allow potentially malicious content to transfer across devices. If you're creating a codespace for a repository whose contents you do not trust, you should open the codespace in the browser and leave Settings Sync disabled.
+{% data variables.product.prodname_vscode_shortname %}'s Settings Sync can allow potentially malicious content to transfer across devices. By default, Settings Sync is disabled for codespaces opened in the browser. If you're creating a codespace for a repository whose contents you do not trust, you should open the codespace in the browser and leave Settings Sync turned off.
+
+If you have enabled Settings Sync in your user preferences, and want to allow changes to your settings to sync from your codespaces to other instances of {% data variables.product.prodname_vscode_shortname %}, we recommend you add a selected list of trusted repositories, rather than trusting all repositories. When you create codespaces from trusted repositories, changes you make to your settings in the codespaces are synced to your cached settings in the cloud, from which they can transfer to your devices. For more information about managing Settings Sync, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)."

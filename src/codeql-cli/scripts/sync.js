@@ -3,23 +3,21 @@
 import { readFile, writeFile, copyFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import walk from 'walk-sync'
-import mkdirp from 'mkdirp'
-import { execSync } from 'child_process'
+import { mkdirp } from 'mkdirp'
+import { execFileSync, execSync } from 'child_process'
 import path from 'path'
 import matter from 'gray-matter'
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 
-import {
-  updateContentDirectory,
-  MARKDOWN_COMMENT,
-} from '../../automated-pipelines/lib/update-markdown.js'
+import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown.js'
 import { convertContentToDocs } from './convert-markdown-for-docs.js'
 
 const { targetDirectory, sourceDirectory, frontmatterDefaults, markdownPrefix } = JSON.parse(
-  await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8')
+  await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
 )
 const SOURCE_REPO = sourceDirectory.split('/')[0]
 const TEMP_DIRECTORY = path.join(SOURCE_REPO, 'tempCliDocs')
+const MARKDOWN_PREFIX = `\n${markdownPrefix}\n\n`
 
 main()
 
@@ -41,11 +39,15 @@ async function main() {
     await writeFile(file, matter.stringify(content, data))
     const targetFilename = path.join(targetDirectory, path.basename(file))
     const sourceData = { ...data, ...frontmatterDefaults }
-    const finalSourceContent = MARKDOWN_COMMENT + `${markdownPrefix}\n\n` + content
+    const finalSourceContent = MARKDOWN_PREFIX + content
     cliMarkdownContents[targetFilename] = { data: sourceData, content: finalSourceContent }
   }
   // Begin updating Markdown files in the content directory
-  await updateContentDirectory(targetDirectory, cliMarkdownContents, frontmatterDefaults)
+  await updateContentDirectory({
+    targetDirectory,
+    sourceContent: cliMarkdownContents,
+    frontmatter: frontmatterDefaults,
+  })
 }
 
 // Separates out steps that need to be done before the sync can begin
@@ -57,7 +59,7 @@ async function setupEnvironment() {
   const isPandoc = execSync('pandoc --version', { encoding: 'utf8' })
   if (!isPandoc.startsWith('pandoc')) {
     throw new Error(
-      'You must install pandoc to run this script. See https://pandoc.org/installing.html.'
+      'You must install pandoc to run this script. See https://pandoc.org/installing.html.',
     )
   }
 
@@ -90,6 +92,6 @@ async function rstToMarkdown(sourceDirectory) {
       throw new Error(errorMsg)
     }
 
-    execSync(`pandoc ${tempFilePath} -f rst -t commonmark_x -o ${outputFilepath}`)
+    execFileSync('pandoc', [tempFilePath, '-f', 'rst', '-t', 'commonmark_x', '-o', outputFilepath])
   }
 }

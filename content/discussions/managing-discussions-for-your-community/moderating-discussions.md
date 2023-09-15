@@ -1,6 +1,6 @@
 ---
 title: Moderating discussions
-intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes > 3.5 %} organization''s contribution guidelines{% endif %}.'
+intro: 'You can promote healthy collaboration by marking comments as answers, locking or unlocking discussions, converting issues to discussions, and editing or deleting comments, discussions, and categories that don''t align with your{% ifversion fpt or ghec %} community''s code of conduct{% elsif ghes %} organization''s contribution guidelines{% endif %}.'
 permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
   feature: discussions
@@ -39,6 +39,8 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 1. To lock the conversation, click **Lock conversation**.
 1. When you're ready to unlock the conversation, click **Unlock conversation** in the right margin of a discussion, then click **Unlock conversation**.
 
+{% ifversion converting-issues-to-discussions %}
+
 ## Converting an issue to a discussion
 
 When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions)."
@@ -49,8 +51,10 @@ When you convert an issue to a discussion, the discussion is automatically creat
 1. In the right margin of an issue, click **Convert to discussion**.
 1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
 1. Click **I understand, convert this issue to a discussion**.
+{% endif %}
 
 {% ifversion discussions-hide-comments-on-block %}
+
 ## Blocking a user from your organization
 
 Organization owners and moderators can block a user from the organization if their comments don't align with the community's code of conduct. When you block a user, they will no longer be able to comment on discussions. You can also hide all of the comments a user has made in the organization. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."

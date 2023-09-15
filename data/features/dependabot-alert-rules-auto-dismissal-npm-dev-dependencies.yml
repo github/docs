@@ -1,0 +1,6 @@
+# Reference: Issue #10052 - Safe auto-dismissals for Dependabot alerts (low impact npm devDependencies) [Public Beta]
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'

@@ -25,6 +25,6 @@ shortTitle: Show an overview
 ## Managing the visibility of the activity overview on your profile
 
 {% data reusables.profile.access_profile %}
-2. Above your contributions graph, select the **Contribution settings** dropdown menu, then click **Activity overview**.
+1. Above your contributions graph, select the **Contribution settings** dropdown menu, then click **Activity overview**.
 
-  ![Screenshot of the contributions graph on a user profile. A dropdown menu, labeled "Contribution settings", is highlighted with an orange outline.](/assets/images/help/profile/activity-overview.png)
+   ![Screenshot of the contributions graph on a user profile. A dropdown menu, labeled "Contribution settings", is highlighted with an orange outline.](/assets/images/help/profile/activity-overview.png)

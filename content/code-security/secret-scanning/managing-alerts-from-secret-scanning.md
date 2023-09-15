@@ -27,7 +27,7 @@ shortTitle: Manage secret alerts
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** Alerts are created only for repositories with {% data variables.secret-scanning.user_alerts %} enabled. Secrets found in public repositories using the free {% data variables.secret-scanning.partner_alerts %} service are reported directly to the partner, without creating an alert. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+**Note:** Alerts are created only for repositories with {% data variables.secret-scanning.user_alerts %} enabled. Secrets found in public repositories and public npm packages using the free {% data variables.secret-scanning.partner_alerts %} service are reported directly to the partner, without creating an alert. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 {% endnote %}
 {% endif %}
@@ -35,37 +35,86 @@ shortTitle: Manage secret alerts
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
-2. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view.{% ifversion secret-scanning-validity-check %}
-3. Optionally, if the leaked secret is a {% data variables.product.company_short %} token, check the validity of the secret and follow the remediation steps.
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view. {% ifversion secret-scanning-validity-check-partner-patterns %}
+1. Optionally, to perform a validity check on the token, on the top right-hand side of the alert, click {% octicon "sync" aria-label="Send token to partner for verification" %}. For more information, see "[Validating partner patterns](#validating-partner-patterns)." <br><br>
+  {% note %}
 
-   ![Screenshot of the UI for a {% data variables.product.company_short %} token, showing the validity check and suggested remediation steps.](/assets/images/help/repository/secret-scanning-validity-check.png)
+  **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+
+  {% endnote %}
+  {% endif %}{% ifversion ghes = 3.9 or ghes = 3.10 or ghes = 3.11 %}
+1. Optionally, if the leaked secret is a {% data variables.product.company_short %} token, check the validity of the secret and follow the remediation steps.
 
    {% note %}
 
-   **Note:** Validity check for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
+   **Note:**  Validity check for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
 
    {% endnote %}
 
    {% data variables.product.company_short %} provides information about the validity of the secret, for {% data variables.product.company_short %} tokens only.
 
-   | Validity                |     Result                                                                           |
-   |-------------------------|--------------------------------------------------------------------------------|
-   | Active secret           | {% data variables.product.company_short %} confirmed this secret is active                                         |
-   | Active secret           | {% data variables.product.company_short %} checked with this secret's provider and found that the secret is active |
-   | Possibly active secret  | {% data variables.product.company_short %} does not support validation checks for this token type yet               |
-   | Possibly active secret  | {% data variables.product.company_short %} could not verify this secret                                            |
-   | Secret appears inactive | You should make sure no unauthorized access has already occurred                 |
-{% endif %}{% ifversion secret-scanning-partner-documentation-link-UI %}
+   {% data reusables.secret-scanning.validity-check-table %}{% endif %}{% ifversion secret-scanning-github-token-metadata %}
+1. Optionally, if the leaked secret is a {% data variables.product.company_short %} token, you can also review the token metadata. For more information on reviewing token metadata, see "[Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata)."{% endif %}{% ifversion secret-scanning-partner-documentation-link-UI %}
 1. To dismiss an alert, select the "Close as" dropdown menu and click a reason for resolving an alert.
 
    ![Screenshot of a {% data variables.product.prodname_secret_scanning %} alert. A dropdown menu, titled "Close as", is expanded and highlighted in a dark orange outline.](/assets/images/help/repository/secret-scanning-dismiss-alert-web-ui-link-partner-documentation.png)
 
    {% else %}
-
-1 To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert.
+1. To dismiss an alert, select the "Mark as" dropdown menu and click a reason for resolving an alert.
    {% endif %}{% ifversion secret-scanning-dismissal-comment %}
 1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 1. Click **Close alert**.
+{% endif %}
+
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+## Validating partner patterns
+
+{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
+{% data reusables.gated-features.partner-pattern-validity-check-ghas %}
+
+You can allow {% data variables.product.prodname_secret_scanning %} to check the validity of a secret found in your repository by sending it to the relevant partner.
+
+You can enable automatic validity checks for supported partner patterns in the code security settings for your repository, organization, or enterprise. {% data variables.product.company_short %} will periodically send the pattern to the relevant partner to check the secret's validity and display the validation status of the secret in the alert view. 
+
+ For more information on enabling automatic validation checks for partner patterns in your repository, organization, or enterprise, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)," "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)," and "[Managing Advanced Security features](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
+
+If your repository has validity checks enabled, you can also perform an on-demand validity check for a secret by clicking {% octicon "sync" aria-label="Send token to partner for verification" %} in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
+
+You can use the validation status of a leaked secret to help prioritize the secrets needing remediation steps.
+
+{% data reusables.secret-scanning.validity-check-table %}
+
+For more information on which partners support validity checks, see "[Supported secrets](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+
+{% endif %}
+
+{% ifversion secret-scanning-github-token-metadata %}
+
+## Reviewing {% data variables.product.company_short %} token metadata
+
+{% note %}
+
+**Note:** Metadata for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
+
+{% endnote %}
+
+In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see "[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts)."
+
+Tokens, like {% data variables.product.pat_generic %} and other credentials, are considered personal information. For more information about using {% data variables.product.company_short %} tokens, see [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and [Acceptable Use Policies](/free-pro-team@latest/site-policy/acceptable-use-policies/github-acceptable-use-policies).
+
+   ![Screenshot of the UI for a {% data variables.product.company_short %} token, showing the token metadata.](/assets/images/help/repository/secret-scanning-github-token-metadata.png)
+
+ Metadata for {% data variables.product.company_short %} tokens is available for active tokens in any repository with secret scanning enabled. If a token has been revoked or its status cannot be validated, metadata will not be available. {% data variables.product.company_short %} auto-revokes {% data variables.product.company_short %} tokens in public repositories, so metadata for {% data variables.product.company_short %} tokens in public repositories is unlikely to be available. The following metadata is available for active {% data variables.product.company_short %} tokens:
+
+|Metadata|Description|
+|-------------------------|--------------------------------------------------------------------------------|
+|Secret name| The name given to the {% data variables.product.company_short %} token by its creator|
+|Secret owner| The {% data variables.product.company_short %} handle of the token's owner|
+|Created on| Date the token was created|
+|Expired on| Date the token expired|
+|Last used on| Date the token was last used|
+|Access| Whether the token has organization access|
+
 {% endif %}
 
 ## Securing compromised secrets
@@ -88,11 +137,18 @@ Once a secret has been committed to a repository, you should consider the secret
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
+{% ifversion secret-scanning-backfills %}
+Notifications are different for incremental scans and historical scans.
+
+### Incremental scans
+
+{% endif %}
+
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
 {% ifversion secret-scanning-notification-settings %}
 {% data reusables.repositories.navigate-to-repo %}
-1. To start watching the repository, select **{% octicon "eye" aria-label="The Eye icon" %}Watch**.
+1. To start watching the repository, select **{% octicon "eye" aria-hidden="true" %} Watch**.
 
    ![Screenshot of the repository's main page. A dropdown menu, titled "Watch", is highlighted with an orange outline.](/assets/images/help/repository/repository-watch-dropdown.png)
 
@@ -101,10 +157,25 @@ Once a secret has been committed to a repository, you should consider the secret
 1. On your notification settings page, under "Subscriptions", then under "Watching", select the **Notify me** dropdown.
 1. Select "Email" as a notification option, then click **Save**.
 
-   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/secret-scanning-notification-options.png)
+   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/repository-watching-notification-options.png)
 {% endif %}
 
-For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring your watch settings for an individual repository](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+{% data reusables.notifications.watch-settings %}
+
+{% ifversion secret-scanning-backfills %}
+
+### Historical scans
+
+For historical scans, {% data variables.product.product_name %} notifies the following users:
+
+- Organization owners, enterprise owners, and security managers—whenever a historical scan is complete, even if no secrets are found.
+- Repository administrators, security managers, and users with custom roles with read/write access—whenever a historical scan detects a secret, and according to their notification preferences.
+
+We do _not_ notify commit authors.
+
+{% data reusables.notifications.watch-settings %}
+
+{% endif %}
 
 ## Auditing responses to secret scanning alerts
 

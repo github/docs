@@ -22,6 +22,9 @@ topics:
   - Marketplace
 shortTitle: Set listing pricing plans
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 ## About setting pricing plans
 
 {% data variables.product.prodname_marketplace %} offers several different types of pricing plans. For detailed information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/selling-your-app-on-github-marketplace/pricing-plans-for-github-marketplace-apps)."

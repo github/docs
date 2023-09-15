@@ -42,7 +42,7 @@ sections:
 
           - View secret scanning results
           - Dismiss or reopen secret scanning results
-          
+
           For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
         # https://github.com/github/releases/issues/1703, https://github.com/github/releases/issues/2084
         - |
@@ -199,14 +199,14 @@ sections:
           - Syntax errors are now surfaced when viewing a CODEOWNERS file from the web UI. Previously, when a line in a CODEOWNERS file had a syntax error, the error would be ignored or in some cases cause the entire CODEOWNERS file to not load. GitHub Apps and Actions can access the same list of errors using new REST and GraphQL APIs. For more information, see "[Repositories](/rest/repos/repos#list-codeowners-errors)" in the REST API documentation or "[Objects](/graphql/reference/objects#repositorycodeowners)" in the GraphQL API documentation.
           - After someone creates a new pull request or pushes new changes to a draft pull request, any code owners that will be requested for review are now listed in the pull request under "Reviewers". This feature gives you an early look at who will be requested to review once the pull request is marked ready for review.
           - Comments in CODEOWNERS files can now appear at the end of a line, not just on dedicated lines.
-          
+
           For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
         # https://github.com/github/releases/issues/2233
         - |
           When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
         # https://github.com/github/releases/issues/2093
         - |
-          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
         # https://github.com/github/releases/issues/1793
         - |
           Repository administrators can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with maintain or admin access to the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
@@ -215,7 +215,7 @@ sections:
           Users can ignore revisions in the blame view by creating a `.git-blame-ignore-revs` file in the root of a repository. For more information, see "[Viewing a file](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)."
         # https://github.com/github/releases/issues/2173
         - |
-          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
     - heading: 'Commits'
       notes:

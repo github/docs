@@ -17,4 +17,6 @@ children:
   - /table-row-headers
   - /ifversion
   - /links-with-liquid
+  - /tool-specific
+  - /data
 ---

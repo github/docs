@@ -1,7 +1,7 @@
 ---
 title: Commit comments
 intro: Use the REST API to interact with commit comments.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -27,6 +27,5 @@ about the use of media types in the API [here](/rest/overview/media-types).
     application/vnd.github-commitcomment.full+json
 
 For more information, see "[AUTOTITLE](/rest/overview/media-types)."
-
 
 <!-- Content after this section is automatically generated -->

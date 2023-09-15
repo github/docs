@@ -1,7 +1,7 @@
 ---
 title: Migrating from SAML to OIDC
-shortTitle: Migrating from SAML to OIDC
-intro: 'If you''re using SAML to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
+shortTitle: Migrate from SAML to OIDC
+intro: "If you're using SAML to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP's Conditional Access Policy."
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -25,18 +25,12 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 ## Prerequisites
 
 - Your enterprise on {% data variables.location.product_location %} must currently be configured to use SAML for authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
-
-- You'll need to access both your enterprise on {% data variables.location.product_location %} and your tenant on Azure AD to migrate from SAML to OIDC.
-
-  - To configure the {% data variables.product.prodname_emu_idp_oidc_application %} application on Azure AD, you must sign into the Azure AD tenant as a user with the Global Administrator role.
-  - To sign in as the setup user for your enterprise on {% data variables.location.product_location %}, you must use a recovery code for the enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
-
-- Schedule a time to migrate when people aren't actively using your enterprise's resources. During the migration, users cannot access your enterprise until after you configure the {% data variables.product.prodname_emu_idp_oidc_application %} application and the application provisions the user again.
+{% data reusables.emus.migration-roles-prereq %}
+{% data reusables.emus.migration-schedule-downtime %}
 
 ## Migrating your enterprise
 
 To migrate your enterprise from SAML to OIDC, you will disable your existing {% data variables.product.prodname_emu_idp_application %} application on Azure AD, prepare and begin the migration as the setup user for your enterprise on {% data variables.location.product_location %}, then install and configure the new application for OIDC on Azure AD. After the migration is complete and Azure AD provisions your users, the users can authenticate to access your enterprise's resources on {% data variables.location.product_location %} using OIDC.
-
 
 {% warning %}
 
@@ -46,19 +40,12 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
 
 1. Before you begin the migration, sign in to Azure and disable provisioning in the existing {% data variables.product.prodname_emu_idp_application %} application.
 1. If you use [Conditional Access (CA) network location policies](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition) in Azure AD, and you're currently using an IP allow list with your enterprise account or any of the organizations owned by the enterprise account on {% data variables.product.prodname_dotcom_the_website %}, disable the IP allow lists. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
-1.  Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your enterprise with the username **@SHORT-CODE_admin**, replacing SHORT-CODE with your enterprise's short code.
+{% data reusables.emus.sign-in-as-setup-user %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. When prompted to continue to your identity provider, click **Use a recovery code** and sign in using one of your enterprise's recovery codes.
-
-   {% note %}
-
-   **Note:** You must use a recovery code for your enterprise, not your user account. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
-
-   {% endnote %}
+{% data reusables.emus.use-enterprise-recovery-code %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. At the bottom of the page, next to "Migrate to OpenID Connect single sign-on", click **Configure with Azure**.
-   ![Screenshot showing the "Configure with Azure" button](/assets/images/help/enterprises/saml-to-oidc-button.png)
 1. Read the warning, then click "I understand, begin migrating to OpenID Connect".
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 1. After you grant consent, a new browser window will open to {% data variables.location.product_location %} and display a new set of recovery codes for your {% data variables.enterprise.prodname_emu_enterprise %}. Download the codes, then click "Enable OIDC authentication".

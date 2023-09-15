@@ -23,7 +23,9 @@ topics:
 For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
 {% ifversion fpt or ghec or ghes %}
+
 ## About configuring dependency review
+
 {% endif %}
 
 {% ifversion fpt %}
@@ -46,11 +48,12 @@ Dependency review is available when dependency graph is enabled for {% data vari
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Configure security and analysis features", check if the dependency graph is enabled.
 1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes %}
-    ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+    ![Screenshot of "Code security and analysis features".](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
+
 ## About configuring the {% data variables.dependency-review.action_name %}
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
@@ -84,32 +87,36 @@ There are two methods of configuring the {% data variables.dependency-review.act
 - Referencing a configuration file in your workflow file.
 
 Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
+
 ### Using inline configuration to set up the {% data variables.dependency-review.action_name %}
 
 1. Add a new YAML workflow to your `.github/workflows` folder.
 
    {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
-  ```yaml{:copy}
-  name: 'Dependency Review'
-  on: [pull_request]
 
-  permissions:
-    contents: read
+   ```yaml copy
+   name: 'Dependency Review'
+   on: [pull_request]
 
-  jobs:
-    dependency-review:
-     {% ifversion ghes %}runs-on: self-hosted
-       {% else %}runs-on: ubuntu-latest
-       {% endif %}steps:
-         - name: 'Checkout Repository'
-           uses: {% data reusables.actions.action-checkout %}
-         - name: Dependency Review
-           uses: actions/dependency-review-action@v3
+   permissions:
+     contents: read
+
+   jobs:
+     dependency-review:
+      {% ifversion ghes %}runs-on: self-hosted
+        {% else %}runs-on: ubuntu-latest
+        {% endif %}steps:
+        - name: 'Checkout Repository'
+          uses: {% data reusables.actions.action-checkout %}
+        - name: Dependency Review
+          uses: actions/dependency-review-action@v3
    ```
+
 1. Specify your settings.
 
    This {% data variables.dependency-review.action_name %} example file illustrates how you can use the available configuration options.
-   ```yaml{:copy}
+
+   ```yaml copy
    name: 'Dependency Review'
    on: [pull_request]
 
@@ -121,13 +128,14 @@ Notice that all of the examples use a short version number for the action (`v3`)
      {% ifversion ghes %}runs-on: self-hosted
        {% else %}runs-on: ubuntu-latest
        {% endif %}steps:
-         - name: 'Checkout Repository'
-           uses: {% data reusables.actions.action-checkout %}
-         - name: Dependency Review
-           uses: actions/dependency-review-action@v3
-           with:
-           # Possible values: "critical", "high", "moderate", "low"
-           fail-on-severity: critical
+       - name: 'Checkout Repository'
+         uses: {% data reusables.actions.action-checkout %}
+       - name: Dependency Review
+         uses: actions/dependency-review-action@v3
+         with:
+         # Possible values: "critical", "high", "moderate", "low" 
+         fail-on-severity: critical
+
   {% ifversion dependency-review-action-licenses %}
            # You can only include one of these two options: `allow-licenses` and `deny-licenses`
            # ([String]). Only allow these licenses (optional)
@@ -145,13 +153,14 @@ Notice that all of the examples use a short version number for the action (`v3`)
            # Possible values: "development", "runtime", "unknown"
            fail-on-scopes: development, runtime
   {% endif %}
+
    ```
 ### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
 1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.
 
    {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
-   ```yaml{:copy}
+   ```yaml copy
    name: 'Dependency Review'
    on: [pull_request]
 
@@ -163,25 +172,27 @@ Notice that all of the examples use a short version number for the action (`v3`)
        {% ifversion ghes %}runs-on: self-hosted
        {% else %}runs-on: ubuntu-latest
        {% endif %}steps:
-         - name: 'Checkout Repository'
-           uses: {% data reusables.actions.action-checkout %}
-         - name: Dependency Review
-           uses: actions/dependency-review-action@v3
-           with:
-            # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
-            # Possible values: An absolute path to a local file or an external file.
-            config-file: './.github/dependency-review-config.yml'
-            # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
-            config-file: 'github/octorepo/dependency-review-config.yml@main'
+       - name: 'Checkout Repository'
+         uses: {% data reusables.actions.action-checkout %}
+       - name: Dependency Review
+         uses: actions/dependency-review-action@v3
+         with:
+          # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
+          # Possible values: An absolute path to a local file or an external file.
+          config-file: './.github/dependency-review-config.yml'   
+          # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
+          config-file: 'github/octorepo/dependency-review-config.yml@main'
 
-            # ([Token]) Use if your configuration file resides in a private external repository.
-            # Possible values: Any GitHub token with read access to the private external repository.
-            external-repo-token: 'ghp_123456789abcde'
+          # ([Token]) Use if your configuration file resides in a private external repository.
+          # Possible values: Any GitHub token with read access to the private external repository.  
+          external-repo-token: 'ghp_123456789abcde'
    ```
+  
 1. Create the configuration file in the path you have specified.
 
    This YAML example file illustrates how you can use the available configuration options.
-   ```yaml{:copy}
+
+   ```yaml copy
      # Possible values: "critical", "high", "moderate", "low"
      fail-on-severity: critical
    {% ifversion dependency-review-action-licenses %}
@@ -209,7 +220,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
      fail-on-scopes:
        - development
        - runtime
-  {% endif %}
-  ```
+   {% endif %}
+   ```
+
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

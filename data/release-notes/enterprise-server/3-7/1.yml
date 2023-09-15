@@ -26,6 +26,10 @@ sections:
     - If a site administrator has not yet configured GitHub Actions for the instance, the UI for setting up code scanning will prompt the user to configure GitHub Actions.
     - To avoid failing domain verification due to the 63-character limit enforced by DNS providers for DNS records, the GitHub-generated `TXT` record to verify domain ownership is now limited to 63 characters.
   known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
@@ -40,18 +44,6 @@ sections:
     - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
     - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
-
-  deprecations:
-    # https://github.com/github/enterprise-releases/issues/3217
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
     - |
-      **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, unsecure algorithms will be disabled for SSH connections to the administrative shell.
-
-    # https://github.com/github/releases/issues/2395
-    - Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
-
-    # https://github.com/github/releases/issues/2380
-    - Diffing GeoJSON, PSD, and STL files is no longer possible.
-
-    # https://github.com/github/releases/issues/2480
-    - |
-      Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well.
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

@@ -10,7 +10,7 @@ topics:
 children:
   - /adding-items-to-your-project
   - /converting-draft-issues-to-issues
+  - /editing-items-in-your-project
   - /archiving-items-from-your-project
 allowTitleToDifferFromFilename: true
 ---
-

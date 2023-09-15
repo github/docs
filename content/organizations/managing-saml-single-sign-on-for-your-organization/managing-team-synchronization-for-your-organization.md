@@ -23,9 +23,15 @@ You can enable team synchronization between your IdP and {% data variables.produ
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
+{% data reusables.identity-and-permissions.team-and-idp-group %}
+
 {% data reusables.saml.ghec-only %}
 
 {% data reusables.identity-and-permissions.supported-idps-team-sync %}
+
+{% ifversion team-sync-manage-org-invites %}
+{% data reusables.identity-and-permissions.team-sync-org-invites %}
+{% endif %}
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
@@ -63,7 +69,7 @@ You must have a linked SAML identity. To create a linked identity, you must auth
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-6. Review the identity provider tenant information you want to connect to your organization, then click **Approve**.
+1. Review the identity provider tenant information you want to connect to your organization, then click **Approve**.
 
 ### Enabling team synchronization for Okta
 
@@ -88,6 +94,16 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 1. In the "URL" field, type the URL for your Okta instance.
 1. Review the identity provider tenant information you want to connect to your organization, then click **Create**.
 
+{% ifversion team-sync-manage-org-invites %}
+
+## Managing whether team sync can re-invite non-members to your organization
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security %}
+1. Under "Team synchronization", select or deselect **Do not allow Team Sync to re-invite past members to this organization that were removed by an organization owner.**
+{% endif %}
+
 ## Disabling team synchronization
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
@@ -95,4 +111,4 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-5. Under "Team synchronization", click **Disable team synchronization**.
+1. Under "Team synchronization", click **Disable team synchronization**.

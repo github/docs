@@ -27,8 +27,8 @@ You can use policies to control how enterprise members use {% data variables.pro
 
 To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} If you use {% data variables.product.company_short %}-hosted runners, you will be be billed based on consumption after exhausting the minutes included in {% data variables.product.product_name %}, while self-hosted runners are free. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 
-If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 {% data reusables.actions.general-security-hardening %}

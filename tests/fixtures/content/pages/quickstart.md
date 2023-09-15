@@ -8,6 +8,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: quick_start
+permissions: These are permissions details, for more pages info start at the beginning with this "[article intro link](#introduction)". Also here's [another link](/get-started/quickstart/hello-world).
 topics:
   - Pages
 shortTitle: Quickstart
@@ -16,11 +17,17 @@ product: '{% data reusables.gated-features.pages %}'
 
 ## Introduction
 
-This page has 3 links.
+This page has 6 links that should show preview popovers on hover.
 
-## Internal link
+## Regular internal link
 
 But learn more on "[AUTOTITLE](/get-started/quickstart)."
+
+## Internal links with formatted link text
+
+[**Bold is strong**](/get-started/foo)
+
+[`bar`](/get-started/foo/bar)
 
 ## In-page anchor link
 

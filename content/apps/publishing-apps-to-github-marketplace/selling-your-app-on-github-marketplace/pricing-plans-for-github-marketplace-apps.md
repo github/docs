@@ -13,6 +13,9 @@ topics:
   - Marketplace
 shortTitle: Pricing plans for apps
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 {% data variables.product.prodname_marketplace %} pricing plans can be free, flat rate, or per-unit. Prices are set, displayed, and processed in US dollars. Paid plans are restricted to apps published by verified publishers. For more information about becoming a verified publisher, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization)."
 
 Customers purchase your app using a payment method attached to their account on {% data variables.location.product_location %}, without having to leave {% data variables.product.prodname_dotcom_the_website %}. You don't have to write code to perform billing transactions, but you will have to handle events from the {% data variables.product.prodname_marketplace %} API. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app)."

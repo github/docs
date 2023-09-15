@@ -22,7 +22,7 @@ You can view and revoke each member's linked identity, active sessions, and auth
 
 ## Viewing and revoking a linked identity
 
-{% data reusables.saml.about-linked-identities %} 
+{% data reusables.saml.about-linked-identities %}
 
 When available, the entry will include SCIM data. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
@@ -34,7 +34,6 @@ When available, the entry will include SCIM data. For more information, see "[AU
 - To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.product_name %} application. For more information, see your identity provider's documentation.
 
 {% endwarning %}
-
 
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 

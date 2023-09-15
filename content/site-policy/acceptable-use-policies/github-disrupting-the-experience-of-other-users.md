@@ -11,14 +11,14 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#disrupting-the-experience-of-other-users
 ---
 
-Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on. 
+Being part of a community includes recognizing how your behavior affects others and engaging in meaningful and productive interactions with people and the platform they rely on.
 
-We do not allow behavior that significantly or continually disrupts the experience of other users. This includes: 
+We do not allow behavior that significantly or continually disrupts the experience of other users. This includes:
 
-- Posting off-topic comments 
-- Opening empty or meaningless issues or pull requests 
-- Starring and/or following accounts or repositories in large volume in a short period of time 
-- Creating nonsensical or irrelevant code reviews 
+- Posting off-topic comments
+- Opening empty or meaningless issues or pull requests
+- Starring and/or following accounts or repositories in large volume in a short period of time
+- Creating nonsensical or irrelevant code reviews
 - Engaging with platform features in a way that causes excessive notifications for other users
 - Using any other platform feature in a way that creates disruption
 

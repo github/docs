@@ -1,0 +1,29 @@
+date: '2023-04-18'
+sections:
+  bugs:
+    - Download requests for Git LFS objects did not complete until reporting the final download size, which affected the latency of these requests, particularly on an instance with nodes functioning as repository caches. 
+    - In some cases, graphs on the Management Console's monitor dashboard failed to render. 
+    - On an instance with GitHub Connect enabled, if "Users can search GitHub.com" was enabled, issues in private and internal repositories were not included in users search results for GitHub.com. 
+    - After restoration of a deleted organization, the organization did not appear in the instance's list of organizations. 
+  changes:
+    - To avoid a failure during a configuration run on a cluster, validation of `cluster.conf` with the `ghe-cluster-config-check` utility ensures that the `consul-datacenter` field for each node matches the top-level `primary-datacenter` field. 
+    - If a site administrator provides an invalid configuration for blob storage for GitHub Actions or GitHub Packages on an instance, the preflight checks page displays details and troubleshooting information. 
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      {% data reusables.release-notes.babeld-max-threads-performance-issue %}
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

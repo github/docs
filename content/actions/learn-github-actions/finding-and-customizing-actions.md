@@ -17,7 +17,6 @@ topics:
   - Fundamentals
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -51,15 +50,7 @@ You can add an action to your workflow by referencing the action in your workflo
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-
-{% note %}
-
-**Note:** To enhance security, {% data variables.product.prodname_actions %} is deprecating redirects for actions. This means that when the owner or name of an action's repository is changed, any workflows using that action with the previous name will fail.
-
-{% endnote %}
-
-{% endif %}
+{% data reusables.actions.actions-redirects-workflows %}
 
 ### Adding an action from {% data variables.product.prodname_marketplace %}
 
@@ -82,7 +73,7 @@ If an action is defined in the same repository where your workflow file uses the
 
 Example repository file structure:
 
-```
+```shell
 |-- hello-world (repository)
 |   |__ .github
 |       └── workflows
@@ -135,7 +126,6 @@ jobs:
 
 For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
 
-
 ## Using release management for your custom actions
 
 The creators of a community action have the option to use tags, branches, or SHA values to manage releases of the action. Similar to any dependency, you should indicate the version of the action you'd like to use based on your comfort with automatically accepting updates to the action.
@@ -163,7 +153,7 @@ If you need more reliable versioning, you should use the SHA value associated wi
 
 ```yaml
 steps:
-  - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
+  - uses: actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f
 ```
 
 ### Using branches

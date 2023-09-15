@@ -39,18 +39,18 @@ People with write permissions to a repository can enable auto-merge for a pull r
    ![Screenshot of the merge box of a pull request. A dropdown menu, labeled with a downward-facing triangle, is outlined in dark orange.](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
 
 1. Click **Enable auto-merge**.
-  {% ifversion fpt %}
+   {% ifversion fpt %}
 1. If you chose the merge or squash and merge methods, type a commit message and description and choose the email address you want to author the merge commit.
 
-  {% note %}
+   {% note %}
 
-  **Note:** The email dropdown menu is not available if you have email privacy enabled or if you only have one verified and visible email associated with your {% data variables.product.company_short %} account.
+   **Note:** The email dropdown menu is not available if you have email privacy enabled or if you only have one verified and visible email associated with your {% data variables.product.company_short %} account.
 
-  {% endnote %}
+   {% endnote %}
   {% endif %}
   {% ifversion ghes or ghae or ghec %}
 1. If you chose the merge or squash and merge methods, type a commit message and description.
-  {% endif %}
+   {% endif %}
 1. Click **Confirm auto-merge**.
 
 ## Disabling auto-merge

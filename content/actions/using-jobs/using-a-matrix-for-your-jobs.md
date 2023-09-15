@@ -1,6 +1,6 @@
 ---
 title: Using a matrix for your jobs
-shortTitle: Matrixes
+shortTitle: Matrices
 intro: Create a matrix to define variations for each job.
 versions:
   fpt: '*'
@@ -10,8 +10,7 @@ versions:
 redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About matrix strategies

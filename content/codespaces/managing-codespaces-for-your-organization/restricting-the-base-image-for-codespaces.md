@@ -18,7 +18,7 @@ When you create a codespace, a Docker container is automatically created on a re
 
 You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
 
-```json{:copy}
+```json copy
 "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
 ```
 
@@ -30,13 +30,13 @@ As an organization owner, you can add a policy to restrict which images can be u
 
 If the image specified in the dev container configuration does not match one of the allowed images, the following message is displayed when someone tries to create a codespace for the repository:
 
-> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization administrator.
+> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization owner.
 
 {% note %}
 
 **Notes**:
-* The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)."
-* The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
+- The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)."
+- The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
 
 {% endnote %}
 
@@ -54,7 +54,7 @@ For example, you could create an organization-wide policy that restricts the bas
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Base images**.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Click {% octicon "pencil" aria-label="Edit policy" %} to edit the constraint.
 1. In the "Allowed values" field, enter the complete URL of an image you want to allow.
 
    ![Screenshot of the URL "mcr.microsoft.com/vscode/devcontainers/java" entered in the "Allowed values" field.](/assets/images/help/codespaces/image-allowed-values.png)
@@ -65,14 +65,17 @@ For example, you could create an organization-wide policy that restricts the bas
 
    {% endnote %}
 
-1. Click the plus button ({% octicon "plus" aria-label="The plus icon" %}) to add the value.
+1. Click {% octicon "plus" aria-label="Add button" %} to add the value.
 1. If required, repeat the previous two steps to add more image URLs.
+1. Click outside of the dialog box to close it.
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+
 1. After you've finished adding constraints to your policy, click **Save**.
 
 The policy is applied when anyone attempts to create a new codespace that is billable to your organization. The base image constraint does not affect existing codespaces, either active or stopped.
@@ -83,7 +86,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
 1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Base images" constraint.
+1. Beside the "Base images" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Add or remove image URLs.
 1. Click **Save**.
 

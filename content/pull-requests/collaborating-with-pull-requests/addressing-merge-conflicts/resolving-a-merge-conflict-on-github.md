@@ -24,7 +24,7 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
 {% warning %}
 
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/get-started/quickstart/github-glossary#base-branch) of your pull request is merged into the [head branch](/get-started/quickstart/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/get-started/quickstart/github-glossary#base-branch) of your pull request is merged into the [head branch](/get-started/quickstart/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 {% endwarning %}
 
@@ -34,11 +34,12 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
    ![Screenshot of a warning that a pull request has a merge conflict. The "Resolve merge conflicts" button is outlined in dark orange.](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
- {% note %}
+   {% note %}
 
- **Note:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% ifversion ghes or ghae %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
+   **Note:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% ifversion ghes or ghae %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)."
 
- {% endnote %}
+   {% endnote %}
+
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
 1. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and five to resolve your merge conflict.
 1. Once you've resolved all the conflicts in the file, click **Mark as resolved**.

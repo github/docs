@@ -9,8 +9,8 @@ describe('product-icons', () => {
     const res = await get('/producticons/react/CommentDiscussionIcon.svg')
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('image/svg+xml')
-    expect(res.text.startsWith('<svg')).toBeTruthy()
-    expect(res.text.includes('xmlns="http://www.w3.org/2000/svg"')).toBeTruthy()
+    expect(res.body.startsWith('<svg')).toBeTruthy()
+    expect(res.body.includes('xmlns="http://www.w3.org/2000/svg"')).toBeTruthy()
   })
 
   test('.svg extension is optional', async () => {
@@ -22,7 +22,7 @@ describe('product-icons', () => {
   test('head', async () => {
     const res = await head('/producticons/react/CommentDiscussionIcon.svg')
     expect(res.statusCode).toBe(200)
-    expect(res.text).toBe('')
+    expect(res.body).toBe('')
   })
 
   test('object "keys" that aren\'t icons should fail', async () => {

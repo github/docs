@@ -24,7 +24,7 @@ We convert `svn:executable` properties by updating the file mode directly before
 
 ## Ignoring unversioned items (`svn:ignore`)
 
-If you've set files and directories to be ignored in Subversion, {% data variables.product.product_name %} will track them internally. Files ignored by subversion clients are completely distinct from entries in a *.gitignore* file.
+If you've set files and directories to be ignored in Subversion, {% data variables.product.product_name %} will track them internally. Files ignored by subversion clients are completely distinct from entries in a _.gitignore_ file.
 
 ## Currently unsupported properties
 

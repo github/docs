@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   PR-Preview-Links:
-    if: github.event.pull_request.user.login != 'Octomerger' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     name: Add staging/live links to PR
     runs-on: ubuntu-latest
     outputs:
@@ -49,7 +49,7 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: check out repo content
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Get preview app info
         env:
@@ -84,7 +84,7 @@ jobs:
 
       - name: Update comment
         if: ${{ steps.changes.outputs.changesTable != '' }}
-        uses: peter-evans/create-or-update-comment@67dcc547d311b736a8e6c5c236542148a47adc3d
+        uses: peter-evans/create-or-update-comment@3383acd359705b10cb1eeef05c0e88c056ea4666
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}

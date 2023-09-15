@@ -1,0 +1,1 @@
+1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."

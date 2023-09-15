@@ -40,12 +40,13 @@ For more information about storage configuration for {% data variables.product.p
 
 To more accurately mirror your production environment, you can optionally copy files from your production storage location for {% data variables.product.prodname_actions %} to the staging storage location.
 
-* For an Azure storage account, you can use [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). For example:
+- For an Azure storage account, you can use [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). For example:
 
   ```shell
-  azcopy copy 'https://<em>SOURCE-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/<em>SAS-TOKEN</em>' 'https://<em>DESTINATION-STORAGE-ACCOUNT-NAME</em>.blob.core.windows.net/' --recursive
+  azcopy copy 'https://SOURCE-STORAGE-ACCOUNT-NAME.blob.core.windows.net/SAS-TOKEN' 'https://DESTINATION-STORAGE-ACCOUNT-NAME.blob.core.windows.net/' --recursive
   ```
-* For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). For example:
+
+- For Amazon S3 buckets, you can use [`aws s3 sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html). For example:
 
   ```shell
   aws s3 sync s3://SOURCE-BUCKET s3://DESTINATION-BUCKET

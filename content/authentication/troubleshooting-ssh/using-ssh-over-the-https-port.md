@@ -37,7 +37,7 @@ If that worked, great! If not, you may need to [follow our troubleshooting guide
 Now, to clone the repository, you can run the following command:
 
 ```
-$ git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
+git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
 ## Enabling SSH connections over HTTPS
@@ -48,9 +48,9 @@ To set this in your SSH configuration file, edit the file at `~/.ssh/config`, an
 
 ```
 Host {% data variables.command_line.codeblock %}
-Hostname ssh.{% data variables.command_line.codeblock %}
-Port 443
-User git
+    Hostname ssh.{% data variables.command_line.codeblock %}
+    Port 443
+    User git
 ```
 
 You can test that this works by connecting once more to {% data variables.location.product_location %}:

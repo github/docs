@@ -63,7 +63,7 @@ async function main(owner, repo, baseSHA, headSHA) {
 
   const pathPrefix = 'content/'
   const articleFiles = files.filter(
-    ({ filename }) => filename.startsWith(pathPrefix) && filename.toLowerCase() !== 'readme.md'
+    ({ filename }) => filename.startsWith(pathPrefix) && filename.toLowerCase() !== 'readme.md',
   )
 
   const lines = await Promise.all(
@@ -82,7 +82,7 @@ async function main(owner, repo, baseSHA, headSHA) {
         // So, to be able to get necessary meta data about what it *was*,
         // if it was removed, fall back to the 'base'.
         file.status === 'removed' ? baseSHA : headSHA,
-        file.filename
+        file.filename,
       )
 
       // parse the frontmatter
@@ -108,7 +108,7 @@ async function main(owner, repo, baseSHA, headSHA) {
 
           // walk by the plan names since we generate links differently for most plans
           const versions = fileVersions.filter((fileVersion) =>
-            fileVersion.includes(allVersionShortnames[plan])
+            fileVersion.includes(allVersionShortnames[plan]),
           )
 
           if (versions.length === 1) {
@@ -141,7 +141,7 @@ async function main(owner, repo, baseSHA, headSHA) {
         }
       } catch (e) {
         console.error(
-          `Version information for ${file.filename} couldn't be determined from its frontmatter.`
+          `Version information for ${file.filename} couldn't be determined from its frontmatter.`,
         )
       }
       let note = ''
@@ -153,7 +153,7 @@ async function main(owner, repo, baseSHA, headSHA) {
       }
 
       return `| ${contentCell} | ${previewCell} | ${prodCell} | ${note} |`
-    })
+    }),
   )
 
   // this section limits the size of the comment

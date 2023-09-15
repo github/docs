@@ -15,17 +15,17 @@ topics:
 ---
 When you rename a repository, all existing information, with the exception of project site URLs, is automatically redirected to the new name, including:
 
-* Issues
-* Wikis
-* Stars
-* Followers
+- Issues
+- Wikis
+- Stars
+- Followers
 
 For more information on project sites, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git push` operations targeting the previous location will continue to function as if made on the new location. However, to reduce confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
 
 ```shell
-$ git remote set-url origin NEW_URL
+git remote set-url origin NEW_URL
 ```
 
 For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."

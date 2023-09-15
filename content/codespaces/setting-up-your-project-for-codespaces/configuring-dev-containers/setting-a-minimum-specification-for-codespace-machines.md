@@ -33,7 +33,7 @@ If your project needs a certain level of compute power, you can configure {% dat
 {% data reusables.codespaces.edit-devcontainer-json %}
 1. Edit the `devcontainer.json` file, adding the `hostRequirements` property at the top level of the file, within the enclosing JSON object. For example:
 
-   ```json{:copy}
+   ```json copy
    "hostRequirements": {
       "cpus": 8,
       "memory": "8gb",

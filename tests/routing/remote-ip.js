@@ -7,8 +7,8 @@ describe('remote ip debugging', () => {
   test('basics', async () => {
     const res = await get('/_ip')
     expect(res.statusCode).toBe(200)
-    expect(res.header['content-type']).toContain('application/json')
-    const kv = JSON.parse(res.text)
+    expect(res.headers['content-type']).toContain('application/json')
+    const kv = JSON.parse(res.body)
     expect('ip' in kv).toBeTruthy()
     expect('x-forwarded-for' in kv).toBeTruthy()
     expect('fastly-client-ip' in kv).toBeTruthy()
@@ -21,7 +21,7 @@ describe('remote ip debugging', () => {
       },
     })
     expect(res.statusCode).toBe(200)
-    const kv = JSON.parse(res.text)
+    const kv = JSON.parse(res.body)
     expect(kv['x-forwarded-for']).toBe('123.123.0.1')
   })
 
@@ -33,7 +33,7 @@ describe('remote ip debugging', () => {
       },
     })
     expect(res.statusCode).toBe(200)
-    const kv = JSON.parse(res.text)
+    const kv = JSON.parse(res.body)
     expect(kv.ip).toBe('100.0.0.1')
     expect(kv['x-forwarded-for']).toBe(xForwardedFor)
   })

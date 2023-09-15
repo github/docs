@@ -1,0 +1,13 @@
+foo_bar:
+  title: Fix the plumbing
+  description: A couple easy ones
+  guides:
+    - /code-security/getting-started/quickstart
+    - /code-security/getting-started/securing-your-organization
+
+bar_foo:
+  title: Plumb the fixing
+  description: The reverse of the one above
+  guides:
+    - /code-security/getting-started/securing-your-organization
+    - /code-security/getting-started/quickstart

@@ -12,11 +12,11 @@ topics:
 shortTitle: Source control
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About source control in {% data variables.product.prodname_github_codespaces %}
 
@@ -36,27 +36,36 @@ Source control in the {% data variables.product.prodname_vscode %} web client us
 
 A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-* In your codespace, create a new branch to work on.
-* Make your changes and save them.
-* Commit the change.
-* Raise a pull request.
-
-## About automatic forking
-
-If you only have read access to a repository, you can usually create a codespace for the repository as long as you can fork it.
-
-You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it.
-
-If you make a commit from the codespace, {% data variables.product.prodname_github_codespaces %} either creates a fork of the repository under your account and links it to your codespace, or it links your codespace to an existing fork if you already have one for the repository. You can then push your changes to the fork and create a pull request to propose the changes to the upstream repository.
+- From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+- In your codespace, create a new branch to work on.
+- Make your changes and save them.
+- Commit the change.
+- Raise a pull request.
 
 {% note %}
 
-**Note:** If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
+**Note:** By default, {% data variables.product.prodname_github_codespaces %} uses the HTTPS protocol to transfer data to and from a remote repository, and authenticates with a `GITHUB_TOKEN` configured with read and write access to the repository from which you create the codespace. If you're having issues with authentication, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-authentication-to-a-repository)."
 
 {% endnote %}
 
+## About automatic forking
+
+To create a codespace for a repository for which you only have read access, you must have permission to fork the repository.
+
+You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it.
+
+If you make a commit from the codespace, or push a new branch, {% data variables.product.prodname_github_codespaces %} either creates a fork of the repository under your account and links it to your codespace, or it links your codespace to an existing fork if you already have one for the repository. You can then push your changes to the fork and create a pull request to propose the changes to the upstream repository.
+
 If you make a commit from the command line, you will see a prompt asking if you would like to proceed with linking your codespace to a new or existing fork. Enter `y` to proceed. If you commit changes from the **Source Control** view in {% data variables.product.prodname_vscode_shortname %}, or from the navigation bar in a JetBrains IDE, your codespace is automatically linked to a fork without you being prompted.
+
+{% note %}
+
+**Notes:**
+
+- If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
+- If you make a commit from the command line and refuse the new fork by entering `n`, you should push your changes from the command line rather than from {% data variables.product.prodname_vscode_shortname %}'s Source Control view. If you use the Source Control view, {% data variables.product.prodname_vscode_shortname %} will still try to create a fork for you on push.
+
+{% endnote %}
 
 When {% data variables.product.prodname_github_codespaces %} creates a fork, or links your codespace to an existing fork, the following things happen.
 
@@ -66,13 +75,13 @@ When {% data variables.product.prodname_github_codespaces %} creates a fork, or 
 By default, source control commands that you access from your editor's user interface, such as the **Sync Changes** button in {% data variables.product.prodname_vscode_shortname %}, target your fork. If you're working from the command line, you can use `origin` to refer to your fork and `upstream` to refer to the upstream repository. For example, you can fetch changes from the upstream repository to ensure your codespace is up to date with the latest changes to the project.
 
 ```Shell
-$ git fetch upstream
+git fetch upstream
 ```
 
 When you have made some changes, you can push them to a feature branch of your fork.
 
 ```Shell
-$ git push origin my-feature-branch
+git push origin my-feature-branch
 ```
 
 For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
@@ -89,7 +98,7 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Creating or switching branches
 
@@ -115,7 +124,6 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
      **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
 
      {% endtip %}
-
 
 ## Committing your changes
 
@@ -154,4 +162,4 @@ You can push changes you've saved and committed. This applies those changes to t
 
 1. In the Push Commits dialog, click **Push**.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

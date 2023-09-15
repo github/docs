@@ -45,18 +45,18 @@ When you unsubscribe from notifications in your inbox, they will automatically d
 
 {% data reusables.notifications.access_notifications %}
 1. From the notifications inbox, select the notifications you want to unsubscribe to.
-2. Click **Unsubscribe.**
+1. Click **Unsubscribe.**
 
-  ![Screenshot of the "Notifications" page. A button, titled "Unsubscribe", is highlighted with an orange outline.](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+   ![Screenshot of the "Notifications" page. A button, titled "Unsubscribe", is highlighted with an orange outline.](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ## Unsubscribing from notifications on the subscriptions page
 
 {% data reusables.notifications.access_notifications %}
 1. In the left sidebar, under the list of repositories, select the "Manage notifications" dropdown menu and click **Subscriptions**.
 
-  ![Screenshot of the "Notifications" page. A dropdown menu, titled "Manage notifications", is highlighted with an orange outline.](/assets/images/help/notifications-v2/manage-notifications-options.png)
+   ![Screenshot of the "Notifications" page. A dropdown menu, titled "Manage notifications", is highlighted with an orange outline.](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-2. Select the notifications you want to unsubscribe from. In the top right, click **Unsubscribe**.
+1. Select the notifications you want to unsubscribe from. In the top right, click **Unsubscribe**.
 
 ## Unwatching repositories
 
@@ -65,9 +65,9 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
 {% data reusables.notifications.access_notifications %}
 1. In the left sidebar, under the list of repositories, select the "Manage notifications" dropdown menu and click **Watched repositories**.
 
-  ![Screenshot of the "Notifications" page. A dropdown menu, titled "Manage notifications", is highlighted with an orange outline.](/assets/images/help/notifications-v2/manage-notifications-options.png)
+   ![Screenshot of the "Notifications" page. A dropdown menu, titled "Manage notifications", is highlighted with an orange outline.](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-2. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
+1. On the watched repositories page, after you've evaluated the repositories you're watching, choose whether to:
 
    - Unwatch a repository
    - Ignore all notifications for a repository

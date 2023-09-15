@@ -39,7 +39,7 @@ You can add any number of new or existing organizations to manage within your en
 
 #### 4. Viewing the subscription and usage for your enterprise account
 
-You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 ## Part 2: Managing your enterprise members with {% data variables.product.prodname_ghe_cloud %}
 
@@ -63,8 +63,8 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 
 ## Part 3: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
-* [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
-* [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
+- [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
+- [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
 
 ### Managing security with {% data variables.product.prodname_emus  %}
 

@@ -18,14 +18,15 @@ versions:
 
 We design {% data variables.product.product_name %} with the latest web browsers in mind. We recommend that you use the latest version of one of the following browsers.
 
- - [Apple Safari](https://apple.com/safari)
- - [Google Chrome](https://google.com/chrome)
- - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
- - [Mozilla Firefox](https://mozilla.org/firefox)
+- [Apple Safari](https://apple.com/safari)
+- [Google Chrome](https://google.com/chrome)
+- [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+- [Mozilla Firefox](https://mozilla.org/firefox)
 
 If you do not use the latest version of a recommended browser, or if you use a browser that is not listed above, {% data variables.product.product_name %} or some features may not work as you expect, or at all.
 
 For more information about how we maintain browser compatibility for {% data variables.product.company_short %}'s products, see the [`github/browser-support`](https://github.com/github/browser-support) repository.
+
 ## Extended support for recommended web browsers
 
 Some browser vendors provide extended support releases. We do our best to ensure that {% data variables.product.product_name %} functions properly in the latest extended support release for:
@@ -35,7 +36,6 @@ Some browser vendors provide extended support releases. We do our best to ensure
 - Firefox's [Extended Support Release](https://www.mozilla.org/en-US/firefox/organizations/) (ESR)
 
 In earlier extended support releases, {% data variables.product.product_name %} may not work as you expect, and some features may not be available.
-
 
 ## Beta and developer builds
 

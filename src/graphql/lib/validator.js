@@ -3,67 +3,66 @@
 
 // PREVIEWS
 export const previewsValidator = {
+  type: 'object',
+  required: [
+    'title',
+    'description',
+    'toggled_by',
+    'toggled_on',
+    'owning_teams',
+    'accept_header',
+    'href',
+  ],
   properties: {
     title: {
       type: 'string',
-      required: true,
     },
     description: {
       type: 'string',
-      required: true,
     },
     toggled_by: {
       type: 'string',
-      required: true,
     },
     toggled_on: {
       type: 'array',
-      required: true,
     },
     owning_teams: {
       type: 'array',
-      required: true,
     },
     accept_header: {
       type: 'string',
-      required: true,
     },
     href: {
       type: 'string',
-      required: true,
     },
   },
 }
 
 // UPCOMING CHANGES
 export const upcomingChangesValidator = {
+  type: 'object',
+  required: ['location', 'description', 'reason', 'date', 'criticality', 'owner'],
   properties: {
     location: {
       type: 'string',
-      required: true,
     },
     description: {
       type: 'string',
-      required: true,
     },
     reason: {
       type: 'string',
-      required: true,
     },
     date: {
       type: 'string',
-      required: true,
-      pattern: /^\d{4}-\d{2}-\d{2}$/,
+      pattern: '^\\d{4}-\\d{2}-\\d{2}$',
     },
     criticality: {
       type: 'string',
-      required: true,
       pattern: '(breaking|dangerous)',
     },
     owner: {
       type: 'string',
-      required: true,
-      pattern: /^[\S]*$/,
+      pattern: '^[\\S]*$',
     },
   },
 }
@@ -74,35 +73,27 @@ const coreProps = {
   properties: {
     name: {
       type: 'string',
-      required: true,
     },
     type: {
       type: 'string',
-      required: true,
     },
     kind: {
       type: 'string',
-      required: true,
     },
     id: {
       type: 'string',
-      required: true,
     },
     href: {
       type: 'string',
-      required: true,
     },
     description: {
       type: 'string',
-      required: true,
     },
     isDeprecated: {
       type: 'boolean',
-      required: false,
     },
     preview: {
       type: 'object',
-      required: false,
       properties: previewsValidator.properties,
     },
   },
@@ -113,14 +104,15 @@ const corePropsPlusArgs = dup(coreProps)
 
 corePropsPlusArgs.properties.args = {
   type: 'array',
-  required: false,
-  properties: coreProps.properties,
+  items: {
+    type: 'object',
+    properties: coreProps.properties,
+  },
 }
 
 // the args object can have defaultValue prop
-corePropsPlusArgs.properties.args.properties.defaultValue = {
+corePropsPlusArgs.properties.args.items.properties.defaultValue = {
   type: 'boolean',
-  required: false,
 }
 
 const corePropsNoType = dup(coreProps)
@@ -132,45 +124,60 @@ delete corePropsNoDescription.properties.description
 // QUERIES
 const queries = dup(corePropsPlusArgs)
 
+queries.type = 'object'
+queries.required = ['name', 'type', 'kind', 'id', 'href', 'description']
+
 // MUTATIONS
 const mutations = dup(corePropsNoType)
 
+mutations.type = 'object'
+mutations.required = ['name', 'kind', 'id', 'href', 'description', 'inputFields', 'returnFields']
+
 mutations.properties.inputFields = {
   type: 'array',
-  required: true,
-  properties: corePropsNoDescription.properties,
+  items: {
+    type: 'object',
+    properties: corePropsNoDescription.properties,
+  },
 }
 
 mutations.properties.returnFields = {
   type: 'array',
-  required: true,
-  properties: coreProps.properties,
+  items: {
+    type: 'object',
+    properties: coreProps.properties,
+  },
 }
 
 // OBJECTS
 const objects = dup(corePropsNoType)
 
+objects.type = 'object'
+objects.required = ['name', 'kind', 'id', 'href', 'description', 'fields']
+
 objects.properties.fields = {
   type: 'array',
-  required: true,
-  properties: corePropsPlusArgs.properties,
+  items: {
+    type: 'object',
+    properties: corePropsPlusArgs.properties,
+  },
 }
 
 objects.properties.implements = {
   type: 'array',
-  required: false,
-  properties: {
-    name: {
-      type: 'string',
-      required: true,
-    },
-    id: {
-      type: 'string',
-      required: true,
-    },
-    href: {
-      type: 'string',
-      required: true,
+  items: {
+    type: 'object',
+    required: ['name', 'id', 'href'],
+    properties: {
+      name: {
+        type: 'string',
+      },
+      id: {
+        type: 'string',
+      },
+      href: {
+        type: 'string',
+      },
     },
   },
 }
@@ -178,26 +185,35 @@ objects.properties.implements = {
 // INTERFACES
 const interfaces = dup(corePropsNoType)
 
+interfaces.type = 'object'
+interfaces.required = ['name', 'kind', 'id', 'href', 'description', 'fields']
+
 interfaces.properties.fields = {
   type: 'array',
-  required: true,
-  properties: corePropsPlusArgs.properties,
+  items: {
+    type: 'object',
+    properties: corePropsPlusArgs.properties,
+  },
 }
 
 // ENUMS
 const enums = dup(corePropsNoType)
 
+enums.type = 'object'
+enums.required = ['name', 'kind', 'id', 'href', 'description', 'values']
+
 enums.properties.values = {
   type: 'array',
-  required: true,
-  properties: {
-    name: {
-      type: 'string',
-      required: true,
-    },
-    description: {
-      type: 'string',
-      required: true,
+  items: {
+    type: 'object',
+    required: ['name', 'description'],
+    properties: {
+      name: {
+        type: 'string',
+      },
+      description: {
+        type: 'string',
+      },
     },
   },
 }
@@ -205,21 +221,24 @@ enums.properties.values = {
 // UNIONS
 const unions = dup(corePropsNoType)
 
+unions.type = 'object'
+unions.required = ['name', 'kind', 'id', 'href', 'description', 'possibleTypes']
+
 unions.properties.possibleTypes = {
   type: 'array',
-  required: true,
-  properties: {
-    name: {
-      type: 'string',
-      required: true,
-    },
-    id: {
-      type: 'string',
-      required: true,
-    },
-    href: {
-      type: 'string',
-      required: true,
+  items: {
+    type: 'object',
+    required: ['name', 'id', 'href'],
+    properties: {
+      name: {
+        type: 'string',
+      },
+      id: {
+        type: 'string',
+      },
+      href: {
+        type: 'string',
+      },
     },
   },
 }
@@ -227,15 +246,22 @@ unions.properties.possibleTypes = {
 // INPUT OBJECTS
 const inputObjects = dup(corePropsNoType)
 
+inputObjects.type = 'object'
+inputObjects.required = ['name', 'kind', 'id', 'href', 'description', 'inputFields']
+
 inputObjects.properties.inputFields = {
   type: 'array',
-  required: true,
-  properties: coreProps.properties,
+  items: {
+    type: 'object',
+    properties: coreProps.properties,
+  },
 }
 
 // SCALARS
 const scalars = dup(corePropsNoType)
-scalars.properties.kind.required = false
+
+scalars.type = 'object'
+scalars.required = ['name', 'id', 'href', 'description']
 
 function dup(obj) {
   return JSON.parse(JSON.stringify(obj))

@@ -2,7 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import frontmatter from '../lib/read-frontmatter.js'
+import frontmatter from '../../lib/read-frontmatter.js'
 
 const contentPath = path.join(process.cwd(), 'content')
 const dataPath = path.join(process.cwd(), 'data')

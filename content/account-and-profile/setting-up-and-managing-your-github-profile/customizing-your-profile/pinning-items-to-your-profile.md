@@ -25,7 +25,7 @@ You can reorder the items in the "Pinned" section. In the upper-right corner of 
 {% data reusables.profile.access_profile %}
 1. At the top of the "Popular repositories" or "Pinned" section, click **Customize your pins**.
 
-   ![Screenshot of the "Pinned" section of a user profile. A link, labeled "Customize your pins", is higlighted with an orange outline.](/assets/images/help/profile/customize-pinned-repositories.png)
+   ![Screenshot of the "Pinned" section of a user profile. A link, labeled "Customize your pins", is highlighted with an orange outline.](/assets/images/help/profile/customize-pinned-repositories.png)
 1. Optionally, to change which items are included in the searchable list, next to "Show", select or deselect **Repositories** and **Gists**.
 1. Optionally, to make it easier to find a specific item, in the "Filter repositories and gists" field, type the name of a user, organization, repository, or gist.
 1. Select up to six repositories and gists, combined.

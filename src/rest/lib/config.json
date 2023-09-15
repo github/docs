@@ -5,6 +5,12 @@
     ],
     "ghec": [
       "2022-11-28"
+    ],
+    "ghes-3.9": [
+      "2022-11-28"
+    ],
+    "ghes-3.10": [
+      "2022-11-28"
     ]
   },
   "versionMapping": {
@@ -21,5 +27,14 @@
     "allowTitleToDifferFromFilename": true
   },
   "targetDirectory": "content/rest",
-  "sha": "05d63e60a5b980d9c08449e6f876d6a28a320fe4"
+  "indexOrder": {
+    "content/rest/index.md": {
+      "startsWith": [
+        "quickstart",
+        "overview",
+        "guides"
+      ]
+    }
+  },
+  "sha": "905287f88dd3ad9a6a89150eeb4bd959219552b5"
 }

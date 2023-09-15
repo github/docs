@@ -41,9 +41,7 @@ If members of your enterprise access {% data variables.location.product_location
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-1. Under "Audit log", click **Source IP disclosure**.
-
-   ![Screenshot of "Source IP disclosure" tab](/assets/images/help/enterprises/audit-log-source-ip-disclosure-tab.png)
+1. Under "Audit log", click **Settings**.
 {% data reusables.audit_log.enable-ip-disclosure %}
 1. Click **Save**.
 

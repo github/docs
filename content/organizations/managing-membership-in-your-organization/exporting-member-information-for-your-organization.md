@@ -24,7 +24,6 @@ The membership information report includes the following information.
 - Datetime of the user's last activity (for a full list of relevant activity, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
 {%- ifversion ghec %}
 - Optionally, additional information that depends on the organization's configuration:
-  - The user's email addresses for a verified domain
   - The user's SAML `NameID`
   - Username and primary email addresses on any {% data variables.product.prodname_ghe_server %} instances where {% data variables.product.prodname_github_connect %} is configured
   - User, subscription email address, and license status for {% data variables.visual_studio.prodname_vss_ghe %}

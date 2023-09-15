@@ -14,7 +14,6 @@ topics:
   - Downgrades
   - Sponsors
 ---
-{% data reusables.sponsors.org-sponsors-release-phase %}
 
 ## About sponsorship downgrades
 

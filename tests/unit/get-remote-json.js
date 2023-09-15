@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import os from 'os'
 
-import rimraf from 'rimraf'
+import { rimraf } from 'rimraf'
 import { expect, test, describe, beforeAll, afterAll } from '@jest/globals'
 import nock from 'nock'
 import getRemoteJSON, { cache } from '../../middleware/get-remote-json.js'
