@@ -1,5 +1,5 @@
 ---
-title: 'Deep dive into {% data variables.product.prodname_github_codespaces %}'
+title: d'Deep dive into {% data variables.product.prodname_github_codespaces %}'
 shortTitle: 'Deep dive into {% data variables.product.prodname_codespaces %}'
 intro: 'Understand how {% data variables.product.prodname_github_codespaces %} works.'
 allowTitleToDifferFromFilename: true
