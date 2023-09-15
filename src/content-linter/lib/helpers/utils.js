@@ -30,22 +30,45 @@ export function isStringPunctuated(text) {
 // Filters a list of tokens by token type only when they match
 // a specific token type order.
 // For example, if a list of tokens contains:
-// [ { type: 'inline'}, { type: 'list_item_close'}, { type: 'list_item_open'},
-// { type: 'paragraph_open'}, { type: 'inline'}, { type: 'paragraph_close'}]
-// And if the tokenOrder being looked for is
-// `tokenOrder` defined ['list_item_open', 'paragraph_open', 'inline']
+//
+//   [
+//      { type: 'inline'},
+//      { type: 'list_item_close'},
+//      { type: 'list_item_open'},
+//      { type: 'paragraph_open'},
+//      { type: 'inline'},
+//      { type: 'paragraph_close'},
+//   ]
+//
+// And if the `tokenOrder` being looked for is:
+//
+//   [
+//      'list_item_open',
+//      'paragraph_open',
+//      'inline'
+//    ]
+//
 // Then the return value would be the items that match that seaquence:
 // Index 2-4:
-// [{ type: 'list_item_open'}, { type: 'paragraph_open'}, { type: 'inline'}]
+//   [
+//      { type: 'inline'},            <-- Index 0 - NOT INCLUDED
+//      { type: 'list_item_close'},   <-- Index 1 - NOT INCLUDED
+//      { type: 'list_item_open'},    <-- Index 2 - INCLUDED
+//      { type: 'paragraph_open'},    <-- Index 3 - INCLUDED
+//      { type: 'inline'},            <-- Index 4 - INCLUDED
+//      { type: 'paragraph_close'},   <-- Index 5 - NOT INCLUDED
+//   ]
+//
 export function filterTokensByOrder(tokens, tokenOrder) {
   const matches = []
 
   // Get a list of token indexes that match the
   // first token (root) in the tokenOrder array
   const tokenRootIndexes = []
+  const firstTokenOrderType = tokenOrder[0]
   tokens.forEach((token, index) => {
-    if (token.type === tokenOrder[0]) {
-      return tokenRootIndexes.push(index)
+    if (token.type === firstTokenOrderType) {
+      tokenRootIndexes.push(index)
     }
   })
 
@@ -54,7 +77,10 @@ export function filterTokensByOrder(tokens, tokenOrder) {
   for (const tokenRootIndex of tokenRootIndexes) {
     for (let i = 1; i < tokenOrder.length; i++) {
       if (tokens[tokenRootIndex + i].type !== tokenOrder[i]) {
-        return
+        // This tokenRootIndex was a possible start,
+        // but doesn't match the tokenOrder perfectly, so break out
+        // of the inner loop before it reaches the end.
+        break
       }
       if (i === tokenOrder.length - 1) {
         matches.push(...tokens.slice(tokenRootIndex, tokenRootIndex + i + 1))
