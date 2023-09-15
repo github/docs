@@ -1,0 +1,36 @@
+date: '2023-02-16'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: Updated Git to include fixes from 2.39.2, which address [CVE-2023-22490](https://github.com/git/git/security/advisories/GHSA-gw92-x3fm-3g3q) and [CVE-2023-23946](https://github.com/git/git/security/advisories/GHSA-r87m-v37r-cwfh).
+    - |
+      **HIGH**: A path traversal vulnerability was identified in GitHub Enterprise Server that allowed arbitrary file reading when building a GitHub Pages site. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the instance. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-22380](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-22380).
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - When using a VPC endpoint URL as an AWS S3 URL for GitHub Packages, publication and installation of packages failed.
+    - For instances with both GitHub Connect and automatic access to GitHub.com actions enabled, Dependabot would fail to update actions hosted on GitHub.com.
+    - The CSV file containing details about GitHub Advanced Security contributors could not be downloaded if the instance did not have a GitHub Advanced Security license.
+    - Collectd logs could grow rapidly in size due to the inclusion of `kredz.*` metrics, which can't be parsed by StatsD and resulted in error messages.
+    - On an instance with a GitHub Advanced Security license, if code scanning had been used while running GitHub Enterprise Server 3.4 or earlier, a subsequent upgrade from 3.5 to 3.6 or 3.7 could fail when attempting to add a unique index to a database table.
+  changes:
+    - After the Dependency submission REST API receives a submission with one or more dependencies without a version, the dependency graph will now correctly report this fact.
+  known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.stuck-discussion-conversion-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

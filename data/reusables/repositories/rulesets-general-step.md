@@ -1,0 +1,4 @@
+1. In the "General" section, type a name for the ruleset, then select {% octicon "skip" aria-hidden="true" %} **Disabled** {% octicon "triangle-down" aria-hidden="true" %} and click one of the following enforcement statuses:
+   - {% octicon "play" aria-hidden="true" %} **Active**: your ruleset will be enforced upon creation.{% ifversion repo-rules-enterprise %}
+   - {% octicon "meter" aria-hidden="true" %} **Evaluate**: your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page. For more information, see "[Viewing insights for rulesets](#viewing-insights-for-rulesets)."{% endif %}
+   - {% octicon "skip" aria-hidden="true" %} **Disabled**: your ruleset will not be enforced{% ifversion repo-rules-enterprise %} or evaluated{% endif %}.

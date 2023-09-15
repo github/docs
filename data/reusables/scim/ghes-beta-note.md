@@ -8,7 +8,7 @@
 
 {% warning %}
 
-**Warning:** The beta is exclusively for testing and feedback, and no support is available. {% data variables.product.company_short %} recommends testing with a staging instance. For more information, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+**Warning:** The beta is exclusively for testing and feedback, and no support is available. {% data variables.product.company_short %} recommends testing with a staging instance. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% endwarning %}
 

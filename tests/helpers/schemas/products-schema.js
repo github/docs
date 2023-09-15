@@ -1,19 +1,18 @@
 export default {
+  type: 'object',
+  required: ['name', 'id', 'href'],
   properties: {
     name: {
-      required: true,
       description: 'the product name',
       type: 'string',
     },
 
     id: {
-      required: true,
       description: 'an identifier for the product',
       type: 'string',
     },
 
     href: {
-      required: true,
       description: 'the href to the product landing page',
       type: 'string',
       pattern: '^(/|http)', // if internal, must start with a slash; if external, must start with http

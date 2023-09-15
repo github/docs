@@ -12,21 +12,13 @@ import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// This is temporary solution until we have certainty in that the
-// dedicated search results page works.
-// In a near future, we won't be needing this and assume it's always
-// true.
-const USE_DEDICATED_SEARCH_RESULTS_PAGE = Boolean(
-  JSON.parse(process.env.ENABLE_SEARCH_RESULTS_PAGE || 'false')
-)
-
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   let redirects
   beforeAll(async () => {
     const res = await get('/en?json=redirects')
-    redirects = JSON.parse(res.text)
+    redirects = JSON.parse(res.body)
   })
 
   test('page.buildRedirects() returns an array', async () => {
@@ -50,37 +42,33 @@ describe('redirects', () => {
     expect(pageRedirects['/about-issues']).toBe('/issues')
     expect(pageRedirects['/creating-an-issue']).toBe('/issues')
     expect(
-      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/about-issues`]
+      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/about-issues`],
     ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
     expect(
-      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/creating-an-issue`]
+      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/creating-an-issue`],
     ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
   })
 
   describe('query params', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
-      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
-        expect(res.statusCode).toBe(301)
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      } else {
-        expect(res.statusCode).toBe(302)
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      }
+      expect(res.statusCode).toBe(301)
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+      expect(res.headers.location).toBe(expected)
     })
 
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      if (USE_DEDICATED_SEARCH_RESULTS_PAGE) {
-        const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      } else {
-        const expected = `/en/enterprise/admin?query=pulls`
-        expect(res.headers.location).toBe(expected)
-      }
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
+      expect(res.headers.location).toBe(expected)
+    })
+
+    test('convert q= to query= on search page', async () => {
+      const res = await get('/en/search?q=pulls')
+      expect(res.statusCode).toBe(301)
+      const expected = '/en/search?query=pulls'
+      expect(res.headers.location).toBe(expected)
     })
 
     test('have faq= not converted to query=', async () => {
@@ -95,6 +83,11 @@ describe('redirects', () => {
     test('do not work on other paths that include "search"', async () => {
       const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       const res = await get(reqPath)
+      expect(res.statusCode).toBe(200)
+    })
+
+    test('Do not redirect to search if on GraphQL Explorer "search"', async () => {
+      const res = await get('/en/graphql/overview/explorer?query=anything')
       expect(res.statusCode).toBe(200)
     })
   })
@@ -255,7 +248,7 @@ describe('redirects', () => {
       const res = await get(`/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(
-        enterpriseAdmin.replace(latest, lastBeforeRestoredAdminGuides)
+        enterpriseAdmin.replace(latest, lastBeforeRestoredAdminGuides),
       )
     })
 
@@ -273,7 +266,7 @@ describe('redirects', () => {
 
     test('admin/guides redirects to admin in deep links on <2.21', async () => {
       const res = await get(
-        `/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`
+        `/en/enterprise-server@${lastBeforeRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`,
       )
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
@@ -284,7 +277,7 @@ describe('redirects', () => {
 
     test('admin/guides still redirects to admin in deep links on >=2.21', async () => {
       const res = await get(
-        `/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`
+        `/en/enterprise-server@${firstRestoredAdminGuides}/admin/guides/installation/upgrading-github-enterprise`,
       )
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
@@ -321,7 +314,7 @@ describe('redirects', () => {
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
-        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
+        `/en/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`,
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
@@ -335,7 +328,7 @@ describe('redirects', () => {
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        `/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`
+        `/enterprise/${enterpriseServerReleases.latest}/user/articles/fork-a-repo`,
       )
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(userArticle)
@@ -354,7 +347,7 @@ describe('redirects', () => {
 
     test('redirects to expected article', async () => {
       const res = await get(
-        `/en/enterprise/${enterpriseServerReleases.latest}/user${redirectFromPath}`
+        `/en/enterprise/${enterpriseServerReleases.latest}/user${redirectFromPath}`,
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
@@ -362,7 +355,7 @@ describe('redirects', () => {
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        `/enterprise/${enterpriseServerReleases.latest}/user${redirectFromPath}`
+        `/enterprise/${enterpriseServerReleases.latest}/user${redirectFromPath}`,
       )
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(userArticle)
@@ -377,11 +370,11 @@ describe('redirects', () => {
 
   describe('desktop guide', () => {
     const desktopGuide =
-      '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
+      '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
 
     test('no language code redirects to english', async () => {
       const res = await get(
-        '/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
+        '/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request',
       )
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(desktopGuide)
@@ -389,7 +382,7 @@ describe('redirects', () => {
 
     test('desktop/guides redirects to desktop', async () => {
       const res = await get(
-        '/en/desktop/guides/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
+        '/en/desktop/guides/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request',
       )
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(desktopGuide)
@@ -423,54 +416,6 @@ describe('redirects', () => {
     })
   })
 
-  // These tests exists because of issue #1960
-  describe('rest reference redirects with default product', () => {
-    test('rest subcategory with fpt in URL', async () => {
-      for (const category of [
-        'migrations',
-        'actions',
-        'activity',
-        'apps',
-        'billing',
-        'checks',
-        'codes-of-conduct',
-        'code-scanning',
-        'codespaces',
-        'emojis',
-        'gists',
-        'git',
-        'gitignore',
-        'interactions',
-        'issues',
-        'licenses',
-        'markdown',
-        'meta',
-        'orgs',
-        'projects',
-        'pulls',
-        'rate-limit',
-        'reactions',
-        'repos',
-        'search',
-        'teams',
-        'users',
-      ]) {
-        // Without language prefix
-        {
-          const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
-          expect(res.statusCode).toBe(302)
-          expect(res.headers.location).toBe(`/en/rest/${category}`)
-        }
-        // With language prefix
-        {
-          const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
-          expect(res.statusCode).toBe(301)
-          expect(res.headers.location).toBe(`/en/rest/${category}`)
-        }
-      }
-    })
-  })
-
   describe('redirects with double-slashes', () => {
     test('prefix double-slash', async () => {
       const res = await get(`//en`)
@@ -488,21 +433,6 @@ describe('redirects', () => {
       const res = await get(`/en//`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en`)
-    })
-  })
-
-  describe('redirects from old Lunr search to ES legacy search', () => {
-    test('redirects even without query string', async () => {
-      const res = await get(`/search`, { followRedirects: false })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(`/api/search/legacy`)
-    })
-
-    test('redirects with query string', async () => {
-      const params = new URLSearchParams({ foo: 'bar' })
-      const res = await get(`/search?${params}`, { followRedirects: false })
-      expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(`/api/search/legacy?${params}`)
     })
   })
 })

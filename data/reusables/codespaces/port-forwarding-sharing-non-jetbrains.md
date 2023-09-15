@@ -10,6 +10,6 @@ If you want to share a forwarded port with others, you can either make the port 
 
 {% note %}
 
-**Note:** Your choice of port visibility options may be limited by a policy configured for your organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+**Note:** Your choice of port visibility options may be limited by a policy configured for your organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
 
 {% endnote %}

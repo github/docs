@@ -24,12 +24,12 @@ some of the problems you may be experiencing.
 You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
 
 ```shell
-$ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
+curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 ```
 
 If you specify a version that does not exist, you will receive a `400` error.
 
-For more information, see "[API Versions](/rest/overview/api-versions)."
+For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
 
 {% endif %}
 
@@ -40,7 +40,7 @@ You might expect to see a `403 Forbidden` in these cases. However, since we don'
 want to provide _any_ information about private repositories, the API returns a
 `404` error instead.
 
-To troubleshoot, ensure [you're authenticating correctly](/guides/getting-started/), [your OAuth access token has the required scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+To troubleshoot, ensure [you're authenticating correctly](/rest/quickstart), [your OAuth access token has the required scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps), [third-party application restrictions][oap-guide] are not blocking access, and that [the token has not expired or been revoked](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
 ## Not all results returned
 
@@ -49,13 +49,14 @@ pagination. If you're making requests and receiving an incomplete set of results
 probably only seeing the first page. You'll need to request the remaining pages
 in order to get more results.
 
-It's important to *not* try and guess the format of the pagination URL. Not every
+It's important to _not_ try and guess the format of the pagination URL. Not every
 API call uses the same structure. Instead, extract the pagination information from
-the link header, which is returned with every request. For more information about pagination, see "[Using pagination in the REST API](/rest/guides/using-pagination-in-the-rest-api)."
+the link header, which is returned with every request. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
 {% ifversion fpt or ghec %}
+
 ## Basic authentication errors
 
 On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.
@@ -65,23 +66,41 @@ On November 13, 2020 username and password authentication to the REST API and th
 If you're using `username` and `password` for API calls, then they are no longer able to authenticate. For example:
 
 ```bash
-curl -u my_user:my_password https://api.github.com/user/repos
+curl -u YOUR-USERNAME:YOUR-PASSWORD https://api.github.com/user/repos
 ```
 
-Instead, use a [{% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) when testing endpoints or doing local development:
+Instead, use a {% data variables.product.pat_generic %} or an access token for a {% data variables.product.prodname_github_app %} when testing endpoints or doing local development:
 
 ```bash
-curl -H 'Authorization: Bearer my_access_token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer YOUR-TOKEN' https://api.github.com/user/repos
 ```
 
-For OAuth Apps, you should use the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate an OAuth token to use in the API call's header:
+For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
+
+For {% data variables.product.prodname_oauth_apps %}, you should use the [web application flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
-curl -H 'Authorization: Bearer my-oauth-token' https://api.github.com/user/repos
+curl -H 'Authorization: Bearer YOUR-OAUTH-TOKEN' https://api.github.com/user/repos
 ```
 
 ## Timeouts
 
 If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
+
+{% endif %}
+
+{% ifversion rest-permissions-header %}
+
+## Insufficient permissions errors
+
+If you are using a {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} and you receive an error due to your token having insufficient permissions, you can use the `X-Accepted-GitHub-Permissions` header to identify the permissions that are required to access the REST API endpoint.
+
+The value of the `X-Accepted-GitHub-Permissions` header is a comma separated list of the permissions that are required to use the endpoint. Occasionally, you can choose from multiple permission sets. In these cases, multiple comma separated lists will be separated by a semicolon.
+
+For example:
+
+- `X-Accepted-GitHub-Permissions: contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs read access to the contents permission.
+- `X-Accepted-GitHub-Permissions: pull_requests=write,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs write access to the pull request permission and read access to the contents permission.
+- `X-Accepted-GitHub-Permissions: pull_requests=read,contents=read; issues=read,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs either read access to the pull request permission and read access to the contents permission, or read access to the issues permission and read access to the contents permission.
 
 {% endif %}

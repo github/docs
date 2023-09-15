@@ -2,7 +2,7 @@ import path from 'path'
 
 import { defaultCacheControl } from './cache-control.js'
 
-const renderOpts = { textOnly: true, encodeEntities: true }
+const renderOpts = { textOnly: true }
 
 // This middleware exposes a list of all categories and child articles at /categories.json.
 // GitHub Support uses this for internal ZenDesk search functionality.
@@ -26,7 +26,7 @@ export default async function categoriesForSupport(req, res) {
           name,
           published_articles: await findArticlesPerCategory(categoryPage, [], req.context),
         })
-      })
+      }),
     )
   }
 
@@ -55,7 +55,7 @@ async function findArticlesPerCategory(currentPage, articlesArray, context) {
   await Promise.all(
     currentPage.childPages.map(async (childPage) => {
       await findArticlesPerCategory(childPage, articlesArray, context)
-    })
+    }),
   )
 
   return articlesArray

@@ -7,10 +7,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 4
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -40,4 +38,3 @@ miniTocMaxHeadingLevel: 4
 ## Setting container resource options
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
-

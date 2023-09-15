@@ -1,4 +1,4 @@
-name: Node.js Tests
+name: Test
 
 # **What it does**: Runs our tests.
 # **Why we have it**: We want our tests to pass before merging code.
@@ -22,9 +22,6 @@ env:
   # Setting this will activate the jest tests that depend on actually
   # sending real search queries to Elasticsearch
   ELASTICSEARCH_URL: http://localhost:9200/
-  # Hopefully the name is clear enough. By enabling this, we're testing
-  # the future code.
-  ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
   figureOutMatrix:
@@ -33,29 +30,51 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-matrix
         with:
           script: |
-            // We only want to run the 'translations' suite when we know
+            // We only want to run the 'languages' suite when we know
             // we're on the private docs-internal repo because only that
-            // one has ability to clone the remote (private) translations
+            // one has ability to clone the remote (private) languages
             // repos.
-            const all = [
-              'content',
-              'graphql',
-              'meta',
-              'rendering',
-              'routing',
-              'unit',
-              'linting',
-            ];
-            if (context.payload.repository.full_name === 'github/docs-internal') {
-              all.push('translations');
-            }
-            return all;
+            // You can run multiple paths per suite as space-separated in `path`.
+            // Note that *if you add* to this, remember to also add that
+            // to the **required checks** in the branch protection rules.
+            return [
+              { name: 'assets', path: 'src/assets/tests', },
+              // { name: 'audit-logs', path: 'src/assets/audit-logs', },
+              { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'color-schemes', path: 'src/color-schemes/tests', },
+              { name: 'content', path: 'tests/content', },
+              { name: 'content-linter', path: 'src/content-linter/tests', },
+              { name: 'content-render', path: 'src/content-render/tests', },
+              { name: 'events', path: 'src/events/tests', },
+              { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
+              { name: 'github-apps', path: 'src/github-apps/tests', },
+              { name: 'graphql', path: 'src/graphql/tests', },
+              { name: 'landings', path: 'src/landings/tests', },
+              { name: 'learning-track', path: 'src/learning-track/tests', },
+              { name: 'observability', path: 'src/observability/tests' },
+              { name: 'pageinfo', path: 'src/pageinfo/tests', },
+              { name: 'redirects', path: 'src/redirects/tests', },
+              { name: 'release-notes', path: 'src/release-notes/tests', },
+              { name: 'rendering', path: 'tests/rendering', },
+              { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
+              { name: 'rest', path: 'src/rest/tests', },
+              { name: 'routing', path: 'tests/routing', },
+              { name: 'search', path: 'src/search/tests', },
+              { name: 'secret-scanning', path: 'src/secret-scanning/tests',},
+              { name: 'shielding', path: 'src/shielding/tests', },
+              context.payload.repository.full_name === 'github/docs-internal' &&
+                { name: 'languages', path: 'src/languages/tests', },
+              { name: 'unit', path: 'tests/unit', },
+              // { name: 'tools', path: 'src/tools/tests', }
+              { name: 'webhooks', path: 'src/webhooks/tests', },
+            ].filter(Boolean)
 
   test:
+    name: ${{ matrix.name }}
     needs: figureOutMatrix
     # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
@@ -64,59 +83,50 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
+        include: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
-      - name: Install a local Elasticsearch for testing
-        # For the sake of saving time, only run this step if the test-group
-        # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
-        uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
-        with:
-          # Make sure this matches production and `sync-search-pr.yml`
-          elasticsearch version: '7.11.1'
-          host port: 9200
-          container port: 9200
-          host node port: 9300
-          node port: 9300
-          discovery type: 'single-node'
-
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - uses: ./.github/actions/setup-elasticsearch
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Figure out which docs-early-access branch to checkout, if internal repo
+      - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
-        id: check-early-access
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: node .github/actions-scripts/what-docs-early-access-branch.js
-
-      - name: Check out docs-early-access too, if internal repo
-        if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
         with:
-          repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: docs-early-access
-          ref: ${{ steps.check-early-access.outputs.branch }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
-      - name: Merge docs-early-access repo's folders
-        if: ${{ github.repository == 'github/docs-internal' }}
+      - name: Check the test fixture data (if applicable)
+        if: ${{ matrix.name == 'rendering-fixtures' }}
+        run: ./script/copy-fixture-data.js --check
+
+      # This keeps our fixture content/data in check
+      - name: Check the test fixture content (if applicable)
+        if: ${{ matrix.name == 'rendering-fixtures' }}
+        env:
+          ROOT: tests/fixtures
         run: |
-          .github/actions-scripts/merge-early-access.sh
-          rm -fr docs-early-access
+          # If either of these fail, it means our fixture content's internal
+          # links can and should be updated.
+          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
+            tests/fixtures/content \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
+            --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
+          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
+            tests/fixtures/data
 
       - name: Clone all translations
-        if: ${{ matrix.test-group == 'translations' }}
+        if: ${{ matrix.name == 'languages' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Gather files changed
+        if: ${{ matrix.name == 'content-linter' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}
@@ -144,24 +154,25 @@ jobs:
           echo $DIFF
 
           # So that becomes a string like `foo.js path/bar.md`
-          # Must to do this because the list of files can be HUGE. Especially
+          # Must do this because the list of files can be HUGE. Especially
           # in a repo-sync when there are lots of translation files involved.
           echo __ format, write to get_diff_files.txt __
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
-      - name: Cache nextjs build
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+      - uses: ./.github/actions/cache-nextjs
 
       - name: Run build script
         run: npm run build
 
+      - uses: ./.github/actions/warmup-remotejson-cache
+        # Only the 'routing' tests include end-to-end tests about
+        # archived enterprise server URLs.
+        if: ${{ matrix.name == 'routing' }}
+
       - name: Index fixtures into the local Elasticsearch
-        # For the sake of saving time, only run this step if the test-group
+        # For the sake of saving time, only run this step if the group
         # is one that will run tests against an Elasticsearch on localhost.
-        if: ${{ matrix.test-group == 'content' || matrix.test-group == 'translations' }}
+        if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
         run: npm run index-test-fixtures
 
       - name: Run tests
@@ -170,6 +181,8 @@ jobs:
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
           # By default, when `process.env.NODE_ENV === 'test'` it forces the
           # tests run only in English. The exception is the
-          # `tests/translations/` suite which needs all languages to be set up.
-          ENABLED_LANGUAGES: ${{ matrix.test-group == 'translations' && 'all' || '' }}
-        run: npm test -- tests/${{ matrix.test-group }}/
+          # `languages` suite which needs all languages to be set up.
+          ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
+          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'tests/fixtures' || '' }}
+          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
+        run: npm test -- ${{ matrix.path }}/

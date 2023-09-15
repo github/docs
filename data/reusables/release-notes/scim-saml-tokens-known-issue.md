@@ -1,0 +1,1 @@
+For participants in the private beta of SCIM for GitHub Enterprise Server, authentication for requests to resources other than the REST API using a {% data variables.product.pat_generic %} or SSH key may not succeed. A fix will be available in a forthcoming release of GitHub Enterprise Server. [Updated: 2023-02-27]

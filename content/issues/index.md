@@ -1,14 +1,15 @@
 ---
-title: GitHub Issues
+title: GitHub Issues documentation
 shortTitle: GitHub Issues
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/about-issues
   quickstart: /issues/tracking-your-work-with-issues/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /issues/tracking-your-work-with-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+    - /issues/managing-your-tasks-with-tasklists/quickstart-for-tasklists
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
     - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
@@ -21,20 +22,11 @@ featuredLinks:
     - /issues/tracking-your-work-with-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/tracking-your-work-with-issues/creating-issues/about-tasklists
+    - /issues/tracking-your-work-with-issues/about-tasklists
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
     - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
-  videos:
-    - title: Planning at scale with Issues – Mario Rodriguez
-      href: 'https://www.youtube-nocookie.com/embed/ha1KHcPMAEk'
-    - title: Planning at GitHub (Projects + Issues) – Matt Butler
-      href: 'https://www.youtube-nocookie.com/embed/HwpVvDURHKw'
-    - title: Issue Forms for open source – Luke Hefson
-      href: 'https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY'
-  videosHeading: Videos
-product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1{% else %}https://www.youtube-nocookie.com/embed/uiaLWluYJsA{% endif %}'
 layout: product-landing
 beta_product: false
 versions:
@@ -45,9 +37,12 @@ versions:
 children:
   - /tracking-your-work-with-issues
   - /planning-and-tracking-with-projects
+  - /managing-your-tasks-with-tasklists
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
   - /guides
+product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y{% endif %}'
+product_video_transcript: /video-transcripts/transcript-using-projects-for-feature-planning
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/managing-your-work-with-issues

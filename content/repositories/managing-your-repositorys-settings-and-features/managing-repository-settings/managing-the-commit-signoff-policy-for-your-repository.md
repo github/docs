@@ -13,7 +13,7 @@ shortTitle: Manage the commit signoff policy
 
 Commit signoffs enable users to affirm that a commit complies with the rules and licensing governing a repository. You can enable compulsory commit signoffs on individual repositories for users committing through {% data variables.location.product_location %}'s web interface, making signing off on a commit a seemless part of the commit process. Once compulsory commit signoffs are enabled for a repository, every commit made to that repository through {% data variables.location.product_location %}'s web interface will automatically be signed off on by the commit author.
 
-Organization owners can also enable compulsory commit signoffs at the organization level. For more information, see "[Managing the commit signoff policy for your organization](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)."
+Organization owners can also enable compulsory commit signoffs at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)."
 
 {% data reusables.repositories.commit-signoffs %}
 
@@ -22,4 +22,3 @@ Organization owners can also enable compulsory commit signoffs at the organizati
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Select **Require contributors to sign off on web-based commits**.
-  ![Screenshot of Require contributors to sign off on web-based commits](/assets/images/help/repository/require-signoffs.png)

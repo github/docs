@@ -1,3 +1,7 @@
 import { main } from './start-server.js'
 
-main()
+try {
+  await main()
+} catch (error) {
+  console.error(error)
+}

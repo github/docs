@@ -5,15 +5,17 @@
 - in the user interface, a warning is shown in your repository's file and code views if there are any insecure dependencies (**UI alerts** option).{% endif %}
 - on the command line, warnings are displayed as callbacks when you push to repositories with any insecure dependencies (**CLI** option).
 {% ifversion not ghae %}
-- on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[Enabling push notifications with {% data variables.product.prodname_mobile %}](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
+- on {% data variables.product.prodname_mobile %}, as web notifications. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."{% endif %}
 
 {% note %}
 
 **Note:** The email and web{% ifversion not ghae %}/{% data variables.product.prodname_mobile %}{% endif %} notifications are:
 
-- _per repository_ when {% data variables.product.prodname_dependabot %} is enabled on the repository, or when a new manifest file is committed to the repository.
+- _Per repository_ when {% data variables.product.prodname_dependabot %} is enabled on the repository, or when a new manifest file is committed to the repository.
 
-- _per organization_ when a new vulnerability is discovered.
+- _Per organization_ when a new vulnerability is discovered.
+
+- Sent when a new vulnerability is discovered. {% data variables.product.prodname_dotcom %} doesn't send notifications when vulnerabilities are updated.
 
 {% endnote %}
 

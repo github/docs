@@ -12,8 +12,6 @@ shortTitle: About Community Exchange
 
 {% data reusables.education.about-github-community-exchange-intro %}
 
-![Screenshot of Community Exchange page](/assets/images/help/education/community-exchange-page.png)
-
 You can help your peers learn open source skills, become a project maintainer, and grow your {% data variables.product.prodname_dotcom %} portfolio and network within a safe and verified community platform.
 
 {% data variables.product.prodname_community_exchange %} allows you to:
@@ -23,10 +21,10 @@ You can help your peers learn open source skills, become a project maintainer, a
 - Submit a repository to teach new skills
 - Manage your repository submissions
 
-For more information, see "[Contribute with GitHub Community Exchange](/education/contribute-with-github-community-exchange)."
+For more information, see "[AUTOTITLE](/education/contribute-with-github-community-exchange)."
 
 {% data reusables.education.access-github-community-exchange %}
 
 ## Further reading
 
-- "[Getting started with {% data variables.product.prodname_community_exchange %}](/education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange)"
+- "[AUTOTITLE](/education/contribute-with-github-community-exchange/getting-started-with-github-community-exchange)"

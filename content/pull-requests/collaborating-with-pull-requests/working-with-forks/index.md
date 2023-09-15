@@ -14,6 +14,7 @@ topics:
   - Pull requests
 children:
   - /about-forks
+  - /about-permissions-and-visibility-of-forks
   - /configuring-a-remote-repository-for-a-fork
   - /syncing-a-fork
   - /allowing-changes-to-a-pull-request-branch-created-from-a-fork

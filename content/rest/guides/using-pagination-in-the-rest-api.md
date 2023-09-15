@@ -13,7 +13,6 @@ versions:
 topics:
   - API
 shortTitle: Pagination
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About pagination
@@ -34,7 +33,7 @@ curl --include --request GET \
 
 If the response is paginated, the link header will look something like this:
 
-```
+```http
 link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="prev", <https://api.github.com/repositories/1300192/issues?page=4>; rel="next", <https://api.github.com/repositories/1300192/issues?page=515>; rel="last", <https://api.github.com/repositories/1300192/issues?page=1>; rel="first"
 ```
 
@@ -55,11 +54,11 @@ curl --include --request GET \
 --header "Accept: application/vnd.github+json"
 ```
 
-The URLs in the link header use query parameters to indicate what page of results to return. The query parameters in the link URLs may differ between endpoints: each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the link header to fetch additional pages of results. For more information about query parameters see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."  
+The URLs in the link header use query parameters to indicate what page of results to return. The query parameters in the link URLs may differ between endpoints: each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the link header to fetch additional pages of results. For more information about query parameters see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."
 
 ## Changing the number of items per page
 
-If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about query parameters see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."
+If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about query parameters see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."
 
 For example, this request uses the `per_page` query parameter to return two items per page:
 
@@ -71,7 +70,7 @@ curl --include --request GET \
 
 The `per_page` parameter will automatically be included in the link header. For example:
 
-```
+```http
 link: <https://api.github.com/repositories/1300192/issues?per_page=2&page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?per_page=2&page=7715>; rel="last"
 ```
 
@@ -79,7 +78,7 @@ link: <https://api.github.com/repositories/1300192/issues?per_page=2&page=2>; re
 
 Instead of manually copying URLs from the link header, you can write a script to fetch multiple pages of results.
 
-The following examples use JavaScript and {% data variables.product.company_short %}'s Octokit.js library. For more information about Octokit.js, see "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api?tool=javascript)" and [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+The following examples use JavaScript and {% data variables.product.company_short %}'s Octokit.js library. For more information about Octokit.js, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=javascript)" and [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
 ### Example using the Octokit.js pagination method
 
@@ -87,7 +86,7 @@ To fetch paginated results with Octokit.js, you can use `octokit.paginate()`. `o
 
 For example, this script gets all of the issues from the `octocat/Spoon-Knife` repository. Although it requests 100 issues at a time, the function won't return until the last page of data is reached.
 
-```javascript{:copy}
+```javascript copy
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -114,7 +113,7 @@ If you are using another language or library that doesn't have a pagination meth
 
 The `getPaginatedData` function makes a request to an endpoint with `octokit.request()`. The data from the response is processed by `parseData`, which handles cases where no data is returned or cases where the data that is returned is an object instead of an array. The processed data is then appended to a list that contains all of the paginated data collected so far. If the response includes a link header and if the link header includes a link for the next page, then the function uses a RegEx pattern (`nextPattern`) to get the URL for the next page. The function then repeats the previous steps, now using this new URL. Once the link header no longer includes a link to the next page, all of the results are returned.
 
-```javascript{:copy}
+```javascript copy
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -170,7 +169,7 @@ function parseData(data) {
   // Pull out the array of items
   const namespaceKey = Object.keys(data)[0];
   data = data[namespaceKey];
-  
+
   return data;
 }
 

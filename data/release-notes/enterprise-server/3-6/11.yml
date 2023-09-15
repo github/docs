@@ -1,0 +1,56 @@
+date: '2023-03-23'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: Addressed an improper authentication vulnerability that allowed an unauthorized actor to modify other users' secret gists by authenticating through an SSH certificate authority. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23761](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23761). [Updated: 2023-04-07]
+    - |
+      **MEDIUM**: Addressed an incorrect comparison vulnerability that allowed commit smuggling by displaying an incorrect diff. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23762](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23762). [Updated: 2023-04-07]
+  bugs:
+    - "In the Management Console's monitor dashboard, the `Cached Requests` and `Served Requests` graphs, which are retrieved by the `git fetch catching` command, did not display metrics for the instance."
+    - After a site administrator exempted the **@github-actions\[bot]** user from rate limiting by using the `ghe-config app.github.rate-limiting-exempt-users "github-actions[bot]"` command, running `ghe-config-check` caused a `Validation is-valid-characterset failed` warning to appear. 
+    - GitHub Actions (`actions`) and Microsoft SQL (`mssql`) did not appear in the list of processes within the instances monitor dashboard. 
+    - After an administrator used the `/setup/api/start` REST API endpoint to upload a license, the configuration run failed with a `Connection refused` error during the migrations phase. 
+    - In some cases, on an instance with a GitHub Advanced Security license and secret scanning enabled, users may have seen a discrepancy between the number of alerts displayed on a repositorys "Security" tab and in the sidebar for the "Security" tab. 
+    - On an instance in a cluster configuration, when a site administrator set maintenance mode using `ghe-maintenance -s`, a `Permission denied` error appeared when the utility tried to access `/data/user/common/cluster.conf`. 
+    - On an instance in a high availability configuration, if an administrator tore down replication from a replica node using `ghe-repl-teardown` immediately after running `ghe-repl-setup`, but before `ghe-repl-start`, an error indicated that the script `cannot launch /usr/local/bin/ghe-single-config-apply - run is locked`. `ghe-repl-teardown` now displays an informational alert and continues the teardown. 
+    - During configuration of high availability, if a site administrator interrupted the `ghe-repl-start` utility, the utility erroneously reported that replication was configured, and the instance would not perform expected clean-up operations. 
+    - Responses from the `/repositories` REST API endpoint erroneously included deleted repositories. 
+    - When a site administrator used `ghe-migrator` to migrate data to GitHub Enterprise Server, in some cases, nested team relationships would not persist after teams were imported. 
+    - If a repository contained a `CODEOWNERS` file with check annotations, pull requests "Files changed" tab returned a `500` error and displayed "Oops, something went wrong" in the "Unchanged files with check annotations" section. 
+    - After upgrading an instance with a GitHub Advanced Security license to GitHub Enterprise Server 3.6 or 3.7, creating a repository or viewing the security settings page for an organization or repository could result in a `500` error due to a GitHub Advanced Security backfill job not completing before the upgrade started. 
+    - On an instance with GitHub Actions enabled, if a user manually triggered a workflow using the REST API but did not specify values for optional booleans, the API failed to validate the request and returned a `422` error. 
+    - The CSV reports for all users and all active users, available from the site admin dashboard, did not consider recent access using SSH or personal access tokens. 
+    - On an instance with GitHub Connect enabled, if "Users can search GitHub.com" was enabled, users would not see issues in private and internal repositories in search results for GitHub.com. 
+    - GitHub Enterprise Server published distribution metrics that cannot be processed by collectd. The metrics included `pre_receive.lfsintegrity.dist.referenced_oids`, `pre_receive.lfsintegrity.dist.unknown_oids`, and `git.hooks.runtime`. 
+    - On an instance with a GitHub Advanced Security license, if code scanning had been used while running GitHub Enterprise Server 3.4 or earlier, a subsequent upgrade from 3.5 to 3.6 or 3.7 could fail when attempting to add a unique index to a database table. 
+    - |
+      On an instance with GitHub Packages enabled, after users pushed to the Container registry, the instance erroneously responded with a `429 Too Many Requests` error in cases when the instance could accommodate the request. The limits have been raised, and users should receive this message less often. [Updated: 2023-05-30]
+
+  changes:
+    - After an enterprise owner enables Dependabot updates, the instance creates the initial set of updates faster. 
+    - On an instance in a cluster configuration, when a site administrator sets maintenance mode on a single cluster node using `ghe-maintenance -s`, the utility warns the administrator to use `ghe-cluster-maintenance -s` to set maintenance mode on all of the clusters nodes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster)." 
+    - When a site administrator configures an outbound web proxy server for GitHub Enterprise Server, the instance now validates top-level domains (TLDs) excluded from the proxy configuration. By default, you can exclude public TLDs that the IANA specifies. Site administrators can specify a list of unregistered TLDs to exclude using `ghe-config`. The `.` prefix is required for any public TLDs. For example, `.example.com` is valid, but `example.com` is invalid. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)." 
+    - To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced. 
+    - The default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
+  known_issues:
+    - |
+      On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      {% data reusables.release-notes.babeld-max-threads-performance-issue %}
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

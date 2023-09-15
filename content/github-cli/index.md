@@ -1,5 +1,5 @@
 ---
-title: GitHub CLI
+title: GitHub CLI documentation
 shortTitle: GitHub CLI
 intro: '{% data reusables.cli.about-cli %}'
 versions:
@@ -14,13 +14,13 @@ introLinks:
   quickstart: /github-cli/github-cli/quickstart
   reference: /github-cli/github-cli/github-cli-reference
 featuredLinks:
-  guides:
+  startHere:
     - /github-cli/github-cli/creating-github-cli-extensions
     - /github-cli/github-cli/using-github-cli-extensions
     - /actions/using-workflows/using-github-cli-in-workflows
     - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli
   popular:
-    - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+    - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
     - /issues/tracking-your-work-with-issues/creating-an-issue
     - /authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
     - /get-started/quickstart/create-a-repo

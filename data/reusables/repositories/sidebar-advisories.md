@@ -1,2 +1,1 @@
-1. In the left sidebar, under "Reporting", click **Advisories**.
-  ![Security advisories tab](/assets/images/help/security/advisories-tab.png)
+1. In the left sidebar, under "Reporting", click **{% octicon "shield" aria-hidden="true" %} Advisories**.

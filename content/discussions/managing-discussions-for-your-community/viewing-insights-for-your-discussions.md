@@ -17,19 +17,20 @@ You can use discussions insights to help understand the contribution activity, p
 - **Discussions daily contributors** shows the daily count of unique users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
 - **Discussions new contributors** shows the daily count of unique new users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
 
-![Screenshot of the discussions dashboard](/assets/images/help/discussions/discussions-dashboard.png)
+![Screenshot of the "Community insights" page. A dashboard displays graphs for data related to Discussions, such as page views.](/assets/images/help/discussions/discussions-dashboard.png)
 
-{% tip %}
+{% note %}
 
-**Tip:** To view the exact data for a time period, hover over that time period in the graph.
+**Note:** To view the exact data for a time period, hover over that time period in the graph.
 
-{% endtip %}
+{% endnote %}
 
 ## Viewing discussions insights
 
 {% data reusables.repositories.navigate-to-repo %} For organization discussions, navigate to the main page of the source repository.
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Community**.
-![Screenshot of the "Community" tab in left sidebar](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
+1. In the left sidebar, click **Community**.
+
+   ![Screenshot of the left sidebar of the "Insights" page. The "Community" tab is highlighted in orange.](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
+
 1. Optionally, in the upper-right corner of the page, select the **Period** dropdown menu and click the time period for which you want to view data: **30 days**, **3 months**, or **1 year**.
-![Screenshot of the date range selector for discussions insights](/assets/images/help/discussions/discussions-dashboard-date-selctor.png)

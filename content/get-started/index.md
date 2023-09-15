@@ -1,5 +1,5 @@
 ---
-title: Getting started with GitHub
+title: Get started with GitHub documentation
 shortTitle: Get started
 intro: 'Learn how to start building, shipping, and maintaining software with {% data variables.product.prodname_dotcom %}. Explore our products, sign up for an account, and connect with the world''s largest development community.'
 redirect_from:
@@ -25,8 +25,8 @@ layout: product-landing
 introLinks:
   quickstart: /get-started/quickstart
 featuredLinks:
-  guides:
-    - /get-started/learning-about-github/githubs-products
+  startHere:
+    - /get-started/learning-about-github/githubs-plans
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
@@ -56,10 +56,11 @@ children:
   - /signing-up-for-github
   - /using-github
   - /writing-on-github
-  - /importing-your-projects-to-github
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
-  - /customizing-your-github-workflow
-  - /privacy-on-github
+  - /working-with-subversion-on-github
+  - /exploring-integrations
+  - /archiving-your-github-personal-account-and-public-repositories
 ---
+

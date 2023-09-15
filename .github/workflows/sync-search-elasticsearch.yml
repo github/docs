@@ -34,20 +34,25 @@ concurrency:
 env:
   FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
+  # Since we'll run in NDOE_ENV=production, we need to be explicit that
+  # we don't want Hydro configured.
+  HYDRO_ENDPOINT: ''
+  HYDRO_SECRET: ''
 
 jobs:
   figureOutMatrix:
+    if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-matrix
         with:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["ja", "es", "pt", "zh", "ru", "fr", "ko", "de"]
+            const allNonEnglish = ["zh", "es", "pt", "ru", "ja", "fr", "de", "ko"]
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
@@ -86,6 +91,13 @@ jobs:
     runs-on: ubuntu-20.04-xl
     strategy:
       fail-fast: false
+      # When it's only English (i.e. a simple array of ['en']), this value
+      # does not matter. If it's ALL the languages, then we know we can
+      # be patient because it's a daily scheduled run and it's run by bots
+      # while humans are asleep. So there's no rush and no need to finish
+      # the whole job fast.
+      # As of June 2023, it takes about 10+ minutes to index one whole
+      # language and we have 8 non-English languages.
       max-parallel: 3
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
@@ -96,21 +108,25 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          repository: github/docs-internal.popular-pages
+          # This works because user `docs-bot` has read access to that private repo.
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: popular-pages
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Cache nextjs build
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+      - uses: ./.github/actions/cache-nextjs
 
       - name: Run build scripts
         run: npm run build
@@ -146,7 +162,11 @@ jobs:
 
           # Note that by default, this is '' (empty string) and that means
           # the same as not set within the script.
-          VERSION: ${{ github.event.inputs.version }}
+          VERSION: ${{ inputs.version }}
+
+          # The sync-search-index recognizes this env var if you don't
+          # use the `--popular-pags <PATH>` option.
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
 
         run: |
           mkdir /tmp/records
@@ -164,10 +184,11 @@ jobs:
           # Must match what we used when scraping (npm run sync-search-indices)
           # otherwise the script will seek other versions from disk that might
           # not exist.
-          VERSION: ${{ github.event.inputs.version }}
+          VERSION: ${{ inputs.version }}
         run: |
-          ./script/search/index-elasticsearch.js /tmp/records \
+          ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language ${{ matrix.language }} \
+            --stagger-seconds 5
 
       - name: Check created indexes and aliases
         run: |

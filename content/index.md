@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
+    - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -42,7 +42,11 @@ redirect_from:
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
   - /github/enforcing-best-practices-with-github-policies/syntax
-versions: '*'
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - search
   - get-started
@@ -59,9 +63,11 @@ children:
   - actions
   - copilot
   - codespaces
+  - migrations
   - packages
   - search-github
-  - developers
+  - apps
+  - webhooks
   - rest
   - graphql
   - github-cli
@@ -73,11 +79,14 @@ children:
   - desktop
   - early-access
   - support
+  - video-transcripts
+  - contributing
 childGroups:
   - name: Get started
     octicon: RocketIcon
     children:
       - get-started
+      - migrations
       - account-and-profile
       - authentication
       - billing
@@ -114,13 +123,16 @@ childGroups:
     octicon: ProjectIcon
     children:
       - issues
+      - issues/planning-and-tracking-with-projects
+      - issues/managing-your-tasks-with-tasklists
       - search-github
   - name: Developers
     octicon: CodeSquareIcon
     children:
-      - developers
+      - apps
       - rest
       - graphql
+      - webhooks
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -133,6 +145,13 @@ childGroups:
       - sponsors
       - education
       - support
+      - contributing
+  - name: More docs
+    octicon: PencilIcon
+    children:
+      - electron
+      - codeql
+      - npm
 externalProducts:
   electron:
     id: electron
@@ -150,3 +169,4 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
+

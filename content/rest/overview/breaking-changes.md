@@ -1,7 +1,7 @@
 ---
 title: Breaking changes
 shortTitle: Breaking changes
-intro: 'Learn about breaking changes that were introduced in each REST API version.'
+intro: Learn about breaking changes that were introduced in each REST API version.
 versions:
   feature: api-date-versioning
 ---
@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.rest-api.about-api-versions %}
 
-For more information about API versions, see "[API Versions](/rest/overview/api-versions)."
+For more information about API versions, see "[AUTOTITLE](/rest/overview/api-versions)."
 
 ## Upgrading to a new API version
 

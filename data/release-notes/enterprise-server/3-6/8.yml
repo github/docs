@@ -1,0 +1,31 @@
+date: '2023-02-02'
+sections:
+  security_fixes:
+    - "**MEDIUM**: A code injection vulnerability was identified in GitHub Enterprise Server that allowed setting arbitrary environment variables from a single environment variable value in GitHub Actions when using a Windows based runner due to improper sanitization of null bytes. To exploit this vulnerability, an attacker would need existing permission to control the value of environment variables for use with GitHub Actions. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-22381](https://www.cve.org/CVERecord?id=CVE-2023-22381)."
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - After a site administrator adjusted the cutoff date for allowing SSH connections with RSA keys using `ghe-config app.gitauth.rsa-sha1`, the instance would still disallow connections with RSA keys if the connection attempt was signed by the SHA-1 hash function.
+    - During the validation phase of a configuration run, a `No such object error` may have occurred for the Notebook and Viewscreen services.
+    - When enabling automatic TLS certificate management with Let's Encrypt, the process could fail with the error `The certificate is not signed by a trusted certificate authority (CA) or the certificate chain in missing intermediate CA signing certificates`.
+    - In some cases, users were unable to convert existing issues to discussions. If an issue is stuck while being converted to a discussion, enterprise owners can review the "Known issues" section below for more information.
+  changes:
+    - When a timeout occurs during diff generation, such as when a commit displays an error that the diff is taking too long to generate, the `push` webhook event will deliver empty diff information. Previously, the `push` webhook event would fail to be delivered.
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.stuck-discussion-conversion-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

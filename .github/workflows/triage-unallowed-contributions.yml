@@ -14,10 +14,8 @@ on:
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
-      - 'lib/graphql/**'
+      - 'src/**'
       - 'lib/redirects/**'
-      - 'lib/rest/**'
-      - 'lib/webhooks/**'
       - 'package*.json'
       - 'script/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
@@ -30,13 +28,13 @@ jobs:
     if: >-
       ${{
         github.repository == 'github/docs' &&
-        github.event.pull_request.user.login != 'Octomerger' &&
+        github.event.pull_request.user.login != 'docs-bot' &&
         github.event.pull_request.user.login != 'dependabot[bot]'
       }}
     runs-on: ubuntu-latest
     steps:
       - name: Get files changed
-        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
         id: filter
         with:
           # Base branch used to get changed files
@@ -49,7 +47,7 @@ jobs:
           # Returns list of changed files matching each filter
           filters: |
             openapi:
-              - 'lib/rest/static/**'
+              - 'src/rest/data/**'
             notAllowed:
               - '.devcontainer/**'
               - '.github/actions-scripts/**'
@@ -58,10 +56,8 @@ jobs:
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
-              - 'lib/graphql/**'
+              - 'src/**'
               - 'lib/redirects/**'
-              - 'lib/rest/**'
-              - 'lib/webhooks/**'
               - 'package*.json'
               - 'scripts/**'
               - 'content/actions/deployment/security-hardening-your-deployments/**'
@@ -70,7 +66,7 @@ jobs:
       # explaining this to the PR author
       - name: "Comment about changes we can't accept"
         if: ${{ steps.filter.outputs.notAllowed }}
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           script: |
             const badFilesArr = [
@@ -81,10 +77,8 @@ jobs:
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
-              'lib/graphql/**',
+              'src/**',
               'lib/redirects/**',
-              'lib/rest/**',
-              'lib/webhooks/**',
               'package*.json',
               'scripts/**',
               'content/actions/deployment/security-hardening-your-deployments/**',
@@ -92,11 +86,11 @@ jobs:
 
             const badFiles = badFilesArr.join('\n')
 
-            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
+            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit-in-github-desktop) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
             let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
 
             try {
-               createdComment = await github.issues.createComment({
+               createdComment = await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.number,

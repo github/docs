@@ -1,12 +1,14 @@
 ---
-title: GitHub REST API
+title: GitHub REST API documentation
 shortTitle: REST API
-intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
+intro: >-
+  To create integrations, retrieve data, and automate your workflows, build with
+  the {% data variables.product.prodname_dotcom %} REST API.
 introLinks:
   quickstart: /rest/quickstart
   overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
-  guides:
+  startHere:
     - /rest/guides/getting-started-with-the-rest-api
     - /rest/guides/basics-of-authentication
     - /rest/guides/best-practices-for-integrators
@@ -17,7 +19,7 @@ featuredLinks:
     - /rest/overview/other-authentication-methods
     - /rest/overview/troubleshooting
     - /rest/guides/scripting-with-the-rest-api-and-javascript
-    - /rest/overview/openapi-description
+    - /rest/overview/keeping-your-api-credentials-secure
   guideCards:
     - /rest/guides/delivering-deployments
     - /rest/guides/using-the-rest-api-to-interact-with-checks
@@ -49,6 +51,7 @@ children:
   - /codespaces
   - /collaborators
   - /commits
+  - /copilot
   - /dependabot
   - /dependency-graph
   - /deploy-keys
@@ -78,7 +81,13 @@ children:
   - /scim
   - /search
   - /secret-scanning
+  - /security-advisories
   - /teams
   - /users
   - /webhooks
+  - /classroom
 ---
+
+
+
+<!-- Content after this section is automatically generated -->

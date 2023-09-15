@@ -1,0 +1,11 @@
+{
+    "/ja/github-ae@latest/foo": {
+        "objectID": "/ja/github-ae@latest/foo",
+        "breadcrumbs": "foo",
+        "title": "フー",
+        "headings": "",
+        "content": "これは、ばかげた foo ワードのフィクスチャです。 GHAE専用。",
+        "topics": ["Test", "Fixture"],
+        "intro": "サンプル紹介"
+    }
+}

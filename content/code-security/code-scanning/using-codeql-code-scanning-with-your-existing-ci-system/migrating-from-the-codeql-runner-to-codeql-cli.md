@@ -12,18 +12,22 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-code-scanning-in-your-ci-system
 ---
 
-# Migrating from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}
-
-The {% data variables.code-scanning.codeql_runner %} is being deprecated. You can use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
+On April 1, 2022, the {% data variables.code-scanning.codeql_runner %} was fully deprecated. You should use the {% data variables.product.prodname_codeql_cli %} version 2.6.2 and greater instead.
 This document describes how to migrate common workflows from the {% data variables.code-scanning.codeql_runner %} to the {% data variables.product.prodname_codeql_cli %}.
 
 ## Installation
 
 Download the **{% data variables.product.prodname_codeql %} bundle** from the [`github/codeql-action` repository](https://github.com/github/codeql-action/releases). This bundle contains the {% data variables.product.prodname_codeql_cli %} and the standard {% data variables.product.prodname_codeql %} queries and libraries.
 
-For more information on setting up the {% data variables.product.prodname_codeql_cli %}, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
+For more information on setting up the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 ## Overview of workflow changes
 
@@ -41,7 +45,7 @@ A typical workflow that uses the {% data variables.product.prodname_codeql_cli %
 
 The {% data variables.code-scanning.codeql_runner %} is multithreaded by default. The {% data variables.product.prodname_codeql_cli %} only uses a single thread by default, but allows you to specify the amount of threads you want it to use. If you want to replicate the behavior of the {% data variables.code-scanning.codeql_runner %} to use all threads available on the machine when using the {% data variables.product.prodname_codeql_cli %}, you can pass `--threads 0` to `codeql database analyze`.
 
-For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
 
 ## Examples of common uses for the {% data variables.product.prodname_codeql_cli %}
 
@@ -58,6 +62,7 @@ The ref name and commit SHA being checked out and analyzed in these examples are
 ### Single non-compiled language (JavaScript)
 
 Runner:
+
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -67,7 +72,9 @@ echo "$TOKEN" | codeql-runner-linux analyze --repository my-org/example-repo
     --github-url https://github.com --github-auth-stdin
     --commit deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 --ref refs/heads/main
 ```
+
 CLI:
+
 ```bash
 codeql database create /codeql-dbs/example-repo --language=javascript \
     --source-root=.
@@ -87,6 +94,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 A similar approach can be taken for compiled languages, or multiple languages.
 
 Runner:
+
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -97,7 +105,9 @@ echo "$TOKEN" | codeql-runner-linux analyze --repository my-org/example-repo \
     --github-url https://github.com --github-auth-stdin \
     --commit deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 --ref refs/heads/main
 ```
+
 CLI:
+
 ```bash
 codeql database create /codeql-dbs/example-repo --language=javascript \
     --source-root=.
@@ -117,6 +127,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 A similar approach can be taken for compiled languages, or multiple languages.
 
 Runner:
+
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -127,7 +138,9 @@ echo "$TOKEN" | codeql-runner-linux analyze --repository my-org/example-repo \
     --github-url https://github.com --github-auth-stdin \
     --commit deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 --ref refs/heads/main
 ```
+
 CLI:
+
 ```bash
 # Use `--codescanning-config` with the path to the YAML configuration file.
 codeql database create /codeql-dbs/example-repo --language=javascript \
@@ -146,6 +159,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 ### Single compiled language using autobuild (Java)
 
 Runner:
+
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -161,7 +175,9 @@ echo "$TOKEN" | codeql-runner-linux analyze --repository my-org/example-repo
     --github-url https://github.com --github-auth-stdin
     --commit deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 --ref refs/heads/main
 ```
+
 CLI:
+
 ```bash
 # Run `codeql database create` without `--command`.
 # This will run the autobuilder for the given language.
@@ -180,6 +196,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 ### Single compiled language using a custom build command (Java)
 
 Runner:
+
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -195,7 +212,9 @@ echo "$TOKEN" | codeql-runner-linux analyze --repository my-org/example-repo
     --github-url https://github.com --github-auth-stdin
     --commit deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 --ref refs/heads/main
 ```
+
 CLI:
+
 ```bash
 # Provide an explicit build command using `--command`.
 codeql database create /codeql-dbs/example-repo --language=java \
@@ -215,6 +234,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 Indirect build tracing for a compiled language enables {% data variables.product.prodname_codeql %} to detect all build steps between the `init` and `analyze` steps, when the code cannot be built using the autobuilder or an explicit build command line. This is useful when using preconfigured build steps from your CI system, such as the `VSBuild` and `MSBuild` tasks in Azure DevOps.
 
 Runner:
+
 ```yaml
 - task: CmdLine@1
   displayName: CodeQL Initialization
@@ -253,6 +273,7 @@ Runner:
 ```
 
 CLI:
+
 ```yaml
 # Run any pre-build tasks, for example, restore NuGet dependencies...
 
@@ -329,7 +350,6 @@ CLI:
       script: 'echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=/temp/example-repo-csharp.sarif --github-auth-stdin'
-
 ```
 
 ### Multiple languages using autobuild (C++, Python)
@@ -338,6 +358,7 @@ This example is not strictly possible with the {% data variables.code-scanning.c
 Only one language (the compiled language with the most files) will be analyzed.
 
 Runner:
+
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \
@@ -355,6 +376,7 @@ echo "$TOKEN" | codeql-runner-linux analyze --repository my-org/example-repo
 ```
 
 CLI:
+
 ```bash
 # Create multiple databases using `--db-cluster`.
 # Run autobuild by omitting `--command`.
@@ -378,6 +400,7 @@ done
 ### Multiple languages using a custom build command (C++, Python)
 
 Runner:
+
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \
@@ -395,6 +418,7 @@ echo "$TOKEN" | codeql-runner-linux analyze --repository my-org/example-repo
 ```
 
 CLI:
+
 ```bash
 # Create multiple databases using `--db-cluster`.
 codeql database create /codeql-dbs/example-repo-multi \

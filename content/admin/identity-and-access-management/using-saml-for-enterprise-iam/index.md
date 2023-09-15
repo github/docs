@@ -9,7 +9,6 @@ versions:
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise
-  - /admin/identity-and-access-management/managing-iam-for-your-enterprise
   - /admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider
   - /enterprise/admin/articles/configuring-saml-authentication
   - /enterprise/admin/articles/about-saml-authentication
@@ -20,11 +19,13 @@ redirect_from:
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml
 children:
   - /about-saml-for-enterprise-iam
+  - /deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations
   - /saml-configuration-reference
   - /configuring-saml-single-sign-on-for-your-enterprise
   - /configuring-user-provisioning-with-scim-for-your-enterprise
   - /managing-team-synchronization-for-organizations-in-your-enterprise
   - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
+  - /disabling-saml-single-sign-on-for-your-enterprise
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /mapping-okta-groups-to-teams

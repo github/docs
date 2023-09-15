@@ -38,11 +38,17 @@ const DEFAULT_OPTIONS = {
       frameSrc: [
         ...GITHUB_DOMAINS,
         isDev && 'http://localhost:3000',
+        // This URL is also set in ArticleContext.tsx. We don't rely on importing a constant as we may run into an import conflict where the env variable is not yet set.
+        process.env.NODE_ENV === 'production'
+          ? 'https://support.github.com'
+          : // Assume that a developer is not testing the VA iframe locally if this env var is not set
+            process.env.SUPPORT_PORTAL_URL || '',
         'https://www.youtube-nocookie.com',
       ].filter(Boolean),
-      frameAncestors: [...GITHUB_DOMAINS],
+      frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: ["'self'", "'unsafe-inline'", 'data:', AZURE_STORAGE_URL],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
+      manifestSrc: ["'self'"],
       upgradeInsecureRequests: isDev ? null : [],
     },
   },
@@ -54,7 +60,7 @@ ndDirs.scriptSrc.push(
   "'unsafe-eval'",
   "'unsafe-inline'",
   'http://www.google-analytics.com',
-  'https://ssl.google-analytics.com'
+  'https://ssl.google-analytics.com',
 )
 ndDirs.connectSrc.push('https://www.google-analytics.com')
 ndDirs.imgSrc.push('http://www.google-analytics.com', 'https://ssl.google-analytics.com')

@@ -1,0 +1,51 @@
+date: '2023-05-09'
+sections:
+  security_fixes:
+    - |
+      **MEDIUM**: Updated Git to include fixes from 2.40.1. For more information, see [Git security vulnerabilities announced](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/) on the GitHub Blog. 
+  bugs:
+    - Users were unable to upload GIF files as attachments within a comment in an issue or pull request. 
+    - On an instance in a high availability configuration, a `git push` operation could fail if GitHub Enterprise Server was simultaneously creating the repository on a replica node. 
+    - |
+      A site administrator could not bypass a proxy for a top-level domain (TLD) from the instance's exception list or IANAs registered top-level domains (TLDs).  
+    - |
+      On some platforms, after someone with administrative SSH access ran `ghe-diagnostics`, the command's output included a cosmetic `SG_IO` error. 
+    - When a site administrator used GitHub Enterprise Importer to import data from GitHub Enterprise Cloud, migrations failed during the import of file-level comments. This failure no longer prevents the import from proceeding. 
+    - When a site administrator used GitHub Enterprise Importer, import of a repository failed if a project column in the repository contained 2,500 or more archived cards. 
+    - In some situations on an instance with multiple nodes, Git replication failed to fully replicate repositories that had previously been deleted, which resulted in a warning in `ghe-repl-status` output. 
+    - |
+      Dropped `launch.*` metrics that can't be parsed by statsd, as the resulting statsd errors caused collectd logs to grow rapidly in size. 
+    - On an instance with a GitHub Advanced Security license that was also configured for a timezone greater than UTC, the list of secret scanning alerts displayed a "Loading secrets failed" error if a user sorted secrets by date in descending order. 
+  changes:
+    - |
+      People with administrative SSH access who generate a support bundle using the `ghe-support-bundle` or `ghe-cluster-support-bundle` utilities can specify the period of time to gather data with `-p` or `--period` without using spaces or quotes. For example, in addition to `'-p 5 days'` or `-p '4 days 10 hours'`,  `-p 5days` or `-p 4days10hours` are valid.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      {% data reusables.release-notes.babeld-max-threads-performance-issue %}
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      When using an outbound web proxy server, the `ghe-btop` command may fail in some circumstances with the error "Error querying allocation: Unexpected response code: 401".
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    # https://github.com/github/driftwood/issues/2746
+    - |
+      On an instance with audit log streaming enabled, the `driftwood` service does not start, preventing the normal operation of audit log streaming. [Updated: 2023-06-06]
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

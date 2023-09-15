@@ -2,7 +2,6 @@
 title: Forwarding ports in your codespace
 shortTitle: Forward ports
 intro: '{% data reusables.codespaces.about-port-forwarding %}'
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,11 +14,11 @@ topics:
   - Developer
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About forwarded ports
 
@@ -31,11 +30,11 @@ Port forwarding gives you access to TCP ports running within your codespace. For
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Under the list of ports, click **Add port**.
 
-   ![Screenshot of the 'Add port' button](/assets/images/help/codespaces/add-port-button.png)
+   ![Screenshot of the "Add port" button.](/assets/images/help/codespaces/add-port-button.png)
 
-1. Type the port number or address, then press enter.
+1. Type the port number or address, then press Enter.
 
-   ![Screenshot of entering a port number](/assets/images/help/codespaces/port-number-text-box.png)
+   ![Screenshot of the number 3000 being entered into the port number field for a new forwarded port.](/assets/images/help/codespaces/port-number-text-box.png)
 
 ## Using HTTPS forwarding
 
@@ -44,7 +43,7 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Right-click the port you want to update, then hover over **Change Port Protocol**.
 
-   ![Screenshot of the option to change port protocol](/assets/images/help/codespaces/update-port-protocol.png)
+   ![Screenshot of the pop-up menu for a forwarded port, with the "Change Port Protocol" option selected and "HTTPS" selected in the submenu.](/assets/images/help/codespaces/update-port-protocol.png)
 
 1. Select the protocol needed for this port. The protocol that you select will be remembered for this port for the lifetime of the codespace.
 
@@ -53,19 +52,19 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Right-click the port that you want to share, click the **Port Visibility**, then click **Private to Organization** or **Public**.
 
-   ![Screenshot of the 'Port visibility' option in the right-click menu](/assets/images/help/codespaces/make-public-option.png)
+   ![Screenshot of the pop-up menu for a forwarded port, with the "Port Visibility" option selected and "Private" selected in the submenu.](/assets/images/help/codespaces/make-public-option.png)
 
 1. To the right of the local address for the port, click the copy icon.
 
-   ![Screenshot of the copy icon for the port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
+   ![Screenshot of the "Ports" panel. The copy icon, which copies a forwarded port's URL, is highlighted with an orange outline.](/assets/images/help/codespaces/copy-icon-port-url.png)
 
 1. Send the copied URL to the person you want to share the port with.
 
 {% data reusables.codespaces.using-tools-to-access-ports-1 %}
 {% data reusables.codespaces.find-address-and-token %}
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
-{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 
 {% endwebui %}
 
@@ -75,32 +74,33 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.navigate-to-ports-tab %}
 1. Under the list of ports, click **Add port**.
 
-   ![Screenshot of the 'Add port' button](/assets/images/help/codespaces/add-port-button.png)
+   ![Screenshot of the "Add port" button.](/assets/images/help/codespaces/add-port-button.png)
 
-1. Type the port number or address, then press enter.
+1. Type the port number or address, then press Enter.
 
-   ![Screenshot of entering a port number](/assets/images/help/codespaces/port-number-text-box.png)
+   ![Screenshot of the number 3000 being entered into the port number field for a new forwarded port.](/assets/images/help/codespaces/port-number-text-box.png)
 
 {% data reusables.codespaces.port-forwarding-sharing-non-jetbrains %}
+
 {% data reusables.codespaces.navigate-to-ports-tab %}
+
 1. Right-click the port that you want to share, click **Port Visibility**, then click **Private to Organization** or **Public**.
 
-   ![Screenshot of the option to make a port public in the right-click menu](/assets/images/help/codespaces/make-public-option.png)
+   ![Screenshot of the pop-up menu for a forwarded port, with the "Port Visibility" option selected and "Private" selected in the submenu.](/assets/images/help/codespaces/make-public-option.png)
 
 1. To the right of the local address for the port, click the copy icon.
 
-   ![Screenshot of the copy icon for the port URL](/assets/images/help/codespaces/copy-icon-port-url.png)
+   ![Screenshot of the "Ports" panel. The copy icon, which copies a forwarded port's URL, is highlighted with an orange outline.](/assets/images/help/codespaces/copy-icon-port-url.png)
 
 1. Send the copied URL to the person you want to share the port with.
 
 {% data reusables.codespaces.using-tools-to-access-ports-1 %}
 {% data reusables.codespaces.find-address-and-token %}
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
-{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 
 {% endvscode %}
-
 
 {% cli %}
 
@@ -146,14 +146,14 @@ Copy the address and paste it somewhere for later use.
 
 1. Start an SSH session for your codespace.
 
-   ```
+   ```shell
    gh codespace ssh
    ```
 
 1. If you have more than one codespace, select the appropriate codespace from the list that's displayed.
 1. Display the `GITHUB_TOKEN`.
 
-   ```
+   ```shell
    echo $GITHUB_TOKEN
    ```
 
@@ -169,20 +169,21 @@ Copy the address and paste it somewhere for later use.
 
 1. Exit the SSH session.
 
-   ```
+   ```shell
    exit
    ```
 
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
+{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
+
+### Seeing port labels on the command line
 
 You can see the port labels when you list the forwarded ports for a codespace. To do this, use the `gh codespace ports` command and then select a codespace.
 
-{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
-
 {% endcli %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Forwarding a port
 
@@ -190,4 +191,4 @@ For information on how to forward a port in a codespace to a port on your local 
 
 Alternatively, you can use {% data variables.product.prodname_cli %} to forward a port. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this page.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

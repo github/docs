@@ -1,39 +1,54 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { MarkGithubIcon, ThreeBarsIcon, XIcon } from '@primer/octicons-react'
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { ActionList, ActionMenu, Dialog, IconButton } from '@primer/react'
+import {
+  KebabHorizontalIcon,
+  LinkExternalIcon,
+  MarkGithubIcon,
+  SearchIcon,
+  ThreeBarsIcon,
+  XIcon,
+} from '@primer/octicons-react'
 
+import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 import { useHasAccount } from 'components/hooks/useHasAccount'
-import { LanguagePicker } from './LanguagePicker'
+import { LanguagePicker } from 'src/languages/components/LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
-import { ProductPicker } from 'components/page-header/ProductPicker'
-import { ApiVersionPicker } from 'components/sidebar/ApiVersionPicker'
-import { useTranslation } from 'components/hooks/useTranslation'
-import { Search } from 'components/Search'
-import { BasicSearch } from 'components/BasicSearch'
+import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
+import { useTranslation } from 'src/languages/components/useTranslation'
+import { Search } from 'src/search/components/Search'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { VersionPicker } from 'components/page-header/VersionPicker'
-import { Breadcrumbs } from './Breadcrumbs'
+import { SidebarNav } from 'components/sidebar/SidebarNav'
+import { AllProductsLink } from 'components/sidebar/AllProductsLink'
 
 import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { currentProduct, allVersions } = useMainContext()
+  const { isHomepageVersion, currentProduct } = useMainContext()
   const { currentVersion } = useVersion()
-  const { t } = useTranslation(['header', 'homepage'])
+  const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
-  const [isMenuOpen, setIsMenuOpen] = useState(
-    router.pathname !== '/' && router.query.query && true
-  )
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [scroll, setScroll] = useState(false)
   const { hasAccount } = useHasAccount()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const openSidebar = useCallback(() => setIsSidebarOpen(true), [isSidebarOpen])
+  const closeSidebar = useCallback(() => setIsSidebarOpen(false), [isSidebarOpen])
+  const isMounted = useRef(false)
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const { asPath } = useRouter()
+  const isSearchResultsPage = router.route === '/search'
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
+  const { width } = useWidth()
+  const returnFocusRef = useRef(null)
 
   useEffect(() => {
     function onScroll() {
@@ -48,145 +63,328 @@ export const Header = () => {
   useEffect(() => {
     const close = (e: { key: string }) => {
       if (e.key === 'Escape') {
-        setIsMenuOpen(false)
+        setIsSearchOpen(false)
       }
     }
     window.addEventListener('keydown', close)
     return () => window.removeEventListener('keydown', close)
   }, [])
 
-  // If you're on `/pt/search` the `router.asPath` will be `/search`
-  // but `/pt/search` is just shorthand for `/pt/free-pro-team@latest/search`
-  // so we need to make exception to that.
-  const onSearchResultPage =
-    currentVersion === DEFAULT_VERSION
-      ? router.asPath.split('?')[0] === '/search'
-      : router.asPath.split('?')[0] === `/${currentVersion}/search`
-  const SearchComponent = onSearchResultPage ? BasicSearch : Search
+  // For the UI in smaller browswer widths, and focus the picker menu button when the search
+  // input is closed.
+  useEffect(() => {
+    if (!isSearchOpen && isMounted.current && menuButtonRef.current) {
+      menuButtonRef.current.focus()
+    }
+
+    if (!isMounted.current) {
+      isMounted.current = true
+    }
+  }, [isSearchOpen])
+
+  // When the sidebar overlay is opened, prevent the main content from being
+  // scrollable.
+  useEffect(() => {
+    const bodyDiv = document.querySelector('body div') as HTMLElement
+    const body = document.querySelector('body')
+    if (bodyDiv && body) {
+      // The full sidebar automatically shows at the xl window size so unlock
+      // scrolling if the overlay was opened and the window size is increased to xl.
+      body.style.overflow = isSidebarOpen && width && width < 1280 ? 'hidden' : 'auto'
+    }
+  }, [isSidebarOpen])
+
+  // with client side navigation clicking sidebar overlay links doesn't dismiss
+  // the overlay so we close it ourselves when the path changes
+  useEffect(() => {
+    setIsSidebarOpen(false)
+  }, [asPath])
+
+  // on REST pages there are sidebar links that are hash anchor links to different
+  // sections on the same page so the sidebar overlay doesn't dismiss.  we listen
+  // for hash changes and close the overlay when the hash changes.
+  useEffect(() => {
+    const hashChangeHandler = () => {
+      setIsSidebarOpen(false)
+    }
+    window.addEventListener('hashchange', hashChangeHandler)
+
+    return () => {
+      window.removeEventListener('hashchange', hashChangeHandler)
+    }
+  }, [])
+
+  function useWidth() {
+    const hasWindow = typeof window !== 'undefined'
+
+    function getWidth() {
+      const width = hasWindow ? window.innerWidth : null
+      return {
+        width,
+      }
+    }
+
+    const [width, setWidth] = useState(getWidth())
+
+    useEffect(() => {
+      if (hasWindow) {
+        const handleResize = function () {
+          setWidth(getWidth())
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+      }
+    }, [hasWindow])
+
+    return width
+  }
 
   return (
-    <div
-      className={cx(
-        'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
-        styles.header
-      )}
-    >
-      {error !== '404' && <HeaderNotifications />}
-      <header
+    <>
+      <div
+        data-container="header"
         className={cx(
-          'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3 border-bottom',
-          scroll && 'color-shadow-small',
-          styles.fullVerticalScroll
+          'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
+          styles.header,
         )}
       >
-        {/* desktop header */}
-        <div
-          className="d-none d-lg-flex flex-justify-end flex-items-center flex-wrap flex-xl-nowrap"
-          data-testid="desktop-header"
+        {error !== '404' && <HeaderNotifications />}
+        <header
+          className={cx(
+            'color-bg-default p-2 position-sticky top-0 z-1 border-bottom',
+            scroll && 'color-shadow-small',
+          )}
+          role="banner"
+          aria-label="Main"
         >
           <div
-            className={cx('mr-auto width-full width-xl-auto', scroll && styles.breadcrumbs)}
-            data-search="breadcrumbs"
+            className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
+            data-testid="desktop-header"
           >
-            <Breadcrumbs />
-          </div>
-          <div className="d-flex flex-items-center">
-            <VersionPicker variant="header" />
-            <LanguagePicker variant="header" />
-
-            {signupCTAVisible && (
-              <a
-                href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
-                target="_blank"
-                rel="noopener"
-                className="ml-3 btn color-fg-muted"
-              >
-                {t`sign_up_cta`}
-              </a>
-            )}
-
-            {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
-            {error !== '404' && (
-              <div className="d-inline-block ml-3">
-                <SearchComponent iconSize={16} isHeaderSearch={true} />
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* mobile header */}
-        <div className="d-lg-none" data-testid="mobile-header">
-          <div className="d-flex flex-justify-between">
-            <div className="d-flex flex-items-center" id="github-logo-mobile">
-              <Link aria-hidden="true" tabIndex={-1} href={`/${router.locale}`}>
-                <MarkGithubIcon size={32} className="color-fg-default" />
-              </Link>
-
+            <div
+              tabIndex={-1}
+              className={cx(isSearchOpen ? styles.logoWithOpenSearch : styles.logoWithClosedSearch)}
+              id="github-logo"
+            >
               <Link
                 href={`/${router.locale}`}
-                className="f4 text-semibold color-fg-default no-underline no-wrap pl-2"
+                className="d-flex flex-items-center color-fg-default no-underline mr-3"
               >
-                {t('github_docs')}
+                <MarkGithubIcon size={32} />
+                <span className="h4 text-semibold ml-2 mr-3">{t('github_docs')}</span>
               </Link>
+              <div className="hide-sm border-left pl-3">
+                <VersionPicker />
+              </div>
             </div>
 
-            <nav>
-              <button
-                className="btn"
-                data-testid="mobile-menu-button"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                aria-label="Navigation Menu"
-                aria-expanded={isMenuOpen ? 'true' : 'false'}
-              >
-                {isMenuOpen ? <XIcon size="small" /> : <ThreeBarsIcon size="small" />}
-              </button>
-            </nav>
-          </div>
-
-          {/* mobile menu contents */}
-          <div className="relative">
             <div
-              className={cx('width-full position-sticky top-0', isMenuOpen ? 'd-block' : 'd-none')}
+              className={cx('d-flex flex-items-center', isSearchOpen && styles.widgetsContainer)}
             >
-              <div className="my-4">
-                <Breadcrumbs />
-              </div>
-
-              <ProductPicker />
-
-              <div className="border-top my-2" />
-              <VersionPicker variant="inline" />
-
-              <div className="border-top my-2" />
-              <LanguagePicker variant="inline" />
-
-              {isRestPage && allVersions[currentVersion].apiVersions.length > 0 && (
-                <ApiVersionPicker variant="inline" />
-              )}
-
-              {signupCTAVisible && (
-                <a
-                  href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
-                  target="_blank"
-                  rel="noopener"
-                  className="mt-3 py-2 btn color-fg-muted d-block"
-                >
-                  {t`sign_up_cta`}
-                </a>
-              )}
-
               {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
               {error !== '404' && (
-                <div className="my-2 pt-2">
-                  <SearchComponent iconSize={16} isMobileSearch={true} />
+                <div
+                  className={cx(
+                    isSearchOpen
+                      ? styles.searchContainerWithOpenSearch
+                      : styles.searchContainerWithClosedSearch,
+                    'mr-3',
+                  )}
+                >
+                  <Search />
                 </div>
               )}
+
+              <div className={cx('d-none d-lg-flex flex-items-center', signupCTAVisible && 'mr-3')}>
+                <LanguagePicker />
+              </div>
+
+              {signupCTAVisible && (
+                <div data-testid="header-signup" className="border-left">
+                  <a
+                    href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                    target="_blank"
+                    rel="noopener"
+                    className="d-none d-lg-flex ml-3 btn color-fg-muted"
+                  >
+                    {t`sign_up_cta`}
+                  </a>
+                </div>
+              )}
+
+              <IconButton
+                className={cx(
+                  'hide-lg hide-xl',
+                  !isSearchOpen ? 'd-flex flex-items-center' : 'd-none',
+                )}
+                data-testid="mobile-search-button"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                aria-label="Open Search Bar"
+                aria-expanded={isSearchOpen ? 'true' : 'false'}
+                icon={SearchIcon}
+              />
+              <IconButton
+                className="px-3"
+                data-testid="mobile-search-button"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                aria-label="Close Search Bar"
+                aria-expanded={isSearchOpen ? 'true' : 'false'}
+                icon={XIcon}
+                sx={
+                  isSearchOpen
+                    ? {
+                        // The x button to close the small width search UI when search is open, as the
+                        // browser width increases to md and above we no longer show that search UI so
+                        // the close search button is hidden as well.
+                        // breakpoint(md)
+                        '@media (min-width: 768px)': {
+                          display: 'none',
+                        },
+                      }
+                    : {
+                        display: 'none',
+                      }
+                }
+              />
+
+              {/* The ... navigation menu at medium and smaller widths */}
+              <div>
+                <ActionMenu aria-labelledby="menu-title">
+                  <ActionMenu.Anchor>
+                    <IconButton
+                      data-testid="mobile-menu"
+                      icon={KebabHorizontalIcon}
+                      aria-label="Open Menu"
+                      sx={
+                        isSearchOpen
+                          ? // The ... menu button when the smaller width search UI is open.  Since the search
+                            // UI is open, we don't show the button at smaller widths but we do show it as
+                            // the browser width increases to md, and then at lg and above widths we hide
+                            // the button again since the pickers and sign-up button are shown in the header.
+                            {
+                              marginLeft: '8px',
+                              display: 'none',
+                              // breakpoint(md)
+                              '@media (min-width: 768px)': {
+                                display: 'inline-block',
+                                marginLeft: '4px',
+                              },
+                              // breakpoint(lg)
+                              '@media (min-width: 1012px)': {
+                                display: 'none',
+                              },
+                            }
+                          : // The ... menu button when the smaller width search UI is closed, the button is
+                            // shown up to md.  At lg and above we don't show the button since the pickers
+                            // and sign-up button are shown in the header.
+                            {
+                              marginLeft: '16px',
+                              '@media (min-width: 768px)': {
+                                marginLeft: '0',
+                              },
+                              '@media (min-width: 1012px)': {
+                                display: 'none',
+                              },
+                            }
+                      }
+                    />
+                  </ActionMenu.Anchor>
+                  <ActionMenu.Overlay align="start">
+                    <ActionList>
+                      <ActionList.Group data-testid="open-mobile-menu">
+                        {width && width > 544 ? (
+                          <LanguagePicker mediumOrLower={true} />
+                        ) : (
+                          <LanguagePicker xs={true} />
+                        )}
+                        <ActionList.Divider />
+                        {width && width < 545 && (
+                          <>
+                            <VersionPicker xs={true} />
+                            <ActionList.Divider />
+                          </>
+                        )}
+                        {signupCTAVisible && (
+                          <ActionList.LinkItem
+                            href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                            target="_blank"
+                            rel="noopener"
+                            data-testid="mobile-signup"
+                            className="d-flex color-fg-muted"
+                          >
+                            {t`sign_up_cta`}
+                            <LinkExternalIcon
+                              className="height-full float-right"
+                              aria-label="(external site)"
+                            />
+                          </ActionList.LinkItem>
+                        )}{' '}
+                      </ActionList.Group>
+                    </ActionList>
+                  </ActionMenu.Overlay>
+                </ActionMenu>
+              </div>
             </div>
           </div>
-        </div>
-      </header>
-      {/* Adding Portal Root here for DropdownMenu and ActionList Search Results */}
-      <div id="__primerPortalRoot__" className={cx(styles.portalRoot)} />
-    </div>
+          {!isHomepageVersion && !isSearchResultsPage && (
+            <div className="d-flex flex-items-center d-xxl-none mt-2">
+              <div className={cx(styles.sidebarOverlayCloseButtonContainer, 'mr-2')}>
+                <IconButton
+                  data-testid="sidebar-hamburger"
+                  className="color-fg-muted"
+                  variant="invisible"
+                  icon={ThreeBarsIcon}
+                  aria-label="Open Sidebar"
+                  onClick={openSidebar}
+                  ref={returnFocusRef}
+                />
+                <Dialog
+                  returnFocusRef={returnFocusRef}
+                  isOpen={isSidebarOpen}
+                  onDismiss={closeSidebar}
+                  aria-labelledby="menu-title"
+                  sx={{
+                    position: 'fixed',
+                    top: '0',
+                    left: '0',
+                    marginTop: '0',
+                    maxHeight: '100vh',
+                    width: 'auto !important',
+                    transform: 'none',
+                    borderRadius: '0',
+                    borderRight: '1px solid var(--color-border-default)',
+                  }}
+                >
+                  <Dialog.Header
+                    style={{ paddingTop: '0px', background: 'none' }}
+                    id="sidebar-overlay-header"
+                    sx={{ display: 'block' }}
+                  >
+                    <AllProductsLink />
+                    {error === '404' || !currentProduct || isSearchResultsPage ? null : (
+                      <div className="mt-3">
+                        <Link
+                          data-testid="sidebar-product-dialog"
+                          href={currentProduct.href}
+                          className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
+                        >
+                          {currentProduct.name}
+                        </Link>
+                      </div>
+                    )}
+                    {isRestPage && <ApiVersionPicker />}
+                  </Dialog.Header>
+                  <SidebarNav variant="overlay" />
+                </Dialog>
+              </div>
+              <div className="mr-auto width-full" data-search="breadcrumbs">
+                <Breadcrumbs inHeader={true} />
+              </div>
+            </div>
+          )}
+        </header>
+      </div>
+    </>
   )
 }

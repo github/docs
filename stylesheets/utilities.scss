@@ -1,3 +1,5 @@
+@import "stylesheets/breakpoint-xxl.scss";
+
 .color-unset {
   color: unset;
 }
@@ -103,15 +105,37 @@
 
 /* Screen Reader Only
 ------------------------------------------------------------------------------*/
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
+.skip-button {
+  width: auto;
+  height: auto;
+  clip: auto;
   overflow: hidden;
+  z-index: 101;
+  padding: 16px;
+
+  &:not(:focus) {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0px;
+  }
 }
 
-.keyboard-focus:focus {
-  outline: 1px auto -webkit-focus-ring-color;
+/* Responsive display utilities
+------------------------------------------------------------------------------*/
+
+// used to help prevent overlapping main content and the minitoc sidebar
+
+.d-xxl-block {
+  @include breakpoint-xxl {
+    display: block !important;
+  }
+}
+
+.d-xxl-none {
+  @include breakpoint-xxl {
+    display: none !important;
+  }
 }

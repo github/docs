@@ -7,43 +7,43 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About expressions
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
 Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
+{% data reusables.actions.expressions-syntax-evaluation %}
 
 {% raw %}
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
 
 {% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+### Example expression in an `if` conditional
 
 ```yaml
 steps:
-  - uses: actions/hello-world-javascript-action@v1.1
-    if: {% raw %}${{ <expression> }}{% endraw %}
+  - uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
+    if: <expression> 
 ```
 
-#### Example setting an environment variable
+### Example setting an environment variable
 
 {% raw %}
+
 ```yaml
 env:
   MY_ENV_VAR: ${{ <expression> }}
 ```
+
 {% endraw %}
 
 ## Literals
@@ -57,7 +57,7 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `number`  | Any number format supported by JSON. |
 | `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
-#### Example
+### Example of literals
 
 {% raw %}
 
@@ -80,7 +80,7 @@ env:
 | Operator    | Description |
 | ---         | ---         |
 | `( )`       | Logical grouping |
-| `[ ]`       | Index
+| `[ ]`       | Index |
 | `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
@@ -92,9 +92,18 @@ env:
 | `&&`        | And |
 |  <code>\|\|</code> | Or |
 
+  {% note %}
+
+  **Notes:**
+  - {% data variables.product.company_short %} ignores case when comparing strings.
+  - `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+  - For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
+
+  {% endnote %}
+
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
-* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+- If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
 
   | Type    | Result |
   | ---     | ---    |
@@ -103,9 +112,25 @@ env:
   | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-* A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-* Objects and arrays are only considered equal when they are the same instance.
+- A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
+- {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
+- Objects and arrays are only considered equal when they are the same instance.
+
+{% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
+
+#### Example
+
+{% raw %}
+
+```yaml
+env:
+  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+```
+
+{% endraw %}
+
+In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
+It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned.
 
 ## Functions
 
@@ -147,7 +172,7 @@ For example, `contains(fromJSON('["push", "pull_request"]'), github.event_name)`
 
 Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-#### Example
+#### Example of `startsWith`
 
 `startsWith('Hello world', 'He')` returns `true`.
 
@@ -157,7 +182,7 @@ Returns `true` when `searchString` starts with `searchValue`. This function is n
 
 Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-#### Example
+#### Example of `endsWith`
 
 `endsWith('Hello world', 'ld')` returns `true`.
 
@@ -167,12 +192,14 @@ Returns `true` if `searchString` ends with `searchValue`. This function is not c
 
 Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
-#### Example
+#### Example of `format`
 
 {% raw %}
+
 ```js
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns 'Hello Mona the Octocat'.
@@ -180,9 +207,11 @@ Returns 'Hello Mona the Octocat'.
 #### Example escaping braces
 
 {% raw %}
+
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns '{Hello Mona the Octocat!}'.
@@ -193,7 +222,7 @@ Returns '{Hello Mona the Octocat!}'.
 
 The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
 
-#### Example
+#### Example of `join`
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
@@ -203,9 +232,9 @@ The value for `array` can be an array or a string. All values in `array` are con
 
 Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
 
-#### Example
+#### Example of `toJSON`
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)` might return `{ "status": "success" }`
 
 ### fromJSON
 
@@ -218,6 +247,7 @@ Returns a JSON object or JSON data type for `value`. You can use this function t
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
 {% raw %}
+
 ```yaml
 name: build
 on: push
@@ -241,6 +271,7 @@ jobs:
     steps:
       - run: build
 ```
+
 {% endraw %}
 
 #### Example returning a JSON data type
@@ -248,6 +279,7 @@ jobs:
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
 {% raw %}
+
 ```yaml
 name: print
 on: push
@@ -262,6 +294,7 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.time) }}
         run: echo ...
 ```
+
 {% endraw %}
 
 ### hashFiles
@@ -270,7 +303,7 @@ jobs:
 
 Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
+You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
 
 #### Example with a single pattern
 
@@ -284,21 +317,15 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
-
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
-{% else %}
-## Check Functions
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
-{% endif %}
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)" and "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif)".
 
 ### success
 
 Returns `true` when none of the previous steps have failed or been canceled.
 
-#### Example
+#### Example of `success`
 
 ```yaml
 steps:
@@ -309,9 +336,15 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled.
 
-#### Example
+{% warning %}
+
+**Warning:** Avoid using `always` for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative: `if: {% raw %}${{ !cancelled() }}{% endraw %}`
+
+{% endwarning %}
+
+#### Example of `always`
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
@@ -321,7 +354,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 Returns `true` if the workflow was canceled.
 
-#### Example
+#### Example of `cancelled`
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
@@ -331,7 +364,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
-#### Example
+#### Example of `failure`
 
 ```yaml
 steps:
@@ -344,7 +377,7 @@ steps:
 
 You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
 
-##### Example
+##### Example of `failure` with conditions
 
 ```yaml
 steps:
@@ -406,4 +439,4 @@ The filter `vegetables.*.ediblePortions` could evaluate to:
 ]
 ```
 
-Since objects don't preserve order, the order of the output can not be guaranteed.
+Since objects don't preserve order, the order of the output cannot be guaranteed.

@@ -1,0 +1,1 @@
+For each dependency, you can see the {% ifversion fpt or ghec %}license information and{% endif %} vulnerability severity. You can also search for a specific dependency using the search bar. Dependencies are sorted automatically by vulnerability severity.

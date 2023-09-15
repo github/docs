@@ -1,0 +1,1 @@
+If {% data variables.location.product_location_enterprise %} uses a self-signed or invalid SSL certificate, use the `--no-ssl-verify` flag. With this flag, the {% data variables.product.prodname_cli %} will skip verifying the SSL certificate when extracting data from your instance only. All other calls will verify SSL.

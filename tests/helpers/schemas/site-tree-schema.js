@@ -1,25 +1,22 @@
 const childPage = {
   type: 'object',
+  required: ['href', 'page'],
   properties: {
     href: {
       type: 'string',
-      required: true,
     },
     page: {
       type: 'object',
-      required: true,
+      required: ['title', 'relativePath', 'permalinks'],
       properties: {
         title: {
           type: 'string',
-          required: true,
         },
         relativePath: {
           type: 'string',
-          required: true,
         },
         permalinks: {
           type: 'array',
-          required: true,
           minItems: 1,
         },
       },
