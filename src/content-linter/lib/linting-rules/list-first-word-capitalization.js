@@ -7,6 +7,11 @@ export const listFirstWordCapitalization = {
   tags: ['ul', 'ol'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD011(params, onError) {
+    // We're going to look for a sequence of 3 tokens. If the markdown
+    // is a really small string, it might not even have that many tokens
+    // in it. Can bail early.
+    if (params.tokens.length < 3) return
+
     const inlineListItems = filterTokensByOrder(params.tokens, [
       'list_item_open',
       'paragraph_open',
