@@ -2,7 +2,7 @@
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
-import { readFile, writeFile } from 'fs/promises'
+import fs from 'fs'
 import ora from 'ora'
 import { extname } from 'path'
 import { execSync } from 'child_process'
@@ -36,9 +36,12 @@ program
       `Specify rules to run. For example, by short name MD001 or long name heading-increment \n${listRules()}\n\n`,
     ).conflicts('error'),
   )
+  .addOption(
+    new Option('-o, --output-file <filepath>', `Outputs the errors/warnings to the filepath.`),
+  )
   .parse(process.argv)
 
-const { fix, paths, errorsOnly, rules, summaryByRule, verbose } = program.opts()
+const { fix, paths, errorsOnly, rules, summaryByRule, outputFile, verbose } = program.opts()
 const ALL_CONTENT_DIR = ['content', 'data']
 
 main()
@@ -65,21 +68,28 @@ async function main() {
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
     for (const file of [...files.content, ...files.data]) {
-      const content = await readFile(file, 'utf8')
+      const content = fs.readFileSync(file, 'utf8')
       const applied = applyFixes(content, results[file])
-      await writeFile(file, applied)
+      fs.writeFileSync(file, applied, 'utf-8')
     }
   }
 
   const errorFileCount = getErrorCountByFile(results)
-  // Used for a temparary way to allow us to see how many errors currently
+  // Used for a temporary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
   if (summaryByRule && errorFileCount > 0) {
     reportSummaryByRule(results, config)
   } else if (errorFileCount > 0) {
-    reportResults(results)
+    const errorReport = getResults(results)
+    if (outputFile) {
+      fs.writeFileSync(`${outputFile}`, JSON.stringify(errorReport, undefined, 2), function (err) {
+        if (err) throw err
+      })
+      console.log(`Output written to ${outputFile}`)
+    } else {
+      console.log(errorReport)
+    }
   }
-
   const end = Date.now()
   console.log(`\n🕦 Markdownlint finished in ${(end - start) / 1000} s`)
 
@@ -154,23 +164,23 @@ function reportSummaryByRule(results, config) {
   console.log(JSON.stringify(ruleCount, null, 2))
 }
 
-function reportResults(allResults) {
-  console.log('\n\nMarkdownlint results:\n')
+function getResults(allResults) {
+  const output = {}
   Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
     .forEach(([key, results]) => {
-      console.log(key)
       if (!verbose) {
         const formattedResults = results.map((flaw) => formatResult(flaw))
         const errors = formattedResults.filter((result) => result.severity === 'error')
         const warnings = formattedResults.filter((result) => result.severity === 'warning')
         const sortedResult = [...errors, ...warnings]
-        console.log(sortedResult)
+        output[key] = [...sortedResult]
       } else {
-        console.log(results)
+        output[key] = [...results]
       }
     })
+  return output
 }
 
 // Results are formatted with the key being the filepath
