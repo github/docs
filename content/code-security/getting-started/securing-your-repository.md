@@ -54,6 +54,12 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 
 {% data variables.product.prodname_dependabot_alerts %} are generated when {% data variables.product.prodname_dotcom %} identifies a dependency in the dependency graph with a vulnerability. {% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for any repository.{% endif %}
 
+{% ifversion dependabot-alert-custom-rules-repo-level %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
+{% endif %}
+
 {% data reusables.dependabot.quickstart-link %}
 
 {% ifversion fpt or ghec %}

@@ -31,6 +31,12 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 - Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes > 3.8 %}
 - Your enterprise{% endif %}
 
+{% ifversion dependabot-alert-custom-rules-repo-level %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
+{% endif %}
+
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
 
 {% ifversion fpt or ghec %}
