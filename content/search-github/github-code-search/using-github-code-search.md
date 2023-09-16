@@ -41,7 +41,7 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 
 1. In the top navigation of {% data variables.product.prodname_dotcom_the_website %}, click the search bar and type `saved:`.
 
-1. Under the search bar, the "Saved queries" section should now appear. Click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**.
+1. Under the search bar, in the "Saved queries" section, click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**.
 
 1. In the pop-up window, type both the name you want for your saved search and the query you want to save.
 
