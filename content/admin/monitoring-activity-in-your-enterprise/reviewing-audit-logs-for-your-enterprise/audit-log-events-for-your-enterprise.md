@@ -63,7 +63,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 | Action | Description
 |--------|-------------
-| `advisory_credit.accept` | Someone accepted credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)."
+| `advisory_credit.accept` | Someone accepted credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)."
 | `advisory_credit.create` | The administrator of a security advisory added someone to the credit section.
 | `advisory_credit.decline` | Someone declined credit for a security advisory.
 | `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.
@@ -205,6 +205,17 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 {% endif %}
 
+{% ifversion secret-scanning-validity-check-audit-log %}
+
+## `business_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|--------|-------------
+| `business_secret_scanning_automatic_validity_checks.disabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were disabled for your enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
+| `business_secret_scanning_automatic_validity_checks.enabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were enabled for your enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
+
+{% endif %}
+
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## `business_secret_scanning_custom_pattern` category actions
@@ -299,6 +310,21 @@ Action                        | Description
 | `config_entry.destroy` | A configuration setting was deleted. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
 | `config_entry.update` | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
 {%- endif %}
+
+## `copilot` category actions
+
+| Action | Description
+|--------|-------------{% ifversion ghec %}
+|`copilot.cfb_enterprise_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the enterprise level.
+|`copilot.cfb_enterprise_org_enablement_changed` | The {% data variables.product.prodname_copilot_business_short %} enablement policy changed at the enterprise level or for an organization within the enterprise.
+|`copilot.clickwrap_save_event`|The {% data variables.product.prodname_copilot %} Product Specific Terms were accepted.{% endif %}
+|`copilot.cfb_org_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the organization level.
+|`cfb_seat_assignment_reused`| A seat assignment was created for a user who already had a seat with no pending cancellation date.
+|`cfb_seat_assignment_refreshed`| A seat assignment that was already pending cancellation was created, revoking the cancellation.
+|`cfb_seat_assignment_created`| A seat was assigned to a user with no other active seat assignment.
+|`cfb_seat_assignment_unassigned`| A seat was unassigned from a user.
+|`copilot.cfb_seat_cancelled_by_staff`| A seat was cancelled from the {% data variables.product.prodname_copilot_business_short %} subscription manually by GitHub staff.
+|`copilot.cfb_seat_management_changed`| The seat management setting was changed for the {% data variables.product.prodname_copilot_business_short %} subscription.
 
 ## `dependabot_alerts` category actions
 
@@ -879,6 +905,17 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org_credential_authorization.revoke` | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
 {%- endif %}
 
+{% ifversion secret-scanning-validity-check-audit-log %}
+
+## `org_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|--------|-------------
+| `org_secret_scanning_automatic_validity_checks.disabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were disabled for an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+| `org_secret_scanning_automatic_validity_checks.enabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were enabled for an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+
+{% endif %}
+
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## `org_secret_scanning_custom_pattern` category actions
@@ -1193,7 +1230,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repository_advisory.close` | Someone closed a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+| `repository_advisory.close` | Someone closed a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 | `repository_advisory.cve_request` | Someone requested a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
 | `repository_advisory.github_broadcast` | {% data variables.product.prodname_dotcom %} made a security advisory public in the {% data variables.product.prodname_advisory_database %}.
 | `repository_advisory.github_withdraw` | {% data variables.product.prodname_dotcom %} withdrew a security advisory that was published in error.
@@ -1249,6 +1286,17 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 |--------|-------------
 | `repository_secret_scanning.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 | `repository_secret_scanning.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a {% ifversion ghec %}private or internal {% endif %}repository.
+{%- endif %}
+
+{%- ifversion secret-scanning-validity-check-audit-log %}
+
+## `repository_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|--------|-------------
+| `repository_secret_scanning_automatic_validity_checks.disabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were disabled for a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+| `repository_secret_scanning_automatic_validity_checks.enabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were enabled for a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+
 {%- endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}

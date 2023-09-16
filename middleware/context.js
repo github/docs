@@ -1,4 +1,4 @@
-import languages from '../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
 import { allVersions } from '../lib/all-versions.js'
 import { productMap } from '../lib/all-products.js'

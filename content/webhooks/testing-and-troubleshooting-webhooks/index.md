@@ -9,6 +9,8 @@ versions:
 topics:
   - Webhooks
 children:
+  - /viewing-webhook-deliveries
+  - /redelivering-webhooks
   - /testing-webhooks
   - /receiving-webhooks-with-the-github-cli
 ---

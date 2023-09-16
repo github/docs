@@ -27,11 +27,9 @@ topics:
 children:
   - /about-webhooks
   - /webhook-events-and-payloads
-  - /creating-webhooks
-  - /configuring-your-server-to-receive-payloads
-  - /securing-your-webhooks
   - /replacing-github-services
   - /about-webhooks-for-repositories
+  - /using-webhooks
   - /testing-and-troubleshooting-webhooks
 changelog:
   label: webhooks

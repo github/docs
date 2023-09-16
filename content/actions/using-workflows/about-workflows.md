@@ -78,7 +78,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ### Creating dependent jobs
 

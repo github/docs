@@ -9,7 +9,7 @@ versions:
   ghec: '*'
 children:
   - /security-hardening-for-github-actions
-  - /encrypted-secrets
+  - /using-secrets-in-github-actions
   - /automatic-token-authentication
 ---
 

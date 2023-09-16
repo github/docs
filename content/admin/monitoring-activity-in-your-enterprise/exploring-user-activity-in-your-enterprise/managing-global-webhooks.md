@@ -44,11 +44,12 @@ For example, you can configure {% data variables.location.product_location %} to
 1. Optionally, in the **Secret** field, type a string to use as a `secret` key.
 1. Optionally, if your payload URL is HTTPS and you would not like {% data variables.product.prodname_ghe_server %} to verify SSL certificates when delivering payloads, under "SSL verification", select **Disable**. Read the information about SSL verification, then click **Disable, I understand my webhooks may not be secure**.
 
-  {% warning %}
+   {% warning %}
 
-  **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
+   **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
 
-  {% endwarning %}
+   {% endwarning %}
+
 1. Under "Which events would you like to trigger this webhook?", select if you'd like this webhook to trigger for every event or for selected events.
     - For every event, select **Send me everything**.
     - To choose specific events, select **Let me select individual events**.
@@ -78,12 +79,4 @@ For example, you can configure {% data variables.location.product_location %} to
 
 ## Viewing recent deliveries and responses
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-1. In the list of webhooks, click the URL of the webhook for which you'd like to see deliveries.
-
-   ![Screenshot of a list of global webhooks. The URL link to view a webhook is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
-1. Under "Recent deliveries", click a delivery GUID to view details.
-
-   ![Screenshot of the "Recent deliveries" list for a global webhook. A delivery GUID in the list of deliveries is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)
+You can view details about webhook deliveries that occurred in the past 30 days. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."

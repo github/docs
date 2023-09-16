@@ -23,6 +23,8 @@ You can enable team synchronization between your IdP and {% data variables.produ
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
+{% data reusables.identity-and-permissions.team-and-idp-group %}
+
 {% data reusables.saml.ghec-only %}
 
 {% data reusables.identity-and-permissions.supported-idps-team-sync %}

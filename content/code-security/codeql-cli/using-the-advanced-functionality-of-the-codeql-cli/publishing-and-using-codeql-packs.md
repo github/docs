@@ -247,6 +247,24 @@ The following properties are supported in `qlpack.yml` files.
       precision: medium
   ```
 
+#### `groups`
+
+- Optional.
+- Defines logical groupings of packs in a {% data variables.product.prodname_codeql %} workspace. Using groups is a way to apply pack operations to subsets of packs in a workspace. For example, the following pack is defined to be a part of the `java` and the `experimental` groups:
+
+  ```yaml
+  groups:
+    - java
+    - experimental
+  ```
+
+  Running `codeql pack publish --groups java,-experimental` will publish all of the packs in the `java` group, _except_ the `experimental` packs. You can run the `codeql pack ls --groups [-]<group>[,[-]<group>...]` command to list the packs in a workspace that match the specified set of groups.
+
+  A {% data variables.product.prodname_codeql %} pack in the given workspace is included in the list if:
+
+  - It is in at least one of the groups listed without a minus sign (this condition is automatically satisfied if there are no groups listed without a minus sign), and
+  - It is not in any group listed with a minus sign.
+
 #### `library`
 
 - Required by library packs.

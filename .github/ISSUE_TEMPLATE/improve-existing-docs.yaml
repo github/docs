@@ -34,13 +34,15 @@ body:
       description: |
         - Give as much detail as you can to help us understand the change you want to see. 
         - Why should the docs be changed? What use cases does it support? 
-        - What is the expected outcome?
+        - What is the expected outcome or behavior?
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: Additional information
-      description: Add any other context or screenshots about the feature request here.
+      description: |
+        - Are you able to reliably reproduce the problem? How often does it occur? How many users are affected?
+        - Add any other context or screenshots about the feature here.
     validations:
       required: false

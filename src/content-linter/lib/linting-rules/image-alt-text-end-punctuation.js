@@ -1,6 +1,11 @@
 import { forEachInlineChild } from 'markdownlint-rule-helpers'
 
-import { addFixErrorDetail } from '../helpers/utils.js'
+import {
+  addFixErrorDetail,
+  getRange,
+  isStringQuoted,
+  isStringPunctuated,
+} from '../helpers/utils.js'
 
 export const imageAltTextEndPunctuation = {
   names: ['GHD002', 'image-alt-text-end-punctuation'],
@@ -10,22 +15,18 @@ export const imageAltTextEndPunctuation = {
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD003(params, onError) {
     forEachInlineChild(params, 'image', function forToken(token) {
-      const quoteRegex = /[.?!]['"]$/
-      const endRegex = /[.?!]$/
       const imageAltText = token.content.trim()
-      const startColumnIndex = token.line.indexOf(imageAltText)
-      const range = startColumnIndex ? [startColumnIndex + 1, imageAltText.length] : null
-      if (
-        (!imageAltText.endsWith('"') && !imageAltText.slice(-1).match(endRegex)) ||
-        (imageAltText.endsWith('"') && !imageAltText.slice(-2).match(quoteRegex))
-      ) {
-        addFixErrorDetail(onError, token.lineNumber, imageAltText + '.', imageAltText, range, {
-          lineNumber: token.lineNumber,
-          editColumn: token.line.indexOf(']') + 1,
-          deleteCount: 0,
-          insertText: '.',
-        })
-      }
+      const range = getRange(token.line, imageAltText)
+      if (isStringPunctuated(imageAltText)) return
+
+      addFixErrorDetail(onError, token.lineNumber, imageAltText + '.', imageAltText, range, {
+        lineNumber: token.lineNumber,
+        editColumn: isStringQuoted(imageAltText)
+          ? token.line.indexOf(']')
+          : token.line.indexOf(']') + 1,
+        deleteCount: 0,
+        insertText: '.',
+      })
     })
   },
 }

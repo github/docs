@@ -89,7 +89,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 
 - Running the `codeql pack add` and `codeql pack install` commands will generate or update the `codeql-pack.lock.yml` file. This file should be checked-in to version control. The `codeql-pack.lock.yml` file contains the precise version numbers used by the pack. For more information, see "[About codeql-pack.lock.yml files](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs##about-codeql-packlockyml-files)."
 
-- By default `codeql pack install` will install dependencies from the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. You can install dependencies from a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %} by creating a `qlconfig.yml` file. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)."
+- By default `codeql pack install` will install dependencies from the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %}. You can install dependencies from a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %} by creating a `qlconfig.yml` file. For more information, see "[AUTOTITLE](/enterprise-server@latest/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)" in the {% data variables.product.prodname_ghe_server %} documentation.
 
 {% endnote %}
 

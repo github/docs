@@ -34,7 +34,7 @@ If a file has a code owner, you can see who the code owner is before you open a 
 
 ## CODEOWNERS file location
 
-To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `docs/`, or `.github/` directory of the repository, in the branch where you'd like to add the code owners.
+To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the `.github/`, root, or `docs/` directory of the repository, in the branch where you'd like to add the code owners. If `CODEOWNERS` files exist in more than one of those locations, {% data variables.product.prodname_dotcom %} will search for them in that order and use the first one it finds.
 
 Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
@@ -141,6 +141,12 @@ apps/ @octocat
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
 /apps/github
+
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
+# subdirectory, as this subdirectory has its own owner @doctocat
+/apps/ @octocat
+/apps/github @doctocat
 ```
 
 ## CODEOWNERS and branch protection

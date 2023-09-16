@@ -36,7 +36,7 @@ When you reorder commits, you may see one of the following notifications or erro
 - A message states that there are merge conflicts that you must resolve before the application can continue reordering commits on your branch.
     1. Click **View conflicts**.
 
-      ![Screenshot of a notification about conflicts. At the end of the message, a link, labeled "View commits", is highlighted with an orange outline.](/assets/images/help/desktop/reorder-resolve-conflicts.png)
+       ![Screenshot of a notification about conflicts. At the end of the message, a link, labeled "View commits", is highlighted with an orange outline.](/assets/images/help/desktop/reorder-resolve-conflicts.png)
     {% data reusables.desktop.resolve-merge-conflicts %}
 
     1. When all conflicts are resolved, you can reorder your commits.

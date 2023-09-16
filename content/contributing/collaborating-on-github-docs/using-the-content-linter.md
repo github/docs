@@ -82,6 +82,14 @@ Run the specified linter rules on specific files or directories:
 npm run lint-content -- --rules heading-increment code-fence-line-length --path content/FILENAME.md content/DIRECTORY
 ```
 
+#### Bypass the commit hook
+
+If the linter catches errors that you did not introduce, you can bypass the git commit hook by using the `--no-verify` option when you commit your changes.
+
+```shell
+git commit -m 'MESSAGE' --no-verify
+```
+
 ### Display the help menu for the content linter script
 
 ```shell

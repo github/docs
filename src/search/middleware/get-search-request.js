@@ -1,6 +1,6 @@
 import { format } from 'node:util'
 
-import languages from '../../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import { allVersions } from '../../../lib/all-versions.js'
 import { POSSIBLE_HIGHLIGHT_FIELDS, DEFAULT_HIGHLIGHT_FIELDS } from './es-search.js'
 

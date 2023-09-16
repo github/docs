@@ -27,11 +27,11 @@ shortTitle: Transfer ownership
 {% ifversion fpt or ghec %}
 1. If you are currently responsible for paying for GitHub in your organization, you'll also need to have the new owner or a [billing manager](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization) update the organization's payment information. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)."
 
-  {% warning %}
+   {% warning %}
 
-  **Warning**: Removing yourself from the organization **does not** update the billing information on file for the organization account. The new owner or a billing manager must update the billing information on file to remove your credit card or PayPal information.
+   **Warning**: Removing yourself from the organization **does not** update the billing information on file for the organization account. The new owner or a billing manager must update the billing information on file to remove your credit card or PayPal information.
 
-  {% endwarning %}
+   {% endwarning %}
 
 {% endif %}
 1. [Remove yourself](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization) from the organization.

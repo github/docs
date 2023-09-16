@@ -4,7 +4,7 @@ import type { GetServerSideProps } from 'next'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 
 import { DefaultLayout } from 'components/DefaultLayout'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ArticleList } from 'src/landings/components/ArticleList'
 import { HomePageHero } from 'src/landings/components/HomePageHero'
 import type { ProductGroupT } from 'src/landings/components/ProductSelections'

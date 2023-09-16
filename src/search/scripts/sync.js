@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import chalk from 'chalk'
 
-import languages from '../../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import buildRecords from './build-records.js'
 import findIndexablePages from './find-indexable-pages.js'
 import { allVersions } from '../../../lib/all-versions.js'

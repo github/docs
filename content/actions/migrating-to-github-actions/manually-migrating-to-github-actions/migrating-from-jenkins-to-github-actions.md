@@ -226,5 +226,5 @@ jobs:
           node-version: 16
       - run: npm install -g bats
       - run: bats tests
-        working-directory: scripts/myapp
+        working-directory: ./scripts/myapp
 ```
