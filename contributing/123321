@@ -1,0 +1,836 @@
+api_65048fea851d17.11463662<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4DH05GZG9V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4DH05GZG9V');
+</script>G-4DH05GZG9VG-4DH05GZG9Vpostman login --with-api-key {{postman-api-key-here}}
+postman collection run {{collection-id-here}}https://login.salesforce.com/services/oauth2/tokenG-4DH05GZG9Vpostman login --with-api-key {{postman-api-key-here}}
+postman collection run {{collection-id-here}}PMAK-650482fa9a1fb700310077d6-91655c2dfd32b2327309e4de4fcd5aab2aname: Automated API tests using Postman CLI
+
+on: push
+
+jobs:
+  automated-api-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Postman CLI
+        run: |
+          powershell.exe -NoProfile -InputFormat None -ExecutionPolicy AllSigned -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://dl-cli.pstmn.io/install/win64.ps1'))"
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "28612503-4791042d-07ef-4f43-af9f-c051a07323c9" -e "28612503-97e28857-752d-4073-88ee-a4a48e97d99b"c4c12cf989eb2ab585b3308859e314c1<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  
+  <title>Google Cloud Service Health Updates</title><updated>2023-09-15T06:31:34+00:00</updated>
+  <link href="https://status.cloud.google.com/" rel="alternate" type="text/html"></link>
+  <link href="https://status.cloud.google.com/en/feed.atom" rel="self"></link>
+  <author>
+    <name>Google Cloud</name>
+  </author>
+  <id>https://status.cloud.google.com/</id>
+  <entry>
+    <title>UPDATE: We are experiencing an issue with Google Kubernetes Engine</title>
+    <link href="https://status.cloud.google.com/incidents/EBxyHQgEPnbM3Syag5yL" rel="alternate" type="text/html"></link>
+    <id>tag:status.cloud.google.com,2023:feed:EBxyHQgEPnbM3Syag5yL.zijbaGtNMf1MEaUS8mWZ</id>
+    <updated>2023-09-15T06:31:34+00:00</updated>
+    <summary type="html">&lt;p&gt; Incident began at &lt;strong&gt;2023-09-13 16:05&lt;/strong&gt; &lt;span&gt;(all times are &lt;strong&gt;US/Pacific&lt;/strong&gt;).&lt;/span&gt;&lt;/p&gt;&lt;div class="cBIRi14aVDP__status-update-text"&gt;&lt;p&gt;Summary: We are experiencing an issue with Google Kubernetes Engine&lt;/p&gt;
+&lt;p&gt;Description: We are experiencing an issue with Google Kubernetes Engine impacting customers using Kubernetes version 1.25.&lt;/p&gt;
+&lt;p&gt;Our engineering team continues the mitigation efforts. We do not have a confirmed ETA for completion and will continue to provide regular updates.&lt;/p&gt;
+&lt;p&gt;We will provide more information by Friday, 2023-09-15 12:30 US/Pacific.&lt;/p&gt;
+&lt;p&gt;Diagnosis: GKE customers using Kubernetes version 1.25 may experience issues with Persistent Disk creation or deletion failures.&lt;/p&gt;
+&lt;p&gt;The PersistentVolumeClaim (PVC) may be stuck in pending status because the PersistentVolume (PV) and underlaying disks cannot be created.&lt;/p&gt;
+&lt;p&gt;The PersistentVolume (PV) deletion may be stuck in deleting status because the underlaying disk cannot be deleted.&lt;/p&gt;
+&lt;p&gt;Workaround: None at this time.&lt;/p&gt;
+&lt;/div&gt;&lt;hr&gt;&lt;p&gt;Affected products: Google Kubernetes Engine&lt;/p&gt;&lt;p&gt;Affected locations: Taiwan (asia-east1), Hong Kong (asia-east2), Tokyo (asia-northeast1), Osaka (asia-northeast2), Seoul (asia-northeast3), Mumbai (asia-south1), Delhi (asia-south2), Singapore (asia-southeast1), Jakarta (asia-southeast2), Sydney (australia-southeast1), Melbourne (australia-southeast2), Warsaw (europe-central2), Finland (europe-north1), Madrid (europe-southwest1), Belgium (europe-west1), Berlin (europe-west10), Turin (europe-west12), London (europe-west2), Frankfurt (europe-west3), Netherlands (europe-west4), Zurich (europe-west6), Milan (europe-west8), Paris (europe-west9), Doha (me-central1), Tel Aviv (me-west1), Montréal (northamerica-northeast1), Toronto (northamerica-northeast2), São Paulo (southamerica-east1), Santiago (southamerica-west1), Iowa (us-central1), South Carolina (us-east1), Northern Virginia (us-east4), Columbus (us-east5), Dallas (us-south1), Oregon (us-west1), Los Angeles (us-west2), Salt Lake City (us-west3), Las Vegas (us-west4)&lt;/p&gt;</summary>
+  </entry><entry>
+    <title>RESOLVED: Apigee Integrated Developer Portal is experiencing issues while accessing it from Apigee Edge and Apigee X</title>
+    <link href="https://status.cloud.google.com/incidents/hbQvquDhzwy2cpK9FU3k" rel="alternate" type="text/html"></link>
+    <id>tag:status.cloud.google.com,2023:feed:hbQvquDhzwy2cpK9FU3k.7cEYcGKBKhFKhws2hYea</id>
+    <updated>2023-09-14T20:38:43+00:00</updated>
+    <summary type="html">&lt;p&gt; Incident began at &lt;strong&gt;2023-09-11 04:00&lt;/strong&gt; and ended at &lt;strong&gt;2023-09-11 12:25&lt;/strong&gt; &lt;span&gt;(all times are &lt;strong&gt;US/Pacific&lt;/strong&gt;).&lt;/span&gt;&lt;/p&gt;&lt;div class="cBIRi14aVDP__status-update-text"&gt;&lt;h1&gt;Incident Report&lt;/h1&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;On Monday, 11 September 2023, Apigee integrated developer portal customers experienced elevated 5xx responses, issues authenticating to API, and issues updating portals when accessing it via Apigee Edge or Apigee X for a duration of 8 hours and 25 minutes.&lt;/p&gt;
+&lt;p&gt;To our Apigee customers whose business analytics were impacted during this disruption, we sincerely apologize. This is not the level of quality and reliability we strive to offer you, and we are taking immediate steps to improve the platform’s performance and availability.&lt;/p&gt;
+&lt;h2&gt;Root Cause&lt;/h2&gt;
+&lt;p&gt;The root cause of the issue was an incorrect configuration change made to one of the Apigee load balancers for developer portals. This configuration change caused all the requests that were routed through the affected Apigee load balancer to fail with a default 404 error code.&lt;/p&gt;
+&lt;h2&gt;Remediation and Prevention&lt;/h2&gt;
+&lt;p&gt;Google engineers were alerted by a support case on Monday, 11 September at 07:00 US/Pacific and immediately started an investigation. They were able to identify a misconfiguration in one of the load balancers, which was caused by a change aimed at improving the load balancer’s performance. Upon identifying the misconfiguration, Google Engineers quickly regenerated the configurations of the affected Apigee load balancer and ensured that both load balancers were properly configured.&lt;/p&gt;
+&lt;p&gt;We apologize for the length and severity of this incident. We are taking the following steps to prevent a recurrence and improve reliability in the future:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Identify the cause of the inconsistent configurations for the developer portal load balancers&lt;/li&gt;
+&lt;li&gt;Improve the change management process for Apigee load balancer changes to prevent similar issues&lt;/li&gt;
+&lt;li&gt;Improve monitoring and visibility to ensure the incorrect configurations are identified proactively&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Detailed Description of Impact&lt;/h2&gt;
+&lt;p&gt;On 11 September from 04:00 to 12:25 US/Pacific, users experienced elevated error rates with errors like &amp;quot;Failed to load users&amp;quot;, &amp;quot;Failed to load zone&amp;quot; or &amp;quot;Service Unavailable”, when interacting with the developer portal. Customers also experienced issues authenticating to API portals or updating their portals.&lt;/p&gt;
+&lt;/div&gt;&lt;hr&gt;&lt;p&gt;Affected products: Apigee&lt;/p&gt;&lt;p&gt;Affected locations: Taiwan (asia-east1), Hong Kong (asia-east2), Tokyo (asia-northeast1), Osaka (asia-northeast2), Seoul (asia-northeast3), Mumbai (asia-south1), Delhi (asia-south2), Singapore (asia-southeast1), Jakarta (asia-southeast2), Sydney (australia-southeast1), Melbourne (australia-southeast2), Warsaw (europe-central2), Finland (europe-north1), Madrid (europe-southwest1), Belgium (europe-west1), London (europe-west2), Frankfurt (europe-west3), Netherlands (europe-west4), Zurich (europe-west6), Milan (europe-west8), Paris (europe-west9), Tel Aviv (me-west1), Montréal (northamerica-northeast1), Toronto (northamerica-northeast2), São Paulo (southamerica-east1), Santiago (southamerica-west1), Iowa (us-central1), South Carolina (us-east1), Northern Virginia (us-east4), Columbus (us-east5), Dallas (us-south1), Oregon (us-west1), Los Angeles (us-west2), Salt Lake City (us-west3), Las Vegas (us-west4)&lt;/p&gt;</summary>
+  </entry><entry>
+    <title>UPDATE: We are experiencing an issue with Google Kubernetes Engine</title>
+    <link href="https://status.cloud.google.com/incidents/EBxyHQgEPnbM3Syag5yL" rel="alternate" type="text/html"></link>
+    <id>tag:status.cloud.google.com,2023:feed:EBxyHQgEPnbM3Syag5yL.wXk9WhRsJk49EwYBQwib</id>
+    <updated>2023-09-14T17:42:00+00:00</updated>
+    <summary type="html">&lt;p&gt; Incident began at &lt;strong&gt;2023-09-13 16:05&lt;/strong&gt; &lt;span&gt;(all times are &lt;strong&gt;US/Pacific&lt;/strong&gt;).&lt;/span&gt;&lt;/p&gt;&lt;div class="cBIRi14aVDP__status-update-text"&gt;&lt;p&gt;Summary: We are experiencing an issue with Google Kubernetes Engine&lt;/p&gt;
+&lt;p&gt;Description: We are experiencing an issue with Google Kubernetes Engine impacting customers using Kubernetes version 1.25.&lt;/p&gt;
+&lt;p&gt;Mitigation work remians underway by our engineering team, we do not have a confirmed ETA for completion and will continue to provide regular updates.&lt;/p&gt;
+&lt;p&gt;We will provide more information by Thursday, 2023-09-14 23:30 US/Pacific.&lt;/p&gt;
+&lt;p&gt;Diagnosis: GKE customers using Kubernetes version 1.25 may experience issues with Persistent Disk creation or deletion failures.&lt;/p&gt;
+&lt;p&gt;The PersistentVolumeClaim (PVC) may be stuck in pending status because the PersistentVolume (PV) and underlaying disks cannot be created.&lt;/p&gt;
+&lt;p&gt;The PersistentVolume (PV) deletion may be stuck in deleting status because the underlaying disk cannot be deleted.&lt;/p&gt;
+&lt;p&gt;Workaround: None at this time.&lt;/p&gt;
+&lt;/div&gt;&lt;hr&gt;&lt;p&gt;Affected products: Google Kubernetes Engine&lt;/p&gt;&lt;p&gt;Affected locations: Taiwan (asia-east1), Hong Kong (asia-east2), Tokyo (asia-northeast1), Osaka (asia-northeast2), Seoul (asia-northeast3), Mumbai (asia-south1), Delhi (asia-south2), Singapore (asia-southeast1), Jakarta (asia-southeast2), Sydney (australia-southeast1), Melbourne (australia-southeast2), Warsaw (europe-central2), Finland (europe-north1), Madrid (europe-southwest1), Belgium (europe-west1), Berlin (europe-west10), Turin (europe-west12), London (europe-west2), Frankfurt (europe-west3), Netherlands (europe-west4), Zurich (europe-west6), Milan (europe-west8), Paris (europe-west9), Doha (me-central1), Tel Aviv (me-west1), Montréal (northamerica-northeast1), Toronto (northamerica-northeast2), São Paulo (southamerica-east1), Santiago (southamerica-west1), Iowa (us-central1), South Carolina (us-east1), Northern Virginia (us-east4), Columbus (us-east5), Dallas (us-south1), Oregon (us-west1), Los Angeles (us-west2), Salt Lake City (us-west3), Las Vegas (us-west4)&lt;/p&gt;</summary>
+  </entry>
+</feed>ils-new-docker](https://github.com/rails/rails/actions/workflows/rails-new-docker.yml/badge.svg?event=name: Automated API tests using Postman CLI
+
+on: push
+
+jobs:
+  automated-api-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Postman CLI
+        run: |
+          powershell.exe -NoProfile -InputFormat None -ExecutionPolicy AllSigned -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://dl-cli.pstmn.io/install/win64.ps1'))"
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "28612503-4791042d-07ef-4f43-af9f-c051a07323c9" -e "28612503-97e28857-752d-4073-88ee-a4a48e97d99b"api_key: c4c12cf989eb2ab585b3308859e314c1
+remote_configuration:
+  enabled: true"Skip to main content
+
+U.S. SECURITIES AND
+EXCHANGE COMMISSION
+q
+RSS Feeds
+The following SEC RSS feeds are a helpful online resource for staying current on the most recent materials posted to the SEC website, including EDGAR filings. Most current browsers include an RSS component, allowing the user to subscribe to and aggregate feeds. For more information on using RSS, see RSS Feeds from USA.gov.
+
+Most Recent SEC Materials
+Press Releases
+Speeches and Statements
+Speeches
+Testimony
+Statements
+Litigation Releases
+Administrative Proceedings
+Trading Suspensions
+Proposed Rules
+Division of Corporation Finance What's New
+Division of Investment Management News
+Investor Alerts and Bulletins
+Interactive Data Filings and RSS Feeds
+EDGAR Search RSS Feeds
+Some EDGAR search results can be captured as RSS Feeds. The RSS link on various EDGAR searches is located on the left, immediately above the filings result list.
+
+Company Search. Using the Company Search to find the company of interest, you can subscribe to this search to receive the most recent filings from this company. You can further filter your results by Filing Type.
+Latest Filings. Using the Latest Filings Search, you can subscribe to all filings, or filter by company, CIK, or Form Type. You can also choose to include, exclude, or select only Ownership filings (Forms 3, 4, 5). For example, here are the most recent Form 10-Ks (Annual Reports).
+Historical Archives (Boolean). Using the Historical Archives Search, you can search on filing "header information" to select RSS search results. For example, here are 2012 S-1 Registration Statements filed by companies incorporated in the state of California. (Notes: results for this search are in alphabetic order, not chronologic order. The indexing for this search lags by one business day.
+Mutual Fund Search. Using the Mutual Fund Search, locate the fund of interest (including a selected series or class), and filter by Filing Type.
+Other Resources
+SEC Careers (USAJOBS)
+Most recent SEC materials published in the Federal Register
+Email update service for non-EDGAR postings (not available for company filings)
+Modified: Nov. 18, 2016
+STAY CONNECTED
+1 2 3 4
+6 8
+
+ABOUT THE SEC
+Budget & Performance
+Careers
+Commission Votes
+Contact
+Contracts
+Data Resources
+TRANSPARENCY
+Accessibility & Disability
+Diversity & Inclusion
+FOIA
+Inspector General
+No FEAR Act & EEO Data
+Ombuds
+Whistleblower Protection
+WEBSITES
+Investor.gov
+Related Sites
+USA.gov
+SITE INFORMATION
+Plain Writing
+Privacy & Security
+Site Map
+"
+https://www.sec.gov/about/secrss#:~:text=Skip%20to%20main,Site%20Map [![rails-new-docker](https://github.com/rails/rails/actions/workflows/rails-new-docker.yml/badge.svg?event=check_run)](https://github.com/rails/rails/actions/workflows/rails-new-docker.yml)[![rails-new-docker](https://github.com/rails/rails/actions/workflows/rails-new-docker.yml/badge.svg)](https://github.com/rails/rails/actions/workflows/rails-new-docker.yml)[![rails-new-docker](https://github.com/rails/rails/actions/workflows/rails-new-docker.yml/badge.svg?event=deployment)](https://github.com/rails/rails/actions/workflows/rails-new-docker.yml)Skip to content
+
+Code
+Issues
+100
+More
+Breadcrumbslinguist/vendor
+/README.md
+Latest commit
+lildude
+lildude
+16 hours ago
+History
+651 lines (648 loc) · 56 KB
+File metadata and controls
+
+Preview
+
+Code
+
+Blame
+Grammar index
+This is a list of grammars that Linguist selects to provide syntax highlighting on GitHub. If you've encountered an error with highlighting, please find the grammar in the list below and report it to the appropriate repository.
+
+Note: grammars marked with 🐌 are not updated when Linguist is so upstream fixes may take longer to appear on GitHub.
+
+1C Enterprise: xDrivenDevelopment/atom-language-1c-bsl
+2-Dimensional Array: Alhadis/language-etc
+4D: ayoubserti/lang-4d
+ABAP: pvl/abap.tmbundle
+ABAP CDS: FreHu/abap-cds-grammar
+ABNF: Alhadis/language-grammars
+AGS Script: textmate/c.tmbundle
+AIDL: google/aidl-language
+AL: microsoft/AL
+AMPL: ampl/sublime-ampl
+ANTLR: textmate/antlr.tmbundle
+API Blueprint: apiaryio/api-blueprint-sublime-plugin
+APL: Alhadis/language-apl
+ASL: sebadur/language-asl
+ASN.1: ajlangley/language-asn1
+ASP.NET: textmate/asp.tmbundle
+ATS: steinwaywhw/ats-mode-sublimetext
+ActionScript: simongregory/actionscript3-tmbundle
+Ada: textmate/ada.tmbundle
+Adblock Filter List: AdguardTeam/VscodeAdblockSyntax
+Adobe Font Metrics: Alhadis/language-fontforge
+Agda: agda/agda-github-syntax-highlighting
+Alloy: macekond/Alloy.tmbundle
+Alpine Abuild: atom/language-shellscript
+Altium Designer: textmate/ini.tmbundle
+AngelScript: wronex/sublime-angelscript
+Ant Build System: textmate/ant.tmbundle
+Antlers: Stillat/vscode-antlers-language-server
+ApacheConf: textmate/apache.tmbundle
+Apex: forcedotcom/apex-tmLanguage
+Apollo Guidance Computer: Alhadis/language-agc
+AppleScript: textmate/applescript.tmbundle
+AsciiDoc: zuckschwerdt/asciidoc.tmbundle
+AspectJ: pchaigno/sublime-aspectj
+Assembly: Nessphoro/sublimeassembly
+Astro: withastro/language-tools
+Asymptote: textmate/c.tmbundle
+AutoHotkey: ahkscript/SublimeAutoHotkey
+AutoIt: AutoIt/SublimeAutoItScript
+Avro IDL: Jason3S/avro.tmLanguage
+Awk: github-linguist/awk-sublime
+BASIC: telnet23/language-basic
+Ballerina: ballerina-platform/ballerina-grammar
+Batchfile: mmims/language-batchfile
+Beef: dotnet/csharp-tmLanguage
+Befunge: johanasplund/sublime-befunge
+Berry: berry-lang/berry-grammar
+BibTeX: textmate/latex.tmbundle
+Bicep: azure/bicep
+Bikeshed: tabatkins/bikeshed
+Bison: Alhadis/language-grammars
+Blade: jawee/language-blade
+BlitzBasic: textmate/blitzmax.tmbundle
+BlitzMax: textmate/blitzmax.tmbundle
+Bluespec: thotypous/sublime-bsv
+Bluespec BH: atom-haskell/language-haskell
+Boo: drslump/sublime-boo
+Boogie: boogie-org/boogie-vscode
+Brainfuck: Drako/SublimeBrainfuck
+BrighterScript: rokucommunity/vscode-brightscript-language
+Brightscript: rokucommunity/vscode-brightscript-language
+Browserslist: browserslist/browserslist-vscode
+C: tree-sitter/tree-sitter-c 🐌
+C#: tree-sitter/tree-sitter-c-sharp 🐌
+C++: textmate/c.tmbundle
+C-ObjDump: nanoant/assembly.tmbundle
+C2hs Haskell: atom-haskell/language-haskell
+CAP CDS: SAP/cds-textmate-grammar
+CIL: google/selinux-policy-languages
+CLIPS: psicomante/CLIPS-sublime
+CMake: textmate/cmake.tmbundle
+COBOL: spgennard/vscode_cobol
+CODEOWNERS: Alhadis/language-etc
+COLLADA: textmate/xml.tmbundle
+CSON: atom/language-coffee-script
+CSS: tree-sitter/tree-sitter-css 🐌
+CUE: cue-sh/vscode-cue
+Cabal Config: atom-haskell/language-haskell
+Cadence: onflow/vscode-cadence
+Cairo: xshitaka/atom-language-cairo
+CameLIGO: pewulfman/Ligo-grammar
+Cap'n Proto: textmate/capnproto.tmbundle
+CartoCSS: yohanboniface/carto-atom
+Ceylon: jeancharles-roger/ceylon-sublimetext
+Chapel: chapel-lang/chapel-tmbundle
+Checksums: Alhadis/language-etc
+ChucK: textmate/java.tmbundle
+Circom: iden3/circom-highlighting-vscode
+Cirru: Cirru/sublime-cirru
+Clarion: fushnisoft/SublimeClarion
+Clarity: hirosystems/clarity.tmbundle
+Classic ASP: textmate/asp.tmbundle
+Clean: timjs/atom-language-clean
+Click: stenverbois/language-click
+Clojure: atom/language-clojure
+Closure Templates: mthadley/language-closure-templates
+Cloud Firestore Security Rules: jaysquared/atom-firestore-grammar
+CoNLL-U: odanoburu/conllu-linguist-grammar
+CodeQL: tree-sitter/tree-sitter-ql 🐌
+CoffeeScript: atom/language-coffee-script
+ColdFusion: SublimeText/ColdFusion
+ColdFusion CFC: SublimeText/ColdFusion
+Common Lisp: textmate/lisp.tmbundle
+Common Workflow Language: manabuishii/language-cwl
+Component Pascal: textmate/pascal.tmbundle
+Cool: anunayk/cool-tmbundle
+Coq: mkolosick/Sublime-Coq
+Cpp-ObjDump: nanoant/assembly.tmbundle
+Creole: Siddley/Creole
+Crystal: atom-crystal/language-crystal
+Csound: nwhetsell/language-csound
+Csound Document: nwhetsell/language-csound
+Csound Score: nwhetsell/language-csound
+Cuda: harrism/sublimetext-cuda-cpp
+Cue Sheet: relikd/CUE-Sheet_sublime
+Curry: fwcd/vscode-curry
+Cycript: atom/language-javascript
+Cypher: fredbenenson/sublime-cypher
+Cython: textmate/cython.tmbundle
+D: textmate/d.tmbundle
+D-ObjDump: nanoant/assembly.tmbundle
+D2: terrastruct/d2-vscode
+DM: PJB3005/atomic-dreams
+DNS Zone: sixty4k/st2-zonefile
+DTrace: textmate/c.tmbundle
+Dafny: DafnyVSCode/Dafny-VSCode
+Dart: dart-lang/dart-syntax-highlight
+DataWeave: mulesoft-labs/data-weave-tmLanguage
+Debian Package Control File: tsbarnes/language-debian
+DenizenScript: DenizenScript/denizenscript-grammar
+Dhall: atom-haskell/language-haskell
+Diff: textmate/diff.tmbundle
+Dockerfile: asbjornenge/Docker.tmbundle
+Dotenv: Alhadis/language-etc
+Dylan: textmate/dylan.tmbundle
+E-mail: mariozaizar/language-eml
+EBNF: Alhadis/language-grammars
+ECL: hpcc-systems/ecl-tmLanguage
+ECLiPSe: alnkpa/sublimeprolog
+EJS: tree-sitter/tree-sitter-embedded-template 🐌
+EQ: dotnet/csharp-tmLanguage
+Eagle: textmate/xml.tmbundle
+Earthly: earthly/earthfile-grammar
+Easybuild: MagicStack/MagicPython
+Ecere Projects: Nixinova/NovaGrammars
+Ecmarkup: Alhadis/language-etc
+EditorConfig: sindresorhus/atom-editorconfig
+Edje Data Collection: textmate/c.tmbundle
+Eiffel: textmate/eiffel.tmbundle
+Elixir: elixir-lang/tree-sitter-elixir 🐌
+Elvish: elves/elvish
+Elvish Transcript: elves/elvish
+Emacs Lisp: Alhadis/language-emacs-lisp
+EmberScript: atom/language-coffee-script
+Erlang: textmate/erlang.tmbundle
+Euphoria: OpenEuphoria/vscode-euphoria
+F#: ionide/ionide-fsgrammar
+F*: FStarLang/atom-fstar
+FIGlet Font: Alhadis/language-fontforge
+Factor: slavapestov/factor
+Fancy: fancy-lang/fancy-tmbundle
+Fantom: rkoeninger/sublime-fantom
+Faust: jpcima/language-faust
+Fennel: kongeor/vsc-fennel
+Fluent: macabeus/vscode-fluent
+Forth: textmate/forth.tmbundle
+Fortran: textmate/fortran.tmbundle
+Fortran Free Form: textmate/fortran.tmbundle
+FreeBasic: peters-ben-0007/VBDotNetSyntax
+FreeMarker: freemarker/FreeMarker.tmbundle
+Frege: atom-haskell/language-haskell
+Futhark: Alhadis/language-etc
+G-code: appliedengdesign/vscode-gcode-syntax
+GAP: dhowden/gap-tmbundle
+GCC Machine Description: textmate/lisp.tmbundle
+GDB: quarnster/SublimeGDB
+GDScript: godotengine/godot-vscode-plugin
+GEDCOM: fguitton/vscode-gedcom
+GLSL: euler0/sublime-glsl
+GN: devoncarew/language-gn
+GSC: Jake-NotTheMuss/CoDT7-Sublime
+Game Maker Language: textmate/c.tmbundle
+Gemfile.lock: hmarr/gemfile-lock-tmlanguage
+Gemini: printfn/gemini-vscode
+Genero: alienriver49/genero.tmbundle
+Genero Forms: alienriver49/genero.tmbundle
+Genshi: genshi.edgewall.org/query
+Gentoo Ebuild: atom/language-shellscript
+Gentoo Eclass: atom/language-shellscript
+Gerber Image: Alhadis/language-pcb
+Gettext Catalog: textmate/gettext.tmbundle
+Gherkin: cucumber/cucumber-tmbundle
+Git Attributes: Alhadis/language-etc
+Git Config: Alhadis/language-etc
+Git Revision List: Nixinova/NovaGrammars
+Gleam: gleam-lang/tree-sitter-gleam 🐌
+Glyph: textmate/tcl.tmbundle
+Glyph Bitmap Distribution Format: Alhadis/language-fontforge
+Gnuplot: mattfoster/gnuplot-tmbundle
+Go: tree-sitter/tree-sitter-go 🐌
+Go Checksums: golang/vscode-go
+Go Module: golang/vscode-go
+Go Workspace: golang/vscode-go
+Godot Resource: godotengine/godot-vscode-plugin
+Golo: TypeUnsafe/sublime-golo
+Gosu: jpcamara/Textmate-Gosu-Bundle
+Grace: zmthy/grace-tmbundle
+Gradle: alkemist/gradle.tmbundle
+Gradle Kotlin DSL: nishtahir/language-kotlin
+Grammatical Framework: johnjcamilleri/language-gf
+GraphQL: graphql/graphiql
+Graphviz (DOT): textmate/graphviz.tmbundle
+Groovy: textmate/groovy.tmbundle
+Groovy Server Pages: textmate/java.tmbundle
+HAProxy: abulimov/atom-language-haproxy
+HCL: alexlouden/Terraform.tmLanguage
+HLSL: tgjones/shaders-tmLanguage
+HOCON: jacobwgillespie/language-hocon
+HTML: tree-sitter/tree-sitter-html 🐌
+HTML+ECR: atom-crystal/language-crystal
+HTML+EEX: elixir-lang/elixir-tmbundle
+HTML+ERB: atom/language-ruby
+HTML+PHP: ondrejmirtes/php.tmbundle
+HTML+Razor: github-linguist/razor-plus
+HTTP: samsalisbury/Sublime-HTTP
+HXML: vshaxe/haxe-TmLanguage
+Hack: slackhq/vscode-hack
+Haml: ezekg/language-haml
+Handlebars: daaain/Handlebars
+Harbour: hernad/atom-language-harbour
+Haskell: atom-haskell/language-haskell
+Haxe: vshaxe/haxe-TmLanguage
+HiveQL: adidonato/language-hql
+HolyC: codingdandy/holyc.tmbundle
+Hosts File: Alhadis/language-etc
+Hy: tshakalekholoane/vscode-hy
+IDL: mgalloy/idl.tmbundle
+IGOR Pro: byte-physics/language-igor
+INI: textmate/ini.tmbundle
+Idris: idris-hackers/idris-sublime
+Ignore List: Alhadis/language-etc
+Imba: imba/imba-linguist-grammar
+Inform 7: iftechfoundation/language-inform7
+Ink: inkle/ink-tmlanguage
+Inno Setup: idleberg/atom-language-innosetup
+Io: textmate/io.tmbundle
+Ioke: vic/ioke-outdated
+Isabelle: lsf37/Isabelle.tmbundle
+Isabelle ROOT: lsf37/Isabelle.tmbundle
+J: tikkanz/JSyntax
+JAR Manifest: atom/language-yaml
+JCL: spgennard/vscode_cobol
+JFlex: jflex-de/jflex.tmbundle
+JSON: Nixinova/NovaGrammars
+JSON with Comments: atom/language-javascript
+JSON5: atom/language-javascript
+JSONLD: atom/language-javascript
+JSONiq: wcandillon/language-jsoniq
+Janet: janet-lang/vscode-janet
+Jasmin: atmarksharp/jasmin-sublime
+Java: tree-sitter/tree-sitter-java 🐌
+Java Properties: textmate/java.tmbundle
+Java Server Pages: textmate/java.tmbundle
+JavaScript: tree-sitter/tree-sitter-javascript 🐌
+JavaScript+ERB: atom/language-javascript
+Jest Snapshot: jest-community/vscode-jest
+Jinja: textmate/python-django.tmbundle
+Jison: cdibbs/language-jison
+Jison Lex: cdibbs/language-jison
+Jolie: fmontesi/language-jolie
+Jsonnet: google/language-jsonnet
+Julia: JuliaEditorSupport/atom-language-julia
+Jupyter Notebook: Nixinova/NovaGrammars
+Just: skellock/vscode-just
+Kaitai Struct: atom/language-yaml
+KakouneScript: kakoune-editor/language-kak
+KerboScript: KSP-KOS/language-kerboscript
+KiCad Layout: Alhadis/language-pcb
+KiCad Legacy Layout: Alhadis/language-pcb
+KiCad Schematic: Alhadis/language-pcb
+Kickstart: wgwoods/language-kickstart
+Kit: atom/language-html
+Kotlin: nishtahir/language-kotlin
+Kusto: mmanela/kusto-sublime
+LFE: textmate/lisp.tmbundle
+LLVM: whitequark/llvm.tmbundle
+LOLCODE: KrazIvan/LOLCODE-grammar-vscode
+LSL: textmate/secondlife-lsl.tmbundle
+LTspice Symbol: Alhadis/language-pcb
+LabVIEW: textmate/xml.tmbundle
+Lark: Alhadis/language-grammars
+Lasso: bfad/Sublime-Lasso
+Latte: textmate/php-smarty.tmbundle
+Lean: leanprover/vscode-lean
+Less: atom/language-less
+Lex: Alhadis/language-grammars
+LigoLANG: pewulfman/Ligo-grammar
+LilyPond: nwhetsell/linter-lilypond
+Liquid: Shopify/liquid-tm-grammar
+Literate CoffeeScript: atom/language-coffee-script
+Literate Haskell: atom-haskell/language-haskell
+LiveScript: paulmillr/LiveScript.tmbundle
+Logos: Cykey/Sublime-Logos
+Logtalk: textmate/logtalk.tmbundle
+LookML: atom/language-yaml
+LoomScript: ambethia/Sublime-Loom
+Lua: textmate/lua.tmbundle
+M4: Alhadis/language-etc
+M4Sugar: Alhadis/language-etc
+MATLAB: mathworks/MATLAB-Language-grammar
+MAXScript: Alhadis/language-maxscript
+MDX: wooorm/markdown-tm-language
+MLIR: jpienaar/mlir-grammar
+MQL4: mqsoft/MQL5-sublime
+MQL5: mqsoft/MQL5-sublime
+MTML: atom/language-html
+Macaulay2: Macaulay2/language-macaulay2
+Makefile: textmate/make.tmbundle
+Mako: marconi/mako-tmbundle
+Markdown: wooorm/markdown-tm-language
+Marko: marko-js/marko-tmbundle
+Mask: tenbits/sublime-mask
+Mathematica: shadanan/mathematica-tmbundle
+Maven POM: textmate/maven.tmbundle
+Max: Nixinova/NovaGrammars
+Mercury: sebgod/mercury-tmlanguage
+Mermaid: Alhadis/language-mermaid
+Meson: TingPing/language-meson
+Metal: textmate/c.tmbundle
+Microsoft Visual Studio Solution: Nixinova/NovaGrammars
+MiniYAML: OpenRA/atom-miniyaml
+Mint: mint-lang/mint-vscode
+Mirah: atom/language-ruby
+Modelica: BorisChumichev/modelicaSublimeTextPackage
+Modula-2: harogaston/Sublime-Modula-2
+Modula-3: newgrammars/m3
+Monkey: gingerbeardman/monkey.tmbundle
+Monkey C: ghisguth/vscode-monkey-c
+MoonScript: leafo/moonscript-tmbundle
+Motoko: dfinity/vscode-motoko
+Motorola 68K Assembly: zerkman/language-m68k
+Move: damirka/vscode-move-syntax
+Muse: Alhadis/language-emacs-lisp
+Mustache: textmate/php-smarty.tmbundle
+NASL: tenable/sublimetext-nasl
+NCL: rpavlick/language-ncl
+NEON: Alhadis/language-etc
+NPM Config: Alhadis/language-etc
+NSIS: github-linguist/NSIS
+NWScript: Alhadis/language-etc
+Nasal: BobDotCom/Nasal.tmbundle
+Nearley: Hardmath123/sublime-nearley
+Nemerle: textmate/nemerle.tmbundle
+NetLinx: amclain/sublime-netlinx
+NetLinx+ERB: amclain/sublime-netlinx
+NetLogo: textmate/lisp.tmbundle
+NewLisp: textmate/lisp.tmbundle
+Nextflow: nextflow-io/atom-language-nextflow
+Nginx: brandonwamboldt/sublime-nginx
+Nim: nim-lang/NimLime
+Ninja: khyo/language-ninja
+Nit: R4PaSs/Sublime-Nit
+Nix: nix-community/tree-sitter-nix 🐌
+Nu: jsallis/nu.tmbundle
+Nunjucks: alohaas/language-nunjucks
+Nushell: hustcer/nu-grammar
+OASv2-json: Nixinova/NovaGrammars
+OASv2-yaml: atom/language-yaml
+OASv3-json: Nixinova/NovaGrammars
+OASv3-yaml: atom/language-yaml
+OCaml: textmate/ocaml.tmbundle
+ObjDump: nanoant/assembly.tmbundle
+Object Data Instance Notation: Alhadis/language-etc
+ObjectScript: intersystems-community/ObjectScript.tmBundle
+Objective-C: textmate/objective-c.tmbundle
+Objective-C++: textmate/objective-c.tmbundle
+Objective-J: textmate/javascript-objective-j.tmbundle
+Odin: odin-lang/sublime-odin
+Opa: mads379/opa.tmbundle
+Opal: artifactz/sublime-opal
+Open Policy Agent: tsandall/vscode-opa
+OpenCL: textmate/c.tmbundle
+OpenEdge ABL: chriscamicas/abl-tmlanguage
+OpenQASM: tareqdandachi/language-qasm
+OpenRC runscript: atom/language-shellscript
+OpenSCAD: tbuser/openscad.tmbundle
+OpenStep Property List: atom/language-property-list
+OpenType Feature File: Alhadis/language-fontforge
+Option List: Alhadis/language-etc
+Ox: andreashetland/sublime-text-ox
+Oz: eregon/oz-tmbundle
+P4: TakeshiTseng/atom-language-p4
+PDDL: jan-dolejsi/vscode-pddl
+PEG.js: Alhadis/language-grammars
+PHP: tree-sitter/tree-sitter-php 🐌
+PLpgSQL: textmate/sql.tmbundle
+POV-Ray SDL: c-lipka/language-povray
+Pact: kadena-io/pact-atom
+Pan: quattor/language-pan
+Papyrus: Kapiainen/SublimePapyrus
+Parrot Internal Representation: textmate/parrot.tmbundle
+Pascal: textmate/pascal.tmbundle
+Pawn: Southclaw/pawn-sublime-language
+Pep8: R4PaSs/Sublime-Pep8
+Perl: textmate/perl.tmbundle
+Pic: Alhadis/language-roff
+PicoLisp: textmate/lisp.tmbundle
+PigLatin: goblindegook/sublime-text-pig-latin
+Pike: hww3/pike-textmate
+PlantUML: qjebbs/vscode-plantuml
+Pod 6: perl6/atom-language-perl6
+PogoScript: featurist/PogoScript.tmbundle
+Polar: osohq/polar-grammar
+Pony: CausalityLtd/sublime-pony
+Portugol: luisgbr1el/portugol-grammar
+PostCSS: hudochenkov/Syntax-highlighting-for-PostCSS
+PostScript: Alhadis/Atom-PostScript
+PowerShell: PowerShell/EditorSyntax
+Prisma: prisma/vscode-prisma
+Processing: textmate/processing.tmbundle
+Procfile: benspaulding/vscode-procfile
+Prolog: alnkpa/sublimeprolog
+Promela: corbanmailloux/sublime-promela-spin
+Propeller Spin: bitbased/sublime-spintools
+Protocol Buffer: zxh0/vscode-proto3
+Protocol Buffer Text Format: thejustinwalsh/textproto-grammar
+Pug: davidrios/jade-tmbundle
+Puppet: russCloak/SublimePuppet
+PureScript: purescript-contrib/atom-language-purescript
+Pyret: samuela/language-pyret
+Python: tree-sitter/tree-sitter-python 🐌
+Python console: MagicStack/MagicPython
+Python traceback: MagicStack/MagicPython
+Q#: microsoft/qsharp-compiler
+QML: skozlovf/Sublime-QML
+QMake: textmate/cpp-qt.tmbundle
+Qt Script: atom/language-javascript
+Quake: newgrammars/quake
+R: textmate/r.tmbundle
+RAML: atom/language-yaml
+RBS: soutaro/vscode-rbs-syntax
+RDoc: joshaven/RDoc.tmbundle
+REALbasic: peters-ben-0007/VBDotNetSyntax
+REXX: mblocker/rexx-sublime
+RMarkdown: wooorm/markdown-tm-language
+RPC: textmate/c.tmbundle
+RPGLE: barrettotte/vscode-ibmi-languages
+RPM Spec: waveclaw/language-rpm-spec
+RUNOFF: Alhadis/language-roff
+Racket: soegaard/racket-highlight-for-github
+Raku: perl6/atom-language-perl6
+Rascal: usethesource/rascal-syntax-highlighting
+ReScript: rescript-lang/rescript-vscode
+Readline Config: Alhadis/language-etc
+Reason: reasonml-editor/language-reason
+ReasonLIGO: pewulfman/Ligo-grammar
+Rebol: Oldes/Sublime-REBOL
+Record Jar: Alhadis/language-etc
+Red: Oldes/Sublime-Red
+Redirect Rules: Nixinova/NovaGrammars
+Regular Expression: tree-sitter/tree-sitter-regex 🐌
+Ren'Py: williamd1k0/language-renpy
+Rez: textmate/rez.tmbundle
+Rich Text Format: nwhetsell/language-rtf
+Ring: MahmoudFayed/atom-language-ring
+Riot: riot/syntax-highlight
+RobotFramework: shellderp/sublime-robot-plugin
+Roff: Alhadis/language-roff
+Roff Manpage: Alhadis/language-roff
+Rouge: atom/language-clojure
+Ruby: tree-sitter/tree-sitter-ruby 🐌
+Rust: tree-sitter/tree-sitter-rust 🐌
+SAS: rpardee/sas.tmbundle
+SCSS: atom/language-sass
+SELinux Policy: google/selinux-policy-languages
+SMT: SRI-CSL/SMT.tmbundle
+SPARQL: peta/turtle.tmbundle
+SQF: JonBons/Sublime-SQF-Language
+SQL: textmate/sql.tmbundle
+SQLPL: textmate/sql.tmbundle
+SRecode Template: textmate/lisp.tmbundle
+SSH Config: Alhadis/language-etc
+STAR: Alhadis/language-etc
+STL: Alhadis/language-etc
+STON: tomas-stefano/smalltalk-tmbundle
+SVG: Alhadis/language-etc
+SWIG: textmate/c.tmbundle
+Sage: MagicStack/MagicPython
+SaltStack: saltstack/atom-salt
+Sass: atom/language-sass
+Scala: scala/vscode-scala-syntax
+Scaml: scalate/Scalate.tmbundle
+Scenic: UCSCFormalMethods/Scenic-tmLanguage
+Scheme: sicp-lang/scheme.tmbundle
+Scilab: textmate/scilab.tmbundle
+ShaderLab: tgjones/shaders-tmLanguage
+Shell: atom/language-shellscript
+ShellCheck Config: Alhadis/language-etc
+ShellSession: atom/language-shellscript
+Shen: rkoeninger/sublime-shen
+Sieve: Alhadis/language-etc
+Simple File Verification: Alhadis/language-etc
+Singularity: onnovalkering/vscode-singularity
+Slash: slash-lang/Slash.tmbundle
+Slice: zeroc-ice/vscode-slice
+Slim: slim-template/ruby-slim.tmbundle
+SmPL: Alhadis/language-etc
+Smali: ShaneWilton/sublime-smali
+Smalltalk: tomas-stefano/smalltalk-tmbundle
+Smarty: textmate/php-smarty.tmbundle
+Smithy: awslabs/smithy-vscode
+Snakemake: MagicStack/MagicPython
+Solidity: davidhq/SublimeEthereum
+Soong: flimberger/android-system-tools
+SourcePawn: Dreae/sourcepawn-vscode
+Spline Font Database: Alhadis/language-fontforge
+Squirrel: mathewmariani/squirrel-language
+Stan: stan-dev/atom-language-stan
+Standard ML: textmate/standard-ml.tmbundle
+Starlark: MagicStack/MagicPython
+Stata: pschumm/Stata.tmbundle
+StringTemplate: Alhadis/language-etc
+Stylus: billymoon/Stylus
+SubRip Text: Alhadis/language-subtitles
+SugarSS: hudochenkov/Syntax-highlighting-for-PostCSS
+SuperCollider: supercollider/language-supercollider
+Svelte: sebastinez/svelte-atom
+Sway: FuelLabs/sway-vscode-plugin
+Sweave: textmate/sweave.tmbundle
+Swift: textmate/swift.tmbundle
+SystemVerilog: TheClams/SystemVerilog
+TL-Verilog: adamint/tlv-vscode
+TLA: tlaplus-community/tree-sitter-tlaplus 🐌
+TOML: textmate/toml.tmbundle
+TSQL: beau-witter/language-tsql
+TSV: Alhadis/language-etc
+TSX: Microsoft/TypeScript-TmLanguage
+TXL: MikeHoffert/Sublime-Text-TXL-syntax
+Talon: mrob95/vscode-TalonScript
+Tcl: textmate/tcl.tmbundle
+Tcsh: atom/language-shellscript
+TeX: textmate/latex.tmbundle
+Tea: pferruggiaro/sublime-tea
+Terra: pyk/sublime-terra
+Texinfo: Alhadis/language-texinfo
+TextMate Properties: textmate/textmate.tmbundle
+Thrift: textmate/thrift.tmbundle
+Turing: Alhadis/language-turing
+Turtle: peta/turtle.tmbundle
+Twig: Anomareh/PHP-Twig.tmbundle
+Type Language: goodmind/language-typelanguage
+TypeScript: tree-sitter/tree-sitter-typescript 🐌
+Typst: michidk/typst-grammar
+Unified Parallel C: textmate/c.tmbundle
+Unity3D Asset: atom/language-yaml
+Unix Assembly: calculuswhiz/Assembly-Syntax-Definition
+Uno: dotnet/csharp-tmLanguage
+UnrealScript: textmate/java.tmbundle
+UrWeb: gwalborn/UrWeb-Language-Definition
+V: 0x9ef/vscode-vlang
+VBA: tiabeast/vscode-vba-json
+VBScript: peters-ben-0007/VBDotNetSyntax
+VCL: brandonwamboldt/sublime-varnish
+VHDL: textmate/vhdl.tmbundle
+Vala: technosophos/Vala-TMBundle
+Valve Data Format: Nixinova/NovaGrammars
+Velocity Template Language: animecyc/AtomLanguageVelocity
+Verilog: textmate/verilog.tmbundle
+Vim Help File: Alhadis/language-viml
+Vim Script: Alhadis/language-viml
+Vim Snippet: Alhadis/language-viml
+Visual Basic .NET: peters-ben-0007/VBDotNetSyntax
+Visual Basic 6.0: peters-ben-0007/VBDotNetSyntax
+Volt: textmate/d.tmbundle
+Vue: vuejs/vue-syntax-highlight
+Vyper: davidhq/SublimeEthereum
+WDL: broadinstitute/wdl-sublime-syntax-highlighter
+WGSL: wgsl-analyzer/wgsl-analyzer
+Wavefront Material: Alhadis/language-wavefront
+Wavefront Object: Alhadis/language-wavefront
+Web Ontology Language: textmate/xml.tmbundle
+WebAssembly: Alhadis/language-webassembly
+WebAssembly Interface Type: bytecodealliance/vscode-wit
+WebIDL: andik/IDL-Syntax
+WebVTT: Alhadis/language-subtitles
+Wget Config: Alhadis/language-etc
+Whiley: Whiley/WhileySyntaxBundle
+Wikitext: textmate/mediawiki.tmbundle
+Win32 Message File: Nixinova/NovaGrammars
+Windows Registry Entries: bsara/language-reg
+Witcher Script: ADawesomeguy/witcherscript-grammar
+Wollok: uqbar-project/wollok-sublime
+World of Warcraft Addon Data: nebularg/language-toc-wow
+Wren: Nelarius/vscode-wren
+X BitMap: textmate/c.tmbundle
+X Font Directory Index: Alhadis/language-fontforge
+X PixMap: textmate/c.tmbundle
+X10: x10-lang/x10-highlighting
+XC: graymalkin/xc.tmbundle
+XCompose: samcv/language-xcompose
+XML: textmate/xml.tmbundle
+XML Property List: atom/language-property-list
+XPages: textmate/xml.tmbundle
+XProc: textmate/xml.tmbundle
+XQuery: wcandillon/language-jsoniq
+XS: textmate/c.tmbundle
+XSLT: textmate/xml.tmbundle
+Xojo: jimmckay/XojoSyntaxTM
+Xonsh: MagicStack/MagicPython
+Xtend: staltz/SublimeXtend
+YAML: atom/language-yaml
+YANG: DzonyKalafut/language-yang
+YARA: infosec-intern/vscode-yara
+YASnippet: Alhadis/language-emacs-lisp
+Yacc: Alhadis/language-grammars
+Yul: davidhq/SublimeEthereum
+ZAP: tclem/vscode-zil-language
+ZIL: tclem/vscode-zil-language
+Zeek: zeek/zeek-sublime
+ZenScript: CraftTweaker/ZenScript-tmLanguage
+Zephir: phalcon/zephir-sublime
+Zig: ziglang/sublime-zig-language
+cURL Config: Alhadis/language-etc
+desktop: Mailaender/desktop.tmbundle
+dircolors: jolkdarr/language-dircolors
+eC: ecere/ec.tmbundle
+edn: atom/language-clojure
+fish: l15n/fish-tmbundle
+hoon: pkova/hoon-grammar
+jq: wader/language-jq
+kvlang: p0lygun/kivy-language-grammer
+mIRC Script: gen-angry/language-msl
+mcfunction: Arcensoth/language-mcfunction
+mupad: ccreutzig/sublime-MuPAD
+nanorc: Alhadis/language-etc
+nesC: cdwilson/nesC.tmbundle
+ooc: nilium/ooc.tmbundle
+q: komsit37/sublime-q
+reStructuredText: Lukasa/language-restructuredtext
+robots.txt: Nixinova/NovaGrammars
+sed: Alhadis/language-sed
+wisp: atom/language-clojure
+xBase: hernad/atom-language-harbour
