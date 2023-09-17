@@ -144,3 +144,4 @@ jobs:
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
           text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/repo-sync.yml
+[![Repo Sync](https://github.com/github/docs/actions/workflows/repo-sync.yml/badge.svg)](https://github.com/github/docs/actions/workflows/repo-sync.yml)
