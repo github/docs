@@ -63,6 +63,13 @@ Edit the trust policy to add the `sub` field to the validation conditions. For e
 }
 ```
 
+
+{% note %}
+
+**Note**: In the above example, specifying a branch in the subject claim only works if the branch does not refer to an environment. For more examples of what common subject claims you can use, see the Github documentation "[About security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)"
+
+{% endnote %}
+
 In the following example, `StringLike` is used with a wildcard operator (`*`) to allow any branch, pull request merge branch, or environment from the `octo-org/octo-repo` organization and repository to assume a role in AWS.
 
 ```json copy
