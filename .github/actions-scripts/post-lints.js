@@ -49,7 +49,7 @@ async function main() {
     core,
     octokit,
     reportTitle: `Error(s) in content markdown file(s)`,
-    reportBody: JSON.parse(errors),
+    reportBody: JSON.stringify(errors, undefined, 2),
     reportRepository: REPORT_REPOSITORY,
     reportLabel: REPORT_LABEL,
   }
