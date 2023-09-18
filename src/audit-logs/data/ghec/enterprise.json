@@ -470,6 +470,11 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business_secret_scanning_automatic_validity_checks.disabled",
+    "description": "Automatic partner validation checks have been disabled at the business level",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
+  },
+  {
     "action": "business_secret_scanning_automatic_validity_checks.enabled",
     "description": "Automatic partner validation checks have been enabled at the business level",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
@@ -631,52 +636,52 @@
   },
   {
     "action": "copilot.cfb_enterprise_org_enablement_changed",
-    "description": "N/A",
+    "description": "The Copilot for Business enablement policy changed at the enterprise level or for an organization within the enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_enterprise_settings_changed",
-    "description": "N/A",
+    "description": "Settings for Copilot for Business were changed at the enterprise level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_org_settings_changed",
-    "description": "N/A",
+    "description": "Settings for Copilot for Business were changed at the organization level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_created",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A seat was assigned to a user with no other active seat assignment.",
+    "docs_reference_links": "/copilot/overview-of-github-copilot/about-github-copilot-for-business"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
-    "description": "N/A",
+    "description": "A seat assignment that was already pending cancellation was created, revoking the cancellation.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_reused",
-    "description": "N/A",
+    "description": "A seat assignment was created for a user who already had a seat with no pending cancellation date.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_unassigned",
-    "description": "N/A",
+    "description": "A seat was unassigned from a user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "N/A",
+    "description": "A seat was canceled from the Copilot for Business subscription manually by GitHub ",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_management_changed",
-    "description": "N/A",
+    "description": "The seat management setting was changed for the Copilot for Business subscription.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.clickwrap_save_event",
-    "description": "N/A",
+    "description": "The Copilot for Business Product Specific Terms were accepted.",
     "docs_reference_links": "N/A"
   },
   {
@@ -950,44 +955,54 @@
     "docs_reference_links": "/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules"
   },
   {
+    "action": "external_group.add_member",
+    "description": "A user was added to an external group.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "external_group.delete",
-    "description": "An Okta group was deleted.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "An external group was deleted.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "external_group.link",
-    "description": "An Okta group was mapped to a GitHub AE team.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "An external group was linked to a GitHub team.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "external_group.provision",
-    "description": "An Okta group was mapped to a team on GitHub AE.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "An external group was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "external_group.remove_member",
+    "description": "A user was removed from an external group.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "external_group.unlink",
-    "description": "An Okta group was unmapped from a GitHub AE team.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "An external group was unlinked to a GitHub team.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "external_group.update",
-    "description": "An Okta group's settings were updated.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "An external group was updated.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.deprovision",
-    "description": "A user was removed from an Okta group and was subsequently deprovisioned from GitHub AE.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "N/A",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.provision",
-    "description": "An Okta user was added to an Okta group and was subsequently provisioned to the mapped team on GitHub AE.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "N/A",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "external_identity.update",
-    "description": "An Okta user's settings were updated.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams"
+    "description": "N/A",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "forbid_auto_approve_personal_access_token_requests.disable",
@@ -1535,6 +1550,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.codespaces_team_access_allowed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.codespaces_team_access_revoked",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.codespaces_trusted_repo_access_granted",
     "description": "GitHub Codespaces was granted trusted repository access to all other repositories in an organization.",
     "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
@@ -2071,6 +2096,11 @@
   },
   {
     "action": "organization_role.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "organization_role.update",
     "description": "N/A",
     "docs_reference_links": "N/A"
   },
@@ -3307,12 +3337,12 @@
   {
     "action": "sponsors.sponsor_sponsorship_create",
     "description": "A sponsorship was created, by sponsoring an account.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor"
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
   },
   {
     "action": "sponsors.sponsor_sponsorship_payment_complete",
     "description": "After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor"
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
   },
   {
     "action": "sponsors.sponsor_sponsorship_preference_change",

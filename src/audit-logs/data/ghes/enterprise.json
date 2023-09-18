@@ -180,6 +180,11 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business_secret_scanning_automatic_validity_checks.disabled",
+    "description": "Automatic partner validation checks have been disabled at the business level",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
+  },
+  {
     "action": "business_secret_scanning_automatic_validity_checks.enabled",
     "description": "Automatic partner validation checks have been enabled at the business level",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features"
