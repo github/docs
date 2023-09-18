@@ -63,7 +63,7 @@ When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> i
 
 {% endnote %}
 
-If you would like to read more about debugging and troubleshooting the {% data variables.product.prodname_docs %} application, see "[Troubleshooting](https://github.com/github/docs/blob/main/contributing/troubleshooting.md)" in the github/docs repository.
+If you would like to read more about debugging and troubleshooting the {% data variables.product.prodname_docs %} application, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/troubleshooting-your-environment)" in the github/docs repository.
 
 ### Using browser shortcuts
 
