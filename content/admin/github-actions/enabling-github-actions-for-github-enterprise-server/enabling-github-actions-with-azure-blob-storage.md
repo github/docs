@@ -42,6 +42,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.actions.enterprise-oidc-prereqs %}
 
 {% ifversion ghes-actions-storage-oidc %}
+
 ## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage using OIDC (recommended)
 
 {% data reusables.actions.ghes-storage-oidc-beta-note %}

@@ -9,10 +9,11 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches
 versions:
-  fpt: '*'
+  feature: desktop
 
 ---
 ## About managing branches
+
 You can use branches to safely experiment with changes to your project. Branches isolate your development work from other branches in the repository. For example, you could use a branch to develop a new feature or fix a bug.
 
 You always create a branch from an existing branch. Typically, you might create a branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository.
@@ -24,6 +25,12 @@ Once you're satisfied with your work, you can create a pull request to merge you
 You can always create a branch in {% data variables.product.prodname_desktop %} if you have read access to a repository, but you can only push the branch to {% data variables.product.prodname_dotcom %} if you have write access to the repository.
 
 {% data reusables.desktop.protected-branches %}
+
+{% ifversion repo-rules %}
+
+Repository administrators can also enable rulesets. Rulesets can be used to require specific branch names when creating a new branch, or to allow only users with bypass permissions to publish a new branch to the remote repository. {% data variables.product.prodname_desktop %} will show a warning and prevent the branch from being created if the branch does not follow the rulesets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endif %}
 
 ## Creating a branch
 
@@ -45,7 +52,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 ## Creating a branch from a previous commit
 
 {% data reusables.desktop.history-tab %}
-2. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
+1. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
 
    ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the cursor hovers over the "Create Branch from Commit" option.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
 
@@ -58,7 +65,7 @@ If you create a branch on {% data variables.product.product_name %}, you'll need
 
 1. In the repository bar, click {% octicon "git-branch" aria-hidden="true" %} **Current Branch**, then click the branch that you want to publish.
    ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
-2. Click **Publish branch**.
+1. Click **Publish branch**.
    ![Screenshot of the repository bar. On the right-hand side, a button, labeled "Publish branch", is highlighted with an orange outline.](/assets/images/help/desktop/publish-branch-button.png)
 
 ## Switching between branches

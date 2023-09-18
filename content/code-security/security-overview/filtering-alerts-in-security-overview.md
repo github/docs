@@ -15,18 +15,18 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Filtering security overview
+shortTitle: Filter security overview
 redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
+{% ifversion ghae %}
 {% data reusables.security-overview.beta %}
 {% endif %}
 
 ## About filtering security overview
 
-You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and whether you are viewing data at the enterprise or organization level{% endif %}.
+You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes or ghae %} and whether you are viewing data at the enterprise or organization level{% endif %}.
 
 {% ifversion security-overview-displayed-alerts %}
 {% note %}
@@ -96,6 +96,7 @@ These qualifiers are available in the main summary views.
 | `archived:false` | Omit archived repositories. |
 
 {% ifversion security-overview-org-risk-coverage-enterprise %}{% else %}
+
 ## Filter by level of risk for repositories
 
 The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.
@@ -155,7 +156,7 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 
 | Qualifier | Description |
 | -------- | -------- |
-{% ifversion dependabot-alerts-vulnerable-calls or ghes > 3.5 or ghae > 3.5 -%}
+{% ifversion dependabot-alerts-vulnerable-calls or ghes or ghae -%}
 |`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
 |`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
 {% endif -%}

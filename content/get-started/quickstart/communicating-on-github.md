@@ -33,26 +33,32 @@ You can create and participate in issues, pull requests and team discussions, de
 {% endif %}
 
 ### {% data variables.product.prodname_github_issues %}
+
 - are useful for discussing specific details of a project such as bug reports, planned improvements and feedback.
 - are specific to a repository, and usually have a clear owner.
 - are often referred to as {% data variables.product.prodname_dotcom %}'s bug-tracking system.
 
 ### Pull requests
+
 - allow you to propose specific changes.
 - allow you to comment directly on proposed changes suggested by others.
 - are specific to a repository.
 
 {% ifversion fpt or ghec %}
+
 ### {% data variables.product.prodname_discussions %}
--  are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
--  may span many repositories.
--  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
--  often don’t have a clear owner.
--  often do not result in an actionable task.
+
+- are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
+- may span many repositories.
+- provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
+- often don’t have a clear owner.
+- often do not result in an actionable task.
 {% endif %}
 
 {% ifversion team-discussions %}
+
 ### Team discussions
+
 - can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
 - allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes or ghae %}
 - provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
@@ -104,6 +110,7 @@ The **Files changed** tab of the pull request shows the implemented fix.
 - A repository maintainer reviews the pull request, comments on it, and merges it.
 
 {% ifversion discussions %}
+
 ### Scenarios for {% data variables.product.prodname_discussions %}
 
 - I have a question that's not necessarily related to specific files in the repository.
@@ -121,6 +128,7 @@ This community maintainer started a discussion to welcome the community, and to 
 
 {% endif %}
 {% ifversion team-discussions %}
+
 ### Scenarios for team discussions
 
 - I have a question that's not necessarily related to specific files in the repository.

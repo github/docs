@@ -31,7 +31,7 @@ You add dependencies directly to your supply chain when you specify them in a ma
 The supply chain features on {% data variables.product.product_name %} are:
 - **Dependency graph**
 - **Dependency review**
-- **{% data variables.product.prodname_dependabot_alerts %} **
+- **{% data variables.product.prodname_dependabot_alerts %}**
 {% ifversion fpt or ghec or ghes %}- **{% data variables.product.prodname_dependabot_updates %}**
   - **{% data variables.product.prodname_dependabot_security_updates %}**
   - **{% data variables.product.prodname_dependabot_version_updates %}**{% endif %}
@@ -122,6 +122,7 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
 {% ifversion fpt or ghec or ghes %}
+
 #### What are Dependabot updates
 
 There are two types of {% data variables.product.prodname_dependabot_updates %}: {% data variables.product.prodname_dependabot %} _security_ updates and _version_ updates. {% data variables.product.prodname_dependabot %} generates automatic pull requests to update your dependencies in both cases, but there are several differences.

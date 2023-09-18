@@ -66,7 +66,7 @@ Enabling this flag forces all timestamps to be UTC.
 
 Control the format of the output produced.
 
-`predicates` *(default)*: Produce a summary of the computation performed
+`predicates` _(default)_: Produce a summary of the computation performed
 for each predicate. This will be a stream of JSON objects separated
 either by two newline characters (by default) or one if the
 `--minify-output` option is passed.

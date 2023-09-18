@@ -39,7 +39,7 @@ configured memory outside the Java heap.
 
 In particular, this should be used to find appropriate `-J-Xmx` and
 `--off-heap-ram` options before staring a query server based on a
-desired *total* RAM amount.
+desired _total_ RAM amount.
 
 ## Primary options
 
@@ -47,7 +47,7 @@ desired *total* RAM amount.
 
 Select output format. Choices include:
 
-`lines` *(default)*: Print command-line arguments on one line each.
+`lines` _(default)_: Print command-line arguments on one line each.
 
 `json`: Print them as a JSON array.
 

@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with Amazon Web 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -15,7 +15,7 @@ topics:
 
 ## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
 
 This guide explains how to configure AWS to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) that uses tokens to authenticate to AWS and access resources.
 
@@ -24,6 +24,16 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
+
+{% ifversion ghes %}
+{% data reusables.actions.oidc-endpoints %}
+  <!-- This note is indented to align with the above reusable. -->
+  {% note %}
+
+  **Note:** {% data variables.product.prodname_dotcom %} does not natively support AWS session tags.
+
+  {% endnote %}
+{% endif %}
 
 ## Adding the identity provider to AWS
 
@@ -34,7 +44,13 @@ To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, se
 
 ### Configuring the role and trust policy
 
-To configure the role and trust in IAM, see the AWS documentation for ["Assuming a Role"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) and ["Creating a role for web identity or OpenID connect federation"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
+To configure the role and trust in IAM, see the AWS documentation "[Configure AWS Credentials for GitHub Actions](https://github.com/aws-actions/configure-aws-credentials#configure-aws-credentials-for-github-actions)" and "[Configuring a role for GitHub OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub)."
+
+{% note %}
+
+**Note**: AWS Identity and Access Management (IAM) recommends that users evaluate the IAM condition key, `token.actions.githubusercontent.com:sub`, in the trust policy of any role that trusts {% data variables.product.prodname_dotcom %}’s OIDC identity provider (IdP). Evaluating this condition key in the role trust policy limits which {% data variables.product.prodname_dotcom %} actions are able to assume the role.
+
+{% endnote %}
 
 Edit the trust policy to add the `sub` field to the validation conditions. For example:
 
@@ -72,12 +88,11 @@ In the following example, `StringLike` is used with a wildcard operator (`*`) to
 }
 ```
 
-
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
 
 ### Adding permissions settings
 
@@ -111,7 +126,7 @@ jobs:
       - name: Git clone the repository
         uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession
@@ -121,3 +136,7 @@ jobs:
         run: |
           aws s3 cp ./index.html s3://{% raw %}${{ env.BUCKET_NAME }}{% endraw %}/
 ```
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

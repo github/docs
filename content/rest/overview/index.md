@@ -19,6 +19,8 @@ children:
   - /troubleshooting
   - /libraries
   - /openapi-description
+  - /issue-event-types
+  - /github-event-types
   - /endpoints-available-for-github-app-installation-access-tokens
   - /endpoints-available-for-github-app-user-access-tokens
   - /endpoints-available-for-fine-grained-personal-access-tokens
@@ -28,3 +30,4 @@ children:
 redirect_from:
   - /developers/overview
 ---
+

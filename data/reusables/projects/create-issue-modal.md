@@ -10,9 +10,9 @@
   
 1. Below the repository dropdown, type a title for the new issue.
   
-1. Optionally, use the fields below the title field to set assignees, labels, and milestones, and add the new issue to other projects. 
+1. Optionally, use the fields below the title field to set assignees, labels, and milestones, and add the new issue to other projects.
   
-1. Optionally, type a description for your issue. 
+1. Optionally, type a description for your issue.
   
 1. Optionally, if you want to create more issues, select **Create more** and the dialog will reopen when you create your issue.
   

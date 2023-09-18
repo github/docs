@@ -7,7 +7,7 @@ intro: >-
 permissions: >-
   People with owner or admin access to temporarily restrict which type of user
   can comment, open issues, or create pull requests in a public repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:
@@ -25,6 +25,5 @@ People with owner or admin access can use the REST API to temporarily restrict w
 - {% data reusables.interactions.collaborator-user-limit-definition %} in the repository.
 
 If an interaction limit is enabled for the user or organization that owns the repository, the limit cannot be changed for the individual repository. Instead, use the [User](#user) or [Organization](#organization) interactions endpoints to change the interaction limit.
-
 
 <!-- Content after this section is automatically generated -->

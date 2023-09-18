@@ -184,100 +184,6 @@
         "additional-permissions": []
       },
       {
-        "category": "actions",
-        "slug": "list-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "create-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "update-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "delete-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
         "category": "orgs",
         "slug": "list-app-installations-for-an-organization",
         "subcategory": "orgs",
@@ -518,6 +424,45 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
+        "additional-permissions": []
+      }
+    ]
+  },
+  "organization_copilot_seat_management": {
+    "title": "GitHub Copilot for Business",
+    "displayTitle": "Organization permissions for \"GitHub Copilot for Business\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
+        "subcategory": "copilot-for-business",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/billing",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
+        "subcategory": "copilot-for-business",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/copilot/billing/seats",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
+        "subcategory": "copilot-for-business",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
         "additional-permissions": []
       }
     ]
@@ -921,7 +866,7 @@
         "slug": "manage-access-control-for-organization-codespaces",
         "subcategory": "organizations",
         "verb": "put",
-        "requestPath": "/orgs/{org}/codespaces/billing",
+        "requestPath": "/orgs/{org}/codespaces/access",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -929,10 +874,10 @@
       },
       {
         "category": "codespaces",
-        "slug": "add-users-to-codespaces-billing-for-an-organization",
+        "slug": "add-users-to-codespaces-access-for-an-organization",
         "subcategory": "organizations",
         "verb": "post",
-        "requestPath": "/orgs/{org}/codespaces/billing/selected_users",
+        "requestPath": "/orgs/{org}/codespaces/access/selected_users",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -940,10 +885,10 @@
       },
       {
         "category": "codespaces",
-        "slug": "removes-users-from-codespaces-billing-for-an-organization",
+        "slug": "remove-users-from-codespaces-access-for-an-organization",
         "subcategory": "organizations",
         "verb": "delete",
-        "requestPath": "/orgs/{org}/codespaces/billing/selected_users",
+        "requestPath": "/orgs/{org}/codespaces/access/selected_users",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -1997,39 +1942,6 @@
     "permissions": [
       {
         "category": "actions",
-        "slug": "list-repository-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow-entity-for-a-repository",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "get-required-workflow-usage",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
         "slug": "list-artifacts-for-a-repository",
         "subcategory": "artifacts",
         "verb": "get",
@@ -2167,17 +2079,6 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "list-workflow-runs-for-a-required-workflow",
-        "subcategory": "workflow-runs",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -2831,6 +2732,17 @@
       },
       {
         "category": "repos",
+        "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
         "slug": "enable-automated-security-fixes",
         "subcategory": "repos",
         "verb": "put",
@@ -3359,7 +3271,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "contents"
+        ]
       },
       {
         "category": "interactions",
@@ -3522,6 +3436,28 @@
         "additional-permissions": [
           "pages"
         ]
+      },
+      {
+        "category": "repos",
+        "slug": "enable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "disable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       },
       {
         "category": "repos",
@@ -4379,6 +4315,17 @@
     "displayTitle": "Repository permissions for \"Contents\"",
     "permissions": [
       {
+        "category": "repos",
+        "slug": "list-repository-activities",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/activity",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
         "category": "branches",
         "slug": "list-branches",
         "subcategory": "branches",
@@ -4632,6 +4579,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "administration"
+        ]
       },
       {
         "category": "git",
@@ -6112,45 +6072,6 @@
         "subcategory": "permissions",
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/permissions/repositories/{repository_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -7840,6 +7761,17 @@
     "permissions": [
       {
         "category": "security-advisories",
+        "slug": "list-repository-security-advisories-for-an-organization",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/security-advisories",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "security-advisories",
         "slug": "list-repository-security-advisories",
         "subcategory": "repository-advisories",
         "verb": "get",
@@ -7888,6 +7820,17 @@
         "subcategory": "repository-advisories",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "security-advisories",
+        "slug": "request-a-cve-for-a-repository-security-advisory",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

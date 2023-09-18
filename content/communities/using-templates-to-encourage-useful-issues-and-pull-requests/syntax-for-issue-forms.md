@@ -40,13 +40,14 @@ body:
 You can set the following top-level keys for each issue form.
 
 | Key | Description | Required | Type |
-| :-- | :-- | :-- | :-- | :-- |
+| :-- | :-- | :-- | :-- |
 | `name` | A name for the issue form template. Must be unique from all other templates, including Markdown templates. | Required | String |
 | `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
 | `body` | Definition of the input types in the form. | Required | Array |
 | `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
 | `labels` | Labels that will automatically be added to issues created with this template. If a label does not already exist in the repository, it will not be automatically added to the issue. | Optional | Array or comma-delimited string |
-| `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
+| `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |{% ifversion projects-in-issue-forms %}
+| `projects` | Projects that any issues created with this template will automatically be added to. {% note %} **Note:** The person opening the issue must have write permissions for the specified projects. {% ifversion projects-v2 %} If you don't expect people using this template to have write access, consider enabling your project's auto-add workflow. For more information, see "[Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %} {% endnote %} | Optional | Array or comma-delimited string |{% endif %}
 
 For the available `body` input types and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
 
@@ -84,9 +85,9 @@ Note: Please search to see if an issue already exists for the bug you encountere
 {% raw %}<{% endraw %}!--
 Example: steps to reproduce the behavior:
 1. In this environment...
-2. With this config...
-3. Run '...'
-4. See error...
+1. With this config...
+1. Run '...'
+1. See error...
 --{% raw %}>{% endraw %}
 
 ### Environment:
@@ -109,7 +110,7 @@ Links? References? Anything that will give us more context about the issue that 
 name: 🐞 Bug
 description: File a bug/issue
 title: "[BUG] <title>"
-labels: [Bug, Needs Triage]
+labels: ["Bug", "Needs Triage"]
 body:
 - type: checkboxes
   attributes:
@@ -136,9 +137,9 @@ body:
     description: Steps to reproduce the behavior.
     placeholder: |
       1. In this environment...
-      2. With this config...
-      3. Run '...'
-      4. See error...
+      1. With this config...
+      1. Run '...'
+      1. See error...
   validations:
     required: false
 - type: textarea

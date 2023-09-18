@@ -1,5 +1,5 @@
 ---
-title: Installing an OAuth App in your personal account
+title: Installing an OAuth app in your personal account
 intro: 'You can install {% data variables.product.prodname_oauth_apps %} from {% data variables.product.prodname_marketplace %} to use in your personal account.'
 versions:
   fpt: '*'
@@ -28,7 +28,7 @@ For more information about installing a {% data variables.product.prodname_githu
 {% data reusables.marketplace.confirm-install-account-personal %}
 {% data reusables.marketplace.add-payment-method-personal %}
 {% data reusables.marketplace.complete-order-begin-installation %}
-8. Review the information about the app's access to your personal account and data, then click **Authorize application**.
+1. Review the information about the app's access to your personal account and data, then click **Authorize application**.
 
 ## Further reading
 

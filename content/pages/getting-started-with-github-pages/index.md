@@ -25,6 +25,6 @@ children:
   - /creating-a-custom-404-page-for-your-github-pages-site
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
+  - /troubleshooting-404-errors-for-github-pages-sites
 shortTitle: Get started
 ---
-

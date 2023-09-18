@@ -54,17 +54,17 @@ your release).
 
 #### `-r, --repository=<repository-name>`
 
-GitHub repository owner and name (e.g., *github/octocat*) to use as an
+GitHub repository owner and name (e.g., _github/octocat_) to use as an
 endpoint for uploading. The CLI will attempt to autodetect this from the
 checkout path if it is omitted.
 
 #### `-f, --ref=<ref>`
 
 Name of the ref that was analyzed. If this ref is a pull request merge
-commit, then use *refs/pulls/1234/merge* or *refs/pulls/1234/head*
+commit, then use _refs/pulls/1234/merge_ or _refs/pulls/1234/head_
 (depending on whether or not this commit corresponds to the HEAD or
 MERGE commit of the PR). Otherwise, this should be a branch:
-*refs/heads/branch-name*. If omitted, the CLI will attempt to
+_refs/heads/branch-name_. If omitted, the CLI will attempt to
 automatically populate this from the current branch of the checkout
 path, if this exists.
 
@@ -90,7 +90,7 @@ version 2.1.0 (this is the default version of SARIF used by CodeQL).
 
 Select output format. Choices include:
 
-`text` *(default)*: Print the URL for tracking the status of the SARIF
+`text` _(default)_: Print the URL for tracking the status of the SARIF
 upload.
 
 `json`: Print the response body of the SARIF upload API request.

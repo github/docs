@@ -58,6 +58,8 @@ const PagePathToVaFlowMapping: Record<string, string> = {
     'contribution_troubleshooting',
   'content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md':
     '2fa',
+  'content/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https.md':
+    'pages_ssl_check',
 }
 
 export const getArticleContextFromRequest = (req: any): ArticleContextT => {
@@ -66,7 +68,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   if (page.effectiveDate) {
     if (isNaN(Date.parse(page.effectiveDate))) {
       throw new Error(
-        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY'
+        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY',
       )
     }
   }

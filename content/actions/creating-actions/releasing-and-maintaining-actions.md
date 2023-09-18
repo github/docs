@@ -50,7 +50,7 @@ JavaScript actions are Node.js repositories with metadata. However, JavaScript a
 To support the developer process in the next section, add two {% data variables.product.prodname_actions %} workflows to your repository:
 
 1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/test.yml).
-2. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). For more information about semantic tags, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)."
+1. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For an example, see [this workflow](https://github.com/github-developer/javascript-action/blob/963a3b9a9c662fd499419a240ed8c49411ff5add/.github/workflows/publish.yml). For more information about semantic tags, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)."
 
 ### Example developer process
 
@@ -59,13 +59,13 @@ Here is an example process that you can follow to automatically run tests, creat
 1. Do feature work in branches per GitHub flow. For more information, see "[AUTOTITLE](/get-started/quickstart/github-flow)."
    - Whenever a commit is pushed to the feature branch, your testing workflow will automatically run the tests.
 
-2. Create pull requests to the `main` branch to initiate discussion and review, merging when ready.
+1. Create pull requests to the `main` branch to initiate discussion and review, merging when ready.
 
    - When a pull request is opened, either from a branch or a fork, your testing workflow will again run the tests, this time with the merge commit.
 
    - **Note:** for security reasons, workflows triggered by `pull_request` from forks have restricted `GITHUB_TOKEN` permissions and do not have access to secrets. If your tests or other workflows triggered upon pull request require access to secrets, consider using a different event like a [manual trigger](/actions/using-workflows/events-that-trigger-workflows#manual-events) or a [`pull_request_target`](/actions/using-workflows/events-that-trigger-workflows#pull_request_target). Read more [here](/actions/using-workflows/events-that-trigger-workflows#pull-request-events-for-forked-repositories).
 
-3. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} and "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
+1. Create a semantically tagged release. {% ifversion fpt or ghec %} You may also publish to {% data variables.product.prodname_marketplace %} with a simple checkbox. {% endif %} For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)"{% ifversion fpt or ghec %} and "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)"{% endif %}.
 
    - When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
 

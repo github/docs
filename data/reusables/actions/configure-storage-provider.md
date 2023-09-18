@@ -5,6 +5,7 @@
      ```shell copy
      ghe-config secrets.actions.storage.azure.connection-string "CONNECTION STRING"
      ```
+
    - Amazon S3:
 
      ```shell copy
@@ -19,6 +20,7 @@
      ```shell copy
      ghe-config secrets.actions.storage.s3.force-path-style true
      ```
+
 {%- ifversion actions-ghes-gcp-storage %}
    - Google Cloud Storage:
 
@@ -28,4 +30,5 @@
      ghe-config secrets.actions.storage.gcs.access-key-id "HMAC ACCESS ID"
      ghe-config secrets.actions.storage.gcs.access-secret "HMAC SECRET"
      ```
+
 {%- endif %}

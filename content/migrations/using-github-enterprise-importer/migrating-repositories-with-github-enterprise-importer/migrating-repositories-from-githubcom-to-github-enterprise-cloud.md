@@ -183,6 +183,8 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 
 {% data reusables.enterprise-migration-tool.review-migration-script %}
 
+{% data reusables.enterprise-migration-tool.skip-releases %}
+
 ## Step 5: Migrate repositories
 
 {% data reusables.enterprise-migration-tool.migrate-repos-gei %}
@@ -198,6 +200,7 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 ```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME
 ```
+
 {% data reusables.enterprise-migration-tool.skip-releases %}
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}

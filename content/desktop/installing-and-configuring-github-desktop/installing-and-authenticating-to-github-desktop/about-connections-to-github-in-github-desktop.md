@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/about-connections-to-github
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: About connections
 ---
 {% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} when you pull from, push to, clone, and fork remote repositories. To connect to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_desktop %}, you must authenticate your account. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
@@ -16,4 +16,5 @@ After you authenticate to {% data variables.product.prodname_dotcom %}, you can 
 {% data variables.product.prodname_desktop %} connects to {% data variables.product.prodname_dotcom %} using HTTPS. If you use {% data variables.product.prodname_desktop %} to access repositories that were cloned using SSH, you may encounter errors. To connect to a repository that was cloned using SSH, change the remote's URLs. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
 
 ## Further reading
+
 - "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)"

@@ -31,7 +31,7 @@ You can also use the "Filter cards" search bar at the top of each {% data variab
 - Filter cards by repository in an organization-wide {% data variables.projects.projects_v1_board %} using `repo:ORGANIZATION/REPOSITORY`
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} that contains the cards you want to filter.
-2. Above the project card columns, click into the "Filter cards" search bar and type a search query to filter the cards.
+1. Above the project card columns, click into the "Filter cards" search bar and type a search query to filter the cards.
 
 {% tip %}
 

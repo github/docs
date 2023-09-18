@@ -45,6 +45,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 **BibTeX**
 
 {% raw %}
+
 ```
 @software{Lisa_My_Research_Software_2017,
   author = {Lisa, Mona and Bot, Hew},
@@ -56,6 +57,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
   year = {2017}
 }
 ```
+
 {% endraw %}
 
 Note the example above produces a _software_ citation (that is, `@software` type in BibTeX rather than `@article`).
@@ -140,6 +142,7 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 **BibTeX**
 
 {% raw %}
+
 ```
 @article{Lisa_My_awesome_research_2021,
   author = {Lisa, Mona and Bot, Hew},
@@ -153,6 +156,7 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
   year = {2021}
 }
 ```
+
 {% endraw %}
 
 ## Citing a dataset

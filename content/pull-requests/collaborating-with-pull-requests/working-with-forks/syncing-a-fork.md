@@ -46,18 +46,18 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
 To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
 
 ```shell
-$ gh repo sync owner/cli-fork -b BRANCH_NAME
+gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
-If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `--force` flag to overwrite the destination branch.
 
 ## Syncing a fork branch from the command line
 
 Before you can sync your fork with an upstream repository, you must configure a remote that points to the upstream repository in Git. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork)."
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
+1. Change the current working directory to your local project.
+1. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
 
    ```shell
    $ git fetch upstream
@@ -69,14 +69,14 @@ Before you can sync your fork with an upstream repository, you must configure a 
    >  * [new branch]      main     -> upstream/main
    ```
 
-4. Check out your fork's local default branch - in this case, we use `main`.
+1. Check out your fork's local default branch - in this case, we use `main`.
 
    ```shell
    $ git checkout main
    > Switched to branch 'main'
    ```
 
-5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
+1. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
 
    ```shell
    $ git merge upstream/main
@@ -90,6 +90,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    ```
 
    If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+
    ```shell
    $ git merge upstream/main
    > Updating 34e91da..16c56ad
@@ -97,6 +98,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    >  README.md                 |    5 +++--
    >  1 file changed, 3 insertions(+), 2 deletions(-)
    ```
+
    If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}

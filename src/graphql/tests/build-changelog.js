@@ -12,7 +12,7 @@ import readJsonFile from '../../../lib/read-json-file.js'
 
 const expectedChangelogEntry = readJsonFile('src/graphql/tests/fixtures/changelog-entry.json')
 const expectedUpdatedChangelogFile = readJsonFile(
-  'src/graphql/tests/fixtures/updated-changelog-file.json'
+  'src/graphql/tests/fixtures/updated-changelog-file.json',
 )
 
 describe('creating a changelog from old schema and new schema', () => {
@@ -89,7 +89,7 @@ upcoming_changes:
       newSchemaString,
       previews,
       oldUpcomingChanges,
-      newUpcomingChanges
+      newUpcomingChanges,
     )
     expect(entry).toEqual(expectedChangelogEntry)
   })

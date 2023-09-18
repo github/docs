@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Commit & review changes
 ---
 ## About commits
@@ -14,6 +14,12 @@ shortTitle: Commit & review changes
 {% data reusables.commits.about-commits %} You can also add a co-author on any commits you collaborate on.
 
 {% data reusables.desktop.update-email-address %} For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop)."
+
+{% ifversion repo-rules %}
+
+Repository administrators can enable rulesets for a branch to enforce specific conventions when committing. For example, a ruleset can require a commit to be signed, or for an issue number to be referenced at the start of a commit message. {% data variables.product.prodname_desktop %} will display a warning and prevent committing if a commit does not follow the rulesets.  For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endif %}
 
 ## Choosing a branch and making changes
 
@@ -62,6 +68,7 @@ To exclude changed lines from your commit, click one or more changed lines so th
 ![Screenshot of the diff view of a text file. Next to the text "I don't want to include this line", the background color behind the line numbers is green, not blue.](/assets/images/help/desktop/partial-commit.png)
 
 ## Discarding changes
+
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
 
 Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
@@ -75,6 +82,7 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
 {% data reusables.desktop.confirm-discard-files %}
 
 ### Discarding changes in one or more lines
+
 You can discard one or more changed lines that are uncommitted.
 
 {% note %}
@@ -108,14 +116,14 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
    ![Screenshot of the "Changes" tab. In the corner of the "Description" field, a "person with a plus sign" icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
-4. If the branch you're trying to commit to is protected, Desktop will warn you.
+1. If the branch you're trying to commit to is protected, Desktop will warn you.
     - To move your changes, click **switch branches**.
     - To commit your changes to the protected branch, click **Commit to BRANCH**.
 
-  For more information about protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+   For more information about protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 {% data reusables.desktop.push-origin %}
 
-6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request next to the "Current Branch" section of the repository bar. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+1. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request next to the "Current Branch" section of the repository bar. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
    If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to preview the changes and create one. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop)."
 

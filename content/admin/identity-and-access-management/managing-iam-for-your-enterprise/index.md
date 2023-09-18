@@ -27,10 +27,10 @@ topics:
   - Identity
 children:
   - /about-authentication-for-your-enterprise
+  - /identifying-the-best-authentication-method-for-your-enterprise
   - /username-considerations-for-external-authentication
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
   - /troubleshooting-identity-and-access-management-for-your-enterprise
 shortTitle: Manage IAM for your enterprise
 ---
-

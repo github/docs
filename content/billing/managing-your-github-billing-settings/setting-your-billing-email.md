@@ -36,7 +36,7 @@ Your organization's billing email is where {% data variables.product.product_nam
 {% data reusables.organizations.billing-settings %}
 1. Under "Billing management", under "Email recipients", find the email address you want to change and click **Edit**.
    ![Screenshot of the "Email recipients" list. Next to an email address, a button, labeled "Edit", is highlighted with an orange outline.](/assets/images/help/billing/billing-change-email.png)
-2. Type a valid email address, then click **Update**.
+1. Type a valid email address, then click **Update**.
 
 ## Managing additional recipients for your organization's billing email
 
@@ -69,6 +69,7 @@ One address must always be designated as the primary recipient. The address with
 1. Review the confirmation prompt, then click **Remove**.
 
 {% ifversion ghec %}
+
 ## Setting your enterprise's billing email
 
 Your enterprise's billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication. The email address does not need to be unique to the enterprise account.
@@ -78,7 +79,7 @@ Only enterprise members with the owner or billing manager role can access or cha
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Billing emails**. 
+1. Click **Billing emails**.
 1. Under "Email recipients", to the right of the billing email address, click **Edit**.
    ![Screenshot of the "Email recipients" list. Next to an email address, a button, labeled "Edit", is highlighted with an orange outline.](/assets/images/help/billing/billing-change-email.png)
 1. Type a valid email address, then click **Update**.
@@ -95,16 +96,16 @@ Only enterprise members with the owner or billing manager role can access or cha
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. Click **Billing emails**.
-2. Under "Email recipients", to the right of the billing email address, click **Add**.
+1. Under "Email recipients", to the right of the billing email address, click **Add**.
    ![Screenshot of the "Billing management" section. Next to "Email recipients", a button, labeled "Add", is highlighted with an orange outline.](/assets/images/help/billing/billing-add-email-recipient.png)
-3. Type the email address of the recipient, then click **Add**.
+1. Type the email address of the recipient, then click **Add**.
 
 ### Removing a recipient from billing notifications for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Billing emails**. 
+1. Click **Billing emails**.
 1. Under "Email recipients", find the email address you want to remove.
 1. To the right of the email address, select "Edit", then click **Remove**.
    ![Screenshot of the "Email recipients" section. Next to an email address, under the "Edit" dropdown, "Remove" is highlighted with an orange outline.](/assets/images/help/billing/billing-remove-email-recipient.png)

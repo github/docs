@@ -44,7 +44,7 @@ database.
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
-but a directory that *contains* databases, and all of those databases
+but a directory that _contains_ databases, and all of those databases
 will be processed together.
 
 #### `<command>...`
@@ -65,8 +65,8 @@ Ask the extractor to use this many threads. This option is passed to the
 extractor as a suggestion. If the CODEQL\_THREADS environment variable is
 set, the environment variable value takes precedence over this option.
 
-You can pass 0 to use one thread per core on the machine, or -*N* to
-leave *N* cores unused (except still use at least one thread).
+You can pass 0 to use one thread per core on the machine, or -_N_ to
+leave _N_ cores unused (except still use at least one thread).
 
 #### `-M, --ram=<MB>`
 
@@ -77,7 +77,7 @@ set, the environment variable value takes precedence over this option.
 #### `--[no-]db-cluster`
 
 Indicates that the directory given on the command line is not a database
-itself, but a directory that *contains* one or more databases under
+itself, but a directory that _contains_ one or more databases under
 construction. Those databases will be processed together.
 
 #### `--no-tracing`

@@ -9,7 +9,7 @@ Always include a security admonition above this procedure. This is either one of
 
 All organizations have a single default runner group. {% ifversion fpt %}Organizations using the {% data variables.product.prodname_team %} plan{% else %}Organizations within an enterprise account{% endif %} can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runner-groups)."
 
-Runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
+If no group is specified during the registration process, runners are automatically added to a default group. You can later move the runner from the default group to a custom group. For more information, see "[Moving a runner to a group](#moving-a-runner-to-a-group)."
 
 When creating a group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
 

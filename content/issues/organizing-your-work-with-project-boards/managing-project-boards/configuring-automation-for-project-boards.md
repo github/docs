@@ -31,12 +31,13 @@ allowTitleToDifferFromFilename: true
 {% endtip %}
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to automate.
-2. In the column you want to automate, click {% octicon "kebab-horizontal" aria-label="Column menu" %}.
+1. In the column you want to automate, click {% octicon "kebab-horizontal" aria-label="Column menu" %}.
 ![Screenshot showing a column in a project. The menu icon is highlighted with an orange outline.](/assets/images/help/projects/edit-column-button.png)
-3. Click **Manage automation**.
-4. Using the Preset drop-down menu, select an automation preset.
-5. Select the workflow automations you want to configure for the column.
-6. Click **Update automation**.
+1. Click **Manage automation**.
+1. Using the Preset drop-down menu, select an automation preset.
+1. Select the workflow automations you want to configure for the column.
+1. Click **Update automation**.
 
 ## Further reading
+
 - "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)"

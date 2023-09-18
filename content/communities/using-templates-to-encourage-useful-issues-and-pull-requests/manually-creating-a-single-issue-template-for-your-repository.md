@@ -17,7 +17,7 @@ shortTitle: Create an issue template
 
 {% data reusables.repositories.legacy-issue-template-tip %}
 
-You can create an *ISSUE_TEMPLATE/* subdirectory in any of the supported folders to contain multiple issue templates, and use the `template` query parameter to specify the template that will fill the issue body. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
+You can create an _ISSUE_TEMPLATE/_ subdirectory in any of the supported folders to contain multiple issue templates, and use the `template` query parameter to specify the template that will fill the issue body. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
 
 You can add YAML frontmatter to each issue template to pre-fill the issue title, automatically add labels and assignees, and give the template a name and description that will be shown in the template chooser that people see when creating a new issue in your repository.
 
@@ -32,6 +32,7 @@ labels: tracking issue, needs triage
 assignees: octocat
 ---
 ```
+
 {% note %}
 
 **Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
@@ -54,12 +55,12 @@ assignees: octocat
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field:
-    -  To make your issue template visible in the repository's root directory, type the name of your *issue_template*. For example, `issue_template.md`.
-    - To make your issue template visible in the repository's `docs` directory, type *docs/* followed by the name of your *issue_template*. For example, `docs/issue_template.md`,
-    - To store your file in a hidden directory, type *.github/* followed by the name of your *issue_template*. For example, `.github/issue_template.md`.
-    - To create multiple issue templates and use the `template` query parameter to specify a template to fill the issue body, type *.github/ISSUE_TEMPLATE/*, then the name of your issue template. For example, `.github/ISSUE_TEMPLATE/issue_template.md`. You can also store multiple issue templates in an `ISSUE_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
-4. In the body of the new file, add your issue template. This could include:
+1. In the file name field:
+    - To make your issue template visible in the repository's root directory, type the name of your _issue_template_. For example, `issue_template.md`.
+    - To make your issue template visible in the repository's `docs` directory, type _docs/_ followed by the name of your _issue_template_. For example, `docs/issue_template.md`,
+    - To store your file in a hidden directory, type _.github/_ followed by the name of your _issue_template_. For example, `.github/issue_template.md`.
+    - To create multiple issue templates and use the `template` query parameter to specify a template to fill the issue body, type _.github/ISSUE_TEMPLATE/_, then the name of your issue template. For example, `.github/ISSUE_TEMPLATE/issue_template.md`. You can also store multiple issue templates in an `ISSUE_TEMPLATE` subdirectory within the root or `docs/` directories. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
+1. In the body of the new file, add your issue template. This could include:
     - YAML frontmatter
     - Expected behavior and actual behavior
     - Steps to reproduce the problem

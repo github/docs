@@ -25,7 +25,7 @@ export default async function whatsNewChangelog(req, res, next) {
 
   req.context.whatsNewChangelog = await getChangelogItems(
     req.context.page.changelog.prefix,
-    req.context.changelogUrl
+    req.context.changelogUrl,
   )
   return next()
 }

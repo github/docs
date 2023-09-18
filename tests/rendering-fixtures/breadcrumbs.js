@@ -58,7 +58,7 @@ describe('breadcrumbs', () => {
   test('early access article pages have breadcrumbs with product, category, and article', async () => {
     const $ = await getDOM('/early-access/secrets/deeper/mariana-trench')
     const $breadcrumbTitles = $(
-      '[data-testid=breadcrumbs-in-article] [data-testid=breadcrumb-title]'
+      '[data-testid=breadcrumbs-in-article] [data-testid=breadcrumb-title]',
     )
     const $breadcrumbLinks = $('[data-testid=breadcrumbs-in-article] a')
 

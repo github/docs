@@ -37,6 +37,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 {% ifversion ghec %}
+
 ## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_actions %} usage for an enterprise account.

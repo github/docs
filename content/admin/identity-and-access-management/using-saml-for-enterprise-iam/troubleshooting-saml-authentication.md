@@ -17,6 +17,7 @@ topics:
 ---
 
 {% ifversion ghes %}
+
 ## About problems with SAML authentication
 
 {% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% elsif ghes < 3.9 %}authentication log{% endif %} at {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}these log files{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.
@@ -49,7 +50,7 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ```shell
-$ base64 --decode ENCODED_OUTPUT
+base64 --decode ENCODED_OUTPUT
 ```
 
 ## Error: "Another user already owns the account"
@@ -91,7 +92,7 @@ Ensure that you configure signed assertions for the {% data variables.product.pr
 If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
 ```
-Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
+Audience is invalid. Audience attribute does not match https://YOUR-INSTANCE-URL
 ```
 
 Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.location.product_location %}, which is the full URL to your instance. For example, `https://ghe.corp.example.com`.

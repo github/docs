@@ -15,7 +15,7 @@ redirect_from:
 
 ## About configuring {% data variables.product.prodname_dependabot %} to only access private registries
 
-{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)." {% data reusables.dependabot.advanced-private-registry-config-link %}
 
 You can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
 
@@ -51,7 +51,7 @@ Define the private registry configuration in a `dependabot.yml` file without `re
 
 {% note %}
 
-**Note:** remove `replaces-base: true` from the configuration file.
+**Note:** Remove `replaces-base: true` from the configuration file.
 
 {% endnote %}
 
@@ -79,11 +79,11 @@ Set `replaces-base` as `true` in the `dependabot.yml` file. For more information
 
 To configure the Gradle ecosystem to only access private registries, you can use these configuration methods.
 
-Define the private registry configuration in a dependabot.yml file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
 
 {% note %}
 
-Note: remove replaces-base: true from the configuration file.
+**Note**: Remove replaces-base: true from the configuration file.
 
 {% endnote %}
 
@@ -110,6 +110,7 @@ Set `replaces-base` as `true` in the `dependabot.yml` file. For more information
 **Option 2**
 
 Use only the private registry URL in the `pom.xml` file.
+
    ```xml
    <project>
    ...
@@ -135,7 +136,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 
 {% note %}
 
-**Note:** remove `replaces-base: true` from the configuration file.
+**Note:** Remove `replaces-base: true` from the configuration file.
 
 {% endnote %}
 
@@ -188,7 +189,8 @@ encoding@^0.1.11:
 
 If the `yarn.lock` file doesn't list the private registry as the dependency source, you can set up Yarn Classic according to the normal package manager instructions:
    1. Define the private registry configuration in a `dependabot.yml` file
-   2. Add the registry to a `.yarnrc` file in the project root with the key registry. Alternatively run `yarn config set registry <private registry URL>`.
+   1. Add the registry to a `.yarnrc` file in the project root with the key registry. Alternatively run `yarn config set registry <private registry URL>`.
+
       ```yaml
       registry https://private_registry_url
       ```
@@ -218,8 +220,9 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 {% endnote %}
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
-  
+
 {% raw %}
+
 ```yaml
 encoding@^0.1.11:
   version "0.1.13"
@@ -228,13 +231,14 @@ encoding@^0.1.11:
   dependencies:
     iconv-lite "^0.6.2"
 ```
+
 {% endraw %}
 
 **Option 2**
 
 If the `yarn.lock` file doesn't list the private registry as the dependency source, you can set up Yarn Berry according to the normal package manager instructions:
    1. Define the private registry configuration in a `dependabot.yml` file
-   2. Add the registry to a `.yarnrc.yml` file in the project root with the key `npmRegistryServer`. Alternatively run `yarn config set npmRegistryServer <private registry URL>`.
+   1. Add the registry to a `.yarnrc.yml` file in the project root with the key `npmRegistryServer`. Alternatively run `yarn config set npmRegistryServer <private registry URL>`.
     ```
     npmRegistryServer: "https://private_registry_url"
     ```

@@ -27,7 +27,7 @@ The current count of cards and the column's limit is displayed at the top of the
   ![Screenshot showing a top of a column in the table layout. The column context menu button is highlighted with an orange outline.](/assets/images/help/projects-v2/board-column-menu.png)
 1. In the menu, click {% octicon "number" aria-hidden="true" %} **Set column limit**.
 1. Under "Column limit", type the card limit for this column.
-1. Optionally, to remove the limit, type **0**.
+1. Optionally, to remove the limit, clear the entry.
 1. Click **Save**.
 
 {% endif %}
@@ -59,6 +59,14 @@ In the board layout, you can can choose which columns to display. The available 
 1. Select the columns you want to show.
 {% endif %}
 
+{% ifversion projects-v2-slice-panel %}
+
+## Slicing by field values
+
+{% data reusables.projects.customize.slice-panel %}
+
+{% endif %} 
+
 {% ifversion projects-v2-consistent-sorting %}
 
 ## Sorting by field values
@@ -72,6 +80,18 @@ You can sort items by a field value.
 {% endnote %}
 
 {% data reusables.projects.customize.sort %}
+
+{% endif %}
+
+{% ifversion projects-v2-swimlanes %}
+
+## Grouping by field values
+
+You can use a custom field value to group items and create horizontal sections on your board. These sections provide an additional way to organize and visually separate items. Additionally, horizontal grouping allows you to differentiate work according to work streams, team members, or varying levels of urgency or priority.
+
+{% data reusables.projects.customize.update-status %}
+
+{% data reusables.projects.customize.group-fields %}
 
 {% endif %}
 

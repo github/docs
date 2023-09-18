@@ -1,8 +1,7 @@
 name: Close bad repo-sync PRs
 
 # **What it does**:
-#   Closes and PR from `repo-sync` to `main` that wasn't created by
-#   Octomerger or a Hubber.
+#   Closes and PR from `repo-sync` to `main` that wasn't created by a Hubber.
 # **Why we have it**:
 #   Unfortunately, a lot of PRs in github/docs are created by people who
 #   shouldn't be creating such PRs. We bot our bots to own it.
@@ -17,22 +16,18 @@ permissions:
 
 jobs:
   close-invalid-repo-sync-pr:
-    if: ${{ github.repository == 'github/docs' && github.actor != 'Octomerger' && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'repo-sync' }}
+    if: ${{ github.repository == 'github/docs' && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'repo-sync' }}
     name: Close if invalid repo-sync PR author
     runs-on: ubuntu-latest
     steps:
       - name: Close pull request if unwanted
         uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
-          github-token: ${{ secrets.DOCS_BOT_FR }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           script: |
             const { owner, repo } = context.repo
             const prCreator = context.actor
             const prNumber = context.issue.number
-
-            if (prCreator === 'Octomerger') {
-              throw new Error("Should have been checked by the main if: condition on the job")
-            }
 
             try {
               await github.rest.teams.getMembershipForUserInOrg({

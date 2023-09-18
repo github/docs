@@ -51,6 +51,7 @@ children:
   - /codespaces
   - /collaborators
   - /commits
+  - /copilot
   - /dependabot
   - /dependency-graph
   - /deploy-keys
@@ -84,6 +85,7 @@ children:
   - /teams
   - /users
   - /webhooks
+  - /classroom
 ---
 
 

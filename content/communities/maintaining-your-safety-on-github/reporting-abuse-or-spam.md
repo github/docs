@@ -75,7 +75,6 @@ If reported content is enabled for a public repository, you can also report cont
 - In order to get accurate information about the abuse, the abuse report form will direct you to use the in-product abuse report links. If an in-product link is not available, you can go through {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}.
 - Users in India can contact {% data variables.product.prodname_dotcom %}'s Grievance Officer for India through [support.github.com/contact/india-grievance-officer](https://support.github.com/contact/india-grievance-officer).
 
-
 {% endnote %}
 
 ## Further reading

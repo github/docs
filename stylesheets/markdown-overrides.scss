@@ -22,3 +22,18 @@
     margin-top: 0 !important;
   }
 }
+
+// Horizontal scroll gets flagged as an accessibility violation.
+// Updates all code examples to only allow vertical scroll, and
+// break aggressively.
+.markdown-body {
+  pre {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  pre code {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+}

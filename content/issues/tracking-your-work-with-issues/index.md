@@ -13,7 +13,6 @@ children:
   - /about-issues
   - /quickstart
   - /creating-an-issue
-  - /about-tasklists
   - /about-slash-commands
   - /linking-a-pull-request-to-an-issue
   - /creating-a-branch-for-an-issue

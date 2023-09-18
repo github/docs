@@ -54,5 +54,4 @@ body:
       value: |
         ### The thrilling conclusion
         _to our template_
-
 ```

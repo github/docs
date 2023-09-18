@@ -39,7 +39,7 @@ if (process.env.ELASTICSEARCH_URL) {
       // have your own ELASTICSEARCH_URL locally, then search functionality
       // isn't what you're developing/debugging.
       logLevel: 'warn',
-    })
+    }),
   )
 }
 

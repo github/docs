@@ -64,8 +64,10 @@ When endpoints include `{enterprise}`, replace `{enterprise}` with the handle fo
 ```shell
 http(s)://HOSTNAME/
 ```
+
 {% endif %}
 {% ifversion ghae or ghes %}
+
 ## Authentication
 
 Your {% data variables.product.product_name %} installation's API endpoints accept the same authentication methods as the {% data variables.product.prodname_dotcom %} API. For more information, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
@@ -77,6 +79,7 @@ These endpoints are only accessible to authenticated {% data variables.product.p
 {% endif %}
 
 {% ifversion ghae or ghes %}
+
 ## Version information
 
 The current version of your enterprise is returned in the REST API response header:
@@ -86,6 +89,5 @@ You can also read the current version by calling the [meta endpoint](/rest/meta)
 {% endif %}
 
 ## Endpoints
-
 
 <!-- Content after this section is automatically generated -->

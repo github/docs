@@ -59,19 +59,19 @@ By default, your inbox has filters for when you are assigned, participating in a
 You can add up to 15 of your own custom filters.
 
 {% data reusables.notifications.access_notifications %}
-2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="Customize filters" %}.
+1. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="Customize filters" %}.
 
-  {% tip %}
+   {% tip %}
 
-  **Tip:** You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
+   **Tip:** You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
 
-  {% endtip %}
+   {% endtip %}
 
-3. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
+1. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
 
    ![Screenshot showing notification filters. Two input fields, with an example name and filter query filled in, are highlighted with an orange outline.](/assets/images/help/notifications-v2/custom-filter-example.png)
 
-4. Click **Create**.
+1. Click **Create**.
 
 ## Custom filter limitations
 
@@ -139,6 +139,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
 
 {% ifversion fpt or ghec %}
+
 ### Supported `author:` queries
 
 To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.

@@ -1,6 +1,6 @@
 date: '2023-06-08'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -209,7 +209,7 @@ sections:
         # https://github.com/github/releases/issues/2462
         # https://github.com/github/releases/issues/2556
         - |
-          Users of the REST API can programmatically create and update least-privilege roles for repositories using the Custom Repository Roles REST API. The API is generally available, with a breaking change to the API's endpoint paths. Previously, the API was accessible at `/orgs/{org}/custom_roles`, and is now accessible at `/orgs/{org}/custom-repository-roles`. The [List custom repository roles in an organization](/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization will no longer be available in the next version of the REST API. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)" and "[AUTOTITLE](/rest/orgs/custom-roles?apiVersion=2022-11-28)" in the REST API documentation.
+          Users of the REST API can programmatically create and update least-privilege roles for repositories using the Custom Repository Roles REST API. The API is generally available, with a breaking change to the API's endpoint paths. Previously, the API was accessible at `/orgs/{org}/custom_roles`, and is now accessible at `/orgs/{org}/custom-repository-roles`. The [List custom repository roles in an organization](/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization) will no longer be available in the next version of the REST API. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-repository-roles)" and "[AUTOTITLE](/rest/orgs/custom-roles?apiVersion=2022-11-28)" in the REST API documentation.
 
         # https://github.com/github/releases/issues/3067
         - |
@@ -287,17 +287,7 @@ sections:
         - |
           Users of the GraphQL API can revert a merged pull request by using the revertPullRequest mutation. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)" and "[AUTOTITLE](/graphql/reference/mutations#revertpullrequest)" in the GraphQL API documentation.
 
-  changes:
-    # HOLD FOR GA:
-    #
-    # https://github.com/github/releases/issues/3050
-    #- |
-    # Before beginning a backup with GitHub Enterprise Server Backup Utilities 3.9.0 and later, the `ghe-host-check` utility will now perform a preflight check on the backup host to confirm the software version and disk space requirements. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the `github/backup-utils` repository on GitHub.com.
-
-    # https://github.com/github/releases/issues/3052
-    #- |
-    # GitHub Enterprise Server Backup Utilities 3.9.0 and later displays a progress indicator for backup and restoration operations. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the `github/backup-utils` repository on GitHub.com.
-      
+  changes: 
     # https://github.com/github/releases/issues/2909
     - |
       Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names will change in upcoming releases. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
@@ -380,9 +370,22 @@ sections:
     - |
       If a user archives a repository, responses from the GraphQL API that include information about the repository now include an `archivedAt` value with a timestamp representing the archival date.
 
+  backups:
+    # https://github.com/github/releases/issues/3050
+    - |
+     Before beginning a backup with GitHub Enterprise Server Backup Utilities 3.9.0 and later, the `ghe-host-check` utility will now perform a preflight check on the backup host to confirm the software version and disk space requirements. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the github/backup-utils repository on GitHub.com.
+
+    # https://github.com/github/releases/issues/3052
+    - |
+     GitHub Enterprise Server Backup Utilities 3.9.0 allows administrators to view the progress of backup and restoration operations on the backup host using the `ghe-backup-progress` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#monitoring-backup-or-restoration-progress)."
+
   known_issues:
     - |
       If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9, the database server on your instance will be upgraded from MySQL 5.7 to MySQL 8.0. I/O utilization will increase as a result, and in some cases this may affect your instance's performance. Do not upgrade to this RC in a production environment, and ensure that you take and verify a backup of the instance before upgrading to the GA release. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+    - |
+      {% data reusables.release-notes.manage-api-unreachable %}
     - |
       On an instance in a cluster configuration, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following output may appear multiple times after you run `ghe-config-apply`.
 

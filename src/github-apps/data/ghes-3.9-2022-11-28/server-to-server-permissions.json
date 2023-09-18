@@ -379,100 +379,6 @@
         "additional-permissions": []
       },
       {
-        "category": "actions",
-        "slug": "list-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "create-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "update-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "delete-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
         "category": "orgs",
         "slug": "get-the-audit-log-for-an-organization",
         "subcategory": "orgs",
@@ -1098,6 +1004,45 @@
         "additional-permissions": [
           "metadata"
         ]
+      }
+    ]
+  },
+  "organization_pre_receive_hooks": {
+    "title": "Pre-receive hooks",
+    "displayTitle": "Organization permissions for \"Pre-receive hooks\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "list-pre-receive-hooks-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/pre-receive-hooks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-pre-receive-hook-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       }
     ]
   },
@@ -2010,71 +1955,10 @@
       }
     ]
   },
-  "organization_pre_receive_hooks": {
-    "title": "organization pre receive hooks",
-    "displayTitle": "Organization pre receive hooks permissions",
-    "permissions": [
-      {
-        "category": "enterprise-admin",
-        "slug": "list-pre-receive-hooks-for-an-organization",
-        "subcategory": "org-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/pre-receive-hooks",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-a-pre-receive-hook-for-an-organization",
-        "subcategory": "org-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
-        "subcategory": "org-pre-receive-hooks",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      }
-    ]
-  },
   "actions": {
     "title": "Actions",
     "displayTitle": "Repository permissions for \"Actions\"",
     "permissions": [
-      {
-        "category": "actions",
-        "slug": "list-repository-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow-entity-for-a-repository",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
       {
         "category": "actions",
         "slug": "list-artifacts-for-a-repository",
@@ -2225,17 +2109,6 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "list-workflow-runs-for-a-required-workflow",
-        "subcategory": "workflow-runs",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -3292,7 +3165,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "contents"
+        ]
       },
       {
         "category": "collaborators",
@@ -4098,6 +3973,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "administration"
+        ]
       },
       {
         "category": "git",
@@ -5488,45 +5376,6 @@
       },
       {
         "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
         "slug": "add-repository-access-to-a-self-hosted-runner-group-in-an-organization",
         "subcategory": "self-hosted-runner-groups",
         "verb": "put",
@@ -6041,6 +5890,45 @@
         "subcategory": "pages",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/pages/deployment",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      }
+    ]
+  },
+  "repository_pre_receive_hooks": {
+    "title": "Pre-receive hooks",
+    "displayTitle": "Repository permissions for \"Pre-receive hooks\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "list-pre-receive-hooks-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-pre-receive-hook-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-pre-receive-hook-enforcement-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -7605,45 +7493,6 @@
         "additional-permissions": [
           "contents"
         ]
-      }
-    ]
-  },
-  "repository_pre_receive_hooks": {
-    "title": "repository pre receive hooks",
-    "displayTitle": "Repository pre receive hooks permissions",
-    "permissions": [
-      {
-        "category": "enterprise-admin",
-        "slug": "list-pre-receive-hooks-for-a-repository",
-        "subcategory": "repo-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-a-pre-receive-hook-for-a-repository",
-        "subcategory": "repo-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "remove-pre-receive-hook-enforcement-for-a-repository",
-        "subcategory": "repo-pre-receive-hooks",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
       }
     ]
   },

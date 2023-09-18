@@ -17,7 +17,7 @@ export const useAutomatedPageContext = (): AutomatedPageContextT => {
 
   if (!context) {
     throw new Error(
-      '"useAutomatedPageContext" may only be used inside "AutomatedPageContext.Provider"'
+      '"useAutomatedPageContext" may only be used inside "AutomatedPageContext.Provider"',
     )
   }
 

@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with your cloud 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 children:
   - /about-security-hardening-with-openid-connect
   - /configuring-openid-connect-in-amazon-web-services

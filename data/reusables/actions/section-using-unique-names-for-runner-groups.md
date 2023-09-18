@@ -1,5 +1,6 @@
 
 {% ifversion target-runner-groups %}{% ifversion ghec or ghae or ghes %}
+
 ## Using unique names for runner groups
 
 {% data variables.product.prodname_actions %} requires that runner group names must be unique at the organization level. This means that an organization will no longer be able to create a runner group with the same name as one in the enterprise. In addition, users will see a warning banner on any runner groups that share the same name as a group in the enterprise, suggesting that the organization group should be renamed.

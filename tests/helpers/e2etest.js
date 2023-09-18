@@ -12,7 +12,7 @@ export async function get(
     headers,
     responseType,
     retries = 0,
-  } = {}
+  } = {},
 ) {
   const fn = got[method]
   if (!fn || typeof fn !== 'function') throw new Error(`No method function for '${method}'`)
@@ -25,7 +25,7 @@ export async function get(
       followRedirect: followAllRedirects || followRedirects,
       responseType,
     },
-    isUndefined
+    isUndefined,
   )
   return await fn(`http://localhost:4000${route}`, xopts)
 }
@@ -53,7 +53,7 @@ export async function getDOMCached(route, options) {
 
 export async function getDOM(
   route,
-  { headers, allow500s = false, allow404 = false, retries = 0 } = {}
+  { headers, allow500s = false, allow404 = false, retries = 0 } = {},
 ) {
   const res = await get(route, { followRedirects: true, headers, retries })
   if (!allow500s && res.statusCode >= 500) {

@@ -46,10 +46,10 @@ If you cannot connect to a codespace from {% data variables.product.prodname_vsc
 
 1. Check that you have the latest version of the {% data variables.product.prodname_github_codespaces %} extension installed. The extension is a preview release and frequent updates are released.
    1. In {% data variables.product.prodname_vscode %}, display the "Extensions" tab.
-   2. Select the {% data variables.product.prodname_github_codespaces %} extension to display the extension's overview page.
-   3. If an update is available, a button is shown, click **Update to X.X.X** to upgrade to the latest version.
-2. Check whether you are using the stable build of {% data variables.product.prodname_vscode %} or the [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/) release (nightly updates). If you are using the insiders release, try installing the [stable build](https://code.visualstudio.com/).
-3. Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
+   1. Select the {% data variables.product.prodname_github_codespaces %} extension to display the extension's overview page.
+   1. If an update is available, a button is shown, click **Update to X.X.X** to upgrade to the latest version.
+1. Check whether you are using the stable build of {% data variables.product.prodname_vscode %} or the [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/) release (nightly updates). If you are using the insiders release, try installing the [stable build](https://code.visualstudio.com/).
+1. Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
 
 If you still cannot connect, {% data reusables.codespaces.contact-support %}
 

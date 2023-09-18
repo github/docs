@@ -15,7 +15,7 @@ export default async () => {
     if (await isPortRunning()) {
       console.error(`Something's already running on :${PORT}`)
       console.log(
-        'If you intend to run jest tests with an existing server, set env var START_JEST_SERVER=false'
+        'If you intend to run jest tests with an existing server, set env var START_JEST_SERVER=false',
       )
       process.exit(1)
     }

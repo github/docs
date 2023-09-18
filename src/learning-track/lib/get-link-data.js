@@ -2,14 +2,15 @@ import path from 'path'
 import findPage from '../../../lib/find-page.js'
 import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
 import removeFPTFromPath from '../../../lib/remove-fpt-from-path.js'
-import renderContent from '../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 // rawLinks is an array of paths: [ '/foo' ]
 // we need to convert it to an array of localized objects: [ { href: '/en/foo', title: 'Foo', intro: 'Description here' } ]
 export default async (
   rawLinks,
   context,
-  option = { title: true, intro: true, fullTitle: false }
+  option = { title: true, intro: true, fullTitle: false },
+  maxLinks = Infinity,
 ) => {
   if (!rawLinks) return
 
@@ -17,9 +18,9 @@ export default async (
     return await processLink(rawLinks, context, option)
   }
 
-  const links = (
-    await Promise.all(rawLinks.map((link) => processLink(link, context, option)))
-  ).filter(Boolean)
+  const links = (await Promise.all(rawLinks.map((link) => processLink(link, context, option))))
+    .filter(Boolean)
+    .slice(0, maxLinks)
 
   return links
 }
@@ -35,7 +36,12 @@ async function processLink(link, context, option) {
   const href = removeFPTFromPath(path.join('/', context.currentLanguage, version, linkPath))
 
   const linkedPage = findPage(href, context.pages, context.redirects)
-  if (!linkedPage) return null
+  if (!linkedPage) {
+    // This can happen when the link depends on Liquid conditionals,
+    // like...
+    //    - '{% ifversion ghes %}/admin/foo/bar{% endifversion %}'
+    return null
+  }
 
   const result = { href, page: linkedPage }
 

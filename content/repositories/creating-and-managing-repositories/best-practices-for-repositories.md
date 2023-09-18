@@ -13,7 +13,7 @@ topics:
 
 ## Create a README file
 
-To make it easier for people to understand and navigate your work, we recommend that you create a README file for every repository. 
+To make it easier for people to understand and navigate your work, we recommend that you create a README file for every repository.
 
 {% data reusables.repositories.about-READMEs %} For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 

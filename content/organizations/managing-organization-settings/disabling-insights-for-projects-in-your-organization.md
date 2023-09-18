@@ -12,7 +12,6 @@ allowTitleToDifferFromFilename: true
 
 After you disable insights for projects in your organization, it won't be possible to access insights for any projects owned by the organization.
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the sidebar, click **{% octicon "sliders" aria-hidden="true" %} Features**.

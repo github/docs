@@ -36,6 +36,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.actions.enterprise-oidc-prereqs %}
 
 {% ifversion ghes-actions-storage-oidc %}
+
 ## Enabling {% data variables.product.prodname_actions %} with Google Cloud Storage using OIDC (recommended)
 
 {% data reusables.actions.ghes-storage-oidc-beta-note %}
@@ -73,6 +74,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
      ```
      https://my-ghes-host.example.com/_services/token
      ```
+
    - Under "Audiences", leave **Default audience** selected, but note the identity provider URL, as it is needed later. The identity provider URL is in the format `https://iam.googleapis.com/projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL-NAME/providers/PROVIDER-NAME`.
    - Click **Continue**.
 1. Under "Configure provider attributes":
@@ -149,11 +151,11 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 {% data reusables.actions.enterprise-gcp-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your storage bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-gcp-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-gcp-storage-credential-fields %}
 {%- else %}
 1. Under "Artifact & Log Storage", select **Google Cloud Storage**, and enter your bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-gcp-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-gcp-storage-credential-fields %}
 {%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}

@@ -28,15 +28,13 @@ redirect_from:
 
 ## About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
-{% data reusables.code-scanning.about-code-scanning %} For information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+{% data reusables.code-scanning.about-code-scanning %} For information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 
 {% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 
 You add the {% data variables.product.prodname_codeql_cli %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
 
-{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
 {% data reusables.code-scanning.about-multiple-configurations-link %}
-{% endif %}
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 

@@ -76,12 +76,28 @@ This file should be automatically updated, but you can also run `src/ghes-releas
   Usually, we should smoke test any new GHES admin guides, any large features landing in this GHES version for the first time, and the REST and GraphQL API references.
 - [ ] A few days before shipping, check for broken links. Run `script/check-english-links.js` in a local copy of the megabranch.
 - [ ] [Freeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) at least 1-2 days before the release, and post an announcement in Slack so everybody knows. It's helpful to freeze the repos before doing the OpenAPI merges to avoid changes to the megabranch while preparing and deploying.
-- [ ] Alert the Neon Squad (formally docs-ecosystem team)  1-2 days before the release to deploy to `github/github`. A PR should already be open in `github/github`, to change the OpenAPI schema config `published` to `true` in `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`. They will need to:
+- [ ] Alert the Neon Squad (formally docs-ecosystem team)  1-2 days before the release to deploy to `github/github`. A PR should already be open in `github/github` to change the OpenAPI schema config `published` to `true` in `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`. They will need to:
   - [ ] Get the required approval from `@github/ecosystem-api-reviewers` then deploy the PR to dotcom. This process generally takes 30-90 minutes.
-  - [ ] Once the PR merges, make sure that the auto-generated PR titled "Update OpenAPI Descriptions" in doc-internal contains the decorated JSON files for the new GHES release. If everything looks good, merge the "Update OpenAPI Description" PR into the GHES release megabranch. **Note:** Don't attempt to resolve conflicts for changes to the `src/rest/data` files. Instead delete the existing OpenAPI files for the release version from the megabranch (that is, revert the changes to the `src/rest/data` decorated JSON files, e.g., from the megabranch do a `git checkout origin/main src/rest/data/*`), so there are no conflicts to resolve and to ensure that the incoming artifacts are the correct ones.
+  - [ ] Once the PR merges, a PR will be automatically opened in `github/rest-api-description` with the changes. There are two options for getting the data from the `github/rest-api-description` repo. The benefit of the first method is that you don't need to deal with merging two PRs together, you can just make a new commit directly to the GHES release branch with the updated OpenAPI data. If you aren't as comfortable in the terminal, the second option is best.
+
+       1. Method 1 - Generate the new data locally:
+          1. Clone the `github/rest-api-description` repo within your `github/docs-internal` repo.
+          1. In `github/rest-api-description` checkout the branch you want to consume OpenAPI data from.
+          1. In `github/docs-internal`, check out the GHES release branch you want to add OpenAPI data to.
+          1. Update the data by running this command: `src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects`.
+
+       1. Method 2 - Run the workflow to generate the automated OpenAPI PR in `github/docs-internal`:
+          1. Go to the [Sync OpenAPI schema](https://github.com/github/docs-internal/actions/workflows/sync-openapi.yml) workflow
+          1. Run the workflow by clicking "Run workflow" button.
+          1. Under "Use workflow from," select the branch that contains the new GHES release. This will base the new PR on the GHES release branch and will allow generating the OpenAPI data for the new GHES release.
+          1. Under **Branch to pull the dereferenced OpenAPI source files from in the github/rest-api-descriptions repo.**, select the branch name of the data you want to consume in `github/rest-api-description`. If the branch in `github/rest-api-description` is not yet merged, select the branch name of the PR in `github/rest-api-description` that contains the new GHES release schema. If the PR that was opened in `github/rest-api-description` was merged to main, leave the second option set to `main`.
+          1. Click the green "Run workflow" button.
+          1. Wait for the workflow to finish. It will automatically open a PR. The workflow output log will include a PR number.
+          1. In the new PR with OpenAPI changes, change the base branch of the PR from `main` to the branch of the PR with the new GHES release.
+          1. Merge the OpenAPI PR into the GHES release branch. **Note:** Don't attempt to resolve conflicts for changes to the `src/rest/data` files. Only accept the incoming files. If you do see conflicts in the `src/rest/data`, `src/webhooks/data`, or `src/github-apps/data` directories, you can checkout the files for those directories that exist in the main branch, which reverts the changes in those directories to the files in the `main` branch (e.g. `git checkout origin/main src/rest/data/*`).
+
 - [ ] Alert the Ecosystem-API team in #ecosystem-api about the pending release freeze and incoming blocking review of OpenAPI updates in the public REST API description (the `rest-api-descriptions` repo). They'll need to block any future "Update OpenAPI Descriptions" PRs in the public REST API description until after the ship.
   - [ ] Add a blocking review to the auto-generated "Update OpenAPI Descriptions" PR in the public REST API description. (You or they will remove this blocking review once the GHES release ships.)
-
 
 ### 🚢 🛳️ 🚢 Shipping the release branch
 

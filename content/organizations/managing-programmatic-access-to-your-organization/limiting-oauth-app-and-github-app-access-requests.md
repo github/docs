@@ -1,5 +1,5 @@
 ---
-title: Limiting OAuth App and GitHub App access requests
+title: Limiting OAuth app and GitHub App access requests
 intro: 'As an organization owner, you can choose whether to allow outside collaborators to request organization access for {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}.'
 versions:
   feature: limit-app-access-requests
@@ -7,7 +7,7 @@ permissions: Organization owners can limit who can make app access requests to t
 topics:
   - Organizations
   - GitHub Apps
-  - OAuth Apps
+  - OAuth apps
 shortTitle: Limit app access requests
 redirect_from:
   - /organizations/managing-organization-settings/limiting-oauth-app-and-github-app-access-requests

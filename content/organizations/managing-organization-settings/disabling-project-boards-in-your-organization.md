@@ -29,9 +29,7 @@ When {% data variables.projects.projects_v1_boards %} are disabled, you will no 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
-{% endif %}
 1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under **Projects{% ifversion ghes = 3.7 %} (classic){% endif %}**:
     - To disable {% data variables.projects.projects_v2_and_v1 %}, unselect **Enable Projects{% ifversion ghes = 3.7 %} (classic){% endif %} for the organization**.
     - To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects{% ifversion ghes = 3.7 %} (classic){% endif %} for the organization**.
@@ -47,9 +45,7 @@ You can control whether organization members can create {% data variables.projec
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
-{% endif %}
 1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under **{%ifversion ghes > 3.7 or ghae > 3.7 or ghec or fpt %}Projects (classic) only{% elsif ghes = 3.7 %}Repository projects{% else %}Projects{% endif %}**:
     - To enable project boards in repositories, select **{% ifversion ghes < 3.7 %}Enable projects for all repositories{% else %}Allow members to enable Projects (classic) for all repositories{% endif %}**.
     - To disable project boards in repositories, unselect **{% ifversion ghes < 3.7 %}Enable projects for all repositories{% else %}Allow members to enable Projects (classic) for all repositories{% endif %}**.

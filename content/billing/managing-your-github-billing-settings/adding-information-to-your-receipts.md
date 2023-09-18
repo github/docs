@@ -50,7 +50,7 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% data reusables.organizations.billing-settings %}
 1. At the top of the page, click **Payment information**.
-   
+
    ![Screenshot of the "Billing Summary" section of the settings page. A link, labeled "Payment information," is highlighted with an orange outline.](/assets/images/help/settings/payment-info-link.png)
 
 1. Under "Payment information", next to "Additional information click **Add information**.

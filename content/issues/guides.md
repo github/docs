@@ -12,6 +12,7 @@ versions:
 includeGuides:
   - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
   - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
+  - /issues/managing-your-tasks-with-tasklists/quickstart-for-tasklists
   - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view
   - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
   - /issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects
@@ -25,4 +26,3 @@ includeGuides:
   - /issues/using-labels-and-milestones-to-track-work/managing-labels
   - /issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests
 ---
-

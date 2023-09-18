@@ -61,7 +61,7 @@ per-user configuration file).
 
 Select output format. Choices include:
 
-`text` *(default)*: Print the paths to extractor packs to standard
+`text` _(default)_: Print the paths to extractor packs to standard
 output.
 
 `json`: Print the paths to extractor packs as a JSON string.

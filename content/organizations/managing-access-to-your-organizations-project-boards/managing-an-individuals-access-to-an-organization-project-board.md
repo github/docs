@@ -21,7 +21,7 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)." 
+**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
 
 {% endnote %}
 
@@ -35,7 +35,7 @@ allowTitleToDifferFromFilename: true
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
-9. Under "Search by username, full name or email address", type the collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
+1. Under "Search by username, full name or email address", type the collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 

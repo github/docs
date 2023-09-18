@@ -23,7 +23,7 @@ jobs:
         run: gh --version
 
       - name: Check out repo's default branch
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -32,27 +32,27 @@ jobs:
         id: check-early-access
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: node .github/actions-scripts/what-docs-early-access-branch.js
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: node src/early-access/scripts/what-docs-early-access-branch.js
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
           ref: ${{ steps.check-early-access.outputs.branch }}
 
       - name: Merge docs-early-access repo's folders
         if: ${{ github.repository == 'github/docs-internal' }}
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: Restore disk-cache file for external link checking
         uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
         with:
           path: external-link-checker-db.json
-          key: external-link-checker-${{ hashFiles('.github/actions/rendered-content-link-checker.js') }}
+          key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.js') }}
 
       - name: Run link checker
         env:
@@ -61,7 +61,7 @@ jobs:
           # Set this to true in repo scope to enable debug logs
           # ACTIONS_RUNNER_DEBUG = true
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken link report
           REPORT_REPOSITORY: github/docs-content
@@ -76,7 +76,7 @@ jobs:
           # treat it as a warning and not as a broken link.
           EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
         timeout-minutes: 30
-        run: node .github/actions-scripts/rendered-content-link-checker.js
+        run: node src/links/scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
         uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8

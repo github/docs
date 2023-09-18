@@ -20,22 +20,24 @@ shortTitle: Audit log events
 {% endnote %}
 
 {% ifversion fpt or ghec %}
+
 ## `account` category actions
 
 | Action | Description
 |------------------|-------------------
 | `billing_plan_change` | Triggered when an organization's [billing cycle](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle) changes.
-| `plan_change` | Triggered when an organization's [subscription](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) changes.
-| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process).
+| `plan_change` | Triggered when an organization's [plan](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans) changes.
+| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process).
 | `pending_subscription_change` | Triggered when a [{% data variables.product.prodname_marketplace %} free trial starts or expires](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `advisory_credit` category actions
 
 | Action | Description
 |------------------|-------------------
-| `accept` | Triggered when someone accepts credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)."
+| `accept` | Triggered when someone accepts credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)."
 | `create` | Triggered when the administrator of a security advisory adds someone to the credit section.
 | `decline` | Triggered when someone declines credit for a security advisory.
 | `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.
@@ -53,6 +55,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `billing` category actions
 
 | Action | Description
@@ -70,6 +73,7 @@ shortTitle: Audit log events
 | `set_fork_pr_workflows_policy` | Triggered when the policy for workflows on  private repository forks is changed. For more information, see "{% ifversion fpt or ghec%}[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."{% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `codespaces` category actions
 
 | Action | Description
@@ -98,6 +102,7 @@ shortTitle: Audit log events
 | `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.
 
 {% ifversion fpt or ghec or ghes %}
+
 ## `dependabot_security_updates` category actions
 
 | Action | Description
@@ -114,6 +119,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `dependency_graph` category actions
 
 | Action | Description
@@ -130,6 +136,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion team-discussions %}
+
 ## `discussion_post` category actions
 
 | Action | Description
@@ -146,6 +153,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
+
 ## `enterprise` category actions
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
@@ -153,6 +161,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `environment` category actions
 
 | Action | Description
@@ -164,6 +173,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion ghae %}
+
 ## `external_group` category actions
 
 {% data reusables.saml.external-group-audit-events %}
@@ -171,6 +181,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion ghae %}
+
 ## `external_identity` category actions
 
 {% data reusables.saml.external-identity-audit-events %}
@@ -178,6 +189,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `git` category actions
 
 {% note %}
@@ -228,6 +240,7 @@ shortTitle: Audit log events
 | `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
 
 {% ifversion ghec or ghae %}
+
 ## `ip_allow_list` category actions
 
 | Action | Description
@@ -305,8 +318,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 | `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion org-enable-code-scanning %}
-| `codeql_disabled` | Triggered when an organization owner or person with admin access to the organization disables {% data variables.product.prodname_code_scanning %} for repositories that use the default setup for {% data variables.product.prodname_codeql %}.
-| `codeql_enabled` | Triggered when an organization owner or person with admin access to the organization enables {% data variables.product.prodname_code_scanning %} for repositories that are eligible to use the default setup for {% data variables.product.prodname_codeql %}. {% endif %}{% ifversion fpt or ghes or ghec %}
+| `codeql_disabled` | Triggered when an organization owner or person with admin access to the organization disables {% data variables.product.prodname_code_scanning %} for repositories that use default setup for {% data variables.product.prodname_codeql %}.
+| `codeql_enabled` | Triggered when an organization owner or person with admin access to the organization enables {% data variables.product.prodname_code_scanning %} for repositories that are eligible to use default setup for {% data variables.product.prodname_codeql %}. {% endif %}{% ifversion fpt or ghes or ghec %}
 | `create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %} {% ifversion fpt or ghec %}
 | `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
 | `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}{% ifversion display-ip-org-audit-log %}
@@ -367,9 +380,10 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `update_member` | Triggered when an owner changes a person's role from owner to member or member to owner.
 | `update_member_repository_creation_permission` | Triggered when an owner changes the create repository permission for organization members.{% ifversion fpt or ghec %}
 | `update_saml_provider_settings` | Triggered when an organization's SAML provider settings are updated.
-| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
+| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the {% data variables.product.company_short %} Customer Agreement. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."{% endif %}
 
 {% ifversion ghec %}
+
 ## `org_credential_authorization` category actions
 
 | Action | Description
@@ -377,6 +391,15 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `grant` | Triggered when a member [authorizes credentials for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on).
 | `deauthorized` | Triggered when a member [deauthorizes credentials for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on).
 | `revoke` | Triggered when an owner [revokes authorized credentials](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).
+
+{% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
+
+## `org_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|------------------|-------------------
+| `disabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are disabled in an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+| `enabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are enabled in an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
 
 {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 
@@ -400,6 +423,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `destroy` | Triggered when a default label is deleted.
 
 {%- ifversion not ghes %}
+
 ## `packages` category actions
 
 | Action | Description |
@@ -436,6 +460,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 ## `profile_picture` category actions
+
 | Action | Description
 |------------------|-------------------
 | update | Triggered when you set or update your organization's profile picture.
@@ -515,7 +540,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `advanced_security_enabled` | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).".
 | `archived` | Triggered when a repository admin [archives a repository](/repositories/archiving-a-github-repository/archiving-repositories).
 {%- ifversion remove-code-scanning-configurations %}
-| `code_scanning_configuration_for_branch_deleted` | Triggered when a {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository is deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+| `code_scanning_configuration_for_branch_deleted` | Triggered when a {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository is deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
 {%- endif %}
 {%- ifversion ghes %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
@@ -552,7 +577,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `close` | Triggered when someone closes a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+| `close` | Triggered when someone closes a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 | `cve_request` | Triggered when someone requests a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
 | `github_broadcast` | Triggered when {% data variables.product.prodname_dotcom %} makes a security advisory public in the {% data variables.product.prodname_advisory_database %}.
 | `github_withdraw` | Triggered when {% data variables.product.prodname_dotcom %} withdraws a security advisory that was published in error.
@@ -565,8 +590,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
-| `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
+| `enable` | Triggered when an organization owner or person with admin access to the repository enables data use settings for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
+| `disable` | Triggered when an organization owner or person with admin access to the repository disables data use settings for a private repository.
 
 {% endif %}{% ifversion fpt or ghec %}
 
@@ -589,12 +614,22 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `repository_invitation.reject` | An invitation to join a repository was declined.
 
 {% ifversion ghec or ghes or ghae %}
+
 ## `repository_secret_scanning` category actions
 
 | Action | Description
 |------------------|-------------------
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} for a repository.
+
+{% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
+
+## `repository_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|------------------|-------------------
+| `disabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are disabled in a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+| `enabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are enabled in a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
 
 {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 
@@ -622,10 +657,11 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} for a repository.
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_secret_scanning %} push protection for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} push protection for a repository.
 
 {% endif %}
+
 ## `repository_vulnerability_alert` category actions
 
 | Action | Description
@@ -636,6 +672,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `dismiss` | Triggered when an organization owner or person with admin{% ifversion dependabot-alerts-permissions-write-maintain %}, write, or maintain{% endif %} access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
 | `resolve` | Triggered when someone with write {% ifversion dependabot-alerts-permissions-write-maintain %}or maintain{% endif %} access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 {% ifversion fpt or ghec %}
+
 ## `repository_vulnerability_alerts` category actions
 
 | Action | Description
@@ -645,15 +682,18 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endif %}{% ifversion custom-repository-roles %}
+
 ## `role` category actions
+
 | Action | Description
 |------------------|-------------------
-|`create` | Triggered when an organization owner creates a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`destroy` | Triggered when an organization owner deletes a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`update` | Triggered when an organization owner edits an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`create` | Triggered when an organization owner creates a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
+|`destroy` | Triggered when an organization owner deletes a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
+|`update` | Triggered when an organization owner edits an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
 
 {% endif %}
 {% ifversion ghec or ghes or ghae %}
+
 ## `secret_scanning` category actions
 
 | Action | Description
@@ -663,6 +703,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion secret-scanning-alert-audit-log %}
+
 ## `secret_scanning_alert` category actions
 
 | Action | Description
@@ -673,6 +714,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## `secret_scanning_new_repos` category actions
 
 | Action | Description
@@ -682,6 +724,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion secret-scanning-push-protection-bypasses %}
+
 ## `secret_scanning_push_protection` category actions
 
 | Action | Description
@@ -690,6 +733,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `sponsors` category actions
 
 | Action | Description
@@ -729,6 +773,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `remove_repository` | Triggered when a repository is no longer under a team's control.
 
 {% ifversion team-discussions %}
+
 ## `team_discussions` category actions
 
 | Action | Description

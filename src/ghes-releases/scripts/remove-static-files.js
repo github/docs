@@ -22,7 +22,7 @@ const restDecoratedDir = path.join(process.cwd(), 'src/rest/data')
 const ghesReleaseNotesDir = 'data/release-notes/enterprise-server'
 
 const supportedEnterpriseVersions = Object.values(allVersions).filter(
-  (v) => v.plan === 'enterprise-server'
+  (v) => v.plan === 'enterprise-server',
 )
 
 // GHES release notes

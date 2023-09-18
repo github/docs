@@ -102,7 +102,6 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-
 ## Inviting students to an assignment
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}

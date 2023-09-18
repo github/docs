@@ -83,7 +83,7 @@ router.get(
       // to the next middleware.
       await handleGetSearchResultsError(req, res, error, options)
     }
-  })
+  }),
 )
 
 // We have more than one place where we do `try{...} catch error( THIS )`

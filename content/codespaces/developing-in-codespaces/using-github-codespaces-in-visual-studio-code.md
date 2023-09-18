@@ -78,11 +78,11 @@ If you are using the {% data variables.product.prodname_vscode_shortname %} web 
 After you switch versions in a codespace, the web client will continue to use the Insiders version if you stop and restart the codespace. New codespaces that you create and open in the {% data variables.product.prodname_vscode_shortname %} web client will also use the Insiders version.
 
 1. In bottom left of the browser window that's displaying a codespace, click **{% octicon "gear" aria-label="Manage" %}**.
-2. In the menu, select "Switch to Insiders Version."
+1. In the menu, select "Switch to Insiders Version."
 
    ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} web client. A gear icon is highlighted with an orange outline. "Switch to Insiders Version" is shown in the menu.](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
 
-3. Click **Reload**.
+1. Click **Reload**.
 
 To switch back to the Stable version of {% data variables.product.prodname_vscode_shortname %}, repeat the process but choose **Switch to Stable Version**. After you switch back, the codespace will continue to use the Stable version if you stop and restart the codespace. New codespaces that you create and open in the {% data variables.product.prodname_vscode_shortname %} web client will also use the Stable version.
 

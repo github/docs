@@ -79,7 +79,7 @@ Great! Click on **Let me select individual events.**, and select the following:
 - Pull Request
 
 These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
-occurs. We'll configure our server to *just* handle when pull requests are merged
+occurs. We'll configure our server to _just_ handle when pull requests are merged
 right now:
 
 ``` ruby

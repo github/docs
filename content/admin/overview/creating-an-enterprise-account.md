@@ -18,13 +18,12 @@ shortTitle: Create enterprise account
 
 If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization and by invoice, you can create an enterprise account through your billing page. If you need Enterprise Managed Users, {% data variables.product.prodname_ghe_server %}, or invoicing support, please contact {% data variables.contact.contact_enterprise_sales %}.
 
-You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)". 
-
+You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)".
 
 When you create an enterprise account that owns your existing organization on {% data variables.product.product_name %}, the organization's resources remain accessible to members at the same URLs. After you add your organization to the enterprise account, the following changes will apply to the organization.
 
 - Your existing organization will automatically be owned by the enterprise account.
-- {% data variables.product.company_short %} bills the enterprise account for usage within all organizations owned by the enterprise. The current billing details for the organization, including the organization's billing email address, will become billing details for the new enterprise account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+- {% data variables.product.company_short %} bills the enterprise account for usage within all organizations owned by the enterprise. The current billing details for the organization, including the organization's billing email address, will become billing details for the new enterprise account. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
 - All current owners of your organization will become owners of the enterprise account, and all current billing managers of the organization will become billing managers of the new enterprise account. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 
 For more information about the changes that apply to an organization after you add the organization to an enterprise, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#about-addition-of-organizations-to-your-enterprise-account)."

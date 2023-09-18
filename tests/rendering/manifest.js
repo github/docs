@@ -35,7 +35,7 @@ describe('manifest', () => {
         const dimensions = await image.metadata()
         expect(dimensions.width).toBe(width)
         expect(dimensions.height).toBe(height)
-      })
+      }),
     )
   })
 })

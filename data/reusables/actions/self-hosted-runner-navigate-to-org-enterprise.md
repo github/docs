@@ -1,6 +1,6 @@
 {% ifversion fpt %}
 1. Navigate to the main page of the organization where your self-hosted runner is registered.
-2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+1. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. Navigate to where your runner is registered:

@@ -9,8 +9,6 @@ topics:
 shortTitle: Troubleshooting
 ---
 
-{% data reusables.repositories.rulesets-public-beta %}
-
 If you cannot perform an action in a repository and want to know why, you can view the active rulesets targeting the branch or tag you're working with. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#viewing-rulesets-for-a-repository)."
 
 Depending on which rules are active, you may need to edit your commit history locally before you can push your commits to the remote branch. For example, if a branch requires commits to be signed, you can update your signing settings, then use an interactive rebase on your local branch to rewrite your Git history with signed commits. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-signed-commits)" and "[AUTOTITLE](/get-started/using-git/using-git-rebase-on-the-command-line)."

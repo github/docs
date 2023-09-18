@@ -16,15 +16,7 @@ describe('translations', () => {
     // You gotta know your tests/fixtures/translations/ja-jp/data/ui.yml
     expect(h1).toBe('日本 GitHub Docs')
 
-    // The header banner mentions something about
-    // "For the most up-to-date content, see the English version."
-    const notification = $('[data-testid="header-notification"]')
-    expect(notification.length).toBe(1)
-    const toEnglishDoc = notification.find('a#to-english-doc')
-    expect(toEnglishDoc.text()).toBe('English documentation')
-
-    // Sidebar uses the translated shortTitle
-    const links = $('[data-testid=sidebar] a[href]')
+    const links = $('[data-testid=product] a[href]')
     const hrefs = links
       .filter((i, link) => $(link).attr('href').startsWith('/'))
       .map((i, link) => $(link))

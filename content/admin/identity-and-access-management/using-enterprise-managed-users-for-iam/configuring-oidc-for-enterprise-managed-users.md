@@ -1,6 +1,6 @@
 ---
 title: Configuring OIDC for Enterprise Managed Users
-shortTitle: OIDC for managed users
+shortTitle: Configure OIDC
 intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring OpenID Connect (OIDC) single sign-on (SSO) and enable support for your IdP''s Conditional Access Policy (CAP).'
 product: '{% data reusables.gated-features.emus %}'
 versions:
@@ -47,7 +47,7 @@ OIDC does not support IdP-initiated authentication.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "OpenID Connect single sign-on", select **Require OIDC single sign-on**.
-2. To continue setup and be redirected to Azure AD, click **Save**.
+1. To continue setup and be redirected to Azure AD, click **Save**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 1. Click **Enable OIDC Authentication**.

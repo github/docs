@@ -23,6 +23,8 @@ versions:
 children:
   - /about-workflows
   - /triggering-a-workflow
+  - /manually-running-a-workflow
+  - /disabling-and-enabling-a-workflow
   - /events-that-trigger-workflows
   - /workflow-syntax-for-github-actions
   - /workflow-commands-for-github-actions

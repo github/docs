@@ -36,6 +36,16 @@ topics:
 | `manage_access_and_security` | Triggered when you update [the repositories a codespace has access to](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces).
 | `trusted_repositories_access_update` | Triggered when you change your personal account's [access and security setting for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces).
 
+## `copilot` category actions
+
+| Action | Description
+|------------------|-------------------
+|`cfb_seat_assignment_reused`| Triggered when you are assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while you already have a seat with no pending cancellation date.
+|`cfb_seat_assignment_refreshed`| Triggered when you are assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while your current seat assignment is pending cancellation, causing the cancellation to be revoked.
+|`cfb_seat_assignment_created`| Triggered when you are assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while you have no other active seat assignment. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)."
+|`cfb_seat_assignment_unassigned`| Triggered when you are unassigned a seat through {% data variables.product.prodname_copilot_business_short %}. 
+|`copilot.cfb_seat_cancelled_by_staff`| Triggered when you are unassigned a seat through {% data variables.product.prodname_copilot_business_short %} manually by GitHub staff.
+
 ## `marketplace_agreement_signature` category actions
 
 | Action | Description
@@ -52,14 +62,36 @@ topics:
 | `redraft` | Triggered when your listing is sent back to draft state.
 | `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
 
+{% endif %}{% ifversion security-log-oauth-access-tokens %}
+
+## `oauth_access` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when you create a new OAuth access token.
+| `destroy` | Triggered when you delete an OAuth access token.
+| `regenerate` | Triggered when you regenerate an OAuth access token.
+| `update` | Triggered when you update an OAuth access token.
+
 {% endif %}
 
 ## `oauth_authorization` category actions
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps).
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/apps/using-github-apps/reviewing-your-authorized-integrations) and when [authorizations are revoked or expire](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+| `create` | Triggered when you grant access to an {% data variables.product.prodname_oauth_app %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `destroy` | Triggered when you revoke an {% data variables.product.prodname_oauth_app %}'s access to your account, and when authorizations are revoked or expired. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)," and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
+
+{% ifversion passkeys %}
+
+## `passkey` category actions
+
+| Action | Description
+|------------------|-------------------
+| `register` | Triggered when a new passkey is added to your account.
+| `remove` | Triggered when a passkey is removed from your account.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -142,6 +174,7 @@ topics:
 | `unarchived` | Triggered when a repository owner unarchives a repository.
 
 {% ifversion fpt or ghec %}
+
 ## `sponsors` category actions
 
 | Action | Description
@@ -166,6 +199,7 @@ topics:
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `successor_invitation` category actions
 
 | Action | Description
@@ -193,6 +227,7 @@ topics:
 {% endif %}
 
 {% ifversion not ghae %}
+
 ## `two_factor_authentication` category actions
 
 | Action | Description

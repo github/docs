@@ -72,7 +72,7 @@ export default async function getRemoteJSON(url, config) {
       const res = await got(url, config)
       if (!res.headers['content-type'].startsWith('application/json')) {
         throw new Error(
-          `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`
+          `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`,
         )
       }
       cache.set(cacheKey, JSON.parse(res.body))

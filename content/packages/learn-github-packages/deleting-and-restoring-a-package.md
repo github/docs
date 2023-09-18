@@ -86,6 +86,7 @@ To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped
 1. To confirm deletion, type the package name and click **I understand the consequences, delete this version**.
 
 {% ifversion fpt or ghec or ghes %}
+
 ### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped{% endif %} package with GraphQL
 
 {% data reusables.package_registry.about-graphql-support %}{% ifversion packages-rest-api %} For information on using the REST API instead, see the "[AUTOTITLE](/rest/packages)."{% endif %}
@@ -111,6 +112,7 @@ You cannot directly delete an entire package using GraphQL, but if you delete ev
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ### Deleting a version of a user-scoped package on {% data variables.product.prodname_dotcom %}
 
 To delete a specific version of a user-scoped package on {% data variables.product.prodname_dotcom %}, such as for a Docker image at `ghcr.io`, use these steps. To delete an entire package, see "[Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}](#deleting-an-entire-user-scoped-package-on-github)."
@@ -152,6 +154,7 @@ To delete an entire repository-scoped package, you must have admin permissions t
 1. To confirm, review the confirmation message, enter your package name, and click **I understand, delete this package.**
 
 {% ifversion fpt or ghec or ghes %}
+
 ### Deleting an entire user-scoped package on {% data variables.product.prodname_dotcom %}
 
 To review who can delete a package, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."

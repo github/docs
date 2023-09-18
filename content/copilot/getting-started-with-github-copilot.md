@@ -14,6 +14,7 @@ redirect_from:
   - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
 versions:
   feature: copilot
+defaultTool: vscode
 topics:
   - Copilot
 ---
@@ -50,7 +51,6 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
 
-
 ## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE
 
 To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
@@ -58,16 +58,16 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
 1. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
 1. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**.
-   
-   ![Screenshot of Marketplace search.](/assets/images/help/copilot/jetbrains-marketplace.png)
+
+   ![Screenshot of the "Preferences" window. A tab labeled "Marketplace" is highlighted with an orange outline. In a list of search results, the installed "GitHub Copilot" plugin is marked by a selected checkbox.](/assets/images/help/copilot/jetbrains-marketplace.png)
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**.
-    
-    ![Screenshot of JetBrains tools menu.](/assets/images/help/copilot/jetbrains-tools-menu.png)
+
+    ![Screenshot of the expanded "Tools" menu and "{% data variables.product.prodname_copilot %}" sub-menu. The "Login to {% data variables.product.prodname_dotcom %}" option is highlighted in blue.](/assets/images/help/copilot/jetbrains-tools-menu.png)
 
 1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
-    
-    ![Screenshot of device code copy and open.](/assets/images/help/copilot/device-code-copy-and-open.png)
+
+    ![Screenshot of the "Sign in to {% data variables.product.prodname_dotcom %}" dialog. A device code is displayed above a button labeled "Copy and Open".](/assets/images/help/copilot/device-code-copy-and-open.png)
 1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
 1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
@@ -123,6 +123,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 
 {% data reusables.copilot.create-java-file %}
 1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
+
     ```java copy
     // find all images without alternate text
     // and give them a red border
@@ -134,15 +135,14 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 You can enable or disable {% data variables.product.prodname_copilot %} for all languages, or for individual languages. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of your JetBrains IDE window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
-   
-   ![Screenshot of the status icon in IntelliJ IDEA.](/assets/images/help/copilot/status-icon-jetbrains.png)
+
+   ![Screenshot of the IntelliJ IDEA toolbar. The {% data variables.product.prodname_copilot %} logo is highlighted with an orange outline.](/assets/images/help/copilot/status-icon-jetbrains.png)
 1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
 
    - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
    - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Disable Completions for _LANGUAGE_**.
-   
-   ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language.](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
+   ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language.](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 ## Further reading
 
@@ -163,27 +163,22 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 
 {% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.4.4 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
+- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.6 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_copilot %} is not currently available for use with Visual Studio for Mac.
-
-{% endnote %}
+{% data reusables.copilot.vs-for-mac-note %}
 
 ## Installing the {% data variables.product.prodname_vs %} extension
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vs %} extension.
-1. In the Visual Studio toolbar, click **Extensions**, then click **Manage Extensions**.
-   
-   ![Screenshot of the Visual Studio toolbar.](/assets/images/help/copilot/visual-studio-toolbar.png)
+
+{% data reusables.copilot.vs-extensions %}
 1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
-   
-   ![Screenshot of GitHub Copilot extension for Visual Studio with the download button emphasized.](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
-1. Close the "Manage Extensions" window, then exit and relaunch {% data variables.product.prodname_vs %}.
+
+   ![Screenshot of a list of search results. Next to the {% data variables.product.prodname_copilot %} extension, the "Download" button is highlighted with an orange outline.](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
+{% data reusables.copilot.vs-exit-and-relaunch %}
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
   
-   ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
+   ![Screenshot of a list of installed extensions in {% data variables.product.prodname_vs %}. The "{% data variables.product.prodname_copilot %}" extension is highlighted with an orange outline.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}.
 1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
 1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
@@ -197,6 +192,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+
    ```csharp copy
    int CalculateDaysBetweenDates(
    ```
@@ -204,6 +200,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.accept-suggestion %}
 
 ## Seeing alternative suggestions
+
 {% data reusables.copilot.alternative-suggestions %}
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
@@ -211,6 +208,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ```csharp copy
    int CalculateDaysBetweenDates(
    ```
+
 1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>.</kbd> (or <kbd>Alt</kbd>+<kbd>,</kbd>).
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
@@ -221,6 +219,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
+
    ```csharp copy
    using System.Xml.Linq;
 
@@ -228,15 +227,14 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
    // find all images
    ```
-{% data reusables.copilot.accept-suggestion %}
 
+{% data reusables.copilot.accept-suggestion %}
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
 ## Further reading
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-
 
 {% endvisualstudio %}
 
@@ -264,10 +262,12 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. If you have not previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, you will be prompted to sign in to {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %}.
 
    - If you have previously authorized {% data variables.product.prodname_vscode %} for your account on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} will be automatically authorized.
+   - If you don't get the prompt to authorize, click the bell icon in the bottom panel of the {% data variables.product.prodname_vscode %} window.
+     
+     ![Screenshot of the {% data variables.product.prodname_vscode %} task bar with {% data variables.product.prodname_copilot %} icons. The bell icon is outlined in dark orange.](/assets/images/help/copilot/copilot-activate.png)
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**.
 1. To confirm the authentication, in {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialog box, click **Open**.
-
 
 ## Seeing your first suggestion
 
@@ -277,6 +277,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+
    ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
@@ -289,9 +290,11 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+
    ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
+
 {% data reusables.copilot.see-alternative-suggestions %}
 
    | OS | See next suggestion | See previous suggestion |
@@ -308,9 +311,11 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+
    ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
+
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
 
@@ -320,6 +325,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
+
    ```javascript copy
    // find all images without alternate text
    // and give them a red border
@@ -332,13 +338,16 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
+
    ```javascript copy
    // Express server on port 3000
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
 1. Type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler.
+
    ```javascript copy
    // Return the current time
    ```
+
 1. To accept each line, press <kbd>Tab</kbd>.
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
@@ -346,7 +355,6 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 ## Further reading
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-
 
 {% endvscode %}
 
@@ -372,14 +380,12 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
          git clone https://github.com/github/copilot.vim \
             ~/.vim/pack/github/start/copilot.vim
 
-
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal:
 
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
-
 
 ## Installing the Vim/Neovim extension on Windows
 
@@ -415,7 +421,7 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 
 For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovim, you can view the plugin documentation. To see the documentation, open Vim/Neovim and run the following command:
 
-```
+```shell
 :help copilot
 ```
 
@@ -423,6 +429,4 @@ For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovi
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
 
-
 {% endvimneovim %}
-

@@ -20,11 +20,18 @@ You can authenticate to the GraphQL API using a {% data variables.product.pat_ge
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes or permissions you will need. For example, select the "issues:read" permission to read all of the issues in the repos your token has access to.
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes {% ifversion pat-v2 %}or permissions {% endif %}you will need.
+
+{% ifversion pat-v2 %}
+For example, select the "issues:read" permission to read all of the issues in the repos your token has access to.
 
 All {% data variables.product.pat_v2 %}s include read access to public repositories. To access public repositories with a {% data variables.product.pat_v1 %}, select the "public_repo" scope.
 
-If your token does not have the required scopes or permissions to access a resource, the API will return an error message that states the scopes or permissions your token needs.
+{% else %}
+For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
+
+{% endif %}
+If your token does not have the required scopes {% ifversion pat-v2 %}or permissions {% endif %}to access a resource, the API will return an error message that states the scopes {% ifversion pat-v2 %}or permissions {% endif %}your token needs.
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
@@ -32,7 +39,7 @@ If you want to use the API on behalf of an organization or another user, {% data
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 
-To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and " [Authorizing OAuth Apps](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
+To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and " [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
 
 ## The GraphQL endpoint
 
@@ -89,8 +96,8 @@ For a real-world example, see "[Example query](#example-query)."
 To form a mutation, you must specify three things:
 
 1. _Mutation name_. The type of modification you want to perform.
-2. _Input object_. The data you want to send to the server, composed of _input fields_. Pass it as an argument to the mutation name.
-3. _Payload object_. The data you want to return from the server, composed of _return fields_. Pass it as the body of the mutation name.
+1. _Input object_. The data you want to send to the server, composed of _input fields_. Pass it as an argument to the mutation name.
+1. _Payload object_. The data you want to return from the server, composed of _return fields_. Pass it as the body of the mutation name.
 
 Mutations are structured like this:
 
@@ -146,7 +153,7 @@ There are three steps to using variables:
 
    The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
 
-2. Pass the variable to the operation as an argument:
+1. Pass the variable to the operation as an argument:
 
    ```graphql
    query($number_of_repos:Int!){
@@ -154,7 +161,7 @@ There are three steps to using variables:
 
    The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
 
-3. Use the variable within the operation:
+1. Use the variable within the operation:
 
    ```graphql
    repositories(last: $number_of_repos) {
@@ -247,7 +254,7 @@ You may notice that running this query on the Octocat's {% ifversion not ghae %}
 Mutations often require information that you can only find out by performing a query first. This example shows two operations:
 
 1. A query to get an issue ID.
-2. A mutation to add an emoji reaction to the issue.
+1. A mutation to add an emoji reaction to the issue.
 
 ```graphql
 query FindIssueID {

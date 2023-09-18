@@ -8,7 +8,7 @@ shortTitle: Use GraphQL for Discussions
 
 The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
 
-This API is available for authenticated users, OAuth Apps, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
+This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
 
 ## Fields
 
@@ -1005,6 +1005,7 @@ Return type fields:
 - `discussion: Discussion` The discussion that was modified.
 
 ### deleteDiscussion
+
 Input fields:
 
 - `id: ID!` The node ID of the discussion to delete.

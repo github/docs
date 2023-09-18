@@ -11,15 +11,17 @@ topics:
   - Enterprise
 shortTitle: Sign up for Advanced Security
 ---
-## Purchasing {% data variables.product.prodname_GH_advanced_security %} 
+## Purchasing {% data variables.product.prodname_GH_advanced_security %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. To the right of "GitHub Advanced Security", click **Buy Advanced Security**. 
+1. To the right of "GitHub Advanced Security", click **Buy Advanced Security**.
 
    ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} section of the enterprise licensing screen. The "Buy Advanced Security" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-buy-advanced-security-button.png)
 1. {% data reusables.advanced-security.purchase-ghas %}
 
 ## Further reading
+
 - [Introduction to adopting {% data variables.product.prodname_GH_advanced_security %} at scale](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)
 - [Securing your organization](/code-security/getting-started/securing-your-organization)

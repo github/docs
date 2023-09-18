@@ -27,9 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # need to use a token from a user with access to github/github for this step
-      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
-      REPORT_AUTHOR: docubot
+      REPORT_AUTHOR: docs-bot
       REPORT_LABEL: github github broken link report
       REPORT_REPOSITORY: github/docs-content
     steps:
@@ -39,7 +39,7 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -48,7 +48,7 @@ jobs:
 
       - uses: ./.github/actions/get-docs-early-access
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Build server
         run: npm run build

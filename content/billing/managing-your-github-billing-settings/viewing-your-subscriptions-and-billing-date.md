@@ -33,6 +33,7 @@ shortTitle: Subscriptions & billing date
 {% data reusables.dotcom_billing.next_billing_date %}
 
 {% ifversion ghec %}
+
 ## Finding your enterprise account's next billing date
 
 {% data reusables.enterprise-accounts.billing-perms %}
@@ -51,4 +52,4 @@ shortTitle: Subscriptions & billing date
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)"
+- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans)"

@@ -3,7 +3,7 @@ import { existsSync } from 'fs'
 
 import { ROOT } from '../lib/constants.js'
 import Page from '../lib/page.js'
-import { languagePrefixPathRegex } from '../lib/languages.js'
+import { languagePrefixPathRegex } from '#src/languages/lib/languages.js'
 
 const englishPrefixRegex = /^\/en(\/|$)/
 const CONTENT_ROOT = path.join(ROOT, 'content')
@@ -14,7 +14,7 @@ export default async function findPage(
   next,
   // Express won't execute these but it makes it easier to unit test
   // the middleware.
-  { isDev = process.env.NODE_ENV === 'development', contentRoot = CONTENT_ROOT } = {}
+  { isDev = process.env.NODE_ENV === 'development', contentRoot = CONTENT_ROOT } = {},
 ) {
   // Filter out things like `/will/redirect` or `/_next/data/...`
   if (!languagePrefixPathRegex.test(req.pagePath)) {
@@ -33,7 +33,7 @@ export default async function findPage(
         .status(404)
         .send(
           `After re-reading the page, '${req.context.currentVersion}' is no longer an applicable version. ` +
-            'A restart is required.'
+            'A restart is required.',
         )
     }
   }

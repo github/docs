@@ -19,10 +19,11 @@ import { mkdirp } from 'mkdirp'
 
 import { deprecated, supported } from '../../../lib/enterprise-server-releases.js'
 
+const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json'))[
   'automation-pipelines'
 ]
-await updateAutomatedConfigFiles(pipelines, supported, deprecated)
+await updateAutomatedConfigFiles(pipelines, deprecated)
 
 // The allVersions object uses the 'api-versions' data stored in the
 // src/rest/lib/config.json file. We want to update 'api-versions'
@@ -38,7 +39,7 @@ const numberedReleaseBaseNames = Array.from(
     ...Object.values(allVersions)
       .filter((version) => version.hasNumberedReleases)
       .map((version) => version.openApiBaseName),
-  ])
+  ]),
 )
 
 // A list of currently supported versions (calendar date inclusive)
@@ -52,7 +53,7 @@ const versionNamesCalDate = Object.values(allVersions)
   .map((version) =>
     version.apiVersions.length
       ? version.apiVersions.map((apiVersion) => `${version.openApiVersionName}-${apiVersion}`)
-      : version.openApiVersionName
+      : version.openApiVersionName,
   )
   .flat()
 // A list of currently supported versions in the format using the short name
@@ -73,7 +74,7 @@ for (const pipeline of pipelines) {
   // filter the directory list to only include directories that start with
   // basenames with numbered releases (e.g., ghes-).
   const existingDataDir = directoryListing.filter((directory) =>
-    numberedReleaseBaseNames.some((basename) => directory.startsWith(basename))
+    numberedReleaseBaseNames.some((basename) => directory.startsWith(basename)),
   )
   const expectedDirectory = isCalendarDateVersioned ? versionNamesCalDate : versionNames
 
@@ -88,9 +89,22 @@ for (const pipeline of pipelines) {
   const addFiles = difference(expectedDirectory, existingDataDir)
   if (addFiles.length > numberedReleaseBaseNames.length) {
     throw new Error(
-      'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.js is correct.'
+      'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.js is correct.',
     )
   }
+
+  // Temp workaround to only add files during a release. This will be removed
+  // when we migrate these files to the src/graphql/data directory.
+  if (addFiles.length && !removeFiles.length) {
+    await cp(
+      `data/graphql/ghes-${previousReleaseNumber}`,
+      `data/graphql/ghes-${currentReleaseNumber}`,
+      {
+        recursive: true,
+      },
+    )
+  }
+
   for (const base of numberedReleaseBaseNames) {
     const dirToAdd = addFiles.find((item) => item.startsWith(base))
     if (!dirToAdd) continue
@@ -100,7 +114,7 @@ for (const pipeline of pipelines) {
     const previousDirName = existingDataDir.filter((directory) => directory.includes(lastRelease))
 
     console.log(
-      `Copying src/${pipeline}/data/${previousDirName} to src/${pipeline}/data/${dirToAdd}`
+      `Copying src/${pipeline}/data/${previousDirName} to src/${pipeline}/data/${dirToAdd}`,
     )
     await cp(`src/${pipeline}/data/${previousDirName}`, `src/${pipeline}/data/${dirToAdd}`, {
       recursive: true,
@@ -125,14 +139,13 @@ for (const directory of addRelNoteDirs) {
   await mkdirp(`data/release-notes/enterprise-server/${directory}`)
   await cp(
     `data/release-notes/PLACEHOLDER-TEMPLATE.yml`,
-    `data/release-notes/enterprise-server/${directory}/PLACEHOLDER.yml`
+    `data/release-notes/enterprise-server/${directory}/PLACEHOLDER.yml`,
   )
 }
 
 // If the config file for a pipeline includes `api-versions` update that list
 // based on the supported and deprecated releases.
-async function updateAutomatedConfigFiles(pipelines, supported, deprecated) {
-  const [currentReleaseNumber, previousReleaseNumber] = supported
+async function updateAutomatedConfigFiles(pipelines, deprecated) {
   for (const pipeline of pipelines) {
     const configFilepath = `src/${pipeline}/lib/config.json`
     const configData = JSON.parse(await readFile(configFilepath))
