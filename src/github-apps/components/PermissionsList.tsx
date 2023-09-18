@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { slug as githubSlug } from 'github-slugger'
 
 import { HeadingLink } from 'components/article/HeadingLink'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'components/Link'
 import { MainContextT } from 'components/context/MainContext'
 import {
@@ -108,7 +108,7 @@ export function PermissionsList({
               ) : null
 
               const additionalPermissions = operation['additional-permissions'].map(
-                (permission) => items[permission].displayTitle
+                (permission) => items[permission].displayTitle,
               )
               const permissionsClass = operation['additional-permissions'].length
                 ? ''

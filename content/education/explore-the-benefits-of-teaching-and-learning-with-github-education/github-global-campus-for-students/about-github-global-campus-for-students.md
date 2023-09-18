@@ -25,6 +25,7 @@ Once you are a verified {% data variables.product.prodname_global_campus %} stud
 
 {% data variables.product.prodname_global_campus %} is a portal from which you can access your {% data variables.product.prodname_education %} benefits and resources, all in one place. On the {% data variables.product.prodname_global_campus %} portal, students can:
 - Connect with a local Campus Expert. For more information on campus experts, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-experts)."
+- Gain in-depth understanding of a feature, tool, or topic with curated experiences designed to support your learning journey.
 - Explore and claim offers for free industry tools from the [Student Developer Pack](https://education.github.com/pack).
 - See upcoming in-person and virtual events for students, curated by {% data variables.product.prodname_education %} and student leaders.
 - View assignments from [GitHub Classroom](https://classroom.github.com/) with upcoming due dates.

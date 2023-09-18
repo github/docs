@@ -8,6 +8,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
   - a single string
   - a single variable containing a string
   - an array of strings, variables containing strings, or a combination of both
+  - a `key: value` pair using the `group` or `label` keys
 - If you specify an array of strings or variables, your workflow will execute on any runner that matches all of the specified `runs-on` values. For example, here the job will only run on a self-hosted runner that has the labels `linux`, `x64`, and `gpu`:
 
   ```yaml
@@ -32,7 +33,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
   jobs:
     test:
-      runs-on: [self-hosted, "${{ github.event.inputs.chosen-os }}"]
+      runs-on: [self-hosted, "${{ inputs.chosen-os }}"]
       steps:
       - run: echo Hello world!
   ```

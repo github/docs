@@ -38,7 +38,7 @@ shortTitle: User into an organization
 
 If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
 
-1. To retain your current personal account name for your personal use, [change the name of your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) to something new and wonderful.
+1. To retain your current personal account name for your personal use, [change the name of your personal account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username) to something new and wonderful.
 1. [Create a new organization](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch) with the original name of your personal account.
 1. [Transfer your repositories](/repositories/creating-and-managing-repositories/transferring-a-repository) to your new organization account.{% endif %}
 
@@ -47,7 +47,9 @@ If you want your organization to have the same name that you are currently using
 You can also convert your personal account directly into an organization. Converting your account:
 - Preserves the repositories as they are without the need to transfer them to another account manually
 - Automatically invites collaborators to teams with permissions equivalent to what they had before
- {% ifversion fpt or ghec %}- For personal accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
+{%- ifversion fpt or ghec %}
+- For personal accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time
+{%- endif %}
 
 When you convert a personal account into an organization, we'll add collaborators on repositories that belong to the account to the new organization as outside collaborators. You can then invite outside collaborators to become members of your new organization if you wish. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
 

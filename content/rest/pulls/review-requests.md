@@ -1,7 +1,7 @@
 ---
 title: Review requests
 intro: Use the REST API to interact with review requests.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

@@ -3,12 +3,13 @@
 
 # Company
 
+# Use this variable when referring to the company in the context of its business. For example, in licensing agreements
 company_short: 'GitHub'
 
 # GitHub's flagship products
 product_name: >-
   {% ifversion ghec %}GitHub Enterprise Cloud{% elsif ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% else %}GitHub{% endif %}
-## Use this variable when the output should always be GitHub, regardless of the product the user is using
+## Use this variable when referring to the product, when the output should always be GitHub. For example, "the GitHub REST API"
 prodname_dotcom: 'GitHub'
 
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
@@ -59,6 +60,9 @@ prodname_student_leader_program_singular: 'GitHub Campus Expert'
 prodname_octernships: 'GitHub Octernships'
 prodname_octernship_singular: 'GitHub Octernship'
 
+# GitHub Expert Services
+prodname_expert_services: 'GitHub Expert Services'
+
 # GitHub CLI
 prodname_cli: 'GitHub CLI'
 
@@ -82,7 +86,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghae < 3.5 %}2.7.6{% elsif ghes = 3.5 or ghae = 3.5 %}2.11.6{% elsif ghes < 3.10 or ghae < 3.10 %}2.12.7{% endif %}
+  {% ifversion ghae < 3.5 %}2.7.6{% elsif ghae = 3.5 %}2.11.6{% elsif ghes < 3.10 or ghae < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% endif %}
 
 # Projects v2
 prodname_projects_v2: '{% ifversion ghes = 3.8 or ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
@@ -234,6 +238,8 @@ prodname_copilot_for_business: 'GitHub Copilot for Business'
 prodname_copilot_for_individuals: 'GitHub Copilot for Individuals'
 prodname_copilot_business_short: 'Copilot for Business'
 prodname_copilot_individuals_short: 'Copilot for Individuals'
+prodname_copilot_chat: 'GitHub Copilot Chat'
+prodname_copilot_chat_short: 'Copilot Chat'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'

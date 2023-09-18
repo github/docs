@@ -38,8 +38,7 @@ You can secure the code you depend on by creating a vulnerability management pro
 1. Create an inventory of your dependencies.
 
 1. Know when there is a security vulnerability in a dependency.
-{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-1. Enforce dependency reviews on your pull requests.{% endif %}
+1. Enforce dependency reviews on your pull requests.
 
 1. Assess the impact of that vulnerability on your code and decide what action to take.
 
@@ -50,11 +49,11 @@ As a first step, you want to make a complete inventory of your dependencies. The
 ### Automatic detection of vulnerabilities in dependencies
 
 {% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes %} and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"{% endif %}.
-{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.5 %}
 
 ### Automatic detection of vulnerabilities in pull requests
 
-The {% data variables.dependency-review.action_name %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.dependency-review.action_name %} can block the pull request from merging. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."{% endif %} 
+The {% data variables.dependency-review.action_name %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.dependency-review.action_name %} can block the pull request from merging. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."{% endif %}
 
 ### Assessment of exposure to risk from a vulnerable dependency
 
@@ -117,7 +116,7 @@ You can improve the quality and security of your code by ensuring that all pull 
 
 ### Scan your code for vulnerable patterns
 
-Insecure code patterns are often difficult for reviewers to spot unaided. In addition to scanning your code for secrets, you can check it for patterns that are associated with security vulnerabilities. For example, a function that isn't memory-safe, or failing to escaping user input that could lead to an injection vulnerability. {% data variables.product.prodname_dotcom %} offers several different ways to approach both how and when you scan your code. To get started, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+Insecure code patterns are often difficult for reviewers to spot unaided. In addition to scanning your code for secrets, you can check it for patterns that are associated with security vulnerabilities. For example, a function that isn't memory-safe, or failing to escaping user input that could lead to an injection vulnerability. {% data variables.product.prodname_dotcom %} offers several different ways to approach both how and when you scan your code. To get started, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
 
 ## Next steps
 

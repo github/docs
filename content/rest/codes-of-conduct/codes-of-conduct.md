@@ -1,7 +1,7 @@
 ---
 title: Codes of conduct
 intro: Use the REST API to get information about codes of conduct.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

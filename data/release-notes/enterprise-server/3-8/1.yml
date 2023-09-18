@@ -38,6 +38,8 @@ sections:
     - On an instance with a GitHub Advanced Security license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -59,3 +61,5 @@ sections:
       ```
     - |
       On an instance with a GitHub Advanced Security license where secret scanning is enabled, excessive logging in `/var/log` may cause user-facing errors and degraded system performance if logs consume all free space on the volume. To prevent this issue from impacting users, monitor free space on your instance's root volume. For more information, see "[Configuring secret scanning for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)" and "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)." If you suspect that this issue is affecting your instance and you need help, [contact GitHub Support](https://support.github.com/contact). [Updated: 2023-05-03]
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

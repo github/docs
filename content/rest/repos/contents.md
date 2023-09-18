@@ -5,7 +5,7 @@ shortTitle: Contents
 intro: >-
   Use the REST API to create, modify, and delete Base64 encoded content in a
   repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

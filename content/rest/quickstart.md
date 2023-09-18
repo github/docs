@@ -82,9 +82,6 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
-
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-
    on:
      workflow_dispatch:
    jobs:
@@ -93,17 +90,15 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
+           uses: actions/create-github-app-token@v1
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
            run: |
              gh api repos/octocat/Spoon-Knife/issues
-
    ```
 
 {% endcli %}
@@ -130,7 +125,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
    You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   If these options are not possible, consider using another CLI service to store your token securely.
 
    {% endwarning %}
 
@@ -229,9 +224,6 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
-
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-
    on:
      workflow_dispatch:
    jobs:
@@ -252,7 +244,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
    
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
+           uses: actions/create-github-app-token@v1
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -297,7 +289,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    You can also use {% data variables.product.prodname_cli %} instead of `curl`. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   If these options are not possible, consider using another CLI service to store your token securely.
 
    {% endwarning %}
 
@@ -358,9 +350,6 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
-
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-
    on:
      workflow_dispatch:
    jobs:
@@ -369,7 +358,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
+           uses: actions/create-github-app-token@v1
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}

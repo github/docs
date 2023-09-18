@@ -5,7 +5,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Set a theme
 ---
 {% mac %}

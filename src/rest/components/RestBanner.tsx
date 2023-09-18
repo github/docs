@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 const restRepoDisplayPages = [
   'branches',
@@ -64,7 +64,7 @@ export const RestBanner = () => {
         bannerText = t('rest.banner.ghes_api_versioned')
           .replace(
             '{{ firstGhesReleaseWithApiVersions.versionTitle }}',
-            firstGhesReleaseWithApiVersions.versionTitle
+            firstGhesReleaseWithApiVersions.versionTitle,
           )
           .replace(/{{\s*currentVersion\s*}}/, currentVersion)
       }
@@ -83,7 +83,7 @@ export const RestBanner = () => {
             dangerouslySetInnerHTML={{
               __html: t('rest.banner.api_version_info').replace(
                 /{{\s*versionWithApiVersion\s*}}/,
-                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
+                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
               ),
             }}
           />

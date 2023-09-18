@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Link } from 'components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import type { QueryT } from './types'
 
 type Props = {
@@ -32,7 +32,7 @@ export function Query({ item }: Props) {
               dangerouslySetInnerHTML={{
                 __html: t('graphql.reference.arguments').replace(
                   '{{ GraphQLItemTitle }}',
-                  item.name
+                  item.name,
                 ),
               }}
             />

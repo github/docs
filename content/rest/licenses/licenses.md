@@ -3,7 +3,7 @@ title: Licenses
 intro: >-
   Use the REST API to retrieve popular open source licenses and information
   about a particular project's license file.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

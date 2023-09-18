@@ -28,7 +28,7 @@ Starring makes it easy to find a repository or topic again later. You can see al
 You can star repositories and topics to discover similar projects on {% data variables.product.product_name %}. When you star repositories or topics, {% data variables.product.product_name %} may recommend related content on your personal dashboard. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 {% endif %}
 
-Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
+Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore) shows popular repositories based on the number of stars they have.
 
 ## Starring a repository
 
@@ -44,7 +44,7 @@ Starring a repository is a simple two-step process.
 
 ## Viewing who has starred a repository
 
-You can view everyone who has starred a public repository or a private repository you have access to. 
+You can view everyone who has starred a public repository or a private repository you have access to.
 
 To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
 

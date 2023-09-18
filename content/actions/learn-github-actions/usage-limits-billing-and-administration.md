@@ -62,7 +62,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
   | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
   |---|---|---|
-  | All | 500 | Not applicable |
+  | All | 1000 | Not applicable |
 
   {% note %}
 

@@ -19,7 +19,7 @@ permissions:
 jobs:
   first-responder-triage-pr:
     name: Triage PR to FR project board
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]' && github.actor != 'docs-bot'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]' && github.event.pull_request.head.ref != 'repo-sync'
     runs-on: ubuntu-latest
 
     steps:
@@ -50,7 +50,7 @@ jobs:
             return 'false'
       - name: Label external contributor pull requests with docs-content-fr
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
-        if: steps.set-result.outputs.result == 'false'
+        if: ${{ steps.set-result.outputs.result == 'false' || contains(github.event.pull_request.head.ref, 'codeql-cli-update') }}
         with:
           repo-token: '${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}'
           add-labels: 'docs-content-fr'

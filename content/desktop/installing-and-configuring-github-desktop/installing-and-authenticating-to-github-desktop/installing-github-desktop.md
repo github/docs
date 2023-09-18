@@ -6,11 +6,11 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About {% data variables.product.prodname_desktop %} installation
 
-You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}. For more information about creating an account, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
+You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}.{% ifversion fpt or ghec %} For more information about creating an account, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes or ghae %} If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
 
 {% windows %}
 

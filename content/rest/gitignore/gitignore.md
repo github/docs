@@ -3,7 +3,7 @@ title: Gitignore
 intro: >-
   Use the REST API to get `.gitignore` templates that can be used to ignore
   files and directories.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

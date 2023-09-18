@@ -121,7 +121,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
 
           versionBlock.newContent = versionBlock.content.replace(
             replaceRegex,
-            `$1 ${versionBlock.condKeyword}`
+            `$1 ${versionBlock.condKeyword}`,
           )
         }
 
@@ -141,7 +141,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // Update the conditional.
         versionBlock.newContent = versionBlock.content.replace(
           versionBlock.condWithLiquid,
-          newCondWithLiquid
+          newCondWithLiquid,
         )
       }
 
@@ -163,7 +163,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         if (!canBeRemoved) {
           versionBlock.newContent = versionBlock.content.replace(
             versionBlock.condWithLiquid,
-            newCondWithLiquid
+            newCondWithLiquid,
           )
         }
       }
@@ -201,7 +201,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         if (versionBlock.hasElsif) {
           versionBlock.newContent = versionBlock.newContent.replace(
             /({%-?) elsif/,
-            `$1 ${versionBlock.condKeyword}`
+            `$1 ${versionBlock.condKeyword}`,
           )
         }
 

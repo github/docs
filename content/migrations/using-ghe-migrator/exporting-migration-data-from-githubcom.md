@@ -56,10 +56,10 @@ The Migrations API is currently in a preview period, which means that the endpoi
       https://api.github.com/orgs/ORG_NAME/migrations
       ```
 
-    -  If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
+    - If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
     - You can exclude file attachments by passing `exclude_attachments: true` to the endpoint. {% data reusables.enterprise_migrations.exclude-file-attachments %} The final archive size must be less than 20 GB.
 
-  This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
+   This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
 
 1. Send a `GET` request to [the migration status endpoint](/free-pro-team@latest/rest/migrations#get-an-organization-migration-status) to fetch the status of a migration. You'll need:
     - Your access token for authentication.
@@ -71,11 +71,11 @@ The Migrations API is currently in a preview period, which means that the endpoi
       https://api.github.com/orgs/ORG_NAME/migrations/ID
       ```
 
-  A migration can be in one of the following states:
-    - `pending`, which means the migration hasn't started yet.
-    - `exporting`, which means the migration is in progress.
-    - `exported`, which means the migration finished successfully.
-    - `failed`, which means the migration failed.
+   A migration can be in one of the following states:
+   - `pending`, which means the migration hasn't started yet.
+   - `exporting`, which means the migration is in progress.
+   - `exported`, which means the migration finished successfully.
+   - `failed`, which means the migration failed.
 
 1. After your migration has exported, download the migration archive by sending a `GET` request to [the migration download endpoint](/free-pro-team@latest/rest/migrations#download-an-organization-migration-archive). You'll need:
     - Your access token for authentication.

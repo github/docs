@@ -15,7 +15,7 @@ redirect_from:
 
 ## About configuring {% data variables.product.prodname_dependabot %} to only access private registries
 
-{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)." {% data reusables.dependabot.advanced-private-registry-config-link %}
 
 You can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
 
@@ -51,7 +51,7 @@ Define the private registry configuration in a `dependabot.yml` file without `re
 
 {% note %}
 
-**Note:** remove `replaces-base: true` from the configuration file.
+**Note:** Remove `replaces-base: true` from the configuration file.
 
 {% endnote %}
 
@@ -79,11 +79,11 @@ Set `replaces-base` as `true` in the `dependabot.yml` file. For more information
 
 To configure the Gradle ecosystem to only access private registries, you can use these configuration methods.
 
-Define the private registry configuration in a dependabot.yml file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
+Define the private registry configuration in a `dependabot.yml` file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
 
 {% note %}
 
-Note: remove replaces-base: true from the configuration file.
+**Note**: Remove replaces-base: true from the configuration file.
 
 {% endnote %}
 
@@ -136,7 +136,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 
 {% note %}
 
-**Note:** remove `replaces-base: true` from the configuration file.
+**Note:** Remove `replaces-base: true` from the configuration file.
 
 {% endnote %}
 
@@ -220,7 +220,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 {% endnote %}
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
-  
+
 {% raw %}
 
 ```yaml

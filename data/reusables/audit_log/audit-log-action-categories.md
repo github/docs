@@ -2,7 +2,7 @@
 |------------------|-------------------
 {%- ifversion fpt or ghec %}
 | `account` | Contains activities related to an organization account.
-| `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+| `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 {%- endif %}
 | `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts.
 {%- ifversion audit-log-streaming %}
@@ -17,6 +17,9 @@
 {%- ifversion code-security-audit-log-events %}
 | `business_advanced_security` | Contains activities related to {% data variables.product.prodname_GH_advanced_security %} in an enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 | `business_secret_scanning` | Contains activities related to {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+{%- endif %}
+{%- ifversion secret-scanning-validity-check-audit-log %}
+| `business_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an enterprise.
@@ -51,7 +54,7 @@
 {%- endif %}
 {%- ifversion ghec %}
 | `enterprise_domain` | Contains activities related to verified enterprise domains.
-| `enterprise_installation` | Contains activities related to {% data variables.product.prodname_github_app %}s associated with an {% data variables.product.prodname_github_connect %} enterprise connection.
+| `enterprise_installation` | Contains activities related to {% data variables.product.prodname_github_apps %} associated with an {% data variables.product.prodname_github_connect %} enterprise connection.
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `environment` | Contains activities related to {% data variables.product.prodname_actions %} environments.
@@ -86,13 +89,16 @@
 | `migration` | Contains activities related to transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance.
 {%- endif %}
 | `oauth_access` | Contains activities related to OAuth access tokens.
-| `oauth_application` | Contains activities related to {% data variables.product.prodname_oauth_app %}s.
+| `oauth_application` | Contains activities related to {% data variables.product.prodname_oauth_apps %}.
 {%- ifversion fpt or ghec %}
-| `oauth_authorization` | Contains activities related to authorizing {% data variables.product.prodname_oauth_app %}s.
+| `oauth_authorization` | Contains activities related to authorizing {% data variables.product.prodname_oauth_apps %}.
 {%- endif %}
 | `org`   | Contains activities related to organization membership.
 {%- ifversion ghec or ghes or ghae %}
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
+{%- endif %}
+{%- ifversion secret-scanning-validity-check-audit-log %}
+| `org_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
@@ -128,7 +134,7 @@
 | `pull_request_review_comment` | Contains activities related to pull request review comments.
 | `repo` | Contains activities related to the repositories owned by an organization.
 {%- ifversion fpt or ghec %}
-| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 | `repository_content_analysis`   | Contains activities related to enabling or disabling data use for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
 | `repository_dependency_graph`   | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 {%- endif %}
@@ -138,6 +144,9 @@
 {%- ifversion ghec or ghes or ghae %}
 | `repository_secret_scanning`  | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 {%- endif %}
+{%- ifversion secret-scanning-validity-check-audit-log %}
+| `repository_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+{%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 | `repository_secret_scanning_custom_pattern` | Contains activities related to {% data variables.product.prodname_secret_scanning %} custom patterns in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 {%- endif %}
@@ -145,7 +154,7 @@
 | `repository_secret_scanning_custom_pattern_push_protection` | Contains activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_push_protection` | Contains activities related to {% data variables.product.prodname_secret_scanning %} custom patterns in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection` | Contains activities related to the push protection feature of {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.
@@ -159,7 +168,7 @@
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
 {%- ifversion custom-repository-roles %}
-| `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+| `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
 | `secret_scanning`   | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."

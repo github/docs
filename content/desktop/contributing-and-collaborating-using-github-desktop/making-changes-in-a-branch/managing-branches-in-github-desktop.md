@@ -9,7 +9,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches
 versions:
-  fpt: '*'
+  feature: desktop
 
 ---
 ## About managing branches
@@ -25,6 +25,12 @@ Once you're satisfied with your work, you can create a pull request to merge you
 You can always create a branch in {% data variables.product.prodname_desktop %} if you have read access to a repository, but you can only push the branch to {% data variables.product.prodname_dotcom %} if you have write access to the repository.
 
 {% data reusables.desktop.protected-branches %}
+
+{% ifversion repo-rules %}
+
+Repository administrators can also enable rulesets. Rulesets can be used to require specific branch names when creating a new branch, or to allow only users with bypass permissions to publish a new branch to the remote repository. {% data variables.product.prodname_desktop %} will show a warning and prevent the branch from being created if the branch does not follow the rulesets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endif %}
 
 ## Creating a branch
 

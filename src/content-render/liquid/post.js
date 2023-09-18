@@ -5,18 +5,8 @@ const startNextLine = '[^\\S\r\n]*?[-\\*] <a'
 const blankLineInList = new RegExp(`(${endLine})${blankLine}(${startNextLine})`, 'mg')
 
 export function processLiquidPost(template) {
-  template = allowHtmlInShell(template)
   template = cleanUpListEmptyLines(template)
   template = cleanUpExtraEmptyLines(template)
-  return template
-}
-
-function allowHtmlInShell(template) {
-  // this workaround loses syntax highlighting but correctly handles tags like <em> and entities like &lt;
-  template = template.replace(
-    /``` ?shell\r?\n\s*?(\S[\s\S]*?)\r?\n.*?```/gm,
-    '<pre><code class="hljs language-shell">$1</code></pre>'
-  )
   return template
 }
 

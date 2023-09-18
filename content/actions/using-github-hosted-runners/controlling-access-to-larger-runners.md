@@ -7,7 +7,7 @@ versions:
   feature: actions-hosted-runners
 type: tutorial
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About runner groups
@@ -79,6 +79,16 @@ For runner groups in an organization, you can change what repositories in the or
 - [Changing which workflows can access an organization runner group](#changing-which-workflows-can-access-an-organization-runner-group)
 - [Changing which workflows can access an enterprise runner group](#changing-which-workflows-can-access-an-enterprise-runner-group)
 
+{% ifversion actions-private-networking-azure-vnet %}
+
+## Configuring private network access for larger runners
+
+{% data reusables.actions.azure-vnet-injected-runners-intro %}
+
+If you have configured your enterprise to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network#using-an-azure-virtual-network-vnet)."
+
+{% endif %}
+
 ### Changing which workflows can access an organization runner group
 
 {% data reusables.actions.runner-groups-org-navigation %}
@@ -123,13 +133,18 @@ You can rename runner groups at the enterprise and organization levels.
 ### Moving an organization runner to a group
 {% endif %}
 
-{% data reusables.actions.runner-groups-org-navigation %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
 {% ifversion ghec %}
 ### Moving an enterprise runner to a group
 
-{% data reusables.actions.runner-groups-enterprise-navigation %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.moving-a-runner-to-a-group %}
 {% endif %}
 

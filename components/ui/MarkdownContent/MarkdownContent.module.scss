@@ -4,9 +4,11 @@
 @import "./stylesheets/table.scss";
 
 .markdownBody {
-  :not(h1, h2, h3, h4, h5, h6) > a {
-    text-decoration: underline;
-    text-underline-offset: 25%;
+  :not(h1, h2, h3, h4, h5, h6, [role="tablist"]) {
+    > a {
+      text-decoration: underline;
+      text-underline-offset: 25%;
+    }
   }
 
   summary {
@@ -26,17 +28,6 @@
         margin: 0;
         padding: 0;
       }
-    }
-  }
-
-  [class~="note"],
-  [class~="tip"],
-  [class~="warning"],
-  [class~="danger"] {
-    // remove extra space under lists inside of notes
-    ul,
-    ol {
-      margin-bottom: 0;
     }
   }
 }

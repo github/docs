@@ -34,7 +34,7 @@ To keep your {% data variables.product.prodname_dotcom %} account secure you sho
 
 You can choose {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} to get access to different features for your personal account. You can upgrade at any time if you are unsure at first which product you want.
 
-For more information on all of {% data variables.product.prodname_dotcom %}'s plans, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+For more information on all of {% data variables.product.prodname_dotcom %}'s plans, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 ### 3. Verifying your email address
 
@@ -60,7 +60,8 @@ You will receive an email notification once your enterprise owner for {% data va
 ### {% ifversion fpt or ghec %}4.{% else %}2.{% endif %} Configuring two-factor authentication
 
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)."
-{% endif %}
+
+{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}{% endif %}
 
 ### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.prodname_dotcom %} profile and contribution graph
 

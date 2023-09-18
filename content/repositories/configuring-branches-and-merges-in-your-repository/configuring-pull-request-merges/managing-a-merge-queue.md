@@ -2,8 +2,7 @@
 title: Managing a merge queue
 intro: You can increase development velocity with a merge queue for pull requests in your repository.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: merge-queue
 permissions: People with admin permissions can manage merge queues for pull requests targeting selected branches of a repository.
 product: '{% data reusables.gated-features.merge-queue %}'
 topics:
@@ -13,8 +12,6 @@ shortTitle: Managing merge queue
 redirect_from:
   - /repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue
 ---
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 ## About merge queues
 
@@ -65,7 +62,7 @@ Once you have enabled the "Require merge queue" setting, you can also access the
 
 - **Merge method**: Select which method to use when merging queued pull requests: merge, rebase, or squash.
 
-- **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (beween `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
+- **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (between `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
 -
   **Only merge non-failing pull requests**: This setting determines how a merge queue forms groups of pull requests to be merged.
 
@@ -113,7 +110,7 @@ The following scenario outlines what happens when a CI reports a failing status 
 1. The merge queue creates a temporary branch with the prefix of `main/pr-1` that contains code changes from the target branch and pull request #1. A `merge_group` webhook event of type `checks_requested` is dispatched and the merge queue will await a response from your CI provider.
 1. User adds pull request #2 to the merge queue.
 1. The merge queue creates a temporary branch with the prefix of `main/pr-2` that contains code changes from the target branch, pull request #1, and pull request #2, and dispatches webhooks.
-1.  When the {% data variables.product.product_name %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
+1. When the {% data variables.product.product_name %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
 1. The merge queue recreates the temporary branch with the prefix of `main/pr-2` to only contain changes from the target branch and pull request #2.
 1. When the {% data variables.product.product_name %} API receives successful CI responses for `merge_group` branch `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch without pull request #1 included.
 

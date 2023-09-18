@@ -39,6 +39,11 @@ const featureVersionsTemplate = `
   {% if placeholder %} I am placeholder content {% endif %}
 `
 
+const contextualize = (req) => {
+  req.context.currentVersionObj = req.context.allVersions[req.context.currentVersion]
+  shortVersionsMiddleware(req, null, () => {})
+}
+
 describe('liquid template parser', () => {
   jest.setTimeout(60 * 1000)
 
@@ -53,11 +58,11 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       // We should have TWO results because we are supporting two shortcuts
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am FPT I am FTP or GHES < ${secondOldestSupportedGhes}`
+        `I am FPT I am FTP or GHES < ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -68,7 +73,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.trim()).toBe('I am GHAE')
     })
@@ -80,7 +85,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.trim()).toBe('I am GHEC')
     })
@@ -92,10 +97,10 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am GHES I am GHES < ${secondOldestSupportedGhes} I am FTP or GHES < ${secondOldestSupportedGhes}`
+        `I am GHES I am GHES < ${secondOldestSupportedGhes} I am FTP or GHES < ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -106,10 +111,10 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am GHES I am GHES = ${secondOldestSupportedGhes} I am ${secondOldestSupportedGhes} only`
+        `I am GHES I am GHES = ${secondOldestSupportedGhes} I am ${secondOldestSupportedGhes} only`,
       )
     })
 
@@ -120,10 +125,10 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am not GHEC I am not GHES I am not GHES ${secondOldestSupportedGhes}`
+        `I am not GHEC I am not GHES I am not GHES ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -134,10 +139,10 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am not GHAE I am not GHEC I am not GHES ${secondOldestSupportedGhes}`
+        `I am not GHAE I am not GHEC I am not GHES ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -148,7 +153,7 @@ describe('liquid template parser', () => {
         allVersions,
         enterpriseServerReleases,
       }
-      await shortVersionsMiddleware(req, null, () => {})
+      contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE I am not GHEC')
     })

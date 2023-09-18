@@ -29,7 +29,7 @@ After you register a GitHub App, you can customize your app's badge by uploading
 
 {% ifversion fpt or ghec %}
 
-For more information about badges for {% data variables.product.prodname_github_app %}s in {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#guidelines-for-logos)." You can change a custom badge for a GitHub App that already has an approved Marketplace listing by navigating to https://github.com/marketplace/manage.
+For more information about badges for {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#guidelines-for-logos)." You can change a custom badge for a GitHub App that already has an approved Marketplace listing by navigating to https://github.com/marketplace/manage.
 
 {% endif %}
 

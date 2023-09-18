@@ -206,7 +206,7 @@ If you are a member of more than one organization, you can configure each one to
 1. Select the **Pick organization** dropdown, then click the organization you want to customize.
 1. Select one of your verified email addresses, then click **Save**.
 
-   ![Screenshot of the "Custom Routing" page. A dropdown menu, showing a user's available email addresses, is highlighed with an orange outline.](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
+   ![Screenshot of the "Custom Routing" page. A dropdown menu, showing a user's available email addresses, is highlighted with an orange outline.](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
 {% else %}
 1. Under "Custom routing," find your organization's name in the list.
 

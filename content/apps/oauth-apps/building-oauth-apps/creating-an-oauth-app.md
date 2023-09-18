@@ -19,11 +19,11 @@ topics:
 
 **Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
 
-Both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s use OAuth 2.0.
+Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
 
-{% data variables.product.prodname_oauth_app %}s can only act on behalf of a user while {% data variables.product.prodname_github_app %}s can either act on behalf of a user or independently of a user.
+{% data variables.product.prodname_oauth_apps %} can only act on behalf of a user while {% data variables.product.prodname_github_apps %} can either act on behalf of a user or independently of a user.
 
-{% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens.
+{% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens.
 
 For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
@@ -42,18 +42,18 @@ For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/diff
 {% data reusables.user-settings.oauth_apps %}
 1. Click **New OAuth App**.
 
-  {% note %}
+   {% note %}
 
-  **Note:** If you haven't created an app before, this button will say, **Register a new application**.
+   **Note:** If you haven't created an app before, this button will say, **Register a new application**.
 
-  {% endnote %}
+   {% endnote %}
 1. In "Application name", type the name of your app.
 
-  {% warning %}
+   {% warning %}
 
-  **Warning:**  Only use information in your {% data variables.product.prodname_oauth_app %} that you consider public. Avoid using sensitive data, such as internal URLs, when creating an {% data variables.product.prodname_oauth_app %}.
+   **Warning:**  Only use information in your {% data variables.product.prodname_oauth_app %} that you consider public. Avoid using sensitive data, such as internal URLs, when creating an {% data variables.product.prodname_oauth_app %}.
 
-  {% endwarning %}
+   {% endwarning %}
 
 1. In "Homepage URL", type the full URL to your app's website.
 1. Optionally, in "Application description", type a description of your app that users will see.

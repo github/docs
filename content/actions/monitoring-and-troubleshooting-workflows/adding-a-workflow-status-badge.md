@@ -27,8 +27,8 @@ To add a workflow status badge to your `README.md` file, first find the URL for 
 
 You can build the URL for a workflow status badge using the name of the workflow file:
 
-```
-{% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
+```text
+{% ifversion fpt or ghec %}https://github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY/actions/workflows/WORKFLOW-FILE/badge.svg
 ```
 
 To display the workflow status badge in your `README.md` file, use the Markdown markup for embedding images. For more information about image markup in Markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
@@ -41,7 +41,7 @@ For example, add the following Markdown to your `README.md` file to add a status
 
 ## Using the `branch` parameter
 
-To display the status of a workflow run for a specific branch, add `?branch=<BRANCH_NAME>` to the end of the status badge URL.
+To display the status of a workflow run for a specific branch, add `?branch=BRANCH-NAME` to the end of the status badge URL.
 
 For example, add the following Markdown to your `README.md` file to display a status badge for a branch with the name `feature-1`.
 

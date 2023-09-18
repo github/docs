@@ -20,25 +20,90 @@ For information on how to use labels to route jobs to specific types of self-hos
 
 ## Creating a custom label
 
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
- {% data reusables.actions.settings-sidebar-actions-runner-selection %}
- 1. In the "Labels" section, click {% octicon "gear" aria-label="The Gear icon" %}.
- 1. In the "Find or create a label" field, type the name of your new label and click **Create new label**.
- The custom label is created and assigned to the self-hosted runner. Custom labels can be removed from self-hosted runners, but they currently can't be manually deleted. {% data reusables.actions.actions-unused-labels %}
+You can create custom labels for runners at the repository{% ifversion ghec or ghes or ghae %}, organization, and enterprise{% else %} and organization{% endif %} levels.
 
+- [Creating a custom label for a repository runner](#creating-a-custom-label-for-a-repository-runner)
+- [Creating a custom label for an organization runner](#creating-a-custom-label-for-an-organization-runner){% ifversion ghec or ghes or ghae %}
+- [Creating a custom label for an enterprise runner](#creating-a-custom-label-for-an-enterprise-runner){% endif %}
+
+### Creating a custom label for a repository runner
+
+{% data reusables.actions.self-hosted-runner-navigate-to-repo %}
+{% data reusables.actions.self-hosted-runners-create-label-steps %}
+
+### Creating a custom label for an organization runner
+
+{% data reusables.actions.self-hosted-runner-navigate-to-org %}
+{% data reusables.actions.self-hosted-runners-create-label-steps %}
+
+{% ifversion ghec or ghes or ghae %}
+### Creating a custom label for an enterprise runner
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
+{% data reusables.actions.self-hosted-runners-create-label-steps %}
+
+{% endif %}
 ## Assigning a label to a self-hosted runner
 
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
-{% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.runner-label-settings %}
-  1. To assign a label to your self-hosted runner, in the "Find or create a label" field, click the label.
+You can assign labels to self-hosted runners at the repository{% ifversion ghec or ghes or ghae %}, organization, and enterprise{% else %} and organization{% endif %} levels.
 
+- [Assigning a label to a repository runner](#assigning-a-label-to-a-repository-runner)
+- [Assigning a label to an organization runner](#assigning-a-label-to-an-organization-runner){% ifversion ghec or ghes or ghae %}
+- [Assigning a label to an enterprise runner](#assigning-a-label-to-an-enterprise-runner){% endif %}
+
+### Assigning a label to a repository runner
+
+{% data reusables.actions.self-hosted-runner-navigate-to-repo %}
+{% data reusables.actions.self-hosted-runner-assign-label-steps %}
+
+### Assigning a label to an organization runner
+
+{% data reusables.actions.self-hosted-runner-navigate-to-org %}
+{% data reusables.actions.self-hosted-runner-assign-label-steps %}
+
+{% ifversion ghec or ghes or ghae %}
+### Assigning a label to an enterprise runner
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
+{% data reusables.actions.settings-sidebar-actions-runner-selection %}
+{% data reusables.actions.self-hosted-runner-assign-label-steps %}
+
+{% endif %}
 ## Removing a custom label from a self-hosted runner
 
-{% data reusables.actions.self-hosted-runner-navigate-to-repo-org-enterprise %}
+You can remove custom labels from self-hosted runners at the repository{% ifversion ghec or ghes or ghae %}, organization, and enterprise{% else %} and organization{% endif %} levels.
+
+- [Removing a custom label from a repository runner](#removing-a-custom-label-from-a-repository-runner)
+- [Removing a custom label from an organization runner](#removing-a-custom-label-from-an-organization-runner){% ifversion ghec or ghes or ghae %}
+- [Removing a custom label from an enterprise runner](#removing-a-custom-label-from-an-enterprise-runner){% endif %}
+
+### Removing a custom label from a repository runner
+
+{% data reusables.actions.self-hosted-runner-navigate-to-repo %}
+{% data reusables.actions.self-hosted-runner-remove-label-steps %}
+
+### Removing a custom label from an organization runner
+
+{% data reusables.actions.self-hosted-runner-navigate-to-org %}
+{% data reusables.actions.self-hosted-runner-remove-label-steps %}
+
+{% ifversion ghec or ghes or ghae %}
+### Removing a custom label from an enterprise runner
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
-{% data reusables.actions.runner-label-settings %}
-  1. In the "Find or create a label" field, assigned labels are marked with the {% octicon "check" aria-label="The Check icon" %} icon. Click on a marked label to unassign it from your self-hosted runner.
+{% data reusables.actions.self-hosted-runner-remove-label-steps %}
+
+{% endif %}
 
 ## Programmatically assign labels
 
@@ -55,7 +120,7 @@ You can programmatically assign labels to a self-hosted runner after the runner 
 
   For example, this command assigns a label named `gpu` when configuring a new self-hosted runner:
 
-  ```
+  ```shell
   ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu
   ```
 
@@ -63,7 +128,7 @@ You can programmatically assign labels to a self-hosted runner after the runner 
 
   You can use comma separation to assign multiple labels. For example:
 
-  ```
+  ```shell
   ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu,x64,linux
   ```
 

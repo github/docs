@@ -21,6 +21,7 @@ redirect_from:
 You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
 - [List all of your codespaces](#list-all-of-your-codespaces)
 - [Create a new codespace](#create-a-new-codespace)
+- [View details of a codespace](#view-details-of-a-codespace)
 - [Stop a codespace](#stop-a-codespace)
 - [Delete a codespace](#delete-a-codespace)
 - [Rename a codespace](#rename-a-codespace)
@@ -33,7 +34,6 @@ You can work with {% data variables.product.prodname_github_codespaces %} in the
 - [Access codespace logs](#access-codespace-logs)
 - [Access remote resources](#access-remote-resources)
 - [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
-- [Rebuild a codespace](#rebuild-a-codespace)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -86,6 +86,25 @@ gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
 
+### View details of a codespace
+
+```shell
+gh codespace view
+```
+
+After running this command you are prompted to choose one of your existing codespaces. The following information is then displayed:
+- Name of the codespace
+- State (for example, "Available" or "Shutdown")
+- Repository
+- Git status
+- Path to the dev container configuration file used to create the codespace
+- Machine type
+- Idle timeout
+- Date and time the codespace was created
+- Retention period
+
+For more information, see the [{% data variables.product.prodname_dotcom %} CLI reference](https://cli.github.com/manual/gh_codespace_view).
+
 ### Stop a codespace
 
 ```shell
@@ -116,9 +135,9 @@ For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/re
 gh codespace rebuild
 ```
 
-When you use this command to rebuild a codespace, it uses the `devcontainer.json` file that is currently saved in the codespace's system. This happens regardless of whether or not the current state of the file has been saved in source control.
+To perform a full rebuild, add `--full` at the end of this command. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace)."
 
-For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+When you use this command to rebuild a codespace, it uses the `devcontainer.json` file that is currently saved in the codespace's system. This happens regardless of whether or not the current state of the file has been saved in source control. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
 ### SSH into a codespace
 
@@ -247,13 +266,3 @@ gh codespace edit -m MACHINE-TYPE-NAME
 ```
 
 For more information, see the "{% data variables.product.prodname_cli %}" tab of "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
-
-### Rebuild a codespace
-
-```shell
-gh codespace rebuild
-```
-
-To perform a full rebuild, add `--full` at the end of this command.
-
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace)."

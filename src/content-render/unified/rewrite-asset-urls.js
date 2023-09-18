@@ -49,7 +49,7 @@ function getNewSrc(node) {
   } catch (err) {
     console.warn(
       `Failed to get a hash for ${src} ` +
-        '(This is mostly harmless and can happen with outdated translations).'
+        '(This is mostly harmless and can happen with outdated translations).',
     )
   }
 }

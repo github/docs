@@ -3,7 +3,7 @@ title: Reactions
 intro: >-
   Use the REST API to interact with reactions on {% data
   variables.product.prodname_dotcom %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

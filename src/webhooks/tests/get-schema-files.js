@@ -6,7 +6,7 @@ import { allVersions } from '../../../lib/all-versions.js'
 describe('webhook data files are generated correctly from dereferenced openapi files', () => {
   test('webhook schema list should not include calendar date versions', async () => {
     const supportedReleases = Object.keys(allVersions).map(
-      (version) => allVersions[version].openApiVersionName
+      (version) => allVersions[version].openApiVersionName,
     )
     const schemas = [
       'fpt-2022-08-09.json',
@@ -18,7 +18,7 @@ describe('webhook data files are generated correctly from dereferenced openapi f
 
     const { webhookSchemas } = await getOpenApiSchemaFiles(schemas)
     expect(webhookSchemas.sort()).toEqual(
-      supportedReleases.sort().map((release) => `${release}.json`)
+      supportedReleases.sort().map((release) => `${release}.json`),
     )
   })
 })

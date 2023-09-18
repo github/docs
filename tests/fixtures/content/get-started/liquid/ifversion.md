@@ -31,15 +31,24 @@ condition-e
 
 ## ifversion with ranges
 
-{% ifversion ghes > 3.4 %}
+<!--
+  👋 If you're wondering what these __GHES_SUPPORTED* and __GHES_DEPRECATED*
+  mean, they're just "macros" so that this fixture content doesn't get
+  too tied to the past.
+  You can type "3.9" if you want, but that version is only working right
+  now/today and will eventually break tests as the values in
+  `enterprise-server-releases.js` change over time.
+-->
+
+{% ifversion ghes > __GHES_DEPRECATED__[0] %}
 condition-f
 {% endif %}
 
-{% ifversion ghes < 3.6 %}
+{% ifversion ghes < __GHES_SUPPORTED__[-2] %}
 condition-g
 {% endif %}
 
-{% ifversion ghes > 3.4 and ghes < 3.6 %}
+{% ifversion ghes > __GHES_DEPRECATED__[0] and ghes < __GHES_SUPPORTED__[-2] %}
 condition-h
 {% endif %}
 
@@ -49,11 +58,11 @@ condition-h
 condition-i
 {% endif %}
 
-{% ifversion ghes != 3.5 %}
+{% ifversion ghes != __GHES_SUPPORTED__[-1] %}
 condition-j
 {% endif %}
 
-{% ifversion ghes = 3.5 %}
+{% ifversion ghes = __GHES_SUPPORTED__[-1] %}
 condition-k
 {% endif %}
 
@@ -67,13 +76,13 @@ condition-l
 
 {% ifversion ghes %}
 condition-m
-  {% ifversion ghes = 3.5 %}
+  {% ifversion ghes = __GHES_SUPPORTED__[-1] %}
   condition-n
   {% endif %}
 {% endif %}
 
 ## ifversion combined operations
 
-{% ifversion not fpt and ghes > 3.4 %}
+{% ifversion not fpt and ghes > __GHES_DEPRECATED__[0] %}
 condition-o
 {% endif %}

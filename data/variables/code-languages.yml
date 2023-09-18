@@ -1,4 +1,6 @@
 # Comment options: number (#), slash (//), percent (%%), xml (<!-- -->), none
+# For languages that support highlighting: https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md
+# We prefer full language name in lowercase to avoid conflicts
 bash:
   name: Bash
   comment: number
@@ -8,9 +10,6 @@ csharp:
 dockerfile:
   name: Dockerfile
   comment: number
-geojson:
-  name: GeoJSON
-  comment: none
 golang:
   name: Go
   comment: slash
@@ -41,12 +40,6 @@ jsonc:
 markdown:
   name: Markdown
   comment: xml
-math:
-  name: Math
-  comment: percent
-mermaid:
-  name: Mermaid
-  comment: percent
 powershell:
   name: PowerShell
   comment: number
@@ -62,18 +55,9 @@ scss:
 shell:
   name: Shell
   comment: number
-stl:
-  name: STL
-  comment: none
-tasklist:
-  name: Tasklist
-  comment: xml
 text:
   name: Text
   comment: number
-topojson:
-  name: TopoJSON
-  comment: none
 xml:
   name: XML
   comment: xml

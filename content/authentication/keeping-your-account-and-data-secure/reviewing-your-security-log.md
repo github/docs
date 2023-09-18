@@ -35,9 +35,12 @@ The events listed in your security log are triggered by your actions. Actions ar
 |------------------|-------------------{% ifversion fpt or ghec %}
 | `billing` | Contains all activities related to your billing information.
 | `codespaces` | Contains all activities related to {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/overview)."
+| `copilot` | Contains all activities related to {% data variables.product.prodname_copilot_business_short %}. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot)."
 | `marketplace_agreement_signature` | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| `marketplace_listing`| Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
-| `oauth_access` | Contains all activities related to [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps) you've connected with.{% ifversion fpt or ghec %}
+| `marketplace_listing`| Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion security-log-oauth-access-tokens %}
+| `oauth_access` | Contains all activities related to OAuth access tokens.{% endif %}
+| `oauth_authorization` | Contains all activities related to authorizing {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."{% ifversion passkeys %}
+| `passkey` | Contains activities related to your passkeys. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."{% endif %}{% ifversion fpt or ghec %}
 | `payment_method` | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}{% ifversion pat-v2%}
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% endif %}
 | `profile_picture`| Contains all activities related to your profile picture.

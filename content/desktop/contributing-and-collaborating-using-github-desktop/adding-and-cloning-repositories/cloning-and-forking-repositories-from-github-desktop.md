@@ -5,8 +5,9 @@ redirect_from:
   - /desktop/contributing-to-projects/cloning-a-repository-from-github-desktop
   - /desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop
+  - /desktop/guides/contributing/cloning-a-repository-from-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Clone & fork from Desktop
 ---
 ## About local repositories

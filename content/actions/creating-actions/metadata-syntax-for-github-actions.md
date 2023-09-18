@@ -14,7 +14,7 @@ versions:
   ghec: '*'
 type: reference
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
@@ -41,7 +41,15 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 ### Example: Specifying inputs
 
-This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of '1'; `octocat-eye-color` is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)."
+This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of `1`. `octocat-eye-color` is required and has no default value.
+
+{% note %}
+
+**Note:** workflows using `required: true` will not automatically return an error if the input is not specified for events that automatically trigger workflow runs. If you set `required: true` in your workflow file and are using `workflow_dispatch` to manually run the workflow, you will be required to specify inputs on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
+
+{% endnote %}
+
+Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)."
 
 ```yaml
 inputs:
@@ -358,7 +366,7 @@ runs:
         last_name: Octocat
 ```
 
-{% ifversion ghes > 3.5 or ghae > 3.5 %}
+{% ifversion ghes or ghae %}
 
 #### `runs.steps[*].continue-on-error`
 

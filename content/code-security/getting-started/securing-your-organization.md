@@ -1,7 +1,7 @@
 ---
 title: Securing your organization
 intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your organization secure.'
-permissions: Organization owners can configure organization security settings.
+permissions: Organization owners and security managers can manage security features for an organization.
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,156 +18,122 @@ shortTitle: Secure your organization
 
 ## Introduction
 
-This guide shows you how to configure security features for an organization. Your organization's security needs are unique and you may not need to enable every security feature. For more information, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
+As an organization owner or security manager, you can use {% data variables.product.company_short %}'s security features to keep your organization's code, dependencies, and secrets secure. For more information, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
 
-{% data reusables.advanced-security.security-feature-availability %}
+Your organization's security needs are unique. You may want to enable a feature if your organization has been impacted by a vulnerability that a certain feature would have prevented, or if the feature will help your organization meet a compliance requirement.
 
-## Managing access to your organization
+You can enable security features across multiple repositories in an organization at the same time. For each feature you want to enable, you must decide how to roll out the feature across your organization's repositories. Different features have different effects on your organization and its contributors, so it's important to assess the impact each feature will have. For example:
 
-You can use roles to control what actions people can take in your organization. {% ifversion security-managers %}For example, you can assign the security manager role to a team to give them the ability to manage security settings across your organization, as well as read access to all repositories.{% endif %} For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+- Some features can generate notifications to inform your organization's members about specific vulnerabilities: to ensure these notifications are targeted and relevant, you may want to ask members to check their notification settings before you enable a feature. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+- Some features can consume resources for each repository in which they're enabled. For example, enabling {% data variables.product.prodname_code_scanning %} in a private repository may consume a {% data variables.product.prodname_GH_advanced_security %} license, and running {% data variables.product.prodname_code_scanning %} analysis in a repository will incur usage of {% data variables.product.prodname_actions %} or another CI system.
+
+As an organization owner, you can give certain users permission to enable or disable security features by assigning the "security manager" role to a team. Security managers can configure security settings and monitor usage of security features across your organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+
+## About prerequisites of features
+
+Some security features have prerequisites. For example, {% data variables.product.prodname_dependabot_alerts %} use information from the dependency graph, so enabling {% data variables.product.prodname_dependabot_alerts %} automatically enables the dependency graph.
+
+Some features are {% ifversion fpt or ghec %}enabled by default in public repositories. In private repositories, some features are {% endif %}only available to enterprises that use {% data variables.product.prodname_GH_advanced_security %} and have enabled {% data variables.product.prodname_advanced_security %} as a feature for repositories. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security#about-advanced-security-features)."
+
+{% ifversion ghec or ghes or ghae %}
+
+{% note %}
+
+**Note:** Enterprises can set a policy to manage which organizations can enable {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 
-## Creating a default security policy
-
-You can create a default security policy that will display in any of your organization's public repositories that do not have their own security policy. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+There are some features you must configure for each repository individually. For example, to enable {% data variables.product.prodname_dependabot_version_updates %} in a repository, you must add a `dependabot.yml` file specifying where to find information about the project's dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 
 {% endif %}
 
-## Managing {% data variables.product.prodname_dependabot_alerts %} and the dependency graph
+## Enabling security features in your organization
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and displays the dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all public repositories owned by your organization. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} and the dependency graph for all private repositories owned by your organization.
+When you have decided to enable a security feature, the next step is to decide how to roll out that feature across your organization.
 
-{% data reusables.dependabot.quickstart-link %}
+- If you want to roll out a feature as quickly as possible, you can enable it for all eligible repositories at once. For more information, see "[Enabling a feature for all repositories](#enabling-a-feature-for-all-repositories)."
+- If you want control over how quickly you roll out a feature, and which features are enabled in which repositories, you can enable a feature for a selection of repositories. For more information, see "[Enabling a feature for a selection of repositories](#enabling-a-feature-for-a-selection-of-repositories)."
 
-1. Click your profile photo, then click **Organizations**.
-1. Click **Settings** next to your organization.
-1. Click **Security & analysis**.
-1. Click **Enable all** or **Disable all** next to the feature that you want to manage.
-1. Optionally, select **Automatically enable for new repositories**.
+When you have decided how to enable a feature for your organization's existing repositories, you must also decide how to handle any new repositories that are created in your organization in the future. For more information, see "[Enabling a feature for new repositories](#enabling-a-feature-for-future-repositories)."
+
+{% ifversion ghec or ghes or ghae %}
+For more information about creating a strategy for rolling out security features across a large organization or enterprise, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
 {% endif %}
 
-{% data reusables.dependabot.dependabot-alerts-beta %}
+### Enabling a feature for all repositories
 
-{% ifversion dependabot-alerts-ghes-enablement %}
-{% data reusables.dependabot.dependabot-alerts-enterprise-server-repo-org-enablement %}
-{% else %}
-{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
+The quickest way to roll out a security feature is to enable it for all repositories in your organization at once. If you've identified a critical need for a feature, enabling it for all repositories offers you protection across your entire organization, without requiring you to pause to devise a rollout plan.
+
+Before you enable a feature for all repositories, you should consider the impact this action will have. If you're not sure about the effects a feature will have, it is safest to start by enabling the feature for a limited selection of repositories. Enabling a feature for all repositories at once is likely to be a suitable option in the following situations.
+
+- You have an overview of all the repositories in your organization, and you're confident that they'll all benefit from a certain feature.
+- If a feature requires resources such as {% data variables.product.prodname_GH_advanced_security %} licenses or {% data variables.product.prodname_actions %} minutes, you have assessed the resources that will be required and are happy to proceed.{% ifversion ghec %} You can take part in a free trial of {% data variables.product.prodname_GH_advanced_security %} to test a {% data variables.product.prodname_GH_advanced_security %} feature across your repositories. For more information about setting up a free trial, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."{% endif %}
+- If the feature generates notifications or pull requests, you're confident that these will be targeted and relevant for the members who receive them or have to review them.
+
+When you're ready to proceed, follow these steps to enable a feature for all repositories.
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+1. In the left sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
+1. To enable a feature in all repositories in your organization where the feature is supported, next to the name of the feature, click **Enable all**.
+
+When you click **Enable all**, you'll be prompted to confirm your choice. You'll also be told if the feature depends on another feature, or requires {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories)."
+
+### Enabling a feature for a selection of repositories
+
+In some cases, it is better to identify a selection of repositories that require a feature, then enable the feature just for those repositories.
+
+If you're not sure about the impact a feature will have, you may want to test the feature on a limited selection of repositories before you commit to enabling the feature for all repositories, or you may want to roll out the feature gradually over several phases. You may also be aware that some repositories in your organization require a different set of features than others.
+
+{% ifversion code-security-multi-repo-enablement %}You can use the "Security coverage" view to identify repositories that require a certain feature, then enable the feature for those repositories. The following steps describe how to find the "Security coverage" view.
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.security-overview %}
+1. In the sidebar, click **{% octicon "meter" aria-hidden="true"  %} Coverage**.
+
+On this view, you can use checkboxes to select specific repositories, or you can use the search bar to find the repositories where you want to enable a feature. For example, you can use filters to identify repositories where a certain team has write or admin access, or exclude repositories that don't require the same level of protection, such as test repositories or repositories for internal documentation. Then you can enable features for all selected repositories at once. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+
+{% else %}When you have identified the repositories that require a feature, you can enable the feature for each repository individually. As an organization owner or security manager, you can configure the security settings for each repository in your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
+
+{% ifversion fpt %}For organizations on {% data variables.product.prodname_ghe_cloud %}, you can use the "Security coverage" view to identify repositories that require a feature, then enable that feature for those repositories. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/enabling-security-features-for-multiple-repositories)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+
 {% endif %}
 
-For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)," "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)," and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
-
-## Managing dependency review
-
-Dependency review is an {% data variables.product.prodname_advanced_security %} feature that lets you visualize dependency changes in pull requests before they are merged into your repositories. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
-
-{% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec %}For private and internal repositories that are owned by an organization, you can enable dependency review by enabling the dependency graph and enabling {% data variables.product.prodname_advanced_security %} (see below).
-{% elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.location.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the organization (see below).{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
-
-## Managing {% data variables.product.prodname_dependabot_security_updates %}
-
-For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected. You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories across your organization.
-
-1. Click your profile photo, then click **Organizations**.
-1. Click **Settings** next to your organization.
-1. Click **Security & analysis**.
-1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_dependabot_security_updates %}.
-1. Optionally, select **Automatically enable for new repositories**.
-
-For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
-
-## Managing {% data variables.product.prodname_dependabot_version_updates %}
-
-You can enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
-
-To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a _dependabot.yml_ configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
-
+{% ifversion ghec or ghes %}
+If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)." {% ifversion ghec %}When you use the "Security coverage" view, you can can see the number of active committers for the repositories you select, and therefore the number of {% data variables.product.prodname_GH_advanced_security %} licenses that enabling a feature will consume.{% endif %}
 {% endif %}
 
-{% ifversion ghes or ghae or ghec %}
+### Enabling a feature for new repositories
 
-## Managing {% data variables.product.prodname_GH_advanced_security %}
+You can choose to enable a security feature automatically in all new repositories that are created in your organization. Enabling features in new repositories ensures they are protected immediately, and ensures any vulnerabilities in the repositories are identified as early as possible. However, to use security features as efficiently as possible, you may prefer to review each new repository individually.
 
-{% ifversion ghes or ghec %}
-If your {% ifversion ghec %}organization is owned by an enterprise that{% else %}enterprise{% endif %} has an {% data variables.product.prodname_advanced_security %} license, you can enable or disable {% data variables.product.prodname_advanced_security %} features.
-{% elsif ghae %}
-You can enable or disable {% data variables.product.prodname_advanced_security %} features.
-{% endif %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+1. In the left sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
+1. Below the name of the feature, select the option for automatically enabling the feature in applicable future repositories.
 
-1. Click your profile photo, then click **Organizations**.
-1. Click **Settings** next to your organization.
-1. Click **Security & analysis**.
-1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_GH_advanced_security %}.
-1. Optionally, select **Automatically enable for new private repositories**.
+   ![Screenshot of the "Code security and analysis" page. Below "Dependabot alerts", a checkbox for enabling the feature in future repositories is highlighted with an orange outline.](/assets/images/help/security/enable-for-new-repos.png)
 
-For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
-{% endif %}
+## Monitoring the impact of security features
 
-## Configuring {% data variables.product.prodname_secret_scanning %}
+When you have enabled a feature, you should communicate with repository administrators and contributors in your organization to assess the impact of the feature. You may need to adjust the configuration of some features at the repository level, or reassess the distribution of security features across your organization. You should also monitor the security alerts that a feature generates, and your members' responses to these alerts.
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories, as well as public npm packages. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable {% data variables.product.prodname_secret_scanning %} for private and internal repositories.{% endif %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#configuring-secret-scanning).{% endif %}
+{% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can use security overview to see which teams and repositories are affected by security alerts, with a breakdown of alerts by severity. For more information, see{% ifversion ghes or ghec or ghae %} "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."{% elsif fpt %} "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/assessing-code-security-risk)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
-{% ifversion ghes or ghae %}{% data variables.product.prodname_secret_scanning_caps %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
-
-You can enable or disable {% data variables.product.prodname_secret_scanning %} for all {% ifversion fpt or ghec %}public {% endif %}repositories across your organization{% ifversion fpt %}.{% endif %}{% ifversion ghec %}, and for all private and internal repositories{% endif %}{% ifversion ghec or ghes or ghae %} that have {% data variables.product.prodname_GH_advanced_security %} enabled.{% endif %}
-
-1. Click your profile photo, then click **Organizations**.
-1. Click **Settings** next to your organization.
-1. Click **Code security & analysis**.
-1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_secret_scanning_caps %}.
-1. In the dialog box displayed, optionally
-{%- ifversion fpt %} select **Automatically enable for new public repositories**.
-{%- elsif ghec %} select **Automatically enable for new public repositories and repositories with {% data variables.product.prodname_advanced_security %} enabled**.
-{%- else %} select **Automatically enable for repositories added to {% data variables.product.prodname_advanced_security %}.**
-{%- endif %}
-1. Click the enable or disable button in the dialog box to confirm the change.
-
-For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
-
-## Configuring {% data variables.product.prodname_code_scanning %}
-
-{% ifversion fpt or ghec %}{% data variables.product.prodname_code_scanning_caps %} is available for all public repositories. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally use {% data variables.product.prodname_code_scanning %} for private and internal repositories.{% else %}{% data variables.product.prodname_code_scanning_caps %} is available if your enterprise uses {% data variables.product.prodname_advanced_security %}.{% endif %}
-
-{% ifversion org-enable-code-scanning %}
-
-You can enable or disable {% data variables.product.prodname_code_scanning %} default setup for all eligible repositories
-
-{%- ifversion fpt %} that are public across your organization.
-{%- elsif ghec %} that are public, and for all private and internal repositories
-{%- endif %}
-
-{%- ifversion ghec or ghes or ghae %} across your organization that have {% data variables.product.prodname_GH_advanced_security %} enabled.
-{%- endif %}
-{% data reusables.code-scanning.default-setup-info-link %}
-
-For repositories that are not eligible for default setup, you can configure advanced setup at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
-
-{% data reusables.code-scanning.beta-org-enable-all %}
-
-1. Click your profile photo, then click **Organizations**.
-1. Click **Settings** next to your organization.
-1. Click **Code security & analysis**.
-1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_code_scanning_caps %}.
-1. In the "Enable {% data variables.product.prodname_code_scanning %} for eligible repositories" or "Disable {% data variables.product.prodname_code_scanning %}" dialog box displayed, click **Enable for eligible repositories** or **Disable {% data variables.product.prodname_code_scanning %}** to confirm the change.
-
-{% data reusables.code-scanning.limitation-org-enable-all %}
-
-{% else %}
-{% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
-{% endif %}
+You can use various tools to monitor the actions that your organization's members are taking in response to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
 
 ## Next steps
 
-You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
-
-You can also monitor responses to security alerts within your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
-
-{% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)" and "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)."
+{% ifversion fpt or ghes or ghec %}
+To help users report security vulnerabilities, you can create a default security policy that will display in any of your organization's public repositories that do not have their own security policy. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 {% endif %}
 
-{% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can view, filter, and sort security alerts for repositories owned by {% ifversion ghes or ghec or ghae %}your{% elsif fpt %}their{% endif %} organization in security overview. For more information, see{% ifversion ghes or ghec or ghae %} "[AUTOTITLE](/code-security/security-overview/about-security-overview)."{% elsif fpt %} "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/about-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+{% ifversion ghec or ghes or ghae %}
+Once your organization's security setup is in place, you may want to prevent users from changing the security settings in a repository. An enterprise owner can prevent repository administrators from enabling or disabling features in a repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
+{% endif %}
 
 {% ifversion ghec %}
 

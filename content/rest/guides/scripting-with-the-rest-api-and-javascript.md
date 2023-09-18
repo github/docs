@@ -33,7 +33,7 @@ To keep your credentials secure, you can store your credentials as a secret and 
 
 {% ifversion ghec or fpt %}You can also store your credentials as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If {% ifversion ghec or fpt %}these options are not possible{% else %}this is not possible{% endif %}, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your credentials securely.
+If {% ifversion ghec or fpt %}these options are not possible{% else %}this is not possible{% endif %}, consider using another CLI service to store your credentials securely.
 
 {% endwarning %}
 

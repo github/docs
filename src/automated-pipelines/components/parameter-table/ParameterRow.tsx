@@ -1,7 +1,6 @@
 import cx from 'classnames'
 
-import { useTranslation } from 'components/hooks/useTranslation'
-import { KeyboardEventHandler } from 'react'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ChildBodyParametersRows } from './ChildBodyParametersRows'
 import type { ChildParameter } from './types'
 
@@ -11,7 +10,7 @@ type Props = {
   numPreviews?: number
   isChild?: boolean
   rowIndex?: number
-  bodyParamExpandCallback?: KeyboardEventHandler<HTMLButtonElement> | undefined
+  bodyParamExpandCallback?: (target: HTMLDetailsElement) => void
   clickedBodyParameterName?: string | undefined
 }
 
@@ -41,8 +40,8 @@ export function ParameterRow({
   numPreviews = 0,
   isChild = false,
   rowIndex = 0,
-  bodyParamExpandCallback = undefined,
-  clickedBodyParameterName = undefined,
+  bodyParamExpandCallback,
+  clickedBodyParameterName,
 }: Props) {
   const { t } = useTranslation(['parameter_table', 'products'])
 
@@ -56,7 +55,7 @@ export function ParameterRow({
           <div
             className={cx(
               'pl-0 pt-1 pr-1 pb-1',
-              `${rowIndex > 0 && isChild ? 'pt-3 border-top color-border-muted' : ''}`
+              `${rowIndex > 0 && isChild ? 'pt-3 border-top color-border-muted' : ''}`,
             )}
           >
             <div>
@@ -159,16 +158,21 @@ export function ParameterRow({
           an API request to get the nested parameter data.
        */}
       {rowParams.type &&
-      (rowParams.type === 'object' || rowParams.type.includes('array of')) &&
+      (rowParams.type.includes('object') || rowParams.type.includes('array of')) &&
       rowParams.childParamsGroups &&
       rowParams.childParamsGroups.length === 0 &&
       !NO_CHILD_WEBHOOK_PROPERTIES.includes(rowParams.name) ? (
         <tr className="border-top-0">
-          <td colSpan={4} className="has-nested-table">
+          <td className="has-nested-table">
             <details
               data-nested-param-id={rowParams.name}
               className="box px-3 ml-1 mb-0"
-              onToggle={bodyParamExpandCallback}
+              onToggle={(event) => {
+                if (bodyParamExpandCallback) {
+                  const target = event.target as HTMLDetailsElement
+                  bodyParamExpandCallback(target)
+                }
+              }}
             >
               <summary role="button" aria-expanded="false" className="mb-2 keyboard-focus">
                 {rowParams.oneOfObject ? (

@@ -33,3 +33,19 @@ cli content
 {% desktop %}
   this is desktop content
 {% enddesktop %}
+
+{% webui %}
+
+## Webui section
+
+Webui section specific content
+
+{% endwebui %}
+
+{% desktop %}
+
+## Desktop section
+
+Desktop section specific content
+
+{% enddesktop %}

@@ -29,13 +29,7 @@ If your project communicates with an external service, you might use a token or 
 {% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes or ghae %}, even if the repository is archived{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %}
 
 {% ifversion secret-scanning-backfills-historical-issues %}
-{% data variables.product.prodname_secret_scanning_caps %} also scans the titles, descriptions, and comments, in open and closed historical issues, and reports leaked secrets as alerts on {% data variables.product.prodname_dotcom %}{% ifversion ghec %}. A notification is sent to the relevant partner when a historical partner pattern is detected{% endif %}.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for historical secret leaks is currently in public beta and subject to change.
-
-{% endnote %}
+Additionally, {% data variables.product.prodname_secret_scanning %} scans the titles, descriptions, and comments, in open and closed historical issues, and reports leaked secrets as alerts on {% data variables.product.prodname_dotcom %}{% ifversion ghec %}. A notification is sent to the relevant partner when a historical partner pattern is detected{% endif %}.
 
 {% endif %}
 
@@ -55,9 +49,21 @@ If your project communicates with an external service, you might use a token or 
 
 {% ifversion secret-scanning-push-protection %}
 
-You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When you enable this feature, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing code with a detected secret. To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. {% ifversion push-protection-custom-link-orgs %}Admins can also specify a custom link that is displayed to the contributor when a push is blocked; the link can contain resources specific to the organization to aid contributors. {% endif %}For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+{% data reusables.secret-scanning.push-protection-high-level %} To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. {% ifversion push-protection-custom-link-orgs %}Admins can also specify a custom link that is displayed to the contributor when a push is blocked; the link can contain resources specific to the organization to aid contributors. {% endif %}For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
 {% endif %}
+
+{% ifversion secret-scanning-push-protection-for-users %}
+
+{% data reusables.secret-scanning.push-protection-for-users %}
+
+{% endif %}
+
+{% note %}
+
+**Note:** When you fork a repository with {% data variables.product.prodname_secret_scanning %} or push protection enabled, these features are not enabled by default on the fork. You can enable {% data variables.product.prodname_secret_scanning %} or push protection on the fork the same way you enable them on a standalone repository.
+
+{% endnote %}
 
 {% ifversion fpt or ghec %}
 
@@ -75,14 +81,6 @@ You cannot change the configuration of {% data variables.product.prodname_secret
 
 {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} will also periodically run a full git history scan of existing content in {% ifversion fpt %}public{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} repositories where {% data variables.product.prodname_secret_scanning %} is enabled, and send alert notifications following the {% data variables.product.prodname_secret_scanning %} alert notification settings. {% endif %}For more information, see "{% ifversion fpt or ghec %}[Supported secrets for user alerts](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-user-alerts){% else %}[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns){% endif %}."
 
-{% ifversion secret-scanning-issue-body-comments %}
-{% note %}
-
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for issue descriptions and comments is in public beta and subject to change.
-
-{% endnote %}
-{% endif %}
-
 If you're a repository administrator, you can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion fpt %}public{% endif %} repository{% ifversion ghec or ghes or ghae %}, including archived repositories{% endif %}. Organization owners can also enable {% data variables.secret-scanning.user_alerts %} for all {% ifversion fpt %}public {% endif %}repositories or for all new {% ifversion fpt %}public {% endif %}repositories within an organization. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
@@ -92,12 +90,12 @@ You can also define custom {% data variables.product.prodname_secret_scanning %}
 
 ### Accessing {% data variables.secret-scanning.alerts %}
 
-When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents of those commits for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} also runs a scan of all historical code content in {% ifversion fpt %}public {% endif %}repositories with {% data variables.product.prodname_secret_scanning %} enabled when a new partner pattern {% ifversion not fpt %}or custom pattern{% endif %} is added or updated.{% endif%}
+When you enable {% data variables.product.prodname_secret_scanning %} for a repository or push commits to a repository with {% data variables.product.prodname_secret_scanning %} enabled, {% data variables.product.prodname_dotcom %} scans the contents for secrets that match patterns defined by service providers{% ifversion ghes or ghae or ghec %} and any custom patterns defined in your enterprise, organization, or repository{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} {% ifversion secret-scanning-backfills %}{% data variables.product.prodname_dotcom %} also runs a scan of all historical code content in {% ifversion fpt %}public {% endif %}repositories with {% data variables.product.prodname_secret_scanning %} enabled when a new partner pattern {% ifversion not fpt %}or custom pattern{% endif %} is added or updated.{% endif%}
 
-If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
+If {% data variables.product.prodname_secret_scanning %} detects a secret in a commit,{% ifversion secret-scanning-issue-body-comments %} issue description, or comment,{% endif %} {% data variables.product.prodname_dotcom %} generates an alert.
 
 - {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners. You'll receive an alert if you are watching the repository{% ifversion secret-scanning-notification-settings %}, {% else %}, and {% endif %}if you have enabled notifications either for security alerts or for all the activity on the repository{% ifversion secret-scanning-notification-settings %}, and if, in your notification settings, you have selected to receive email notifications for the repositories that you are watching.{% else %}.{% endif %}
-- If the contributor who committed the secret isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send an email alert to the contributor. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
+- If the person who introduced the secret in the commit{% ifversion secret-scanning-issue-body-comments %}, issue description, or comment{% endif %} isn't ignoring the repository, {% data variables.product.prodname_dotcom %} will also send them an email alert. The emails contains a link to the related {% data variables.product.prodname_secret_scanning %} alert. The person who introduced the secret can then view the alert in the repository, and resolve the alert.
 - {% data variables.product.prodname_dotcom %} displays an alert in the **Security** tab of the repository.
 
 For more information about viewing and resolving {% data variables.secret-scanning.alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
@@ -117,7 +115,8 @@ You can also use the REST API to monitor results from {% data variables.product.
 ## Further reading
 
 - "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"{% ifversion fpt or ghec or ghes %}
+- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"{% endif %}
 {%- ifversion fpt or ghec %}
 - "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
 {%- ifversion fpt or ghec or ghes %}

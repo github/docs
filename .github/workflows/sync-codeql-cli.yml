@@ -19,6 +19,15 @@ permissions:
   contents: write
   pull-requests: write
 
+# **IMPORTANT:** Do not change the FREEZE environment variable set here!
+# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
+# during a docs deployment freeze), add an Actions Secret to the repo settings
+# called `FREEZE` with a value of `true`. To re-enable Audit Logs updates, simply
+# delete that Secret from the repo settings. The environment variable here
+# will duplicate that Secret's value for later evaluation.
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
@@ -35,18 +44,18 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout repository code
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout semmle-code repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
           token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           repository: github/semmle-code
           path: semmle-code
-          ref: ${{ github.event.inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH }}
 
       - uses: ./.github/actions/node-npm-setup
 

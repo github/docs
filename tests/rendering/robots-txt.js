@@ -25,7 +25,7 @@ describe('robots.txt', () => {
     expect(robots.isAllowed('https://docs.github.com/')).toBe(true)
     expect(robots.isAllowed('https://docs.github.com/en')).toBe(true)
     expect(
-      robots.isAllowed('https://docs.github.com/en/articles/verifying-your-email-address')
+      robots.isAllowed('https://docs.github.com/en/articles/verifying-your-email-address'),
     ).toBe(true)
   })
 

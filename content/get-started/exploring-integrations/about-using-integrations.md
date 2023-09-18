@@ -21,7 +21,7 @@ versions:
 
 Integrations are tools that extend {% data variables.product.company_short %}'s functionality. Integrations can do things on {% data variables.product.company_short %} like open issues, comment on pull requests, and manage projects. They can also do things outside of {% data variables.product.company_short %} based on events that happen on {% data variables.product.company_short %}. For example, an integration can post on Slack when an issue is opened on {% data variables.product.company_short %}.
 
-You can discover many integrations in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). {% data variables.product.prodname_marketplace %} includes {% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s, and custom actions that you can use in {% data variables.product.prodname_actions %} workflows. You can also get integrations directly from the integration creator.
+You can discover many integrations in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). {% data variables.product.prodname_marketplace %} includes {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_oauth_apps %}, and custom actions that you can use in {% data variables.product.prodname_actions %} workflows. You can also get integrations directly from the integration creator.
 
 {% ifversion fpt or ghec or ghes > 3.7 %} For a list of featured {% data variables.product.company_short %} integrations, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations)."{% endif %}
 

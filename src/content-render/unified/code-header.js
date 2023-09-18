@@ -60,13 +60,15 @@ export function header(lang, code, subnav) {
         'button',
         {
           class: ['js-btn-copy', 'btn', 'btn-sm', 'tooltipped', 'tooltipped-nw'],
-          'aria-label': 'Copy code to clipboard',
+          'aria-label': `Copy ${languages[lang]?.name} code to clipboard`,
           'data-clipboard': codeId,
+          'aria-live': 'polite',
+          'aria-atomic': 'true',
         },
-        btnIcon()
+        btnIcon(),
       ),
       h('pre', { hidden: true, 'data-clipboard': codeId }, code),
-    ]
+    ],
   )
 }
 

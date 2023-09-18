@@ -84,7 +84,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    brew install git-filter-repo
    ```
 
-  For more information, see [_INSTALL.md_](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
+   For more information, see [_INSTALL.md_](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
 
 1. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/repositories/creating-and-managing-repositories/cloning-a-repository) to your local computer.
 
@@ -196,6 +196,10 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
    {% endnote %}
 
 ## Avoiding accidental commits in the future
+
+{% ifversion fpt or ghec or ghes %}
+Preventing contributors from making accidental commits can help you prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+{% endif %}
 
 There are a few simple tricks to avoid committing things you don't want committed:
 

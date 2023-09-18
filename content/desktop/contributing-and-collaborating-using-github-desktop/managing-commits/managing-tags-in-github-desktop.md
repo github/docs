@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-tags
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About tags in {% data variables.product.prodname_desktop %}
 

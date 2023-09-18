@@ -70,16 +70,16 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes > 2.16 %}\n\nCharlie\n
     const $ = cheerio.load(newContent)
     expect($('.example1').text().trim()).toBe(`Alpha`)
     expect($('.example2').text().trim()).toBe(
-      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n  {% endif %}`
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n  {% endif %}`,
     )
     expect($('.example3').text().trim()).toBe(
-      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n  {% else %}\n  Delta\n  {% endif %}`
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n  {% else %}\n  Delta\n  {% endif %}`,
     )
     expect($('.example4').text().trim()).toBe(
-      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n    {% ifversion ghae %}\n    Charlie\n    {% endif %}\n  {% endif %}`
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n    {% ifversion ghae %}\n    Charlie\n    {% endif %}\n  {% endif %}`,
     )
     expect($('.example5').text().trim()).toBe(
-      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n    {% ifversion ghae %}\n    Charlie\n    {% endif %}\n  {% else %}\n  Delta\n  {% endif %}`
+      `Alpha\n  {% ifversion fpt or ghec %}\n  Bravo\n    {% ifversion ghae %}\n    Charlie\n    {% endif %}\n  {% else %}\n  Delta\n  {% endif %}`,
     )
   })
 
@@ -88,7 +88,7 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes > 2.16 %}\n\nCharlie\n
     const { newContent } = removeLiquidStatements(content, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(newContent)
     expect($('.example1').text().trim()).toBe(
-      '{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% endif %}'
+      '{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% endif %}',
     )
     expect($('.example2').text().trim())
       .toBe(`{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% else %}\n
@@ -147,7 +147,7 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
 Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe('Charlie')
     expect($('.example6').text().trim()).toBe(
-      'Charlie\n\n{% ifversion fpt or ghes %}\n\nBravo\n\n{% endif %}'
+      'Charlie\n\n{% ifversion fpt or ghes %}\n\nBravo\n\n{% endif %}',
     )
   })
 
@@ -157,7 +157,7 @@ Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     const $ = cheerio.load(newContent)
     expect($('.example1').text().trim()).toBe('Alpha')
     expect($('.example2').text().trim()).toBe(
-      'Alpha\n\n{% ifversion fpt %}\n\nBravo\n\n{% endif %}'
+      'Alpha\n\n{% ifversion fpt %}\n\nBravo\n\n{% endif %}',
     )
     expect($('.example3').text().trim()).toBe(`{% ifversion fpt %}\n
 Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
@@ -208,7 +208,7 @@ describe('whitespace', () => {
     const $ = cheerio.load(newContent)
     expect($('.example5').text()).toBe('\n{% ifversion ghes %}\n  Alpha\n{% endif %}\n')
     expect($('.example6').text()).toBe(
-      '\n  Alpha\n{% ifversion fpt or ghes %}\n  Bravo\n{% endif %}\n  Charlie\n'
+      '\n  Alpha\n{% ifversion fpt or ghes %}\n  Bravo\n{% endif %}\n  Charlie\n',
     )
     expect($('.example7').text()).toBe('\nAlpha{% ifversion fpt or ghes %}\nBravo{% endif %}\n')
   })

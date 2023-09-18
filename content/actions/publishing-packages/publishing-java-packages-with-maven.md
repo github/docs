@@ -34,7 +34,7 @@ You may also find it helpful to have a basic understanding of the following:
 
 - "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
 - "[AUTOTITLE](/actions/learn-github-actions/variables)"
-- "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"
+- "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
 - "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"
 
 ## About package configuration
@@ -72,7 +72,7 @@ For example, if you were deploying to the Maven Central Repository through the O
 
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by specifying the repository management `id` to the `setup-java` action. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
 
-In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ```yaml copy
 name: Publish package to the Maven Central Repository
@@ -88,7 +88,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -105,7 +105,7 @@ This workflow performs the following steps:
 1. Sets up the Java JDK, and also configures the Maven _settings.xml_ file to add authentication for the `ossrh` repository using the `MAVEN_USERNAME` and `MAVEN_PASSWORD` environment variables.
 1. {% data reusables.actions.publish-to-maven-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+   For more information about using secrets in your workflow, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
@@ -154,7 +154,7 @@ jobs:
       - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
@@ -167,7 +167,7 @@ This workflow performs the following steps:
 1. Sets up the Java JDK, and also automatically configures the Maven _settings.xml_ file to add authentication for the `github` Maven repository to use the `GITHUB_TOKEN` environment variable.
 1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+   For more information about using secrets in your workflow, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ## Publishing packages to the Maven Central Repository and {% data variables.product.prodname_registry %}
 
@@ -192,7 +192,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -205,7 +205,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:
@@ -222,4 +222,4 @@ This workflow performs the following steps:
 1. Calls `setup-java` the second time. This automatically configures the Maven _settings.xml_ file for {% data variables.product.prodname_registry %}.
 1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
-   For more information about using secrets in your workflow, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+   For more information about using secrets in your workflow, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."

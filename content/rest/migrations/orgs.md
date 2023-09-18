@@ -6,7 +6,7 @@ intro: >-
   Use the REST API to move a repository from {% data
   variables.product.prodname_dotcom_the_website %} to {% data
   variables.product.prodname_ghe_server %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

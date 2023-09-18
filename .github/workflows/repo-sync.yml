@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Sync repo to branch
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
@@ -86,7 +86,8 @@ jobs:
               console.log('Created pull request successfully', pull.html_url)
             } catch (err) {
               // Don't error/alert if there's no commits to sync
-              if (err.message?.includes('No commits')) {
+              // Don't throw if > 100 pulls with same head_sha issue
+              if (err.message?.includes('No commits') || err.message?.includes('same head_sha')) {
                 console.log(err.message)
                 return
               }

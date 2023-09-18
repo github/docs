@@ -36,7 +36,7 @@ function uuidv4(): string {
   } catch (err) {
     // https://stackoverflow.com/a/2117523
     return (<any>[1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c: number) =>
-      (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)
+      (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
     )
   }
 }
@@ -57,7 +57,6 @@ export enum EventType {
   hover = 'hover',
   search = 'search',
   searchResult = 'searchResult',
-  navigate = 'navigate',
   survey = 'survey',
   experiment = 'experiment',
   preference = 'preference',
@@ -66,37 +65,56 @@ export enum EventType {
 }
 
 type SendEventProps = {
-  type: EventType
-  version?: string
-  exit_render_duration?: number
-  exit_first_paint?: number
-  exit_dom_interactive?: number
-  exit_dom_complete?: number
-  exit_visit_duration?: number
-  exit_scroll_length?: number
-  exit_scroll_flip?: number
-  link_url?: string
-  link_samesite?: boolean
-  hover_url?: string
-  hover_samesite?: boolean
-  search_query?: string
-  search_context?: string
-  search_result_query?: string
-  search_result_index?: number
-  search_result_total?: number
-  search_result_rank?: number
-  search_result_url?: string
-  navigate_label?: string
-  survey_token?: string // Honeypot, doesn't exist in schema
-  survey_vote?: boolean
-  survey_comment?: string
-  survey_email?: string
-  experiment_name?: string
-  experiment_variation?: string
-  experiment_success?: boolean
-  clipboard_operation?: string
-  preference_name?: string
-  preference_value?: string
+  [EventType.clipboard]: {
+    clipboard_operation: string
+    clipboard_target?: string
+  }
+  [EventType.exit]: {
+    exit_render_duration?: number
+    exit_first_paint?: number
+    exit_dom_interactive?: number
+    exit_dom_complete?: number
+    exit_visit_duration?: number
+    exit_scroll_length?: number
+    exit_scroll_flip?: number
+  }
+  [EventType.experiment]: {
+    experiment_name: string
+    experiment_variation: string
+    experiment_success?: boolean
+  }
+  [EventType.hover]: {
+    hover_url: string
+    hover_samesite?: boolean
+  }
+  [EventType.link]: {
+    link_url: string
+    link_samesite?: boolean
+    link_container?: string
+  }
+  [EventType.page]: {}
+  [EventType.preference]: {
+    preference_name: string
+    preference_value: string
+  }
+  [EventType.print]: {}
+  [EventType.search]: {
+    search_query: string
+    search_context?: string
+  }
+  [EventType.searchResult]: {
+    search_result_query: string
+    search_result_index: number
+    search_result_total: number
+    search_result_rank: number
+    search_result_url: string
+  }
+  [EventType.survey]: {
+    survey_token?: string // Honeypot, doesn't exist in schema
+    survey_vote: boolean
+    survey_comment?: string
+    survey_email?: string
+  }
 }
 
 function getMetaContent(name: string) {
@@ -104,7 +122,14 @@ function getMetaContent(name: string) {
   return metaTag?.content
 }
 
-export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps) {
+export function sendEvent<T extends EventType>({
+  type,
+  version = '1.0.0',
+  ...props
+}: {
+  type: T
+  version?: string
+} & SendEventProps[T]) {
   const body = {
     type,
 
@@ -144,6 +169,7 @@ export function sendEvent({ type, version = '1.0.0', ...props }: SendEventProps)
       application_preference: Cookies.get('toolPreferred'),
       color_mode_preference: getColorModePreference(),
       os_preference: Cookies.get('osPreferred'),
+      code_display_preference: Cookies.get('annotate-mode'),
     },
 
     ...props,
@@ -282,7 +308,11 @@ function initCopyButtonEvent() {
     const target = evt.target as HTMLElement
     const button = target.closest('.js-btn-copy') as HTMLButtonElement
     if (!button) return
-    sendEvent({ type: EventType.navigate, navigate_label: 'copy icon button' })
+    sendEvent({
+      type: EventType.clipboard,
+      clipboard_operation: 'copy',
+      clipboard_target: '.js-btn-copy',
+    })
   })
 }
 
@@ -292,10 +322,14 @@ function initLinkEvent() {
     const link = target.closest('a[href]') as HTMLAnchorElement
     if (!link) return
     const sameSite = link.origin === location.origin
+    const container = ['header', 'nav', 'article', 'toc', 'footer'].find((name) =>
+      target.closest(`[data-container="${name}"]`),
+    )
     sendEvent({
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
+      link_container: container,
     })
   })
 }
@@ -353,9 +387,4 @@ export function initializeEvents() {
   initClipboardEvent()
   initCopyButtonEvent()
   initPrintEvent()
-  // survey event in ./survey.js
-  // experiment event in ./experiment.js
-  // search and search_result event in ./search.js
-  // redirect event in middleware/record-redirect.js
-  // preference event in ./display-tool-specific-content.js
 }

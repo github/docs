@@ -10,7 +10,7 @@ describe('toc links', () => {
     const pageList = await loadPages()
 
     const englishIndexPages = pageList.filter(
-      (page) => page.languageCode === 'en' && page.relativePath.endsWith('index.md')
+      (page) => page.languageCode === 'en' && page.relativePath.endsWith('index.md'),
     )
     const pages = await loadPageMap(pageList)
 

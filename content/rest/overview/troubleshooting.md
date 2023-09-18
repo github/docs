@@ -77,7 +77,7 @@ curl -H 'Authorization: Bearer YOUR-TOKEN' https://api.github.com/user/repos
 
 For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-For {% data variables.product.prodname_oauth_app %}s, you should use the [web application flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow) to generate an OAuth token to use in the API call's header:
+For {% data variables.product.prodname_oauth_apps %}, you should use the [web application flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
 curl -H 'Authorization: Bearer YOUR-OAUTH-TOKEN' https://api.github.com/user/repos
@@ -86,5 +86,21 @@ curl -H 'Authorization: Bearer YOUR-OAUTH-TOKEN' https://api.github.com/user/rep
 ## Timeouts
 
 If  {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response.
+
+{% endif %}
+
+{% ifversion rest-permissions-header %}
+
+## Insufficient permissions errors
+
+If you are using a {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} and you receive an error due to your token having insufficient permissions, you can use the `X-Accepted-GitHub-Permissions` header to identify the permissions that are required to access the REST API endpoint.
+
+The value of the `X-Accepted-GitHub-Permissions` header is a comma separated list of the permissions that are required to use the endpoint. Occasionally, you can choose from multiple permission sets. In these cases, multiple comma separated lists will be separated by a semicolon.
+
+For example:
+
+- `X-Accepted-GitHub-Permissions: contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs read access to the contents permission.
+- `X-Accepted-GitHub-Permissions: pull_requests=write,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs write access to the pull request permission and read access to the contents permission.
+- `X-Accepted-GitHub-Permissions: pull_requests=read,contents=read; issues=read,contents=read` means that your {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} needs either read access to the pull request permission and read access to the contents permission, or read access to the issues permission and read access to the contents permission.
 
 {% endif %}

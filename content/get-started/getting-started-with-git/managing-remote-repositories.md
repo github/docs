@@ -141,8 +141,8 @@ You can [use a credential helper](/get-started/getting-started-with-git/caching-
    ```shell
    $ git remote -v
    # Verify new remote URL
-   > origin  git@{% data variables.command_line.codeblock %}: OWNER/REPOSITORY.git (fetch)
-   > origin  git@{% data variables.command_line.codeblock %}: OWNER/REPOSITORY.git (push)
+   > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (fetch)
+   > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (push)
    ```
 
 ### Troubleshooting: No such remote '[name]'

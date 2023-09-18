@@ -35,13 +35,13 @@ shortTitle: Install on OpenStack
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. In OpenStack Horizon, upload the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the "Upload an image" section of the OpenStack guide "[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)."
+1. In OpenStack Horizon, upload the {% data variables.product.prodname_ghe_server %} image you downloaded. For instructions, see the "Upload an image" section of the OpenStack guide [Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html).
 {% data reusables.enterprise_installation.create-attached-storage-volume %} For instructions, see the OpenStack guide "[Create and manage volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)."
-1. Create a security group, and add a new security group rule for each port in the table below. For instructions, see the OpenStack guide "[Configure access and security for instances](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)."
+1. Create a security group, and add a new security group rule for each port in the table below. For instructions, see the OpenStack guide [Configure access and security for instances](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html).
 
-  {% data reusables.enterprise_installation.necessary_ports %}
-1. Optionally, associate a floating IP to the instance. Depending on your OpenStack setup, you may need to allocate a floating IP to the project and associate it to the instance. Contact your system administrator to determine if this is the case for you. For more information, see "[Allocate a floating IP address to an instance](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)" in the OpenStack documentation.
-1. Launch {% data variables.location.product_location %} using the image, data volume, and security group created in the previous steps. For instructions, see the OpenStack guide "[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)."
+   {% data reusables.enterprise_installation.necessary_ports %}
+1. Optionally, associate a floating IP to the instance. Depending on your OpenStack setup, you may need to allocate a floating IP to the project and associate it to the instance. Contact your system administrator to determine if this is the case for you. For more information, see [Allocate a floating IP address to an instance](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance) in the OpenStack documentation.
+1. Launch {% data variables.location.product_location %} using the image, data volume, and security group created in the previous steps. For instructions, see the OpenStack guide [Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html).
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} instance
 

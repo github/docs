@@ -58,7 +58,29 @@ If you attempt to dereference a non-existent property, it will evaluate to an em
 
 ### Determining when to use contexts
 
-{% data reusables.actions.using-context-or-environment-variables %}
+{% data variables.product.prodname_actions %} includes a collection of variables called _contexts_ and a similar collection of variables called _default variables_. These variables are intended for use at different points in the workflow:
+
+- **Default environment variables:** These environment variables exist only on the runner that is executing your job. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
+- **Contexts:** You can use most contexts at any point in your workflow, including when _default variables_ would be unavailable. For example, you can use contexts with expressions to perform initial processing before the job is routed to a runner for execution; this allows you to use a context with the conditional `if` keyword to determine whether a step should run. Once the job is running, you can also retrieve context variables from the runner that is executing the job, such as `runner.os`. For details of where you can use various contexts within a workflow, see "[Context availability](#context-availability)."
+
+The following example demonstrates how these different types of variables can be used together in a job:
+
+{% raw %}
+
+```yaml
+name: CI
+on: push
+jobs:
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
+```
+
+{% endraw %}
+
+In this example, the `if` statement checks the [`github.ref`](/actions/learn-github-actions/contexts#github-context) context to determine the current branch name; if the name is `refs/heads/main`, then the subsequent steps are executed. The `if` check is processed by {% data variables.product.prodname_actions %}, and the job is only sent to the runner if the result is `true`. Once the job is sent to the runner, the step is executed and refers to the [`$GITHUB_REF`](/actions/learn-github-actions/variables#default-environment-variables) variable from the runner.
 
 ### Context availability
 
@@ -126,27 +148,27 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo '$GITHUB_CONTEXT'
+        run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo '$JOB_CONTEXT'
+        run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo '$STEPS_CONTEXT'
+        run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo '$RUNNER_CONTEXT'
+        run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo '$STRATEGY_CONTEXT'
+        run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo '$MATRIX_CONTEXT'
+        run: echo "$MATRIX_CONTEXT"
 ```
 
 {% endraw %}
@@ -199,9 +221,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
 | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
-{%- endif %}
 | `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`{% ifversion fpt or ghec %}, `Codespaces`{% endif %}, or `Dependabot`. |
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |
@@ -285,9 +305,9 @@ jobs:
 
 ## `env` context
 
-The `env` context contains variables that have been set in a workflow, job, or step. For more information about setting variables in your workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#env)."
+The `env` context contains variables that have been set in a workflow, job, or step. It does not contain variables inherited by the runner process. For more information about setting variables in your workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#env)."
 
-The `env` context syntax allows you to use the value of a variable in your workflow file. You can use the `env` context in the value of any key in a step except for the `id` and `uses` keys. For more information on the step syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+You can retrieve the values of variables stored in `env` context and use these values in your workflow file. You can use the `env` context in any key in a workflow step except for the `id` and `uses` keys. For more information on the step syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 
 If you want to use the value of a variable inside a runner, use the runner operating system's normal method for reading environment variables.
 
@@ -298,7 +318,7 @@ If you want to use the value of a variable inside a runner, use the runner opera
 
 ### Example contents of the `env` context
 
-The contents of the `env` context is a mapping of variable names to their values. The context's contents can change depending on where it is used in the workflow run.
+The contents of the `env` context is a mapping of variable names to their values. The context's contents can change depending on where it is used in the workflow run. In this example, the `env` context contains two variables.
 
 ```json
 {
@@ -309,7 +329,7 @@ The contents of the `env` context is a mapping of variable names to their values
 
 ### Example usage of the `env` context
 
-This example workflow shows how the `env` context can be configured at the workflow, job, and step levels, as well as using the context in steps.
+This example workflow shows variables being set in the `env` context at the workflow, job, and step levels. The `{% raw %}${{ env.VARIABLE-NAME }}{% endraw %}` syntax is then used to retrieve variable values within individual steps in the workflow.
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -624,7 +644,7 @@ jobs:
 
 ## `secrets` context
 
-The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions due to security reasons. If you want to pass a secret to a composite action, you need to do it explicitly as an input. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions due to security reasons. If you want to pass a secret to a composite action, you need to do it explicitly as an input. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 `GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 

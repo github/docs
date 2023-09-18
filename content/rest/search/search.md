@@ -3,7 +3,7 @@ title: Search
 intro: >-
   Use the REST API to search for specific items on {% data
   variables.product.product_name %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -41,7 +41,7 @@ Each endpoint for searching uses [query parameters](https://en.wikipedia.org/wik
 
 A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. The format of the search query is:
 
-```
+```text
 SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
@@ -49,7 +49,7 @@ For example, if you wanted to search for all _repositories_ owned by `defunkt` t
 contained the word `GitHub` and `Octocat` in the README file, you would use the
 following query with the _search repositories_ endpoint:
 
-```
+```text
 GitHub Octocat in:readme user:defunkt
 ```
 

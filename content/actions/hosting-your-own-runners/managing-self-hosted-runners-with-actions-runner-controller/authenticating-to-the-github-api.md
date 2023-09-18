@@ -12,8 +12,6 @@ topics:
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## Overview
@@ -72,7 +70,7 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
    ```bash copy
    kubectl create secret generic pre-defined-secret \
       --namespace=my_namespace \
-      --from-literal=github_token='<YOUR PAT>'
+      --from-literal=github_token='YOUR-PAT'
    ```
 
 1. In your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file, pass the secret name as a reference.

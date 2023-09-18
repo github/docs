@@ -135,7 +135,7 @@ GitHub is liable for onward transfers of Protected Data to its subprocessors, su
 
 #### 6.2 Acceptance of GitHub Subprocessors.
 
-Customer authorizes GitHub and its subprocesors to appoint and use subprocessors in accordance with this Section 6 and the Agreement.
+Customer authorizes GitHub and its subprocessors to appoint and use subprocessors in accordance with this Section 6 and the Agreement.
 
 #### 6.3 General Consent for Onward Subprocessing.
 

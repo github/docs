@@ -4,7 +4,7 @@ export default function removeDeprecatedFrontmatter(
   file,
   frontmatterVersions,
   releaseToDeprecate,
-  nextOldestRelease
+  nextOldestRelease,
 ) {
   // skip files with no Enterprise Server versions frontmatter
   if (!frontmatterVersions) return false
@@ -39,7 +39,7 @@ export default function removeDeprecatedFrontmatter(
     // Throw a warning if there are no other frontmatter versions specified.
     if (Object.keys(frontmatterVersions).length === 1) {
       console.log(
-        `Warning! ${file} has frontmatter versioning that will make it never appear when ${releaseToDeprecate} is deprecated. The article should probably be removed.`
+        `Warning! ${file} has frontmatter versioning that will make it never appear when ${releaseToDeprecate} is deprecated. The article should probably be removed.`,
       )
       return false
     }

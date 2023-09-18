@@ -12,8 +12,6 @@ redirect_from:
 shortTitle: Search GitHub Marketplace
 ---
 
-{% data reusables.navigation.global-nav-beta-note %}
-
 ## About searching {% data variables.product.prodname_marketplace %}
 
 You can find apps and actions on {% data variables.product.prodname_marketplace %} in two ways:
@@ -23,9 +21,7 @@ You can find apps and actions on {% data variables.product.prodname_marketplace 
 
 ## Searching in {% data variables.product.prodname_marketplace %}
 
-1. To open {% data variables.product.prodname_marketplace %}, in the top-left corner of {% data variables.location.product_location %}, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click {% octicon "gift" aria-hidden="true" %} **Marketplace**.
-
-  ![Screenshot of the navigation bar on {% data variables.product.product_name %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)
+{% data reusables.marketplace.visit-marketplace %}
 1. Type any keywords and press **Enter**.
 1. Optionally, filter your results by clicking one or more options in the left sidebar.
 

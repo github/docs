@@ -43,6 +43,7 @@ If you define multiple products in the `versions` key within a page's YAML front
 Important notes:
 
 * Use `ifversion` for product-based versioning and [feature-based versioning](#feature-based-versioning).
+* Do not use `if` or `unless`.
 * Make sure to use `elsif` and not `else if`. Liquid does not recognize `else if` and will not render content inside an `else if` block.
 
 ### Comparison operators
@@ -66,6 +67,8 @@ If you need to denote content that is only available (or not available) in **cer
 |`<`| Older than| `{% ifversion ghes < 3.0 %}`
 |`!=`| Not equal to| `{% ifversion ghes != 3.0 %}` (don't use `not` in ranges)
 
+The Liquid operators `==`, `>=`, and `<=` are not supported in the GitHub Docs.
+
 ### Logical operators
 
 When **all** operands must be true for the condition to be true, use the operator `and`:
@@ -84,4 +87,4 @@ Do **not** use the operators `&&` or `||`. Liquid does not recognize them, and t
 
 ### Feature-based versioning
 
-You can define an arbitrarily named feature and associate specific product versions with that named feature using feature-based versioning. When you use the named version in a Liquid conditional block, the versions that you associate will apply to the content within the block. If the versioning for the feature changes, you can update one file instead of every individual Liquid tag.. For more information, see [data/features/README.md](/data/features).
+You can define an arbitrarily named feature and associate specific product versions with that named feature using feature-based versioning. When you use the named version in a Liquid conditional block, the versions that you associate will apply to the content within the block. If the versioning for the feature changes, you can update one file instead of every individual Liquid tag. You can use the `else` operator with feature-based versioning, but not the `not` operator. For more information, see [data/features/README.md](/data/features).

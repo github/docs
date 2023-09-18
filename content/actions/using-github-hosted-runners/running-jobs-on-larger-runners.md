@@ -17,7 +17,29 @@ Once your runner type has been defined, you can update your workflow YAML files 
 
 {% endnote %}
 
-Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization administrator to find out which runners are enabled. Your organization administrator can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#allowing-repositories-to-access-a-runner-group)."
+Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization owner to find out which runners are enabled. Your organization owner can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#allowing-repositories-to-access-a-runner-group)."
+
+{% ifversion repository-actions-runners %}
+
+## Viewing available runners for a repository
+
+{% note %}
+
+**Note:** This feature is currently in beta and subject to change.
+
+{% endnote %}
+
+{% data reusables.actions.about-viewing-runner-list %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.repository-runners %}
+1. Review the list of available runners for the repository.
+{% data reusables.actions.copy-runner-label %}
+
+{% data reusables.actions.actions-tab-new-runners-note %}
+
+{% endif %}
 
 ## Using groups to control where jobs are run
 
@@ -51,10 +73,10 @@ jobs:
 
 ## Troubleshooting {% data variables.actions.hosted_runner %}s
 
-If you notice the jobs that target your {% data variables.actions.hosted_runner %}s are delayed or not running, there are several factors that may be causing this. 
+If you notice the jobs that target your {% data variables.actions.hosted_runner %}s are delayed or not running, there are several factors that may be causing this.
 
 - **Concurrency settings**: You may have reached your maximum concurrency limit. If you would like to enable more jobs to run in parallel, you can update your autoscaling settings to a larger number. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#configuring-autoscaling-for-larger-runners)."
-- **Repository permissions**: Ensure you have the appropriate repository permissions enabled for your {% data variables.actions.hosted_runner %}s. By default, enterprise runners are not available at the repository level and must be manually enabled by an organization administrator. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#allowing-repositories-to-access-larger-runners)."
+- **Repository permissions**: Ensure you have the appropriate repository permissions enabled for your {% data variables.actions.hosted_runner %}s. By default, enterprise runners are not available at the repository level and must be manually enabled by an organization owner. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#allowing-repositories-to-access-larger-runners)."
 - **Billing information**: You must have a valid credit card on file in order to use {% data variables.actions.hosted_runner %}s. After adding a credit card to your account, it can take up to 10 minutes to enable the use of your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)."
 - **Spending limit**: Your {% data variables.product.prodname_actions %} spending limit must be set to a value greater than zero. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
 - **Fair use policy**: {% data variables.product.company_short %} has a fair use policy that begins to throttle jobs based on several factors, such as how many jobs you are running or how many jobs are running across the entirety of {% data variables.product.prodname_actions %}.

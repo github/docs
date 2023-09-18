@@ -39,19 +39,25 @@ When you enable one or more security and analysis features for existing reposito
 
    - To the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes or ghec %}If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 
-   ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all.png)
+     {% ifversion secret-scanning-validity-check-partner-patterns %}
+     ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all-with-validity-check.png)
 
+     {% else %}
+     ![Screenshot of the "Configure security and analysis features" section of the enterprise settings. To the right of each setting are "Enable all" and "Disable all" buttons, which are outlined in dark orange.](/assets/images/enterprise/security/enterprise-security-and-analysis-disable-or-enable-all.png){% endif %}
    - To confirm the change, click the **Enable/Disable all** or **Enable/Disable for eligible repositories** button in the dialog that is displayed.
-
 1. Optionally, to enable or disable a feature automatically when new repositories are added, select the checkbox below the feature.
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+1. Optionally, to automatically allow {% data variables.product.prodname_secret_scanning %} to check the validity of a secret by sending it to the relevant partner, select the relevant checkbox under "{% data variables.product.prodname_secret_scanning_caps %}". You can also enable the validity check for a single repository or organization. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)," and "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
 
+   {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
+
+{%- endif %}
 {% ifversion secret-scanning-custom-link-on-block %}
-
 1. Optionally, to include a resource link in the message that members will see when they attempt to push a secret, select **Add a resource link in the CLI and web UI when a commit is blocked**, then type a URL, and click **Save link**.
 
   {% note %}
 
-  **Note**: When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
+  **Note**: When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
   {% endnote %}
 

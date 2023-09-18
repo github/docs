@@ -12,8 +12,6 @@ topics:
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## About using ARC runners in a workflow file

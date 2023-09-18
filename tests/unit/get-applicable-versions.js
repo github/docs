@@ -35,10 +35,18 @@ describe('Versions frontmatter', () => {
 })
 
 describe('general cases', () => {
-  test('simply a wildcard', () => {
-    const applicableVersions = getApplicableVersions('*')
-    expect(applicableVersions.length).toBe(Object.keys(allVersions).length)
-    expect(Object.keys(allVersions).every((v) => applicableVersions.includes(v)))
+  test('wildcard * is no longer used', () => {
+    // docs engineering 3110
+    expect.assertions(2)
+    try {
+      getApplicableVersions('*')
+    } catch (e) {
+      expect(e).toBeInstanceOf(Error)
+      expect(e).toHaveProperty(
+        'message',
+        'undefined contains the invalid versions frontmatter: *. Please explicitly list out all the versions that apply to this article.',
+      )
+    }
   })
   test("using 'features'", () => {
     const possibleFeatures = fs
@@ -74,7 +82,7 @@ describe('invalid versions', () => {
     expect(() => {
       getApplicableVersions(versions, 'foo.md')
     }).toThrow(
-      'foo.md is not available in any currently supported version. Make sure the `versions` property includes at least one supported version.'
+      'foo.md is not available in any currently supported version. Make sure the `versions` property includes at least one supported version.',
     )
   })
 })

@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, expect, describe, it } from '@jest/globals'
 
 import Page from '../../../lib/page.js'
-import languages from '../../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
 import { DataDirectory } from '../../../tests/helpers/data-directory.js'
 
@@ -55,7 +55,7 @@ describe('data tag', () => {
       currentLanguage: 'en',
     }
     await expect(page.render(context)).rejects.toThrow(
-      "Can't find the key 'foo.bar.tipu' in the scope., line:2, col:1"
+      "Can't find the key 'foo.bar.tipu' in the scope., line:2, col:1",
     )
   })
 })

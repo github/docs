@@ -12,8 +12,6 @@ topics:
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## About runner scale sets
@@ -399,7 +397,7 @@ template:
       emptyDir: {}
 ```
 
-You can override any of these values to customize your setup.
+You cannot override these automatically injected values. If you want to customize this setup, you must unset `containerMode.type`, then copy this configuration and apply it directly in your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file.
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
@@ -441,7 +439,7 @@ When Kubernetes mode is enabled, workflows that are not configured with a contai
 Jobs without a job container are forbidden on this runner, please add a 'container:' to your job or contact your self-hosted runner administrator.
 ```
 
-In order to allow jobs without a job container to run, you need to instruct the runner to disable this check. You can do that by setting setting `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container:
+In order to allow jobs without a job container to run, you need to instruct the runner to disable this check. You can do that by setting `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container:
 
 ```yaml
 template:
@@ -503,10 +501,10 @@ template:
     - name: runner
       image: ghcr.io/actions/actions-runner:latest
       command: ["/home/runner/run.sh"]
-    resources:
-      limits:
-        cpu: 500m
-        memory: 512Mi
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
       securityContext:
         readOnlyRootFilesystem: true
         allowPrivilegeEscalation: false
@@ -517,13 +515,75 @@ template:
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
+### Enabling metrics
+
+{% note %}
+
+**Note:** Metrics for ARC are available as of version gha-runner-scale-set-0.5.0.
+
+{% endnote %}
+
+ARC can emit metrics about your runners, your jobs, and time spent on executing your workflows. Metrics can be used to identify congestion, monitor the health of your ARC deployment, visualize usage trends, optimize resource consumption, among many other use cases. Metrics are emitted by the controller-manager and listener pods in Prometheus format. For more information, see [Exposition formats](https://prometheus.io/docs/instrumenting/exposition_formats/) in the Prometheus documentation.
+
+To enable metrics for ARC, configure the `metrics` property in the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml) file of the `gha-runner-scale-set-controller` chart.
+
+The following is an example configuration.
+
+```yaml
+metrics:
+  controllerManagerAddr: ":8080"
+  listenerAddr: ":8080"
+  listenerEndpoint: "/metrics"
+```
+
+{% note %}
+
+**Note:** If the `metrics:` object is not provided or is commented out, the following flags will be applied to the controller-manager and listener pods with empty values: `--metrics-addr`, `--listener-metrics-addr`, `--listener-metrics-endpoint`. This will disable metrics for ARC.
+
+{% endnote %}
+
+Once these properties are configured, your controller-manager and listener pods emit metrics via the listenerEndpoint bound to the ports that you specify in your [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml) file. In the above example, the endpoint is `/metrics` and the port is `:8080`. You can use this endpoint to scrape metrics from your controller-manager and listener pods.
+
+To turn off metrics, update your [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set-controller/values.yaml) file by removing or commenting out the `metrics:` object and its properties.
+
+#### Available metrics for ARC
+
+The following table shows the metrics emitted by the controller-manager and listener pods.
+
+{% note %}
+
+**Note:** The metrics that the controller-manager emits pertain to the controller runtime and are not owned by {% data variables.product.company_short %}.
+
+{% endnote %}
+
+| Owner              | Metric                         | Type      | Description                                                                                                          |
+|--------------------|--------------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
+| controller-manager | pending_ephemeral_runners      | gauge     | Number of ephemeral runners in a pending state                                                                      |
+| controller-manager | running_ephemeral_runners      | gauge     | Number of ephemeral runners in a running state                                                                      |
+| controller-manager | failed_ephemeral_runners       | gauge     | Number of ephemeral runners in a failed state                                                                       |
+| listener           | assigned_jobs                  | gauge     | Number of jobs assigned to the runner scale set                                                                     |
+| listener           | running_jobs                   | gauge     | Number of jobs running or queued to run                                                                        |
+| listener           | registered_runners             | gauge     | Number of runners registered by the runner scale set                                                                |
+| listener           | busy_runners                   | gauge     | Number of registered runners currently running a job                                                                |
+| listener           | min_runners                    | gauge     | Minimum number of runners configured for the runner scale set                                                       |
+| listener           | max_runners                    | gauge     | Maximum number of runners configured for the runner scale set                                                       |
+| listener           | desired_runners                | gauge     | Number of runners desired (scale up / down target) by the runner scale set                                          |
+| listener           | idle_runners                   | gauge     | Number of registered runners not running a job                                                                      |
+| listener           | started_jobs_total             | counter   | Total number of jobs started since the listener became ready [1]                            |
+| listener           | completed_jobs_total           | counter   | Total number of jobs completed since the listener became ready [1]                          |
+| listener           | job_queue_duration_seconds     | histogram | Number of seconds spent waiting for workflow jobs to get assigned to the runner scale set after queueing           |
+| listener           | job_startup_duration_seconds   | histogram | Number of seconds spent waiting for workflow job to get started on the runner owned by the runner scale set         |
+| listener           | job_execution_duration_seconds | histogram | Number of seconds spent executing workflow jobs by the runner scale set                                             |
+
+[1]: Listener metrics that have the counter type are reset when the listener pod restarts.
+
 {% ifversion ghes %}
 
 ## Using ARC with Dependabot and Code Scanning
 
 You can use {% data variables.product.prodname_actions_runner_controller %} to create dedicated runners for your GitHub Enterprise Server instance that {% data variables.product.prodname_dependabot %} can use to help secure and maintain the dependencies used in repositories on your enterprise. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)."
 
-You can also use ARC with CodeQL to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+You can also use ARC with CodeQL to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 
 {% data variables.product.prodname_actions_runner_controller %} does not use labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning with CodeQL, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning jobs.
 
@@ -534,6 +594,12 @@ The [Dependabot Action](https://github.com/github/dependabot-action) is used to 
 {% endnote %}
 
 {% endif %}
+
+## High availability and automatic failover
+
+ARC can be deployed in a high availability (active-active) configuration. If you have two distinct Kubernetes clusters deployed in separate regions, you can deploy ARC in both clusters and configure runner scale sets to use the same `runnerScaleSetName`. In order to do this, each runner scale set must be assigned to a distinct runner group. For example, you can have two runner scale sets each named `arc-runner-set`, as long as one runner scale set belongs to `runner-group-A` and the other runner scale set belongs to `runner-group-B`. For information on assigning runner scale sets to runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
+
+If both runner scale sets are online, jobs assigned to them will be distributed arbitrarily (assignment race). You cannot configure the job assignment algorithm. If one of the clusters goes down, the runner scale set in the other cluster will continue to acquire jobs normally without any intervention or configuration change.
 
 ## Using ARC across organizations
 

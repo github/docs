@@ -4,7 +4,7 @@ import FailBot from '#src/observability/lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
-import { pathLanguagePrefixed } from '../lib/languages.js'
+import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
 import statsd from '#src/observability/lib/statsd.js'
 import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
@@ -52,7 +52,7 @@ export default async function renderPage(req, res) {
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
       console.error(
-        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`
+        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`,
       )
     }
 
