@@ -208,7 +208,7 @@ To stop private contributions from counting toward your Achievements, or to turn
 
 ## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
 
-If you have authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. Please note this event has since ended. The eligibility requirements were that the commit had to be authored with a verified email associated with your account at the time the eligible contributions were determined, and you could have been either the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+The Mars 2020 Helicopter Contributor achievement was given to those who had authored a commit for one of the repositories listed below. This event has now ended, and the badge is no longer available. We built the list based on information received from NASA's Jet Propulsion Laboratory.
 
 | {% data variables.product.prodname_dotcom %} Repository | Version | Tag |
 |---|---|---|
