@@ -8,7 +8,7 @@ versions:
 
 {% note %}
 
-**Note:** These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."
+**Note:** These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."
 
 {% endnote %}
 
@@ -58,7 +58,7 @@ Warnings and danger notices are rendered in red `{% raw %}{% warning %}{% endraw
 - Danger notices are dangerous actions that a user should exercise extreme caution before performing. They often involve the potential for data loss or other destructive actions.
   - Precede content with `**Danger:**`.
 
-For more information on formatting callouts, see “Callouts” in "[Syntax and versioning for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md)."
+For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#callout-tags)."
 
 ## Buttons
 
@@ -82,7 +82,7 @@ Style your CTAs using the following format.
 
 ### Code blocks
 
-Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[Syntax and versioning for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
+Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
 - Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml)" in the `github/docs` repository.
@@ -1003,7 +1003,7 @@ For example in the following table, in order to make sense of the "Yes" and "No"
   </tr>
 </table>
 
-To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[Table row headers](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#table-row-headers)" in the content markup reference.
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers)."
 
 ### Include a value for every cell
 Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
@@ -1015,7 +1015,7 @@ If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
 For tables that use symbols:
 
 - Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-- Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji.
+- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE]/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
 - Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
 - Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
