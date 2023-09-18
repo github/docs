@@ -45,11 +45,17 @@ async function main() {
 
   core.info(`Creating issue for errors...`)
 
+  let reportBody = 'The following files have markdown lint warnings/errors:\n\n'
+  for (const [file, flaws] of Object.entries(JSON.parse(errors))) {
+    reportBody += `File: \`${file}\`:\n`
+    reportBody += `\`\`\`json\n${JSON.stringify(flaws, null, 2)}\n\`\`\`\n`
+  }
+
   const reportProps = {
     core,
     octokit,
     reportTitle: `Error(s) in content markdown file(s)`,
-    reportBody: JSON.stringify(errors, undefined, 2),
+    reportBody,
     reportRepository: REPORT_REPOSITORY,
     reportLabel: REPORT_LABEL,
   }
