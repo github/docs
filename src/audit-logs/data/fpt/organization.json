@@ -161,37 +161,37 @@
   },
   {
     "action": "copilot.cfb_org_settings_changed",
-    "description": "N/A",
+    "description": "Settings for Copilot for Business were changed at the organization level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_created",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A seat was assigned to a user with no other active seat assignment.",
+    "docs_reference_links": "/copilot/overview-of-github-copilot/about-github-copilot-for-business"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
-    "description": "N/A",
+    "description": "A seat assignment that was already pending cancellation was created, revoking the cancellation.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_reused",
-    "description": "N/A",
+    "description": "A seat assignment was created for a user who already had a seat with no pending cancellation date.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_unassigned",
-    "description": "N/A",
+    "description": "A seat was unassigned from a user.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "N/A",
+    "description": "A seat was canceled from the Copilot for Business subscription manually by GitHub ",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_management_changed",
-    "description": "N/A",
+    "description": "The seat management setting was changed for the Copilot for Business subscription.",
     "docs_reference_links": "N/A"
   },
   {
@@ -910,6 +910,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.codespaces_team_access_allowed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.codespaces_team_access_revoked",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.codespaces_trusted_repo_access_granted",
     "description": "GitHub Codespaces was granted trusted repository access to all other repositories in an organization.",
     "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
@@ -1481,6 +1491,11 @@
   },
   {
     "action": "organization_role.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "organization_role.update",
     "description": "N/A",
     "docs_reference_links": "N/A"
   },
@@ -2727,12 +2742,12 @@
   {
     "action": "sponsors.sponsor_sponsorship_create",
     "description": "A sponsorship was created, by sponsoring an account.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor"
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
   },
   {
     "action": "sponsors.sponsor_sponsorship_payment_complete",
     "description": "After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor"
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
   },
   {
     "action": "sponsors.sponsor_sponsorship_preference_change",
