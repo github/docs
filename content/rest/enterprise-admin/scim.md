@@ -29,7 +29,7 @@ To manage your enterprise's users and groups using SCIM, use the following base 
 
 To authenticate API requests, the person who configures SCIM on the IdP must use a {% data variables.product.pat_v1 %} with `admin:enterprise` scope, which the IdP must provide in the request's `Authorization` header. For more information about {% data variables.product.pat_v1_plural %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
-We recommend authenticating as the setup user for the enterprise. Other user accounts are created through SCIM, so authenticating as a different user could result in unintended consequences, such as getting locked out of your enterprise. If another enterprise owner needs to read information from the API, use a {% data variables.product.pat_v1 %} with the `read:enterprise` scope.
+We recommend authenticating as the setup user for the enterprise. Other user accounts are created through SCIM, so authenticating as a different user could result in unintended consequences, such as getting locked out of your enterprise. Write requests to these APIs are possible through our published IdP applications, or through the private beta of direct API access to our SCIM endpoints. If another enterprise owner needs to read information from the API, use a {% data variables.product.pat_v1 %} with the `admin:enterprise` scope to make `GET` requests on your current SCIM implementation.
 
 ### Mapping of SAML and SCIM data
 
