@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 You can migrate individual repositories or all repositories from a BitBucket Server instance using {% data variables.product.prodname_cli %}.

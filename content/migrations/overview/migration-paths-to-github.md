@@ -98,10 +98,8 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 ### Bitbucket Server or Bitbucket Data Center to {% data variables.product.prodname_dotcom_the_website %}
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 - **Scope**: Source, history, and metadata
-- **Tooling**: {% data variables.product.prodname_importer_proper_name %} (public beta)
+- **Tooling**: {% data variables.product.prodname_importer_proper_name %}
 - **More information**:
   - "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
   - [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website

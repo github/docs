@@ -38,8 +38,6 @@ If you want to migrate Azure Pipelines to {% data variables.product.prodname_act
 
 ## Bitbucket Server migration support
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
 
 If your migration source is Bitbucket Server, you can migrate repositories. We currently only support migrating the following repository data from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}.
