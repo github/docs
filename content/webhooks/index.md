@@ -16,7 +16,6 @@ featuredLinks:
     - /webhooks-and-events/webhooks/testing-webhooks
   guideCards:
     - /webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli
-    - /webhooks-and-events/webhooks/replacing-github-services
 versions:
   fpt: '*'
   ghes: '*'
@@ -27,7 +26,6 @@ topics:
 children:
   - /about-webhooks
   - /webhook-events-and-payloads
-  - /replacing-github-services
   - /about-webhooks-for-repositories
   - /using-webhooks
   - /testing-and-troubleshooting-webhooks
