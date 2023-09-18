@@ -928,6 +928,8 @@ You must provide the required settings for each configuration `type` that you sp
 
 The `composer-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
 
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% raw %}
 
 ```yaml
@@ -946,6 +948,9 @@ registries:
 {% data variables.product.prodname_dependabot %} works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
 The `docker-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1026,6 +1031,8 @@ registries:
 
 The `hex-organization` type supports organization and key.
 
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% raw %}
 
 ```yaml
@@ -1065,6 +1072,8 @@ registries:
 ### `maven-repository`
 
 The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}
@@ -1194,6 +1203,8 @@ registries:
 
 The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% raw %}
 
 ```yaml
@@ -1225,6 +1236,8 @@ registries:
 ### `rubygems-server`
 
 The `rubygems-server` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}
