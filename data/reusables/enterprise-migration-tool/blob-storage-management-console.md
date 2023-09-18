@@ -11,7 +11,7 @@ After you set up an AWS S3 storage bucket or Azure Blob Storage storage account,
 
    {% note %}
 
-   **Note**: If you use Amazon S3, you must set the "AWS Service URL" to the standard endpoint for the AWS region where your bucket is located. For example, if your bucket is located in the `eu-west-1` region, the "AWS Service URL" would be https://s3.eu-west-1.amazonaws.com. Your {% data variables.product.prodname_ghe_server %} instance's network must allow access to this host. Gateway endpoints are not supported, such as `bucket.vpce-0e25b8cdd720f900e-argc85vg.s3.eu-west-1.vpce.amazonaws.com`. For more information about gateway endpoints, see [Gateway endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html) in the AWS documentation.
+   **Note**: If you use Amazon S3, you must set the "AWS Service URL" to the standard endpoint for the AWS region where your bucket is located. For example, if your bucket is located in the `eu-west-1` region, the "AWS Service URL" would be `https://s3.eu-west-1.amazonaws.com`. Your {% data variables.product.prodname_ghe_server %} instance's network must allow access to this host. Gateway endpoints are not supported, such as `bucket.vpce-0e25b8cdd720f900e-argc85vg.s3.eu-west-1.vpce.amazonaws.com`. For more information about gateway endpoints, see [Gateway endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html) in the AWS documentation.
 
    {% endnote %}
 1. Click **Test storage settings**.
