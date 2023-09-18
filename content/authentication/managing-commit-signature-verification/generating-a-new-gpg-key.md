@@ -45,11 +45,11 @@ topics:
 1. Verify that your selections are correct.
 1. Enter your user ID information.
 
-  {% note %}
+   {% note %}
 
-  **Note:** When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."{% endif %}
+   **Note:** When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %}  For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."{% endif %}
 
-  {% endnote %}
+   {% endnote %}
 
 1. Type a secure passphrase.
 {% data reusables.gpg.list-keys-with-note %}

@@ -39,8 +39,11 @@ After adding a new SSH authentication key to your account on {% ifversion ghae %
 {% webui %}
 
 {% data reusables.gpg.copy-ssh-public-key %}
+
 {% data reusables.user-settings.access_settings %}
+
 {% data reusables.user-settings.ssh %}
+
 1. Click **New SSH key** or **Add SSH key**.
 1. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
 {% ifversion ssh-commit-verification %}
@@ -60,7 +63,7 @@ Before you can use the {% data variables.product.prodname_cli %} to add an SSH k
 
 {% ifversion ssh-commit-verification %}At present, you can only use {% data variables.product.prodname_cli %} to add SSH authentication keys, you cannot add SSH signing keys.{% endif %}
 
-To add an SSH authentication key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key.
+To add an SSH authentication key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key. If you're prompted to request additional scopes, follow the instructions in the command line.
 
 ```shell
 gh ssh-key add KEY-FILE

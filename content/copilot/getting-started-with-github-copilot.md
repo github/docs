@@ -14,6 +14,7 @@ redirect_from:
   - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
 versions:
   feature: copilot
+defaultTool: vscode
 topics:
   - Copilot
 ---
@@ -164,11 +165,7 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 
 - To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.6 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_copilot %} is not currently available for use with Visual Studio for Mac.
-
-{% endnote %}
+{% data reusables.copilot.vs-for-mac-note %}
 
 ## Installing the {% data variables.product.prodname_vs %} extension
 

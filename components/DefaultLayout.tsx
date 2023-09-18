@@ -9,7 +9,7 @@ import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
 import { RestBanner } from 'src/rest/components/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 
 const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
@@ -108,7 +108,10 @@ export const DefaultLayout = (props: Props) => {
           </>
         )}
       </Head>
-      <a href="#main-content" className="sr-only color-bg-accent-emphasis color-fg-on-emphasis">
+      <a
+        href="#main-content"
+        className="visually-hidden skip-button color-bg-accent-emphasis color-fg-on-emphasis"
+      >
         Skip to main content
       </a>
       <Header />
@@ -123,7 +126,7 @@ export const DefaultLayout = (props: Props) => {
 
             {props.children}
           </main>
-          <footer>
+          <footer data-container="footer">
             <SupportSection />
             <LegalFooter />
             <ScrollButton

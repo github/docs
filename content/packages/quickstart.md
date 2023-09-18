@@ -95,7 +95,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
    - Edit the `package.json` file and specify the `publishConfig` key:
       ```shell
       "publishConfig": {
-        "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
+        "@YOUR-USERNAME:registry": "https://npm.pkg.github.com"
       }
       ```
 1. Commit and push your changes to {% data variables.product.prodname_dotcom %}.

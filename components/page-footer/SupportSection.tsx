@@ -6,7 +6,7 @@ import { Support } from 'components/page-footer/Support'
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 import { useRouter } from 'next/router'
-import { useTranslation } from '../hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const SupportSection = () => {
   const { currentVersion } = useVersion()

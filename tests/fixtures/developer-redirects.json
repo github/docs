@@ -20,7 +20,7 @@
   "/v3/misc": "/en/rest/emojis",
   "/v4/public_schema": "/en/graphql/overview/public-schema",
   "/v4/object/repository": "/en/graphql/reference/objects#repository",
-  "/webhooks": "/en/webhooks-and-events/webhooks/about-webhooks",
+  "/webhooks": "/en/webhooks",
   "/en/enterprise/2.18/apps": "/en/enterprise/2.18/user/developers/apps",
   "/en/enterprise/2.18/apps/building-oauth-apps/authorizing-oauth-apps": "/en/enterprise/2.18/user/developers/apps/authorizing-oauth-apps",
   "/en/enterprise/2.18/apps/building-oauth-apps/understanding-scopes-for-oauth-apps": "/en/enterprise/2.18/user/developers/apps/scopes-for-oauth-apps",

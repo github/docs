@@ -38,7 +38,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} extension in the Extensions Marketplace.](/assets/images/help/copilot/vscode-extension-search.png)
 
-1.  In the {% data variables.product.prodname_vscode %} window, click **Reload required** to update {% data variables.product.prodname_vscode %}.
+1. In the {% data variables.product.prodname_vscode %} window, click **Reload required** to update {% data variables.product.prodname_vscode %}.
 1. If you are prompted to sign in by a toast notification in the bottom right corner of {% data variables.product.prodname_vscode %}, click **Sign in to {% data variables.product.prodname_dotcom %}** and sign in with the same {% data variables.product.prodname_dotcom %} ID that has been granted access to the {% data variables.product.prodname_copilot_chat %} limited public beta.
 1. Follow the prompts in {% data variables.product.prodname_vscode %} and on {% data variables.product.prodname_dotcom %} in your browser to complete the sign in and authentication process.
 1. To confirm that {% data variables.product.prodname_copilot_chat %} has been successfully installed, in the activity bar on the left side of the {% data variables.product.prodname_vscode %} window, click the **{% data variables.product.prodname_copilot_chat %}** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
@@ -63,7 +63,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 1. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
 
    If your question is outside the scope of {% data variables.product.prodname_copilot_chat %}, it will tell you and may suggest an alternative question to ask.
-   
+
 1. Optionally, if {% data variables.product.prodname_copilot_chat %} suggests a follow-up question above the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, click the follow-up question to ask it.
 
 ## Using code suggestions from {% data variables.product.prodname_copilot_chat %}
@@ -78,7 +78,7 @@ When {% data variables.product.prodname_copilot_chat %} provides code suggestion
     - To copy the code suggestion to your clipboard, click the **Copy** icon.
     - To insert the code suggestion into your code at the current location of your cursor, click the **Insert at Cursor** icon.
     - To view additional options, click the **...** icon.
-        - To create a new file and insert the suggestion into it, click **Insert Into New File**. 
+        - To create a new file and insert the suggestion into it, click **Insert Into New File**.
         - To run the code suggestion in the {% data variables.product.prodname_vscode %} terminal, click **Run in Terminal**.
 
 ## Asking {% data variables.product.prodname_copilot_chat %} questions about your code
@@ -112,7 +112,6 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% endvscode %}
 
-
 {% visualstudio %}
 
 ## About {% data variables.product.prodname_copilot_chat %} and {% data variables.product.prodname_vs %}
@@ -123,7 +122,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.6 or higher. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation. 
+- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.6 or higher. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
 
 - To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has been granted access to the {% data variables.product.prodname_copilot_chat %} limited public beta.
 
@@ -131,9 +130,9 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Installing the {% data variables.product.prodname_vs %} extension
 
-To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension. 
+To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension.
 {% data reusables.copilot.vs-extensions %}
-1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the "{% data variables.product.prodname_vs %} Extension for {% data variables.product.prodname_copilot %} Preview", then click **Download**.
+1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for "{% data variables.product.prodname_copilot_chat %}", then click **Download**.
 {% data reusables.copilot.vs-exit-and-relaunch %}
 
 {% note %}
@@ -179,7 +178,6 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 1. Choose the option that best describes your feedback.
     - To report a bug, click **Report a problem**.
     - To request a feature, click **Suggest a feature**.
-
 
 ## Further reading
 

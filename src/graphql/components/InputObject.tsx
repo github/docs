@@ -1,6 +1,6 @@
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import type { InputObjectT } from './types'
 
 type Props = {

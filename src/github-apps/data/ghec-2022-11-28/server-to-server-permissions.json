@@ -92,6 +92,127 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-provisioned-scim-groups-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Groups",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-an-attribute-for-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "patch",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-group-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-scim-provisioned-identities-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-user",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-user-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       }
     ]
   },
@@ -3426,7 +3547,7 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
-        "access": "write",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -3961,7 +4082,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "contents"
+        ]
       },
       {
         "category": "interactions",
@@ -4124,6 +4247,28 @@
         "additional-permissions": [
           "pages"
         ]
+      },
+      {
+        "category": "repos",
+        "slug": "enable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "disable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       },
       {
         "category": "repos",
@@ -5245,6 +5390,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "administration"
+        ]
       },
       {
         "category": "git",
@@ -8438,6 +8596,17 @@
     "title": "Repository security advisories",
     "displayTitle": "Repository permissions for \"Repository security advisories\"",
     "permissions": [
+      {
+        "category": "security-advisories",
+        "slug": "list-repository-security-advisories-for-an-organization",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/security-advisories",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
       {
         "category": "security-advisories",
         "slug": "list-repository-security-advisories",

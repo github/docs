@@ -138,7 +138,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [12.x, 14.x]
+        node-version: [14.x, 16.x]
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}

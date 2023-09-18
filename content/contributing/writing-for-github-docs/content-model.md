@@ -161,7 +161,8 @@ Conceptual content helps people understand a feature or topic by providing a cle
 We create conceptual articles and conceptual sections within other articles. Most major products, features, or subjects have their own conceptual article.
 
 #### How to write conceptual content
-Use the [conceptual content template](https://github.com/github/docs/blob/main/contributing/content-templates.md#conceptual) to write a conceptual article.
+
+For the conceptual content template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#conceptual-article-template)."
 
 - Describe in plain language what the feature, product, or topic is.
 - Describe its purpose and why it’s useful to the reader.
@@ -193,7 +194,8 @@ We create referential articles and referential sections within other articles.
 - For smaller amounts of content or more specific information, like a list of a feature’s supported languages or hardware requirements, use referential sections in context within procedural or conceptual articles.
 
 #### How to write referential content
-Use the [referential content template](https://github.com/github/docs/blob/main/contributing/content-templates.md#referential) to write a referential article.
+
+For the referential content template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#referential-article-template)."
 
 - Write a sentence or an entire conceptual section to introduce the referential content.
 - Present the actual referential content clearly and consistently.
@@ -228,7 +230,8 @@ Procedural content helps people complete a task from start to finish while they 
 We create procedural articles and procedural sections within larger articles.
 
 #### How to write procedural articles
-Use the [procedural content template](https://github.com/github/docs/blob/main/contributing/content-templates.md#procedural) to write a procedural article.
+
+For the procedural content template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#procedural-article-template)."
 
 - Follow the style guidelines for procedural steps in "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#procedural-steps)".
 - Procedural content can get repetitive––look for opportunities to group related content into a single longer article.
@@ -332,7 +335,8 @@ Quickstarts enable people to quickly complete a discrete, focused task by illust
 Quickstarts are useful when someone already understands the feature or product and is ready to try it out. Quickstarts are best for people who want instructions quickly without lengthy explanations of how something works or why they would want to use it.
 
 #### How to write a quickstart
-Use the [quickstart template](https://github.com/github/docs/blob/main/contributing/content-templates.md#quickstart) to create a quickstart guide.
+
+For the quickstart template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#quickstart-article-template)."
 
 Contents of quickstarts:
 - Introduction:
@@ -369,7 +373,8 @@ Tutorials help people learn about products and solve real world problems by guid
 Tutorials are useful when someone has a basic understanding of the product and is interested in extending their understanding to solve a specific problem. Tutorials are for people who want expert advice and a detailed discussion of best practices related to their problem. Tutorials also help people who've implemented similar solutions in the past with other products use {% data variables.product.prodname_dotcom %}. Tutorials can also help people validate whether the solution is appropriate for their needs.
 
 #### How to write a tutorial
-Use the [tutorial template](https://github.com/github/docs/blob/main/contributing/content-templates.md#tutorial) to create a tutorial.
+
+For the tutorial template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#tutorial-article-template)."
 
 Contents of tutorials:
 - Introduction
@@ -422,17 +427,17 @@ Every article includes a few standard elements, and may include conditional or o
 Within an article, there is a standard order of content sections. Every article contains required elements. Articles will also contain conditional elements and optional elements outlined in content design or creation. See the guidelines below for more details.
 
 1. Title
-2. Product callout (conditional)
-3. Intro
-4. Permissions statement (conditional)
-5. Tool switcher (conditional)
-6. Table of contents
-7. Conceptual content
-8. Referential content
-9. Prerequisites
-10. Procedural content
-11. Troubleshooting content
-12. Further reading (conditional)
+1. Product callout (conditional)
+1. Intro
+1. Permissions statement (conditional)
+1. Tool switcher (conditional)
+1. Table of contents
+1. Conceptual content
+1. Referential content
+1. Prerequisites
+1. Procedural content
+1. Troubleshooting content
+1. Further reading (conditional)
 
 ![Screenshot of article with title, intro, permissions, product callout, conceptual section, procedural section, and table of contents labeled.](/assets/images/contributing/illustration-of-article-contents.png)
 
@@ -449,14 +454,13 @@ Titles can be challenging. Use these general guidelines to help create clear, he
   - Avoid: Using the workflow editor sidebar
   - Avoid: Example
   - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
-     - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
-     - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
-     - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
+     - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 26 characters
+     - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 29 characters
+     - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 30 characters, ideally 20-25 characters
 - Titles are consistent across a content type
   - See specific guidelines for each content type
-  - Titles aren’t repetitive––vary the verbs used for procedure or map topic titles when possible
 - Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products
-  - Use: "GitHub's billing plans"
+  - Use: "{% data variables.product.company_short %}'s billing plans"
   - Avoid: "Billing plans for user and organization accounts"
 - Titles use consistent terminology
   - Develop and follow patterns within a category or on similar subjects

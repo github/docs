@@ -40,7 +40,7 @@ You will need to create a new personal account and then use this account to crea
    **Warning**: Although you can generate the {% data variables.product.pat_v1 %} using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" and "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
 
    {% endwarning %}
-1. Give the new account read access to the required repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
+1. Give the new account read access to the required repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)."
 1. While signed into the new account, create a {% data variables.product.pat_v1 %} with the `repo` scope. Optionally, if the prebuild will need to download packages from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, also select the `read:packages` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
    ![Screenshot of the "Select scopes" configuration options for a {% data variables.product.pat_v1 %}, with the "repo" and "read:packages" scopes selected.](/assets/images/help/codespaces/prebuilds-select-scopes.png)
@@ -54,7 +54,7 @@ You will need to create a new personal account and then use this account to crea
 {% endif %}
 1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
 1. Sign back into the account that has admin access to the repository.
-1. In the repository for which you want to create {% data variables.product.prodname_github_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
+1. In the repository for which you want to create {% data variables.product.prodname_github_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
 
 The {% data variables.product.pat_generic %} will be used for all subsequent prebuilds created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
 

@@ -1493,6 +1493,40 @@
       ]
     },
     {
+      "name": "addPullRequestReviewThreadReply",
+      "kind": "mutations",
+      "id": "addpullrequestreviewthreadreply",
+      "href": "/graphql/reference/mutations#addpullrequestreviewthreadreply",
+      "description": "<p>Adds a reply to an existing Pull Request Review Thread.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddPullRequestReviewThreadReplyInput!",
+          "id": "addpullrequestreviewthreadreplyinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addpullrequestreviewthreadreplyinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "comment",
+          "type": "PullRequestReviewComment",
+          "id": "pullrequestreviewcomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreviewcomment",
+          "description": "<p>The newly created reply.</p>"
+        }
+      ]
+    },
+    {
       "name": "addReaction",
       "kind": "mutations",
       "id": "addreaction",
@@ -14548,6 +14582,39 @@
       ]
     },
     {
+      "name": "ContributingGuidelines",
+      "kind": "objects",
+      "id": "contributingguidelines",
+      "href": "/graphql/reference/objects#contributingguidelines",
+      "description": "<p>The Contributing Guidelines for a repository.</p>",
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the Contributing Guidelines.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for the Contributing Guidelines.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for the Contributing Guidelines.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
       "name": "ContributionCalendar",
       "kind": "objects",
       "id": "contributioncalendar",
@@ -20798,6 +20865,72 @@
       ]
     },
     {
+      "name": "EnterpriseConnection",
+      "kind": "objects",
+      "id": "enterpriseconnection",
+      "href": "/graphql/reference/objects#enterpriseconnection",
+      "description": "<p>The connection type for Enterprise.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseEdge]",
+          "id": "enterpriseedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterpriseedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Enterprise]",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseEdge",
+      "kind": "objects",
+      "id": "enterpriseedge",
+      "href": "/graphql/reference/objects#enterpriseedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseFailedInvitationConnection",
       "kind": "objects",
       "id": "enterprisefailedinvitationconnection",
@@ -26034,6 +26167,14 @@
         {
           "name": "gitIpAddresses",
           "description": "<p>IP addresses that users connect to for git operations.</p>",
+          "type": "[String!]",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "githubEnterpriseImporterIpAddresses",
+          "description": "<p>IP addresses that GitHub Enterprise Importer uses for outbound connections.</p>",
           "type": "[String!]",
           "id": "string",
           "kind": "scalars",
@@ -37733,6 +37874,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the organization was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         },
         {
           "name": "auditLog",
@@ -57588,6 +57737,14 @@
           "href": "/graphql/reference/objects#repositorycontactlink"
         },
         {
+          "name": "contributingGuidelines",
+          "description": "<p>Returns the contributing guidelines for this repository.</p>",
+          "type": "ContributingGuidelines",
+          "id": "contributingguidelines",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#contributingguidelines"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -61073,6 +61230,14 @@
           "id": "ruleparameters",
           "kind": "unions",
           "href": "/graphql/reference/unions#ruleparameters"
+        },
+        {
+          "name": "repositoryRuleset",
+          "description": "<p>The repository ruleset associated with this rule configuration.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset"
         },
         {
           "name": "type",
@@ -70830,6 +70995,77 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "enterprises",
+          "description": "<p>A list of enterprises that the user belongs to.</p>",
+          "type": "EnterpriseConnection",
+          "id": "enterpriseconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterpriseconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "membershipType",
+              "defaultValue": "ALL",
+              "description": "<p>Filter enterprises returned based on the user's membership type.</p>",
+              "type": {
+                "name": "EnterpriseMembershipType",
+                "id": "enterprisemembershiptype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#enterprisemembershiptype"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's enterprises.</p>",
+              "type": {
+                "name": "EnterpriseOrder",
+                "id": "enterpriseorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#enterpriseorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "estimatedNextSponsorsPayoutInCents",
           "description": "<p>The estimated next GitHub Sponsors payout for this user/organization in cents (USD).</p>",
           "type": "Int!",
@@ -79286,6 +79522,44 @@
       ]
     },
     {
+      "name": "EnterpriseMembershipType",
+      "kind": "enums",
+      "id": "enterprisemembershiptype",
+      "href": "/graphql/reference/enums#enterprisemembershiptype",
+      "description": "<p>The possible values we have for filtering Platform::Objects::User#enterprises.</p>",
+      "values": [
+        {
+          "name": "ADMIN",
+          "description": "<p>Returns all enterprises in which the user is an admin.</p>"
+        },
+        {
+          "name": "ALL",
+          "description": "<p>Returns all enterprises in which the user is a member, admin, or billing manager.</p>"
+        },
+        {
+          "name": "BILLING_MANAGER",
+          "description": "<p>Returns all enterprises in which the user is a billing manager.</p>"
+        },
+        {
+          "name": "ORG_MEMBERSHIP",
+          "description": "<p>Returns all enterprises in which the user is a member of an org that is owned by the enterprise.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseOrderField",
+      "kind": "enums",
+      "id": "enterpriseorderfield",
+      "href": "/graphql/reference/enums#enterpriseorderfield",
+      "description": "<p>Properties by which enterprise connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "NAME",
+          "description": "<p>Order enterprises by name.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseServerInstallationOrderField",
       "kind": "enums",
       "id": "enterpriseserverinstallationorderfield",
@@ -81433,6 +81707,23 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>The workflows' date and time of update.</p>"
+        }
+      ]
+    },
+    {
+      "name": "PullRequestBranchUpdateMethod",
+      "kind": "enums",
+      "id": "pullrequestbranchupdatemethod",
+      "href": "/graphql/reference/enums#pullrequestbranchupdatemethod",
+      "description": "<p>The possible methods for updating a pull request's head branch with the base branch.</p>",
+      "values": [
+        {
+          "name": "MERGE",
+          "description": "<p>Update branch via merge.</p>"
+        },
+        {
+          "name": "REBASE",
+          "description": "<p>Update branch via rebase.</p>"
         }
       ]
     },
@@ -87313,6 +87604,49 @@
       ]
     },
     {
+      "name": "AddPullRequestReviewThreadReplyInput",
+      "kind": "inputObjects",
+      "id": "addpullrequestreviewthreadreplyinput",
+      "href": "/graphql/reference/input-objects#addpullrequestreviewthreadreplyinput",
+      "description": "<p>Autogenerated input type of AddPullRequestReviewThreadReply.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The text of the reply.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestReviewId",
+          "description": "<p>The Node ID of the pending review to which the reply will belong.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "pullRequestReviewThreadId",
+          "description": "<p>The Node ID of the thread to which this reply is being written.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "AddReactionInput",
       "kind": "inputObjects",
       "id": "addreactioninput",
@@ -91925,6 +92259,31 @@
       ]
     },
     {
+      "name": "EnterpriseOrder",
+      "kind": "inputObjects",
+      "id": "enterpriseorder",
+      "href": "/graphql/reference/input-objects#enterpriseorder",
+      "description": "<p>Ordering options for enterprises.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprises by.</p>",
+          "type": "EnterpriseOrderField!",
+          "id": "enterpriseorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseorderfield"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseServerInstallationOrder",
       "kind": "inputObjects",
       "id": "enterpriseserverinstallationorder",
@@ -95610,7 +95969,7 @@
         },
         {
           "name": "continueOnError",
-          "description": "<p>Whether to continue the migration on error. Defaults to <code>false</code>. We strongly\nrecommend setting this to <code>true</code> for the smoothest migration experience.</p>",
+          "description": "<p>Whether to continue the migration on error. Defaults to <code>true</code>.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -98466,6 +98825,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "updateMethod",
+          "description": "<p>The update branch method to use. If omitted, defaults to 'MERGE'.</p>",
+          "type": "PullRequestBranchUpdateMethod",
+          "id": "pullrequestbranchupdatemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestbranchupdatemethod"
         }
       ]
     },

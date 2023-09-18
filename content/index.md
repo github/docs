@@ -42,7 +42,11 @@ redirect_from:
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
   - /github/enforcing-best-practices-with-github-policies/syntax
-versions: '*'
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - search
   - get-started
@@ -63,7 +67,7 @@ children:
   - packages
   - search-github
   - apps
-  - webhooks-and-events
+  - webhooks
   - rest
   - graphql
   - github-cli
@@ -128,7 +132,7 @@ childGroups:
       - apps
       - rest
       - graphql
-      - webhooks-and-events
+      - webhooks
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -165,3 +169,4 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
+

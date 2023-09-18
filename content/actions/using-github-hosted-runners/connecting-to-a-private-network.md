@@ -92,7 +92,7 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[AUTOTITLE](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" for how to securely store keys.
 
 ### Using Tailscale to create a network overlay
 
@@ -102,7 +102,7 @@ Its disadvantages are similar to WireGuard: The connection is one-to-one, so you
 
 However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[AUTOTITLE](/actions/security-guides/encrypted-secrets)" for how to securely store keys.
+For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" for how to securely store keys.
 
 {% ifversion actions-private-networking-azure-vnet %}
 
@@ -152,7 +152,11 @@ Before configuring {% data variables.product.prodname_actions %} for VNET-inject
 
 {% note %}
 
-**Note:** To configure {% data variables.product.prodname_actions %} for VNET-injection, you must use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) in the Azure documentation.
+**Notes:**
+- To configure {% data variables.product.prodname_actions %} for VNET-injection, you must use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) in the Azure documentation.
+- To correctly associate the subnets with the right user, Azure `NetworkSettings` resources must be created in the same subscriptions where virtual networks are created.
+- To ensure resource availability/data residency, resources must be created in the same Azure region.
+- After you configure your Azure subscription, share your Azure Subscription ID with your {% data variables.product.company_short %} contact to enroll in the beta.
 
 {% endnote %}
 
@@ -319,7 +323,7 @@ To grant {% data variables.product.prodname_actions %} access, you can use {% da
 
    ```
 
-{% indented_data_reference reusables.enterprise_migrations.retreive-enterprise-id-graphql spaces=3 %}
+   {% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
 
 1. Save the following template in a file named `networkSettingsPayload.json`. Replace `DATABASE_ID` with the enterprise `databaseId` integer you retrieved using GraphQL in the previous step.
 
@@ -333,7 +337,7 @@ To grant {% data variables.product.prodname_actions %} access, you can use {% da
 1. Use the following command in the Azure CLI to create a network settings resource in Azure. For more information, see [Azure Command-Line Interface (CLI) documentation](https://learn.microsoft.com/en-us/cli/azure/) in the Azure documentation.
 
    ```shell copy
-   az resource create -g RESOURCE_GROUP_NAME -n RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties @networkSettingsPayload.json
+   az resource create -g RESOURCE_GROUP_NAME -n RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties '@networkSettingsPayload.json' --api-version 2023-03-15-beta
    ```
 
    The command will return the full payload for the created resource. The following is an example of a portion of the full payload.

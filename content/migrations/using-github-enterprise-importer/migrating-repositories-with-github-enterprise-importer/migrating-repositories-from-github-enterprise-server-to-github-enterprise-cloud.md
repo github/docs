@@ -419,6 +419,8 @@ gh gei generate-script --github-source-org SOURCE \
 
 {% data reusables.enterprise-migration-tool.review-migration-script %}
 
+{% data reusables.enterprise-migration-tool.skip-releases %}
+
 ## Step 6: Migrate repositories
 
 {% data reusables.enterprise-migration-tool.migrate-repos-gei %}

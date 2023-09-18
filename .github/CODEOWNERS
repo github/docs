@@ -8,6 +8,13 @@
 
 # Enterprise
 /data/release-notes/**/*.yml @github/docs-content-enterprise
+src/ghes-releases/lib/enterprise-dates.json @github/docs-content-enterprise
 
 # Requires review of #actions-oidc-integration, docs-engineering/issues/1506
 content/actions/deployment/security-hardening-your-deployments/** @github/oidc
+
+# Temporary, so @lecoursen can copy any changes to the audit log reference
+# to the JSON file that will soon be used to auto-generate this content
+/content/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise.md @lecoursen
+/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization.md @lecoursen
+/content/authentication/keeping-your-account-and-data-secure/security-log-events.md @lecoursen

@@ -41,11 +41,12 @@ children:
   - /deleting-an-organization-account
   - /converting-an-organization-into-a-user
   - /integrating-jira-with-your-organization-project-board
-  - /upgrading-to-the-corporate-terms-of-service
+  - /upgrading-to-the-github-customer-agreement
   - /disabling-project-boards-in-your-organization
   - /disabling-insights-for-projects-in-your-organization
   - /managing-base-permissions-for-projects
   - /allowing-project-visibility-changes-in-your-organization
+  - /creating-rulesets-for-repositories-in-your-organization
   - /managing-rulesets-for-repositories-in-your-organization
 shortTitle: Manage organization settings
 ---

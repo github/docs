@@ -1,6 +1,6 @@
 import { Link } from 'components/Link'
 import type { LearningTrack } from 'components/context/ArticleContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 type Props = {
   track: LearningTrack

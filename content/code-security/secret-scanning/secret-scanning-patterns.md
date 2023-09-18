@@ -69,6 +69,8 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 
 Push protection alerts are user alerts that are reported by push protection. {% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by some service providers.
 
+{% ifversion secret-scanning-push-protection-for-users %}Push protection alerts are not created for secrets that are bypassed with user-based push protection only. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."{% endif %}
+
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
 {% data reusables.secret-scanning.push-protection-older-tokens %} For more information about push protection limitations, see "[AUTOTITLE](/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-and-pattern-versions)."
@@ -83,13 +85,13 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 - **User**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}{% ifversion ghes or ghae %}
 - **{% data variables.product.prodname_secret_scanning_caps %} alert**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% ifversion secret-scanning-push-protection %}
 - **Push protection**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.{% endif %}{% ifversion secret-scanning-validity-check %}
-- **Validity check**—token for which a validity check is implemented. For partner tokens, the token is sent to the relevant partner. Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %}
+- **Validity check**—token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see "[{% data variables.product.prodname_advanced_security %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security)" in the Site Policy documentation.{% else %} Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %}{% endif %}
 
 <!-- FPT version of table -->
 {% ifversion fpt %}
 
 | Provider | Token | Partner | User | Push protection | Validity check |
-|----|:----|:----:|:----:|:----:|
+|----|:----|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}

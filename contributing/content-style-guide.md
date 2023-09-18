@@ -1,5 +1,7 @@
 # Content style guide for GitHub Docs <!-- omit in toc -->
 
+**Note:** This version of the style guide is no longer maintained and will be deprecated. See the [content model](https://docs.github.com/en/contributing/writing-for-github-docs/content-model) on docs.github.com for the most up to date version. Open any pull requests against the `contributing/writing-for-github-docs/content-model.md` file.
+
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"
@@ -692,6 +694,12 @@ A release note for a security fix answers the following questions.
 - > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, GitHub has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). GitHub has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
 
 - > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+
+#### Base image and package updates
+
+We also include base image and dependent package updates in the "Security fixes" section, since these updates often address security issues. We consolidate all of these updates in the following note.
+
+> Packages have been updated to the latest security versions.
 
 ### Bug fixes
 

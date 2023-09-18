@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, Select, Tooltip, UnderlineNav } from '@primer/react'
+import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
 import Cookies from 'components/lib/cookies'
 import cx from 'classnames'
@@ -9,7 +9,7 @@ import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import useClipboard from 'src/rest/components/useClipboard'
 import {
   getShellExample,
@@ -246,13 +246,15 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         <div className="my-0 p-3">
           <RestMethod verb={operation.verb} requestPath={operation.requestPath} />
         </div>
-        <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center">
+        <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center pt-2">
           <div className="d-inline-flex ml-2">
-            <UnderlineNav aria-label="Example language selector">
+            <TabNav aria-label="Example language selector">
               {languageSelectOptions.map((optionKey) => (
-                <UnderlineNav.Link
+                <TabNav.Link
                   key={optionKey}
-                  onClick={() => {
+                  selected={optionKey === selectedLanguage}
+                  onClick={(e) => {
+                    e.preventDefault()
                     handleLanguageSelection(optionKey)
                   }}
                   onKeyDown={(event) => {
@@ -260,17 +262,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                       handleLanguageSelection(optionKey)
                     }
                   }}
-                  tabIndex={0}
-                  selected={optionKey === selectedLanguage}
-                  className="pr-3 mr-0"
-                  sx={{
-                    cursor: 'pointer',
-                  }}
+                  href="#"
                 >
                   {t(`rest.reference.code_sample_options.${optionKey}`)}
-                </UnderlineNav.Link>
+                </TabNav.Link>
               ))}
-            </UnderlineNav>
+            </TabNav>
           </div>
           <div className="mr-2">
             <Tooltip
@@ -279,8 +276,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
               <button
-                aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
                 className="js-btn-copy btn-octicon"
+                aria-label={
+                  isCopied
+                    ? t('button_text.copied')
+                    : `${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`
+                }
+                aria-live="polite"
+                aria-atomic="true"
                 onClick={() => setCopied()}
               >
                 {isCopied ? <CheckIcon /> : <CopyIcon />}
@@ -303,42 +306,34 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       </div>
 
       {/* Response section */}
-      <div
+      <h4
         className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
           __html: displayedExample.response.description || t('rest.reference.response'),
         }}
-      ></div>
-
+      ></h4>
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
-          <UnderlineNav aria-label="Example response format selector">
-            {responseSelectOptions.map((optionKey) => {
-              if (!displayedExample.response.schema) return null
-
-              return (
-                <UnderlineNav.Link
-                  key={optionKey}
-                  onClick={() => {
+          <TabNav className="pt-2 mx-2" aria-label="Example response format selector">
+            {responseSelectOptions.map((optionKey) => (
+              <TabNav.Link
+                key={optionKey}
+                selected={optionKey === selectedResponse}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleResponseSelection(optionKey)
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
                     handleResponseSelection(optionKey)
-                  }}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter') {
-                      handleResponseSelection(optionKey)
-                    }
-                  }}
-                  tabIndex={0}
-                  selected={optionKey === selectedResponse}
-                  className="pr-3 mr-0 ml-2"
-                  sx={{
-                    cursor: 'pointer',
-                  }}
-                >
-                  {t(`rest.reference.response_options.${optionKey}`)}
-                </UnderlineNav.Link>
-              )
-            })}
-          </UnderlineNav>
+                  }
+                }}
+                href="#"
+              >
+                {t(`rest.reference.response_options.${optionKey}`)}
+              </TabNav.Link>
+            ))}
+          </TabNav>
         ) : null}
         <div className="">
           {/* Status code */}

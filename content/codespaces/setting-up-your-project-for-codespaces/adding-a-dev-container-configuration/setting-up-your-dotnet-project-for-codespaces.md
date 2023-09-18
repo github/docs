@@ -22,6 +22,7 @@ This tutorial guide shows you how to set up an example C# (.NET) project {% data
 
 ## Step 1: Open the project in a codespace
 
+{% data reusables.getting-started.sign-in-dotcom %}
 1. Go to https://github.com/microsoft/vscode-remote-try-dotnet.
 {% data reusables.codespaces.use-this-template %}
 
@@ -163,7 +164,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, restoring the required dependencies, and the "Code Spell Checker" extension will be available for use.
 

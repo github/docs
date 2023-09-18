@@ -22,7 +22,7 @@ shortTitle: Contribute to open source
 
 If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
 
-If you've been active on {% data variables.location.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore](https://github.com/explore). You can also sign up for the Explore newsletter to receive emails about opportunities to contribute to {% data variables.product.product_name %} based on your interests. To sign up, see [Explore email newsletter](https://github.com/explore/subscribe).
+If you've been active on {% data variables.location.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore).
 
 Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)."
 

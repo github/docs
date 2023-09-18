@@ -251,6 +251,7 @@ You can create multiple levels of nested lists using the same method. For exampl
 
 For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
 
+{% ifversion task-lists-v1 %}
 ## Task lists
 
 {% data reusables.repositories.task-list-markdown %}
@@ -260,6 +261,7 @@ If a task list item description begins with a parenthesis, you'll need to escape
 `- [ ] \(Optional) Open a followup issue`
 
 For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+{% endif %}
 
 ## Mentioning people and teams
 
@@ -343,15 +345,15 @@ Footnotes are not supported in wikis.
 
 {% note %}
 
-**Note**: The syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
+**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
 
 {% endnote %}
 
-Alerts are an extension of Markdown used to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
+Alerts are an extension of the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
 
 We recommend restricting the use of alerts to one or two per article to avoid overloading the reader. Consecutive notes should be avoided.
 
-There are three types of alerts available.
+Three types of alert are available. You can add an alert with a special blockquote line that specifies the alert type, and then add the alert information in a standard blockquote immediately after.
 
 ```
 > [!NOTE]

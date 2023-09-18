@@ -2,7 +2,7 @@
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
-import { readFile, writeFile } from 'fs/promises'
+import fs from 'fs'
 import ora from 'ora'
 import { extname } from 'path'
 import { execSync } from 'child_process'
@@ -18,7 +18,7 @@ program
   )
   .addOption(
     new Option(
-      '-e, --errors',
+      '--errors-only',
       'Only report rules that have the severity of error, not warning.',
     ).conflicts('rules'),
   )
@@ -36,9 +36,12 @@ program
       `Specify rules to run. For example, by short name MD001 or long name heading-increment \n${listRules()}\n\n`,
     ).conflicts('error'),
   )
+  .addOption(
+    new Option('-o, --output-file <filepath>', `Outputs the errors/warnings to the filepath.`),
+  )
   .parse(process.argv)
 
-const { fix, paths, errors, rules, summaryByRule, verbose } = program.opts()
+const { fix, paths, errorsOnly, rules, summaryByRule, outputFile, verbose } = program.opts()
 const ALL_CONTENT_DIR = ['content', 'data']
 
 main()
@@ -46,7 +49,7 @@ main()
 async function main() {
   // If paths has not been specified, lint all files
   const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
-  const spinner = ora({ text: 'Running content linter', spinner: 'simpleDots' })
+  const spinner = ora({ text: 'Running content linter\n\n', spinner: 'simpleDots' })
 
   if (!files.length) {
     spinner.succeed('No files to lint')
@@ -57,7 +60,7 @@ async function main() {
   const start = Date.now()
 
   // Initializes the config to pass to markdownlint based on the input options
-  const config = getMarkdownLintConfig(errors, rules)
+  const config = getMarkdownLintConfig(errorsOnly, rules)
   // Run Markdownlint on content and data directories individually
   // and get all results
   const results = await getMarkdownlintResults(config, files)
@@ -65,21 +68,28 @@ async function main() {
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
     for (const file of [...files.content, ...files.data]) {
-      const content = await readFile(file, 'utf8')
+      const content = fs.readFileSync(file, 'utf8')
       const applied = applyFixes(content, results[file])
-      await writeFile(file, applied)
+      fs.writeFileSync(file, applied, 'utf-8')
     }
   }
 
   const errorFileCount = getErrorCountByFile(results)
-  // Used for a temparary way to allow us to see how many errors currently
+  // Used for a temporary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
   if (summaryByRule && errorFileCount > 0) {
     reportSummaryByRule(results, config)
   } else if (errorFileCount > 0) {
-    reportResults(results)
+    const errorReport = getResults(results)
+    if (outputFile) {
+      fs.writeFileSync(`${outputFile}`, JSON.stringify(errorReport, undefined, 2), function (err) {
+        if (err) throw err
+      })
+      console.log(`Output written to ${outputFile}`)
+    } else {
+      console.log(errorReport)
+    }
   }
-
   const end = Date.now()
   console.log(`\n🕦 Markdownlint finished in ${(end - start) / 1000} s`)
 
@@ -154,23 +164,23 @@ function reportSummaryByRule(results, config) {
   console.log(JSON.stringify(ruleCount, null, 2))
 }
 
-function reportResults(allResults) {
-  console.log('\n\nMarkdownlint results:\n')
+function getResults(allResults) {
+  const output = {}
   Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
     .forEach(([key, results]) => {
-      console.log(key)
       if (!verbose) {
         const formattedResults = results.map((flaw) => formatResult(flaw))
         const errors = formattedResults.filter((result) => result.severity === 'error')
         const warnings = formattedResults.filter((result) => result.severity === 'warning')
         const sortedResult = [...errors, ...warnings]
-        console.log(sortedResult)
+        output[key] = [...sortedResult]
       } else {
-        console.log(results)
+        output[key] = [...results]
       }
     })
+  return output
 }
 
 // Results are formatted with the key being the filepath
@@ -189,7 +199,7 @@ function formatResult(object) {
   const formattedResult = {}
 
   // Add severity of error or warning
-  const ruleName = object.ruleNames[1]
+  const ruleName = object.ruleNames[1] || object.ruleNames[0]
   formattedResult.severity = allConfig[ruleName].severity
 
   return Object.entries(object).reduce((acc, [key, value]) => {
@@ -263,7 +273,7 @@ async function getMarkdownlintResults(config, files) {
 // those Markdown files are partials included in full Markdown files.
 // Rules that can't be run on partials have the property
 // `partial-markdown-files` set to false.
-function getMarkdownLintConfig(errors, rules) {
+function getMarkdownLintConfig(errorsOnly, rules) {
   const config = {
     content: {
       default: false, // By default, don't turn on all markdownlint rules
@@ -274,9 +284,14 @@ function getMarkdownLintConfig(errors, rules) {
   }
 
   // Only configure the rules that have the severity of error
-  if (errors) {
+  if (errorsOnly) {
     const errorConfig = Object.keys(allConfig).reduce((acc, key) => {
-      if (allConfig[key].severity === 'error') acc[key] = allConfig[key]
+      // The severity of the rule can be different when running locally vs in CI
+      const defaultSev = allConfig[key].severity
+      const localSev = allConfig[key]['severity-local-env'] || defaultSev
+      const severity = process.env.CI ? defaultSev : localSev
+
+      if (severity === 'error') acc[key] = allConfig[key]
       return acc
     }, config.content)
     Object.assign(config.content, errorConfig)

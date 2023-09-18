@@ -18,7 +18,7 @@ topics:
   - CD
 shortTitle: Migrate from Travis CI
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -168,7 +168,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Storing secrets
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. Environment protection rules can require manual approval for a workflow to access environment secrets. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. Deployment protection rules can require manual approval for a workflow to access environment secrets. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ### Sharing files between jobs and workflows
 
@@ -364,7 +364,7 @@ jobs:
       - name: Use Node.js
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '12.x'
+          node-version: '16.x'
       - run: npm install
       - run: npm run build
       - run: npm test

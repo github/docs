@@ -139,22 +139,54 @@ updates:
       - "Docker dependencies"
       - "triage-board"
 ```
+
 {% ifversion dependabot-version-updates-groups %}
 ## Grouping {% data variables.product.prodname_dependabot_version_updates %} into one pull request
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-semver %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
 
-The example `dependabot.yml` file changes the bundler configuration to create a group of dependencies. The configuration specifies `patterns` (strings of characters) that match with the name of a dependency (or multiple dependencies) in order to include the dependencies in the group. You can also use `exclude-patterns` to exclude a dependency (or multiple dependencies) from the group. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
+The first example _dependabot.yml_ file uses a mixture of `patterns` and `dependency-type` options to include specific dependencies in the group, and `exclude-patterns` to exclude a dependency (or multiple dependencies) from the group.
+
+The second example changes the bundler configuration to create a group of dependencies. The configuration specifies `patterns` (strings of characters) that match with the name of a dependency (or multiple dependencies) in order to include the dependencies in the group.
+
+In the third example, any packages matching the pattern `@angular*` where the highest resolvable version is `minor` or `patch` will be grouped together. {% data variables.product.prodname_dependabot %}  will create a separate pull request for any package that doesn't match the pattern, or that doesn't update to a `minor` or `patch` version.
+
+The fourth example uses an `ignore` condition to exclude updates to `major` versions of `@angular*` packages.
+
+For more information about configuring dependency groups in the _dependabot.yml_ file, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
 
 You must configure groups per package ecosystem.
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
 
 {% endif %}
+
+## Ignoring specific dependencies for {% data variables.product.prodname_dependabot_version_updates %}
+
+If you are not ready to adopt changes from dependencies in your project, you can configure {% data variables.product.prodname_dependabot %} to ignore those dependencies when it opens pull requests for version updates. You can do this using one of the following methods.
+
+- Configure the `ignore` option for the dependency in your `dependabot.yml` file. You can use this to ignore updates for specific dependencies, versions, and types of updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
+- Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates. You can use comment commands to ignore updates for specific dependencies and versions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+
+If you would like to un-ignore a dependency or ignore condition, you can delete the ignore conditions from the `dependabot.yml` file or reopen the pull request.
+
+{% ifversion dependabot-version-updates-groups %}For pull requests for grouped version updates, you can also use `@dependabot unignore` comment commands. The `@dependabot unignore` comment commands enable you to do the following by commenting on a {% data variables.product.prodname_dependabot %} pull request:
+
+- Un-ignore a specific ignore condition
+- Un-ignore a specific dependency
+- Un-ignore all ignore conditions for all dependencies in a  {% data variables.product.prodname_dependabot %} pull request
+
+{% note %}
+
+**Note:** The `@dependabot unignore` comment commands only work on pull requests for grouped version updates.
+
+{% endnote %}
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-version-updates-with-comment-commands)."{% endif %}
 
 ## More examples
 

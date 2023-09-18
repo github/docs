@@ -15,8 +15,9 @@ topics:
   - Java
   - Maven
 shortTitle: Build & test Java with Maven
+layout: inline
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -47,35 +48,34 @@ To get started quickly, you can choose the preconfigured Maven starter workflow 
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
-```yaml copy
+```yaml annotate copy
+# {% data reusables.actions.workflows.workflow-syntax-name %}
 name: Java CI
 
+#
 on: [push]
-
+#
 jobs:
   build:
-    runs-on: ubuntu-latest
 
+    {% data reusables.actions.example-github-runner-comment %}
+    runs-on: ubuntu-latest
+#
     steps:
+      {% data reusables.actions.workflows.workflow-checkout-step-explainer %}
       - uses: {% data reusables.actions.action-checkout %}
+      {% data reusables.actions.workflows.setup-java-step-explainer %}
       - name: Set up JDK 17
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '17'
           distribution: 'temurin'
+      # The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots package
 ```
 
-This workflow performs the following steps:
-
-1. The `checkout` step downloads a copy of your repository on the runner.
-1. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
-1. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
-
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
-
-{% data reusables.actions.example-github-runner %}
+{% data reusables.actions.workflows.starter-workflows %}
 
 {% data reusables.actions.java-jvm-architecture %}
 

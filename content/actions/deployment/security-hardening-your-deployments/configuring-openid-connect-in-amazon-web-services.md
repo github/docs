@@ -44,7 +44,13 @@ To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, se
 
 ### Configuring the role and trust policy
 
-To configure the role and trust in IAM, see the AWS documentation for ["Assuming a Role"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) and ["Creating a role for web identity or OpenID connect federation"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
+To configure the role and trust in IAM, see the AWS documentation "[Configure AWS Credentials for GitHub Actions](https://github.com/aws-actions/configure-aws-credentials#configure-aws-credentials-for-github-actions)" and "[Configuring a role for GitHub OIDC identity provider](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html#idp_oidc_Create_GitHub)."
+
+{% note %}
+
+**Note**: AWS Identity and Access Management (IAM) recommends that users evaluate the IAM condition key, `token.actions.githubusercontent.com:sub`, in the trust policy of any role that trusts {% data variables.product.prodname_dotcom %}’s OIDC identity provider (IdP). Evaluating this condition key in the role trust policy limits which {% data variables.product.prodname_dotcom %} actions are able to assume the role.
+
+{% endnote %}
 
 Edit the trust policy to add the `sub` field to the validation conditions. For example:
 
@@ -120,7 +126,7 @@ jobs:
       - name: Git clone the repository
         uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

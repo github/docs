@@ -134,8 +134,7 @@ function getSubnav() {
       name: 'annotate-display',
       value: 'beside',
       type: 'button',
-      ariaLabel: 'Display annotations beside the code sample',
-      className: 'BtnGroup-item btn btn-sm tooltipped tooltipped-nw',
+      className: 'BtnGroup-item btn btn-sm',
     },
     ['Beside'],
   )
@@ -145,8 +144,7 @@ function getSubnav() {
       name: 'annotate-display',
       value: 'inline',
       type: 'button',
-      ariaLabel: 'Display annotations inline as comments of the code sample',
-      className: 'BtnGroup-item btn btn-sm tooltipped tooltipped-nw',
+      className: 'BtnGroup-item btn btn-sm',
     },
     ['Inline'],
   )

@@ -22,7 +22,7 @@ versions:
 
 Environments are used to describe a general deployment target like `production`, `staging`, or `development`. When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."
 
-You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the environment protection rules pass.
+You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the deployment protection rules pass.
 
 {% ifversion actions-break-glass %}Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules)."{% endif %}
 
@@ -54,7 +54,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 {% ifversion fpt %}{% note %}
 
-**Note:** Required reviewers are only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
+**Note:** If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, required reviewers are only available for public repositories.
 
 {% endnote %}{% endif %}
 
@@ -64,7 +64,7 @@ Use a wait timer to delay a job for a specific amount of time after the job is i
 
 {% ifversion fpt %}{% note %}
 
-**Note:** Wait timers are only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
+**Note:** If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, wait timers are only available for public repositories.
 
 {% endnote %}{% endif %}
 
@@ -73,7 +73,13 @@ Use a wait timer to delay a job for a specific amount of time after the job is i
 Use deployment branches to restrict which branches can deploy to the environment. Below are the options for deployment branches for an environment:
 
 - **All branches**: All branches in the repository can deploy to the environment.
-- **Protected branches**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+- **Protected branches**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."{% ifversion actions-protected-branches-restrictions %}
+  
+  {% note %}
+
+  **Note:** Deployment workflow runs triggered by tags with the same name as a protected branch and forks with branches that match the protected branch name cannot deploy to the environment.
+
+  {% endnote %}{% endif %}
 - **Selected branches**: Only branches that match your specified name patterns can deploy to the environment.
 
   For example, if you specify `releases/*` as a deployment branch rule, only branches whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a deployment branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
@@ -119,7 +125,7 @@ Once custom deployment protection rules have been created and installed on a rep
 
 ## Environment secrets
 
-Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 {% ifversion fpt %}
 {% note %}

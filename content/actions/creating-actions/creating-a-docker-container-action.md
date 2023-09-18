@@ -17,7 +17,7 @@ topics:
   - Action development
   - Docker
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -32,26 +32,9 @@ Once you complete this project, you should understand how to build your own Dock
 
 ## Prerequisites
 
-You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %} environment variables and the Docker container filesystem:
-
-- "[AUTOTITLE](/actions/learn-github-actions/variables)"
-{% ifversion ghae %}
-- "[AUTOTITLE](/actions/hosting-your-own-runners#docker-container-filesystem)."
-{% else %}
-- "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)"
-{% endif %}
-
-Before you begin, you'll need to create a {% data variables.product.prodname_dotcom %} repository.
-
-1. Create a new repository on {% data variables.location.product_location %}. You can choose any repository name or use "hello-world-docker-action" like this example. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
-
-1. Clone your repository to your computer. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
-
-1. From your terminal, change directories into your new repository.
-
-   ```shell copy
-   cd hello-world-docker-action
-   ```
+- You must create a repository on {% data variables.location.product_location %} and clone it to your workstation. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
+- If your repository uses {% data variables.large_files.product_name_short %}, you must include the objects in archives of your repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
+- You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %}, environment variables and the Docker container filesystem. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 
 ## Creating a Dockerfile
 
@@ -258,6 +241,32 @@ jobs:
 ```
 
 {% data reusables.actions.test-private-action-example %}
+
+## Accessing files created by a container action
+
+When a container action runs, it will automatically map the default working directory (`GITHUB_WORKSPACE`) on the runner with the `/github/workspace` directory on the container. Any files added to this directory on the container will be available to any subsequent steps in the same job. For example, if you have a container action that builds your project, and you would like to upload the build output as an artifact, you can use the following steps.
+
+**workflow.yml**
+
+```yaml copy
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: {% data reusables.actions.action-checkout %}
+
+      # Output build artifacts to /github/workspace on the container.
+      - name: Containerized Build
+        uses: ./.github/actions/my-container-action
+
+      - name: Upload Build Artifacts
+        uses: {% data reusables.actions.action-upload-artifact %}
+        with:
+          name: workspace_artifacts
+          path: {% raw %}${{ github.workspace }}{% endraw %}
+```
+For more information about uploading build output as an artifact, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}
 
