@@ -61,9 +61,14 @@ async function main() {
 
   // Initializes the config to pass to markdownlint based on the input options
   const config = getMarkdownLintConfig(errorsOnly, rules)
+
+  const customRulesFiltered = customRules.filter((rule) => {
+    return !errorsOnly || rule.severity === 'error'
+  })
+
   // Run Markdownlint on content and data directories individually
   // and get all results
-  const results = await getMarkdownlintResults(config, files)
+  const results = await getMarkdownlintResults(config, files, customRulesFiltered)
 
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
@@ -247,7 +252,7 @@ function listRules() {
 
 // Runs Markdownlint for each configuration: content and data
 // and returns the combined results.
-async function getMarkdownlintResults(config, files) {
+async function getMarkdownlintResults(config, files, customRules) {
   const options = {
     content: {
       files: files.content,
