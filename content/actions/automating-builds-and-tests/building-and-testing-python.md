@@ -16,7 +16,7 @@ topics:
   - Python
 shortTitle: Build & test Python
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -115,7 +115,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
-      # For example, {% ifversion actions-node16-action %}pypy2.7 and pypy3.9{% else %}pypy2 and pypy3{% endif %}
+      # For example, pypy2.7 and pypy3.9
       matrix:
         python-version: ["2.7", "3.7", "3.8", "3.9", "3.10", "3.11"]
 
@@ -176,7 +176,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", {% ifversion actions-node16-action %}pypy2.7, pypy3.9{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", pypy2.7, pypy3.9]
         exclude:
           - os: macos-latest
             python-version: "3.7"
