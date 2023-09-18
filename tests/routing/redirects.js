@@ -370,7 +370,7 @@ describe('redirects', () => {
 
   describe('desktop guide', () => {
     const desktopGuide =
-      '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
+      '/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
 
     test('no language code redirects to english', async () => {
       const res = await get(

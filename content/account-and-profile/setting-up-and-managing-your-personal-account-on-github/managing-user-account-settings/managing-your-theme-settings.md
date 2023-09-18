@@ -49,4 +49,4 @@ If you have low vision, you may benefit from a high contrast theme, with greater
 
 ## Further reading
 
-- "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)"
+- "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)"
