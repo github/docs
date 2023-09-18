@@ -24,7 +24,7 @@ If you have source code stored locally on your computer that is tracked by Git o
 
 {% note %}
 
-**Note:** If you're most comfortable with a point-and-click user interface, consider adding your project with {% data variables.product.prodname_desktop %} instead. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)."
+**Note:** If you're most comfortable with a point-and-click user interface, consider adding your project with {% data variables.product.prodname_desktop %} instead. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/adding-a-repository-from-your-local-computer-to-github-desktop)."
 
 {% endnote %}
 

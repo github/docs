@@ -80,7 +80,7 @@ You can authenticate to {% data variables.product.product_name %} in your browse
 
 ## Authenticating with {% data variables.product.prodname_desktop %}
 
-You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
+You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
 
 ## Authenticating with the API
 
