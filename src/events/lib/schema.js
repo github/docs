@@ -1,5 +1,5 @@
 import { languageKeys } from '#src/languages/lib/languages.js'
-import { allVersionKeys } from '../../../lib/all-versions.js'
+import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 import { productIds } from '../../../lib/all-products.js'
 import { allTools } from '#src/tools/lib/all-tools.js'
 

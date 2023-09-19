@@ -17,8 +17,8 @@ import loadRedirects from '#src/redirects/lib/precompile.js'
 import patterns from '../../../lib/patterns.js'
 import { loadUnversionedTree, loadPages, loadPageMap } from '../../../lib/page-data.js'
 import getRedirect, { splitPathByLanguage } from '#src/redirects/lib/get-redirect.js'
-import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
-import { deprecated } from '../../../lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 function objectClone(obj) {
   try {

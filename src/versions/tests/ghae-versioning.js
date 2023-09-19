@@ -1,6 +1,6 @@
-import { allVersions } from '../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { liquid } from '#src/content-render/index.js'
-import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
+import shortVersionsMiddleware from '#src/versions/middleware/short-versions.js'
 
 const contextualize = (req) => {
   req.context.currentVersionObj = req.context.allVersions[req.context.currentVersion]

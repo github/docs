@@ -2,10 +2,13 @@ import path from 'path'
 
 import got from 'got'
 
-import patterns from '../lib/patterns.js'
-import isArchivedVersion from '../lib/is-archived-version.js'
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
-import { archivedCacheControl } from './cache-control.js'
+import patterns from '../../../lib/patterns.js'
+import isArchivedVersion from '#src/archives/lib/is-archived-version.js'
+import {
+  setFastlySurrogateKey,
+  SURROGATE_ENUMS,
+} from '../../../middleware/set-fastly-surrogate-key.js'
+import { archivedCacheControl } from '../../../middleware/cache-control.js'
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in

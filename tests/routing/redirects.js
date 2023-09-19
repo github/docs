@@ -5,10 +5,10 @@ import { describe, expect, jest, test } from '@jest/globals'
 
 import enterpriseServerReleases, {
   deprecatedWithFunctionalRedirects,
-} from '../../lib/enterprise-server-releases.js'
+} from '#src/versions/lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
-import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
+import versionSatisfiesRange from '../../src/versions/lib/version-satisfies-range.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
