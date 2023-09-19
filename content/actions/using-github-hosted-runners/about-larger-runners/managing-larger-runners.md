@@ -5,6 +5,8 @@ intro: 'You can configure {% data variables.actions.hosted_runner %}s for your o
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   feature: actions-hosted-runners
+redirect_from:
+  - /actions/using-github-hosted-runners/managing-larger-runners
 ---
 
 {% ifversion ghec %}

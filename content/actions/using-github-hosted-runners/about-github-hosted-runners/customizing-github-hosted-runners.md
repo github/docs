@@ -8,6 +8,8 @@ type: tutorial
 topics:
   - Workflows
 shortTitle: Customize runners
+redirect_from:
+  - /actions/using-github-hosted-runners/customizing-github-hosted-runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
