@@ -6,6 +6,8 @@ permissions: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   feature: actions-hosted-runners
 type: tutorial
+redirect_from:
+  - /actions/using-github-hosted-runners/controlling-access-to-larger-runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

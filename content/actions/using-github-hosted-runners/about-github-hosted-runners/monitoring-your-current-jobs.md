@@ -4,6 +4,8 @@ shortTitle: Monitor current jobs
 intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners are processing jobs in your organization or enterprise, and identify any related constraints.'
 versions:
   feature: github-runner-dashboard
+redirect_from:
+  - /actions/using-github-hosted-runners/monitoring-your-current-jobs
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}

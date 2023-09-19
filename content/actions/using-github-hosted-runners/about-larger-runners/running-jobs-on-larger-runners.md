@@ -5,6 +5,8 @@ intro: 'You can speed up your workflows by configuring them to run on {% data va
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
 versions:
   feature: actions-hosted-runners
+redirect_from:
+  - /actions/using-github-hosted-runners/running-jobs-on-larger-runners
 ---
 
 ## Running jobs on your runner
