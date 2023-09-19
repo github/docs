@@ -275,7 +275,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       const reportProps = {
         core,
         octokit,
-        reportTitle: `${flaws.length + 1} broken links found`,
+        reportTitle: `${flaws.length} broken links found`,
         reportBody: flawIssueDisplay(flaws, opts),
         reportRepository,
         reportLabel,
@@ -310,7 +310,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       core.setOutput('has_flaws_at_level', flawsInLevel.length > 0)
       if (failOnFlaw) {
         core.setFailed(
-          `${flaws.length + 1} broken links found. See action artifact uploads for details`,
+          `${flaws.length} broken links found. See action artifact uploads for details`,
         )
       }
     }
