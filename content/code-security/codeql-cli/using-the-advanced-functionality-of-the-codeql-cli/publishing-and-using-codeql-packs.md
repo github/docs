@@ -219,9 +219,16 @@ The following properties are supported in `qlpack.yml` files.
   version: 0.0.0
   ```
 
+{% ifversion codeql-model-packs-java %}
+#### `dataExtensions`
+
+- Required by model packs.
+- Takes a list of glob patterns that specify where data extension files are located relative to the root of the query pack or library pack.
+{% endif %}
+
 #### `dependencies`
 
-- Required by packs that define {% data variables.product.prodname_codeql %} package dependencies on other packs.
+- Required by query and library packs that define {% data variables.product.prodname_codeql %} package dependencies on other packs. Model packs cannot define any dependencies and use `extensionTargets` instead.
 - Defines a map from pack references to the semantic version range that is compatible with this pack. Supported for {% data variables.product.prodname_codeql_cli %} versions v2.6.0 and later. For example:
   ```yaml
   dependencies:
@@ -246,6 +253,13 @@ The following properties are supported in `qlpack.yml` files.
     exclude:
       precision: medium
   ```
+
+{% ifversion codeql-model-packs-java %}
+#### `extensionTargets`
+
+- Required by model packs.
+- Declares which query packs the extensions in the model pack apply to. The extension pack will inject its data extensions into each pack that is named in the `extensionTargets` dictionary, if the pack falls within the specified version range and it is used in the evaluation.
+{% endif %}
 
 #### `groups`
 
