@@ -52,6 +52,8 @@ Signing commits differs from signing off on a commit. For more information about
 
 {% data reusables.pull_requests.rebase_and_merge_verification %}
 
+{% data reusables.pull_requests.rebase_and_merge_verification_2 %}
+
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
 
 {% ifversion fpt or ghec %}
