@@ -80,11 +80,12 @@ async function main() {
   }
 
   const errorFileCount = getErrorCountByFile(results)
+  const warningFileCount = getWarningCountByFile(results)
   // Used for a temporary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
-  if (summaryByRule && errorFileCount > 0) {
+  if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0)) {
     reportSummaryByRule(results, config)
-  } else if (errorFileCount > 0) {
+  } else if (errorFileCount > 0 || warningFileCount > 0) {
     const errorReport = getResults(results)
     if (outputFile) {
       fs.writeFileSync(`${outputFile}`, JSON.stringify(errorReport, undefined, 2), function (err) {
@@ -96,8 +97,10 @@ async function main() {
     }
   }
   const end = Date.now()
-  console.log(`\n🕦 Markdownlint finished in ${(end - start) / 1000} s`)
-
+  spinner.info(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
+  if (warningFileCount > 0) {
+    spinner.warn(`Found ${warningFileCount} file(s) with warnings(s)`)
+  }
   if (errorFileCount > 0) {
     spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
     process.exit(1)
@@ -190,12 +193,34 @@ function getResults(allResults) {
 
 // Results are formatted with the key being the filepath
 // and the value being an array of errors for that filepath.
-// The value may be an array of length 0. This filters all
-// values for length greater than 0 and returns the length of
-// the filtered array, which would be equivalent to the number of
-// filepaths with errors
+// Each result has a rule name, which when looked up in `allConfig`
+// will give us its severity and we filter those that are 'warning'.
+function getWarningCountByFile(results) {
+  return getCountBySeverity(results, 'warning')
+}
+
+// Results are formatted with the key being the filepath
+// and the value being an array of errors for that filepath.
+// Each result has a rule name, which when looked up in `allConfig`
+// will give us its severity and we filter those that are 'error'.
 function getErrorCountByFile(results) {
-  return Object.values(results).filter((value) => value.length).length
+  return getCountBySeverity(results, 'error')
+}
+function getCountBySeverity(results, severityLookup) {
+  return Object.values(results).filter((results) => {
+    for (const result of results) {
+      for (const ruleName of result.ruleNames) {
+        if (!allConfig[ruleName]) continue
+        const severity = process.env.CI
+          ? allConfig[ruleName].severity
+          : allConfig[ruleName]['severity-local-env'] || allConfig[ruleName].severity
+        if (severity === severityLookup) {
+          return true
+        }
+      }
+    }
+    return false
+  }).length
 }
 
 // Removes null values and properties that are not relevant to content
