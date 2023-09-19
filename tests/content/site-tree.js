@@ -1,9 +1,9 @@
 import Ajv from 'ajv'
 import { jest } from '@jest/globals'
 import schema from '../helpers/schemas/site-tree-schema.js'
-import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { loadSiteTree } from '../../lib/page-data.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { formatAjvErrors } from '../helpers/schemas.js'
 
 const latestEnterpriseRelease = EnterpriseServerReleases.latest

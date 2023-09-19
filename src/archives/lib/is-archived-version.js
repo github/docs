@@ -1,5 +1,5 @@
-import patterns from '../lib/patterns.js'
-import { deprecated } from '../lib/enterprise-server-releases.js'
+import patterns from '../../../lib/patterns.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 export default function isArchivedVersion(req) {
   // if this is an assets path, use the referrer

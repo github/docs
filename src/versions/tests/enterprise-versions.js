@@ -1,5 +1,5 @@
-import patterns from '../../lib/patterns.js'
-import EnterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import patterns from '../../../lib/patterns.js'
+import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 const { supported, deprecated, all, latest, oldestSupported, nextDeprecationDate } =
   EnterpriseServerReleases
 

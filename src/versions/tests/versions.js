@@ -1,11 +1,11 @@
 import { jest } from '@jest/globals'
 import Ajv from 'ajv'
 
-import { allVersions } from '../../lib/all-versions.js'
-import { latest } from '../../lib/enterprise-server-releases.js'
-import schema from '../helpers/schemas/versions-schema.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import { formatAjvErrors } from '../helpers/schemas.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
+import { latest } from '#src/versions/lib/enterprise-server-releases.js'
+import schema from '../../../tests/helpers/schemas/versions-schema.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 

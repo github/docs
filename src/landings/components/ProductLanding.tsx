@@ -11,7 +11,7 @@ import { LandingSection } from 'src/landings/components/LandingSection'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { ProductArticlesList } from 'src/landings/components/ProductArticlesList'
 import { ProductReleases } from 'src/landings/components/ProductReleases'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 
 export const ProductLanding = () => {

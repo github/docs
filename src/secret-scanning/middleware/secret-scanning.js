@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import yaml from 'js-yaml'
 
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import { liquid } from '#src/content-render/index.js'
 
 const secretScanningPath = path.join('data/secret-scanning.yml')

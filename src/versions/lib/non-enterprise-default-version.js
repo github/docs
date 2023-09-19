@@ -1,4 +1,4 @@
-import { allVersions } from '../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 const nonEnterpriseDefaultVersion = Object.values(allVersions).find(
   (version) => version.nonEnterpriseDefault,
 ).version

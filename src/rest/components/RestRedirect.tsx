@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Cookies from 'components/lib/cookies'
 
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { useMainContext } from 'components/context/MainContext'
 
 export const API_VERSION_COOKIE_NAME = 'apiVersionPreferred'

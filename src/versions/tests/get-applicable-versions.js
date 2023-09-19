@@ -2,8 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { describe, expect, test } from '@jest/globals'
 
-import { allVersions } from '../../lib/all-versions.js'
-import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 
 describe('Versions frontmatter', () => {
   test('wildcard', async () => {

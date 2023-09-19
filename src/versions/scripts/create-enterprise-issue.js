@@ -3,7 +3,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { getOctokit } from '@actions/github'
-import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
+import { latest, oldestSupported } from '#src/versions/lib/enterprise-server-releases.js'
 const enterpriseDates = JSON.parse(
   await fs.readFile(path.join(process.cwd(), 'src/ghes-releases/lib/enterprise-dates.json')),
 )

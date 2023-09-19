@@ -1,5 +1,5 @@
 import { useMainContext } from 'components/context/MainContext'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { Flash } from '@primer/react'
 import cx from 'classnames'
 

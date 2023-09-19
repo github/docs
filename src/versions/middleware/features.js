@@ -1,8 +1,8 @@
 import path from 'path'
 
-import { ROOT } from '../../lib/constants.js'
-import getApplicableVersions from '../../lib/get-applicable-versions.js'
-import { getDeepDataByLanguage } from '../../lib/get-data.js'
+import { ROOT } from '../../../lib/constants.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
+import { getDeepDataByLanguage } from '../../../lib/get-data.js'
 
 export default function features(req, res, next) {
   if (!req.context.page) return next()

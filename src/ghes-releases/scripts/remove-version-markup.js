@@ -13,7 +13,7 @@ import { program } from 'commander'
 import frontmatter from '../../../lib/read-frontmatter.js'
 import removeLiquidStatements from './remove-liquid-statements.js'
 import removeDeprecatedFrontmatter from './remove-deprecated-frontmatter.js'
-import { all, getNextReleaseNumber } from '../../../lib/enterprise-server-releases.js'
+import { all, getNextReleaseNumber } from '#src/versions/lib/enterprise-server-releases.js'
 import walkFiles from '../../../script/helpers/walk-files.js'
 
 program
