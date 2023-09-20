@@ -21,9 +21,9 @@ export const internalLinkPunctuation = {
           const content = child.content.trim()
           const hasPuntuation = isStringPunctuated(content)
           const hasQuotes = isStringQuoted(content)
-          const range = getRange(line, content)
 
           if (hasPuntuation || hasQuotes) {
+            const range = getRange(line, content)
             addError(
               onError,
               child.lineNumber,

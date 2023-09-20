@@ -21,7 +21,7 @@ Use a _.gitattributes_ file to mark files that match a given "pattern" with the 
 
    For example, to mark `search/index.json` as a generated file, add this line to _.gitattributes_:
 
-   ```
+   ```text
    search/index.json linguist-generated=true
    ```
 

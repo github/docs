@@ -39,7 +39,7 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
 1. Update your `authors.txt` file, mapping the author name used in the Subversion repository to the name you want to use in your Git repository, with the following format:
 
-   ```
+   ```text
    octocat = The Octocat <octocat@github.com>
    ```
 

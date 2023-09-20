@@ -70,7 +70,7 @@ There are six commands available while rebasing:
 
 No matter which command you use, Git will launch [your default text editor](/get-started/getting-started-with-git/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
-```
+```text
 pick 1fc6c95 Patch A
 pick 6b2481b Patch B
 pick dd1475d something I want to split

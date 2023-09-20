@@ -332,7 +332,7 @@ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 
 For example, if you add a `.mmd` file with the following content to your repository:
 
-```
+```text
 graph TD
     A[Friend's Birthday] -->|Get money| B(Go shopping)
     B --> C{Let me think}

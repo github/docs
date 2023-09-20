@@ -317,7 +317,7 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 You can add footnotes to your content by using this bracket syntax:
 
-```
+```text
 Here is a simple footnote[^1].
 
 A footnote can also have multiple lines[^2].

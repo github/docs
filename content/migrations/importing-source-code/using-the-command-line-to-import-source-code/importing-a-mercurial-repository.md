@@ -50,7 +50,7 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
 1. Update your `committers.txt` file, mapping the committer name used in the Mercurial repository to the name you want to use in your Git repository, with the following format:
 
-   ```
+   ```text
    “The Octocat <octocato@gmail.com>”=”Octocat <octocat@github.com>”
    ```
 
