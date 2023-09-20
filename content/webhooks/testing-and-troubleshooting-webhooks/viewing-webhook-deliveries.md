@@ -93,8 +93,6 @@ Only the owner of the sponsored account can view deliveries for sponsorship webh
 
 Only enterprise owners can view deliveries for webhooks in that enterprise.
 
-{% ifversion  ghes or ghae %}You can use the {% data variables.product.company_short %} web interface or the REST API to view recent deliveries for global webhooks. For more information about using the REST API to view recent deliveries, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."{% endif %}
-
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
