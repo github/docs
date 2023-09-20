@@ -7,7 +7,7 @@ describe(incorrectAltTextLength.names.join(' - '), () => {
       `![${'x'.repeat(39)}](./image.png)`,
       `![${'x'.repeat(151)}](./image.png)`,
     ].join('\n')
-    const result = await runRule(incorrectAltTextLength, { markdown })
+    const result = await runRule(incorrectAltTextLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors[0].lineNumber).toBe(1)
@@ -20,7 +20,7 @@ describe(incorrectAltTextLength.names.join(' - '), () => {
       `![${'x'.repeat(40)}](./image.png)`,
       `![${'x'.repeat(150)}](./image.png)`,
     ].join('\n')
-    const result = await runRule(incorrectAltTextLength, { markdown })
+    const result = await runRule(incorrectAltTextLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -31,7 +31,7 @@ describe(incorrectAltTextLength.names.join(' - '), () => {
       // Completely empty
       '![](/images/this-is-ok.png)',
     ].join('\n')
-    const result = await runRule(incorrectAltTextLength, { markdown })
+    const result = await runRule(incorrectAltTextLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)

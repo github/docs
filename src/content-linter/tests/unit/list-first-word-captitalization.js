@@ -13,7 +13,7 @@ describe(listFirstWordCapitalization.names.join(' - '), () => {
       '- always start `with code`',
       '- remember to go to [foo](/bar)',
     ].join('\n')
-    const result = await runRule(listFirstWordCapitalization, { markdown })
+    const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(4)
     expect(errors[0].errorRange).toEqual([7, 4])
@@ -51,21 +51,21 @@ describe(listFirstWordCapitalization.names.join(' - '), () => {
       '- x64',
       '- 05:00',
     ].join('\n')
-    const result = await runRule(listFirstWordCapitalization, { markdown })
+    const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
 
   test("list items that aren't simple lists", async () => {
     const markdown = ['- > Blockquote in a list', '- ### Heading in a list'].join('\n')
-    const result = await runRule(listFirstWordCapitalization, { markdown })
+    const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
 
   test('works on markdown that has no lists at all, actually', async () => {
     const markdown = '- \n'
-    const result = await runRule(listFirstWordCapitalization, { markdown })
+    const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })

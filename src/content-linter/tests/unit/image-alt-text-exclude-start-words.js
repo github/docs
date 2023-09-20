@@ -13,7 +13,7 @@ describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
       '![Graphic with alt text](/images/graphic-with-alt-text.png)',
       '![graphic with alt text](/images/graphic-with-alt-text.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextExcludeStartWords, { markdown })
+    const result = await runRule(imageAltTextExcludeStartWords, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(4)
     expect(errors[0].lineNumber).toBe(1)
@@ -28,7 +28,7 @@ describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
       '![This is ok image](/images/this-is-ok.png)',
       '![This is ok grapic](/images/this-is-ok.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextExcludeStartWords, { markdown })
+    const result = await runRule(imageAltTextExcludeStartWords, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -39,7 +39,7 @@ describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
       // Completely empty
       '![](/images/this-is-ok.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextExcludeStartWords, { markdown })
+    const result = await runRule(imageAltTextExcludeStartWords, { strings: { markdown } })
     const errors = result.markdown
     // This rule is not concerned with empty alt text
     // That will be caught by the incorrect-alt-text-empty rule

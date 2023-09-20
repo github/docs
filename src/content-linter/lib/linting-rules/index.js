@@ -9,6 +9,7 @@ import { internalLinksSlash } from './internal-links-slash.js'
 import { imageAltTextExcludeStartWords } from './image-alt-text-exclude-start-words.js'
 import { listFirstWordCapitalization } from './list-first-word-capitalization.js'
 import { internalLinkPunctuation } from './internal-link-punctuation.js'
+import { earlyAccessReferences } from './early-access-references.js'
 
 export const gitHubDocsMarkdownlint = {
   rules: [
@@ -22,5 +23,6 @@ export const gitHubDocsMarkdownlint = {
     imageAltTextExcludeStartWords,
     listFirstWordCapitalization,
     internalLinkPunctuation,
+    earlyAccessReferences,
   ],
 }
