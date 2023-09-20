@@ -6,6 +6,11 @@ export function addFixErrorDetail(onError, lineNumber, expected, actual, range, 
 }
 
 export function getRange(line, content) {
+  if (content.length === 0) {
+    // This function assumes that the content is something. If it's an
+    // empty string it can never produce a valid range.
+    throw new Error('invalid content (empty)')
+  }
   const startColumnIndex = line.indexOf(content)
   return startColumnIndex !== -1 ? [startColumnIndex + 1, content.length] : null
 }

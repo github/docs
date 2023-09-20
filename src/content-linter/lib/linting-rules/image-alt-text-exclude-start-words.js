@@ -17,6 +17,13 @@ export const imageAltTextExcludeStartWords = {
   function: function GHD007(params, onError) {
     forEachInlineChild(params, 'image', function forToken(token) {
       const imageAltText = token.content.trim()
+
+      // If the alt text is empty, there is nothing to check and you can't
+      // produce a valid range.
+      // We can safely return early because the image-alt-text-length rule
+      // will fail this one.
+      if (!token.content) return
+
       const range = getRange(token.line, imageAltText)
       if (
         excludeStartWords.some((excludeWord) => imageAltText.toLowerCase().startsWith(excludeWord))
