@@ -79,6 +79,9 @@ You can use any programming language that you can run on your server.
 
 The following examples print a message when a webhook delivery is received. However, you can modify the code to take another action, such as making a request to the {% data variables.product.company_short %} API or sending a Slack message.
 
+- [Ruby example](#ruby-example)
+- [JavaScript example](#javascript-example)
+
 ### Ruby example
 
 This example uses the Ruby gem, Sinatra, to define routes and handle HTTP requests. For more information, see [the Sinatra README](https://github.com/sinatra/sinatra#readme).
@@ -177,13 +180,114 @@ To test your webhook, you can use your computer or codespace to act as a local s
 1. In the terminal window where you ran `PORT=3000 ruby FILE_NAME`, you should see a message corresponding to the event that was sent. For example, if you use the example code from above and you redelivered the `ping` event, you should see "{% data variables.product.company_short %} sent the ping event". You may also see some other lines that Sinatra automatically prints.
 1. In both terminal windows, enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop your local server and stop listening for forwarded webhooks.
 
+Now that you have tested out your code locally, you can make changes to use your webhook in production. For more information, see "[Next steps](#next-steps)." If you had trouble testing your code, try the steps in "[Troubleshooting](#troubleshooting)."
+
+### JavaScript example
+
+This example uses Node.js and the Express library to define routes and handle HTTP requests. For more information, see "[expressjs.com](https://expressjs.com)."
+
+For an example that uses {% data variables.product.company_short %}'s Octokit.js SDK, see "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)."
+
+This example requires your computer or codespace to run Node.js version 12 or greater and npm version 6.12.0 or greater. For more information, see [Node.js](https://nodejs.org).
+
+#### JavaScript example: Install dependencies
+
+To use this example, you must install the `express` library in your Node.js project. For example:
+
+```shell copy
+npm install express
+```
+
+#### Javascript example: Write the code
+
+Create a JavaScript file with the following contents. Modify the code to handle the event types that your webhook is subscribed to, as well as the `ping` event that {% data variables.product.company_short %} sends when you create a webhook. This example handles the `issues` and `ping` events.
+
+```javascript copy annotate
+// You installed the `express` library earlier. For more information, see "[JavaScript example: Install dependencies](#javascript-example-install-dependencies)." 
+const express = require('express');
+
+// This initializes a new Express application.
+const app = express();
+
+// This defines a POST route at the `/webhook` path. This path matches the path that you specified for the smee.io forwarding. For more information, see "[Forward webhooks](#forward-webhooks)."
+//
+// Once you deploy your code to a server and update your webhook URL, you should change this to match the path portion of the URL for your webhook.
+app.post('/webhook', express.json({type: 'application/json'}), (request, response) => {
+
+  // Respond to indicate that the delivery was successfully received.
+  // Your server should respond with a 2XX response within {% ifversion fpt or ghec %}10{% else %}30{% endif %} seconds of receiving a webhook delivery. If your server takes longer than that to respond, then {% data variables.product.company_short %} terminates the connection and considers the delivery a failure.
+  response.status(202).send('Accepted');
+
+  // Check the `x-github-event` header to learn what event type was sent.
+  const githubEvent = request.headers['x-github-event'];
+
+  // You should add logic to handle each event type that your webhook is subscribed to.
+  // For example, this code handles the `issues` and `ping` events.
+  //
+  // If any events have an `action` field, you should also add logic to handle each action that you are interested in.
+  // For example, this code handles the `opened` and `closed` actions for the `issue` event.
+  //
+  // For more information about the data that you can expect for each event type, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
+  if (githubEvent === 'issues') {
+    const data = request.body;
+    const action = data.action;
+    if (action === 'opened') {
+      console.log(`An issue was opened with this title: ${data.issue.title}`);
+    } else if (action === 'closed') {
+      console.log(`An issue was closed by ${data.issue.user.login}`);
+    } else {
+      console.log(`Unhandled action for the issue event: ${action}`);
+    }
+  } else if (githubEvent === 'ping') {
+    console.log('GitHub sent the ping event');
+  } else {
+    console.log(`Unhandled event: ${githubEvent}`);
+  }
+});
+
+// This defines the port where your server should listen.
+// 3000 matches the port that you specified for webhook forwarding. For more information, see "[Forward webhooks](#forward-webhooks)."
+//
+// Once you deploy your code to a server, you should change this to match the port where your server is listening.
+const port = 3000;
+
+// This starts the server and tells it to listen at the specified port.
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+```
+
+#### JavaScript example: Test the code
+
+To test your webhook, you can use your computer or codespace to act as a local server. If you have trouble with these steps, see [Troubleshooting](#troubleshooting).
+
+1. Make sure that you are forwarding webhooks. If you are no longer forwarding webhooks, follow the steps in [Forward webhooks](#forward-webhooks) again.
+1. In a separate terminal window, run the following command to start a local server on your computer or codespace. Replace `FILE_PATH` with the path to the file where your code from the previous section is stored.
+
+   ```shell copy
+   node FILE_NAME
+   ```
+
+   You should see output that says `Server is running on port 3000`.
+
+1. Trigger your webhook. For example, if you created a repository webhook that is subscribed to the `issues` event, open an issue in your repository. You can also redeliver a previous webhook delivery. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+1. Navigate to your webhook proxy URL on smee.io. You should see an event that corresponds to the event that you triggered or redelivered. This indicates that {% data variables.product.company_short %} successfully sent a webhook delivery to the payload URL that you specified.
+1. In the terminal window where you ran `smee --url WEBHOOK_PROXY_URL --path /webhook --port 3000`, you should see something like `POST http://127.0.0.1:3000/webhook - 202`. This indicates that smee successfully forwarded your webhook to your local server.
+1. In the terminal window where you ran `node FILE_NAME`, you should see a message corresponding to the event that was sent. For example, if you use the example code from above and you redelivered the `ping` event, you should see "{% data variables.product.company_short %} sent the ping event".
+1. In both terminal windows, enter <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop your local server and stop listening for forwarded webhooks.
+
+Now that you have tested out your code locally, you can make changes to use your webhook in production. For more information, see "[Next steps](#next-steps)." If you had trouble testing your code, try the steps in "[Troubleshooting](#troubleshooting)."
+
 ## Troubleshooting
 
 If you don't see the expected results described in the testing steps, try the following:
 
 - Make sure that your webhook is using your webhook proxy URL (Smee.io URL). For more information about your webhook proxy URL, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)." For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
+- Make sure that your webhook uses the JSON content type, if you have a choice about what content type to use. For more information about your webhook settings, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
 - Make sure that both the smee client and your local server are running. You will have these processes running in two separate terminal windows.
-- Check for errors in the terminal windows where you are running the smee client and your local server.
+- Make sure that your server is listening to the same port where smee.io is forwarding webhooks. All of the examples in this article use port 3000.
+- Make sure that the path where smee.io is forwarding webhooks matches a route that is defined in your code. All of the examples in this article use the `/webhooks` path.
+- Check for error messages in the terminal windows where you are running the smee client and your local server.
 - Check {% data variables.product.company_short %} to verify that a webhook delivery was triggered. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
 - Check your webhook proxy URL on smee.io. You should see an event that corresponds to the event that you triggered or redelivered. This indicates that {% data variables.product.company_short %} successfully sent a webhook delivery to the payload URL that you specified.
 
@@ -212,7 +316,9 @@ When you do so, you may need to update your code to reflect the host and port wh
 
 ### Update the webhook URL
 
-Once you have a server that is set up to receive webhook traffic from {% data variables.product.company_short %}, update the URL in your webhook settings. You should not use smee.io to forward your webhooks in production.
+Once you have a server that is set up to receive webhook traffic from {% data variables.product.company_short %}, update the URL in your webhook settings. You may need to update the route that your code handles to match the path portion of the new URL. For example, if your new webhook URL is `https://example.com/github-webhooks`, you should change the route in these examples from `/webhooks` to `/github-webhooks`.
+
+You should not use smee.io to forward your webhooks in production.
 
 ### Follow best practices
 
