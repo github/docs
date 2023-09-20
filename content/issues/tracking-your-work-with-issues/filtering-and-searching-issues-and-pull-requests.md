@@ -225,7 +225,7 @@ You can send the URL that issues generates to any user, and they'll be able to s
 
 For example, if you filter on issues assigned to Hubot, and sort on the oldest open issues, your URL would update to something like the following:
 
-```
+```text
 /issues?q=state:open+type:issue+assignee:hubot+sort:created-asc
 ```
 

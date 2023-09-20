@@ -40,7 +40,7 @@ You can also use {% data variables.large_files.product_name_short %} with {% dat
 
 {% data variables.large_files.product_name_short %}'s pointer file looks like this:
 
-```
+```text
 version {% data variables.large_files.version_name %}
 oid sha256:4cac19622fc3ada9c0fdeadb33f88f367b541f38b89102a3f1261ac81fd5bcb5
 size 84977953

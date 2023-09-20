@@ -77,7 +77,7 @@ A `.gitattributes` file looks like a table with two columns:
 
 Here's an example `.gitattributes` file. You can use it as a template for your repositories:
 
-```
+```text
 # Set the default behavior, in case people don't have core.autocrlf set.
 * text=auto
 

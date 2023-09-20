@@ -80,7 +80,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 
 1. Install the latest release of the [git filter-repo](https://github.com/newren/git-filter-repo) tool. You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
 
-   ```
+   ```shell
    brew install git-filter-repo
    ```
 
