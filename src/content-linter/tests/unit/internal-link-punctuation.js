@@ -43,4 +43,15 @@ describe(internalLinkPunctuation.names.join(' - '), () => {
     expect(errors[0].errorRange).toEqual([2, 30])
     expect(errors[9].lineNumber).toBe(10)
   })
+  test('links that is not plain text', async () => {
+    const markdown = [
+      '[*emphasize*](./image.png)',
+      '[**boldness**](./image.png)',
+      '[**boldness** and *emphasize*](./image.png)',
+    ].join('\n')
+
+    const result = await runRule(internalLinkPunctuation, { markdown })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
 })
