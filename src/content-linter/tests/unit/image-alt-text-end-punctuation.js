@@ -14,7 +14,7 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
       '',
       '!["image"](./image.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextEndPunctuation, { markdown })
+    const result = await runRule(imageAltTextEndPunctuation, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors.map((error) => error.lineNumber)).toEqual([3, 5])
@@ -48,7 +48,7 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
       '!["image"?](./image.png)',
       '!["image."](./image.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextEndPunctuation, { markdown })
+    const result = await runRule(imageAltTextEndPunctuation, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -59,7 +59,7 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
       // Completely empty
       '![](/images/this-is-ok.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextEndPunctuation, { markdown })
+    const result = await runRule(imageAltTextEndPunctuation, { strings: { markdown } })
     const errors = result.markdown
     // This rule is not concerned with empty alt text
     // That will be caught by the incorrect-alt-text-length rule

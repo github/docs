@@ -14,7 +14,7 @@ describe(codeFenceLineLength.names.join(' - '), () => {
       'bbb',
       '```',
     ].join('\n')
-    const result = await runRule(codeFenceLineLength, { markdown })
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)
@@ -29,7 +29,7 @@ describe(codeFenceLineLength.names.join(' - '), () => {
       'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
       '```',
     ].join('\n')
-    const result = await runRule(codeFenceLineLength, { markdown })
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -41,7 +41,7 @@ describe(codeFenceLineLength.names.join(' - '), () => {
       'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb',
       '```',
     ].join('\n')
-    const result = await runRule(codeFenceLineLength, { markdown })
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors[0].lineNumber).toBe(2)

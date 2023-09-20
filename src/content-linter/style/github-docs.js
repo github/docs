@@ -49,6 +49,10 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'early-access-references': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
   'search-replace': {
     severity: 'error',
     'severity-local-env': 'warning',

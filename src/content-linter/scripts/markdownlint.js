@@ -244,6 +244,13 @@ function formatResult(object) {
       delete acc.range
       return acc
     }
+    if (key === 'lineNumber') {
+      if (object.errorDetail.startsWith('Frontmatter:')) {
+        delete acc.lineNumber
+        acc.frontmatterError = true
+        return acc
+      }
+    }
     acc[key] = value
     return acc
   }, formattedResult)

@@ -13,7 +13,7 @@ describe(internalLinksSlash.names.join(' - '), () => {
       '',
       '[GitHub Actions Quickstart](en/quickstart.md)',
     ].join('\n')
-    const result = await runRule(internalLinksSlash, { markdown })
+    const result = await runRule(internalLinksSlash, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors.map((error) => error.lineNumber)).toEqual([2, 4])
@@ -35,6 +35,7 @@ describe(internalLinksSlash.names.join(' - '), () => {
   test('relative links that start with / pass', async () => {
     const markdown = [
       'Hello [GitHub Actions](/actions/index.md)',
+      '- "[Actions](/actions/index.md)"',
       // Not a relative page link
       '[Anchor on page](#anchor-on-page)',
       // Not internal links
@@ -42,7 +43,7 @@ describe(internalLinksSlash.names.join(' - '), () => {
       '[External link](http://example.com)',
       '[External Link](mailto:email@example.com)',
     ].join('\n')
-    const result = await runRule(internalLinksSlash, { markdown })
+    const result = await runRule(internalLinksSlash, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })

@@ -16,7 +16,7 @@ describe(internalLinkPunctuation.names.join(' - '), () => {
       '["A link with start quote](./image.png)',
     ].join('\n')
 
-    const result = await runRule(internalLinkPunctuation, { markdown })
+    const result = await runRule(internalLinkPunctuation, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -37,7 +37,7 @@ describe(internalLinkPunctuation.names.join(' - '), () => {
       '[A link with a period.](./image.png)',
     ].join('\n')
 
-    const result = await runRule(internalLinkPunctuation, { markdown })
+    const result = await runRule(internalLinkPunctuation, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(13)
     expect(errors[0].errorRange).toEqual([2, 30])
@@ -50,7 +50,7 @@ describe(internalLinkPunctuation.names.join(' - '), () => {
       '[**boldness** and *emphasize*](./image.png)',
     ].join('\n')
 
-    const result = await runRule(internalLinkPunctuation, { markdown })
+    const result = await runRule(internalLinkPunctuation, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })

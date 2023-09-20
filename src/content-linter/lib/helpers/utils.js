@@ -94,3 +94,5 @@ export function filterTokensByOrder(tokens, tokenOrder) {
   }
   return matches
 }
+
+export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.github.com']
