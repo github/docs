@@ -26,7 +26,7 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -49,7 +49,7 @@ jobs:
           # we're filtering on anyway once the list of all pages has
           # been loaded.
           ENABLED_LANGUAGES: en
-        run: node .github/actions-scripts/rendered-content-link-checker.js
+        run: node src/links/scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
         uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8

@@ -480,7 +480,7 @@ If you want to pass a masked secret between jobs or workflows, you should store 
 #### Setup
 
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
-1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 #### Workflow
 
@@ -902,7 +902,7 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 {% powershell %}
 
 ```pwsh copy
-"{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT- Append
+"{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 ```
 
 {% endpowershell %}

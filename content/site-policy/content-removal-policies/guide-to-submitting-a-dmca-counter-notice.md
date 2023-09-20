@@ -75,7 +75,7 @@ You can also send an email notification to <copyright@github.com>. You may inclu
 
 If you must send your notice by physical mail, you can do that too, but it will take _substantially_ longer for us to receive and respond to it—and the 10-14 day waiting period starts from when we _receive_ your counter notice. Notices we receive via plain-text email have a much faster turnaround than PDF attachments or physical mail. If you still wish to mail us your notice, our physical address is:
 
-```
+```text
 GitHub, Inc
 Attn: DMCA Agent
 88 Colin P Kelly Jr St

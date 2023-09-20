@@ -1217,6 +1217,14 @@
       "requestPath": "/repos/{owner}/{repo}/commits/{ref}/check-suites"
     }
   ],
+  "classroom": [
+    {
+      "slug": "get-assignment-grades",
+      "subcategory": "classroom",
+      "verb": "get",
+      "requestPath": "/assignments/{assignment_id}/grades"
+    }
+  ],
   "code-scanning": [
     {
       "slug": "list-code-scanning-alerts-for-an-organization",

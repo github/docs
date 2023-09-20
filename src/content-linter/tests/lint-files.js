@@ -4,23 +4,16 @@ import slash from 'slash'
 import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
-import Ajv from 'ajv'
-import addErrors from 'ajv-errors'
-import addFormats from 'ajv-formats'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
 import { existsSync } from 'fs'
-import semver from 'semver'
 import { jest } from '@jest/globals'
 
 import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
-import languages from '../../../lib/languages.js'
-import releaseNotesSchema from '../lib/release-notes-schema.js'
-import learningTracksSchema from '../lib/learning-tracks-schema.js'
+import languages from '#src/languages/lib/languages.js'
 import { liquid } from '#src/content-render/index.js'
 import { getDiffFiles } from '../lib/diff-files.js'
-import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -31,9 +24,6 @@ const contentDir = path.join(rootDir, 'content')
 const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')
 const glossariesDir = path.join(rootDir, 'data/glossaries')
-const ghesReleaseNotesDir = path.join(rootDir, 'data/release-notes/enterprise-server')
-const ghaeReleaseNotesDir = path.join(rootDir, 'data/release-notes/github-ae')
-const learningTracks = path.join(rootDir, 'data/learning-tracks')
 const fbvDir = path.join(rootDir, 'data/features')
 
 const languageCodes = Object.keys(languages)
@@ -217,7 +207,7 @@ const yamlWalkOptions = {
 }
 
 // different lint rules apply to different content types
-let mdToLint, ymlToLint, ghesReleaseNotesToLint, ghaeReleaseNotesToLint, learningTracksToLint
+let mdToLint, ymlToLint
 
 // compile lists of all the files we want to lint
 
@@ -294,35 +284,11 @@ const FbvYamlAbsPaths = walk(fbvDir, yamlWalkOptions).sort()
 const FbvYamlRelPaths = FbvYamlAbsPaths.map((p) => slash(path.relative(rootDir, p)))
 const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
 
-// GHES release notes
-const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
-const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p)),
-)
-ghesReleaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
-
-// GHAE release notes
-const ghaeReleaseNotesYamlAbsPaths = walk(ghaeReleaseNotesDir, yamlWalkOptions).sort()
-const ghaeReleaseNotesYamlRelPaths = ghaeReleaseNotesYamlAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p)),
-)
-ghaeReleaseNotesToLint = zip(ghaeReleaseNotesYamlRelPaths, ghaeReleaseNotesYamlAbsPaths)
-
-// Learning tracks
-const learningTracksYamlAbsPaths = walk(learningTracks, yamlWalkOptions).sort()
-const learningTracksYamlRelPaths = learningTracksYamlAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p)),
-)
-learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
-
 // Put all the yaml files together
 ymlToLint = [].concat(
   variableYamlTuples, // These "tuples" not tested independently; they are only tested as part of ymlToLint.
   glossariesYamlTuples,
   fbvTuples,
-  ghesReleaseNotesToLint,
-  ghaeReleaseNotesToLint,
-  learningTracksToLint,
 )
 
 function formatLinkError(message, links) {
@@ -361,19 +327,9 @@ if (diffFiles.length > 0) {
     )
   mdToLint = filterFiles(mdToLint)
   ymlToLint = filterFiles(ymlToLint)
-  ghesReleaseNotesToLint = filterFiles(ghesReleaseNotesToLint)
-  ghaeReleaseNotesToLint = filterFiles(ghaeReleaseNotesToLint)
-  learningTracksToLint = filterFiles(learningTracksToLint)
 }
 
-if (
-  mdToLint.length +
-    ymlToLint.length +
-    ghesReleaseNotesToLint.length +
-    ghaeReleaseNotesToLint.length +
-    learningTracksToLint.length <
-  1
-) {
+if (mdToLint.length + ymlToLint.length < 1) {
   // With this in place, at least one `test()` is called and you don't
   // get the `Your test suite must contain at least one test.` error
   // from `jest`.
@@ -381,18 +337,6 @@ if (
     test('void', () => {})
   })
 }
-
-// ajv for schema validation tests
-const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
-addFormats(ajv)
-addErrors(ajv)
-// *** TODO: We can drop this override once the frontmatter schema has been updated to work with AJV. ***
-ajv.addFormat('semver', {
-  validate: (x) => semver.validRange(x),
-})
-// *** End TODO ***
-const ghesValidate = ajv.compile(releaseNotesSchema)
-const learningTracksValidate = ajv.compile(learningTracksSchema)
 
 describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
@@ -878,170 +822,6 @@ describe('lint yaml content', () => {
 
       const errorMessage = formatLinkError(oldOcticonErrorText, matches)
       expect(matches.length, errorMessage).toBe(0)
-    })
-  })
-})
-
-describe('lint GHES release notes', () => {
-  if (ghesReleaseNotesToLint.length < 1) return
-  describe.each(ghesReleaseNotesToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-    let dictionary
-    let dictionaryError = false
-
-    beforeAll(async () => {
-      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
-      try {
-        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
-      } catch (error) {
-        dictionaryError = error
-      }
-    })
-
-    it('can be parsed as a single yaml document', () => {
-      expect(dictionaryError).toBe(false)
-    })
-
-    it('matches the schema', () => {
-      const valid = ghesValidate(dictionary)
-      let errors
-
-      if (!valid) {
-        errors = formatAjvErrors(ghesValidate.errors)
-      }
-
-      expect(valid, errors).toBe(true)
-    })
-
-    it('contains valid liquid', () => {
-      const { intro, sections } = dictionary
-      let toLint = { intro }
-      for (const key in sections) {
-        const section = sections[key]
-        const label = `sections.${key}`
-        section.forEach((part) => {
-          if (Array.isArray(part)) {
-            toLint = { ...toLint, ...{ [label]: section.join('\n') } }
-          } else {
-            for (const prop in section) {
-              toLint = { ...toLint, ...{ [`${label}.${prop}`]: section[prop] } }
-            }
-          }
-        })
-      }
-
-      for (const key in toLint) {
-        if (!toLint[key]) continue
-        expect(() => liquid.parse(toLint[key]), `${key} contains invalid liquid`).not.toThrow()
-      }
-    })
-  })
-})
-
-describe('lint GHAE release notes', () => {
-  if (ghaeReleaseNotesToLint.length < 1) return
-  const currentWeeksFound = []
-  describe.each(ghaeReleaseNotesToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-    let dictionary
-    let dictionaryError = false
-
-    beforeAll(async () => {
-      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
-      try {
-        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
-      } catch (error) {
-        dictionaryError = error
-      }
-    })
-
-    it('can be parsed as a single yaml document', () => {
-      expect(dictionaryError).toBe(false)
-    })
-
-    it('matches the schema', () => {
-      const valid = ghesValidate(dictionary)
-      let errors
-
-      if (!valid) {
-        errors = formatAjvErrors(ghesValidate.errors)
-      }
-
-      expect(valid, errors).toBe(true)
-    })
-
-    it('does not have more than one yaml file with currentWeek set to true', () => {
-      if (dictionary.currentWeek) currentWeeksFound.push(yamlRelPath)
-      const errorMessage = `Found more than one file with currentWeek set to true: ${currentWeeksFound.join(
-        '\n',
-      )}`
-      expect(currentWeeksFound.length, errorMessage).not.toBeGreaterThan(1)
-    })
-
-    it('contains valid liquid', () => {
-      const { intro, sections } = dictionary
-      let toLint = { intro }
-      for (const key in sections) {
-        const section = sections[key]
-        const label = `sections.${key}`
-        section.forEach((part) => {
-          if (Array.isArray(part)) {
-            toLint = { ...toLint, ...{ [label]: section.join('\n') } }
-          } else {
-            for (const prop in section) {
-              toLint = { ...toLint, ...{ [`${label}.${prop}`]: section[prop] } }
-            }
-          }
-        })
-      }
-
-      for (const key in toLint) {
-        if (!toLint[key]) continue
-        expect(() => liquid.parse(toLint[key]), `${key} contains invalid liquid`).not.toThrow()
-      }
-    })
-  })
-})
-
-describe('lint learning tracks', () => {
-  if (learningTracksToLint.length < 1) return
-
-  describe.each(learningTracksToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-    let dictionary
-    let dictionaryError = false
-
-    beforeAll(async () => {
-      const fileContents = await fs.readFile(yamlAbsPath, 'utf8')
-      try {
-        dictionary = yaml.load(fileContents, { filename: yamlRelPath })
-      } catch (error) {
-        dictionaryError = error
-      }
-    })
-
-    it('can be parsed as a single yaml document', () => {
-      expect(dictionaryError).toBe(false)
-    })
-
-    it('matches the schema', () => {
-      const valid = learningTracksValidate(dictionary)
-      let errors
-
-      if (!valid) {
-        errors = formatAjvErrors(learningTracksValidate.errors)
-      }
-
-      expect(valid, errors).toBe(true)
-    })
-
-    it('contains valid liquid', () => {
-      const toLint = []
-      Object.values(dictionary).forEach(({ title, description }) => {
-        toLint.push(title)
-        toLint.push(description)
-      })
-
-      toLint.forEach((element) => {
-        expect(() => liquid.parse(element), `${element} contains invalid liquid`).not.toThrow()
-      })
     })
   })
 })

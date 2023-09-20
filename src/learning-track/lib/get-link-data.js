@@ -1,7 +1,7 @@
 import path from 'path'
 import findPage from '../../../lib/find-page.js'
-import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
-import removeFPTFromPath from '../../../lib/remove-fpt-from-path.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
 import { renderContent } from '#src/content-render/index.js'
 
 // rawLinks is an array of paths: [ '/foo' ]
@@ -36,7 +36,12 @@ async function processLink(link, context, option) {
   const href = removeFPTFromPath(path.join('/', context.currentLanguage, version, linkPath))
 
   const linkedPage = findPage(href, context.pages, context.redirects)
-  if (!linkedPage) return null
+  if (!linkedPage) {
+    // This can happen when the link depends on Liquid conditionals,
+    // like...
+    //    - '{% ifversion ghes %}/admin/foo/bar{% endifversion %}'
+    return null
+  }
 
   const result = { href, page: linkedPage }
 

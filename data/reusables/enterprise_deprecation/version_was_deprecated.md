@@ -1,1 +1,1 @@
-This version of GitHub Enterprise was discontinued on
+This version of GitHub Enterprise Server was discontinued on

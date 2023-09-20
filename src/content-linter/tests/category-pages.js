@@ -8,9 +8,9 @@ import { decode } from 'html-entities'
 
 import matter from '../../../lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import contextualize from '../../../middleware/context.js'
-import shortVersions from '../../../middleware/contextualizers/short-versions.js'
+import shortVersions from '#src/versions/middleware/short-versions.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

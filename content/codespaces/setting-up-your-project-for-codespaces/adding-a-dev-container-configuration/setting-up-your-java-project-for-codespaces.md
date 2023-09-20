@@ -84,7 +84,6 @@ The default development container, or "dev container," for {% data variables.pro
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
 }
-
 ```
 
 {% data reusables.codespaces.devcontainer-properties-1 %}
@@ -178,7 +177,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, creating a `TEMP.md` file, and the two extensions will be available for use.
 

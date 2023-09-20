@@ -4,8 +4,13 @@ import Ajv from 'ajv'
 import addErrors from 'ajv-errors'
 import semver from 'semver'
 
-import { allVersions, allVersionShortnames } from '../../../lib/all-versions.js'
-import { supported, next, nextNext, deprecated } from '../../../lib/enterprise-server-releases.js'
+import { allVersions, allVersionShortnames } from '#src/versions/lib/all-versions.js'
+import {
+  supported,
+  next,
+  nextNext,
+  deprecated,
+} from '#src/versions/lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../../script/helpers/get-liquid-conditionals.js'
 import allowedVersionOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
 import featureVersionsSchema from '../lib/feature-versions-schema.js'

@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import dayjs from 'dayjs'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { PatchNotes } from './PatchNotes'
 import { CurrentVersion, ReleaseNotePatch } from './types'
 

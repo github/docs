@@ -28,7 +28,7 @@ For example, the following form definition includes four form elements: a text a
   attributes:
     label: Operating System
     description: What operating system are you using?
-    placeholder: Example: macOS Big Sur
+    placeholder: "Example: macOS Big Sur"
     value: operating system
   validations:
     required: true
@@ -247,6 +247,7 @@ You can use the `checkboxes` element to add a set of checkboxes to your form.
 | `options` | An array of checkboxes that the user can select. For syntax, see below. | {% octicon "check" aria-label="Required" %} | Array | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 
 {% data reusables.form-schema.options-syntax %}
+{% data reusables.form-schema.required-key %}
 
 #### Validations for `checkboxes`
 

@@ -2,7 +2,7 @@
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
-import { readFile, writeFile } from 'fs/promises'
+import fs from 'fs'
 import ora from 'ora'
 import { extname } from 'path'
 import { execSync } from 'child_process'
@@ -18,7 +18,7 @@ program
   )
   .addOption(
     new Option(
-      '-e, --errors',
+      '--errors-only',
       'Only report rules that have the severity of error, not warning.',
     ).conflicts('rules'),
   )
@@ -36,9 +36,12 @@ program
       `Specify rules to run. For example, by short name MD001 or long name heading-increment \n${listRules()}\n\n`,
     ).conflicts('error'),
   )
+  .addOption(
+    new Option('-o, --output-file <filepath>', `Outputs the errors/warnings to the filepath.`),
+  )
   .parse(process.argv)
 
-const { fix, paths, errors, rules, summaryByRule, verbose } = program.opts()
+const { fix, paths, errorsOnly, rules, summaryByRule, outputFile, verbose } = program.opts()
 const ALL_CONTENT_DIR = ['content', 'data']
 
 main()
@@ -46,7 +49,7 @@ main()
 async function main() {
   // If paths has not been specified, lint all files
   const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
-  const spinner = ora({ text: 'Running content linter', spinner: 'simpleDots' })
+  const spinner = ora({ text: 'Running content linter\n\n', spinner: 'simpleDots' })
 
   if (!files.length) {
     spinner.succeed('No files to lint')
@@ -57,32 +60,47 @@ async function main() {
   const start = Date.now()
 
   // Initializes the config to pass to markdownlint based on the input options
-  const config = getMarkdownLintConfig(errors, rules)
+  const config = getMarkdownLintConfig(errorsOnly, rules)
+
+  const customRulesFiltered = customRules.filter((rule) => {
+    return !errorsOnly || rule.severity === 'error'
+  })
+
   // Run Markdownlint on content and data directories individually
   // and get all results
-  const results = await getMarkdownlintResults(config, files)
+  const results = await getMarkdownlintResults(config, files, customRulesFiltered)
 
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
     for (const file of [...files.content, ...files.data]) {
-      const content = await readFile(file, 'utf8')
+      const content = fs.readFileSync(file, 'utf8')
       const applied = applyFixes(content, results[file])
-      await writeFile(file, applied)
+      fs.writeFileSync(file, applied, 'utf-8')
     }
   }
 
   const errorFileCount = getErrorCountByFile(results)
-  // Used for a temparary way to allow us to see how many errors currently
+  const warningFileCount = getWarningCountByFile(results)
+  // Used for a temporary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
-  if (summaryByRule && errorFileCount > 0) {
+  if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0)) {
     reportSummaryByRule(results, config)
-  } else if (errorFileCount > 0) {
-    reportResults(results)
+  } else if (errorFileCount > 0 || warningFileCount > 0) {
+    const errorReport = getResults(results)
+    if (outputFile) {
+      fs.writeFileSync(`${outputFile}`, JSON.stringify(errorReport, undefined, 2), function (err) {
+        if (err) throw err
+      })
+      console.log(`Output written to ${outputFile}`)
+    } else {
+      console.log(errorReport)
+    }
   }
-
   const end = Date.now()
-  console.log(`\n🕦 Markdownlint finished in ${(end - start) / 1000} s`)
-
+  spinner.info(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
+  if (warningFileCount > 0) {
+    spinner.warn(`Found ${warningFileCount} file(s) with warnings(s)`)
+  }
   if (errorFileCount > 0) {
     spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
     process.exit(1)
@@ -154,33 +172,55 @@ function reportSummaryByRule(results, config) {
   console.log(JSON.stringify(ruleCount, null, 2))
 }
 
-function reportResults(allResults) {
-  console.log('\n\nMarkdownlint results:\n')
+function getResults(allResults) {
+  const output = {}
   Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
     .forEach(([key, results]) => {
-      console.log(key)
       if (!verbose) {
         const formattedResults = results.map((flaw) => formatResult(flaw))
         const errors = formattedResults.filter((result) => result.severity === 'error')
         const warnings = formattedResults.filter((result) => result.severity === 'warning')
         const sortedResult = [...errors, ...warnings]
-        console.log(sortedResult)
+        output[key] = [...sortedResult]
       } else {
-        console.log(results)
+        output[key] = [...results]
       }
     })
+  return output
 }
 
 // Results are formatted with the key being the filepath
 // and the value being an array of errors for that filepath.
-// The value may be an array of length 0. This filters all
-// values for length greater than 0 and returns the length of
-// the filtered array, which would be equivalent to the number of
-// filepaths with errors
+// Each result has a rule name, which when looked up in `allConfig`
+// will give us its severity and we filter those that are 'warning'.
+function getWarningCountByFile(results) {
+  return getCountBySeverity(results, 'warning')
+}
+
+// Results are formatted with the key being the filepath
+// and the value being an array of errors for that filepath.
+// Each result has a rule name, which when looked up in `allConfig`
+// will give us its severity and we filter those that are 'error'.
 function getErrorCountByFile(results) {
-  return Object.values(results).filter((value) => value.length).length
+  return getCountBySeverity(results, 'error')
+}
+function getCountBySeverity(results, severityLookup) {
+  return Object.values(results).filter((results) => {
+    for (const result of results) {
+      for (const ruleName of result.ruleNames) {
+        if (!allConfig[ruleName]) continue
+        const severity = process.env.CI
+          ? allConfig[ruleName].severity
+          : allConfig[ruleName]['severity-local-env'] || allConfig[ruleName].severity
+        if (severity === severityLookup) {
+          return true
+        }
+      }
+    }
+    return false
+  }).length
 }
 
 // Removes null values and properties that are not relevant to content
@@ -189,7 +229,7 @@ function formatResult(object) {
   const formattedResult = {}
 
   // Add severity of error or warning
-  const ruleName = object.ruleNames[1]
+  const ruleName = object.ruleNames[1] || object.ruleNames[0]
   formattedResult.severity = allConfig[ruleName].severity
 
   return Object.entries(object).reduce((acc, [key, value]) => {
@@ -203,6 +243,13 @@ function formatResult(object) {
       acc.columnNumber = value[0]
       delete acc.range
       return acc
+    }
+    if (key === 'lineNumber') {
+      if (object.errorDetail.startsWith('Frontmatter:')) {
+        delete acc.lineNumber
+        acc.frontmatterError = true
+        return acc
+      }
     }
     acc[key] = value
     return acc
@@ -237,7 +284,7 @@ function listRules() {
 
 // Runs Markdownlint for each configuration: content and data
 // and returns the combined results.
-async function getMarkdownlintResults(config, files) {
+async function getMarkdownlintResults(config, files, customRules) {
   const options = {
     content: {
       files: files.content,
@@ -263,7 +310,7 @@ async function getMarkdownlintResults(config, files) {
 // those Markdown files are partials included in full Markdown files.
 // Rules that can't be run on partials have the property
 // `partial-markdown-files` set to false.
-function getMarkdownLintConfig(errors, rules) {
+function getMarkdownLintConfig(errorsOnly, rules) {
   const config = {
     content: {
       default: false, // By default, don't turn on all markdownlint rules
@@ -274,9 +321,14 @@ function getMarkdownLintConfig(errors, rules) {
   }
 
   // Only configure the rules that have the severity of error
-  if (errors) {
+  if (errorsOnly) {
     const errorConfig = Object.keys(allConfig).reduce((acc, key) => {
-      if (allConfig[key].severity === 'error') acc[key] = allConfig[key]
+      // The severity of the rule can be different when running locally vs in CI
+      const defaultSev = allConfig[key].severity
+      const localSev = allConfig[key]['severity-local-env'] || defaultSev
+      const severity = process.env.CI ? defaultSev : localSev
+
+      if (severity === 'error') acc[key] = allConfig[key]
       return acc
     }, config.content)
     Object.assign(config.content, errorConfig)

@@ -35,7 +35,7 @@ For information on how to remove a passkey from your account, see "[Removing a p
 
 {% note %}
 
-**Note:** You can use the procedure to upgrade a platform authenticator (such as Mac TouchID, or Windows Hello) from a security key into a passkey. Cross-platform authenticators (such as hardware keys) cannot be upgraded, but you can still register a hardware key as a passkey, so long as the hardware key is user-verifying. For example, the Yubikey Bio is a user-verifying hardware key that is passkey eligible.
+**Note:** Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
 
 {% endnote %}
 
@@ -59,7 +59,7 @@ Before starting the upgrade procedure, make sure that you are using the device t
 
 Many passkeys support syncing, where your passkey is backed up by the provider's account system (iCloud, Google account, password manager, etc.). If you ever lose your device, you can recover your synced passkeys by signing in to your passkey provider.
 
-In some cases, your passkey may be "device-bound", which means the passkey is not allowed to be synced and is not backed up by the cloud. For example, you can register user-verifying hardware keys (such as a Yubikey Bio) as a passkey, but that passkey will not be synced. If your passkey is device-bound, and you lose or wipe the device, the passkey cannot be recovered.
+In some cases, your passkey may be "device-bound", which means the passkey cannot be synced and is not backed up to the cloud. For example, you can register FIDO2 hardware security keys (such as a YubiKey) as a passkey, but that passkey will not be synced. If your passkey is device-bound, and you lose or wipe the device, the passkey cannot be recovered. If you are only using device-bound passkeys, it is a best practice to register passkeys on at least two different devices, in case you lose access to one.
 
 You can see which of your passkeys are synced, and which are device-bound, under "Passkeys" in your account security settings. Synced passkeys will include a blue `Synced` label next to their name.
 
