@@ -35,7 +35,7 @@ Webhooks are a method of communication that allows users to subscribe to events 
 
 You can create webhooks for{% ifversion ghec or ghes or ghae %} a {% data variables.product.prodname_enterprise %},{% endif %} an organization, a repository, or a {% data variables.product.prodname_github_app %}.{% ifversion fpt or ghec %} You can also create webhooks to subscribe to events relating to {% data variables.product.prodname_sponsors %} and {% data variables.product.prodname_marketplace %}. {% endif %}
 
-You can create up to {% ifversion ghec or ghes or ghae %}250{% else %}20{% endif %} webhooks for each event on each installation target {% ifversion ghes or ghae %}({% data variables.product.prodname_ghe_server %} instance, specific organization, or specific repository).{% else %}(specific organization or specific repository).{% endif %}
+You can create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks for each event on each installation target {% ifversion ghes or ghae %}({% data variables.product.prodname_ghe_server %} instance, specific organization, or specific repository).{% else %}(specific organization or specific repository).{% endif %}
 
 For more information about creating webhooks, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
 
