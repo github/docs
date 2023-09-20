@@ -11,9 +11,9 @@ redirect_from:
 
 ## About amending a commit
 
-Amending a commit is a way to modify the most recent commit you have made in your current branch. This can be helpful if you need to edit the commit message or if you forgot to include changes in the commit.
+Amending a commit is a way to modify the most recent commit you have made in your current branch. This can be helpful if you need to edit the commit message or if you forgot to include changes in the commit. When you amend a commit, you replace the previous commit with a new commit to your current branch.
 
-You can continue to amend a commit until you push it to the remote repository. After you push a commit, the option to amend it is disabled in {% data variables.product.prodname_desktop %}. When you amend a commit, you replace the previous commit with a new commit to your current branch. Amending a commit that has been pushed to the remote repository could cause confusion for other collaborators working with the repository.
+If possible, you should only amend a commit that you haven't pushed to the remote repository. To amend a commit that has been pushed to the remote repository, you will need to use a force push to overwrite the commit history in the remote repository. Overwriting commit history may cause confusion for other collaborators working with the repository, because they may have already based work on the commit you have amended.
 
 ## Amending a commit
 
