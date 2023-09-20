@@ -82,7 +82,7 @@
     "express-timeout-handler": "^2.2.2",
     "fastest-levenshtein": "1.0.16",
     "file-type": "18.3.0",
-    "flat": "^5.0.2",
+    "flat": "^6.0.1",
     "github-slugger": "^2.0.0",
     "glob": "10.0.0",
     "got": "^13.0.0",
