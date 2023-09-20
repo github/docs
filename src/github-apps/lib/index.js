@@ -2,7 +2,7 @@ import path from 'path'
 import { readFile } from 'fs/promises'
 
 import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
-import { getOpenApiVersion } from '../../../lib/all-versions.js'
+import { getOpenApiVersion } from '#src/versions/lib/all-versions.js'
 import { categoriesWithoutSubcategories } from '../../rest/lib/index.js'
 
 const ENABLED_APPS_DIR = 'src/github-apps/data'

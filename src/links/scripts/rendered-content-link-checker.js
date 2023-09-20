@@ -9,13 +9,13 @@ import chalk from 'chalk'
 import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
 
-import shortVersions from '../../../middleware/contextualizers/short-versions.js'
+import shortVersions from '#src/versions/middleware/short-versions.js'
 import contextualize from '../../../middleware/context.js'
-import features from '../../../middleware/contextualizers/features.js'
+import features from '#src/versions/middleware/features.js'
 import getRedirect from '#src/redirects/lib/get-redirect.js'
 import warmServer from '../../../lib/warm-server.js'
 import { liquid } from '#src/content-render/index.js'
-import { deprecated } from '../../../lib/enterprise-server-releases.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 import excludedLinks from '#src/links/lib/excluded-links.js'
 import { getEnvInputs, boolEnvVar } from '../../../.github/actions-scripts/lib/get-env-inputs.js'
 import {
@@ -275,7 +275,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       const reportProps = {
         core,
         octokit,
-        reportTitle: `${flaws.length + 1} broken links found`,
+        reportTitle: `${flaws.length} broken links found`,
         reportBody: flawIssueDisplay(flaws, opts),
         reportRepository,
         reportLabel,
@@ -310,7 +310,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       core.setOutput('has_flaws_at_level', flawsInLevel.length > 0)
       if (failOnFlaw) {
         core.setFailed(
-          `${flaws.length + 1} broken links found. See action artifact uploads for details`,
+          `${flaws.length} broken links found. See action artifact uploads for details`,
         )
       }
     }

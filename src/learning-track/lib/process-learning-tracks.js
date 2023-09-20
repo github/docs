@@ -1,6 +1,6 @@
 import { renderContent } from '#src/content-render/index.js'
 import getLinkData from './get-link-data.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import { getDataByLanguage } from '../../../lib/get-data.js'
 import { executeWithFallback } from '../../../lib/render-with-fallback.js'
 

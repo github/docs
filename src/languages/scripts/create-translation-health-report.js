@@ -62,7 +62,7 @@ console.warn = console.error = (...args) => {
 const { languageKeys } = await import('#src/languages/lib/languages.js')
 const { loadPages, loadPageMap } = await import('../../../lib/page-data.js')
 const { precompileRedirects } = await import('../../../src/redirects/lib/precompile.js')
-const { allVersions, allVersionKeys } = await import('../../../lib/all-versions.js')
+const { allVersions, allVersionKeys } = await import('#src/versions/lib/all-versions.js')
 const { getProductStringFromPath } = await import('../../../lib/path-utils.js')
 
 // Check that the language is valid

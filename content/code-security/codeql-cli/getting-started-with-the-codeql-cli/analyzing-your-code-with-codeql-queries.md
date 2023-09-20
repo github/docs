@@ -93,7 +93,7 @@ You must specify `<database>`, `--format`, and `--output`. You can specify addit
 | <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|{% ifversion code-scanning-tool-status-page %}
 | <nobr>`--sarif-add-baseline-file-info`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to submit file coverage information to the {% data variables.code-scanning.tool_status_page %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page#how-codeql-defines-scanned-files)." | {% endif %}
 | <nobr>`--sarif-add-query-help`</nobr> | {% octicon "x" aria-label="Optional" %} | Use if you want to include any available markdown-rendered query help for custom queries used in your analysis. Any query help for custom queries included in the SARIF output will be displayed in the code scanning UI if the relevant query generates an alert. For more information, see "[Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files](#including-query-help-for-custom-codeql-queries-in-sarif-files)."{% ifversion codeql-packs %}
-| `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include {% data variables.product.prodname_codeql %} query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} query packs](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#downloading-and-using-codeql-query-packs)."
+| `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include {% data variables.product.prodname_codeql %} query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#downloading-and-using-codeql-query-packs)."
 | <nobr>`--download`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if some of your {% data variables.product.prodname_codeql %} query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
 | <nobr>`--threads`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`.
 | <nobr>`--verbose`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use to get more detailed information about the analysis process and diagnostic data from the database creation process.
@@ -293,6 +293,7 @@ codeql database analyze --format=sarif-latest --output=results <db> \
 ```
 
 For more information about {% data variables.product.prodname_codeql %} packs, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).
+
 {% endif %}
 
 ### Running query suites
@@ -325,7 +326,7 @@ If the analysis found fewer results for standard queries than you expected, revi
 ### Integrating a {% data variables.product.prodname_codeql %} pack into a code scanning workflow in {% data variables.product.prodname_dotcom %}
 
 You can use {% data variables.product.prodname_codeql %} query packs in your code scanning setup. This allows you to select query packs published by various sources and use them to analyze your code.
-For more information, see "[Using {% data variables.product.prodname_codeql %} query packs in the {% data variables.product.prodname_codeql %} action](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-codeql-query-packs/)" or "[Downloading and using {% data variables.product.prodname_codeql %} query packs in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#downloading-and-using-codeql-query-packs)."
+For more information, see "[Using {% data variables.product.prodname_codeql %} query packs in the {% data variables.product.prodname_codeql %} action](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-query-packs/)" or "[Downloading and using {% data variables.product.prodname_codeql %} query packs in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#downloading-and-using-codeql-query-packs)."
 
 ### Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files
 

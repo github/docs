@@ -13,7 +13,7 @@ topics:
   - CodeQL
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli
- 
+
 ---
 
 ## Setting up the {% data variables.product.prodname_codeql_cli %}

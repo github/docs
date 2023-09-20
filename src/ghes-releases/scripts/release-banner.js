@@ -11,7 +11,7 @@ import path from 'path'
 import { program } from 'commander'
 import yaml from 'js-yaml'
 
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 const releaseCandidateFile = 'data/variables/release_candidate.yml'
 const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)

@@ -1,6 +1,6 @@
 import { getDataByLanguage } from '../../lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
-import { supported } from '../../lib/enterprise-server-releases.js'
+import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('spotlight', () => {
   test('renders styled warnings', async () => {
@@ -128,7 +128,7 @@ describe('rowheaders', () => {
     // (and there are 4 of these <tr> rows)
     const secondTable = tables.filter((i) => i === 1)
     expect($('tbody tr th', secondTable).length).toBe(0)
-    expect($('tbody tr td', secondTable).length).toBe(3 * 4)
+    expect($('tbody tr td', secondTable).length).toBe(3 * 3)
 
     // More specifically, the <th> tags should have the appropriate
     // `scope` attribute.

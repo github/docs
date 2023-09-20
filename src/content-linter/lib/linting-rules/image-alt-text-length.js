@@ -1,7 +1,7 @@
 import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
 
 import { liquid } from '#src/content-render/index.js'
-import { allVersions } from '../../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { getRange } from '../helpers/utils.js'
 
 export const incorrectAltTextLength = {
