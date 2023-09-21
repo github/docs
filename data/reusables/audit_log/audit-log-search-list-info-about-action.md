@@ -1,4 +1,4 @@
-The name for each audit log entry is composed of the `action` object or category qualifier, followed by an operation type. For example, the `repo.create` entry refers to the `create` operation on the `repo` category.
+{% data reusables.audit_log.category-operation-notation %}
 
 Each audit log entry shows applicable information about an event, such as:
 
