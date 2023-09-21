@@ -7,11 +7,6 @@ versions:
 type: how_to
 shortTitle: Sign in with a passkey
 ---
-{% note %}
-
-{% data reusables.passkeys.beta-note %}
-
-{% endnote %}
 
 ## About signing in with a passkey
 
