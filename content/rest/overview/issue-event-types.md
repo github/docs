@@ -65,7 +65,8 @@ This event is available for the following issue types.
 ### Properties for assigned
 
 {% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.assignee-properties %}
+`assignee` | `object` | The person assigned from this issue.
+`assigner` | `object` | The person who performed the assignment for this issue. This field is available in the REST API for issue events but not the REST API for timeline events.
 
 ## automatic_base_change_failed
 
@@ -843,7 +844,8 @@ This event is available for the following issue types.
 ### Properties for unassigned
 
 {% data reusables.issue-events.issue-event-common-properties %}
-{% data reusables.issue-events.assignee-properties %}
+`assignee` | `object` | The person unassigned from this issue.
+`assigner` | `object` | The person who performed the unassignment for this issue. This field is available in the REST API for issue events but not the REST API for timeline events.
 
 ## unlabeled
 
