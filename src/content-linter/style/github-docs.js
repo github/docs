@@ -44,43 +44,44 @@ export const githubDocsConfig = {
     severity: 'warning',
     'partial-markdown-files': true,
   },
-  'no-github-docs-domains': {
-    // GHD020
-    severity: 'error',
-    'partial-markdown-files': true,
-  },
   'early-access-references': {
     severity: 'error',
     'partial-markdown-files': true,
   },
   'search-replace': {
-    severity: 'error',
-    'severity-local-env': 'warning',
-    'partial-markdown-files': true,
     rules: [
       {
         name: 'todocs-placeholder',
         message: 'Catch occurrences of TODOCS placeholder.',
         search: 'TODOCS',
         searchScope: 'all',
+        severity: 'error',
+        'severity-local': 'warning',
+        'partial-markdown-files': true,
       },
       {
         name: 'docs-domain',
         message: 'Catch occurrences of docs.gitub.com domain.',
         search: 'docs.gitub.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'help-domain',
         message: 'Catch occurrences of help.github.com domain.',
         search: 'help.github.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'preview-domain',
         message: 'Catch occurrences of preview.ghdocs.com domain.',
         search: 'preview.ghdocs.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'developer-domain',
@@ -91,6 +92,8 @@ export const githubDocsConfig = {
         // There are occurences that will likely always remain in the content.
         searchPattern: '/developer.github.com(?!/(changes|enterprise/([0-9]|{))).*/g',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
     ],
   },

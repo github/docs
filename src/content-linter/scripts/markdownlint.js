@@ -9,6 +9,7 @@ import { execSync } from 'child_process'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
+import { githubDocsConfig } from '../style/github-docs.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -21,6 +22,14 @@ program
       '--errors-only',
       'Only report rules that have the severity of error, not warning.',
     ).conflicts('rules'),
+  )
+  .addOption(
+    new Option(
+      '--local-errors-only',
+      'Used by the git commit hook. Runs just like --errors-only but uses the local development severity if set for a rule.',
+    )
+      .implies({ errorsOnly: true })
+      .conflicts('rules'),
   )
   .option('--fix', 'Automatically fix errors that can be fixed.')
   .addOption(
@@ -41,8 +50,10 @@ program
   )
   .parse(process.argv)
 
-const { fix, paths, errorsOnly, rules, summaryByRule, outputFile, verbose } = program.opts()
+const { fix, paths, errorsOnly, localErrorsOnly, rules, summaryByRule, outputFile, verbose } =
+  program.opts()
 const ALL_CONTENT_DIR = ['content', 'data']
+const LOCAL_ERRORS_ONLY = localErrorsOnly || false
 
 main()
 
@@ -60,15 +71,26 @@ async function main() {
   const start = Date.now()
 
   // Initializes the config to pass to markdownlint based on the input options
-  const config = getMarkdownLintConfig(errorsOnly, rules)
+  const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules, customRules)
+  console.log(JSON.stringify(config, null, 2))
+  console.log(JSON.stringify(configuredRules, null, 2))
 
-  const customRulesFiltered = customRules.filter((rule) => {
-    return !errorsOnly || rule.severity === 'error'
+  // Run Markdownlint for content directory
+  const resultContent = await markdownlint.promises.markdownlint({
+    files: files.content,
+    config: config.content,
+    customRules: configuredRules.content,
   })
-
-  // Run Markdownlint on content and data directories individually
-  // and get all results
-  const results = await getMarkdownlintResults(config, files, customRulesFiltered)
+  // Run Markdownlint for data directory
+  const resultData = await markdownlint.promises.markdownlint({
+    files: files.data,
+    config: config.data,
+    customRules: configuredRules.data,
+  })
+  // There are no collisions when assigning the results to the new object
+  // because the keys are filepaths and the individual runs of Markdownlint
+  // are in separate directories (content and data).
+  const results = Object.assign({}, resultContent, resultData)
 
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
@@ -79,21 +101,28 @@ async function main() {
     }
   }
 
-  const errorFileCount = getErrorCountByFile(results)
-  const warningFileCount = getWarningCountByFile(results)
+  // The results don't yet contain severity information and are
+  // in the format received directly from Markdownlint.
+  const formattedResults = getFormattedResults(results)
+  const errorFileCount = getErrorCountByFile(formattedResults)
+  const warningFileCount = getWarningCountByFile(formattedResults)
+
   // Used for a temporary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
   if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0)) {
     reportSummaryByRule(results, config)
   } else if (errorFileCount > 0 || warningFileCount > 0) {
-    const errorReport = getResults(results)
     if (outputFile) {
-      fs.writeFileSync(`${outputFile}`, JSON.stringify(errorReport, undefined, 2), function (err) {
-        if (err) throw err
-      })
+      fs.writeFileSync(
+        `${outputFile}`,
+        JSON.stringify(formattedResults, undefined, 2),
+        function (err) {
+          if (err) throw err
+        },
+      )
       console.log(`Output written to ${outputFile}`)
     } else {
-      console.log(errorReport)
+      console.log(formattedResults)
     }
   }
   const end = Date.now()
@@ -172,20 +201,25 @@ function reportSummaryByRule(results, config) {
   console.log(JSON.stringify(ruleCount, null, 2))
 }
 
-function getResults(allResults) {
+/*
+  Filter out the files with one or more results and format each
+  result. Results are sorted by severity per file, with errors
+  listed first then warnings.
+*/
+function getFormattedResults(allResults) {
   const output = {}
   Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
     .forEach(([key, results]) => {
-      if (!verbose) {
+      if (verbose) {
+        output[key] = [...results]
+      } else {
         const formattedResults = results.map((flaw) => formatResult(flaw))
         const errors = formattedResults.filter((result) => result.severity === 'error')
         const warnings = formattedResults.filter((result) => result.severity === 'warning')
         const sortedResult = [...errors, ...warnings]
         output[key] = [...sortedResult]
-      } else {
-        output[key] = [...results]
       }
     })
   return output
@@ -200,37 +234,27 @@ function getWarningCountByFile(results) {
 }
 
 // Results are formatted with the key being the filepath
-// and the value being an array of errors for that filepath.
-// Each result has a rule name, which when looked up in `allConfig`
-// will give us its severity and we filter those that are 'error'.
+// and the value being an array of results for that filepath.
+// Each result in the array has a severity of error or warning.
 function getErrorCountByFile(results) {
   return getCountBySeverity(results, 'error')
 }
 function getCountBySeverity(results, severityLookup) {
-  return Object.values(results).filter((results) => {
-    for (const result of results) {
-      for (const ruleName of result.ruleNames) {
-        if (!allConfig[ruleName]) continue
-        const severity = process.env.CI
-          ? allConfig[ruleName].severity
-          : allConfig[ruleName]['severity-local-env'] || allConfig[ruleName].severity
-        if (severity === severityLookup) {
-          return true
-        }
-      }
-    }
-    return false
-  }).length
+  return Object.values(results).filter((results) =>
+    results.some((result) => result.severity === severityLookup),
+  ).length
 }
 
 // Removes null values and properties that are not relevant to content
-// writers and transforms some error data into a more readable format.
+// writers, adds the severity to each result object, and transforms
+// some error and fix data into a more readable format.
 function formatResult(object) {
   const formattedResult = {}
 
-  // Add severity of error or warning
+  // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
-  formattedResult.severity = allConfig[ruleName].severity
+  formattedResult.severity =
+    allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object)
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
@@ -282,35 +306,14 @@ function listRules() {
   return ruleList
 }
 
-// Runs Markdownlint for each configuration: content and data
-// and returns the combined results.
-async function getMarkdownlintResults(config, files, customRules) {
-  const options = {
-    content: {
-      files: files.content,
-      config: config.content,
-      customRules,
-    },
-    data: {
-      files: files.data,
-      config: config.data,
-      customRules,
-    },
-  }
-  const resultContent = await markdownlint.promises.markdownlint(options.content)
-  const resultData = await markdownlint.promises.markdownlint(options.data)
-  // There are no collisions when assigning the results to the new object
-  // because the keys are filepaths and the individual runs of Markdownlint
-  // are in separate directories (content and data).
-  return Object.assign({}, resultContent, resultData)
-}
-
-// Based on input options, configure the Markdownlint rules to run
-// There are a subset of rules that can't be run on data files, since
-// those Markdown files are partials included in full Markdown files.
-// Rules that can't be run on partials have the property
-// `partial-markdown-files` set to false.
-function getMarkdownLintConfig(errorsOnly, rules) {
+/* 
+  Based on input options, configure the Markdownlint rules to run
+  There are a subset of rules that can't be run on data files, since
+  those Markdown files are partials included in full Markdown files.
+  Rules that can't be run on partials have the property
+  `partial-markdown-files` set to false.
+*/
+function getMarkdownLintConfig(errorsOnly, runRules, customRules) {
   const config = {
     content: {
       default: false, // By default, don't turn on all markdownlint rules
@@ -319,37 +322,99 @@ function getMarkdownLintConfig(errorsOnly, rules) {
       default: false, // By default, don't turn on all markdownlint rules
     },
   }
-
-  // Only configure the rules that have the severity of error
-  if (errorsOnly) {
-    const errorConfig = Object.keys(allConfig).reduce((acc, key) => {
-      // The severity of the rule can be different when running locally vs in CI
-      const defaultSev = allConfig[key].severity
-      const localSev = allConfig[key]['severity-local-env'] || defaultSev
-      const severity = process.env.CI ? defaultSev : localSev
-
-      if (severity === 'error') acc[key] = allConfig[key]
-      return acc
-    }, config.content)
-    Object.assign(config.content, errorConfig)
-  } else if (rules) {
-    // Only configure rules passed in rules parameter
-    for (const rule of rules) {
-      config.content[rule] = allConfig[rule]
-    }
-  } else {
-    // Configure all errors and warning rules
-    Object.assign(config.content, allConfig)
+  const configuredRules = {
+    content: [],
+    data: [],
   }
 
-  // Filter out config settings that don't apply to data files
-  const dataConfig = Object.keys(config.content).reduce((acc, key) => {
-    if (config.content[key]['partial-markdown-files'] === true) {
-      acc[key] = config.content[key]
-    }
-    return acc
-  }, config.data)
-  Object.assign(config.data, dataConfig)
+  for (const [ruleName, ruleConfig] of Object.entries(allConfig)) {
+    const customRule = githubDocsConfig[ruleName] && getCustomRule(ruleName)
 
-  return config
+    // search-replace is handled differently than other rules because
+    // it has nested metadata and rules.
+    if (errorsOnly && getRuleSeverity(ruleConfig) !== 'error' && ruleName !== 'search-replace')
+      continue
+    if (runRules && !runRules.includes(ruleName)) continue
+
+    // Handle the special case of the search-replace rule
+    // which has nested rules each with their own
+    // severity and metadata.
+    if (ruleName === 'search-replace') {
+      const searchReplaceRules = []
+      const dataSearchReplaceRules = []
+
+      for (const searchRule of ruleConfig.rules) {
+        const searchRuleSeverity = getRuleSeverity(searchRule)
+        if (errorsOnly && searchRuleSeverity !== 'error') continue
+        searchReplaceRules.push(searchRule)
+        if (searchRule['partial-markdown-files']) {
+          dataSearchReplaceRules.push(searchRule)
+        }
+      }
+
+      if (searchReplaceRules.length > 0) {
+        config.content[ruleName] = { ...ruleConfig, rules: searchReplaceRules }
+        if (customRule) configuredRules.content.push(customRule)
+      }
+      if (dataSearchReplaceRules.length > 0) {
+        config.data[ruleName] = { ...ruleConfig, rules: dataSearchReplaceRules }
+        if (customRule) configuredRules.data.push(customRule)
+      }
+      continue
+    }
+
+    config.content[ruleName] = ruleConfig
+    if (customRule) configuredRules.content.push(customRule)
+    if (ruleConfig['partial-markdown-files']) {
+      config.data[ruleName] = ruleConfig
+      if (customRule) configuredRules.data.push(customRule)
+    }
+  }
+
+  return { config, configuredRules }
+}
+
+/*
+  The severity of the rule can be different when running locally vs in CI
+  If the --local-errors-only option is set, use the severity-local property
+  to determine severity, if it is defined.
+*/
+function getRuleSeverity(rule) {
+  const defaultSev = rule.severity
+  const localSev = rule['severity-local'] || defaultSev
+  return LOCAL_ERRORS_ONLY ? localSev : defaultSev
+}
+
+// Gets a custom rule function from the name of the rule
+// in the configuration file
+function getCustomRule(ruleName) {
+  const rule = customRules.find((rule) => rule.names.includes(ruleName))
+  if (!rule)
+    throw new Error(
+      `A content-lint rule ('${ruleName}') is configured in the markdownlint config file but does not have a corresponding rule function.`,
+    )
+  return rule
+}
+
+/* 
+  The severity of the search-replace custom rule is embedded in 
+  each individual search rule. This function returns the severity
+  of the individual search rule. The name we define for each search
+  rule shows up the the errorDetail property of the error object.
+  The error object returned from Markdownlint has the following structure:
+
+  {
+    lineNumber: 266,
+    ruleNames: [ 'search-replace' ],
+    ruleDescription: 'Custom rule',
+    ruleInformation: 'https://github.com/OnkarRuikar/markdownlint-rule-search-replace',
+    errorDetail: 'docs-domain: Catch occurrences of docs.gitub.com domain.',
+    errorContext: "column: 21 text:'docs.github.com'",
+    errorRange: [ 21, 15 ],
+    fixInfo: null
+  }
+*/
+function getSearchReplaceRuleSeverity(ruleName, object) {
+  const pluginRuleName = object.errorDetail.split(':')[0].trim()
+  return allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName).severity
 }
