@@ -1,6 +1,5 @@
 import { unified } from 'unified'
-import markdown from 'remark-parse-no-trim'
-import markdownNext from 'remark-parse'
+import remarkParse from 'remark-parse'
 import gfm from 'remark-gfm'
 import emoji from 'remark-gemoji-to-emoji'
 import remark2rehype from 'remark-rehype'
@@ -29,8 +28,8 @@ import annotate from './annotate.js'
 export function createProcessor(context) {
   return (
     unified()
-      .use(process.env.COMMONMARK ? markdownNext : markdown)
-      .use(process.env.COMMONMARK ? gfm : null)
+      .use(remarkParse)
+      .use(gfm)
       // Markdown AST below vvv
       .use(parseInfoString)
       .use(emoji)
@@ -61,8 +60,8 @@ export function createProcessor(context) {
 
 export function createMinimalProcessor(context) {
   return unified()
-    .use(process.env.COMMONMARK ? markdownNext : markdown)
-    .use(process.env.COMMONMARK ? gfm : null)
+    .use(remarkParse)
+    .use(gfm)
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(slug)
     .use(raw)
