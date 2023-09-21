@@ -39,10 +39,10 @@ You can convert draft tasks into issues. Issues are created in the same reposito
 1. In the menu, click **Convert to issue**.
 
 ## Setting labels, assignees, and projects from a tasklist
- 
+
 1. Place your cursor over the task you want to make changes to and next to the task, click {% octicon "kebab-horizontal" aria-label="tracking block item menu" %}.
 
-    ![Screenshot of a tasklist. To the right of a task, the tracking block item menu, which is labeled with a horizontal kebab icon, is outlined in dark orange.](/assets/images/help/projects-v2/tasklists-item-context-menu.png) 
+    ![Screenshot of a tasklist. To the right of a task, the tracking block item menu, which is labeled with a horizontal kebab icon, is outlined in dark orange.](/assets/images/help/projects-v2/tasklists-item-context-menu.png)
 
 1. Using the context menu, make your changes.
    - To set labels, select **Set labels**, and then select one or more labels from the menu.

@@ -55,7 +55,7 @@ During the beta for {% data variables.product.prodname_mobile %} with {% data va
 
 ### Adding, switching, or signing out of accounts
 
-You can sign into mobile with any {% data variables.product.company_short %} account, either on {% data variables.product.prodname_dotcom_the_website %} or on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in. 
+You can sign into mobile with any {% data variables.product.company_short %} account, either on {% data variables.product.prodname_dotcom_the_website %} or on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in.
 
 After signing in with an account on {% data variables.product.prodname_ghe_server %}, you can switch between any other accounts you're currently logged into within the app. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap the account you want to switch to.
 

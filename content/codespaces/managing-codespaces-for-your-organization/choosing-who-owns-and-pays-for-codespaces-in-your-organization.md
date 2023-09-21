@@ -66,7 +66,7 @@ When a user creates a codespace, they're told who will pay for it, and therefore
 
 When you change your ownership settings, existing codespaces can transfer to a new owner.
 
-If you change from **organization ownership** to **user ownership**, codespaces that are currently owned by your organization will be transferred to the ownership of the user who created the codespace. Before you make this change, you should ask each user to review the codespaces that will be transferred to their ownership. These codespaces will now incur usage on the user's personal account. 
+If you change from **organization ownership** to **user ownership**, codespaces that are currently owned by your organization will be transferred to the ownership of the user who created the codespace. Before you make this change, you should ask each user to review the codespaces that will be transferred to their ownership. These codespaces will now incur usage on the user's personal account.
 
 If you change from **user ownership** to **organization ownership**, existing codespaces may be transferred to your organization's ownership. A codespace will be transferred if the user who currently owns the codespace is a member or collaborator, and you have enabled {% data variables.product.prodname_github_codespaces %} for this user. Otherwise, a codespace will remain under the ownership of the user.
 
