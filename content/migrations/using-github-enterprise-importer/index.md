@@ -1,4 +1,27 @@
----
+              - name: Await Taktile Deployment
+                uses: taktile-org/await-taktile-deployment-action@v0.3.0
+            name: Check Deployment Status
+
+on:
+  push
+
+jobs:
+  check-deployment:
+    name: Check Deployment Status
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: Wait until deployment is live
+        uses: taktile-org/await-taktile-deployment-action@VERSION
+        with:
+          TKTL_API_KEY: ${{ secrets.TKTL_API_KEY }}
+      - name: Send update to policy backend
+        run: source update_policy.sh
+License---
 title: Using GitHub Enterprise Importer
 shortTitle: GitHub Enterprise Importer
 intro: 'You can migrate your enterprise to {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_importer_proper_name %}.'
