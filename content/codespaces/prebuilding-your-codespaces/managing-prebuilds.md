@@ -94,7 +94,7 @@ After you delete a prebuild configuration, workflow runs for that configuration 
 
 ## Manually trigger prebuilds
 
-It may be useful to manually trigger a workflow run for a prebuild configuration. Generally this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
+It may be useful to manually trigger a workflow run for a prebuild configuration. Generally, this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
 
 1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration whose workflow you want to trigger.
 1. In the dropdown menu, click **Manually trigger**.
