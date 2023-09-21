@@ -20,12 +20,7 @@ export const Contribution = () => {
         {t`button`}
       </a>
       <p className="color-fg-muted f6 mt-2">
-        <a
-          className="text-underline"
-          href="/contributing"
-          target="_blank"
-          rel="noopener"
-        >
+        <a className="text-underline" href="/contributing" target="_blank" rel="noopener">
           {t`to_guidelines`}
         </a>
       </p>
