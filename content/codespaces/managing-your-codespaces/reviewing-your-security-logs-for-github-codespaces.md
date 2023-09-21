@@ -19,7 +19,7 @@ When you perform an action related to {% data variables.product.prodname_github_
 
 ![Screenshot of the "Security log" page for the "Octo Mona" user, showing the "Recent events" list.](/assets/images/help/codespaces/codespaces-audit-log.png)
 
-The security log includes details on what action occurred and when you performed it. For information about {% data variables.product.prodname_github_codespaces %} actions, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#codespaces-category-actions)".
+The security log includes details on what action occurred and when you performed it. For information about {% data variables.product.prodname_github_codespaces %} actions, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#codespaces)".
 
 ## Further reading
 
