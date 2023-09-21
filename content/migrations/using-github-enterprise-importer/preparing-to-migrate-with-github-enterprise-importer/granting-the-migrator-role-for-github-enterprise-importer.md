@@ -43,8 +43,6 @@ After you grant the migrator role, make sure the migrator uses a {% data variabl
 
 ## Granting the migrator role with the {% data variables.product.prodname_bbs2gh_cli_short %}
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh bbs2gh grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 

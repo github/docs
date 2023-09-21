@@ -62,7 +62,7 @@ Symbol search is a feature of code search. For more information, see "[AUTOTITLE
 1. Select a repository, then navigate to a file containing symbols.
 1. To bring up the symbols pane, above the file content, click {% octicon "code-square" aria-label="The code square icon" %}.
 
-  Alternatively, you can open the symbols pane by clicking an eligible symbol in your file. Clickable symbols are highlighted in yellow when you hover over them.
+   Alternatively, you can open the symbols pane by clicking an eligible symbol in your file. Clickable symbols are highlighted in yellow when you hover over them.
 
 1. Click the symbol you would like to find from the symbols pane or within the file itself.
 

@@ -35,9 +35,9 @@ If you disallow publication of {% data variables.product.prodname_pages %} sites
 {% else %}
 1. Under "Pages creation", select or deselect **Allow members to publish sites**.
 {% endif %}
-{% ifversion fpt or ghec %}
+{%- ifversion fpt or ghec %}
 
-   {% indented_data_reference reusables.pages.privately-publish-ghec-only spaces=3%}{% endif %}
+   {% indented_data_reference reusables.pages.privately-publish-ghec-only spaces=3%}{%- endif %}
 
 1. Click **Save**.
 

@@ -21,6 +21,8 @@ module.exports = {
     "!/.*",
     "/.next/",
     "script/bookmarklets/*",
+    "src/open-source/scripts/add-pr-links.js",
+    "src/open-source/scripts/pr-link-source.js",
     "rest-api-description/",
   ],
   rules: {
@@ -35,8 +37,11 @@ module.exports = {
     },
     {
       files: ["**/*.tsx", "**/*.ts"],
-      plugins: ["@typescript-eslint", "jsx-a11y"],
-      extends: ["plugin:jsx-a11y/recommended"],
+      plugins: ["@typescript-eslint", "primer-react", "jsx-a11y"],
+      extends: [
+        "plugin:primer-react/recommended",
+        "plugin:jsx-a11y/recommended",
+      ],
       parser: "@typescript-eslint/parser",
       rules: {
         camelcase: "off",

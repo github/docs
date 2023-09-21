@@ -4,7 +4,7 @@ import Ajv from 'ajv'
 import readJsonFile from '../../../lib/read-json-file.js'
 import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../lib/validator.js'
 import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { GRAPHQL_DATA_DIR } from '../lib/index.js'
 
 const allVersionValues = Object.values(allVersions)

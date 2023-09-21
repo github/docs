@@ -92,22 +92,126 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
-      }
-    ]
-  },
-  "enterprise_self_hosted_runners": {
-    "title": "enterprise self hosted runners",
-    "displayTitle": "Enterprise self hosted runners permissions",
-    "permissions": [
+      },
       {
-        "category": "actions",
-        "slug": "create-configuration-for-a-just-in-time-runner-for-an-enterprise",
-        "subcategory": "self-hosted-runners",
-        "verb": "post",
-        "requestPath": "/enterprises/{enterprise}/actions/runners/generate-jitconfig",
+        "category": "enterprise-admin",
+        "slug": "list-provisioned-scim-groups-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups",
         "access": "write",
-        "user-to-server": false,
-        "server-to-server": false,
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Groups",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-an-attribute-for-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "patch",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-group-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-scim-provisioned-identities-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-user",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-user-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
         "additional-permissions": []
       }
     ]
@@ -3961,7 +4065,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "contents"
+        ]
       },
       {
         "category": "interactions",
@@ -5267,6 +5373,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "administration"
+        ]
       },
       {
         "category": "git",

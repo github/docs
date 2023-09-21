@@ -48,8 +48,7 @@ For more information about authenticating with {% data variables.product.prodnam
 1. Install GCM using Homebrew:
 
    ```shell
-   brew tap microsoft/git
-   brew install --cask git-credential-manager-core
+   brew install --cask git-credential-manager
    ```
 
   For MacOS, you don't need to run `git config` because GCM automatically configures Git for you.

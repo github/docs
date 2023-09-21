@@ -35,7 +35,7 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
             src={graphqlExplorerUrl}
             title="GitHub GraphQL API"
           >
-            <p>You must have iframes enabled to use this feature.</p>
+            You must have iframes enabled to use this feature.
           </iframe>
         </div>
       </DefaultLayout>

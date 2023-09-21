@@ -3,7 +3,6 @@ title: 'Alerts found in generated code'
 shortTitle: 'Alerts in generated code'
 intro: 'When analyzing your code with {% data variables.product.prodname_code_scanning %}, you may wish to build only the code which you wish to analyze.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

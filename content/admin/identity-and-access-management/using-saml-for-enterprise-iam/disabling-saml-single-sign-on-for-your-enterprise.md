@@ -25,7 +25,7 @@ After you disable SAML SSO for your enterprise, the following effects apply:
 
    **Note:** If you're unable to access the enterprise because your IdP is unavailable, you can use a recovery code to bypass SSO. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
 
-  {% endnote %}
+   {% endnote %}
 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}

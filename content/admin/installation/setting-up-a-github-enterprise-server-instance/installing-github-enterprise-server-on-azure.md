@@ -42,7 +42,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 1. Find the most recent {% data variables.product.prodname_ghe_server %} appliance image. For more information about the `vm image list` command, see "[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
 
    ```shell
-   az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
+   az vm image list --all -f GitHub-Enterprise | grep '"urn": "GitHub:' | sort -V
    ```
 
 1. Create a new VM using the appliance image you found. For more information, see [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create) in the Microsoft documentation.

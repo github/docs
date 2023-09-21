@@ -1,7 +1,16 @@
 
 When using the `push` and `pull_request` events, you can configure a workflow to run based on what file paths are changed. Path filters are not evaluated for pushes of tags.
 
-Use the `paths` filter when you want to include file path patterns or when you want to both include and exclude file path patterns. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
+Use the `paths` filter when you want to include file path patterns or when you want to both include and exclude file path patterns. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter prefixed with the `!` character to indicate which paths should be excluded.
+
+{% note %}
+
+**Note:** The order that you define `paths` patterns matters:
+
+- A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
+- A matching positive pattern after a negative match will include the path again.
+
+{% endnote %}
 
 If you define both `branches`/`branches-ignore` and `paths`/`paths-ignore`, the workflow will only run when both filters are satisfied.
 
@@ -41,11 +50,11 @@ on:
 
 #### Example: Including and excluding paths
 
-You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter prefixed with the `!` character to indicate which paths should be excluded.
 
 If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
 
-The order that you define patterns matters:
+The order that you define `paths` patterns matters:
 
 - A matching negative pattern (prefixed with `!`) after a positive match will exclude the path.
 - A matching positive pattern after a negative match will include the path again.

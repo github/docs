@@ -10,10 +10,10 @@ import path from 'path'
 import _ from 'lodash'
 
 import frontmatter from '../../../lib/read-frontmatter.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
-import { allVersions, getDocsVersion } from '../../../lib/all-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
+import { allVersions, getDocsVersion } from '#src/versions/lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index.js'
-import { deprecated } from '../../../lib/enterprise-server-releases.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 const contentFiles = []
 

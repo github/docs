@@ -1,11 +1,11 @@
-import { languageKeys } from '../../../lib/languages.js'
-import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import {
   latest,
   supported,
   deprecatedWithFunctionalRedirects,
-} from '../../../lib/enterprise-server-releases.js'
+} from '#src/versions/lib/enterprise-server-releases.js'
 import { getPathWithLanguage } from '../../../lib/path-utils.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})/`)

@@ -1,13 +1,13 @@
 import { jest } from '@jest/globals'
 import path from 'path'
 import { loadPages } from '../../lib/page-data.js'
-import libLanguages from '../../lib/languages.js'
+import libLanguages from '#src/languages/lib/languages.js'
 import { liquid } from '#src/content-render/index.js'
 import patterns from '../../lib/patterns.js'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import { chain, pick } from 'lodash-es'
-import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
+import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
 

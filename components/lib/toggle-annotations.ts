@@ -1,4 +1,5 @@
 import Cookies from 'components/lib/cookies'
+import { sendEvent, EventType } from 'src/events/components/events'
 
 enum annotationMode {
   Beside = 'beside',
@@ -32,6 +33,11 @@ export default function toggleAnnotation() {
       // validate the annotation mode and set the cookie with the valid mode
       const validMode = validateMode(annotationBtn.getAttribute('value')!)
       Cookies.set('annotate-mode', validMode!)
+      sendEvent({
+        type: EventType.preference,
+        preference_name: 'code_display',
+        preference_value: validMode,
+      })
 
       // set and display the annotation mode
       setActive(annotationButtons, validMode)
@@ -46,9 +52,13 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   targetMode = validateMode(targetMode)
   annotationButtons.forEach((el) => {
     if (el.getAttribute('value') === targetMode) {
-      el.ariaSelected = 'true'
+      el.ariaCurrent = 'true'
+      el.classList.add('selected')
       activeElements.push(el)
-    } else el.removeAttribute('aria-selected')
+    } else {
+      el.removeAttribute('aria-current')
+      el.classList.remove('selected')
+    }
   })
 
   if (!activeElements.length)

@@ -60,7 +60,7 @@ If your organization owns a codespace, your organization has control over that c
 
 If a user owns a codespace, your organization does not have any of these options for managing the codespace, even if the codespace was created from one of your organization's repositories.
 
-When a user creates a codespace, they're told who will pay for it, and therefore who owns it. From a user's point of view, apart from the policies your organization can use to set constraints on codespaces, the experience with {% data variables.product.prodname_github_codespaces %} will be similar regardless of who owns a codespace. For example, most of a user's personal settings for {% data variables.product.prodname_github_codespaces %}, such as dotfiles, encrypted secrets, and GPG verification, apply regardless of who owns the codespace.
+When a user creates a codespace, they're told who will pay for it, and therefore who owns it. From a user's point of view, apart from the policies your organization can use to set constraints on codespaces, the experience with {% data variables.product.prodname_github_codespaces %} will be similar regardless of who owns a codespace. For example, most of a user's personal settings for {% data variables.product.prodname_github_codespaces %}, such as dotfiles, secrets, and GPG verification, apply regardless of who owns the codespace.
 
 ## About changing your settings
 

@@ -18,7 +18,7 @@ topics:
   - CD
 shortTitle: Migrate from Jenkins
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -191,7 +191,7 @@ pipeline {
         agent { label "${PLATFORM}" }
         stages {
           stage('test') {
-            tools { nodejs "node-12" }
+            tools { nodejs "node-16" }
             steps {
               dir("scripts/myapp") {
                 sh(script: "npm install -g bats")
@@ -223,8 +223,8 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: 12
+          node-version: 16
       - run: npm install -g bats
       - run: bats tests
-        working-directory: scripts/myapp
+        working-directory: ./scripts/myapp
 ```

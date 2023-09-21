@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 
 import { useTocLandingContext } from 'components/context/TocLandingContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { TableOfContents } from 'src/landings/components/TableOfContents'
 import { ArticleTitle } from 'components/article/ArticleTitle'

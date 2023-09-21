@@ -1,6 +1,6 @@
 import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
 import getExceptionRedirects from './exception-redirects.js'
-import { latest } from '../../../lib/enterprise-server-releases.js'
+import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
 const EXCEPTIONS_FILE = './src/redirects/lib/static/redirect-exceptions.txt'
 

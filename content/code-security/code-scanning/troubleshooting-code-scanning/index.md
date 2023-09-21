@@ -27,6 +27,7 @@ children:
   - /no-source-code-seen-during-build
   - /not-recognized
   - /out-of-disk-or-memory
+  - /some-languages-were-not-analyzed
   - /resource-not-accessible-by-integration
   - /results-are-different-than-expected
   - /results-differ-between-platforms

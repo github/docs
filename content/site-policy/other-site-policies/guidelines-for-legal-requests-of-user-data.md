@@ -86,7 +86,7 @@ All user public profiles display:
   - The other GitHub users the user follows
   - The users that follow them
 
-  Optionally, a user may also choose to share the following information publicly:
+    Optionally, a user may also choose to share the following information publicly:
   - Their real name
   - An avatar
   - An affiliated company
@@ -104,7 +104,7 @@ This may include:
   - Security access logs
   - Data about interactions with private repositories
 
-  To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user-settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
+    To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user-settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
 
 - <a name="organization-account-data"></a>
 **Organization account data** —
@@ -116,7 +116,7 @@ All organization public profiles display:
   - The repositories that the owners have starred
   - All GitHub users that are owners of the organization
 
-  Optionally, administrative users may also choose to share the following information publicly:
+    Optionally, administrative users may also choose to share the following information publicly:
   - An avatar
   - An affiliated company
   - Their location
@@ -221,7 +221,7 @@ We will take steps to preserve account records for up to 90 days upon formal req
 
 Please serve requests to:
 
-```
+```text
 GitHub, Inc.
 c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N

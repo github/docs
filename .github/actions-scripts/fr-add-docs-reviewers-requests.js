@@ -193,7 +193,7 @@ async function run() {
       item: itemID,
       author: newItemAuthors[index],
       turnaround: 2,
-      feature: 'OpenAPI schema update',
+      feature: process.env.FEATURE,
     })
     const contributorType = (await isDocsTeamMember(newItemAuthors[index]))
       ? docsMemberTypeID

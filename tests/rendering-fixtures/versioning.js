@@ -1,6 +1,6 @@
 import { expect } from '@jest/globals'
 import { getDOM, head } from '../helpers/e2etest.js'
-import { supported } from '../../lib/enterprise-server-releases.js'
+import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('article versioning', () => {
   test('only links to articles for fpt', async () => {

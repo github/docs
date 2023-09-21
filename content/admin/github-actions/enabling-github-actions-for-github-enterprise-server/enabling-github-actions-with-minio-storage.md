@@ -26,7 +26,8 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
   To avoid resource contention on the appliance, we recommend that MinIO be hosted separately from {% data variables.location.product_location %}.
 
-  {% indented_data_reference reusables.actions.enterprise-s3-permission spaces=2 %}
+  {% data reusables.actions.enterprise-s3-permission %}
+
 {% data reusables.actions.enterprise-common-prereqs %}
 
 ## Enabling {% data variables.product.prodname_actions %} with MinIO storage
@@ -45,11 +46,11 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
    {% endnote %}
 
-{% indented_data_reference reusables.actions.enterprise-minio-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-minio-storage-credential-fields %}
 {%- else %}
 1. Under "Artifact & Log Storage", select **Amazon S3**, and enter your storage bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-minio-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-minio-storage-credential-fields %}
 {% endif %}
 1. Under "Artifact & Log Storage", select **Force path style**.
 {% data reusables.enterprise_management_console.test-storage-button %}

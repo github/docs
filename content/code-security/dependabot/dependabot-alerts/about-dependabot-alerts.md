@@ -34,18 +34,16 @@ shortTitle: Dependabot alerts
 
 If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
 
-{% data reusables.security-advisory.link-browsing-advisory-db %}
-
 {% data reusables.dependabot.quickstart-link %}
 
 ## Detection of insecure dependencies
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
+{% data variables.product.prodname_dependabot %} performs a scan of the default branch of your repository to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
 
 {% ifversion fpt or ghec %}
-- A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database)."{% else %}
+- A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database)."{% else %}
 - New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
   {% note %}
 
@@ -87,8 +85,12 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% data variables.product.product_name %} may also notify the maintainers of affected repositories about new alerts according to their notification preferences.{% ifversion dependabot-suppressed-notifications %} When {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.product_name %} does not send notifications for all vulnerable dependencies found in your repository, only for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
-{% ifversion fpt or ghec or ghes %}
-For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, the alert may also contain a link to a pull request to update the manifest or lock file to the minimum version that resolves the vulnerability. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+{% data reusables.dependabot.dependabot-alert-create-PR %}
+
+{% ifversion dependabot-alert-custom-rules-repo-level %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
 {% endif %}
 
 {% warning %}

@@ -28,7 +28,7 @@ redirect_from:
 
 ## About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
-{% data reusables.code-scanning.about-code-scanning %} For information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+{% data reusables.code-scanning.about-code-scanning %} For information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 
 {% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 

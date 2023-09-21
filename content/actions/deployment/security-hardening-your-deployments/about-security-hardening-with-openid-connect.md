@@ -153,13 +153,13 @@ The token also includes custom claims provided by {% data variables.product.prod
 
 ### Defining trust conditions on cloud roles using OIDC claims
 
-With OIDC, a {% data variables.product.prodname_actions %} workflow requires a token in order to access resources in your cloud provider. The workflow requests an access token from your cloud provider, which checks the details presented by the JWT. If the trust configuration in the JWT is a match, your cloud provider responds by issuing a temporary token to the workflow, which can then be used to access resources in your cloud provider. You can configure your cloud provider to only respond to requests that originate from a specific organization's repository; you can also specify additional conditions, described below.
+With OIDC, a {% data variables.product.prodname_actions %} workflow requires a token in order to access resources in your cloud provider. The workflow requests an access token from your cloud provider, which checks the details presented by the JWT. If the trust configuration in the JWT is a match, your cloud provider responds by issuing a temporary token to the workflow, which can then be used to access resources in your cloud provider. You can configure your cloud provider to only respond to requests that originate from a specific organization's repository. You can also specify additional conditions, described below.
 
 Audience and Subject claims are typically used in combination while setting conditions on the cloud role/resources to scope its access to the GitHub workflows.
 - **Audience**: By default, this value uses the URL of the organization or repository owner. This can be used to set a condition that only the workflows in the specific organization can access the cloud role.
 - **Subject**: By default, has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenvironment) environment. See "[Example subject claims](#example-subject-claims)" to see how the subject claim is assembled from concatenated metadata.
 
-If you need more granular trust conditions, you can customize the issuer (`iss`) and subject (`sub`) claims that are included with the JWT. For more information, see "[Customizing the token claims](#customizing-the-token-claims)".
+If you need more granular trust conditions, you can customize the {% ifversion ghec %}issuer (`iss`) and {% endif %}subject (`sub`) claim{% ifversion ghec %}s that are{% else %} that's{% endif %} included with the JWT. For more information, see "[Customizing the token claims](#customizing-the-token-claims)".
 
 There are also many additional claims supported in the OIDC token that can be used for setting these conditions. In addition, your cloud provider could allow you to assign a role to the access tokens, letting you specify even more granular permissions.
 
@@ -180,7 +180,7 @@ The subject claim includes the environment name when the job references an envir
 You can configure a subject that filters for a specific [environment](/actions/deployment/targeting-different-environments/using-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 - Syntax: `repo:<orgName/repoName>:environment:<environmentName>`
-- Example:`repo:octo-org/octo-repo:environment:Production`
+- Example: `repo:octo-org/octo-repo:environment:Production`
 
 #### Filtering for `pull_request` events
 
@@ -198,7 +198,7 @@ The subject claim includes the branch name of the workflow, but only if the job 
 You can configure a subject that filters for a specific branch name. In this example, the workflow run must have originated from a branch named `demo-branch`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 - Syntax:  `repo:<orgName/repoName>:ref:refs/heads/branchName`
-- Example: repo:octo-org/octo-repo:ref:refs/heads/demo-branch`
+- Example: `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`
 
 #### Filtering for a specific tag
 
@@ -290,7 +290,7 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
 
 ### Customizing the subject claims for an organization or repository
 
-To help improve security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. You can use the [OIDC REST API](/rest/actions/oidc) to apply a customization template for the OIDC subject claim; for example, you can require that the `sub` claim within the OIDC token must always include a specific custom claim, such as `job_workflow_ref`.
+To help improve security, compliance, and standardization, you can customize the standard claims to suit your required access conditions. If your cloud provider supports conditions on subject claims, you can create a condition that checks whether the `sub` value matches the path of the reusable workflow, such as `"job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`. The exact format will vary depending on your cloud provider's OIDC configuration. To configure the matching condition on {% data variables.product.prodname_dotcom %}, you can can use the REST API to require that the `sub` claim must always include a specific custom claim, such as `job_workflow_ref`. You can use the [OIDC REST API](/rest/actions/oidc) to apply a customization template for the OIDC subject claim; for example, you can require that the `sub` claim within the OIDC token must always include a specific custom claim, such as `job_workflow_ref`.
 
 {% note %}
 
@@ -319,7 +319,7 @@ This example template allows the `sub` claim to have a new format, using `reposi
 }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repository_owner` and `repository_visibility`. For example: `"repository_owner: "monalisa":repository_visibility:private"`. The approach lets you restrict cloud role access to only private repositories within an organization or enterprise.
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include specific values for `repository_owner` and `repository_visibility`. For example: `"sub": "repository_owner:monalisa:repository_visibility:private"`. The approach lets you restrict cloud role access to only private repositories within an organization or enterprise.
 
 #### Example: Allowing access to all repositories with a specific owner
 
@@ -336,7 +336,7 @@ This example template enables the `sub` claim to have a new format with only the
 
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `repository_owner`. For example: `"repository_owner: "monalisa""`
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `repository_owner`. For example: `"sub": "repository_owner:monalisa"`
 
 #### Example: Requiring a reusable workflow
 
@@ -352,7 +352,7 @@ This example template allows the `sub` claim to have a new format that contains 
   }
 ```
 
-In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `job_workflow_ref`. For example: `"job_workflow_ref: "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main""`.
+In your cloud provider's OIDC configuration, configure the `sub` condition to require that claims must include a specific value for `job_workflow_ref`. For example: `"sub": "job_workflow_ref:octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main"`.
 
 #### Example: Requiring a reusable workflow and other claims
 
