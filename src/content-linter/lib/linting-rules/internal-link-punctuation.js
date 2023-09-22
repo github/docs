@@ -5,7 +5,6 @@ import { getRange, isStringQuoted, isStringPunctuated } from '../helpers/utils.j
 export const internalLinkPunctuation = {
   names: ['GHD008', 'internal-link-punctuation'],
   description: 'Internal link titles must not contain punctuation',
-  severity: 'error',
   tags: ['links', 'url'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD008(params, onError) {

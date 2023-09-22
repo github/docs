@@ -48,7 +48,7 @@ jobs:
           # src/ directory
           - archives
           - assets
-          # - audit-logs
+          - audit-logs
           - automated-pipelines
           # - codeql-cli
           - color-schemes

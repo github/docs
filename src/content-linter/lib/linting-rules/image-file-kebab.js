@@ -5,7 +5,6 @@ import { addFixErrorDetail } from '../helpers/utils.js'
 export const imageFileKebab = {
   names: ['GHD004', 'image-file-kebab'],
   description: 'Image file names should always be lowercase kebab case',
-  severity: 'warning',
   tags: ['accessibility', 'images'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD005(params, onError) {

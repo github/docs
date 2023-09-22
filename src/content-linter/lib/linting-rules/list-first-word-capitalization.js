@@ -3,7 +3,6 @@ import { addFixErrorDetail, getRange, filterTokensByOrder } from '../helpers/uti
 export const listFirstWordCapitalization = {
   names: ['GHD011', 'list-first-word-capitalization'],
   description: 'First word of list item should be capitalized.',
-  severity: 'error',
   tags: ['ul', 'ol'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD011(params, onError) {

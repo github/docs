@@ -11,7 +11,6 @@ const excludeStartWords = ['image', 'graphic']
 export const imageAltTextExcludeStartWords = {
   names: ['GHD007', 'image-alt-text-exclude-words'],
   description: 'Alternate text for images should not begin with words like "image" or "graphic".',
-  severity: 'error',
   tags: ['accessibility', 'images'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD007(params, onError) {
