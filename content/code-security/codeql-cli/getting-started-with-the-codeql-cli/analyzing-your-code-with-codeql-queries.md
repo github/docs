@@ -80,6 +80,7 @@ codeql database analyze <database> --format=<format> \
     --sarif-category=<language-specifier> --output=<output> \
     {% ifversion codeql-packs %}<packs,queries>{% else %}<queries>{% endif %}
 ```
+
 {% endnote %}
 
 You must specify `<database>`, `--format`, and `--output`. You can specify additional options depending on what analysis you want to do.

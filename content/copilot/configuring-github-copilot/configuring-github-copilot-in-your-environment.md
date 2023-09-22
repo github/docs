@@ -119,6 +119,7 @@ Alternatively, you can create the file manually and save it in the location for 
     ```xml copy
     <entry key="*" value="false" />
     ```
+
 1. Save the changes to the `github-copilot.xml` file.
 1. Restart your JetBrains IDE for the changes to take effect.
 
@@ -151,6 +152,7 @@ To deactivate {% data variables.product.prodname_copilot %} for all languages, t
   </component>
 </application>
 ```
+
 To specify languages individually, add an entry for each language you want to activate or deactivate {% data variables.product.prodname_copilot %} for. Specific language settings will override the wildcard. For example, to activate {% data variables.product.prodname_copilot %} for Python and YAML, and deactivate {% data variables.product.prodname_copilot %} for all other languages, add the following entries:
 
 ```xml copy

@@ -51,6 +51,7 @@ The `deploy-pages` action handles the necessary setup for deploying artifacts. T
 For more information, see the [`deploy-pages`](https://github.com/marketplace/actions/deploy-github-pages-site) action.
 
 {% raw %}
+
 ```yaml
 ...
 
@@ -71,6 +72,7 @@ jobs:
         uses: actions/deploy-pages@v1
 ...
 ```
+
 {% endraw %}
 
 ## Linking separate build and deploy jobs

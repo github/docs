@@ -471,6 +471,7 @@ For more information, see "[AUTOTITLE](PATH-TO-ARTICLE#HEADER-TITLE)."
 ```
 
 To link to two or more specific headers in a different article, use this format:
+
 ```
 For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and "[HEADER-TITLE-2](PATH-TO-ARTICLE#SECTION-LINK-2)" in "ARTICLE-TITLE."
 ```
