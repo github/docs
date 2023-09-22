@@ -1,4 +1,4 @@
-### Specifying the JVM version and architecture
+### Specifying the Java version and architecture
 
 The starter workflow sets up the `PATH` to contain OpenJDK 8 for the x64 platform. If you want to use a different version of Java, or target a different architecture (`x64` or `x86`), you can use the `setup-java` action to choose a different Java runtime environment.
 

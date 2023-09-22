@@ -14,7 +14,7 @@ featuredLinks:
     - /actions/publishing-packages/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
   guideCards:
-    - /actions/using-workflows/using-starter-workflows
+    - /actions/learn-github-actions/using-starter-workflows
     - /actions/publishing-packages/publishing-nodejs-packages
     - /actions/automating-builds-and-tests/building-and-testing-powershell
   popular:
