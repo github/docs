@@ -165,9 +165,9 @@ allow:
         # this group will always be empty
 ```
 
-In this example, {% data variables.product.prodname_dependabot %} will: 
+In this example, {% data variables.product.prodname_dependabot %} will:
 1. Look at your dependency list and restrict the job to dependencies used in `production` only.
-1. Try to create a group called `development-dependencies` which is a subset of this reduced list. 
+1. Try to create a group called `development-dependencies` which is a subset of this reduced list.
 1. Work out that the `development-dependencies` group is empty as all `development` dependencies were removed in step 1.
 1. **Individually** update all the dependencies that are not in the group. As the group for dependencies in production is empty, {% data variables.product.prodname_dependabot %} will ignore the group, and create a separate pull request for each dependency.
 

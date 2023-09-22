@@ -18,7 +18,7 @@ topics:
   - Pull requests
 shortTitle: Manage GitHub Actions settings
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your repository
@@ -44,7 +44,7 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Actions permissions", select an option.
 
-   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+   {% data reusables.actions.actions-use-policy-settings %}
 1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}

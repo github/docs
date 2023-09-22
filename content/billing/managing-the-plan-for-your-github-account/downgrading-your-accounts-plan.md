@@ -89,6 +89,7 @@ To reduce the number of paid seats your organization uses, you can remove member
 1. Review the information about your new payment on your next billing date, then click **Remove seats**.
 
 {% ifversion ghec %}
+
 ## Downgrading your enterprise account's plan
 
 Enterprise accounts are only available with {% data variables.product.prodname_enterprise %}, so it's not possible to downgrade an enterprise account to another plan.

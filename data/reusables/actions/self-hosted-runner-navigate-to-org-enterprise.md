@@ -9,10 +9,10 @@
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 1. Navigate to the {% data variables.product.prodname_actions %} settings:
-   - **In an organization**: 
+   - **In an organization**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}
-   - **If using an enterprise-level runner**: 
+   - **If using an enterprise-level runner**:
 
 {% indented_data_reference reusables.enterprise-accounts.policies-tab spaces=5 %}
 {% indented_data_reference reusables.enterprise-accounts.actions-tab spaces=5 %}

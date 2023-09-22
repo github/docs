@@ -89,6 +89,7 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
 {% data reusables.files.add-file %}
 1. In the file name field, type _.github/secret_scanning.yml_.
 1. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
+
     ``` yaml
     paths-ignore:
       - "foo/bar/*.js"

@@ -22,15 +22,20 @@ The projects you have marked as templates are made available in the "Select a te
 When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project. {% ifversion projects-v2-org-templates-improvements %}You can find the template that a project used from the project's settings page, under the "Templates" section.{% endif %}
 
 {% ifversion projects-v2-org-templates-improvements %}
+
 ## Creating templates
+
 {% else %}
+
 ## Setting a project as a template
+
 {% endif %}
 
 {% ifversion projects-v2-org-templates-improvements %}
 You can either create a new template directly, or you can set a project as a template.
 
 ### Creating a new template
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.projects.projects-tab %}
@@ -38,6 +43,7 @@ You can either create a new template directly, or you can set a project as a tem
 1. Click **New template**.
 
 ### Setting a project as a template
+
 {% endif %}
 If you have admin permissions for a project in your organization, you can set the project as a template and make it available for others in your organization to use.
 
