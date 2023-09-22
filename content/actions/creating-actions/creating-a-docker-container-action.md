@@ -266,6 +266,7 @@ jobs:
           name: workspace_artifacts
           path: {% raw %}${{ github.workspace }}{% endraw %}
 ```
+
 For more information about uploading build output as an artifact, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}

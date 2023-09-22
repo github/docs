@@ -46,7 +46,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
      ``` <!-- markdownlint-disable-line fenced-code-language -->
      git checkout -b my-username/new-codespace-policy
-     ```     
+     ```
 
      {% endnote %}
 
@@ -107,7 +107,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
    ```
 
    This commits the staged changes locally. You can now push this commit, and any other unpushed commits, to the remote repository.  
-   
+
    To remove this commit, use `git reset --soft HEAD~1`. After running this command our changes are no longer committed but the changed files remain in the staging area. You can make further changes and then `add` and `commit` again.
 
 1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
@@ -128,7 +128,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 - Favor commits that contain small, focused groups of changes over commits with large, unfocused groups of changes, since this will help you write commit messages that other people can easily understand. An exception is the initial commit for a new project or category. These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.
 - If you are incorporating feedback or want to address a set of changes to a particular person or team for review, @mention the person whose suggestions you are incorporating. For example: "Incorporating feedback from @octocat," or "Updating billing configuration steps - cc @monalisa for accuracy."
-- If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading." 
+- If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
   {% note %}
 
   **Note**: We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."

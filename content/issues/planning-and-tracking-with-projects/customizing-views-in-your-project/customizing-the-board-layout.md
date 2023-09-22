@@ -65,7 +65,7 @@ In the board layout, you can can choose which columns to display. The available 
 
 {% data reusables.projects.customize.slice-panel %}
 
-{% endif %} 
+{% endif %}
 
 {% ifversion projects-v2-consistent-sorting %}
 

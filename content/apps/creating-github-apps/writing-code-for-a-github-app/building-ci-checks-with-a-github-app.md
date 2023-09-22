@@ -81,6 +81,7 @@ The following sections will lead you through setting up the following components
 1. Create a Ruby file named `server.rb`. This file will contain all the code for your app. You will add content to this file later.
 1. If the directory doesn't already include a `.gitignore` file, add a `.gitignore` file. You will add content to this file later. For more information about `.gitignore` files, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."
 1. Create a file named `Gemfile`. This file will describe the gem dependencies that your Ruby code needs. Add the following contents to your `Gemfile`:
+
    ```ruby copy
    source 'http://rubygems.org'
 
@@ -92,7 +93,9 @@ The following sections will lead you through setting up the following components
    gem 'dotenv'
    gem 'git'
    ```
+
 1. Create a file named `config.ru`. This file will configure your Sinatra server to run. Add the following contents to your `config.ru` file:
+
    ```ruby copy
    require './server'
    run GHAapp
@@ -103,17 +106,22 @@ The following sections will lead you through setting up the following components
 In order to develop your app locally, you can use a webhook proxy URL to forward webhook events from {% data variables.product.company_short %} to your computer or codespace. This tutorial uses Smee.io to provide a webhook proxy URL and forward events.
 
 1. In a terminal, run the following command to install the Smee client:
+
    ```shell copy
    npm install --global smee-client
    ```
+
 1. In your browser, navigate to https://smee.io/.
 1. Click **Start a new channel**.
 1. Copy the full URL under "Webhook Proxy URL".
 1. In the terminal, run the following command to start the Smee client. Replace `YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
+
    ```shell copy
    smee --url YOUR_DOMAIN --path /event_handler --port 3000
    ```
+
    You should see output like the following:
+
    ```shell
    Forwarding https://smee.io/YOUR_DOMAIN to http://127.0.0.1:3000/event_handler
    Connected https://smee.io/YOUR_DOMAIN

@@ -50,6 +50,7 @@ For example, the following diagram has a runner group named `grp-ubuntu-20.04-16
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
 {% ifversion ghec %}
+
 ## Changing which organizations can access a runner group
 
 {% data reusables.actions.hosted-runner-security-admonition %}
@@ -112,12 +113,14 @@ You can rename runner groups at the enterprise and organization levels.
 - [Changing the name of an enterprise runner group](##changing-the-name-of-an-enterprise-runner-group)
 
 ### Changing the name of an organization runner group
+
 {% endif %}
 
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghec %}
+
 ### Changing the name of an enterprise runner group
 
 {% data reusables.actions.runner-groups-enterprise-navigation %}
@@ -133,6 +136,7 @@ You can rename runner groups at the enterprise and organization levels.
 - [Moving an enterprise runner to a group](#moving-an-enterprise-runner-to-a-group)
 
 ### Moving an organization runner to a group
+
 {% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
@@ -141,6 +145,7 @@ You can rename runner groups at the enterprise and organization levels.
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
 {% ifversion ghec %}
+
 ### Moving an enterprise runner to a group
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -159,12 +164,14 @@ You can rename runner groups at the enterprise and organization levels.
 - [Removing a runner group from an enterprise](#removing-a-runner-group-from-an-enterprise)
 
 ### Removing a runner group from an organization
+
 {% endif %}
 
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.removing-a-runner-group %}
 
 {% ifversion ghec %}
+
 ### Removing a runner group from an enterprise
 
 {% data reusables.actions.runner-groups-enterprise-navigation %}

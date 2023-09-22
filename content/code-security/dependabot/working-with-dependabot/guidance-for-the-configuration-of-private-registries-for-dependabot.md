@@ -117,7 +117,7 @@ registries:
 
 #### Notes
 
-{% data variables.product.prodname_dependabot %} works with any container registries that implement the Open Container Initiative (OCI) Distribution Specification. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md). 
+{% data variables.product.prodname_dependabot %} works with any container registries that implement the Open Container Initiative (OCI) Distribution Specification. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).
 
 {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For more information, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
@@ -238,7 +238,7 @@ registry=https://<private-registry-url>/<org-name>
 
 {% endraw %}
 
-Aternatively you can add the private registry URL to an existing `.npmrc` file using the following command. 
+Aternatively you can add the private registry URL to an existing `.npmrc` file using the following command.
 
 {% raw %}
 
@@ -277,13 +277,14 @@ npm can be configured to use the private registry's URL in lockfiles with `repla
 ```shell
 npm config set replace-registry-host "never"
 ```
+
 {% endraw %}
 
 If you use `replace-registry-host`, you must locally run `npm install` in order to regenerate the lockfile to use the private registry URL. {% data variables.product.prodname_dependabot %} will use the same URL when providing updates.
 
 Once the registry is configured, you can also run `npm login` to verify that your configuration is correct and valid. The lockfile can also be regenerated to use the new private registry by running `npm install` again.
 
-You need to ensure that the `.npmrc` file is checked into the same directory as the project's `package.json` and that the file doesn't include any environment variables or secrets. 
+You need to ensure that the `.npmrc` file is checked into the same directory as the project's `package.json` and that the file doesn't include any environment variables or secrets.
 If you use a monorepo, the `.npmrc` file should live in the project's root directory.
 
 #### Configuring {% data variables.product.prodname_dependabot %} to send registry requests through a specified base URL
@@ -332,7 +333,7 @@ registries:
 
 {% endraw %}
 
-#### Notes 
+#### Notes
 
 You can also use a token in your `dependabot.yml` file. {% data reusables.dependabot.token-is-github-pat %}
 
@@ -377,6 +378,7 @@ registries:
     username: octocat@example.com
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
+
 {% endraw %}
 {% raw %}
 
@@ -387,7 +389,9 @@ registries:
     url: https://pypi.fury.io/my_org
     token: ${{secrets.MY_GEMFURY_TOKEN}}
 ```
+
 {% endraw %}
+
 #### Notes
 
 {% data reusables.dependabot.access-private-dependencies-link %}
@@ -407,6 +411,7 @@ registries:
     url: https://npm.pkg.github.com/<org-name>
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
+
 {% endraw %}
 
 - For private registries, you have to check in a `.yarnrc.yml` file (for Yarn 3) or a `.yarnrc` file (for Yarn Classic).
@@ -445,12 +450,12 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
     - Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key registry, or
     - Perform the same action by running `yarn config set registry <private registry URL>` in your terminal.
 
-   Example of a `.yarnrc` with a private registry defined:    
+   Example of a `.yarnrc` with a private registry defined:
    `registry https://nexus.example.com/repository/yarn-all`
 
 #### Yarn Berry (v3)
 
-For information on the configuration, see [Settings (.yarnrc.yml)](https://yarnpkg.com/configuration/yarnrc/) in the Yarn documentation. 
+For information on the configuration, see [Settings (.yarnrc.yml)](https://yarnpkg.com/configuration/yarnrc/) in the Yarn documentation.
 
 As with Yarn Classic, you can either specify the private registry configuration in the `dependabot.yml` file, or set up Yarn Berry according to the package manager instructions.
 
@@ -506,7 +511,7 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
    Example of a `.yarnrc.yml` file with a private registry configured:  
  `npmRegistryServer: "https://nexus.example.com/repository/yarn-all"`
-   
+
    For more information, see [npmRegistryServer](https://yarnpkg.com/configuration/yarnrc#npmRegistryServer) in the Yarn documentation.
 
 #### Notes
@@ -621,4 +626,4 @@ If you are restricting which IPs can reach your Nexus host, you need to add the 
       - "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private regstry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public regsitry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %} 
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private regstry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public regsitry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}

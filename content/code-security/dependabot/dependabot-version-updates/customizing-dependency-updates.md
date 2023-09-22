@@ -141,6 +141,7 @@ updates:
 ```
 
 {% ifversion dependabot-version-updates-groups %}
+
 ## Grouping {% data variables.product.prodname_dependabot_version_updates %} into one pull request
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
