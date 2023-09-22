@@ -107,6 +107,7 @@ Next, the script gets the current time and sets it as an output variable that ac
    {%- else %}
    echo "::set-output name=time::$time"
    {%- endif %}
+
    ```
 
    If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
