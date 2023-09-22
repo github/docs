@@ -57,7 +57,7 @@ export const baseConfig = {
   },
   'blanks-around-headings': {
     // MD022
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': false,
   },
   'heading-start-left': {
@@ -83,7 +83,7 @@ export const baseConfig = {
   },
   'blanks-around-fences': {
     // MD031
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'no-space-in-emphasis': {

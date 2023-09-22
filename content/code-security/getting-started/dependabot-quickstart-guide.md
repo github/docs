@@ -70,7 +70,7 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
 
    ![Screenshot showing the list of Dependabot alerts for the demo repository.](/assets/images/help/repository/dependabot-alerts-list-demo-repo.png)
 
-   You can filter {% data variables.product.prodname_dependabot_alerts %} in the list, using a variety of filters or labels. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#prioritizing-dependabot-alerts)."{% ifversion dependabot-alert-rules-auto-dismissal-npm-dev-dependencies %} You can also use {% data variables.product.prodname_dependabot %} alert rules to filter out false positive alerts or alerts you're not interested in. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts)."{% endif %}
+   You can filter {% data variables.product.prodname_dependabot_alerts %} in the list, using a variety of filters or labels. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#prioritizing-dependabot-alerts)."{% ifversion dependabot-alert-rules-auto-dismissal-npm-dev-dependencies %} You can also use {% data variables.product.prodname_dependabot %} alert rules to filter out false positive alerts or alerts you're not interested in. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alert-rules/about-dependabot-alert-rules)."{% endif %}
 
 1. Click the "Command Injection in lodash" alert on the _javascript/package-lock.json_ file. The details page for the alert will show the following information (note that some information may not apply to all alerts):
    - Whether {% data variables.product.prodname_dependabot %} created a pull request that will fix the vulnerability. You can review the suggested security update by clicking **Review security update**.
@@ -95,6 +95,7 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
    ![Screenshot of the detailed page of an alert in the demo repository, showing the information displayed on the right-side of the page.](/assets/images/help/repository/more-alert-details-demo-repo.png)
 
 For more information about viewing, prioritizing, and sorting {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
+
 ## Fixing or dismissing a {% data variables.product.prodname_dependabot %} alert
 
 You can fix or dismiss {% data variables.product.prodname_dependabot_alerts %} on {% data variables.product.prodname_dotcom %}. Let's continue to use the forked repository as an example, and the "Command Injection in lodash" alert described in the previous section.

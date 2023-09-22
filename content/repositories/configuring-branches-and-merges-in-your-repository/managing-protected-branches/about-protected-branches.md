@@ -170,6 +170,7 @@ Before you can require a linear commit history, your repository must allow squas
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.6 %}
+
 ### Require deployments to succeed before merging
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.

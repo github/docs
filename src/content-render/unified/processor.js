@@ -6,6 +6,7 @@ import remark2rehype from 'remark-rehype'
 import raw from 'rehype-raw'
 import slug from 'rehype-slug'
 import highlight from 'rehype-highlight'
+import { common } from 'lowlight'
 import dockerfile from 'highlight.js/lib/languages/dockerfile'
 import http from 'highlight.js/lib/languages/http'
 import groovy from 'highlight.js/lib/languages/groovy'
@@ -42,7 +43,7 @@ export function createProcessor(context) {
       .use(codeHeader)
       .use(annotate)
       .use(highlight, {
-        languages: { graphql, dockerfile, http, groovy, erb, powershell },
+        languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,
       })
       .use(raw)

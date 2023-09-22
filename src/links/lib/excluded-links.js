@@ -68,4 +68,8 @@ export default [
   'https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf',
   'https://www.lumendatabase.org/topics/5',
   'https://www.lumendatabase.org/topics/14',
+  'https://azure.microsoft.com/support/',
+  'https://azure.microsoft.com/services/app-service/static/',
+  'https://azure.microsoft.com/services/container-registry/',
+  'https://azure.microsoft.com/products/functions/',
 ]

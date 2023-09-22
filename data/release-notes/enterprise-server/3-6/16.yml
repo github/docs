@@ -6,7 +6,7 @@ sections:
     - |
       Packages have been updated to the latest security versions. 
     - |
-      An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a re-opened Pull Request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and was assigned [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765).
+      **LOW:**  An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a re-opened Pull Request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and was assigned [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765).
 
   bugs:
     - |

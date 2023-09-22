@@ -79,8 +79,9 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
   By using pre-release software, you agree to be contacted by GitHub and Microsoft regarding your participation in the technical preview, including email request(s) for feedback about the software.
 
-## 9. No Warranties.
-You bear the sole risk of using the pre-release software.
+## 9. No Warranties. 
+
+You bear the sole risk of using the pre-release software. 
 
   The pre-release software is licensed “as is” without any warranty of any kind or sort, whether such warranty would be express, implied, or statutory. To the extent permitted under your local laws, GitHub and Microsoft disclaim all warranties in the pre-release software, including implied warranties of merchantability, fitness for a particular purpose, title, quiet enjoyment, accuracy, course of dealing, usage of trade, and non-infringement.
 
