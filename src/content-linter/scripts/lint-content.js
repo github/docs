@@ -130,6 +130,8 @@ async function main() {
   }
   if (errorFileCount > 0) {
     spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
+  }
+  if (errorFileCount || warningFileCount) {
     process.exit(1)
   }
   spinner.succeed('No errors found')

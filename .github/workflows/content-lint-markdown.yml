@@ -38,4 +38,4 @@ jobs:
 
       - name: Run content linter if changed content/data files
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: node src/content-linter/scripts/markdownlint.js --errors-only --paths ${{ steps.changed-files.outputs.all_changed_files }}
+        run: npm run lint-content -- --errors-only --paths ${{ steps.changed-files.outputs.all_changed_files }}
