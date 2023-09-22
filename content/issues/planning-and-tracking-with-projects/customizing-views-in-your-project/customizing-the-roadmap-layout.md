@@ -56,7 +56,7 @@ You can choose the density of items on your roadmap. You can zoom in to show one
 
 {% data reusables.projects.customize.slice-panel %}
 
-{% endif %} 
+{% endif %}
 
 {% ifversion projects-v2-consistent-sorting %}
 

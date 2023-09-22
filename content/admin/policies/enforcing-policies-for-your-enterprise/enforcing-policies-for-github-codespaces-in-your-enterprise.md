@@ -27,14 +27,14 @@ If you're an organization owner, you can enable {% data variables.product.prodna
 
 {% note %}
 
-**Note:** If you remove a user's access to {% data variables.product.prodname_github_codespaces %}, the user will immediately be unable to open existing codespaces they have created from an organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#about-changing-your-settings)." 
+**Note:** If you remove a user's access to {% data variables.product.prodname_github_codespaces %}, the user will immediately be unable to open existing codespaces they have created from an organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#about-changing-your-settings)."
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 1. Under "{% octicon "law" aria-hidden="true" %} Policies," click **Codespaces**.
-1. On the {% data variables.product.prodname_github_codespaces %} policies page, under "Manage organization access to {% data variables.product.prodname_github_codespaces %}," select whether to enable {% data variables.product.prodname_github_codespaces %} in your organizations' private and internal repositories. 
+1. On the {% data variables.product.prodname_github_codespaces %} policies page, under "Manage organization access to {% data variables.product.prodname_github_codespaces %}," select whether to enable {% data variables.product.prodname_github_codespaces %} in your organizations' private and internal repositories.
 
    You can enable for all organizations, enable for specific organizations, or disable for all organizations.
 1. Click **Save**.

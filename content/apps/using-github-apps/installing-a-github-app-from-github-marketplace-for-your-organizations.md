@@ -42,7 +42,7 @@ For more information about authorizing {% data variables.product.prodname_github
 
 Organization owners can install {% data variables.product.prodname_github_apps %} on their organization.
 
-For enterprises that pay by credit card, enterprise owners who are also organization owners can install {% data variables.product.prodname_github_apps %} on organizations within their enterprise. 
+For enterprises that pay by credit card, enterprise owners who are also organization owners can install {% data variables.product.prodname_github_apps %} on organizations within their enterprise.
 
 Admins of repositories that are owned by an organization can also install {% data variables.product.prodname_github_apps %} on the organization if they only grant the app access to repositories that they are an admin of and if the app does not request any organization resources. Organization owners can prevent outside collaborators who are repository admins from installing {% data variables.product.prodname_github_apps %}.
 

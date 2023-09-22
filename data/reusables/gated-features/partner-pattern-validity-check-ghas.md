@@ -4,4 +4,4 @@ Validity checks for partner patterns is available on all types of repositories o
 {% elsif ghes %}
 Validity checks for partner patterns is available on all types of repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
 
-{% endif %} 
+{% endif %}

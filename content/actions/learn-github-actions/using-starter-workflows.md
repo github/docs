@@ -40,7 +40,7 @@ You can also create your own starter workflow to share with your organization. T
 {% data reusables.repositories.actions-tab %}
 {% data reusables.actions.new-starter-workflow %}
 1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Find the starter workflow that you want to use, then click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.{% ifversion actions-starter-template-ui %} To help you find the starter workflow that you want, you can search for keywords or filter by category.{% endif %}
-1. If the starter workflow contains comments detailing additional setup steps, follow these steps. 
+1. If the starter workflow contains comments detailing additional setup steps, follow these steps.
 
    There are guides to accompany many of the starter workflows for building and testing projects. For more information, see "[AUTOTITLE](/actions/automating-builds-and-tests)."
 

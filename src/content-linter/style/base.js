@@ -27,7 +27,7 @@ export const baseConfig = {
   },
   'no-trailing-spaces': {
     // MD009
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'no-reversed-links': {
@@ -105,6 +105,7 @@ export const baseConfig = {
   'no-empty-links': {
     // MD042
     severity: 'error',
+    'partial-markdown-files': true,
   },
   'single-trailing-newline': {
     // MD047

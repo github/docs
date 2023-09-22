@@ -56,11 +56,11 @@ When you use {% data variables.product.prodname_copilot %} it will collect usage
 
 #### Prompts
 
-A Prompt is the bundle of contextual information the {% data variables.product.prodname_copilot %} extension sends when a user is working on a file and pauses typing, or when the user opens the {% data variables.product.prodname_copilot_short %} pane. Prompts are retained unless you have disabled code snippet collection in your settings. 
+A Prompt is the bundle of contextual information the {% data variables.product.prodname_copilot %} extension sends when a user is working on a file and pauses typing, or when the user opens the {% data variables.product.prodname_copilot_short %} pane. Prompts are retained unless you have disabled code snippet collection in your settings.
 
 #### Suggestions
 
-A Suggestion is one or more lines of proposed text returned to the {% data variables.product.prodname_copilot %} extension after a Prompt is received and processed by the AI-model. Suggestions are retained unless you disable code snippet collection in your settings. 
+A Suggestion is one or more lines of proposed text returned to the {% data variables.product.prodname_copilot %} extension after a Prompt is received and processed by the AI-model. Suggestions are retained unless you disable code snippet collection in your settings.
 
 ### How is the data in {% data variables.product.prodname_copilot_for_individuals %} used and shared?
 
