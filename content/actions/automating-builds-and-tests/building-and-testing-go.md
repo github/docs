@@ -74,6 +74,7 @@ We recommend that you have a basic understanding of the Go language. For more in
          - name: Test
            run: go test -v ./...
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the version of Go.

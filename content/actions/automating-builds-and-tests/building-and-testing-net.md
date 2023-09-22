@@ -69,6 +69,7 @@ We recommend that you have a basic understanding of the .NET Core SDK. For more 
        - name: Test
          run: dotnet test --no-build --verbosity normal
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the .NET version.

@@ -83,6 +83,7 @@ We recommend that you have a basic understanding of Java and the Maven framework
        - name: Update dependency graph
          uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the Java version.
