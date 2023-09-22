@@ -302,7 +302,7 @@ Use known issues to explain the following situations.
 - Behavior that regularly prevents the use of the product or feature for a common purpose.
 - Rare or severe bugs that {% data variables.product.prodname_dotcom %} has not yet prioritized fixing, and that are not explained in the product or by existing content on {% data variables.product.prodname_docs %}.
 
-#### How to write troubleshooting content 
+#### How to write troubleshooting content
 
 - Use any {% data variables.product.prodname_docs %} content type to create troubleshooting sections.
 - Whenever possible, keep troubleshooting content contained within procedural content or guides.
@@ -506,7 +506,7 @@ All product callouts are stored as reusables in [`gated-features`](https://githu
 
 #### How to write a product callout
 
-- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in. 
+- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
 - Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
 - Examples:
   - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
