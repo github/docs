@@ -35,7 +35,7 @@ body:
       label: Tasks
       description: Please be sure to complete each of the following.
       options:
-        - label: MUST follow our [general contributing guidelines](CONTRIBUTING.md) for voice and markup format.
+        - label: MUST follow our [general contributing guidelines](https://docs.github.com/en/contributing) for voice and markup format.
           required: true
         - label: MUST emphasize how the third-party product works with GitHub.
           required: true

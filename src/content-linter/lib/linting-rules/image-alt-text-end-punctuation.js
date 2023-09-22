@@ -10,7 +10,6 @@ import {
 export const imageAltTextEndPunctuation = {
   names: ['GHD002', 'image-alt-text-end-punctuation'],
   description: 'Alternate text for images should end with a punctuation.',
-  severity: 'error',
   tags: ['accessibility', 'images'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD003(params, onError) {

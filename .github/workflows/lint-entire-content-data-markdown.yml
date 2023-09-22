@@ -32,7 +32,7 @@ jobs:
         id: linting-content-data
         timeout-minutes: 10
         continue-on-error: true
-        run: node src/content-linter/scripts/markdownlint.js --errors-only --paths content data --output-file /tmp/error-lints.json
+        run: npm run lint-content -- --errors-only --paths content data --output-file /tmp/error-lints.json
 
       - name: Open issue in docs-content
         if: ${{ always() && steps.linting-content-data.outcome == 'failure' }}

@@ -6,7 +6,6 @@ import { getRange } from '../helpers/utils.js'
 
 export const incorrectAltTextLength = {
   names: ['GHD003', 'incorrect-alt-text-length'],
-  severity: 'warning',
   description: 'Images alternate text should be between 40-150 characters',
   tags: ['accessibility', 'images'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),

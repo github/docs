@@ -19,7 +19,7 @@ When any member of your organization performs an action related to {% data varia
 
 ![Screenshot of the "Audit log" page for an organization, showing the "Recent events" list.](/assets/images/help/codespaces/codespaces-audit-log-org.png)
 
-The audit log includes details such as who performed the action, what the action was, and when the action was performed. For information on {% data variables.product.prodname_github_codespaces %} actions, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces-category-actions)."
+The audit log includes details such as who performed the action, what the action was, and when the action was performed. For information on {% data variables.product.prodname_github_codespaces %} actions, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#codespaces)."
 
 ## Further reading
 
