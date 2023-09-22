@@ -1,21 +1,22 @@
 ---
 title: Webhooks documentation
 shortTitle: Webhooks
-intro: 'You can set up, test, and secure webhooks so your integrations can subscribe and react to webhook events on {% data variables.product.prodname_dotcom %}.'
+intro: 'Webhooks can let your integrations take an action in response to events that occur on {% data variables.product.company_short %}.'
 introLinks:
-  overview: /webhooks-and-events/webhooks/about-webhooks
+  overview: /webhooks/about-webhooks
+  reference: /webhooks/webhook-events-and-payloads
 featuredLinks:
   startHere:
-    - /webhooks-and-events/webhooks/creating-webhooks
-    - /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads
-    - /webhooks-and-events/webhooks/securing-your-webhooks
+    - /webhooks/using-webhooks/creating-webhooks
+    - /webhooks/using-webhooks/handling-webhook-deliveries
+    - /webhooks/using-webhooks/securing-your-webhooks
   popular:
     - /webhooks-and-events/webhooks/webhook-events-and-payloads
-    - /webhooks-and-events/events/github-event-types
-    - /webhooks-and-events/events/issue-event-types
-    - /webhooks-and-events/webhooks/testing-webhooks
+    - /webhooks/using-webhooks/best-practices-for-using-webhooks
   guideCards:
-    - /webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli
+    - /webhooks/using-webhooks/handling-webhook-deliveries
+    - /webhooks/using-webhooks/handling-failed-webhook-deliveries
+    - /webhooks/testing-and-troubleshooting-webhooks/testing-webhooks
 versions:
   fpt: '*'
   ghes: '*'
@@ -38,4 +39,3 @@ redirect_from:
   - /developers/webhooks-and-events/webhooks
   - /webhooks-and-events/webhooks
 ---
-
