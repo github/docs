@@ -114,4 +114,4 @@ To add another starter workflow, add your files to the same `workflow-templates`
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
