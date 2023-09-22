@@ -73,6 +73,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
      ```shell copy
      gh gei generate-mannequin-csv --github-target-org DESTINATION --output FILENAME.csv
      ```
+
    {% data reusables.enterprise-migration-tool.edit-csv %}
 1. To reclaim mannequins, use the `gh gei reclaim-mannequin` command.
 
@@ -105,6 +106,7 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
      ```shell copy
      gh ado2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
      ```
+
    {% data reusables.enterprise-migration-tool.edit-csv %}
 1. To reclaim mannequins, use the `gh ado2gh reclaim-mannequin` command.
 

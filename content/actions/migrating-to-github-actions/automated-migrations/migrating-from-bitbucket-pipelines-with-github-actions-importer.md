@@ -184,6 +184,7 @@ To perform a dry run of migrating a Bitbucket pipeline to {% data variables.prod
 ```bash
 gh actions-importer dry-run bitbucket --workspace :workspace --repository :repo --output-dir tmp/dry-run
 ```
+
 ### Inspecting the converted workflows
 
 You can view the logs of the dry run and the converted workflow files in the specified output directory.
@@ -205,6 +206,7 @@ To migrate a Bitbucket pipeline to {% data variables.product.prodname_actions %}
 ```bash
 gh actions-importer migrate bitbucket --workspace :workspace --repository :repo --target-url https://github.com/:owner/:repo --output-dir tmp/dry-run
 ```
+
 The command's output includes the URL of the pull request that adds the converted workflow to your repository. An example of a successful output is similar to the following:
 
 ```bash

@@ -102,11 +102,12 @@ Next, the script gets the current time and sets it as an output variable that ac
 
    echo "Hello $1"
    time=$(date)
-{%- ifversion actions-save-state-set-output-envs %}
+   {%- ifversion actions-save-state-set-output-envs %}
    echo "time=$time" >> $GITHUB_OUTPUT
-{%- else %}
+   {%- else %}
    echo "::set-output name=time::$time"
-{%- endif %}
+   {%- endif %}
+
    ```
 
    If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
@@ -114,8 +115,8 @@ Next, the script gets the current time and sets it as an output variable that ac
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
    ```shell copy
-   $ git add entrypoint.sh
-   $ git update-index --chmod=+x entrypoint.sh
+   git add entrypoint.sh
+   git update-index --chmod=+x entrypoint.sh
    ```
 
 1. Optionally, to check the permission mode of the file in the git index, run the following command.
@@ -266,6 +267,7 @@ jobs:
           name: workspace_artifacts
           path: {% raw %}${{ github.workspace }}{% endraw %}
 ```
+
 For more information about uploading build output as an artifact, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}

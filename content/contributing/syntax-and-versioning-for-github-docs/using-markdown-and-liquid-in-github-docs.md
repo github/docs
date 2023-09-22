@@ -357,14 +357,19 @@ For example, if you include the following link in a content file:
 ```
 /github/writing-on-github/creating-a-saved-reply
 ```
+
 When viewed on {% data variables.product.prodname_dotcom_the_website %} docs, the link gets rendered with the language code:
+
 ```
 /en/github/writing-on-github/creating-a-saved-reply
 ```
+
 and when viewed on {% data variables.product.prodname_ghe_server %} docs, the version is included as well:
+
 ```
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
+
 For more information about links, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links)."
 
 ### Permalinks

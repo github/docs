@@ -277,6 +277,7 @@ npm can be configured to use the private registry's URL in lockfiles with `repla
 ```shell
 npm config set replace-registry-host "never"
 ```
+
 {% endraw %}
 
 If you use `replace-registry-host`, you must locally run `npm install` in order to regenerate the lockfile to use the private registry URL. {% data variables.product.prodname_dependabot %} will use the same URL when providing updates.
@@ -377,6 +378,7 @@ registries:
     username: octocat@example.com
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
+
 {% endraw %}
 {% raw %}
 
@@ -387,6 +389,7 @@ registries:
     url: https://pypi.fury.io/my_org
     token: ${{secrets.MY_GEMFURY_TOKEN}}
 ```
+
 {% endraw %}
 #### Notes
 
@@ -407,6 +410,7 @@ registries:
     url: https://npm.pkg.github.com/<org-name>
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
+
 {% endraw %}
 
 - For private registries, you have to check in a `.yarnrc.yml` file (for Yarn 3) or a `.yarnrc` file (for Yarn Classic).
