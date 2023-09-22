@@ -72,6 +72,8 @@ async function main() {
 
   // Initializes the config to pass to markdownlint based on the input options
   const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules, customRules)
+  console.log(JSON.stringify(config, null, 2))
+  console.log(JSON.stringify(configuredRules, null, 2))
 
   // Run Markdownlint for content directory
   const resultContent = await markdownlint.promises.markdownlint({
