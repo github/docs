@@ -109,7 +109,7 @@ export const baseConfig = {
   },
   'single-trailing-newline': {
     // MD047
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'emphasis-style': {
