@@ -13,6 +13,7 @@ children:
   - /configuring-openid-connect-in-google-cloud-platform
   - /configuring-openid-connect-in-hashicorp-vault
   - /configuring-openid-connect-in-cloud-providers
+  - /configuring-openid-connect-in-pypi
   - /using-openid-connect-with-reusable-workflows
 ---
 
