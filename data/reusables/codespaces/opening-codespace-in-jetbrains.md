@@ -9,7 +9,7 @@ Alternatively, you can also open the JetBrains Gateway and select an existing co
 
    ![Screenshot of the JetBrains Gateway home page, showing the "Connect to Codespaces" button.](/assets/images/help/codespaces/jetbrains-gateway-connect.png)
 
-1. The first time you connect, you're prompted to choose whether you want to allow {% data variables.product.prodname_dotcom %} to collect anonymized usage data, to improve functionality and user experience. Click **Allow** or **Deny**. 
+1. The first time you connect, you're prompted to choose whether you want to allow {% data variables.product.prodname_dotcom %} to collect anonymized usage data, to improve functionality and user experience. Click **Allow** or **Deny**.
 
    You can change your choice later, if required, in the settings for the {% data variables.product.prodname_github_codespaces %} plugin, which you can access within the JetBrains Gateway settings.
 

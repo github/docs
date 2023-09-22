@@ -1,6 +1,6 @@
 ## Linking to an existing codespace
 
-You can create links to your existing codespaces. This is useful if you have a long-lived codespace that you return to frequently. You can save the link in a location of your choice, as an alternative to using the link on https://github.com/codespaces. 
+You can create links to your existing codespaces. This is useful if you have a long-lived codespace that you return to frequently. You can save the link in a location of your choice, as an alternative to using the link on https://github.com/codespaces.
 
 {% note %}
 
