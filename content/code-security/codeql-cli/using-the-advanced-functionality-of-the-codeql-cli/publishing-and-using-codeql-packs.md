@@ -223,6 +223,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 {% ifversion codeql-model-packs-java %}
+
 #### `dataExtensions`
 
 - Required by model packs.
@@ -261,6 +262,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 {% ifversion codeql-model-packs-java %}
+
 #### `extensionTargets`
 
 - Required by model packs.
@@ -304,6 +306,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `tests`
+
 - Optional for packs containing {% data variables.product.prodname_codeql %} tests. Ignored for packs without tests.
 - Defines the path to a directory within the pack that contains tests, defined relative to the pack directory. Use `.` to specify the whole pack. Any queries in this directory are run as tests when `test run` is run with the `--strict-test-discovery` option. These queries are ignored by query suite definitions that use `queries` or `qlpack` instructions to ask for all queries in a particular pack. If this property is missing, then `.` is assumed. For example:
 
@@ -312,6 +315,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `extractor`
+
 - Required by all packs containing {% data variables.product.prodname_codeql %} tests.
 - Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries)." For example:
 
@@ -320,6 +324,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `authors`
+
 - Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
 
@@ -328,6 +333,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `license`
+
 - Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For a list of allowed licenses, see [SPDX License List](https://spdx.org/licenses/) in the SPDX Specification. For example:
 
@@ -336,6 +342,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `description`
+
 - Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
 
@@ -344,6 +351,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `libraryPathDependencies`
+
 - Optional, deprecated. Use the `dependencies` property instead.
 - Previously used to define the names of any {% data variables.product.prodname_codeql %} packs that this {% data variables.product.prodname_codeql %} pack depends on, as an array. This gives the pack access to any libraries, database schema, and query suites defined in the dependency. For example:
 
@@ -352,6 +360,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `dbscheme`
+
 - Required by core language packs only.
 - Defines the path to the [database schema](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database-schema) for all libraries and queries written for this {% data variables.product.prodname_codeql %} language (see example below). For example:
 
@@ -360,6 +369,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `upgrades`
+
 - Required by core language packs only.
 - Defines the path to a directory within the pack that contains database upgrade scripts, defined relative to the pack directory. Database upgrades are used internally to ensure that a database created with a different version of the {% data variables.product.prodname_codeql_cli %} is compatible with the current version of the CLI. For example:
 
@@ -368,6 +378,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `warnOnImplicitThis`
+
 - Optional. Defaults to `false` if the `warnOnImplicitThis` property is not defined.
 - Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Supported from {% data variables.product.prodname_codeql_cli %} version 2.13.2 and onwards. For example:
 

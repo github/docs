@@ -1007,6 +1007,7 @@ For example in the following table, in order to make sense of the "Yes" and "No"
 To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#table-row-headers)."
 
 ### Include a value for every cell
+
 Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
 
 If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
@@ -1023,6 +1024,7 @@ For tables that use symbols:
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[AUTOTITLE](/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase".
 
 ### Use footnotes sparingly
+
 See "[Footnotes](#footnotes)."
 
 ### Align table content consistently
@@ -1107,6 +1109,7 @@ Use quotation marks around article titles, whether the article is hosted on GitH
 For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
 
 ## Short titles
+
 We use short titles to populate the sidebar navigation. Since short titles appear in the sidebar navigation, they can use context to convey meaning and be slightly less precise than full titles. The goal of short titles is to help people find the content that they are looking for without having sidebar navigation items that are too long. Short titles give people contextual understanding of an article and align to the following standards.
 
 - Short titles are 2-3 words long.
@@ -1196,6 +1199,7 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 - **Use:** Under “IP allow list”, click **Edit**.
 
 ### More resources
+
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
 

@@ -63,6 +63,7 @@ To confirm access for sudo mode, you {% ifversion totp-and-mobile-sudo-challenge
 {%- endif %}
 
 {% ifversion passkeys %}
+
 ## Confirming access using a passkey
 
 You must have a passkey registered to your account to confirm access to your account for sudo mode using a passkey. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."

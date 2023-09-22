@@ -74,6 +74,7 @@ Any issues that are referenced in a task list specify that they are tracked by t
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}
+
 ## Further reading
 
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
