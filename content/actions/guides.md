@@ -18,7 +18,7 @@ includeGuides:
   - /actions/quickstart
   - /actions/learn-github-actions/understanding-github-actions
   - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/using-workflows/using-starter-workflows
+  - /actions/learn-github-actions/using-starter-workflows
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/publishing-packages/about-packaging-with-github-actions

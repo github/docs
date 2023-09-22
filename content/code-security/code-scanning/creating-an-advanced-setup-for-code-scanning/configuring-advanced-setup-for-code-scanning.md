@@ -163,7 +163,7 @@ For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scannin
 
    ![Screenshot showing a starter workflow file open for editing. The "Documentation" button is highlighted with an orange outline.](/assets/images/help/security/actions-workflows-documentation.png)
 
-   For more information, see "[AUTOTITLE](/actions/using-workflows/using-starter-workflows#using-starter-workflows)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
+   For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows#choosing-and-using-a-starter-workflow)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
 
 {% endif %}
 {% ifversion ghes < 3.5 %}
