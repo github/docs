@@ -23,7 +23,7 @@
     "fixture-test": "cross-env ROOT=tests/fixtures npm test -- tests/rendering-fixtures",
     "index-test-fixtures": "node src/search/scripts/index-elasticsearch.js -l en -l ja -V ghae -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
-    "lint-content": "src/content-linter/scripts/markdownlint.js",
+    "lint-content": "src/content-linter/scripts/lint-content.js",
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src/content-linter/tests/lint-files.js",
     "openapi-docs": "src/rest/docs.js",
     "playwright-test": "playwright test --project=\"Google Chrome\"",
