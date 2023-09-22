@@ -111,7 +111,6 @@
     "mdast-util-to-markdown": "2.0.0",
     "mdast-util-to-string": "^4.0.0",
     "morgan": "^1.10.0",
-    "msgpack5rpc": "^1.1.0",
     "next": "13.4.12",
     "ora": "^7.0.1",
     "parse5": "7.1.2",
