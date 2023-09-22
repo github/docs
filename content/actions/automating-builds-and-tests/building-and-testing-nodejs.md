@@ -136,7 +136,7 @@ jobs:
       - name: Use Node.js
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '18.x'
+          node-version: '20.x'
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
@@ -163,7 +163,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: npm ci
 ```
@@ -176,7 +176,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: npm install
 ```
@@ -191,7 +191,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: yarn --frozen-lockfile
 ```
@@ -204,7 +204,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: yarn
 ```
@@ -226,7 +226,7 @@ steps:
   uses: {% data reusables.actions.action-setup-node %}
   with:
     always-auth: true
-    node-version: '18.x'
+    node-version: '20.x'
     registry-url: https://registry.npmjs.org
     scope: '@octocat'
 - name: Install dependencies
@@ -256,7 +256,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '14'
+    node-version: '20'
     cache: 'npm'
 - run: npm install
 - run: npm test
@@ -269,7 +269,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '14'
+    node-version: '20'
     cache: 'yarn'
 - run: yarn
 - run: yarn test
@@ -289,7 +289,7 @@ steps:
     version: 6.10.0
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '14'
+    node-version: '20'
     cache: 'pnpm'
 - run: pnpm install
 - run: pnpm test
@@ -309,7 +309,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - run: npm install
 - run: npm run build --if-present
 - run: npm test
