@@ -46,6 +46,7 @@ type: tutorial
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Changing which organizations can access a runner group
 
 {%- ifversion fpt or ghec or ghes %}
@@ -110,12 +111,14 @@ You can edit the name of your runner groups at the enterprise and organization l
 - [Changing the name of an enterprise runner group](#changing-the-name-of-an-enterprise-runner-group)
 
 ### Changing the name of an organization runner group
+
 {% endif %}
 
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
 {% ifversion ghes or ghec or ghae %}
+
 ### Changing the name of an enterprise runner group
 
 {% data reusables.actions.runner-groups-enterprise-navigation %}
@@ -135,6 +138,7 @@ You can edit the name of your runner groups at the enterprise and organization l
 - [Moving an enterprise runner to a group](#moving-an-enterprise-runner-to-a-group)
 
 ### Moving an organization runner to a group
+
 {% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
@@ -143,6 +147,7 @@ You can edit the name of your runner groups at the enterprise and organization l
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
 {% ifversion ghes or ghec or ghae %}
+
 ### Moving an enterprise runner to a group
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -161,12 +166,14 @@ You can edit the name of your runner groups at the enterprise and organization l
 - [Removing a runner group from an enterprise](#removing-a-runner-group-from-an-enterprise)
 
 ### Removing a runner group from an organization
+
 {% endif %}
 
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.removing-a-runner-group %}
 
 {% ifversion ghes or ghec or ghae %}
+
 ### Removing a runner group from an enterprise
 
 {% data reusables.actions.runner-groups-enterprise-navigation %}

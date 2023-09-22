@@ -26,6 +26,7 @@ If your codebase depends on a library or framework that is not recognized by the
 If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
 {% ifversion code-scanning-without-workflow-310 %}
+
 ## Customizing your existing configuration of default setup
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -38,6 +39,7 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. To update your configuration, as well as run an initial analysis of your code with the new configuration, click **Save changes**. All future analyses will use your new configuration.
 
 {% else %}
+
 ## Changing the selected query suite for your configuration of default setup
 
 {% data reusables.repositories.navigate-to-repo %}

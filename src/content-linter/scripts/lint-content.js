@@ -35,7 +35,7 @@ program
   .addOption(
     new Option(
       '--summary-by-rule',
-      'Summarize the number of errors for each rule, leaving out error details.',
+      'Summarize the number of warnings remaining in the content for each rule.',
     ).conflicts(['error', 'paths', 'rules', 'fix']),
   )
   .option('--verbose', 'Output additional error detail.')
@@ -130,6 +130,8 @@ async function main() {
   }
   if (errorFileCount > 0) {
     spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
+  }
+  if (errorFileCount || warningFileCount) {
     process.exit(1)
   }
   spinner.succeed('No errors found')
@@ -181,6 +183,7 @@ function reportSummaryByRule(results, config) {
 
   // populate the list of rules with 0 occurrences
   for (const rule of Object.keys(config.content)) {
+    if (config.content[rule].severity === 'error') continue
     ruleCount[rule] = 0
   }
   // the default property is not acutally a rule
@@ -190,6 +193,7 @@ function reportSummaryByRule(results, config) {
     if (results[key].length > 0) {
       for (const flaw of results[key]) {
         const ruleName = flaw.ruleNames[1]
+        if (!Object.hasOwn(ruleCount, ruleName)) continue
         const count = ruleCount[ruleName]
         ruleCount[ruleName] = count + 1
       }
@@ -265,13 +269,6 @@ function formatResult(object) {
       acc.columnNumber = value[0]
       delete acc.range
       return acc
-    }
-    if (key === 'lineNumber') {
-      if (object.errorDetail.startsWith('Frontmatter:')) {
-        delete acc.lineNumber
-        acc.frontmatterError = true
-        return acc
-      }
     }
     acc[key] = value
     return acc

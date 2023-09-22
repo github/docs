@@ -36,4 +36,5 @@ If you enable the collection of data about {% data variables.product.prodname_ac
    ```shell{:copy}
    ghe-config app.github.enable-actions-usage-stats true
    ```
+
 {% data reusables.enterprise.apply-configuration %}

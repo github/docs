@@ -45,18 +45,21 @@ Good videos introduce an instructional agenda that includes steps and goals so t
 Videos are broadly grouped into three categories: product overviews, feature videos, and tutorials. These descriptions are generalizations of each video type. Some videos might not fit perfectly in one category, but can still be useful without meeting the exact guidelines.
 
 ### Product overviews
+
 - **Purpose**: Briefly explain what the product is, showcase the main functionality, and get people interested
 - **Length**: Less than a minute
 - **Possible audiences**: People who want to know if a feature is useful for their goals, people who are new to {% data variables.product.company_short %} and trying to understand what the products do
 - **Possible locations in the docs**: Landing pages and guides
 
 ### Feature videos
+
 - **Purpose**: Supplement conceptual or procedural content
 - **Length**: As short as possible, without exceeding five minutes. Break longer content into multiple shorter, focused videos
 - **Possible audiences**: People who are learning about or how to use a feature
 - **Possible locations in the docs**: Guides, conceptual articles, procedural articles
 
 ### Tutorials
+
 - **Purpose**: Help novice users get going with a product, drive adoption, or explain complex functionalities
 - **Length**: Individual videos should be five minutes or less. Complex topics can have a series of shorter videos spread across an article. Total length should be a maximum of 15 minutes
 - **Possible audiences**: New users of features or products

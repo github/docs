@@ -10,6 +10,7 @@ redirect_from:
 ---
 
 {% ifversion ghec %}
+
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise
 
 Enterprise owners can add {% data variables.actions.hosted_runner %}s to an enterprise and assign them to organizations. By default, when a {% data variables.actions.hosted_runner %} is created for an enterprise, it is added to a default runner group that all organizations in the enterprise have access to. While all organizations are granted access to the runner, the repositories in each organization **are not** granted access. For each organization, an organization owner must configure the runner group to specify which repositories have access to the enterprise runner. For more information, see "[Allowing repositories to access a runner group](#allowing-repositories-to-access-a-runner-group)."
@@ -69,6 +70,7 @@ You can edit the name of your {% data variables.actions.hosted_runner %}s.
 - [Changing the name of an enterprise runner](#changing-the-name-of-an-enterprise-runner)
 
 ### Changing the name of an organization runner
+
 {% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
@@ -78,6 +80,7 @@ You can edit the name of your {% data variables.actions.hosted_runner %}s.
 {% data reusables.actions.rename-larger-runner %}
 
 {% ifversion ghec %}
+
 ### Changing the name of an enterprise runner
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -95,7 +98,9 @@ You can control the maximum number of jobs allowed to run concurrently for speci
 {% ifversion ghec %}
 - [Configuring autoscaling for an organization runner](#configuring-autoscaling-for-an-organization-runner)
 - [Configuring autoscaling for an enterprise runner](#configuring-autoscaling-for-an-enterprise-runner)
+
 ### Configuring autoscaling for an organization runner
+
 {% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
@@ -105,6 +110,7 @@ You can control the maximum number of jobs allowed to run concurrently for speci
 {% data reusables.actions.configure-autoscaling-for-larger-runners %}
 
 {% ifversion ghec %}
+
 ### Configuring autoscaling for an enterprise runner
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -133,6 +139,7 @@ The number of available IP addresses in the assigned ranges does not restrict nu
 - [Creating static IP addresses for enterprise runners](#creating-static-ip-addresses-for-enterprise-runners)
 
 ### Creating static IP addresses for organization runners
+
 {% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
@@ -142,6 +149,7 @@ The number of available IP addresses in the assigned ranges does not restrict nu
 {% data reusables.actions..networking-for-larger-runners %}
 
 {% ifversion ghec %}
+
 ### Creating static IP addresses for enterprise runners
 
 {% data reusables.enterprise-accounts.access-enterprise %}

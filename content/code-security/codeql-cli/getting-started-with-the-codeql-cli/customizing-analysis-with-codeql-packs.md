@@ -49,6 +49,7 @@ The other files and directories within the pack should be logically organized. F
 their own top-level directories.
 
 {% ifversion codeql-packs %}
+
 ## Downloading and using {% data variables.product.prodname_codeql %} query packs
 
 The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries{% ifversion codeql-model-packs-java %}, while model packs (beta) can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default{% endif %}. For more information about query packs, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql-queries)." {% ifversion codeql-model-packs-java %} For information about writing your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack)."{% endif %}
@@ -190,6 +191,7 @@ For more information about writing your own model packs, see "[AUTOTITLE](/code-
 {% endif %}
 
 {% ifversion query-pack-compatibility %}
+
 ### About published packs
 
 When a pack is published for use in analyses, the `codeql pack create` or `codeql pack publish` command verifies that the content is complete and also adds some additional pieces of content to it:

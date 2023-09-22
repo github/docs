@@ -43,7 +43,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 
 ### `versions`
 
-- Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/lib/all-versions.js) to which a page applies.
+- Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
 For more information about the different types of versioning, see "[Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
 - Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
@@ -221,6 +221,7 @@ defaultTool: cli
 ```
 
 ### `learningTracks`
+
 - Purpose: Render a list of learning tracks on a product's sub-landing page.
 - type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
 - Optional
@@ -232,6 +233,7 @@ defaultTool: cli
 {% endnote %}
 
 ### `includeGuides`
+
 - Purpose: Render a list of articles, filterable by `type` and `topics`. Only applicable when used with `layout: product-guides`.
 - Type: `Array`
 - Optional.
@@ -247,21 +249,25 @@ includeGuides:
 ```
 
 ### `type`
+
 - Purpose: Indicate the type of article.
 - Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
 - Optional.
 
 ### `topics`
+
 - Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of "[Guides for {% data variables.product.prodname_actions %}](/actions/guides#all-guides)" can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
 - Type: Array of `String`s
 - Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
 ### `communityRedirect`
+
 - Purpose: Set a custom link and link name for `Ask the GitHub community` link in the footer.
 - Type: `Object`. Properties are `name` and `href`.
 - Optional.
 
 ### `effectiveDate`
+
 - Purpose: Set an effective date for Terms of Service articles so that engineering teams can automatically re-prompt users to confirm the terms
 - Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
 - Optional.

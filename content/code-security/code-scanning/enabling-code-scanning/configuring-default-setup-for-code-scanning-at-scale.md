@@ -54,6 +54,7 @@ If the code in a repository changes to include {% ifversion code-scanning-defaul
 
 {% endif %}
 {% ifversion org-enable-code-scanning %}
+
 ## Configuring default setup for all eligible repositories in an organization
 
 Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."
@@ -80,6 +81,7 @@ Through the "Code security and analysis" page of your organization's settings, y
 {% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
 {% endif %}
 {% ifversion code-security-multi-repo-enablement %}
+
 ## Configuring default setup for a subset of repositories in an organization
 
 Through security overview for your organization, you can find eligible repositories for default setup, then enable default setup across each of those repositories simultaneously. For more information on repository eligibility, see "[Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup)."

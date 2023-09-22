@@ -75,6 +75,7 @@ The owner of a {% data variables.product.prodname_github_app %} can view recent 
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Viewing deliveries for {% data variables.product.prodname_sponsors %} webhooks
 
 Only the owner of the sponsored account can view deliveries for sponsorship webhooks for that account.

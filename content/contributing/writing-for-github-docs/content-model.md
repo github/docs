@@ -48,6 +48,7 @@ Top-level doc sets are organized around a {% data variables.product.prodname_dot
 - Most top-level doc sets have a landing page layout, unless there is a significant exception. For example, the "[Site policy](/free-pro-team@latest/site-policy)" doc set does not have guides or procedural articles like other doc sets, so it does not use a landing page layout.
 
 #### Titles for top-level doc sets
+
 - Feature or product based.
 - Describes what part of {% data variables.product.prodname_dotcom %} someone is using.
 - Examples
@@ -63,6 +64,7 @@ Categories are organized around a feature or a discrete set of tasks within a to
 - When categories have more than ten articles, consider breaking the content into map topics or additional categories.
 
 #### Titles for categories
+
 - Task-based (begins with a gerund).
 - Describes the big-picture purpose or goal of using the feature or product.
 - General or high-level enough to scale with future product enhancements.
@@ -72,6 +74,7 @@ Categories are organized around a feature or a discrete set of tasks within a to
   - [AUTOTITLE](/pull-requests/committing-changes-to-your-project)
   
 #### Intros for categories
+
 All categories have intros. Intros should be one sentence long and general or high-level enough to scale with future product changes. If you significantly change a category’s structure, check its intro for needed updates.
 
 ### Map topic
@@ -81,6 +84,7 @@ Map topics introduce a section of a category, grouping articles within a categor
 Map topics contain at least three articles. When map topics have more than eight articles, it may be useful to consider breaking the content into more specific map topics.
 
 #### Titles for map topics
+
 - Task-based (begins with a gerund).
 - Describes a more specific task within the larger workflow of the category it’s in.
 - General or high-level enough to scale with future additions to the product.
@@ -90,6 +94,7 @@ Map topics contain at least three articles. When map topics have more than eight
   - [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise)
 
 #### Intros for map topics
+
 All map topics have intros. Intros should be one sentence long and general or high-level enough to scale with future product changes. If you add or remove articles in a map topic, check its intro for needed updates.
 
 ### Article
@@ -113,6 +118,7 @@ We organize content predictably within categories, map topics, and articles. Fro
 Topics are used to filter articles and are searchable across the {% data variables.product.prodname_docs %} site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Use these guidelines to help choose which topics to add to an article's frontmatter. For more information on adding topics to an article see, "[Topics](https://github.com/github/docs/tree/main/content#topics)" and for a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
 
 #### Topics for all content types
+
 - All articles should have at least one topic
 - Use nouns as topics
 - Topics help people meaningfully group content
@@ -131,6 +137,7 @@ Topics are used to filter articles and are searchable across the {% data variabl
   - Use: `Actions` instead of `GitHub Actions`
 
 #### Checklist for choosing topics
+
 Consider these questions to help choose topics for an article. Not every article will have a topic for each item in the checklist.
 
 - What is the feature or product area?
@@ -172,12 +179,14 @@ For the conceptual content template, see "[AUTOTITLE](/contributing/writing-for-
 - Include next steps for getting started with the feature (whether through further reading links or content within the article itself).
 
 #### Titles for conceptual content
+
 - Conceptual articles or headers of conceptual sections start with "About [subject]”.
 - Use a noun to describe the subject.
   - Use: "About {% data variables.product.prodname_code_scanning %}"
   - Avoid: "About scanning your code for vulnerabilities"
 
 #### Examples of conceptual content
+
 - Conceptual articles
   - [About GitHub Sponsors](/free-pro-team@latest/sponsors/getting-started-with-github-sponsors/about-github-sponsors)
   - [About Enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)
@@ -209,11 +218,13 @@ For the referential content template, see "[AUTOTITLE](/contributing/writing-for
   - Example: [AUTOTITLE](/actions/reference/workflow-syntax-for-github-actions)
 
 #### Titles for referential content
+
 - Referential articles or headers of referential sections clearly describe the contents of the section, and generally begin with nouns.
 - Titles include enough information to be accessible to novice users and fully describe the contents of each section.
 - Titles avoid stacked nouns - use prepositions to break up long strings of nouns.
 
 #### Examples of referential content
+
 - Referential articles
   - [AUTOTITLE](/get-started/using-github/keyboard-shortcuts)
   - [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
@@ -242,6 +253,7 @@ For the procedural content template, see "[AUTOTITLE](/contributing/writing-for-
 - Include troubleshooting tips as frequently as possible.
 
 #### Titles for procedural content
+
 - Procedural articles or procedural sections within articles are task-based and begin with a gerund.
   - Use: "Applying for a student developer pack"
 - Use active and specific verbs (brainstorm or use a thesaurus when needed).
@@ -249,9 +261,10 @@ For the procedural content template, see "[AUTOTITLE](/contributing/writing-for-
 - Article title length: maximum 80 characters, 60 if possible.
 
 #### Examples of procedural content
+
 - [AUTOTITLE](/free-pro-team@latest/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)
 - [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
-- [AUTOTITLE](/actions/using-workflows/using-starter-workflows)
+- [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)
 
 ### Release notes
 
@@ -274,6 +287,7 @@ You can find guidance for the format, style, and tone of release notes, as well 
 Troubleshooting content includes built-in errors we expect people to encounter, common problems reported to support, and situations people might encounter while completing tasks. Use troubleshooting sections in guides or procedural articles to keep solutions close to procedures. Work with support and product managers to surface common errors and include them in the documentation.
 
 #### Known issues
+
 Known issues are a subset of troubleshooting content specifically designed to respond to bugs, UX/UI issues, and other product quirks that generate a high volume of support tickets. Where troubleshooting content can describe errors that people *might* encounter, known issues explain problems that people *will* encounter.
 
 Like all troubleshooting content, known issues can be a section in an article or a standalone article. If a known issue applies to a specific article, document it in that article. If a known issue applies to a specific set of articles or conceptual grouping of features, or if a product or feature has multiple known issues that should be grouped together, create a dedicated "Known issues with NAME" article.
@@ -289,17 +303,20 @@ Use known issues to explain the following situations.
 - Rare or severe bugs that {% data variables.product.prodname_dotcom %} has not yet prioritized fixing, and that are not explained in the product or by existing content on {% data variables.product.prodname_docs %}.
 
 #### How to write troubleshooting content 
+
 - Use any {% data variables.product.prodname_docs %} content type to create troubleshooting sections.
 - Whenever possible, keep troubleshooting content contained within procedural content or guides.
 - You can create a troubleshooting article when it makes sense to keep it separate, such as when there’s a large amount of troubleshooting content on a particular topic.
 - You can create a troubleshooting map topic if a product or feature has many troubleshooting articles, for example "[AUTOTITLE](/authentication/troubleshooting-ssh)."
 
 #### Title guidelines for troubleshooting content
+
 - Troubleshooting FEATURE
 - Error: ERROR NAME
 - Known issues for PRODUCT
 
 #### Examples of troubleshooting content
+
 - "[AUTOTITLE](/authentication/troubleshooting-ssh)"
 - "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)"
 - "[Known issues](/enterprise-server@3.7/admin/release-notes#3.7.8-known-issues)" in the {% data variables.product.prodname_ghe_server %} release notes
@@ -310,6 +327,7 @@ Use known issues to explain the following situations.
 Often, it's helpful to group information in context to help people complete a complex task, understand a set of related tasks, or illustrate an entire workflow. Use longer articles combining content types to ensure people find contextual content in the right place. Longer articles also help eliminate duplication of content and prepare content to scale as more options are added to the product. People most often need longer articles while actively using the product, and they may need to consult the article at different points on their journey.
 
 #### How to combine multiple content types in an article
+
 - Use conceptual, procedural, referential, troubleshooting, or known issue content in a longer article, and do not use quickstart or tutorials.
 - Use sections of different content types in the article as needed, and follow title guidelines for the content type.
 - Most often, these articles will contain at least one procedural section plus at least one additional conceptual, referential, or procedural section.
@@ -318,11 +336,13 @@ Often, it's helpful to group information in context to help people complete a co
 - You can replicate the article’s title in a header if needed.
 
 #### Title guidelines for articles that combine multiple content types
+
 - If there is a procedure within the article, use a task-based title that begins with a gerund.
 - Titles are general enough to describe the range of information and tasks contained within the article.
 - Titles describe the setting being toggled and are agnostic about what setting the reader chooses, e.g., "Setting repository visibility” instead of "Making a private repository public.”
 
 #### Examples of articles that combine multiple content types
+
 - [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)
 - [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
 - [AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)
@@ -358,10 +378,12 @@ Contents of quickstarts:
   - Include 2-3 actionable next steps that someone can take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in {% data variables.product.prodname_learning %}.
 
 #### Title guidelines for quickstarts
+
 - When the guide helps someone get started with a new tool, preface the title with "Quickstart", e.g. "Quickstart for GitHub Actions" or "Quickstart: Procedural title."
 - For other use cases, follow the title guidelines for procedures and omit the word "Quickstart."
 
 #### Examples of quickstarts
+
 - [AUTOTITLE](/free-pro-team@latest/actions/quickstart)
 - [AUTOTITLE](/free-pro-team@latest/discussions/quickstart)
 - [Quickstart for GitHub Educators](/free-pro-team@latest/education/quickstart)
@@ -403,10 +425,12 @@ Contents of tutorials:
     - Relevant published talks, blog posts, or Community Forum series posts by Hubbers
 
 #### Title guidelines for tutorials
+
 - Follow the title guidelines for procedural articles.
 - Do not use "tutorial” or "guide” in the title.
 
 #### Examples of tutorials
+
 Tutorials:
 - [AUTOTITLE](/actions/managing-issues-and-pull-requests/adding-labels-to-issues)
 - [AUTOTITLE](/actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development)
@@ -448,6 +472,7 @@ Titles fully describe what a page is about, and what someone will learn by readi
 Titles can be challenging. Use these general guidelines to help create clear, helpful, and descriptive titles. The guidelines for each content type in this article provide more specific title rules.
 
 #### Titles for all content types
+
 - Titles clearly describe what a page is about. They are descriptive and specific.
   - Use: Browsing actions in the workflow editor
   - Use: Example of configuring a codespace
@@ -480,6 +505,7 @@ Use the product callout when a feature is available in specific products only an
 All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
 
 #### How to write a product callout
+
 - Product callouts follow a strict format, clearly identifying the feature and which products it’s available in. 
 - Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
 - Examples:
@@ -487,6 +513,7 @@ All product callouts are stored as reusables in [`gated-features`](https://githu
   - [Feature name] is available in public repositories with [free product(s)], and in public and private repositories with [paid products]. For more information, see "GitHub’s products.”
 
 #### Examples of articles with product callouts
+
 Check the source files and `gated-features` to see how source content is written.
 - [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
 
@@ -495,6 +522,7 @@ Check the source files and `gated-features` to see how source content is written
 The top of every page has an intro that provides context and sets expectations, allowing readers to quickly decide if the page is relevant to them. Intros also are displayed in search results to provide contextual information to help readers choose a result.
 
 #### How to write an intro
+
 - Article intros are one to two sentences long.
 - Map topic and category intros are one sentence long.
 - API reference intros are one sentence long.
@@ -513,6 +541,7 @@ Every procedure includes a permissions statement explaining the role required to
 Occasionally, it's relevant to mention required permissions in conceptual content, especially in standalone conceptual articles. Make sure to also include a permissions statement in related procedures (or write a longer article combining all of the content).
 
 #### How to write a permissions statement
+
 - When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions). 
 - When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure. 
 - Don't include permissions in an article’s intro.
@@ -523,6 +552,7 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
   - AVOID: [ACCOUNT ROLE] and people with [FEATURE ROLE] access for a [FEATURE] can [ACTION].
 
 #### Examples of permissions statements
+
 - Article with single permissions statement for multiple procedures: [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
 
 ### Tool switcher
@@ -530,12 +560,15 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 Some articles have content that varies depending on what tool someone uses to complete a task, such as the {% data variables.product.prodname_cli %} or {% data variables.product.prodname_desktop %}. For most content, the same conceptual or procedural information will be accurate for multiple tools. However, if the only way to make information clear and accurate is by distinguishing content by tool, use the tool switcher. Do not use the tool switcher just to show examples in different languages. Only use the tool switcher if the tasks or concepts change based on what tool someone uses. For more information on using the tool switcher, see the [tool switcher content model](https://github.com/github/docs/blob/main/contributing/tool-switcher.md).
 
 ### Table of contents
+
 Tables of contents are automatically generated. For more information see "[Autogenerated mini-TOCs](https://github.com/github/docs/tree/main/content#autogenerated-mini-tocs)."
 
 ### Conceptual content
+
 Conceptual content helps people understand or learn about a topic. See "[Conceptual](#conceptual)" above.
 
 ### Referential content
+
 Referential content provides structured information related to actively using a product or feature. See "[Referential](#referential)" above.
 
 ### Prerequisites
@@ -543,6 +576,7 @@ Referential content provides structured information related to actively using a 
 Prerequisites are information that people need to know before proceeding with a procedure, so that they can prepare everything they need before starting the task.
 
 #### How to write prerequisites
+
 - Write prerequisites immediately before a procedure's numbered steps.
 - You can use a list, a sentence, or a paragraph to explain prerequisites.
 - You can also use a separate prerequisites section when:
@@ -551,13 +585,16 @@ Prerequisites are information that people need to know before proceeding with a 
 - To repeat or highlight important information about data loss or destructive actions, you may also use a warning or danger callout to share a prerequisite.
 
 #### Title guidelines for prerequisites
+
 - When using a separate section, use a header called `Prerequisites`
 
 #### Examples of articles with prerequisites sections
+
 - [AUTOTITLE](/enterprise-server@latest/admin/installation/installing-github-enterprise-server-on-aws)
 - [AUTOTITLE](/enterprise-server@latest/admin/configuration/enabling-subdomain-isolation)
 
 ### Procedural content
+
 Procedural content helps people complete tasks. See "[Procedural](#procedural)" above.
 
 ### Troubleshooting content
@@ -569,10 +606,12 @@ Troubleshooting content helps people avoid or work through errors. See "[Trouble
 Further reading sections highlight additional targeted articles that aren’t already included within the article’s content or sidebar. Use further reading sections sparingly when they provide real value.
 
 #### How to write a further reading section
+
 - Use a bulleted list. 
 - Use further reading sections sparingly and when they provide high value - see style guide for guidelines on linking.
 
 #### Title and format for further reading sections
+
 ```
 ### Further reading
 - "[Article title](article-URL)”

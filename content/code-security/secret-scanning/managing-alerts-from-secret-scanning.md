@@ -67,6 +67,7 @@ shortTitle: Manage secret alerts
 {% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
+
 ## Validating partner patterns
 
 {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
