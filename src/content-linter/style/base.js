@@ -57,7 +57,7 @@ export const baseConfig = {
   },
   'blanks-around-headings': {
     // MD022
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': false,
   },
   'heading-start-left': {

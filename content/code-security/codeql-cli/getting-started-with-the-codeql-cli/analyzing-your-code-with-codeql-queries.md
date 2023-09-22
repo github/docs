@@ -131,6 +131,7 @@ $ codeql database analyze /codeql-dbs/example-repo \
 ```
 
 {% ifversion code-scanning-tool-status-page %}
+
 ### Adding file coverage information to your results for monitoring
 
 You can optionally submit file coverage information to {% data variables.product.product_name %} for display on the {% data variables.code-scanning.tool_status_page %} for {% data variables.product.prodname_code_scanning %}. For more information about file coverage information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page#how-codeql-defines-scanned-files)."

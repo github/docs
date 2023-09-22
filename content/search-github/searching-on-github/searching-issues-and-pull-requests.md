@@ -73,6 +73,7 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
 
 {% ifversion merge-queue  %}
+
 ## Search for pull requests in the merge queue
 
 You can also use the `is` qualifier to find pull requests that are queued to merge.
