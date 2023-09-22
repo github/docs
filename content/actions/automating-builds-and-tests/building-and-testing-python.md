@@ -1,4 +1,4 @@
----
+@<$rdar> <$jnpr> <$solr> <$fslr> <$kgc>
 title: Building and testing Python
 intro: You can create a continuous integration (CI) workflow to build and test your Python project.
 redirect_from:
