@@ -65,7 +65,7 @@ This event is available for the following issue types.
 ### Properties for assigned
 
 {% data reusables.issue-events.issue-event-common-properties %}
-`assignee` | `object` | The person assigned from this issue.
+`assignee` | `object` | The person assigned to this issue.
 `assigner` | `object` | The person who performed the assignment for this issue. This field is available in the REST API for issue events but not the REST API for timeline events.
 
 ## automatic_base_change_failed
