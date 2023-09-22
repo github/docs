@@ -64,7 +64,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
       The command returns a thumbprint in the following format:
 
-      ```
+      ``` <!-- markdownlint-disable-line fenced-code-language -->
       SHA1 Fingerprint=AB:12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF:12:34:56
       ```
 
@@ -72,7 +72,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
       For example, the thumbprint for the value returned in the previous step is:
 
-      ```
+      ``` <!-- markdownlint-disable-line fenced-code-language -->
       AB1234567890ABCDEF1234567890ABCDEF123456
       ```
 

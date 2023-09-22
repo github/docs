@@ -89,7 +89,7 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 
     **Note**: If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
 
-    ```
+    ``` <!-- markdownlint-disable-line fenced-code-language -->
     consul-datacenter = primary
     ```
 
@@ -122,19 +122,19 @@ For an example configuration, see "[Example configuration](#example-configuratio
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 1. Back up your existing cluster configuration.
 
-    ```
+    ``` <!-- markdownlint-disable-line fenced-code-language -->
     cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
     ```
 
 1. Create a copy of your existing cluster configuration file in a temporary location, like `/home/admin/cluster-replica.conf`.
 
-    ```
+    ``` <!-- markdownlint-disable-line fenced-code-language -->
     grep -Ev "(?:|ipv|uuid)" /data/user/common/cluster.conf > ~/cluster-replica.conf
     ```
 
 1. Remove the `[cluster]` section from the temporary cluster configuration file that you copied in the previous step.
 
-    ```
+    ``` <!-- markdownlint-disable-line fenced-code-language -->
     git config -f ~/cluster-replica.conf --remove-section cluster
     ```
 

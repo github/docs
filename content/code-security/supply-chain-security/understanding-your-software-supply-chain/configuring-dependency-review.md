@@ -154,7 +154,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
            fail-on-scopes: development, runtime
   {% endif %}
 
-   ```
+   ``` <!-- markdownlint-disable-line fenced-code-language -->
 ### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
 1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.

@@ -65,13 +65,13 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
    - For "Provider name", enter a name for the provider.
    - For "Issuer (URL)", enter the following URL, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
-     ```
+     ``` <!-- markdownlint-disable-line fenced-code-language -->
      https://HOSTNAME/_services/token
      ```
 
      For example:
 
-     ```
+     ``` <!-- markdownlint-disable-line fenced-code-language -->
      https://my-ghes-host.example.com/_services/token
      ```
 
@@ -83,13 +83,13 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
    - Under "Attribute Conditions", click **Add condition**.
    - For "Condition CEL", enter the following condition, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
-     ```
+     ``` <!-- markdownlint-disable-line fenced-code-language -->
      google.subject == "HOSTNAME"
      ```
 
      For example:
 
-     ```
+     ``` <!-- markdownlint-disable-line fenced-code-language -->
      google.subject == "my-ghes-host.example.com"
      ```
 

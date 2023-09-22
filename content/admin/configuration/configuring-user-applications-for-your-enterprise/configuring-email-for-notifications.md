@@ -155,7 +155,7 @@ If you need to verify that your inbound email is functioning, you can review `/v
 
 `/var/log/mail.log` verifies that messages are reaching your server. Here's an example of a successful email reply:
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 Oct 30 00:47:18 54-171-144-1 postfix/smtpd[13210]: connect from st11p06mm-asmtp002.mac.com[17.172.124.250]
 Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: 51DC9163323: client=st11p06mm-asmtp002.mac.com[17.172.124.250]
 Oct 30 00:47:19 54-171-144-1 postfix/cleanup[13216]: 51DC9163323: message-id=<b2b9c260-4aaa-4a93-acbb-0b2ddda68579@me.com>
@@ -169,7 +169,7 @@ Note that the client first connects; then, the queue becomes active. Then, the m
 
 `/var/log/mail-replies/metroplex.log` shows whether inbound emails are being processed to add to issues and pull requests as replies. Here's an example of a successful message:
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 [2014-10-30T00:47:23.306 INFO (5284) #] metroplex: processing <b2b9c260-4aaa-4a93-acbb-0b2ddda68579@me.com>
 [2014-10-30T00:47:23.333 DEBUG (5284) #] Matched /data/user/mail/reply/new/1414630039.Vfc00I12000eM445784.ghe-tjl2-co-ie
 [2014-10-30T00:47:23.334 DEBUG (5284) #] Moving /data/user/mail/reply/new/1414630039.Vfc00I12000eM445784.ghe-tjl2-co-ie => /data/user/incoming-mail/success

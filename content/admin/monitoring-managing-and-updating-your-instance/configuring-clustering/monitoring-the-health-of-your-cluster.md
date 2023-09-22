@@ -113,7 +113,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
 
    **Example definition**
 
-   ```
+   ``` <!-- markdownlint-disable-line fenced-code-language -->
    define command {
         command_name    check_ssh_ghe_cluster
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
@@ -124,7 +124,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
 
    **Example definition**
 
-   ```
+   ``` <!-- markdownlint-disable-line fenced-code-language -->
    define host{
         use                     generic-host
         host_name               ghe-data-node-0

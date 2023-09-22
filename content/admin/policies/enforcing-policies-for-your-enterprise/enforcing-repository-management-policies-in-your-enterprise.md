@@ -289,7 +289,7 @@ Enabling anonymous Git read access allows users to bypass authentication for cus
 
 Anonymous Git read access is disabled by default.{% ifversion ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 The unauthenticated git protocol on port 9418 is no longer supported.
 ```
 

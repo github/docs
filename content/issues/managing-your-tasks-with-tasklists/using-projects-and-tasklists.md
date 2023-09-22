@@ -25,7 +25,7 @@ The "tracks" field shows the number of the issues and pull requests included eac
 
 The "tracked by" field shows the issues with tasklists currently tracking your project's issues. The "tracked by" field can also be used to group and filter views. You can use the filter below to only show issues that are tracked by issue you have specified:
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"
 ```
 
@@ -35,7 +35,7 @@ You can also group a table layout by the "tracked-by" field. This view configura
 
 You can also combine filters and grouping by filtering your project for just the issues you want to use, and then grouping with the "tracked-by" field. The example below shows how to filter a view by multiple issues:
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>","<OWNER>/<REPO>#<ISSUE NUMBER>"
 ```
 

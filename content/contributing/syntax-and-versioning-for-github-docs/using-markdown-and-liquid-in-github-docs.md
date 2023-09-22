@@ -55,7 +55,7 @@ For information on when to use callout tags, see "[AUTOTITLE](/contributing/writ
 
 ### Example usage of a callout
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% note %}
 
 **Note:** Owners and administrators can add outside collaborators to a repository.
@@ -163,7 +163,7 @@ We occasionally need to write documentation for different operating systems. Eac
 
 ### Example usage of operating system tags
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% mac %}
 
 These instructions are pertinent to Mac users.
@@ -171,7 +171,7 @@ These instructions are pertinent to Mac users.
 {% endmac %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% linux %}
 
  These instructions are pertinent to Linux users.
@@ -179,7 +179,7 @@ These instructions are pertinent to Mac users.
 {% endlinux %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% windows %}
 
 These instructions are pertinent to Windows users.
@@ -199,7 +199,7 @@ You can define a default tool for an article in the YAML frontmatter. For more i
 
 ### Example usage of tool tags
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% api %}
 
 These instructions are pertinent to API users.
@@ -207,7 +207,7 @@ These instructions are pertinent to API users.
 {% endapi %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% bash %}
 
 These instructions are pertinent to Bash shell commands.
@@ -215,7 +215,7 @@ These instructions are pertinent to Bash shell commands.
 {% endbash %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% cli %}
 
 These instructions are pertinent to GitHub CLI users.
@@ -223,7 +223,7 @@ These instructions are pertinent to GitHub CLI users.
 {% endcli %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% codespaces %}
 
 These instructions are pertinent to Codespaces users. They are mostly used outside the Codespaces docset, when we want to refer to how to do something inside Codespaces. Otherwise `webui` or `vscode` may be used.
@@ -231,7 +231,7 @@ These instructions are pertinent to Codespaces users. They are mostly used outsi
 {% endcodespaces %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% curl %}
 
 These instructions are pertinent to curl commands.
@@ -239,7 +239,7 @@ These instructions are pertinent to curl commands.
 {% endcurl %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% desktop %}
 
  These instructions are pertinent to GitHub Desktop.
@@ -247,7 +247,7 @@ These instructions are pertinent to curl commands.
 {% enddesktop %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% importer_cli %}
 
 These instructions are pertinent to GitHub Enterprise Importer CLI users.
@@ -255,7 +255,7 @@ These instructions are pertinent to GitHub Enterprise Importer CLI users.
 {% endimporter_cli %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% javascript %}
 
 These instructions are pertinent to javascript users.
@@ -263,7 +263,7 @@ These instructions are pertinent to javascript users.
 {% endjavascript %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% jetbrains %}
 
 These instructions are pertinent to users of JetBrains IDEs.
@@ -271,7 +271,7 @@ These instructions are pertinent to users of JetBrains IDEs.
 {% endjetbrains %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% powershell %}
 
 These instructions are pertinent to `pwsh` and `powershell` commands.
@@ -279,7 +279,7 @@ These instructions are pertinent to `pwsh` and `powershell` commands.
 {% endpowershell %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% vscode %}
 
 These instructions are pertinent to VS Code users.
@@ -287,7 +287,7 @@ These instructions are pertinent to VS Code users.
 {% endvscode %}{% endraw %}
 ```
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% webui %}
 
 These instructions are pertinent to GitHub UI users.
@@ -307,7 +307,7 @@ If you create a table where the first column contains headers for the table rows
 
 ### Example table with row headers
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 {% raw %}{% rowheaders %}
 
 |             | Mona | Tom    | Hobbes |
@@ -320,7 +320,7 @@ If you create a table where the first column contains headers for the table rows
 
 ### Example table without row headers
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 | Name   | Vocation         |
 | ------ | ---------------- |
 | Mona   | GitHub mascot    |
@@ -354,15 +354,15 @@ The links to Markdown pages undergo some transformations on the server side to m
 
 For example, if you include the following link in a content file:
 
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 /github/writing-on-github/creating-a-saved-reply
 ```
 When viewed on {% data variables.product.prodname_dotcom_the_website %} docs, the link gets rendered with the language code:
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 /en/github/writing-on-github/creating-a-saved-reply
 ```
 and when viewed on {% data variables.product.prodname_ghe_server %} docs, the version is included as well:
-```
+``` <!-- markdownlint-disable-line fenced-code-language -->
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 For more information about links, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links)."

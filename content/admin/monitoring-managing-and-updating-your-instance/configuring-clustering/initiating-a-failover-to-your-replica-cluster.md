@@ -34,7 +34,7 @@ To fail over to replica nodes, you must have configured high availability replic
 
     ```shell
   ghe-cluster-failover
-  ```
+  ``` <!-- markdownlint-disable-line fenced-code-language -->
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 1. Update the DNS record to point to the IP address of the load balancer for your replica cluster. After the TTL period expires, requests will be directed to the replica cluster.
