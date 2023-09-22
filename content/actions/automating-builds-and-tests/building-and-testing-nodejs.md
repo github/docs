@@ -79,6 +79,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
        - run: npm run build --if-present
        - run: npm test
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the Node versions you want to use.

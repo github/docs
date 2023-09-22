@@ -77,6 +77,7 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
        - name: Run tests
          run: bundle exec rake
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the Ruby versions you want to use.
