@@ -4,7 +4,7 @@ import path from 'path'
 import { mkdirp } from 'mkdirp'
 
 import { updateRestFiles } from './update-markdown.js'
-import { allVersions } from '../../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { createOperations, processOperations } from './get-operations.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 

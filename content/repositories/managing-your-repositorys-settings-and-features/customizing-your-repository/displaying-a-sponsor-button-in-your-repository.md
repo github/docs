@@ -45,7 +45,7 @@ C# | `nuget`
 
 Here's an example `FUNDING.yml` file:
 
-```
+```yaml
 github: [octocat, surftocat]
 patreon: octocat
 tidelift: npm/octo-package

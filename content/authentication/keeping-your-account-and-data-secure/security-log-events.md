@@ -36,6 +36,18 @@ topics:
 | `manage_access_and_security` | Triggered when you update [the repositories a codespace has access to](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces).
 | `trusted_repositories_access_update` | Triggered when you change your personal account's [access and security setting for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces).
 
+## `copilot` category actions
+
+| Action | Description
+|------------------|-------------------
+|`copilot.cfb_seat_added`|Triggered when your seat is added to the {% data variables.product.prodname_copilot_business_short %} subscription and you receive access to {% data variables.product.prodname_copilot %}.
+|`copilot.cfb_seat_cancelled`|Triggered when your seat is canceled from the {% data variables.product.prodname_copilot_business_short %} subscription and you no longer have access to {% data variables.product.prodname_copilot %}.
+|`copilot.cfb_seat_assignment_reused`| Triggered when you are re-assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while you already have a seat with no pending cancellation date.
+|`copilot.cfb_seat_assignment_refreshed`| Triggered when you are assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while your current seat assignment is pending cancellation, causing the cancellation to be revoked.
+|`copilot.cfb_seat_assignment_created`| Triggered when you are assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while you have no other active seat assignment. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)."
+|`copilot.cfb_seat_assignment_unassigned`| Triggered when you are unassigned a seat through {% data variables.product.prodname_copilot_business_short %}.
+|`copilot.cfb_seat_cancelled_by_staff`| Triggered when you are unassigned a seat through {% data variables.product.prodname_copilot_business_short %} manually by GitHub staff.
+
 ## `marketplace_agreement_signature` category actions
 
 | Action | Description

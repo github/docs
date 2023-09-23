@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import { HeadingLink } from 'components/article/HeadingLink'
 import { Link } from 'components/Link'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
 import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'

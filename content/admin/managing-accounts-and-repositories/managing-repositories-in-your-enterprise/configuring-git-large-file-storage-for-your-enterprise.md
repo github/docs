@@ -32,7 +32,7 @@ shortTitle: Configure Git LFS
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
 
-For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)", "[AUTOTITLE](/repositories/working-with-files/managing-large-files)," and the [{% data variables.large_files.product_name_long %} project site](https://git-lfs.github.com/).
+For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)", "[AUTOTITLE](/repositories/working-with-files/managing-large-files)," and the [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/).
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
@@ -150,4 +150,4 @@ Before migrating to a different {% data variables.large_files.product_name_long 
 
 ## Further reading
 
-- [{% data variables.large_files.product_name_long %} project site](https://git-lfs.github.com/)
+- [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/)

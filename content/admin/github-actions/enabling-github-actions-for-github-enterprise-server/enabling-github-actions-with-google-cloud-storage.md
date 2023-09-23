@@ -151,11 +151,11 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
 {% data reusables.actions.enterprise-gcp-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your storage bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-gcp-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-gcp-storage-credential-fields %}
 {%- else %}
 1. Under "Artifact & Log Storage", select **Google Cloud Storage**, and enter your bucket's details:
 
-{% indented_data_reference reusables.actions.enterprise-gcp-storage-credential-fields spaces=3 %}
+   {% data reusables.actions.enterprise-gcp-storage-credential-fields %}
 {%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}

@@ -2,7 +2,7 @@
 
 import { program } from 'commander'
 import fs from 'fs/promises'
-import flat from 'flat'
+import { flatten } from 'flat'
 import { visit } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { gfmTable } from 'micromark-extension-gfm-table'
@@ -255,7 +255,7 @@ function getTablesFromMdast(ast, tableObj) {
   if (!tableNodes.length) return
   const firstRows = tableNodes.map((table) => {
     const firstRow = table.children[0]
-    return Object.entries(flat(firstRow))
+    return Object.entries(flatten(firstRow))
       .filter(([key, _val]) => key.endsWith('value'))
       .map(([_key, val]) => val)
       .join(', ')
@@ -281,7 +281,7 @@ function filterFiles(files) {
 
 function getheadingObjs(headingNodes) {
   return headingNodes.map((n) => {
-    const flatNodes = flat(n)
+    const flatNodes = flatten(n)
     const text = Object.entries(flatNodes)
       .filter(([key, _val]) => key.endsWith('value'))
       .map(([_key, val]) => val)

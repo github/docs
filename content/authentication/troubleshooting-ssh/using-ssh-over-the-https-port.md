@@ -36,7 +36,7 @@ If that worked, great! If not, you may need to [follow our troubleshooting guide
 
 Now, to clone the repository, you can run the following command:
 
-```
+```shell
 git clone ssh://git@ssh.{% data variables.command_line.codeblock %}:443/YOUR-USERNAME/YOUR-REPOSITORY.git
 ```
 
@@ -46,7 +46,7 @@ If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}
 
 To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
-```
+```text
 Host {% data variables.command_line.codeblock %}
     Hostname ssh.{% data variables.command_line.codeblock %}
     Port 443

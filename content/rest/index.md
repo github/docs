@@ -46,6 +46,7 @@ children:
   - /billing
   - /branches
   - /checks
+  - /classroom
   - /codes-of-conduct
   - /code-scanning
   - /codespaces

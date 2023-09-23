@@ -1,5 +1,5 @@
-import { languageKeys } from '../../../lib/languages.js'
-import { allVersionKeys } from '../../../lib/all-versions.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 import { productIds } from '../../../lib/all-products.js'
 import { allTools } from '#src/tools/lib/all-tools.js'
 
@@ -113,7 +113,7 @@ const context = {
     browser: {
       type: 'string',
       description: 'The type of browser the user is browsing with.',
-      enum: ['chrome', 'safari', 'firefox', 'edge', 'ie', 'other'],
+      enum: ['chrome', 'safari', 'firefox', 'edge', 'opera', 'other'],
       default: 'other',
     },
     browser_version: {
@@ -155,6 +155,10 @@ const context = {
     color_mode_preference: {
       enum: ['dark', 'light', 'auto', 'auto:dark', 'auto:light'],
       description: 'The color mode selected by the user.',
+    },
+    code_display_preference: {
+      enum: ['beside', 'inline'],
+      description: 'How the user prefers to view code examples.',
     },
   },
 }
@@ -439,22 +443,29 @@ const preference = {
     },
     preference_name: {
       type: 'string',
-      enum: ['application', 'color_mode', 'os'],
+      enum: ['application', 'color_mode', 'os', 'code_display'],
       description: 'The preference name, such as os, application, or color_mode',
     },
     preference_value: {
       type: 'string',
-      enum: Object.keys(allTools).concat(
+      enum: [
+        // application
+        ...Object.keys(allTools),
+        // color_mode
         'dark',
         'light',
         'auto',
         'auto:dark',
         'auto:light',
+        // os
         'linux',
         'mac',
         'windows',
-      ),
-      description: 'The application, color_mode, or os selected by the user.',
+        // code_display
+        'beside',
+        'inline',
+      ],
+      description: 'The application, color_mode, os, or code_display selected by the user.',
     },
   },
 }

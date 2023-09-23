@@ -49,11 +49,11 @@ To get the most out of your trial, follow these steps:
    - Add users to your {% data variables.product.prodname_ghe_server %} instance using built-in authentication or your configured identity provider. For more information, see "[AUTOTITLE](/enterprise-server@latest/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
    - To invite people to become account administrators, visit the [{% data variables.product.prodname_enterprise %} Web portal](https://enterprise.github.com/login).
 
-    {% note %}
+     {% note %}
 
-    **Note:** People you invite to become account administrators will receive an email with a link to accept your invitation.
+     **Note:** People you invite to become account administrators will receive an email with a link to accept your invitation.
 
-    {% endnote %}
+     {% endnote %}
 
 {% data reusables.enterprise.best-practices %}
 

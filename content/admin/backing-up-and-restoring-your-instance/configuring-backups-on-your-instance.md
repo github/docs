@@ -84,7 +84,6 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
    cd backup-utils
    ```
 
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
 
    ```shell
@@ -94,13 +93,13 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 1. To customize your configuration, edit `backup.config` in a text editor.
    1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 
-     {% note %}
+      {% note %}
 
-     **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.location.product_location %}.
+      **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.location.product_location %}.
 
-     To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
+      To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
 
-     {% endnote %}
+      {% endnote %}
    1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host, but outside of where you cloned the Git repository in step 1.
 1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.
@@ -144,11 +143,11 @@ If your installation is in a Git repository, you can install the latest version 
 ### Upgrading an installation in a Git repository
 
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-  {% note %}
+   {% note %}
 
-  **Note:** We recommend creating a copy of your existing `backup.config` file in a temporary location, like `$HOME/backup.config`, before upgrading {% data variables.product.prodname_enterprise_backup_utilities %}.
+   **Note:** We recommend creating a copy of your existing `backup.config` file in a temporary location, like `$HOME/backup.config`, before upgrading {% data variables.product.prodname_enterprise_backup_utilities %}.
 
-  {% endnote %}
+   {% endnote %}
 
 1. Download the latest project updates by running the `git fetch` command.
 

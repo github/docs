@@ -36,7 +36,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1438
         - |
-          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. Enabling this feature can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)." [Updated: 2023-09-12]
 
     - heading: GitHub Connect
       notes:
@@ -287,7 +287,6 @@ sections:
 
       If you wish to support the protocol in your environment, you must manually re-enable the feature. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)" and the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/). [Updated: 2023-01-31]
     - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
-    - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
     - |
       VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
     - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
@@ -312,6 +311,8 @@ sections:
     - '{% data reusables.release-notes.git-push-known-issue %}'
     - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
     - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
 
   deprecations:
     - heading: Changes to supported SSH algorithms
@@ -326,3 +327,5 @@ sections:
 
   errata:
     - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'
+    - |
+      The "Changes" section of these release notes indicated that if a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved. This change is not available in GitHub Enterprise Server 3.6, but is available in GitHub Enterprise Server 3.7 and later. [Updated: 2023-09-06]

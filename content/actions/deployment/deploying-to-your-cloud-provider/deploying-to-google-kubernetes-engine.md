@@ -66,7 +66,7 @@ $ gcloud services enable \
 
 ### Configuring a service account and storing its credentials
 
-This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
+This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded {% ifversion fpt or ghec %}encrypted {% endif %}repository secret named `GKE_SA_KEY`.
 
 1. Create a new service account:
 
@@ -112,11 +112,11 @@ This procedure demonstrates how to create the service account for your GKE integ
    export GKE_SA_KEY=$(cat key.json | base64)
    ```
 
-   For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+   For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ### Storing your project name
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ### (Optional) Configuring kustomize
 

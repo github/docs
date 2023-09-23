@@ -54,13 +54,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-groups:
-  angular:
-    patterns:
-    - "@angular*"
-    update-types:
-    - "minor"
-    - "patch"
+    groups:
+      angular:
+        patterns:
+        - "@angular*"
+        update-types:
+        - "minor"
+        - "patch"
 ```
 
 ```yaml

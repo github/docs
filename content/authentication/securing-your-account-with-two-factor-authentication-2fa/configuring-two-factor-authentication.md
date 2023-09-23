@@ -54,42 +54,51 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Configuring two-factor authentication using a TOTP mobile app
 
-A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps.
+A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. These apps can be downloaded to your phone or desktop. We recommend using cloud-based TOTP apps. {% data variables.product.prodname_dotcom %} is app-agnostic when it comes to TOTP apps, so you have the freedom to choose any TOTP app you prefer. Just search for `TOTP app` in your browser to find various options. You can also refine your search by adding keywords like `free` or `open source` to match your preferences.
 
 {% tip %}
 
-**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
+**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the {% ifversion fpt or ghec or ghes > 3.8 %}"setup key"{% else %}"text code"{% endif %}, which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
 
 {% endtip %}
 
-1. Download a TOTP app.
+1. Download a TOTP app of your choice to your phone or desktop.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghec or ghes > 3.8 %}
 1. Under "Setup authenticator app", do one of the following:
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
-    - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
+    - If you can't scan the QR code, click **setup key** to see a code, the TOTP secret, that you can manually enter in your TOTP app instead.
 
-   ![Screenshot of the "Setup authenticator app" section of the 2FA settings. A link, labeled "enter this text code", is highlighted in orange.](/assets/images/help/2fa/2fa-wizard-app-click-code.png)
-1. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Verify the code from the app".
+   ![Screenshot of the "Setup authenticator app" section of the 2FA settings. A link, labeled "setup key", is highlighted in orange.](/assets/images/help/2fa/ghes_3.8_and_higher_2fa-wizard-app-click-code.png)
+1. The TOTP application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Verify the code from the app".
 {%- else %}
 1. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
 1. Under "Authentication verification", do one of the following:
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.
     ![Screenshot of the 2FA enablement page. A link with the text "enter this text code" is highlighted in orange.](/assets/images/help/2fa/2fa-wizard-app-click-code.png)
-1. The TOTP mobile application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application".
+1. The TOTP application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Enter the six-digit code from the application".
 {%- endif %}
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {% data reusables.two_fa.backup_options_during_2fa_enrollment %}
 {% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
+If you wish to setup a TOTP app manually, and require the parameters encoded in the QR code, they are:
+- Type: `TOTP`
+- Label: `GitHub:<username>` where `<username>` is your handle on GitHub, for example `monalisa`
+- Secret: This is the encoded setup key, shown if you click {%- ifversion fpt or ghec or ghes > 3.8 %}"setup key"{%- else %}"enter this text code"{%- endif %} during configuration
+- Issuer: `GitHub`
+- Algorithm: The default of SHA1 is used
+- Digits: The default of 6 is used
+- Period: The default of 30 (seconds) is used
+
 {% ifversion fpt or ghec %}
 
 ## Configuring two-factor authentication using text messages
 
-If you're unable to configure a TOTP mobile app, you can also register your phone number to receive SMS messages.
+If you're unable to configure a TOTP app, you can also register your phone number to receive SMS messages.
 
 Before using this method, be sure that you can receive text messages. Carrier rates may apply.
 

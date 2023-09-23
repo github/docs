@@ -2,7 +2,6 @@
 title: 'Extraction errors in the database'
 intro: 'You can check whether or not extraction errors affect the health of the {% data variables.product.prodname_codeql %} database created.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

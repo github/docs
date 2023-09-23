@@ -78,7 +78,7 @@ Anyone can work with a previously opened pull request to continue working on it,
 1. Switch to the new branch that's based on this pull request:
 
    ```shell
-   [main] $ git checkout BRANCH_NAME
+   [main] $ git switch BRANCH_NAME
    > Switched to a new branch 'BRANCH_NAME'
    ```
 

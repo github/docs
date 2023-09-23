@@ -8,11 +8,11 @@ import {
   setFastlySurrogateKey,
   makeLanguageSurrogateKey,
 } from '../../middleware/set-fastly-surrogate-key.js'
-import shortVersions from '../../middleware/contextualizers/short-versions.js'
+import shortVersions from '#src/versions/middleware/short-versions.js'
 import contextualize from '../../middleware/context.js'
-import features from '../../middleware/contextualizers/features.js'
+import features from '#src/versions/middleware/features.js'
 import getRedirect from '#src/redirects/lib/get-redirect.js'
-import { isArchivedVersionByPath } from '../../lib/is-archived-version.js'
+import { isArchivedVersionByPath } from '#src/archives/lib/is-archived-version.js'
 
 const router = express.Router()
 

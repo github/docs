@@ -14,7 +14,7 @@ topics:
   - Project management
 shortTitle: Move assigned issues
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -31,10 +31,9 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
 1. Copy the following YAML contents into your workflow file.
 
     ```yaml copy
+    {% data reusables.actions.actions-not-certified-by-github-comment %}
 
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
-
-{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+    {% data reusables.actions.actions-use-sha-pinning-comment %}
 
     name: Move assigned card
     on:
@@ -57,7 +56,7 @@ In the tutorial, you will first make a workflow file that uses the [`alex-page/g
    - Change the value for `column` to the name of the column where you want issues to move when they are assigned.
    - Change the value for `repo-token`:
      1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-     1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+     1. Store this {% data variables.product.pat_generic %} as a secret in your repository. For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
      1. In your workflow file, replace `PERSONAL_ACCESS_TOKEN` with the name of your secret.
 1. {% data reusables.actions.commit-workflow %}
 

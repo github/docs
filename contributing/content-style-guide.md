@@ -1,5 +1,7 @@
 # Content style guide for GitHub Docs <!-- omit in toc -->
 
+**Note:** This version of the style guide is no longer maintained and will be deprecated. See the [content model](https://docs.github.com/en/contributing/writing-for-github-docs/content-model) on docs.github.com for the most up to date version. Open any pull requests against the `contributing/writing-for-github-docs/content-model.md` file.
+
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"

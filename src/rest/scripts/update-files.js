@@ -19,7 +19,7 @@ import { existsSync } from 'fs'
 
 import { syncRestData, getOpenApiSchemaFiles } from './utils/sync.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { syncWebhookData } from '../../webhooks/scripts/sync.js'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync.js'
 import { syncRestRedirects } from './utils/get-redirects.js'

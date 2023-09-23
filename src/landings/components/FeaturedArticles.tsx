@@ -1,7 +1,7 @@
 import cx from 'classnames'
 
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ArticleList } from 'src/landings/components/ArticleList'
 
 export const FeaturedArticles = () => {

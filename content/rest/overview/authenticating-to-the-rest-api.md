@@ -64,9 +64,13 @@ For example:
 
 ```shell
 curl --request POST \
---url "{% data variables.product.api_url_code %}/authorizations" \
---user "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"{% ifversion api-date-versioning %} \
+--url "{% data variables.product.api_url_code %}/applications/YOUR_CLIENT_ID/token" \
+--user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET"{% ifversion api-date-versioning %} \
+--header "Accept: application/vnd.github+json" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--data '{
+  "access_token": "ACCESS_TOKEN_TO_CHECK"
+}'
 ```
 
 You can find the client ID and generate a client secret on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."

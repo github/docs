@@ -103,3 +103,5 @@ gh classroom clone student-repos
 ```
 
 Clones student repositories from a given assignment. By default, the student repos are cloned into the current directory a directory named after the assignment slug. To clone into a different directory, use the `--directory` flag. If the directory does not exists, it will be created.
+
+By default, results are paginated by 30. To get a different number of repositories, use the `--per-page NUMBER` flag.

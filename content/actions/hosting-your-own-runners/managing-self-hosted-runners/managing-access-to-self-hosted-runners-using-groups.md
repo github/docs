@@ -137,13 +137,18 @@ You can edit the name of your runner groups at the enterprise and organization l
 ### Moving an organization runner to a group
 {% endif %}
 
-{% data reusables.actions.runner-groups-org-navigation %}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
 {% ifversion ghes or ghec or ghae %}
 ### Moving an enterprise runner to a group
 
-{% data reusables.actions.runner-groups-enterprise-navigation %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.moving-a-runner-to-a-group %}
 {% endif %}
 
