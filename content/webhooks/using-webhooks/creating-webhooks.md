@@ -67,6 +67,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 After you create a new webhook, {% data variables.product.prodname_dotcom %} will send you a simple `ping` event to let you know you've set up the webhook correctly. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#ping)."
 
 {% ifversion ghes or ghae or ghec %}
+
 ## Creating a global webhook for a {% data variables.product.prodname_enterprise %}
 
 Enterprise owners can create a global webhook to subscribe to events that occur within their enterprise. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks)."

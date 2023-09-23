@@ -32,7 +32,7 @@ Recommended secrets are listed at the bottom of the page.
 
 Each recommended secret is displayed in one of three ways:
 
-- If the person has not set the recommended secret in their {% data variables.product.prodname_codespaces %} settings, an input box is displayed, allowing them to create the secret now. A description and link to more information are displayed if you have configured them. Entering a value is optional. 
+- If the person has not set the recommended secret in their {% data variables.product.prodname_codespaces %} settings, an input box is displayed, allowing them to create the secret now. A description and link to more information are displayed if you have configured them. Entering a value is optional.
 - If the person has already created the recommended secret but has not associated it with this repository, they can select a checkbox to add this association. Doing so is optional.
 - If the person has already created the recommended secret and associated it with this repository, a preselected checkbox is displayed.
 

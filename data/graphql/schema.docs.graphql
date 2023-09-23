@@ -10857,6 +10857,11 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   includesCreatedEdit: Boolean!
 
   """
+  Only return answered/unanswered discussions
+  """
+  isAnswered: Boolean
+
+  """
   A list of labels associated with the object.
   """
   labels(
@@ -42314,6 +42319,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
+
+    """
+    Only show answered or unanswered discussions
+    """
+    answered: Boolean = null
 
     """
     Returns the elements in the list that come before the specified cursor.

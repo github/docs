@@ -26,7 +26,7 @@ shortTitle: View 2FA usage
 {% data reusables.organizations.people %}
 1. To view organization members, including organization owners, who have enabled or disabled two-factor authentication, on the right, select **2FA**, then click **Enabled** or **Disabled**. {% ifversion mandatory-2fa-required-overview %}Additionally, you can view which members are required to enable two-factor authentication by clicking **Required**.<br><br>
 
-   {% indented_data_reference reusables.two_fa.mandatory-2fa-contributors-2023 spaces=3 %}{% endif %}{% ifversion mandatory-2fa-required-overview %}
+   {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}{% endif %}{% ifversion mandatory-2fa-required-overview %}
 
    ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/filter-org-members-by-2fa-required.png){% else %}
 

@@ -46,6 +46,7 @@ export default async function glossaries(req, res, next) {
             // in this mapping we often don't have an English equivalent.
             // So that's why we fall back on the empty string.
             enGlossaryMap.get(glossary.term) || '',
+            { code: req.context.currentLanguage },
           )
         }
         description = await executeWithFallback(

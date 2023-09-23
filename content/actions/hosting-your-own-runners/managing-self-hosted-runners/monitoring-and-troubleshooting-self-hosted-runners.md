@@ -87,11 +87,33 @@ By default, the self-hosted runner application verifies the TLS certificate for 
 
 To disable TLS certification verification in the self-hosted runner application, set the `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY` environment variable to `1` before configuring and running the self-hosted runner application.
 
+{% linux %}
+
 ```shell
 export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
 ./config.sh --url https://github.com/YOUR-ORG/YOUR-REPO --token
 ./run.sh
 ```
+
+{% endlinux %}
+{% mac %}
+
+```shell
+export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
+./config.sh --url https://github.com/YOUR-ORG/YOUR-REPO --token
+./run.sh
+```
+
+{% endmac %}
+{% windows %}
+
+```powershell
+[Environment]::SetEnvironmentVariable('GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY', '1')
+./config.cmd --url https://github.com/YOUR-ORG/YOUR-REPO --token
+./run.sh
+```
+
+{% endwindows %}
 
 {% warning %}
 

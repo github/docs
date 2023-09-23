@@ -100,6 +100,7 @@ This example configuration uses a primary and two replicas, which are located in
    ```
 
 1. To apply the configuration, use the `ghe-config-apply` command on the primary.
+
    ```shell
    (primary)$ ghe-config-apply
    ```

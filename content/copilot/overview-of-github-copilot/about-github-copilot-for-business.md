@@ -35,7 +35,7 @@ After setting up a subscription, you can enable {% data variables.product.prodna
 
 ## Requesting or granting access to {% data variables.product.prodname_copilot_for_business %}
 
-Organization members can request access to {% data variables.product.prodname_copilot_for_business %} from their organization's owners. 
+Organization members can request access to {% data variables.product.prodname_copilot_for_business %} from their organization's owners.
 
 ### Submitting a request for {% data variables.product.prodname_copilot_for_business %}
 

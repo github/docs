@@ -44,43 +44,47 @@ export const githubDocsConfig = {
     severity: 'warning',
     'partial-markdown-files': true,
   },
-  'no-github-docs-domains': {
-    // GHD020
-    severity: 'error',
-    'partial-markdown-files': true,
-  },
   'early-access-references': {
     severity: 'error',
     'partial-markdown-files': true,
   },
+}
+
+export const searchReplaceConfig = {
   'search-replace': {
-    severity: 'error',
-    'severity-local-env': 'warning',
-    'partial-markdown-files': true,
     rules: [
       {
         name: 'todocs-placeholder',
         message: 'Catch occurrences of TODOCS placeholder.',
-        search: 'TODOCS',
+        searchPattern: '/todocs/gi',
         searchScope: 'all',
+        severity: 'error',
+        'severity-local': 'warning',
+        'partial-markdown-files': true,
       },
       {
         name: 'docs-domain',
         message: 'Catch occurrences of docs.gitub.com domain.',
-        search: 'docs.gitub.com',
+        search: 'docs.github.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'help-domain',
         message: 'Catch occurrences of help.github.com domain.',
         search: 'help.github.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'preview-domain',
         message: 'Catch occurrences of preview.ghdocs.com domain.',
         search: 'preview.ghdocs.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'developer-domain',
@@ -89,8 +93,64 @@ export const githubDocsConfig = {
         // developer.github.com/enterprise/[0-9] or
         // developer.github.com/enterprise/{{something}} (e.g. liquid).
         // There are occurences that will likely always remain in the content.
-        searchPattern: '/developer.github.com(?!/(changes|enterprise/([0-9]|{))).*/g',
+        searchPattern: '/developer\\.github\\.com(?!\\/(changes|enterprise\\/([0-9]|{))).*/g',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+      {
+        // Catches usage of old liquid data reusable syntax. For example:
+        // {{ site.data.variables.product_releases }}
+        name: 'deprecated liquid syntax: site.data',
+        message: 'Catch occurrences of deprecated liquid data syntax.',
+        searchPattern: '/{{\\s*?site\\.data\\.([a-zA-Z0-9-_]+(?:\\.[a-zA-Z0-9-_]+)+)\\s*?}}/g',
+        replace: '{% data $1 %}',
+      },
+      {
+        // Catches usage of old octicon variable syntax. For example:
+        // - {{ octicon-plus }}
+        // - {{ octicon-plus An example label }}
+        name: 'deprecated liquid syntax: octicon-<icon-name>',
+        message:
+          'The octicon liquid syntax used is deprecated. Use this format instead {% octicon "<octicon-name>" aria-label="<Octicon aria label>" %}',
+        searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
+      },
+      {
+        // Catches usage of string personal access token, which should
+        // be replaced with a reusable data variable.
+        name: 'personal access token reusable',
+        message:
+          'The string "personal access token" can be replaced with a variable. You should use one of the variables from data/variables/product.yml instead of the literal phrase(s):',
+        searchPattern: '/personal access tokens?/gi',
+      },
+      {
+        // Catches usage of GitHub-owned actions that don't use a
+        // resuable.
+        // GitHub-owned actions (e.g. actions/checkout@v2) should use a
+        // reusable in examples.
+        //
+        // - actions/checkout@v2
+        // - actions/delete-package-versions@v2
+        // - actions/download-artifact@v2
+        // - actions/upload-artifact@v2
+        // - actions/github-script@v2
+        // - actions/setup-dotnet@v2
+        // - actions/setup-go@v2
+        // - actions/setup-java@v2
+        // - actions/setup-node@v2
+        // - actions/setup-python@v2
+        // - actions/stale@v2
+        // - actions/cache@v2
+        // - github/codeql-action/init@v2
+        // - github/codeql-action/analyze@v2
+        // - github/codeql-action/autobuild@v2
+        // - github/codeql-action/upload-sarif@v2
+        //
+        name: 'GitHub-owned action references should use a reusable',
+        message:
+          'A GitHub-owned action is referenced, but should be replaced with a reusable from data/reusables/actions.',
+        searchPattern:
+          '/(actions\\/(checkout|delete-package-versions|download-artifact|upload-artifact|github-script|setup-dotnet|setup-go|setup-java|setup-node|setup-python|stale|cache)|github\\/codeql-action[/a-zA-Z-]*)/g',
       },
     ],
   },

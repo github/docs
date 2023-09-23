@@ -17,7 +17,7 @@ shortTitle: Configure basic settings
 
    ![Screenshot of the "Preferences" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
 
-   {% indented_data_reference reusables.desktop.preferences-options-tabs spaces=3 %}
+   {% data reusables.desktop.preferences-options-tabs %}
 
 {% endmac %}
 
@@ -28,7 +28,7 @@ shortTitle: Configure basic settings
 
    ![Screenshot of the "Options" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/window-select-options-pane.png)
 
-   {% indented_data_reference reusables.desktop.preferences-options-tabs spaces=3 %}
+   {% data reusables.desktop.preferences-options-tabs %}
 
 {% endwindows %}
 

@@ -78,7 +78,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
    {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-   {% indented_data_reference reusables.desktop.note-start-ssh-agent spaces=3 %}
+   {% data reusables.desktop.note-start-ssh-agent %}
 
 1. Verify that you have a private key generated and loaded into SSH.
 
