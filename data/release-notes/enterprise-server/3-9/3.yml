@@ -7,7 +7,7 @@ intro: |
 sections:
   security_fixes:
     - |
-      **LOW:**  An attacker could circumvent branch protection by changing a PR base branch to an invalid ref name. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+      **LOW:** An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a reopened pull request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/) and was assigned [CVE-2023-23766](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23766). [Updated: 2023-09-22]
   bugs:
     - |
       API results were incomplete, and ordering of results was incorrect if `asc` or `desc` appeared in lowercase within the API query.

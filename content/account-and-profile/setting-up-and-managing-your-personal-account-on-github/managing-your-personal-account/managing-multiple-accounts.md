@@ -74,6 +74,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
     ```shell copy
     echo "protocol=https`nhost=github.com" | git credential-manager erase
     ```
+
    - If the output is `wincred`, you're using the Windows Credential Manager. To clear the credentials, enter the following command.
 
      ```shell copy

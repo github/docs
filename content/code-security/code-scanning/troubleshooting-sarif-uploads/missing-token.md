@@ -21,7 +21,7 @@ redirect_from:
 A GitHub token is required to upload SARIF results but none was specified
 ```
 
-This error is reported if the upload process does not reference an authentication method, or if that method has the wrong permission. The permissions required to upload SARIF file to a repository are the same no matter what process you use to upload the data. 
+This error is reported if the upload process does not reference an authentication method, or if that method has the wrong permission. The permissions required to upload SARIF file to a repository are the same no matter what process you use to upload the data.
 
 - Fine-grained {% data variables.product.pat_generic_plural %} require `write` scope for the repository.
 - Classic {% data variables.product.pat_generic_plural %} require `security_events` scope for the repository{% ifversion fpt or ghec %} for private or internal repositories. You can use tokens with the `public_repo` scope for public repositories.{% endif %}

@@ -27,7 +27,7 @@ export const baseConfig = {
   },
   'no-trailing-spaces': {
     // MD009
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'no-reversed-links': {
@@ -57,7 +57,7 @@ export const baseConfig = {
   },
   'blanks-around-headings': {
     // MD022
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': false,
   },
   'heading-start-left': {
@@ -83,7 +83,7 @@ export const baseConfig = {
   },
   'blanks-around-fences': {
     // MD031
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'no-space-in-emphasis': {
@@ -105,10 +105,11 @@ export const baseConfig = {
   'no-empty-links': {
     // MD042
     severity: 'error',
+    'partial-markdown-files': true,
   },
   'single-trailing-newline': {
     // MD047
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'emphasis-style': {

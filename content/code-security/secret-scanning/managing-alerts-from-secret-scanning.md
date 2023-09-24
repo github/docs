@@ -67,6 +67,7 @@ shortTitle: Manage secret alerts
 {% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
+
 ## Validating partner patterns
 
 {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
@@ -74,7 +75,7 @@ shortTitle: Manage secret alerts
 
 You can allow {% data variables.product.prodname_secret_scanning %} to check the validity of a secret found in your repository by sending it to the relevant partner.
 
-You can enable automatic validity checks for supported partner patterns in the code security settings for your repository, organization, or enterprise. {% data variables.product.company_short %} will periodically send the pattern to the relevant partner to check the secret's validity and display the validation status of the secret in the alert view. 
+You can enable automatic validity checks for supported partner patterns in the code security settings for your repository, organization, or enterprise. {% data variables.product.company_short %} will periodically send the pattern to the relevant partner to check the secret's validity and display the validation status of the secret in the alert view.
 
  For more information on enabling automatic validation checks for partner patterns in your repository, organization, or enterprise, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)," "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)," and "[Managing Advanced Security features](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
 

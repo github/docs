@@ -43,7 +43,7 @@ shortTitle: Prepare to migrate data
 ## Generating a list of migration conflicts
 
 1. Using the `ghe-migrator conflicts` command with the Migration GUID, generate a _conflicts.csv_ file:
-    
+
     ```shell
     ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
     ```

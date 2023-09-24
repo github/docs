@@ -85,7 +85,7 @@ You can manage advanced settings for {% data variables.product.prodname_copilot 
 
 ## Configuring language settings for {% data variables.product.prodname_copilot %}
 
-You can specify which languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for either in the IDE or by editing your `github-copilot.xml` file. If you make changes to language settings in your IDE, you can individually select and deselect the languages you want to activate or deactivate. 
+You can specify which languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for either in the IDE or by editing your `github-copilot.xml` file. If you make changes to language settings in your IDE, you can individually select and deselect the languages you want to activate or deactivate.
 
 If you make changes to the language settings in your `github-copilot.xml` file, you can specify individual languages, or you can use a wildcard to activate or deactivate {% data variables.product.prodname_copilot %} for all languages. You can also specify exceptions, which will override the wild card setting for the specified languages. For example, you can deactivate {% data variables.product.prodname_copilot %} for all languages, except for Python and YAML. By default, when you install the {% data variables.product.prodname_copilot %} extension, {% data variables.product.prodname_copilot %} is activated for all languages.
 
@@ -109,9 +109,9 @@ The file is located in the following directory:
 
 For example, if you are using IntelliJ IDEA 2021.1 on macOS, the file is located at `~/Library/Application Support/JetBrains/IdeaIC2021.1/options/github-copilot.xml`.
 
-The `github-copilot.xml` file might not be generated until you make a change to your default language configuration in the IDE's settings. If you cannot locate the file, you should try modifying the default language settings in the IDE. For more information, see "[Configuring language settings in the IDE](#configuring-language-settings-in-the-ide)." 
+The `github-copilot.xml` file might not be generated until you make a change to your default language configuration in the IDE's settings. If you cannot locate the file, you should try modifying the default language settings in the IDE. For more information, see "[Configuring language settings in the IDE](#configuring-language-settings-in-the-ide)."
 
-Alternatively, you can create the file manually and save it in the location for your operating system listed above. For more information, see "[Example language configurations](#example-language-configurations)." 
+Alternatively, you can create the file manually and save it in the location for your operating system listed above. For more information, see "[Example language configurations](#example-language-configurations)."
 
 1. Open the `github-copilot.xml` file in a text editor.
 1. Between the `<map>` tags, add the line or lines for the languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for. For example, to deactivate {% data variables.product.prodname_copilot %} for all languages:
@@ -119,6 +119,7 @@ Alternatively, you can create the file manually and save it in the location for 
     ```xml copy
     <entry key="*" value="false" />
     ```
+
 1. Save the changes to the `github-copilot.xml` file.
 1. Restart your JetBrains IDE for the changes to take effect.
 
@@ -151,6 +152,7 @@ To deactivate {% data variables.product.prodname_copilot %} for all languages, t
   </component>
 </application>
 ```
+
 To specify languages individually, add an entry for each language you want to activate or deactivate {% data variables.product.prodname_copilot %} for. Specific language settings will override the wildcard. For example, to activate {% data variables.product.prodname_copilot %} for Python and YAML, and deactivate {% data variables.product.prodname_copilot %} for all other languages, add the following entries:
 
 ```xml copy
