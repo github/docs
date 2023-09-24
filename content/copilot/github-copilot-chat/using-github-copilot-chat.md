@@ -106,9 +106,9 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 ## Further reading
 
 - [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot){% ifversion ghec %}
+- [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement){% endif %}
+- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvscode %}
 
