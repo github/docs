@@ -127,7 +127,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
    - `actions.hcl.ctmpl`
 1. For the services that you identified that need adjustment, open the corresponding file and locate the `resources` group that looks like the following:
 
-   ```terraform
+   ```text
    resources {
      cpu = 512
      memory = 2048
@@ -141,7 +141,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    For example, to increase the resource limits in the above example to 1 GHz for the CPU and 4 GB of memory, change it to:
 
-   ```terraform
+   ```text
    resources {
      cpu = 1024
      memory = 4096
