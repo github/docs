@@ -126,6 +126,7 @@ Avoid inline links in command names.
 When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context.
 - **Use:**
 
+<!-- markdownlint-disable yaml-scheduled-jobs -->
 ```yaml
 on:
   schedule:
@@ -138,6 +139,7 @@ on:
 schedule:
   - cron:  "40 19 * * *"
 ```
+<!-- markdownlint-enable yaml-scheduled-jobs -->
 
 ### File names and directory names
 

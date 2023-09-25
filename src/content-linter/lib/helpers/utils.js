@@ -32,6 +32,15 @@ export function isStringPunctuated(text) {
   return /^.*[.?!]['"]?$/.test(text)
 }
 
+export function doesStringEndWithPeriod(text) {
+  // String ends with punctuation of either
+  // . ? ! and optionally ends with single
+  // or double quotes. This also allows
+  // for single or double quotes before
+  // the punctuation.
+  return /^.*\.['"]?$/.test(text)
+}
+
 // Filters a list of tokens by token type only when they match
 // a specific token type order.
 // For example, if a list of tokens contains:
