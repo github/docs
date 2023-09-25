@@ -33,7 +33,7 @@ If you enable the collection of data about {% data variables.product.prodname_ac
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Enter the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.github.enable-actions-usage-stats true
    ```
 
