@@ -38,7 +38,7 @@ jobs:
           curl --fail --retry-connrefused --retry 5 http://localhost:4000/
 
       - name: Run basic tests
-        run: node .github/actions-scripts/test-local-dev.js
+        run: node src/workflows/test-local-dev.js
 
       - if: ${{ failure() }}
         name: Debug server outputs on errors
