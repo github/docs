@@ -9,7 +9,7 @@ import { execSync } from 'child_process'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
-import { githubDocsConfig } from '../style/github-docs.js'
+import { customConfig } from '../style/github-docs.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -308,7 +308,7 @@ function listRules() {
   Rules that can't be run on partials have the property
   `partial-markdown-files` set to false.
 */
-function getMarkdownLintConfig(errorsOnly, runRules, customRules) {
+function getMarkdownLintConfig(errorsOnly, runRules) {
   const config = {
     content: {
       default: false, // By default, don't turn on all markdownlint rules
@@ -323,12 +323,13 @@ function getMarkdownLintConfig(errorsOnly, runRules, customRules) {
   }
 
   for (const [ruleName, ruleConfig] of Object.entries(allConfig)) {
-    const customRule = githubDocsConfig[ruleName] && getCustomRule(ruleName)
+    const customRule = customConfig[ruleName] && getCustomRule(ruleName)
 
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
     if (errorsOnly && getRuleSeverity(ruleConfig) !== 'error' && ruleName !== 'search-replace')
       continue
+
     if (runRules && !runRules.includes(ruleName)) continue
 
     // Handle the special case of the search-replace rule
