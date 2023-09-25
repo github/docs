@@ -28,6 +28,9 @@ export const yamlScheduledJobs = {
       // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
       const renderedYaml = await liquid.parseAndRender(token.content, context)
       const yamlObj = yaml.load(renderedYaml)
+      if (!yamlObj.on) return
+      if (!yamlObj.on.schedule) return
+
       yamlObj.on.schedule.forEach((schedule) => {
         if (schedule.cron.split(' ')[0] === '0') {
           addError(
