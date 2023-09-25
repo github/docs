@@ -302,7 +302,7 @@ Use known issues to explain the following situations.
 - Behavior that regularly prevents the use of the product or feature for a common purpose.
 - Rare or severe bugs that {% data variables.product.prodname_dotcom %} has not yet prioritized fixing, and that are not explained in the product or by existing content on {% data variables.product.prodname_docs %}.
 
-#### How to write troubleshooting content 
+#### How to write troubleshooting content
 
 - Use any {% data variables.product.prodname_docs %} content type to create troubleshooting sections.
 - Whenever possible, keep troubleshooting content contained within procedural content or guides.
@@ -478,7 +478,7 @@ Titles can be challenging. Use these general guidelines to help create clear, he
   - Use: Example of configuring a codespace
   - Avoid: Using the workflow editor sidebar
   - Avoid: Example
-  - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
+  - Titles have hard limits for length to keep them easy to understand (and easier to render on the site):
      - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 26 characters
      - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 29 characters
      - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 30 characters, ideally 20-25 characters
@@ -506,7 +506,7 @@ All product callouts are stored as reusables in [`gated-features`](https://githu
 
 #### How to write a product callout
 
-- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in. 
+- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
 - Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
 - Examples:
   - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
@@ -527,10 +527,10 @@ The top of every page has an intro that provides context and sets expectations, 
 - Map topic and category intros are one sentence long.
 - API reference intros are one sentence long.
   - The intro for an API page should define the feature so that someone knows whether the feature meets their needs without reading the entire article.
-- Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail. 
-  - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible. 
+- Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail.
+  - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible.
 - Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
-- For searchability, include keywords on the page's subject in the intro. 
+- For searchability, include keywords on the page's subject in the intro.
 - When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
 - Intros generally don't contain permissions for any tasks contained within the article.
 
@@ -542,8 +542,8 @@ Occasionally, it's relevant to mention required permissions in conceptual conten
 
 #### How to write a permissions statement
 
-- When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions). 
-- When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure. 
+- When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions).
+- When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure.
 - Don't include permissions in an article’s intro.
 - Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
 - Language to use in a permissions statement:
@@ -607,7 +607,7 @@ Further reading sections highlight additional targeted articles that aren’t al
 
 #### How to write a further reading section
 
-- Use a bulleted list. 
+- Use a bulleted list.
 - Use further reading sections sparingly and when they provide high value - see style guide for guidelines on linking.
 
 #### Title and format for further reading sections

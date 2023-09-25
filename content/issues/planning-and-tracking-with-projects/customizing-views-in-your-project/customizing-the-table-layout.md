@@ -39,7 +39,7 @@ You can group items by a custom field value. {% data reusables.projects.customiz
 
 {% data reusables.projects.customize.slice-panel %}
 
-{% endif %} 
+{% endif %}
 
 ## Reordering fields
 

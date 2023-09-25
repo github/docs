@@ -83,6 +83,7 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
          with:
            arguments: build
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the Java version.

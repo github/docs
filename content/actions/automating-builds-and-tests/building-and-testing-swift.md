@@ -67,6 +67,7 @@ We recommend that you have a basic understanding of Swift packages. For more inf
        - name: Run tests
          run: swift test -v
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the branch on which the workflow will run.

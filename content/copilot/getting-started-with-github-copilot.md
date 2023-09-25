@@ -263,7 +263,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
    - If you have previously authorized {% data variables.product.prodname_vscode %} for your account on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} will be automatically authorized.
    - If you don't get the prompt to authorize, click the bell icon in the bottom panel of the {% data variables.product.prodname_vscode %} window.
-     
+
      ![Screenshot of the {% data variables.product.prodname_vscode %} task bar with {% data variables.product.prodname_copilot %} icons. The bell icon is outlined in dark orange.](/assets/images/help/copilot/copilot-activate.png)
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**.
@@ -341,6 +341,8 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
    ```javascript copy
    // Express server on port 3000
+   ```
+
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
 1. Type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler.
 
