@@ -324,7 +324,7 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 
 **Validation sample in JavaScript**
 
-```js
+```javascript
 const crypto = require("crypto");
 const axios = require("axios");
 

@@ -100,7 +100,7 @@ You can create multiple tasklists in a single issue. Each tasklist has its own t
 1. In the menu, click **Edit**.
 1. In the issue description, below your first tasklist, add the Markdown below:
   
-   ````markdown{:copy}
+   ````markdown copy
    ```[tasklist]
    ### Tasks
    - [ ] Draft task

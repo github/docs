@@ -55,7 +55,7 @@ For information on when to use callout tags, see "[AUTOTITLE](/contributing/writ
 
 ### Example usage of a callout
 
-```
+```markdown
 {% raw %}{% note %}
 
 **Note:** Owners and administrators can add outside collaborators to a repository.
@@ -164,7 +164,7 @@ We occasionally need to write documentation for different operating systems. Eac
 
 ### Example usage of operating system tags
 
-```
+```text
 {% raw %}{% mac %}
 
 These instructions are pertinent to Mac users.
@@ -172,7 +172,7 @@ These instructions are pertinent to Mac users.
 {% endmac %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% linux %}
 
  These instructions are pertinent to Linux users.
@@ -180,7 +180,7 @@ These instructions are pertinent to Mac users.
 {% endlinux %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% windows %}
 
 These instructions are pertinent to Windows users.
@@ -200,7 +200,7 @@ You can define a default tool for an article in the YAML frontmatter. For more i
 
 ### Example usage of tool tags
 
-```
+```text
 {% raw %}{% api %}
 
 These instructions are pertinent to API users.
@@ -208,7 +208,7 @@ These instructions are pertinent to API users.
 {% endapi %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% bash %}
 
 These instructions are pertinent to Bash shell commands.
@@ -216,7 +216,7 @@ These instructions are pertinent to Bash shell commands.
 {% endbash %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% cli %}
 
 These instructions are pertinent to GitHub CLI users.
@@ -224,7 +224,7 @@ These instructions are pertinent to GitHub CLI users.
 {% endcli %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% codespaces %}
 
 These instructions are pertinent to Codespaces users. They are mostly used outside the Codespaces docset, when we want to refer to how to do something inside Codespaces. Otherwise `webui` or `vscode` may be used.
@@ -232,7 +232,7 @@ These instructions are pertinent to Codespaces users. They are mostly used outsi
 {% endcodespaces %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% curl %}
 
 These instructions are pertinent to curl commands.
@@ -240,7 +240,7 @@ These instructions are pertinent to curl commands.
 {% endcurl %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% desktop %}
 
  These instructions are pertinent to GitHub Desktop.
@@ -248,7 +248,7 @@ These instructions are pertinent to curl commands.
 {% enddesktop %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% importer_cli %}
 
 These instructions are pertinent to GitHub Enterprise Importer CLI users.
@@ -256,7 +256,7 @@ These instructions are pertinent to GitHub Enterprise Importer CLI users.
 {% endimporter_cli %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% javascript %}
 
 These instructions are pertinent to javascript users.
@@ -264,7 +264,7 @@ These instructions are pertinent to javascript users.
 {% endjavascript %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% jetbrains %}
 
 These instructions are pertinent to users of JetBrains IDEs.
@@ -272,7 +272,7 @@ These instructions are pertinent to users of JetBrains IDEs.
 {% endjetbrains %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% powershell %}
 
 These instructions are pertinent to `pwsh` and `powershell` commands.
@@ -280,7 +280,7 @@ These instructions are pertinent to `pwsh` and `powershell` commands.
 {% endpowershell %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% vscode %}
 
 These instructions are pertinent to VS Code users.
@@ -288,7 +288,7 @@ These instructions are pertinent to VS Code users.
 {% endvscode %}{% endraw %}
 ```
 
-```
+```text
 {% raw %}{% webui %}
 
 These instructions are pertinent to GitHub UI users.
@@ -308,7 +308,7 @@ If you create a table where the first column contains headers for the table rows
 
 ### Example table with row headers
 
-```
+```markdown
 {% raw %}{% rowheaders %}
 
 |             | Mona | Tom    | Hobbes |
@@ -321,7 +321,7 @@ If you create a table where the first column contains headers for the table rows
 
 ### Example table without row headers
 
-```
+```markdown
 | Name   | Vocation         |
 | ------ | ---------------- |
 | Mona   | GitHub mascot    |
@@ -355,19 +355,19 @@ The links to Markdown pages undergo some transformations on the server side to m
 
 For example, if you include the following link in a content file:
 
-```
+```text
 /github/writing-on-github/creating-a-saved-reply
 ```
 
 When viewed on {% data variables.product.prodname_dotcom_the_website %} docs, the link gets rendered with the language code:
 
-```
+```text
 /en/github/writing-on-github/creating-a-saved-reply
 ```
 
 and when viewed on {% data variables.product.prodname_ghe_server %} docs, the version is included as well:
 
-```
+```text
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 

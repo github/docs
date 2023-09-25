@@ -126,7 +126,7 @@ Add a link to the article with a video's transcript in the description of the vi
 
 In any content with an embedded video, add a `product_video_transcript` property below the `product_video` property in the YAML frontmatter. The value of `product_video_transcript` is a link to the transcript article in the `video-transcripts` directory.
 
-```YAML
+```yaml
 title: Example product landing page
 product_video: 'https://www.youtube-nocookie.com/embed/URL'
 product_video_transcript: /content/video-transcripts/TRANSCRIPT-TITLE

@@ -612,7 +612,7 @@ Further reading sections highlight additional targeted articles that aren’t al
 
 #### Title and format for further reading sections
 
-```
+```markdown
 ### Further reading
 - "[Article title](article-URL)”
 - [External resource title](external-resource-URL) in External Resource Name

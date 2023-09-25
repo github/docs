@@ -16,7 +16,7 @@ shortTitle: Basic formatting syntax
 
 To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the hierarchy level and typeface size of the heading.
 
-```
+```markdown
 # A first-level heading
 ## A second-level heading
 ### A third-level heading
@@ -356,7 +356,7 @@ We recommend restricting the use of alerts to one or two per article to avoid ov
 
 Three types of alert are available. You can add an alert with a special blockquote line that specifies the alert type, and then add the alert information in a standard blockquote immediately after.
 
-```
+```markdown
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 

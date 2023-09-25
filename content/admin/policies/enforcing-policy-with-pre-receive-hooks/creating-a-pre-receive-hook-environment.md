@@ -27,7 +27,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 {% data reusables.linux.ensure-docker %}
 1. Create the file `Dockerfile.alpine` that contains this information:
 
-   ```
+   ```dockerfile
    FROM alpine:latest
    RUN apk add --no-cache git bash
    ```

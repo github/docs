@@ -42,7 +42,7 @@ In your new `hello-world-docker-action` directory, create a new `Dockerfile` fil
 
 **Dockerfile**
 
-```Dockerfile copy
+```dockerfile copy
 # Container image that runs your code
 FROM alpine:3.10
 

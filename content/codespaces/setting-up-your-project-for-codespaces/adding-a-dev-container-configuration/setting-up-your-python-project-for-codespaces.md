@@ -51,7 +51,7 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
@@ -103,14 +103,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property.
 
-   ```json copy
+   ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "pip3 install --user -r requirements.txt",
    ```
 
 {% data reusables.codespaces.add-extension-to-devcontainer %}
 
-   ```json
+   ```jsonc
    // For format details, see https://aka.ms/devcontainer.json. For config options, see the
    // README at: https://github.com/devcontainers/templates/tree/main/src/python
    {

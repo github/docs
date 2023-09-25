@@ -99,7 +99,7 @@ export const baseConfig = {
   },
   'fenced-code-language': {
     // MD040
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     allowed_languages: allowedCodeFenceLanguages,
   },
