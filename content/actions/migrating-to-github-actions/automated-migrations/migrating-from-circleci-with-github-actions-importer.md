@@ -300,7 +300,7 @@ gh actions-importer audit circle-ci --output-dir ./output/ --include-from reposi
 
 The file supplied for this parameter must be a a line-delimited list of repositories, for example:
 
-```txt
+```text
 repository_one
 repository_two
 repository_three

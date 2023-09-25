@@ -83,7 +83,7 @@ The following example uses four instructions:
 
 `RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
 
-```Dockerfile copy
+```dockerfile copy
 ARG VARIANT="16-buster"
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
@@ -104,11 +104,11 @@ For more information about Dockerfile instructions, see "[Dockerfile reference](
 
 To use a Dockerfile as part of a dev container configuration, reference it in your `devcontainer.json` file by using the `dockerfile` property.
 
-```json copy
+```jsonc copy
 {
-  ...
+  // ...
   "build": { "dockerfile": "Dockerfile" },
-  ...
+  // ...
 }
 ```
 

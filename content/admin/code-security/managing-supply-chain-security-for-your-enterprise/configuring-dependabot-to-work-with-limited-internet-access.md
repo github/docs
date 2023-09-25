@@ -35,7 +35,7 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
 
    For example, to support npm and {% data variables.product.prodname_actions %} you could use the following commands, copying details of the images to load from the `containers.json` file to ensure that you have the correct version and SHA for each image.
 
-   ```
+   ```shell
    docker pull ghcr.io/github/dependabot-update-job-proxy/dependabot-update-job-proxy:VERSION@SHA
    docker pull ghcr.io/dependabot/dependabot-updater-github-actions:VERSION@SHA
    docker pull ghcr.io/dependabot/dependabot-updater-npm:VERSION@SHA
