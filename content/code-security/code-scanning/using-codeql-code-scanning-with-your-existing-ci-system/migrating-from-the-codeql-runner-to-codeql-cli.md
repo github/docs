@@ -32,10 +32,10 @@ For more information on setting up the {% data variables.product.prodname_codeql
 ## Overview of workflow changes
 
 A typical workflow that uses the {% data variables.code-scanning.codeql_runner %} to analyze a codebase has the following steps.
-- `codeql-runner-<platform> init` to start creating {% data variables.product.prodname_codeql %} databases and read the configuration.
+- `codeql-runner-PLATFORM init` to start creating {% data variables.product.prodname_codeql %} databases and read the configuration.
 - For compiled languages: set environment variables produced by the `init` step.
 - For compiled languages: run autobuild or manual build steps.
-- `codeql-runner-<platform> analyze` to finish creating {% data variables.product.prodname_codeql %} databases, run queries to analyze each {% data variables.product.prodname_codeql %} database, summarize the results in a SARIF file, and upload the results to {% data variables.product.prodname_dotcom %}.
+- `codeql-runner-PLATFORM analyze` to finish creating {% data variables.product.prodname_codeql %} databases, run queries to analyze each {% data variables.product.prodname_codeql %} database, summarize the results in a SARIF file, and upload the results to {% data variables.product.prodname_dotcom %}.
 
 A typical workflow that uses the {% data variables.product.prodname_codeql_cli %} to analyze a codebase has the following steps.
 - `codeql database create` to create {% data variables.product.prodname_codeql %} databases.
@@ -79,7 +79,7 @@ CLI:
 codeql database create /codeql-dbs/example-repo --language=javascript \
     --source-root=.
 
-# The default query suite is called `<language>-code-scanning.qls`.
+# The default query suite is called `LANGUAGE-code-scanning.qls`.
 codeql database analyze /codeql-dbs/example-repo \
     javascript-code-scanning.qls --sarif-category=javascript \
     --format=sarif-latest --output=/temp/example-repo-js.sarif
@@ -112,7 +112,7 @@ CLI:
 codeql database create /codeql-dbs/example-repo --language=javascript \
     --source-root=.
 
-# Use `<language>-<suite name>.qls`
+# Use `LANGUAGE-SUITE_NAME.qls`
 codeql database analyze /codeql-dbs/example-repo  \
     javascript-security-and-quality.qls --sarif-category=javascript
     --format=sarif-latest --output=/temp/example-repo-js.sarif
