@@ -24,7 +24,7 @@ To have your CI machines fetch from the repository cache instead of the primary 
 
 For example, the global `.gitconfig` for the CI machine would include these lines.
 
-```gitconfig
+```text
 [url "https://europe-ci.github.example.com/"]
 	insteadOf = https://github.example.com/
 ```

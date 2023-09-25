@@ -196,7 +196,7 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 
 {% raw %}
 
-```js
+```javascript
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
 
@@ -208,7 +208,7 @@ Returns 'Hello Mona the Octocat'.
 
 {% raw %}
 
-```js
+```javascript
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 

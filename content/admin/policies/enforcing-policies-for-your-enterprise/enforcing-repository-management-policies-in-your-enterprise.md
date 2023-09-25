@@ -297,7 +297,7 @@ The unauthenticated git protocol on port 9418 is no longer supported.
 
 If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. Run the following commands after your upgrade:
 
-```ShellSession
+```shell
 sudo ghe-config app.gitauth.git-protocol true
 sudo ghe-config-apply
 ```

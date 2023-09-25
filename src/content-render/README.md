@@ -4,7 +4,7 @@ In this directory is the main pipeline that converts our content from Liquid, Ma
 
 ## Usage
 
-```js
+```javascript
 const renderContent = require('.')
 
 const html = await renderContent(`

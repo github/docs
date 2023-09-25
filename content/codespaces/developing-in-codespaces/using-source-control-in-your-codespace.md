@@ -74,13 +74,13 @@ When {% data variables.product.prodname_github_codespaces %} creates a fork, or 
 
 By default, source control commands that you access from your editor's user interface, such as the **Sync Changes** button in {% data variables.product.prodname_vscode_shortname %}, target your fork. If you're working from the command line, you can use `origin` to refer to your fork and `upstream` to refer to the upstream repository. For example, you can fetch changes from the upstream repository to ensure your codespace is up to date with the latest changes to the project.
 
-```Shell
+```shell
 git fetch upstream
 ```
 
 When you have made some changes, you can push them to a feature branch of your fork.
 
-```Shell
+```shell
 git push origin my-feature-branch
 ```
 
