@@ -39,6 +39,11 @@ export const githubDocsConfig = {
     severity: 'warning',
     'partial-markdown-files': true,
   },
+  'yaml-scheduled-jobs': {
+    // GHD009
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
   'list-first-word-capitalization': {
     // GH011
     severity: 'warning',

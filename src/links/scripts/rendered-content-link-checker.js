@@ -17,19 +17,13 @@ import warmServer from '../../../lib/warm-server.js'
 import { liquid } from '#src/content-render/index.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 import excludedLinks from '#src/links/lib/excluded-links.js'
-import { getEnvInputs, boolEnvVar } from '../../../.github/actions-scripts/lib/get-env-inputs.js'
-import {
-  debugTimeEnd,
-  debugTimeStart,
-} from '../../../.github/actions-scripts/lib/debug-time-taken.js'
-import { uploadArtifact as uploadArtifactLib } from '../../../.github/actions-scripts/lib/upload-artifact.js'
+import { getEnvInputs, boolEnvVar } from '../../../src/workflows/get-env-inputs.js'
+import { debugTimeEnd, debugTimeStart } from './debug-time-taken.js'
+import { uploadArtifact as uploadArtifactLib } from './upload-artifact.js'
 import github from '../../../script/helpers/github.js'
-import { getActionContext } from '../../../.github/actions-scripts/lib/action-context.js'
+import { getActionContext } from '../../../src/workflows/action-context.js'
 import { createMinimalProcessor } from '#src/content-render/unified/processor.js'
-import {
-  createReportIssue,
-  linkReports,
-} from '../../../.github/actions-scripts/lib/issue-report.js'
+import { createReportIssue, linkReports } from '../../../src/workflows/issue-report.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),

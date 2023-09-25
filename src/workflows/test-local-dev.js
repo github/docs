@@ -17,7 +17,7 @@ import got from 'got'
  * For engineers to test this locally do the following:
  *
  *   1. Start `npm run dev` in one terminal
- *   2. Run `./.github/actions-scripts/test-local-dev.js` in another terminal
+ *   2. Run `src/workflows/test-local-dev.js` in another terminal
  *
  */
 
