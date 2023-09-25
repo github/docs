@@ -382,8 +382,9 @@ describe('lint markdown content', () => {
       visit(ast, 'code', (node) => {
         if (
           /ya?ml/.test(node.lang) &&
-          node.value.includes('schedule') &&
-          node.value.includes('cron')
+          node.value.includes('on:') &&
+          node.value.includes('schedule:') &&
+          node.value.includes('cron:')
         ) {
           yamlScheduledWorkflows.push(node.value)
         }
