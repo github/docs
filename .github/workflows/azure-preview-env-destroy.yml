@@ -45,7 +45,7 @@ jobs:
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: .github/actions-scripts/get-preview-app-info.sh
+        run: src/workflows/get-preview-app-info.sh
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any in progress deployments'

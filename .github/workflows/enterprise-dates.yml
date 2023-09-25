@@ -71,7 +71,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
-        run: node .github/actions-scripts/enable-automerge.js
+        run: node src/workflows/enable-automerge.js
 
       - if: ${{ failure() && env.FREEZE != 'true' }}
         name: Delete remote branch (if previous steps failed)
