@@ -11,7 +11,6 @@ export const yamlScheduledJobs = {
   description:
     'YAML snippets that include scheduled workflows must not run on the hour and must be unique',
   tags: ['actions'],
-  severity: 'error',
   asynchronous: true,
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD009(params, onError) {
