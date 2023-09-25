@@ -78,4 +78,24 @@ describe(yamlScheduledJobs.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
+
+  test('yaml scheduled jobs without on:', async () => {
+    const markdown = [
+      '```yaml',
+      'schedule:',
+      "    - cron: '30 1,20 * * *'",
+      'jobs:',
+      '  upload_tool_cache:',
+      '    runs-on: ubuntu-22.04',
+      '    steps:',
+      '      - name: Clear any existing tool cache',
+      '        uses: {% data reusables.actions.action-codeql-action-init %}',
+      '        with:',
+      '          languages: {% raw %}languages{% endraw %}',
+      '```',
+    ].join('\n')
+    const result = await runRule(yamlScheduledJobs, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
 })
