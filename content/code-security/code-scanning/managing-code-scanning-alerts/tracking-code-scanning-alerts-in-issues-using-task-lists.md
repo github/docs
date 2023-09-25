@@ -83,6 +83,6 @@ Instead of tracking a {% data variables.product.prodname_code_scanning %} alert 
 ### Creating a tracking issue from the API
 
 1. Begin creating an issue through the API. For more information, see "[Create an issue](/rest/issues/issues#create-an-issue)."
-1. Provide the code scanning link within the body of the issue. You must use the following task list syntax to create the tracked relationship: `- [ ] <full-URL-to-the-code-scanning-alert>`.
+1. Provide the code scanning link within the body of the issue. You must use the following task list syntax to create the tracked relationship: `- [ ] FULL-URL-TO-THE-CODE-SCANNING-ALERT`.
 
    For example, if you add `- [ ] https://github.com/octocat-org/octocat-repo/security/code-scanning/17` to an issue, the issue will track the code scanning alert that has an ID number of 17 in the **Security** tab of the `octocat-repo` repository in the `octocat-org` organization.

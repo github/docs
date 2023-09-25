@@ -17,7 +17,9 @@ export default async function processLearningTracks(rawLearningTracks, context) 
 
   for (const rawTrackName of rawLearningTracks) {
     // Track names in frontmatter may include Liquid conditionals.
-    const renderedTrackName = await renderContent(rawTrackName, context, renderOpts)
+    const renderedTrackName = rawTrackName.includes('{')
+      ? await renderContent(rawTrackName, context, renderOpts)
+      : rawTrackName
     if (!renderedTrackName) continue
 
     // Find the data for the current product and track name.

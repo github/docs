@@ -31,6 +31,8 @@
 
 import path from 'path'
 
+import { jest } from '@jest/globals'
+
 import { head, get } from '../../../tests/helpers/e2etest.js'
 import { loadPages } from '../../../lib/page-data.js'
 
@@ -55,6 +57,12 @@ function getContentFiles(spaceSeparatedList) {
     )
   })
 }
+
+// If the list of changed pages is very large, this test can take a long time.
+// It can also happen if some of the pages involves are infamously slow.
+// For example guide pages because they involved a lot of processing
+// to gather and preview linked data.
+jest.setTimeout(60 * 1000)
 
 describe('changed-content', () => {
   const changedContentFiles = getChangedContentFiles()
