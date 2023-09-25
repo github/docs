@@ -39,7 +39,7 @@ output options are mostly for debugging.
 
 ## Primary options
 
-#### `<file>...`
+#### `<file>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Queries to compile. Each argument is one of:
 

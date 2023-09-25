@@ -45,7 +45,7 @@ Alternatively, if you have only a single query to run, you might prefer
 
 ## Primary options
 
-#### `<database>`
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database to query.
 

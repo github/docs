@@ -43,7 +43,7 @@ an error message.
 
 ## Primary options
 
-#### `--search-path=<dir>[:<dir>...]`
+#### `--search-path=<dir>[:<dir>...]` <!-- markdownlint-disable-line heading-increment -->
 
 A list of directories under which QL packs may be found. Each directory
 can either be a QL pack (or bundle of packs containing a

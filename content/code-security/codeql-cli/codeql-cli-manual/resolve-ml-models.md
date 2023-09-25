@@ -43,7 +43,7 @@ This command is deprecated. Use [codeql resolve extensions](/code-security/codeq
 
 ## Primary options
 
-#### `<querysuite|pack>...`
+#### `<querysuite|pack>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:

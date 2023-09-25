@@ -49,7 +49,7 @@ To run multiple queries in parallel, see [codeql database run-queries](/code-sec
 
 ## Primary options
 
-#### `<file.ql>`
+#### `<file.ql>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] QL source of the query to execute.
 

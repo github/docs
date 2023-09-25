@@ -34,7 +34,7 @@ codeql resolve database <options>... -- <database>
 
 ## Primary options
 
-#### `<database>`
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The database for which to load the metadata.
 

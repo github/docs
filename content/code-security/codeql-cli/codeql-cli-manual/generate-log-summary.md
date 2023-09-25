@@ -41,7 +41,7 @@ event logs directly.
 
 ## Primary options
 
-#### `<input>`
+#### `<input>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the event log file to produce a summary of.
 

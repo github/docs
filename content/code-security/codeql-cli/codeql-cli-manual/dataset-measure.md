@@ -42,7 +42,7 @@ optimizer.
 
 ## Primary options
 
-#### `<dataset>`
+#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the raw QL dataset to measure.
 

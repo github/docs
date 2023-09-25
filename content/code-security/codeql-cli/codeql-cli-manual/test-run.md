@@ -34,7 +34,7 @@ Run unit tests for QL queries.
 
 ## Primary options
 
-#### `<test|dir>...`
+#### `<test|dir>...` <!-- markdownlint-disable-line heading-increment -->
 
 Each argument is one of:
 

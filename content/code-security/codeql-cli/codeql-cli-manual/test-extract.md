@@ -38,7 +38,7 @@ execute test queries against.
 
 ## Primary options
 
-#### `<testDir>`
+#### `<testDir>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The path to the test directory.
 

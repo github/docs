@@ -40,7 +40,7 @@ option is specified.
 
 ## Primary options
 
-#### `<file>`
+#### `<file>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] QLO file to read from.
 

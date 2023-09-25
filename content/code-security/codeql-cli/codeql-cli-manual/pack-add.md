@@ -42,7 +42,7 @@ Available since `v2.6.0`.
 
 ## Primary options
 
-#### `<scope/name[@range]>...`
+#### `<scope/name[@range]>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The scope, name, and optional version range of the pack to
 add to the dependency list.
