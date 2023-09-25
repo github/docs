@@ -167,6 +167,7 @@ For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scannin
 
 {% endif %}
 {% ifversion ghes < 3.5 %}
+
 ## Reasons for the "Analysis not found" message
 
 If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see an "Analysis not found" message when you click **Details** on the "{% data variables.product.prodname_code_scanning_caps %} results / TOOL NAME" check in a pull request.

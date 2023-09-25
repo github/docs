@@ -31,5 +31,6 @@ Some authenticators allow passkeys to be used with nearby devices. For example, 
 1. On your nearby device, follow the prompts to complete the authentication process. For example, if you are using an iPhone, you might perform FaceID or enter your passcode.
 
 ## Further reading
+
 - [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
 - [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)

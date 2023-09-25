@@ -78,6 +78,7 @@ We recommend that you have a basic understanding of Java and the Ant framework. 
        - name: Build with Ant
          run: ant -noinput -buildfile build.xml
    ```
+
 {%- endif %}
 
 1. Edit the workflow as required. For example, change the Java version.

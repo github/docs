@@ -49,7 +49,7 @@ When you downgrade an app, your subscription remains active until the end of you
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. In the "Marketplace apps" tab, find the app you want to downgrade. 
+1. In the "Marketplace apps" tab, find the app you want to downgrade.
 1. Next to the organization where you want to downgrade the app, select **{% octicon "kebab-horizontal" aria-label="More" %}** and then click **Change plan**.
 1. Select the **Edit your plan** dropdown and click an account's plan to edit.
 {% data reusables.marketplace.choose-new-plan %}

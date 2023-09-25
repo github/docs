@@ -1,7 +1,7 @@
-export function testOptions(rule, module, { strings, files }) {
+export function testOptions(rule, module, { strings, files, testConfig }) {
   const config = {
     default: false,
-    [rule]: true,
+    [rule]: testConfig || true,
   }
 
   const options = {

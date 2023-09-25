@@ -26,7 +26,7 @@ redirect_from:
 
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
-Organizations can choose whether codespaces created from their repositories will be user-owned or organization-owned. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." An organization pays for a codespace if all the following things are true. 
+Organizations can choose whether codespaces created from their repositories will be user-owned or organization-owned. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." An organization pays for a codespace if all the following things are true.
 
 - The organization has chosen for codespaces to be organization-owned.
 {% data reusables.codespaces.when-an-org-pays %}
@@ -218,7 +218,7 @@ Usage of codespaces created from a forked repository will be billed to your pers
 
 For example, consider a member, or outside collaborator, of an organization that has allowed billing for codespaces for that user. If the user has permission to fork an organization-owned private repository, they can subsequently create and use a codespace for the new repository at the organization's expense. This is because the organization is the owner of the parent repository. Note that the organization owner can remove the user's access to the private repository, the forked repository, and therefore also the codespace. The organization owner can also delete the parent repository which will also delete the forked repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)."
 
-{% data reusables.codespaces.prebuilds-billing-for-forks %} 
+{% data reusables.codespaces.prebuilds-billing-for-forks %}
 
 ## How billing is handled when a repository is transferred to another organization
 

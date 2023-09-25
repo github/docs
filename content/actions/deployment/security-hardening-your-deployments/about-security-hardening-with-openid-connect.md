@@ -468,6 +468,14 @@ To configure the repository to use the organization's template, a repository adm
 
 You can now update your YAML workflows to use OIDC access tokens instead of secrets. Popular cloud providers have published their official login actions that make it easy for you to get started with OIDC. For more information about updating your workflows, see the cloud-specific guides listed below in "[Enabling OpenID Connect for your cloud provider](#enabling-openid-connect-for-your-cloud-provider)."
 
+{% ifversion fpt or ghec %}
+
+## Enabling OpenID Connect for Python package publishing
+
+You can use a {% data variables.product.prodname_actions %} workflow in a repository as a trusted publisher for a PyPI project. Using a workflow as a trusted publisher allows OIDC access tokens to be exchanged for temporary PyPI API tokens. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi)" and "[Publishing to PyPI with a Trusted Publisher](https://docs.pypi.org/trusted-publishers/)" in the PyPI documentation.
+
+{% endif %}
+
 ## Enabling OpenID Connect for your cloud provider
 
 To enable and configure OIDC for your specific cloud provider, see the following guides:
