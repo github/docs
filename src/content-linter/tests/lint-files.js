@@ -382,7 +382,6 @@ describe('lint markdown content', () => {
       visit(ast, 'code', (node) => {
         if (
           /ya?ml/.test(node.lang) &&
-          node.value.includes('on:') &&
           node.value.includes('schedule:') &&
           node.value.includes('cron:')
         ) {
@@ -405,6 +404,7 @@ describe('lint markdown content', () => {
             // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
             const rendered = await liquid.parseAndRender(snippet, context)
             const parsed = yaml.load(rendered)
+            if (!parsed?.on?.schedule?.cron) return []
             return parsed.on.schedule
           }),
         )
