@@ -19,7 +19,7 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: node:18
+      image: node:14.16
       env:
         NODE_ENV: development
       ports:
@@ -38,5 +38,5 @@ When you only specify a container image, you can omit the `image` keyword.
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
-    container: node:18
+    container: node:14.16
 ```
