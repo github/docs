@@ -55,7 +55,7 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
@@ -112,14 +112,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property and change its value to `echo \"This file was added by the postCreateCommand.\" > TEMP.md`.
 
-   ```json copy
+   ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "echo \"This file was added by the postCreateCommand.\" > TEMP.md",
    ```
 
 1. Uncomment the `customizations` property and edit it as follows to install the "Code Spell Checker" extension and the "Extension Pack for Java."
 
-   ```json copy
+   ```jsonc copy
    // Configure tool-specific properties.
    "customizations": {
      // Configure properties specific to VS Code.
@@ -135,7 +135,7 @@ With your dev container configuration added and a basic understanding of what ev
 
   The `devcontainer.json` file should now look similar to this, depending on which image you chose:
 
-   ```json
+   ```jsonc
    // For format details, see https://aka.ms/devcontainer.json. For config options, see the
    // README at: https://github.com/devcontainers/templates/tree/main/src/java
    {

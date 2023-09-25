@@ -104,11 +104,11 @@ For more information about Dockerfile instructions, see "[Dockerfile reference](
 
 To use a Dockerfile as part of a dev container configuration, reference it in your `devcontainer.json` file by using the `dockerfile` property.
 
-```json copy
+```jsonc copy
 {
-  ...
+  // ...
   "build": { "dockerfile": "Dockerfile" },
-  ...
+  // ...
 }
 ```
 
