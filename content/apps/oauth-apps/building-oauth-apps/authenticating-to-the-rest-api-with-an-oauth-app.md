@@ -69,7 +69,7 @@ which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
 
-``` erb
+```html
 <html>
   <head>
   </head>
@@ -107,7 +107,7 @@ the app. Let's fix that now!
 
 In _server.rb_, add a route to specify what the callback should do:
 
-``` ruby
+```ruby
 get '/callback' do
   # get temporary GitHub code...
   session_code = request.env['rack.request.query_hash']['code']
@@ -198,7 +198,7 @@ erb :basic, :locals => auth_result
 
 We can do whatever we want with our results. In this case, we'll just dump them straight into _basic.erb_:
 
-``` erb
+```html
 <p>Hello, <%= login %>!</p>
 <p>
   <% if !email.nil? && !email.empty? %> It looks like your public email address is <%= email %>.
@@ -327,7 +327,7 @@ OAuth flow and updates the session with the granted token and scopes.
 
 Next, create a file in _views_ called _advanced.erb_, and paste this markup into it:
 
-``` erb
+```html
 <html>
   <head>
   </head>
