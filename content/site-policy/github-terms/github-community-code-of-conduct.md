@@ -66,6 +66,26 @@ The primary purpose of the GitHub community is to collaborate on software projec
 
 - Be trustworthy.
   - **Always be honest.** Don’t knowingly share incorrect information or intentionally mislead other GitHub Community participants. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in GitHub Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
+ 
+- **Reasonable use of ChatGPT or AI generated content:**
+While we encourage non-AI answers to questions in the community, we also love experimenting and using new technologies. If you wish to use ChatGPT or other AI generated content when answering questions in the community, you must do so in good faith. The following are important guidelines to follow when using ChatGPT or other AI generated content to answer questions in the community: 
+  - Do not post excessively to inflate your reputation or give a false impression of product expertise.
+  - Avoid using an authoritative tone that may lead to the Acceptable Use Policy violation of [impersonating a staff member](https://docs.github.com/en/site-policy/acceptable-use-policies/github-impersonation) 
+  - Do not share misinformation.
+  - Do not share inaccurate information.
+  - Note that all of the guidelines listed in the previous [Contribute in a Positive Way](https://docs.github.com/en/site-policy/github-terms/github-community-code-of-conduct#best-practices-for-maintaining-a-strong-community) section also applies here.
+
+In the interest of transparency, we also ask that you please disclose what software and model version number you used to generate the response you used in your reply.
+
+These guidelines are in place because, [per OpenAI’s website](https://help.openai.com/en/articles/6783457-what-is-chatgpt), the program does have limitations like:
+  - It may occasionally generate incorrect information
+  - It may occasionally produce harmful instructions or biased content.
+  - ChatGPT has limited knowledge of the world and events after 2021
+  - It also faces issues with understanding context
+
+ChatGPT answers in a tone that sounds like a tech support professional and, while we support trying out this software, it is important to verify that the answers it provides are solutions before posting. Answering questions using ChatGPT without being able to verify the validity of those answers is irresponsible and creates a bad experience for the users in the community that are seeking help. These answers may mislead users into thinking that they are receiving official responses when they are not.
+
+The community is here for users to build trust through authentic reputations. Not adhering to these guidelines constitutes a Code of Conduct violation. Refer to [the enforcement section](https://docs.github.com/en/site-policy/github-terms/github-community-code-of-conduct#enforcement) for more information.
 
 ### _What is not Allowed_
 
@@ -77,7 +97,7 @@ GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-a
 
 - **Other conduct which could reasonably be considered inappropriate in a professional setting.** GitHub Community is a professional space and should be treated as such.
 
-- **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/site-policy/github-terms/github-terms-of-service) we will have to close your account.  
+- **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/site-policy/github-terms/github-terms-of-service) we will have to close your account.
 
 ## Enforcement
 
