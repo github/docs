@@ -67,14 +67,14 @@ The primary purpose of the GitHub community is to collaborate on software projec
 - Be trustworthy.
   - **Always be honest.** Don’t knowingly share incorrect information or intentionally mislead other GitHub Community participants. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in GitHub Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
  
-- **Reasonable use of ChatGPT or AI generated content:**
+### Reasonable use of ChatGPT or AI generated content:
 While we encourage non-AI answers to questions in the community, we also love experimenting and using new technologies. If you wish to use ChatGPT or other AI generated content when answering questions in the community, you must do so in good faith. The following are important guidelines to follow when using ChatGPT or other AI generated content to answer questions in the community: 
   - Do not post excessively to inflate your reputation or give a false impression of product expertise.
   - Avoid using an authoritative tone that may lead to the Acceptable Use Policy violation of [impersonating a staff member](https://docs.github.com/en/site-policy/acceptable-use-policies/github-impersonation) 
   - Do not share misinformation.
   - Do not share inaccurate information.
   - Note that all of the guidelines listed in the previous [Contribute in a Positive Way](https://docs.github.com/en/site-policy/github-terms/github-community-code-of-conduct#best-practices-for-maintaining-a-strong-community) section also applies here.
-
+  
 In the interest of transparency, we also ask that you please disclose what software and model version number you used to generate the response you used in your reply.
 
 These guidelines are in place because, [per OpenAI’s website](https://help.openai.com/en/articles/6783457-what-is-chatgpt), the program does have limitations like:
