@@ -153,7 +153,11 @@ There are two ways to handle merge conflicts:
 1. In the file, look for the merge conflict markers.
 
    ```text
-   Here are the changes from the main branch.
+    <<<<<<< HEAD
+    Here are the changes you've made.
+    =====================
+    Here are the changes from the main branch.
+    >>>>>>> main
    ```
 
 1. Decide which changes to keep and delete the unwanted changes and the merge conflict markers. If you need to make further changes, you can do so at the same time. For example, you could change the five lines shown in the previous code sample to the single line:
