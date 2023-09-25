@@ -35,7 +35,17 @@ async function main() {
 
   for (const file of markdownFiles) {
     const sourceContent = await readFile(file, 'utf8')
-    const { data, content } = await convertContentToDocs(sourceContent)
+    // There is a missing heading in the source content called "Primary Options"
+    // It should be directory under the "Options" heading.
+    // It's a quite a bit more complicated to add new nodes in the AST when
+    // the node isn't a child of the previous heading. It's pretty easy to
+    // just append a second heading here.
+    const matchHeading = '## Options\n'
+    const primaryHeadingSourceContent = sourceContent.replace(
+      matchHeading,
+      matchHeading + '\n### Primary Options\n',
+    )
+    const { data, content } = await convertContentToDocs(primaryHeadingSourceContent)
     await writeFile(file, matter.stringify(content, data))
     const targetFilename = path.join(targetDirectory, path.basename(file))
     const sourceData = { ...data, ...frontmatterDefaults }
