@@ -1,8 +1,8 @@
 ---
 title: Choosing who owns and pays for codespaces in your organization
-shortTitle: 'Billing and Ownership'
+shortTitle: 'Billing and ownership'
 intro: 'You can choose whether codespaces are paid for and owned by your organization or by your members.'
-permissions: 'Organization owners can change an organization's billing details and control who owns and pays for codespaces.'
+permissions: "Organization owners can change an organization's billing details and control who owns and pays for codespaces."
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +11,7 @@ topics:
   - Codespaces
   - Billing
   - Administrator
-product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members' use of {% data variables.product.prodname_github_codespaces %}. These organizations can then access policies that apply to codespaces paid for by the organization. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."'
+product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can pay for their members'' use of {% data variables.product.prodname_github_codespaces %}. These organizations can then access policies that apply to codespaces paid for by the organization. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."'
 ---
 
 ## Overview
@@ -20,7 +20,7 @@ If you're the owner of an organization on a {% data variables.product.prodname_t
 
 To pay for usage, you must do all of the following things:
 
-- Allow at least some of your members and collaborators to use {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal{% endif %} repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#enabling-or-disabling-github-codespaces)."
+- Allow at least some of your members and collaborators to use {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#enabling-or-disabling-github-codespaces)."
 - Choose for codespaces created from your organization's repositories to be **organization-owned**. For more information, see "[Choosing who owns and pays for codespaces](#choosing-who-owns-and-pays-for-codespaces)."
 - Set a non-zero spending limit for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)."
 
@@ -54,9 +54,9 @@ A codespace is paid for by the account that owns it. The codespace owner can be 
 
 If your organization owns a codespace, your organization has control over that codespace. For example, for codespaces owned by your organization, you can:
 
-- Use the [REST API](/rest/codespaces/organizations) to manage codespaces, such as stopping or deleting a codespace.
-- Access audit logs to review actions related to {% data variables.product.prodname_github_codespaces %}.
-- Set policies to manage constraints, such as restricting the base image or machine type that can be used in codespaces, or setting a default timeout and retention period.
+- Use the [REST API](/rest/codespaces/organizations) to manage codespaces, such as stopping or deleting a codespace
+- Access audit logs to review actions related to {% data variables.product.prodname_github_codespaces %}
+- Set policies to manage constraints, such as restricting the base image or machine type that can be used in codespaces, or setting a default timeout and retention period
 
 If a user owns a codespace, your organization does not have any of these options for managing the codespace, even if the codespace was created from one of your organization's repositories.
 

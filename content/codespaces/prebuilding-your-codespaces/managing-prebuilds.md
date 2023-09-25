@@ -27,7 +27,7 @@ The settings in the prebuild configuration determine which events automatically 
 
 People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations.
 
-To locate all repositories that are hosting a prebuild configuration, you must obtain a copy of your usage report by following the steps for "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)"
+To locate all repositories that are hosting a prebuild configuration, you must obtain a copy of your usage report by following the steps for "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
 ## Viewing the progress of prebuilds
 
@@ -52,13 +52,13 @@ This displays the workflow run history for prebuilds for the associated branch.
 ## Editing a prebuild configuration
 
 1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to edit.
-2. In the dropdown menu, click **Edit**.
+1. In the dropdown menu, click **Edit**.
 
-![Screenshot of the options dropdown menu for a configuration, displayed by clicking a button labeled with three dots. The "Edit" option is selected.](/assets/images/help/codespaces/prebuilds-edit.png)
+   ![Screenshot of the options dropdown menu for a configuration, displayed by clicking a button labeled with three dots. The "Edit" option is selected.](/assets/images/help/codespaces/prebuilds-edit.png)
 
-3. Make the required changes to the prebuild configuration, then click **Update**.
+1. Make the required changes to the prebuild configuration, then click **Update**.
 
-{% data reusables.codespaces.prebuilds-permission-authorization %}
+   {% data reusables.codespaces.prebuilds-permission-authorization %}
 
 ## Disabling a prebuild configuration
 
@@ -67,11 +67,11 @@ To pause the update of prebuilds for a configuration, you can disable workflow r
 Disabling the workflow runs for a prebuild configuration is useful if you need to investigate prebuild creation failures.
 
 1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
-2. In the dropdown menu, click **Disable runs**.
+1. In the dropdown menu, click **Disable runs**.
 
-![Screenshot of the options dropdown menu for a configuration, shown by clicking a button labeled with three dots. The "Disable runs" option is selected.](/assets/images/help/codespaces/prebuilds-disable.png)
+   ![Screenshot of the options dropdown menu for a configuration, shown by clicking a button labeled with three dots. The "Disable runs" option is selected.](/assets/images/help/codespaces/prebuilds-disable.png)
 
-3. To confirm that you want to disable this configuration, click **OK**.
+1. To confirm that you want to disable this configuration, click **OK**.
 
 ## Deleting a prebuild configuration
 
@@ -86,20 +86,20 @@ Deleting a prebuild configuration also deletes all previously created prebuilds 
 After you delete a prebuild configuration, workflow runs for that configuration that have been queued or started will still run. They will be listed in the workflow run history, along with previously completed workflow runs.
 
 1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to delete.
-2. In the dropdown menu, click **Delete**.
+1. In the dropdown menu, click **Delete**.
 
-![Screenshot of the options dropdown menu for a configuration, displayed by clicking a button labeled with three dots. The "Delete" option is selected.](/assets/images/help/codespaces/prebuilds-delete.png)
+   ![Screenshot of the options dropdown menu for a configuration, displayed by clicking a button labeled with three dots. The "Delete" option is selected.](/assets/images/help/codespaces/prebuilds-delete.png)
 
-3. Click **OK** to confirm the deletion.
+1. Click **OK** to confirm the deletion.
 
 ## Manually trigger prebuilds
 
 It may be useful to manually trigger a workflow run for a prebuild configuration. Generally, this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
 
 1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration whose workflow you want to trigger.
-2. In the dropdown menu, click **Manually trigger**.
+1. In the dropdown menu, click **Manually trigger**.
 
-![Screenshot of the options dropdown menu for a configuration, shown by clicking a button labeled with three dots. The "Manually trigger" option is selected.](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
+   ![Screenshot of the options dropdown menu for a configuration, shown by clicking a button labeled with three dots. The "Manually trigger" option is selected.](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
 
 ## Further reading
 
