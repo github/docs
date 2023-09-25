@@ -32,9 +32,9 @@ To fail over to replica nodes, you must have configured high availability replic
 1. SSH into the primary MySQL node in the replica cluster. For more information, see "[AUTOTITLE](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 1. To begin the failover to the secondary cluster and configure the nodes to respond to requests, run the following command.
 
-    ```shell
-  ghe-cluster-failover
-  ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
+   ghe-cluster-failover
+   ```
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 1. Update the DNS record to point to the IP address of the load balancer for your replica cluster. After the TTL period expires, requests will be directed to the replica cluster.

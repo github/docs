@@ -1,6 +1,6 @@
 Hotpatch upgrades to GitHub Enterprise Server {% ifversion ghes = 3.6 %}3.6.2{% endif %} may fail. Upgrades with the full `.pkg` are unaffected. If the upgrade fails for your instance, workaround this issue by connecting to the administrative shell (ssh) and running the following non-interactive command:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```shell
 echo "grub-pc grub-pc/install_devices_empty boolean true" | sudo debconf-set-selections
 ```
 

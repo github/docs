@@ -264,7 +264,7 @@ This would result in a '.npmrc' with the registry:
 
 {% raw %}
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 @<org-name>:registry=https://<private-registry-url>/<org-name>
 ```
 

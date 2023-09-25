@@ -267,7 +267,7 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 
    **Note:** While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```text
    CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
    ```
 

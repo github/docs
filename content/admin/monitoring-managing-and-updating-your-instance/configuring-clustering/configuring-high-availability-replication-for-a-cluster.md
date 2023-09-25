@@ -59,7 +59,7 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 {% data reusables.enterprise_clustering.open-configuration-file %}
 1. Note the name of your cluster's primary datacenter. The `[cluster]` section at the top of the cluster configuration file defines the primary datacenter's name, using the `primary-datacenter` key-value pair.
 
-    ```shell
+    ```text
     [cluster]
       mysql-master = HOSTNAME
       redis-master = HOSTNAME
@@ -70,13 +70,13 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 
 1. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
 
-    ```shell
+    ```text
     datacenter = primary
     ```
 
     When you're done, the section for each node in the cluster configuration file should look like the following example. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
-    ```shell
+    ```text
     [cluster "HOSTNAME"]
       datacenter = default
       hostname = HOSTNAME
@@ -89,7 +89,7 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 
     **Note**: If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
 
-    ``` <!-- markdownlint-disable-line fenced-code-language -->
+    ```text
     consul-datacenter = primary
     ```
 
@@ -122,19 +122,19 @@ For an example configuration, see "[Example configuration](#example-configuratio
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 1. Back up your existing cluster configuration.
 
-    ``` <!-- markdownlint-disable-line fenced-code-language -->
+    ```shell
     cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
     ```
 
 1. Create a copy of your existing cluster configuration file in a temporary location, like `/home/admin/cluster-replica.conf`.
 
-    ``` <!-- markdownlint-disable-line fenced-code-language -->
+    ```shell
     grep -Ev "(?:|ipv|uuid)" /data/user/common/cluster.conf > ~/cluster-replica.conf
     ```
 
 1. Remove the `[cluster]` section from the temporary cluster configuration file that you copied in the previous step.
 
-    ``` <!-- markdownlint-disable-line fenced-code-language -->
+    ```shell
     git config -f ~/cluster-replica.conf --remove-section cluster
     ```
 

@@ -67,11 +67,11 @@ The message typically indicates that the person's username or email address has 
 
 If the `Recipient` does not match the ACS URL for {% data variables.location.product_location %}, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 Recipient in the SAML response must not be blank.
 ```
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 Recipient in the SAML response was not valid.
 ```
 
@@ -81,7 +81,7 @@ Ensure that you set the value for `Recipient` on your IdP to the full ACS URL fo
 
 If your IdP does not sign the SAML response, or the signature does not match the contents, the following error message will appear in the authentication log.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 SAML Response is not signed or has been modified.
 ```
 
@@ -91,7 +91,7 @@ Ensure that you configure signed assertions for the {% data variables.product.pr
 
 If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 Audience is invalid. Audience attribute does not match https://YOUR-INSTANCE-URL
 ```
 

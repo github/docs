@@ -74,7 +74,7 @@ Only include a CTA button if navigating to the link supports user needs. Do not 
 
 Style your CTAs using the following format.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```html
 {% raw %}<a href="https://github.com/DESTINATION/URL" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
 ```
 
@@ -115,7 +115,7 @@ Use inline code blocks to refer to short command names.
 Use command blocks for longer or more complex commands.
 - **Use:** Enable maintenance mode according to your scheduled window by connecting to the administrative shell of any cluster node and running:
 
-  ``` <!-- markdownlint-disable-line fenced-code-language -->
+  ```shell
   ghe-cluster-maintenance -s
   ```
 
@@ -126,7 +126,7 @@ Avoid inline links in command names.
 When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context.
 - **Use:**
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 on:
   schedule:
     - cron:  "40 19 * * *"
@@ -134,7 +134,7 @@ on:
 
 - **Avoid:**
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 schedule:
   - cron:  "40 19 * * *"
 ```
@@ -375,7 +375,7 @@ At the end of the article containing MIT-licensed content
 
 This text is only an example. Always use the license text from the project you are attributing.
 
-````` <!-- markdownlint-disable-line fenced-code-language -->
+`````markdown
 ## Legal notice
 
 Portions have been adapted from [PROJECT](/LINK/TO/PROJECT) under the MIT license:
@@ -434,7 +434,7 @@ Sometimes, you need to link from one version of GitHub Docs to another. When you
 
 For example, the Free, Pro, & Team version of "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the {% data variables.product.prodname_ghe_cloud %} version of the same article like this:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 You can choose to allow or disallow the publication of GitHub Pages sites.
 
 Organizations that use G{% data variables.product.prodname_ghe_cloud %} can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/{{ currentArticle }}).
@@ -442,13 +442,13 @@ Organizations that use G{% data variables.product.prodname_ghe_cloud %} can choo
 
 To link to a different article in a different version, use this format:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 For more information, see "[ARTICLE TITLE](/)" in the VERSION documentation.
 ```
 
 To link to the same article in a different version, use this format:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
 ```
 
@@ -460,18 +460,18 @@ When we link to specific sections of articles, we want to make sure the link is 
 
 To link to a specific header in the same article, use this format:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 For more information, see "[HEADER TITLE](#HEADER-TITLE)."
 ```
 
 To link to a specific header in a different article, use this format:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 For more information, see "[AUTOTITLE](PATH-TO-ARTICLE#HEADER-TITLE)."
 ```
 
 To link to two or more specific headers in a different article, use this format:
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and "[HEADER-TITLE-2](PATH-TO-ARTICLE#SECTION-LINK-2)" in "ARTICLE-TITLE."
 ```
 
@@ -479,7 +479,7 @@ For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and
 
 When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
 ```
 
@@ -487,7 +487,7 @@ For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/T
 
 Use this format to link to a learning path.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 For more information, follow the "[LEARNING PATH TITLE](/)" learning path.
 ```
 
@@ -587,7 +587,7 @@ steps:
 
 For {% data variables.product.prodname_docs %} purposes, a first-party action is any action that has the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 steps:
   - uses: actions/checkout@main
 ```
@@ -596,7 +596,7 @@ steps:
 
 Code examples that use third-party actions must include the following disclaimer as part of the code block:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 # This workflow uses actions that are not certified by {% data variables.product.company_short %}.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -605,20 +605,20 @@ Code examples that use third-party actions must include the following disclaimer
 
 To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endnote %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 {% raw %}{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}{% endraw %}
 ```
 
 For {% data variables.product.prodname_docs %} purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 steps:
   - uses: actions/checkout@main
 ```
 
 This is an example of a third-party action:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 steps:
     - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
 ```
@@ -630,14 +630,14 @@ Examples:
 
 Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 steps:
     - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
 ```
 
 For {% data variables.product.prodname_docs %} purposes, a third-party action is any action that doesn't have one of the following prefixes: `actions/`, `github/`, and `octo-org/`. For example, this is a first-party action:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```yaml
 steps:
   - uses: actions/javascript-action@main
 ```
@@ -908,7 +908,7 @@ Sectional TOCs must be introduced with a sentence or paragraph that helps people
 
 ### Example of sectional TOCs
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```markdown
 ## Setting up the application
 
 Set up your application according to your operating system.

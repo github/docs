@@ -17,26 +17,26 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 1. In the terminal, change the current working directory to the location where you cloned the documentation repository. For example:
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    cd ~/my-cloned-repos/docs
    ```
 
 1. Switch to the default branch: `main`.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    git checkout main
    ```
 
 1. Get the most recent commits from the remote repository.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    git pull origin main
    ```
 
 1. Switch to or create a topic branch.
    - To start a new project, create a new topic branch from `main`.
 
-     ``` <!-- markdownlint-disable-line fenced-code-language -->
+     ```shell
      git checkout -b YOUR-TOPIC-BRANCH
      ```
 
@@ -44,7 +44,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
      **Note**: You can use forward slashes as part of the branch name, for example to include your user name:
 
-     ``` <!-- markdownlint-disable-line fenced-code-language -->
+     ```shell
      git checkout -b my-username/new-codespace-policy
      ```     
 
@@ -52,7 +52,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    - To work on an existing project, switch to your topic branch and merge changes from `main`.
 
-     ``` <!-- markdownlint-disable-line fenced-code-language -->
+     ```shell
      git checkout YOUR-TOPIC-BRANCH
      git merge main
      ```
@@ -65,7 +65,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 1. When you're ready to commit your changes, open a terminal and check the status of your topic branch with `git status`. Make sure you see the correct set of changes.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    git status
    On branch YOUR-TOPIC-BRANCH
 
@@ -84,7 +84,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    - If you created new files or updated existing files, use `git add FILENAME [FILENAME...]`. For example:
 
-     ``` <!-- markdownlint-disable-line fenced-code-language -->
+     ```shell
      git add example-new-file.md example-changed-file.md
      ```
 
@@ -92,13 +92,13 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    - If you deleted files, use `git rm FILENAME [FILENAME...]`. For example:
 
-     ``` <!-- markdownlint-disable-line fenced-code-language -->
+     ```shell
      git rm example-deleted-file.md
      ```
 
 1. Commit your changes.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    git commit -m "Commit message title (max 72 characters)
    
    Optional fuller description of what changed (no character limit). 
@@ -114,13 +114,13 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    - The first time you push your branch you can choose to add an upstream tracking branch. This allows you to use `git pull` and `git push` on that branch without additional arguments.
 
-     ``` <!-- markdownlint-disable-line fenced-code-language -->
+     ```shell
      git push --set-upstream origin YOUR-TOPIC-BRANCH
      ```
 
    - If you've pushed this branch before, and set an upstream tracking branch you can use:
 
-     ``` <!-- markdownlint-disable-line fenced-code-language -->
+     ```shell
      git push
      ```
 
@@ -152,7 +152,7 @@ There are two ways to handle merge conflicts:
 1. Open the first of these files in your text editor.
 1. In the file, look for the merge conflict markers.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```text
    <<<<<<< HEAD
    Here are the changes you've made.
    =====================
@@ -162,7 +162,7 @@ There are two ways to handle merge conflicts:
 
 1. Decide which changes to keep and delete the unwanted changes and the merge conflict markers. If you need to make further changes, you can do so at the same time. For example, you could change the five lines shown in the previous code sample to the single line:
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```text
    Here are the changes you want to use.
    ```
 
@@ -176,19 +176,19 @@ There are two ways to handle merge conflicts:
 
 1. In the terminal, stage the file, or files, that you just modified.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    git add changed-file-1.md changed-file-2.md
    ```
 
 1. Commit the files.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    git commit -m "Resolves merge conflicts"
    ```
 
 1. Push the committed changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-   ``` <!-- markdownlint-disable-line fenced-code-language -->
+   ```shell
    git push
    ```
 

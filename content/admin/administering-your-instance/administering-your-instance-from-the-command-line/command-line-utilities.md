@@ -488,7 +488,7 @@ Run this utility to add a certificate chain for S/MIME commit signature verifica
 
 Run this utility when {% data variables.location.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.location.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 SSL-Session:
     Protocol  : TLSv1
     Cipher    : AES128-SHA
@@ -503,7 +503,7 @@ SSL-Session:
 
 If, on the other hand, the remote server's SSL certificate can _not_ be verified, your `SSL-Session` should have a nonzero return code:
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 SSL-Session:
     Protocol  : TLSv1
     Cipher    : AES128-SHA
@@ -846,7 +846,7 @@ This utility helps to analyze Git traffic. It queries _Governor_ data files, loc
 ghe-governor <subcommand> <column> [options]
 ```
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 ghe-governor -h
 Usage: ghe-governor [-h] <subcommand> args
 
@@ -917,7 +917,7 @@ ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
 
 If your storage system is configured correctly, you'll see the following output.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 All Storage tests passed
 ```
 
@@ -988,7 +988,7 @@ ghe-repl-stop
 
 This utility completely disables replication on an existing replica node, removing the replica configuration. You can run the following command from a replica node, but if the replica node is unreachable, you can also run the command from the primary node.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```shell
 ghe-repl-teardown
 ```
 

@@ -84,7 +84,7 @@ If you've recently configured high availability or geo-replication, the initial 
 
 You can view a specific repository's replication status by connecting to a node and running the following {% ifversion ghe-spokes-deprecation-phase-1 %}commands{% else %}command{% endif %}, replacing OWNER with the repository's owner and REPOSITORY with the repository's name.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 {%- ifversion ghe-spokes-deprecation-phase-1 %}
 ghe-spokesctl check OWNER/REPOSITORY
 ghe-spokesctl info OWNER/REPOSITORY
@@ -95,7 +95,7 @@ ghe-spokes diagnose OWNER/REPOSITORY
 
 Alternatively, if you want to view a repository network's replication status, replace NETWORK-ID/REPOSITORY-ID with the network ID and repository ID number.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```text
 {%- ifversion ghe-spokes-deprecation-phase-1 %}
 ghe-spokesctl check NETWORK-ID/REPOSITORY-ID
 ghe-spokesctl info NETWORK-ID/REPOSITORY-ID
@@ -108,7 +108,7 @@ ghe-spokes diagnose NETWORK-ID/REPOSITORY-ID
 
 You can view a specific storage object's status by connecting to a node and running the following command, replacing OID with the object's ID.
 
-``` <!-- markdownlint-disable-line fenced-code-language -->
+```shell
 ghe-storage info OID
 ```
 
