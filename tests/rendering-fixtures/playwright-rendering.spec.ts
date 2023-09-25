@@ -477,6 +477,9 @@ test.describe('survey', () => {
 test.describe('rest API reference pages', () => {
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
+    // Before using the sidebar, make sure the page has redirected to a
+    // URL that has that `?apiVersion=` query parameter.
+    await expect(page).toHaveURL(/\/en\/rest\?apiVersion=/)
     await page.getByTestId('sidebar').getByText('Actions').click()
     await page.getByTestId('sidebar').getByLabel('Artifacts').click()
     await page.getByLabel('About artifacts in GitHub Actions').click()
