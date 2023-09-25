@@ -1,4 +1,4 @@
-export const githubDocsConfig = {
+const githubDocsConfig = {
   'code-fence-line-length': {
     // GHD001
     severity: 'warning',
@@ -50,6 +50,17 @@ export const githubDocsConfig = {
     'partial-markdown-files': true,
   },
   'early-access-references': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+}
+
+const githubMarkdownlintConfig = {
+  'no-default-alt-text': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'no-generic-link-text': {
     severity: 'error',
     'partial-markdown-files': true,
   },
@@ -169,4 +180,8 @@ export const searchReplaceConfig = {
   },
 }
 
-export const customConfig = { ...searchReplaceConfig, ...githubDocsConfig }
+export const customConfig = {
+  ...searchReplaceConfig,
+  ...githubDocsConfig,
+  ...githubMarkdownlintConfig,
+}
