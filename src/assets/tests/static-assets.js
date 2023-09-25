@@ -57,4 +57,24 @@ describe('static assets', () => {
     expect(res.headers['content-type']).toContain('text/plain')
     checkCachingHeaders(res, true, 60)
   })
+  it("should redirect if the URLisn't all lowercase", async () => {
+    // Directory
+    {
+      const res = await get('/assets/images/SITE/logo.png')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/assets/images/site/logo.png')
+    }
+    // File name
+    {
+      const res = await get('/assets/images/site/LoGo.png')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/assets/images/site/logo.png')
+    }
+    // File extension
+    {
+      const res = await get('/assets/images/site/logo.PNG')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/assets/images/site/logo.png')
+    }
+  })
 })
