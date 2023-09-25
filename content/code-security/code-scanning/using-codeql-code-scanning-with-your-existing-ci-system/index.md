@@ -22,5 +22,4 @@ children:
   - /about-codeql-code-scanning-in-your-ci-system
   - /installing-codeql-cli-in-your-ci-system
   - /configuring-codeql-cli-in-your-ci-system
-  - /migrating-from-the-codeql-runner-to-codeql-cli
 ---

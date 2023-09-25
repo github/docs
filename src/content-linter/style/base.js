@@ -1,8 +1,9 @@
-import highlightJs from 'highlight.js'
+import fs from 'fs'
+import yaml from 'js-yaml'
 
-const highlightJsLanguages = highlightJs.listLanguages()
-const languageAliases = ['text']
-const allowedCodeFenceLanguages = new Set([...highlightJsLanguages, ...languageAliases])
+const allowedCodeFenceLanguages = Object.keys(
+  yaml.load(fs.readFileSync('data/variables/code-languages.yml', 'utf8')),
+)
 
 export const baseConfig = {
   // Don't run all rules by default. This must be done first to
