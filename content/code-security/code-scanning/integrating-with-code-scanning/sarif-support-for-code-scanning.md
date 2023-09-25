@@ -210,12 +210,6 @@ A location within a programming artifact, such as a file in the repository or a 
 
 The `runAutomationDetails` object contains information that specifies the identity of a run.
 
-{% note %}
-
-**Note:** `runAutomationDetails` is a SARIF v2.1.0 object. If you're using the {% data variables.product.prodname_codeql_cli %}, you can specify the version of SARIF to use. The equivalent object to `runAutomationDetails` is `<run>.automationId` for SARIF v1 and `<run>.automationLogicalId` for SARIF v2.
-
-{% endnote %}
-
 | Name | Required | Description |
 |----|----|----|
 | `id`| {% octicon "x" aria-label="Optional" %} | A string that identifies the category of the analysis and the run ID. Use if you want to upload multiple SARIF files for the same tool and commit, but performed on different languages or different parts of the code. |
