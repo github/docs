@@ -8,7 +8,7 @@ import { internalLinksLang } from './internal-links-lang.js'
 import { internalLinksSlash } from './internal-links-slash.js'
 import { imageAltTextExcludeStartWords } from './image-alt-text-exclude-start-words.js'
 import { listFirstWordCapitalization } from './list-first-word-capitalization.js'
-import { internalLinkPunctuation } from './internal-link-punctuation.js'
+import { linkPunctuation } from './link-punctuation.js'
 import { earlyAccessReferences } from './early-access-references.js'
 import { yamlScheduledJobs } from './yaml-scheduled-jobs.js'
 
@@ -23,7 +23,7 @@ export const gitHubDocsMarkdownlint = {
     internalLinksSlash,
     imageAltTextExcludeStartWords,
     listFirstWordCapitalization,
-    internalLinkPunctuation,
+    linkPunctuation,
     earlyAccessReferences,
     yamlScheduledJobs,
   ],
