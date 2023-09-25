@@ -83,17 +83,18 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+          {%- ifversion actions-save-state-set-output-envs %}
           run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-{%- else %}
+          {%- else %}
           run: echo "::set-output name=random-number::$(echo $RANDOM)"
-{%- endif %}{% raw %}
+          {%- endif %}{% raw %}
           shell: bash
         - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
           shell: bash
         - run: goodbye.sh
           shell: bash
     ```
+
     {% endraw %}
     This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
 

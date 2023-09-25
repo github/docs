@@ -107,6 +107,7 @@ Next, the script gets the current time and sets it as an output variable that ac
    {%- else %}
    echo "::set-output name=time::$time"
    {%- endif %}
+
    ```
 
    If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
@@ -266,6 +267,7 @@ jobs:
           name: workspace_artifacts
           path: {% raw %}${{ github.workspace }}{% endraw %}
 ```
+
 For more information about uploading build output as an artifact, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}

@@ -102,6 +102,7 @@ const copyMe = true
 ```
 
 ## Code sample annotations
+
 Code sample annotations help explain longer code examples by rendering comments as annotations next to the sample code. This lets us write longer explanations of code without cluttering the code itself. Code samples with annotations are rendered in a two pane layout with the code sample on the left and the annotations on the right. The annotations are visually emphasized when someone hovers their cursor over the code example.
 
 Code annotations only work in articles with the `layout: inline` frontmatter property. For more information on how to write and style code annotations, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/annotating-code-examples)."
@@ -357,14 +358,19 @@ For example, if you include the following link in a content file:
 ```text
 /github/writing-on-github/creating-a-saved-reply
 ```
+
 When viewed on {% data variables.product.prodname_dotcom_the_website %} docs, the link gets rendered with the language code:
+
 ```text
 /en/github/writing-on-github/creating-a-saved-reply
 ```
+
 and when viewed on {% data variables.product.prodname_ghe_server %} docs, the version is included as well:
+
 ```text
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
+
 For more information about links, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links)."
 
 ### Permalinks

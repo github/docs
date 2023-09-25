@@ -80,7 +80,7 @@ This procedure demonstrates how to create the service account for your GKE integ
    gcloud iam service-accounts list
    ```
 
-1. Add roles to the service account. 
+1. Add roles to the service account.
 
    {% note %}
 

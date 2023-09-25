@@ -117,9 +117,9 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
    Your contact on the GitHub Sales team will work with you to create your new {% data variables.enterprise.prodname_emu_enterprise %}. You'll need to provide the email address for the user who will set up your enterprise and a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-1. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password and saving the recovery codes for the user. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer be allowed to access enterprise or organization settings once SSO is configured, unless an SSO recovery code is used. 
+1. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password and saving the recovery codes for the user. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer be allowed to access enterprise or organization settings once SSO is configured, unless an SSO recovery code is used.
 
-   The setup user's username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`. If you need to sign in as the setup user later, you can enter the username and password at any login page. A link to the login page is also provided on the SSO page, for convenience. 
+   The setup user's username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`. If you need to sign in as the setup user later, you can enter the username and password at any login page. A link to the login page is also provided on the SSO page, for convenience.
 
    {% note %}
 

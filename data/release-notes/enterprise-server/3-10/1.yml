@@ -9,6 +9,9 @@ sections:
   security_fixes:
     - HTTP Strict Transport Security (HSTS) is enabled within the Management Console.
     - Packages have been updated to the latest security versions.
+    - |
+      **LOW:** An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a reopened pull request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/) and was assigned [CVE-2023-23766](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23766). [Updated: 2023-09-22]
+
   bugs:
     - On an instance with GitHub Actions enabled, scale sets configured at the enterprise level did not appear for use within the instance's organizations or repositories.
     - On an instance with a GitHub Advanced Security license and secret scanning enabled, secret scanning alerts could fail to show an error message in the UI when a failure occurred closing or reopening the alert.

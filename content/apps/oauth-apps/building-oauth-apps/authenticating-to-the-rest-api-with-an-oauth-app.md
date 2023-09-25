@@ -36,8 +36,8 @@ include the client secret in your native application, however web applications s
 
 You can fill out every other piece of information however you like, except the
 **Authorization callback URL**. This is the most important piece to securely setting
-up your application. It's the callback URL that {% data variables.product.product_name %} 
-returns the user to after successful authentication. Ownership of that URL is what ensures 
+up your application. It's the callback URL that {% data variables.product.product_name %}
+returns the user to after successful authentication. Ownership of that URL is what ensures
 that users sign into your app, instead of leaking tokens to an attacker.
 
 Since we're running a regular Sinatra server, the location of the local instance
@@ -64,7 +64,7 @@ end
 
 Your client ID and client secret come from [your application's configuration
 page][app settings]. We recommend storing these values as
-[environment variables][about env vars] for ease of replacement and use -- 
+[environment variables][about env vars] for ease of replacement and use --
 which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
@@ -125,7 +125,7 @@ end
 ```
 
 After a successful app authentication, {% data variables.product.product_name %} provides a temporary `code` value.
-You'll need to `POST` this code back to {% data variables.product.product_name %} with your client secret 
+You'll need to `POST` this code back to {% data variables.product.product_name %} with your client secret
 in exchange for an `access_token`.
 To simplify our GET and POST HTTP requests, we're using the [rest-client][REST Client].
 Note that you'll probably never access the API through REST. For a more serious
@@ -158,10 +158,10 @@ checked for those as well.
 Also, since there's a hierarchical relationship between scopes, you should
 check if you were granted any higher levels of the required scope. For example,
 if the application had asked for `user` scope, it won't have been granted explicitly the
-`user:email` scope. In that case, it would receive a token with the `user` scope, which 
+`user:email` scope. In that case, it would receive a token with the `user` scope, which
 would work for requesting the user's email address, even though it doesn't explicitly include
-`user:email` on the token. Checking for both `user` and `user:email` ensures that you 
-check for both scenarios. 
+`user:email` on the token. Checking for both `user` and `user:email` ensures that you
+check for both scenarios.
 
 Checking for scopes only before making requests is not enough since it's possible
 that users will change the scopes in between your check and the actual request.

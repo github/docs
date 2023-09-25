@@ -69,6 +69,7 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
 
 1. Configure a custom firewall rule.
 1. Check the status of each new rule with the `status numbered` command.
+
    ```shell
    sudo ufw status numbered
    ```
