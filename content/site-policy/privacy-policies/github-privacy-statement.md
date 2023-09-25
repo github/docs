@@ -337,7 +337,7 @@ Below are translations of this document into other languages. In the event of an
 
 ### French
 
-Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(FR).pdf)
+Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf)
 
 ### Other translations
 

@@ -41,7 +41,7 @@ in extraordinary cases where exact control is needed.
 
 ## Primary options
 
-#### `--dbscheme=<file>`
+#### `--dbscheme=<file>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The _current_ dbscheme of the dataset we want to upgrade.
 

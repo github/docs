@@ -45,7 +45,7 @@ source root.
 
 ## Primary options
 
-#### `<database>`
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database under construction. This must
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).

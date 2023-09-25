@@ -38,7 +38,7 @@ individual .ql and .qlref files to execute.
 
 ## Primary options
 
-#### `<test|dir>...`
+#### `<test|dir>...` <!-- markdownlint-disable-line heading-increment -->
 
 Each argument is one of:
 

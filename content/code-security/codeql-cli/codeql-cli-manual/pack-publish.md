@@ -39,7 +39,7 @@ Available since `v2.6.0`.
 
 ## Primary options
 
-#### `<dir>`
+#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
 
 The root directory of the package or workspace, defaults to the current
 working directory. If this parameter points to a directory containing a

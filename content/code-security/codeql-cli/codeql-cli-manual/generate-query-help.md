@@ -34,7 +34,7 @@ Generate end-user query help from .qhelp files.
 
 ## Primary options
 
-#### `<qhelpdir|suite>...`
+#### `<qhelpdir|suite>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Query help files to render. Each argument is one of:
 

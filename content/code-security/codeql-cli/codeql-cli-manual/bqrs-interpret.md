@@ -37,7 +37,7 @@ metadata and generates output in the specified format.
 
 ## Primary options
 
-#### `<bqrs-file>`
+#### `<bqrs-file>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The BQRS file to interpret.
 

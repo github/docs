@@ -40,7 +40,7 @@ directory using [codeql database run-queries](/code-security/codeql-cli/codeql-c
 
 ## Primary options
 
-#### `<database>`
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database that has been queried.
 

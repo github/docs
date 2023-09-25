@@ -37,7 +37,7 @@ language.
 
 ## Primary options
 
-#### `-l, --language=<lang>`
+#### `-l, --language=<lang>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The name of the extractor to locate.
 

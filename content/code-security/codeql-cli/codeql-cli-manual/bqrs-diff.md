@@ -34,7 +34,7 @@ Compute the difference between two result sets.
 
 ## Primary options
 
-#### `<file1>`
+#### `<file1>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] First BQRS file to compare.
 

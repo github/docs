@@ -39,7 +39,7 @@ rule out issues in the underlying data as the cause.
 
 ## Primary options
 
-#### `<dataset>`
+#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the raw QL dataset to check.
 

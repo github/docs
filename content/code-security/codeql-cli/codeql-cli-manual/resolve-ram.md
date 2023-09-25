@@ -43,7 +43,7 @@ desired _total_ RAM amount.
 
 ## Primary options
 
-#### `--format=<fmt>`
+#### `--format=<fmt>` <!-- markdownlint-disable-line heading-increment -->
 
 Select output format. Choices include:
 

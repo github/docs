@@ -48,7 +48,7 @@ change without much notice as the QL language ecosystem evolves.**
 
 ## Primary options
 
-#### `--[no-]find-extractors`
+#### `--[no-]find-extractors` <!-- markdownlint-disable-line heading-increment -->
 
 \[Advanced] Include in the output a summary of `extractor` fields from
 the QL packs that the query depends on. This is used only for a few rare

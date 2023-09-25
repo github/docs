@@ -36,7 +36,7 @@ This command extracts a CodeQL database archive created by [codeql database bund
 
 ## Primary options
 
-#### `<archive>`
+#### `<archive>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database archive to unzip.
 

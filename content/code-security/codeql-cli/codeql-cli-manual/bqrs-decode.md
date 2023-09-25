@@ -37,7 +37,7 @@ The decoded output will be written to standard output, unless the
 
 ## Primary options
 
-#### `<file>`
+#### `<file>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] BQRS file to decode.
 
