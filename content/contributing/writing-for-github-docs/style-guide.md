@@ -92,11 +92,11 @@ Within code blocks:
   - **Avoid:** `git checkout -b <branch-name>`
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
   - If you show a command and the command's output, do not make the code block copyable.
-- If your code example includes `{` or `}` that should render, wrap that section in <code>&#123% raw %&#125;</code> <code>&#123% endraw %&#125;</code> to disable Liquid processing for that section.
+- If your code example includes `{` or `}` that should render, wrap that section in <code>&#123;% raw %&#125;</code> <code>&#123;% endraw %&#125;</code> to disable Liquid processing for that section.
   - **Use**:
 
     <pre>
-    GITHUB_TOKEN: &#123% raw %&#125;$&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;&#123;% endraw %&#125;
+    GITHUB_TOKEN: &#123;% raw %&#125;$&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;&#123;% endraw %&#125;
     </pre>
 
   - **Avoid**:
