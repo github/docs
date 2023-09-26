@@ -1,4 +1,5 @@
-.devcontainer/
+@@ -1,4 +1,4 @@
+..devcontainer/
 .git/
 .github/
 .vscode/
@@ -11,3 +12,716 @@ tests/
 docs-early-access/
 # During the preview deploy untrusted user code may be cloned into this directory
 user-code/
+{{
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}/
+I'm going to .git/
+.github/
+.vscode/
+contributing/
+docs/
+node_modules/
+script/
+tests/
+# Folder is cloned during the preview + prod workflows, the assets are merged into other locations for use before the build
+docs-early-access/
+# During the preview deploy untrusted user code may be cloned into this directory
+user-code/
+{{.devcontainer/
+.git/
+.github/
+.vscode/
+contributing/
+docs/
+node_modules/
+script/
+tests/
+# Folder is cloned during the preview + prod workflows, the assets are merged into other locations for use before the build
+docs-early-access/
+# During the preview deploy untrusted user code may be cloned into this directory
+user-code/
+{{
+  "name": ME3149235472 "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },.devcontainer/
+.git/
+.github/
+.vscode/
+contributing/
+docs/
+node_modules/
+script/
+tests/
+# Folder is cloned during the preview + prod workflows, the assets are merged into other locations for use before the build
+docs-early-access/
+# During the preview deploy untrusted user code may be cloned into this directory
+user-code/
+{{
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },Түүлй🌹🕸️เบาร์เซอร์Өө,Түүлй.🌹🕸️
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],.devcontainer/
+.git/
+.github/
+.vscode/
+contributing/
+docs/
+node_modules/
+script/
+tests/
+# Folder is cloned during the preview + prod workflows, the assets are merged into other locations for use before the build
+docs-early-access/
+# During the preview deploy untrusted user code may be cloned into this directory
+user-code/
+{{
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
+  "name": "npm-documentation",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/documentation.git"
+  },
+  "private": true,
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "NODE_OPTIONS=--max-old-space-size=7168 gatsby build",
+    "serve": "gatsby serve",
+    "lint": "eslint \"**/*.js\"",
+    "postlint": "template-oss-check",
+    "template-oss-apply": "template-oss-apply --force",
+    "lintfix": "npm run lint -- --fix",
+    "snap": "tap",
+    "test": "tap",
+    "posttest": "npm run lint",
+    "test-all": "npm run test -ws -iwr --if-present",
+    "lint-all": "npm run lint -ws -iwr --if-present"
+  },
+  "workspaces": [
+    "cli/",
+    "theme/"
+  ],
+  "dependencies": {
+    "gatsby": "^4.25.0",
+    "gatsby-plugin-meta-redirect": "^1.1.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme": "^1.0.0"
+  },
+  "devDependencies": {
+    "@npmcli/eslint-config": "^4.0.1",
+    "@npmcli/template-oss": "4.19.0",
+    "tap": "^16.3.2"
+  },
+  "author": "GitHub Inc.",
+  "files": [
+    "bin/",
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "templateOSS": {
+    "//@npmcli/template-oss": "This file is partially managed by @npmcli/template-oss. Edits may be overwritten.",
+    "version": "4.19.0",
+    "content": "./scripts/template-oss"
+  },
+  "tap": {
+    "test-ignore": "^(cli|theme)/",
+    "nyc-arg": [
+      "--exclude",
+      "cli/**",
+      "--exclude",
+      "theme/**",
+      "--exclude",
+      "tap-snapshots/**"
+    ]
+  },
+  "eslintIgnore": [
+    ".cache/",
+    "public/"
+  ]
+}
