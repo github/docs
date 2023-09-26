@@ -327,6 +327,7 @@ If you use the same configuration as in the example above, bumping the `requests
    `pip dev: bump requests from 1.0.0 to 1.0.1`
 
 {% ifversion dependabot-version-updates-groups %}
+
 ### `groups`
 
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}

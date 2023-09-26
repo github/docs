@@ -2,7 +2,7 @@ import { beforeAll } from '@jest/globals'
 
 import { get } from '../../../tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
-import { latest } from '../../../lib/enterprise-server-releases.js'
+import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
 const makeURL = (pathname) => `/api/pageinfo/v1?${new URLSearchParams({ pathname })}`
 

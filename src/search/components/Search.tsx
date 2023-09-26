@@ -4,7 +4,7 @@ import { IconButton, TextInput } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { useQuery } from 'src/search/components/useQuery'
 import { useBreakpoint } from 'src/search/components/useBreakpoint'
 import { EventType, sendEvent } from 'src/events/components/events'

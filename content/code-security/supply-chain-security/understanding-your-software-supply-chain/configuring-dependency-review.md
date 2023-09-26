@@ -136,7 +136,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
          # Possible values: "critical", "high", "moderate", "low" 
          fail-on-severity: critical
 
-  {% ifversion dependency-review-action-licenses %}
+           {% ifversion dependency-review-action-licenses %}
            # You can only include one of these two options: `allow-licenses` and `deny-licenses`
            # ([String]). Only allow these licenses (optional)
            # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
@@ -144,22 +144,23 @@ Notice that all of the examples use a short version number for the action (`v3`)
            # ([String]). Block the pull request on these licenses (optional)
            # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
            deny-licenses: LGPL-2.0, BSD-2-Clause
-  {% endif %}
+           {% endif %}
            # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
            # Possible values: Any valid {% data variables.product.prodname_advisory_database %} ID from https://github.com/advisories
            allow-ghsas: GHSA-abcd-1234-5679, GHSA-efgh-1234-5679
-  {% ifversion dependency-review-action-fail-on-scopes %}
+           {% ifversion dependency-review-action-fail-on-scopes %}
            # ([String]). Block pull requests that introduce vulnerabilities in the scopes that match this list (optional)
            # Possible values: "development", "runtime", "unknown"
            fail-on-scopes: development, runtime
-  {% endif %}
-
+           {% endif %}
    ```
+
 ### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
 1. Add a new YAML workflow to your `.github/workflows` folder and use `config-file` to specify that you are using a configuration file.
 
    {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+
    ```yaml copy
    name: 'Dependency Review'
    on: [pull_request]
@@ -187,7 +188,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
           # Possible values: Any GitHub token with read access to the private external repository.  
           external-repo-token: 'ghp_123456789abcde'
    ```
-  
+
 1. Create the configuration file in the path you have specified.
 
    This YAML example file illustrates how you can use the available configuration options.

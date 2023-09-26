@@ -31,11 +31,11 @@ redirect_from:
 
    ![Screenshot of the "Marketplace" tab showing the installation code snippet for Terraform.](/assets/images/help/codespaces/feature-installation-code.png)
 
-   ```JSON
+   ```jsonc
    "features": {
-        ...
+        // ...
         "ghcr.io/devcontainers/features/terraform:1": {},
-        ...
+        // ...
 	}
     ```
 
@@ -43,14 +43,14 @@ redirect_from:
 
    ![Screenshot of the "Options" section of the "Marketplace" tab, with the "version" and "tflint" properties expanded.](/assets/images/help/codespaces/feature-options.png)
 
-   ```JSON
+   ```jsonc
    "features": {
-        ...
+        // ...
         "ghcr.io/devcontainers/features/terraform:1": {
             "version": "1.1",
             "tflint": "latest"
         },
-        ...
+        // ...
 	}
     ```
 

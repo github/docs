@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 
 import { get } from '../../../../tests/helpers/e2etest.js'
 import getExceptionRedirects from '../../lib/exception-redirects.js'
-import { latest } from '../../../../lib/enterprise-server-releases.js'
+import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
 import path from 'path'
 import { fileURLToPath } from 'url'

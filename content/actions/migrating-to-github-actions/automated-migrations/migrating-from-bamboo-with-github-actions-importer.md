@@ -14,12 +14,6 @@ topics:
 shortTitle: Bamboo migration
 ---
 
-{% note %}
-
-**Note:** Bamboo support for {% data variables.product.prodname_actions_importer %} is currently in public beta and subject to change.
-
-{% endnote %}
-
 [Legal notice](#legal-notice)
 
 ## About migrating from Bamboo with GitHub Actions Importer

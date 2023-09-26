@@ -195,7 +195,8 @@ Directory | Usage
 
 When there are differences between plans, you can use Liquid conditionals to version the two images.
 
-```{% raw %}
+```markdown
+{% raw %}
 {% ifversion fpt or ghec %}
 ![An image of foo bar for GitHub Free, GitHub Pro, GitHub Team, and GitHub Enterprise Cloud](/assets/images/foo/bar.png)
 {% else %}
@@ -209,7 +210,8 @@ If an image will change for {% data variables.product.prodname_ghe_server %} 3.1
 
 Your Liquid conditional would look like this:
 
-```{% raw %}
+```markdown
+{% raw %}
 {% ifversion fpt or ghec %}
 ![An image of foo bar](/assets/images/foo/bar.png)
 {% elsif ghes < 3.10 %}

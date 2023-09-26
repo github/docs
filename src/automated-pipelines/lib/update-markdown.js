@@ -7,8 +7,8 @@ import { rimraf } from 'rimraf'
 import { mkdirp } from 'mkdirp'
 import { difference, isEqual } from 'lodash-es'
 
-import { allVersions } from '../../../lib/all-versions.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 
 const ROOT_INDEX_FILE = 'content/index.md'
 export const MARKDOWN_COMMENT = '\n<!-- Content after this section is automatically generated -->\n'

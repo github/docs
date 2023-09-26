@@ -6,7 +6,7 @@ import { useLanguages } from 'src/languages/components/LanguagesContext'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { useUserLanguage } from 'src/languages/components/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
 

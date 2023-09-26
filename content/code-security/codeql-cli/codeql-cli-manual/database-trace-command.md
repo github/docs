@@ -1,6 +1,6 @@
 ---
 title: database trace-command
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -36,9 +36,11 @@ This runs a single given command line under a tracer, thus possibly
 performing some extraction, but does not finalize the resulting CodeQL
 database.
 
-## Primary options
+## Options
 
-#### `<database>`
+### Primary Options
+
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database under construction. This must
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).

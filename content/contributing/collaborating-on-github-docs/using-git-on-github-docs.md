@@ -17,26 +17,26 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 1. In the terminal, change the current working directory to the location where you cloned the documentation repository. For example:
 
-   ```
+   ```shell
    cd ~/my-cloned-repos/docs
    ```
 
 1. Switch to the default branch: `main`.
 
-   ```
+   ```shell
    git checkout main
    ```
 
 1. Get the most recent commits from the remote repository.
 
-   ```
+   ```shell
    git pull origin main
    ```
 
 1. Switch to or create a topic branch.
    - To start a new project, create a new topic branch from `main`.
 
-     ```
+     ```shell
      git checkout -b YOUR-TOPIC-BRANCH
      ```
 
@@ -44,15 +44,15 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
      **Note**: You can use forward slashes as part of the branch name, for example to include your user name:
 
-     ```
+     ```shell
      git checkout -b my-username/new-codespace-policy
-     ```     
+     ```
 
      {% endnote %}
 
    - To work on an existing project, switch to your topic branch and merge changes from `main`.
 
-     ```
+     ```shell
      git checkout YOUR-TOPIC-BRANCH
      git merge main
      ```
@@ -65,7 +65,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 1. When you're ready to commit your changes, open a terminal and check the status of your topic branch with `git status`. Make sure you see the correct set of changes.
 
-   ```
+   ```shell
    git status
    On branch YOUR-TOPIC-BRANCH
 
@@ -84,7 +84,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    - If you created new files or updated existing files, use `git add FILENAME [FILENAME...]`. For example:
 
-     ```
+     ```shell
      git add example-new-file.md example-changed-file.md
      ```
 
@@ -92,13 +92,13 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    - If you deleted files, use `git rm FILENAME [FILENAME...]`. For example:
 
-     ```
+     ```shell
      git rm example-deleted-file.md
      ```
 
 1. Commit your changes.
 
-   ```
+   ```shell
    git commit -m "Commit message title (max 72 characters)
    
    Optional fuller description of what changed (no character limit). 
@@ -107,20 +107,20 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
    ```
 
    This commits the staged changes locally. You can now push this commit, and any other unpushed commits, to the remote repository.  
-   
+
    To remove this commit, use `git reset --soft HEAD~1`. After running this command our changes are no longer committed but the changed files remain in the staging area. You can make further changes and then `add` and `commit` again.
 
 1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
 
    - The first time you push your branch you can choose to add an upstream tracking branch. This allows you to use `git pull` and `git push` on that branch without additional arguments.
 
-     ```
+     ```shell
      git push --set-upstream origin YOUR-TOPIC-BRANCH
      ```
 
    - If you've pushed this branch before, and set an upstream tracking branch you can use:
 
-     ```
+     ```shell
      git push
      ```
 
@@ -128,7 +128,7 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
 - Favor commits that contain small, focused groups of changes over commits with large, unfocused groups of changes, since this will help you write commit messages that other people can easily understand. An exception is the initial commit for a new project or category. These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.
 - If you are incorporating feedback or want to address a set of changes to a particular person or team for review, @mention the person whose suggestions you are incorporating. For example: "Incorporating feedback from @octocat," or "Updating billing configuration steps - cc @monalisa for accuracy."
-- If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading." 
+- If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
   {% note %}
 
   **Note**: We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
@@ -152,17 +152,17 @@ There are two ways to handle merge conflicts:
 1. Open the first of these files in your text editor.
 1. In the file, look for the merge conflict markers.
 
-   ```
-   <<<<<<< HEAD
-   Here are the changes you've made.
-   =====================
-   Here are the changes from the main branch.
-   >>>>>>> main
+   ```text
+    <<<<<<< HEAD
+    Here are the changes you've made.
+    =====================
+    Here are the changes from the main branch.
+    >>>>>>> main
    ```
 
 1. Decide which changes to keep and delete the unwanted changes and the merge conflict markers. If you need to make further changes, you can do so at the same time. For example, you could change the five lines shown in the previous code sample to the single line:
 
-   ```
+   ```text
    Here are the changes you want to use.
    ```
 
@@ -176,19 +176,19 @@ There are two ways to handle merge conflicts:
 
 1. In the terminal, stage the file, or files, that you just modified.
 
-   ```
+   ```shell
    git add changed-file-1.md changed-file-2.md
    ```
 
 1. Commit the files.
 
-   ```
+   ```shell
    git commit -m "Resolves merge conflicts"
    ```
 
 1. Push the committed changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-   ```
+   ```shell
    git push
    ```
 

@@ -116,7 +116,7 @@ The following operating systems are supported for the self-hosted runner applica
 
 ### macOS
 
-- macOS 10.13 (High Sierra) or later
+- macOS 11.0 (Big Sur) or later
 
 ### Architectures
 

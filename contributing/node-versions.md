@@ -16,13 +16,13 @@ When updating to a new Node.js version, consider the following files:
 
 If you're using macOS, run this command to get the latest:
 
-```sh
+```shell
 brew upgrade nodenv node-build
 ```
 
 If you see a warning like this one, run the suggested command:
 
-```sh
+```shell
 # You should change the ownership of these directories to your user.
 sudo chown -R $(whoami) /usr/local/sbin
 ```
@@ -31,19 +31,19 @@ If you're using another operating system, or did not use Homebrew to install nod
 
 To install Node.js and make it your default version, run this command:
 
-```sh
+```shell
 # Set VERSION= based on package.json#engines
 nodenv install $VERSION && nodenv global $VERSION
 ```
 
 You may sometimes see a warning when running npm scripts with nodenv:
 
-```sh
+```shell
 npm WARN lifecycle The node binary used for scripts is [...] but npm is using [...]
 ```
 
 This is due to nodenv's overriding behavior. To silence this harmless warning, the [nodenv docs](https://github.com/nodenv/nodenv/wiki/FAQ#npm-warning-about-mismatched-binaries) recommend running the following command from any directory:
 
-```sh
+```shell
 npm config set scripts-prepend-node-path auto
 ```

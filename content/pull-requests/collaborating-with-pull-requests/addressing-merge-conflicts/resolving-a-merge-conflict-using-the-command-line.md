@@ -56,7 +56,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
 1. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
 1. To see the beginning of the merge conflict in your file, search the file for the conflict marker `<<<<<<<`. When you open the file in your text editor, you'll see the changes from the HEAD or base branch after the line `<<<<<<< HEAD`. Next, you'll see `=======`, which divides your changes from the changes in the other branch, followed by `>>>>>>> BRANCH-NAME`. In this example, one person wrote "open an issue" in the base or HEAD branch and another person wrote "ask your question in IRC" in the compare branch or `branch-a`.
 
-   ```
+   ```text
    If you have questions, please
    <<<<<<< HEAD
    open an issue

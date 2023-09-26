@@ -50,6 +50,6 @@ git remote set-head origin -a
 
 Optionally, run the following command to remove tracking references to the old branch name.
 
-```
+```shell
 git remote prune origin
 ```

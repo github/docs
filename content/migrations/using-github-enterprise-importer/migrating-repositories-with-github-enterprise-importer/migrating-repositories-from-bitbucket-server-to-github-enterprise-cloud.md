@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 You can migrate individual repositories or all repositories from a BitBucket Server instance using {% data variables.product.prodname_cli %}.
@@ -178,7 +176,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 
 Your migration archive will be generated, and its path will be printed in the command output:
 
-```
+```text
 [12:14] [INFO] Export completed. Your migration archive should be ready on your
 instance at $BITBUCKET_SHARED_HOME/data/migration/export/Bitbucket_export_9.tar
 ```

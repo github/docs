@@ -221,7 +221,7 @@ We will take steps to preserve account records for up to 90 days upon formal req
 
 Please serve requests to:
 
-```
+```text
 GitHub, Inc.
 c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N

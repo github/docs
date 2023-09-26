@@ -9,8 +9,3 @@ children:
   - /signing-in-with-a-passkey
 shortTitle: Authenticate with a passkey
 ---
-{% note %}
-
-{% data reusables.passkeys.beta-note %}
-
-{% endnote %}

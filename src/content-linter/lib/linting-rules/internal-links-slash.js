@@ -5,10 +5,9 @@ import { addFixErrorDetail, getRange } from '../helpers/utils.js'
 export const internalLinksSlash = {
   names: ['GHD006', 'internal-links-slash'],
   description: 'Internal links must start with a /',
-  severity: 'error',
   tags: ['links', 'url'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD007(params, onError) {
+  function: function GHD006(params, onError) {
     filterTokens(params, 'inline', (token) => {
       for (const child of token.children) {
         if (child.type !== 'link_open') continue

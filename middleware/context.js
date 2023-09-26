@@ -1,6 +1,6 @@
 import languages from '#src/languages/lib/languages.js'
-import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
-import { allVersions } from '../lib/all-versions.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { productMap } from '../lib/all-products.js'
 import {
   getVersionStringFromPath,
@@ -12,7 +12,7 @@ import {
 import productNames from '../lib/product-names.js'
 import warmServer from '../lib/warm-server.js'
 import searchVersions from '../src/search/lib/versions.js'
-import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
 
 // This doesn't change just because the request changes, so compute it once.

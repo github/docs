@@ -3,11 +3,14 @@ release_candidate: false
 deprecated: false
 intro: |
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
-  
+
   {% warning %}
+
+  **Warnings**:
   
-  **Warning**: This release contains known issues that can impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.0-known-issues)" section of these release notes.
-  
+  - This release contains a known issue that may lead to replication issues on an instance in a high-availability, geo-replication, or repository cache configuration. The issue is resolved in {% data variables.product.prodname_ghe_server %} 3.10.2 and later. For more information, see the "[Known issues](#3.10.0-known-issues)" section of these release notes.
+  - A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.0-known-issues)" section of these release notes.
+
   {% endwarning %}
 sections:
   # Remove section heading if the section contains no notes.
@@ -29,9 +32,9 @@ sections:
         # https://github.com/github/releases/issues/3378
         - |
           Site administrators can use the Manage GitHub Enterprise Server API to view and manage the maintenance status of an instance, including setting an IP exception list and modifying the message displayed to users during a maintenance window. For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" in the REST API documentation.
-        
+
         # https://github.com/github/releases/issues/3251
-        - | 
+        - |
           Site administrators can use the Manage GitHub Enterprise Server API to change the `site admin` password and to make changes to [management console users](https://docs.github.com/en/enterprise-server@3.10/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user). For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" in the REST API documentation.
 
     - heading: Authentication
@@ -280,6 +283,12 @@ sections:
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
     - |
       {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-09-04]
+    - |
+      After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser. [Updated: 2023-09-19]
+    - |
+      {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %} [Updated: 2023-09-21]
+    - |
+      {% data reusables.release-notes.cache-replica-servers-known-issue %} [Updated: 2023-09-26]
 
 
   deprecations:

@@ -6,6 +6,11 @@ export function addFixErrorDetail(onError, lineNumber, expected, actual, range, 
 }
 
 export function getRange(line, content) {
+  if (content.length === 0) {
+    // This function assumes that the content is something. If it's an
+    // empty string it can never produce a valid range.
+    throw new Error('invalid content (empty)')
+  }
   const startColumnIndex = line.indexOf(content)
   return startColumnIndex !== -1 ? [startColumnIndex + 1, content.length] : null
 }
@@ -25,6 +30,15 @@ export function isStringPunctuated(text) {
   // for single or double quotes before
   // the punctuation.
   return /^.*[.?!]['"]?$/.test(text)
+}
+
+export function doesStringEndWithPeriod(text) {
+  // String ends with punctuation of either
+  // . ? ! and optionally ends with single
+  // or double quotes. This also allows
+  // for single or double quotes before
+  // the punctuation.
+  return /^.*\.['"]?$/.test(text)
 }
 
 // Filters a list of tokens by token type only when they match
@@ -89,3 +103,5 @@ export function filterTokensByOrder(tokens, tokenOrder) {
   }
   return matches
 }
+
+export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.github.com']

@@ -2401,6 +2401,15 @@
       },
       {
         "category": "actions",
+        "slug": "force-cancel-a-workflow-run",
+        "subcategory": "workflow-runs",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "actions",
         "slug": "list-jobs-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",

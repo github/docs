@@ -1,6 +1,6 @@
 ---
 title: test extract
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -36,9 +36,11 @@ Build a database for a specified test directory, without actually
 running any test queries. Outputs the path to the raw QL dataset to
 execute test queries against.
 
-## Primary options
+## Options
 
-#### `<testDir>`
+### Primary Options
+
+#### `<testDir>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The path to the test directory.
 

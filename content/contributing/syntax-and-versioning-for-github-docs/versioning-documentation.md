@@ -65,7 +65,7 @@ For {% data variables.product.prodname_ghe_cloud %}, use `enterprise-cloud@lates
 
 ### {% data variables.product.prodname_ghe_server %}
 
-Documentation for {% data variables.product.prodname_ghe_server %} has multiple versions and can be divided into two types: documentation for _supported releases_ (we support four at any one time), and documentation for _deprecated releases_ (we do not link to these on the Docs site but we support a "frozen" snapshot of these docs in perpetuity, so they can still be accessed if you know the URLs). See [`lib/enterprise-server-releases.js`](https://github.com/github/docs/blob/main/lib/enterprise-server-releases.js) for a list.
+Documentation for {% data variables.product.prodname_ghe_server %} has multiple versions and can be divided into two types: documentation for _supported releases_ (we support four at any one time), and documentation for _deprecated releases_ (we do not link to these on the Docs site but we support a "frozen" snapshot of these docs in perpetuity, so they can still be accessed if you know the URLs). See [`lib/enterprise-server-releases.js`](https://github.com/github/docs/blob/main/src/versions/lib/enterprise-server-releases.js) for a list.
 
 The versions are named `enterprise-server@<release>`. The short name is `ghes`. In Liquid conditionals, we can specify ranges, like `ghes > 3.0`. For more information, see "[Versioning with Liquid conditional operators](#versioning-with-liquid-conditional-operators)."
 
@@ -144,13 +144,13 @@ The Liquid operators `==`, `>=`, and `<=` are not supported in the {% data varia
 
 When all operands must be true for the condition to be true, use the operator `and`:
 
-```
+```text
 {% raw %}{% ifversion ghes > 2.21 and ghes < 3.1 %}{% endraw %}
 ```
 
 When at least one operand must be true for the condition to be true, use the operator `or`:
 
-```
+```text
 {% raw %}{% ifversion fpt or ghes > 2.21 %}{% endraw %}
 ```
 
@@ -162,13 +162,13 @@ When using Liquid conditionals in lists or tables, you can use [whitespace contr
 
 You can add a hyphen (`-`) on either the left, right, or both sides to indicate that there should be no newline or other whitespace on that side.
 
-```
+```text
 {% raw %}{%- ifversion fpt %}{% endraw %}
 ```
 
 For example, to version a table row, instead of adding liquid versioning for the row starting at the end of the previous row, like this:
 
-```
+```markdown
 Column A | Column B | Column C
 ---------|----------|---------
 This row is for all versions | B1 | C1{% raw %}{% ifversion ghes %}{% endraw %}
@@ -178,7 +178,7 @@ This row is for all versions | B3 | C3
 
 You can include the liquid versioning on its own line and use whitespace control to strip the newline to the left of the liquid tag. This makes reading the source much easier, without breaking the rendering of the table:
 
-```
+```markdown
 Column A | Column B | Column C
 ---------|----------|---------
 This row is for all versions | B1 | C1
@@ -259,7 +259,7 @@ You can version documentation to appear in the current {% data variables.product
 
 ### About the displayed version of {% data variables.product.prodname_ghe_managed %} documentation
 
-We display one version of {% data variables.product.prodname_ghe_managed %} documentation on {% data variables.product.prodname_docs %}: the latest.  We define "latest" in the site's source, within [`all-versions.js`](https://github.com/github/docs/blob/main/lib/all-versions.js#L58). In almost all cases, this value is a safe place to determine the latest public release of {% data variables.product.prodname_ghe_managed %}.
+We display one version of {% data variables.product.prodname_ghe_managed %} documentation on {% data variables.product.prodname_docs %}: the latest.  We define "latest" in the site's source, within [`all-versions.js`](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js#L58). In almost all cases, this value is a safe place to determine the latest public release of {% data variables.product.prodname_ghe_managed %}.
 
 "Latest" corresponds with the latest version of {% data variables.product.prodname_ghe_managed %} that we've deployed to the first customer using the product in production. Generally, {% data variables.product.company_short %} upgrades all production customers on {% data variables.product.prodname_ghe_managed %} to the latest version around the same time, so Product considers only showing the latest documentation an acceptable compromise.
 
