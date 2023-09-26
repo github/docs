@@ -36,7 +36,7 @@ export const githubDocsConfig = {
   },
   'link-punctuation': {
     // GHD008
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'yaml-scheduled-jobs': {
@@ -50,6 +50,12 @@ export const githubDocsConfig = {
     'partial-markdown-files': true,
   },
   'early-access-references': {
+    // GH035
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-quoted-conditional-arg': {
+    // LQ111
     severity: 'error',
     'partial-markdown-files': true,
   },

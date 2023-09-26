@@ -57,10 +57,6 @@ describe('lint feature versions', () => {
 
 const allFiles = walkFiles('content', '.md').concat(walkFiles('data', ['.yml', '.md']))
 
-// Quoted strings in Liquid, like {% if "foo" %}, will always evaluate true _because_ they are strings.
-// Instead we need to use unquoted variables, like {% if foo %}.
-const stringInLiquidRegex = /{% (?:if|ifversion|elseif|unless) (?:"|').+?%}/g
-
 // Make sure the `if` and `ifversion` Liquid tags in content and data files are valid.
 describe('lint Liquid versioning', () => {
   describe.each(allFiles)('%s', (file) => {
@@ -88,14 +84,6 @@ describe('lint Liquid versioning', () => {
       } "if" conditionals used for versioning! Use "ifversion" instead.
     ${ifsForVersioning.join('\n')}`
       expect(ifsForVersioning.length, errorMessage).toBe(0)
-    })
-
-    test('does not contain Liquid that evaluates strings (because they are always true)', async () => {
-      const matches = fileContents.match(stringInLiquidRegex) || []
-      const message =
-        'Found Liquid conditionals that evaluate a string instead of a variable. Remove the quotes around the variable!'
-      const errorMessage = `${message}\n  - ${matches.join('\n  - ')}`
-      expect(matches.length, errorMessage).toBe(0)
     })
   })
 })
