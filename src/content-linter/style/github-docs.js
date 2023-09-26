@@ -53,6 +53,11 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'liquid-quoted-conditional-arg': {
+    // LQ111
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
 }
 
 export const searchReplaceConfig = {
