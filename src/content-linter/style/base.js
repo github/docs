@@ -115,7 +115,7 @@ export const baseConfig = {
   },
   'emphasis-style': {
     // MD049
-    severity: 'warning',
+    severity: 'error',
     style: 'underscore',
     'partial-markdown-files': true,
   },
