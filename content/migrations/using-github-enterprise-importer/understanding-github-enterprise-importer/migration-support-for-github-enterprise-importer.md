@@ -90,7 +90,7 @@ When you migrate a repository, either directly or as part of an organization mig
 - Active webhooks
 - Repository topics
 - Repository settings
-  - Branch protections (see ["Branch protections"](#branch-protections) for more details)
+  - Branch protections (see "[Branch protections](#branch-protections)" for more details)
   - {% data variables.product.prodname_pages %} settings
   - Autolink references
   - {% data variables.product.prodname_GH_advanced_security %} settings

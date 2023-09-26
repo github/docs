@@ -4,8 +4,8 @@ import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
 import walk from 'walk-sync'
-import { execSync } from 'child_process'
-
+import { execSync, execFileSync } from 'child_process'
+import { escapeRegExp } from 'lodash-es'
 import frontmatter from '../../../lib/read-frontmatter.js'
 
 const scriptName = new URL(import.meta.url).pathname.split('/').pop()
@@ -76,11 +76,12 @@ if (options.toggleFlags) {
 if (options.toggleFlags) {
   // Refuse to proceed if repository has uncommitted changes.
 
-  const localChangesCount = execSync(
-    `git status ${contentDir} ${reusablesDir} ${dataDir} --porcelain=v1 2>/dev/null | wc -l`,
-  ).toString()
+  const cmd = 'git'
+  const args = ['status', contentDir, reusablesDir, dataDir, '--porcelain=v1']
+  const localChangesCount = execFileSync(cmd, args).toString().trim()
 
-  if (localChangesCount > 0) {
+  // localChangesCount can return an empty line, this conditional ignores that scenario
+  if (localChangesCount && localChangesCount.split(/\n/g).length > 0) {
     console.log("Error: refusing to proceed due to uncommitted changes (review 'git status')")
     process.exit(1)
   }
@@ -235,7 +236,7 @@ if (options.showFlags) {
     allFlags[flag].forEach((file) => {
       const fileContent = fs.readFileSync(file, 'utf8')
       const { data } = frontmatter(fileContent)
-      const liquidReplacementRegExp = new RegExp(`${plan}-${flag}`, 'g')
+      const liquidReplacementRegExp = new RegExp(`${plan}-${escapeRegExp(flag)}`, 'g')
       let newContent
 
       if (file.endsWith('.md')) {
@@ -250,7 +251,7 @@ if (options.showFlags) {
         }
         fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
       } else if (file.endsWith('.yml')) {
-        const yamlReplacementRegExp = new RegExp(`${plan}: ['"]+${flag}['"]+`, 'g')
+        const yamlReplacementRegExp = new RegExp(`${plan}: ['"]+${escapeRegExp(flag)}['"]+`, 'g')
 
         // Update versions in YAML files for feature-based versioning.
 
@@ -296,7 +297,9 @@ if (options.showFlags) {
     // Check out any file that had syntax adjusted, but didn't contain one
     // or more feature flags to toggle.
 
-    execSync(`git checkout --quiet ${contentDir} ${reusablesDir} ${dataDir}`)
+    const cmd = 'git'
+    const args = ['checkout', '--quiet', contentDir, reusablesDir, dataDir]
+    execFileSync(cmd, args)
   })
 
   if (commitCount > 0) {

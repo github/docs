@@ -100,7 +100,7 @@ Blob storage is required to migrate repositories with large Git source or metada
 
 Your migration source is your organization on {% data variables.product.prodname_ghe_server %}.
 
-#### `createMigrationSource` mutation
+### `createMigrationSource` mutation
 
 ```graphql
 mutation createMigrationSource($name: String!, $url: String!, $ownerId: ID!) {
@@ -120,7 +120,7 @@ mutation createMigrationSource($name: String!, $url: String!, $ownerId: ID!) {
 {% data reusables.enterprise-migration-tool.createMigrationSource-table-ec %}
 | `url` | The URL for {% data variables.location.product_location_enterprise %}. This URL does not need to be accessible from {% data variables.product.prodname_ghe_cloud %}.
 
-#### `createMigrationSource` response
+### `createMigrationSource` response
 
 ```json
 {
@@ -244,7 +244,7 @@ You may need to allowlist {% data variables.product.company_short %}'s IP ranges
 
 {% data reusables.enterprise-migration-tool.start-repository-migration-ec %}
 
-#### `startRepositoryMigration` mutation
+### `startRepositoryMigration` mutation
 
 ```graphql
 mutation startRepositoryMigration (

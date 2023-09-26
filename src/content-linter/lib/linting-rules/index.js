@@ -12,6 +12,7 @@ import { listFirstWordCapitalization } from './list-first-word-capitalization.js
 import { linkPunctuation } from './link-punctuation.js'
 import { earlyAccessReferences } from './early-access-references.js'
 import { yamlScheduledJobs } from './yaml-scheduled-jobs.js'
+import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -36,5 +37,6 @@ export const gitHubDocsMarkdownlint = {
     linkPunctuation,
     earlyAccessReferences,
     yamlScheduledJobs,
+    liquidQuotedConditionalArg,
   ],
 }

@@ -11,12 +11,12 @@ export const baseConfig = {
   default: false,
   'heading-increment': {
     // MD001
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'first-heading-h1': {
     // MD002
-    severity: 'warning',
+    severity: 'error',
     level: 2,
     'partial-markdown-files': false,
   },
@@ -115,7 +115,7 @@ export const baseConfig = {
   },
   'emphasis-style': {
     // MD049
-    severity: 'warning',
+    severity: 'error',
     style: 'underscore',
     'partial-markdown-files': true,
   },

@@ -92,11 +92,11 @@ Within code blocks:
   - **Avoid:** `git checkout -b <branch-name>`
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
   - If you show a command and the command's output, do not make the code block copyable.
-- If your code example includes `{` or `}` that should render, wrap that section in <code>&#123% raw %&#125;</code> <code>&#123% endraw %&#125;</code> to disable Liquid processing for that section.
+- If your code example includes `{` or `}` that should render, wrap that section in <code>&#123;% raw %&#125;</code> <code>&#123;% endraw %&#125;</code> to disable Liquid processing for that section.
   - **Use**:
 
     <pre>
-    GITHUB_TOKEN: &#123% raw %&#125;$&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;&#123;% endraw %&#125;
+    GITHUB_TOKEN: &#123;% raw %&#125;$&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;&#123;% endraw %&#125;
     </pre>
 
   - **Avoid**:
@@ -256,7 +256,7 @@ Use alt text to express the core idea of the image, without duplicating the webp
 
 > Diagram showing a five-step process by which a {% data variables.product.prodname_actions %} runner can be automatically added to named classes of runners and then requested by specific jobs.
 
-For example, see [accompanying explanation of this diagram in the Actions documentation.](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners).
+For example, see [accompanying explanation of this diagram in the Actions documentation](/free-pro-team@latest/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners).
 
 #### Alt text for images of command-line interfaces
 

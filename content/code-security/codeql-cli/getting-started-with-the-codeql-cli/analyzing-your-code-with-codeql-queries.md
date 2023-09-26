@@ -347,7 +347,7 @@ corresponding query. Alternatively, for consistency with the standard {% data va
 you can write query help in the `.qhelp` format. Query help written in `.qhelp`
 files can’t be included in SARIF files, and they can’t be processed by code
 scanning so must be converted to markdown before running
-the analysis. For more information, see ["Query help files"](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)
+the analysis. For more information, see "[Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)"
 and "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-query-help-files)."
 
 ## Results
@@ -380,4 +380,4 @@ IDE.
 
 ## Further reading
 
-- ["Analyzing your projects in {% data variables.product.prodname_codeql %} for VS Code"](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)
+- "[Analyzing your projects in {% data variables.product.prodname_codeql %} for VS Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)"
