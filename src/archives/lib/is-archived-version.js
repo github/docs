@@ -21,7 +21,7 @@ export function isArchivedVersionByPath(pathToCheck) {
 
   // extract enterprise version from path, e.g. 2.16
   const requestedVersion = pathToCheck.includes('enterprise-server@')
-    ? pathToCheck.match(patterns.getEnterpriseServerNumber)[1]
+    ? pathToCheck.match(patterns.getEnterpriseServerNumber)?.[1]
     : pathToCheck.match(patterns.getEnterpriseVersionNumber)[1]
 
   // bail if the request version is not deprecated
