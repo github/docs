@@ -41,7 +41,9 @@ conflicting locations within a single search element, so it cannot
 actually be resolved. The caller may use the actual locations to format
 an error message.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--search-path=<dir>[:<dir>...]` <!-- markdownlint-disable-line heading-increment -->
 
@@ -105,7 +107,7 @@ distribution.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

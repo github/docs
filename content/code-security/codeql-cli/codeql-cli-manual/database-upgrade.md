@@ -39,7 +39,9 @@ If an upgrade is necessary, it is irreversible. The database will
 subsequently be unusable with the libraries that were current when it
 was created.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
@@ -169,7 +171,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate `<pred>`.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`

@@ -39,7 +39,9 @@ streams.
 
 Available since `v2.10.11`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--[no-]tuple-counting` <!-- markdownlint-disable-line heading-increment -->
 
@@ -118,7 +120,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate `<pred>`.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
