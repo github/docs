@@ -32,7 +32,9 @@ codeql generate query-help --format=<format> [--output=<dir|file>] <options>... 
 
 Generate end-user query help from .qhelp files.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<qhelpdir|suite>...` <!-- markdownlint-disable-line heading-increment -->
 
@@ -131,7 +133,7 @@ value.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

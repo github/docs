@@ -48,7 +48,7 @@ You can also view whether an enterprise owner has a specific role in the organiz
 {% endnote %}
 
 | **Enterprise role** | **Organization role** | **Organization access or impact** |
-|----|----|----|----|
+|----|----|----|
 | Enterprise owner | Un-affiliated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
 | Enterprise owner | Organization owner | Able to configure organization settings and manage access to the organization's resources through teams, etc. |
 | Enterprise owner | Organization member | Able to access organization resources and content, such as repositories, without access to the organization's settings. |
