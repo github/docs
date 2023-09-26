@@ -50,6 +50,7 @@ export const githubDocsConfig = {
     'partial-markdown-files': true,
   },
   'early-access-references': {
+    // GH035
     severity: 'error',
     'partial-markdown-files': true,
   },
