@@ -31,21 +31,33 @@ For purposes of demonstration, we'll use:
 {% endtip %}
 
 1. [Create a new repository on {% data variables.product.product_name %}](/repositories/creating-and-managing-repositories/creating-a-new-repository). You'll import your external Git repository to this new repository.
-2. On the command line, make a "bare" clone of the external repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
-  ```shell
-  $ git clone --bare https://external-host.com/EXTUSER/REPO.git
-  # Makes a bare clone of the external repository in a local directory
-  ```
-3. Push the locally cloned repository to {% data variables.product.product_name %} using the "mirror" option, which ensures that all references, such as branches and tags, are copied to the imported repository.
-  ```shell
-  $ cd REPO.git
-  $ git push --mirror https://{% data variables.command_line.codeblock %}/USER/REPO.git
-  # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
-  ```
-4. Remove the temporary local repository.
-  ```shell
-  $ cd ..
-  $ rm -rf REPO.git
-  ```
+1. On the command line, make a "bare" clone of the external repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
+
+   ```shell
+   $ git clone --bare https://external-host.com/EXTUSER/REPO.git
+   # Makes a bare clone of the external repository in a local directory
+   ```
+
+1. Push the locally cloned repository to {% data variables.product.product_name %} using the "mirror" option, which ensures that all references, such as branches and tags, are copied to the imported repository.
+
+   ```shell
+   $ cd REPO.git
+   $ git push --mirror https://{% data variables.command_line.codeblock %}/USER/REPO.git
+   # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
+   ```
+
+1. Remove the temporary local repository.
+
+   ```shell
+   cd ..
+   rm -rf REPO.git
+   ```
 
 If the repository you are importing contains large files, you may run into a warning or error. For more information on large files and how to manage them, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+
+{% ifversion fpt or ghec %}
+
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

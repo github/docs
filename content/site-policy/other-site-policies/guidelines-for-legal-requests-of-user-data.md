@@ -86,14 +86,14 @@ All user public profiles display:
   - The other GitHub users the user follows
   - The users that follow them
 
-  Optionally, a user may also choose to share the following information publicly:
+    Optionally, a user may also choose to share the following information publicly:
   - Their real name
   - An avatar
   - An affiliated company
   - Their location
   - A public email address
   - Their personal web page
-  - Organizations to which the user is a member (*depending on either the organizations' or the users' preferences*)
+  - Organizations to which the user is a member (_depending on either the organizations' or the users' preferences_)
 
 - <a name="private-account-data"></a>
 **Private account data** —
@@ -104,7 +104,7 @@ This may include:
   - Security access logs
   - Data about interactions with private repositories
 
-  To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user-settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
+    To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user-settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
 
 - <a name="organization-account-data"></a>
 **Organization account data** —
@@ -116,7 +116,7 @@ All organization public profiles display:
   - The repositories that the owners have starred
   - All GitHub users that are owners of the organization
 
-  Optionally, administrative users may also choose to share the following information publicly:
+    Optionally, administrative users may also choose to share the following information publicly:
   - An avatar
   - An affiliated company
   - Their location
@@ -177,7 +177,7 @@ In the case of organization accounts, we can provide the name(s) and email addre
 Please note that the information available will vary from case to case. Some of the information is optional for users to provide. In other cases, we may not have collected or retained the information.
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**With a court order *or* a search warrant** — We will not disclose account access logs unless compelled to do so by either
+**With a court order _or_ a search warrant** — We will not disclose account access logs unless compelled to do so by either
 (i) a court order issued under 18 U.S.C. Section 2703(d), upon a showing of specific and articulable facts showing that there are reasonable grounds to believe that the information sought is relevant and material to an ongoing criminal investigation; or
 (ii) a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures, upon a showing of probable cause.
 In addition to the non-public account information listed above, we can provide account access logs in response to a court order or search warrant, which may include:
@@ -221,7 +221,7 @@ We will take steps to preserve account records for up to 90 days upon formal req
 
 Please serve requests to:
 
-```
+```text
 GitHub, Inc.
 c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N

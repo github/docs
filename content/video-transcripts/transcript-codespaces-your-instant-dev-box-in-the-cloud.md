@@ -25,7 +25,7 @@ Developer: A codespace is an instant cloud developer environment, where we can r
 
 [The codespace opens in the VS Code web editor in the browser, running with the dark theme. Directories and files from the repository are displayed in the left sidebar. In an integrated terminal, a message says, "Welcome to Codespaces," and lists included runtimes and tools.]
 
-Developer: So when we create this codespace, you'll see we land in a machine that is already set up, and it has Python, Node, Docker, and even more, so it has tools like Java and Rust and Go and C++. 
+Developer: So when we create this codespace, you'll see we land in a machine that is already set up, and it has Python, Node, Docker, and even more, so it has tools like Java and Rust and Go and C++.
 
 But you'll see we landed in the default image. The great thing about Codespaces is you can fully customize your setup, not only for you, but for everyone else who comes along in this repository. So you can have a "config-as-code" setup that allows you to use your own image, or Dockerfile, or Docker Compose.
 

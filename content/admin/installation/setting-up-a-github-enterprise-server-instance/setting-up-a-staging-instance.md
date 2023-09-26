@@ -43,12 +43,12 @@ You can set up a staging instance from scratch and configure the instance howeve
 Alternatively, you can create a staging instance that reflects your production configuration by restoring a backup of your production instance to the staging instance.
 
 1. [Back up your production instance](#1-back-up-your-production-instance).
-2. [Set up a staging instance](#2-set-up-a-staging-instance).
-3. [Configure {% data variables.product.prodname_actions %}](#3-configure-github-actions).
-4. [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
-5. [Restore your production backup](#5-restore-your-production-backup).
-6. [Review the instance's configuration](#6-review-the-instances-configuration).
-7. [Apply the instance's configuration](#7-apply-the-instances-configuration).
+1. [Set up a staging instance](#2-set-up-a-staging-instance).
+1. [Configure {% data variables.product.prodname_actions %}](#3-configure-github-actions).
+1. [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
+1. [Restore your production backup](#5-restore-your-production-backup).
+1. [Review the instance's configuration](#6-review-the-instances-configuration).
+1. [Apply the instance's configuration](#7-apply-the-instances-configuration).
 
 ### 1. Back up your production instance
 
@@ -68,7 +68,7 @@ If you plan to restore a backup of your production instance, continue to the nex
 
 ### 3. Configure {% data variables.product.prodname_actions %}
 
-Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[4. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
+Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to "[1. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages)."
 
 {% warning %}
 
@@ -78,17 +78,17 @@ Optionally, if you use {% data variables.product.prodname_actions %} on your pro
 
 {% data reusables.enterprise_installation.ssh-into-staging-instance %}
 1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-{% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
+   {% data reusables.actions.configure-storage-provider-platform-commands %}
 {% data reusables.actions.configure-storage-provider %}
 1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.actions.enabled true
    ```
 
 ### 4. Configure {% data variables.product.prodname_registry %}
 
-Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to "[5. Restore your production backup](#5-restore-your-production-backup)."
+Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to "[1. Restore your production backup](#5-restore-your-production-backup)."
 
 {% warning %}
 
@@ -103,23 +103,25 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
 1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
    - Azure Blob Storage:
 
-     ```shell{:copy}
+     ```shell copy
      ghe-config secrets.packages.blob-storage-type "azure"
      ghe-config secrets.packages.azure-container-name "AZURE CONTAINER NAME"
      ghe-config secrets.packages.azure-connection-string "CONNECTION STRING"
      ```
+
    - Amazon S3:
 
-     ```shell{:copy}
+     ```shell copy
      ghe-config secrets.packages.blob-storage-type "s3"
      ghe-config secrets.packages.service-url "S3 SERVICE URL"
      ghe-config secrets.packages.s3-bucket "S3 BUCKET NAME"
      ghe-config secrets.packages.aws-access-key "S3 ACCESS KEY ID"
      ghe-config secrets.packages.aws-secret-key "S3 ACCESS SECRET"
      ```
+
 1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.packages.enabled true
    ```
 

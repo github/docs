@@ -35,7 +35,7 @@ you want it to be.
 Once you've found a place to put some fixture content, before writing
 a `jest` test, you can preview your changes using:
 
-```sh
+```shell
 npm run fixture-dev
 ```
 
@@ -52,15 +52,15 @@ about end-to-end testing a new custom Liquid tag called
 
 To run the tests use:
 
-```sh
+```shell
 ROOT=tests/fixtures jest tests/rendering-fixtures/
 ```
 
 ### Exceptions
 
-The top-level product names in the fixture content needs to be a pefect
+The top-level product names in the fixture content needs to be a perfect
 subset of the product names in the real content. That's because they
-get compiled in to the Next rewrite functionalty so we can support
+get compiled in to the Next rewrite functionality so we can support
 URLs that actually are `free-pro-team@latest` without mentioning it in
 the URL.
 
@@ -72,7 +72,7 @@ so its translation repos copies can be translated.
 There's a script you can always run that makes sure all and any of these
 files are up to do:
 
-```sh
+```shell
 ./script/copy-fixture-data.js
 ```
 

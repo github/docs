@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
@@ -48,7 +46,7 @@ redirect_from:
 
 Your migration source is an organization on {% data variables.product.prodname_dotcom_the_website %}.
 
-#### `createMigrationSource` mutation
+### `createMigrationSource` mutation
 
 ```graphql
 mutation createMigrationSource($name: String!, $ownerId: ID!) {
@@ -67,7 +65,7 @@ mutation createMigrationSource($name: String!, $ownerId: ID!) {
 
 {% data reusables.enterprise-migration-tool.createMigrationSource-table-ec %}
 
-#### `createMigrationSource` response
+### `createMigrationSource` response
 
 ```json
 {
@@ -90,7 +88,7 @@ In this example, `MS_kgDaACQxYmYxOWU4Yi0wNzZmLTQ3NTMtOTdkZC1hNGUzZmYxN2U2YzA` is
 
 {% data reusables.enterprise-migration-tool.start-repository-migration-ec %}
 
-#### `startRepositoryMigration` mutation
+### `startRepositoryMigration` mutation
 
 ```graphql
 mutation startRepositoryMigration (
@@ -173,7 +171,7 @@ If you want to migrate a single repository, skip to the next step.
 
 {% data reusables.enterprise-migration-tool.gh-gei-generate-script %}
 
-```shell{:copy}
+```shell copy
 gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATION --output FILENAME
 ```
 
@@ -184,6 +182,8 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 ### Reviewing the migration script
 
 {% data reusables.enterprise-migration-tool.review-migration-script %}
+
+{% data reusables.enterprise-migration-tool.skip-releases %}
 
 ## Step 5: Migrate repositories
 
@@ -197,9 +197,10 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 
 {% data reusables.enterprise-migration-tool.gei-migrate-repo %}
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME
 ```
+
 {% data reusables.enterprise-migration-tool.skip-releases %}
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}

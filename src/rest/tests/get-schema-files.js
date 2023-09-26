@@ -1,10 +1,10 @@
 import { describe, expect } from '@jest/globals'
 
 import { getOpenApiSchemaFiles } from '../scripts/utils/sync.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 const supportedReleases = Object.keys(allVersions).map(
-  (version) => allVersions[version].openApiVersionName
+  (version) => allVersions[version].openApiVersionName,
 )
 describe('rest data files are generated correctly from dereferenced openapi files', () => {
   test('rest schema list should include calendar date versions', async () => {

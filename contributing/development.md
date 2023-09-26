@@ -12,7 +12,7 @@ You'll need Node.js to run the site. Check the version in `package.json`. To ins
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
 
-```sh
+```shell
 git clone https://github.com/github/docs
 cd docs
 npm ci
@@ -44,7 +44,7 @@ The [`script/bookmarklets`](../script/bookmarklets) directory contains some brow
 
 By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
 
-The supported language codes are defined in [lib/languages.js](../lib/languages.js).
+The supported language codes are defined in [lib/languages.js](#src/languages/lib/languages.js).
 
 ## Site structure
 

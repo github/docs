@@ -34,7 +34,7 @@ You can see which branch a commit is on by looking at the labels beneath the com
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
 {% data reusables.repositories.navigate-to-commit %}
-2. To see what branch the commit is on, check the label below the commit message.
+1. To see what branch the commit is on, check the label below the commit message.
 
    ![Screenshot of a commit summary. A branch icon and "main" are highlighted with an orange outline.](/assets/images/help/commits/commit-branch-indicator.png)
 
@@ -55,16 +55,17 @@ You can use the file tree to navigate between files in a commit.
 {% data reusables.repositories.navigate-to-commit %}
 1. Click on a file in the file tree to view the corresponding file diff. If the file tree is hidden, click {% octicon "sidebar-collapse" aria-label="The sidebar collapse icon" %} to display the file tree.
 
-  {% note %}
+   {% note %}
 
-  **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
+   **Note**: The file tree will not display if your screen width is too narrow or if the commit only includes one file.
 
-  {% endnote %}
+   {% endnote %}
 
-  ![Screenshot of the "Files changed" tab of a pull request. In the left sidebar, the file tree is outlined in dark orange.](/assets/images/help/repository/file-tree.png)
+   ![Screenshot of the "Files changed" tab of a pull request. In the left sidebar, the file tree is outlined in dark orange.](/assets/images/help/repository/file-tree.png)
 1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box.
 
 {% endif %}
 
 ## Further reading
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#about-commits)" on {% data variables.product.prodname_desktop %}
+
+- "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#about-commits)" on {% data variables.product.prodname_desktop %}

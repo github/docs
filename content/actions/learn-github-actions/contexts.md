@@ -14,8 +14,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About contexts
@@ -59,7 +58,29 @@ If you attempt to dereference a non-existent property, it will evaluate to an em
 
 ### Determining when to use contexts
 
-{% data reusables.actions.using-context-or-environment-variables %}
+{% data variables.product.prodname_actions %} includes a collection of variables called _contexts_ and a similar collection of variables called _default variables_. These variables are intended for use at different points in the workflow:
+
+- **Default environment variables:** These environment variables exist only on the runner that is executing your job. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
+- **Contexts:** You can use most contexts at any point in your workflow, including when _default variables_ would be unavailable. For example, you can use contexts with expressions to perform initial processing before the job is routed to a runner for execution; this allows you to use a context with the conditional `if` keyword to determine whether a step should run. Once the job is running, you can also retrieve context variables from the runner that is executing the job, such as `runner.os`. For details of where you can use various contexts within a workflow, see "[Context availability](#context-availability)."
+
+The following example demonstrates how these different types of variables can be used together in a job:
+
+{% raw %}
+
+```yaml
+name: CI
+on: push
+jobs:
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
+```
+
+{% endraw %}
+
+In this example, the `if` statement checks the [`github.ref`](/actions/learn-github-actions/contexts#github-context) context to determine the current branch name; if the name is `refs/heads/main`, then the subsequent steps are executed. The `if` check is processed by {% data variables.product.prodname_actions %}, and the job is only sent to the runner if the result is `true`. Once the job is sent to the runner, the step is executed and refers to the [`$GITHUB_REF`](/actions/learn-github-actions/variables#default-environment-variables) variable from the runner.
 
 ### Context availability
 
@@ -77,9 +98,10 @@ The following table indicates where each context and special function can be use
 | <code>concurrency</code> | <code>github, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
 | <code>env</code> | <code>github, secrets, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs{% ifversion actions-configuration-variables %}, vars{% endif %}</code> | None |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
+| <code>jobs.&lt;job_id&gt;.container.image</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, {% ifversion actions-configuration-variables %}vars, {% endif %}matrix, inputs</code> | None |
 | <code>jobs.&lt;job_id&gt;.defaults.run</code> | <code>github, needs, strategy, matrix, env, {% ifversion actions-configuration-variables %}vars, {% endif %}inputs</code> | None |
 | <code>jobs.&lt;job_id&gt;.env</code> | <code>github, needs, strategy, matrix, {% ifversion actions-configuration-variables %}vars, {% endif %}secrets, inputs</code> | None |
@@ -114,7 +136,8 @@ You can print the contents of contexts to the log for debugging. The [`toJSON` f
 {% data reusables.actions.github-context-warning %}
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 name: Context testing
 on: push
 
@@ -123,19 +146,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
-        run: echo '${{ toJSON(job) }}'
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
       - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
 ```
+
 {% endraw %}
 
 ## `github` context
@@ -186,10 +221,8 @@ The `github` context contains information about the workflow run and the event t
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
 | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
-{%- endif %}
-| `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`, `Dependabot`, or `Codespaces`. |
+| `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`{% ifversion fpt or ghec %}, `Codespaces`{% endif %}, or `Dependabot`. |
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."  <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |{% ifversion actions-stable-actor-ids %}
@@ -249,7 +282,7 @@ The following example context is from a workflow run triggered by the `push` eve
 
 This example workflow uses the `github.event_name` context to run a job only if the workflow run was triggered by the `pull_request` event.
 
-```yaml{:copy}
+```yaml copy
 name: Run CI
 on: [push, pull_request]
 
@@ -272,9 +305,9 @@ jobs:
 
 ## `env` context
 
-The `env` context contains variables that have been set in a workflow, job, or step. For more information about setting variables in your workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#env)."
+The `env` context contains variables that have been set in a workflow, job, or step. It does not contain variables inherited by the runner process. For more information about setting variables in your workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#env)."
 
-The `env` context syntax allows you to use the value of a variable in your workflow file. You can use the `env` context in the value of any key in a step except for the `id` and `uses` keys. For more information on the step syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+You can retrieve the values of variables stored in `env` context and use these values in your workflow file. You can use the `env` context in any key in a workflow step except for the `id` and `uses` keys. For more information on the step syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 
 If you want to use the value of a variable inside a runner, use the runner operating system's normal method for reading environment variables.
 
@@ -285,7 +318,7 @@ If you want to use the value of a variable inside a runner, use the runner opera
 
 ### Example contents of the `env` context
 
-The contents of the `env` context is a mapping of variable names to their values. The context's contents can change depending on where it is used in the workflow run.
+The contents of the `env` context is a mapping of variable names to their values. The context's contents can change depending on where it is used in the workflow run. In this example, the `env` context contains two variables.
 
 ```json
 {
@@ -296,12 +329,13 @@ The contents of the `env` context is a mapping of variable names to their values
 
 ### Example usage of the `env` context
 
-This example workflow shows how the `env` context can be configured at the workflow, job, and step levels, as well as using the context in steps.
+This example workflow shows variables being set in the `env` context at the workflow, job, and step levels. The `{% raw %}${{ env.VARIABLE-NAME }}{% endraw %}` syntax is then used to retrieve variable values within individual steps in the workflow.
 
 {% data reusables.repositories.actions-env-var-note %}
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 name: Hi Mascot
 on: push
 env:
@@ -323,6 +357,7 @@ jobs:
     steps:
       - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
 ```
+
 {% endraw %}
 
 {% ifversion actions-configuration-variables %}
@@ -393,7 +428,7 @@ This example `job` context uses a PostgreSQL service container with mapped ports
 
 This example workflow configures a PostgreSQL service container, and automatically maps port 5432 in the service container to a randomly chosen available port on the host. The `job` context is used to access the number of the port that was assigned on the host.
 
-```yaml{:copy}
+```yaml copy
 name: PostgreSQL Service Example
 on: push
 jobs:
@@ -447,7 +482,8 @@ This example `jobs` context contains the result and outputs of a job from a reus
 This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 name: Reusable workflow
 
 on:
@@ -483,6 +519,7 @@ jobs:
         run: echo "::set-output name=secondword::world"
 {%- endif %}{% raw %}
 ```
+
 {% endraw %}
 
 ## `steps` context
@@ -522,7 +559,7 @@ This example `steps` context shows two previous steps that had an [`id`](/action
 
 This example workflow generates a random number as an output in one step, and a later step uses the `steps` context to read the value of that output.
 
-```yaml{:copy}
+```yaml copy
 name: Generate random failure
 on: push
 jobs:
@@ -584,7 +621,7 @@ The following example context is from a Linux {% data variables.product.prodname
 
 This example workflow uses the `runner` context to set the path to the temporary directory to write logs, and if the workflow fails, it uploads those logs as artifact.
 
-```yaml{:copy}
+```yaml copy
 name: Build
 on: push
 
@@ -607,7 +644,7 @@ jobs:
 
 ## `secrets` context
 
-The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions due to security reasons. If you want to pass a secret to a composite action, you need to do it explicitly as an input. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions due to security reasons. If you want to pass a secret to a composite action, you need to do it explicitly as an input. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 `GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
@@ -664,7 +701,7 @@ The following example contents of the `strategy` context is from a matrix with f
 
 This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
 
-```yaml{:copy}
+```yaml copy
 name: Test matrix
 on: push
 
@@ -711,7 +748,7 @@ The following example contents of the `matrix` context is from a job in a matrix
 
 This example workflow creates a matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
 
-```yaml{:copy}
+```yaml copy
 name: Test matrix
 on: push
 
@@ -768,7 +805,7 @@ The following example contents of the `needs` context shows information for two 
 
 This example workflow has three jobs: a `build` job that does a build, a `deploy` job that requires the `build` job, and a `debug` job that requires both the `build` and `deploy` jobs and runs only if there is a failure in the workflow. The `deploy` job also uses the `needs` context to access an output from the `build` job.
 
-```yaml{:copy}
+```yaml copy
 name: Build and deploy
 on: push
 
@@ -802,13 +839,12 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
+
 ## `inputs` context
 
 The `inputs` context contains input properties passed to an action{% ifversion actions-unified-inputs %},{% else %} or{% endif %} to a reusable workflow{% ifversion actions-unified-inputs %}, or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/using-workflows/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
 
 The properties in the `inputs` context are defined in the workflow file. They are only available in a [reusable workflow](/actions/using-workflows/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch){% endif %}
-
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -832,7 +868,8 @@ The following example contents of the `inputs` context is from a workflow that h
 This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 name: Reusable deploy workflow
 on:
   workflow_call:
@@ -855,15 +892,18 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
+
 {% endraw %}
 
 {% ifversion actions-unified-inputs %}
+
 ### Example usage of the `inputs` context in a manually triggered workflow
 
 This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 on:
   workflow_dispatch:
     inputs:
@@ -885,5 +925,6 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
+
 {% endraw %}
 {% endif %}

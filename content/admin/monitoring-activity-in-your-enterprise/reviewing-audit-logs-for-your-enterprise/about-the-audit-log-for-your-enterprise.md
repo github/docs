@@ -52,6 +52,7 @@ As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you
 For a full list of audit log actions that may appear in your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 ## Further reading
+
 - "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
 {%- ifversion ghes %}
 - "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)"

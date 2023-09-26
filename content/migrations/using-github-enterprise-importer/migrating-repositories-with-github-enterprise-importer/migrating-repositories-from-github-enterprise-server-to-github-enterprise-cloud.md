@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
@@ -25,9 +23,9 @@ If you choose to use the API, you'll need to write your own scripts or use an HT
 To migrate your repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} with the APIs, you will:
 
 1. Create a {% data variables.product.pat_generic %} for both the source and destination organization
-2. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
-3. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
-4. For each repository you want to migrate, repeat these steps.
+1. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
+1. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
+1. For each repository you want to migrate, repeat these steps.
    - Use the REST API on {% data variables.location.product_location_enterprise %} to generate migration archives for your repository
    - Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom_the_website %}
    - Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom_the_website %}, passing in your archive URLs
@@ -102,7 +100,7 @@ Blob storage is required to migrate repositories with large Git source or metada
 
 Your migration source is your organization on {% data variables.product.prodname_ghe_server %}.
 
-#### `createMigrationSource` mutation
+### `createMigrationSource` mutation
 
 ```graphql
 mutation createMigrationSource($name: String!, $url: String!, $ownerId: ID!) {
@@ -122,7 +120,7 @@ mutation createMigrationSource($name: String!, $url: String!, $ownerId: ID!) {
 {% data reusables.enterprise-migration-tool.createMigrationSource-table-ec %}
 | `url` | The URL for {% data variables.location.product_location_enterprise %}. This URL does not need to be accessible from {% data variables.product.prodname_ghe_cloud %}.
 
-#### `createMigrationSource` response
+### `createMigrationSource` response
 
 ```json
 {
@@ -184,7 +182,7 @@ HTTP/1.1 201 Created
 }
 ```
 
-For more information, see "[Start an organization migration]({% ifversion ghes < 3.4 %}/enterprise-server@3.4{% endif %}/rest/migrations/orgs#start-an-organization-migration)" in the REST API documentation.
+For more information, see "[Start an organization migration](/rest/migrations/orgs#start-an-organization-migration)" in the REST API documentation.
 
 Generating the archives can take a while, depending on the amount of data. You can regularly check the status of the two migrations with the "Get an organization migration status" API until the `state` of the migration changes to `exported`.
 
@@ -204,7 +202,7 @@ Content-Type: application/json
 }
 ```
 
-For more information, see "[Get an organization migration status]({% ifversion ghes < 3.4 %}/enterprise-server@3.4{% endif %}/rest/migrations/orgs#get-an-organization-migration-status)" in the REST API documentation.
+For more information, see "[Get an organization migration status](/rest/migrations/orgs#get-an-organization-migration-status)" in the REST API documentation.
 
 {% note %}
 
@@ -228,7 +226,7 @@ Location: https://media.github.acmecorp.net/migrations/123/archive/cca2ebe9-7403
 
 The API will return a `302 Found` response with a `Location` header redirecting to the URL where the downloadable archive is located. Download the two files: one for the Git source, and one for the metadata.
 
-For more information, see "[Download an organization migration archive]({% ifversion ghes < 3.4 %}/enterprise-server@3.4{% endif %}/rest/migrations/orgs#download-an-organization-migration-archive)" in the REST API documentation.
+For more information, see "[Download an organization migration archive](/rest/migrations/orgs#download-an-organization-migration-archive)" in the REST API documentation.
 
 After both migrations have completed and you have downloaded the archives, you can move to the next step.
 
@@ -246,7 +244,7 @@ You may need to allowlist {% data variables.product.company_short %}'s IP ranges
 
 {% data reusables.enterprise-migration-tool.start-repository-migration-ec %}
 
-#### `startRepositoryMigration` mutation
+### `startRepositoryMigration` mutation
 
 ```graphql
 mutation startRepositoryMigration (
@@ -392,7 +390,7 @@ If you want to migrate a single repository, skip to the next step.
 
 For {% data variables.product.prodname_ghe_server %} 3.8 or later, or if you're using 3.7 or lower with Azure Blob Storage, use the following flags:
 
-```shell{:copy}
+```shell copy
 gh gei generate-script --github-source-org SOURCE \
   --github-target-org DESTINATION \
   --output FILENAME \
@@ -401,7 +399,7 @@ gh gei generate-script --github-source-org SOURCE \
 
 If you're using {% data variables.product.prodname_ghe_server %} 3.7 or lower with AWS S3, use the following flags:
 
-```shell{:copy}
+```shell copy
 gh gei generate-script --github-source-org SOURCE \
   --github-target-org DESTINATION \
   --output FILENAME \
@@ -421,6 +419,8 @@ gh gei generate-script --github-source-org SOURCE \
 
 {% data reusables.enterprise-migration-tool.review-migration-script %}
 
+{% data reusables.enterprise-migration-tool.skip-releases %}
+
 ## Step 6: Migrate repositories
 
 {% data reusables.enterprise-migration-tool.migrate-repos-gei %}
@@ -428,9 +428,9 @@ gh gei generate-script --github-source-org SOURCE \
 When you migrate repositories, the {% data variables.product.prodname_gei_cli %} performs the following steps:
 
 1. Connects to {% data variables.location.product_location_enterprise %} and generates two migration archives per repository, one for the Git source and one for the metadata
-2. Uploads the migration archives to the blob storage provider of your choice
-3. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
-4. Deletes the migration archive
+1. Uploads the migration archives to the blob storage provider of your choice
+1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
+1. Deletes the migration archive from your local machine
 
 ### Migrate multiple repositories
 
@@ -455,20 +455,20 @@ If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or
 
 If you're using {% data variables.product.prodname_ghe_server %} 3.8 or later, use the following flags:
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME --ghes-api-url GHES-API-URL
 ```
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Azure Blob Storage as your blob storage provider, use the following flags to authenticate:
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
     --ghes-api-url GHES-API-URL --azure-storage-connection-string "AZURE_STORAGE_CONNECTION_STRING"
 ```
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Amazon S3 as your blob storage provider, use the following flags to authenticate:
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
     --ghes-api-url GHES-API-URL --aws-bucket-name "AWS-BUCKET-NAME"
 ```

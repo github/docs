@@ -1,0 +1,1 @@
+After receiving and processing a Prompt, the AI-model generates one or more lines of proposed text known as Suggestions. These Suggestions are then transmitted back to the {% data variables.product.prodname_copilot %} extension.

@@ -8,8 +8,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-write %}
@@ -21,4 +20,4 @@ versions:
 
    ![Screenshot of a list of workflow runs. To the right of a run, an icon of three horizontal dots is highlighted with an orange outline.](/assets/images/help/settings/workflow-delete-run.png)
 
-2. Review the confirmation prompt and click **Yes, permanently delete this workflow run**.
+1. Review the confirmation prompt and click **Yes, permanently delete this workflow run**.

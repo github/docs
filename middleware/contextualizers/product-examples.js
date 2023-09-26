@@ -25,12 +25,12 @@ export default async function productExamples(req, res, next) {
   req.context.productCommunityExamples = getProductExampleData(
     currentProduct,
     'community-examples',
-    currentLanguage
+    currentLanguage,
   )
   req.context.productUserExamples = getProductExampleData(
     currentProduct,
     'user-examples',
-    currentLanguage
+    currentLanguage,
   )
 
   return next()

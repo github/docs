@@ -12,11 +12,13 @@ topics:
   - Projects
 ---
 ## Introduction
+
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion fpt or ghec %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion issue-forms %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
 
 ## Creating a repository
+
 When starting a new project, initiative, or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 
 You can set up repositories for different purposes based on your needs. The following are some common use cases:
@@ -29,11 +31,15 @@ You can set up repositories for different purposes based on your needs. The foll
 You can create multiple, separate repositories if you want different access permissions for the source code and for tracking issues and discussions. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-an-issues-only-repository)."
 
 For the following examples in this guide, we will be using an example repository called Project Octocat.
+
 ## Communicating repository information
+
 You can create a README.md file for your repository to introduce your team or project and communicate important information about it. A README is often the first item a visitor to your repository will see, so you can also provide information on how users or contributors can get started with the project and how to contact the team. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
 You can also create a CONTRIBUTING.md file specifically to contain guidelines on how users or contributors can contribute and interact with the team or project, such as how to open a bug fix issue or request an improvement. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+
 ### README example
+
 We can create a README.md to introduce our new project, Project Octocat.
 
 ![Screenshot of the README.md file for the octo-org/project-octocat repository, with details about the project and how to contact the team.](/assets/images/help/issues/quickstart-creating-readme.png)
@@ -47,9 +53,10 @@ You can use issues to track the different types of work that your cross-function
 - Feature requests: Your team or users can create issues to request an improvement to your product or project.
 - Bugs: Your team or users can create issues to report a bug.
 
-Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion fpt or ghec %}and forms{% endif %} for your repository. Issue templates {% ifversion fpt or ghec %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion issue-forms %}and forms{% endif %} for your repository. Issue templates {% ifversion issue-forms %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
 ### Issue template example
+
 Below we are creating an issue template for reporting a bug in Project Octocat.
 
 ![Screenshot of the form to create a new issue template. The fields are completed to create a template named "Bug report for Project Octocat."](/assets/images/help/issues/quickstart-creating-issue-template.png)
@@ -68,6 +75,8 @@ Here is an example of an issue created for a large initiative, front-end work, i
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body includes a list of tasks to complete.](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 
+{% ifversion task-lists-v1 %}
+
 ### Task list example
 
 You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
@@ -75,6 +84,7 @@ You can use task lists to break larger issues down into smaller tasks and to tra
 Below we have added a task list to our Project Octocat issue, breaking it down into smaller issues.
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body contains a task list, with a checkbox preceding each issue link.](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
+{% endif %}
 
 ## Making decisions as a team
 
@@ -138,8 +148,8 @@ You have now learned about the tools {% data variables.product.prodname_dotcom %
 - "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories)" for learning more about creating repositories
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues)" for learning more about different ways to create and manage issues
 - "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)" for learning more about issue templates
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels
-- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)" for learning more about task lists
+- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)" for learning how to create, edit and delete labels{% ifversion task-lists-v1 %}
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)" for learning more about task lists{% endif %}
 {% ifversion projects-v2 %} - "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" for learning more about projects
 - "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)" for learning how to customize views for projects{% endif %}
 {% ifversion projects-v1 %}- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" for learning how to manage project boards{% endif %}

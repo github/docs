@@ -13,8 +13,7 @@ versions:
 type: tutorial
 shortTitle: Use runners in a workflow
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
@@ -37,9 +36,28 @@ To specify a self-hosted runner group for your job, configure `runs-on.group` in
 
 For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
 
-{% ifversion fpt %}
-{% data reusables.actions.runner-groups-ent-note %}
 {% endif %}
+
+{% ifversion repository-actions-runners %}
+
+## Viewing available runners for a repository
+
+{% note %}
+
+**Note:** This feature is currently in beta and subject to change.
+
+{% endnote %}
+
+{% data reusables.actions.about-viewing-runner-list %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.repository-runners %}
+1. Click the **Self hosted** tab at the top of the list of runners.
+1. Review the list of available self-hosted runners for the repository. This list includes both self-hosted runners and runner scale sets created with {% data variables.product.prodname_actions_runner_controller %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+{% data reusables.actions.copy-runner-label %}
+
+{% data reusables.actions.actions-tab-new-runners-note %}
 
 {% endif %}
 
@@ -47,9 +65,9 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 
 A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
 
-* `self-hosted`: Default label applied to all self-hosted runners.
-* `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+- `self-hosted`: Default label applied to all self-hosted runners.
+- `linux`, `windows`, or `macOS`: Applied depending on operating system.
+- `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
 

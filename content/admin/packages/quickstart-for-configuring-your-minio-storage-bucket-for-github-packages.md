@@ -33,46 +33,52 @@ For more information about your options, see the official [MinIO docs](https://d
 1. Set up your preferred environment variables for MinIO.
 
     These examples use `MINIO_DIR`:
-    ```shell
-    $ export MINIO_DIR=$(pwd)/minio
-    $ mkdir -p $MINIO_DIR
-    ```
-
-2. Install MinIO.
 
     ```shell
-    $ docker pull minio/minio
+    export MINIO_DIR=$(pwd)/minio
+    mkdir -p $MINIO_DIR
     ```
+
+1. Install MinIO.
+
+    ```shell
+    docker pull minio/minio
+    ```
+
     For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
 
-3. Sign in to MinIO using your MinIO access key and secret.
+1. Sign in to MinIO using your MinIO access key and secret.
 
     {% linux %}
+
     ```shell
     $ export MINIO_ACCESS_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
     # this one is actually a secret, so careful
     $ export MINIO_SECRET_KEY=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
     ```
+
     {% endlinux %}
 
     {% mac %}
+
     ```shell
     $ export MINIO_ACCESS_KEY=$(cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
     # this one is actually a secret, so careful
     $ export MINIO_SECRET_KEY=$(cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
     ```
+
     {% endmac %}
 
     You can access your MinIO keys using the environment variables:
 
     ```shell
-    $ echo $MINIO_ACCESS_KEY
-    $ echo $MINIO_SECRET_KEY
+    echo $MINIO_ACCESS_KEY
+    echo $MINIO_SECRET_KEY
     ```
 
-4. Run MinIO in your chosen mode.
+1. Run MinIO in your chosen mode.
 
-   * Run MinIO using Docker on a single host:
+   - Run MinIO using Docker on a single host:
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -84,40 +90,40 @@ For more information about your options, see the official [MinIO docs](https://d
 
      For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
 
-   * Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
+   - Run MinIO using Docker as a cluster. This MinIO deployment uses several hosts and MinIO's erasure coding for the strongest data protection. To run MinIO in a cluster mode, see the "[Distributed MinIO Quickstart Guide](https://docs.min.io/docs/distributed-minio-quickstart-guide.html)."
 
 ## 3. Create your MinIO bucket for {% data variables.product.prodname_registry %}
 
 1. Install the MinIO client.
 
     ```shell
-    $ docker pull minio/mc
+    docker pull minio/mc
     ```
 
-2. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
+1. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
 
-   * Local deployments example:
+   - Local deployments example:
 
      ```shell
-     $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
-     $ docker run minio/mc BUCKET-NAME
+     export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
+     docker run minio/mc BUCKET-NAME
      ```
 
      This example can be used for MinIO standalone.
 
-   * Clustered deployments example:
+   - Clustered deployments example:
 
      ```shell
-     $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"
-     $ docker run minio/mc mb packages
+     export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"
+     docker run minio/mc mb packages
      ```
 
 ## Next steps
 
 To finish configuring storage for {% data variables.product.prodname_registry %}, you'll need to copy the MinIO storage URL:
 
-  ```
-  echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
-  ```
+```shell
+echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
+```
 
 For the next steps, see "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)."

@@ -43,11 +43,87 @@ Donations between sponsored developers will not be matched.
 
 {% data reusables.sponsors.legal-additional-terms %}
 
+## Supported regions for {% data variables.product.prodname_sponsors %}
+
+Anyone in any region can sponsor eligible maintainers, but you must reside in a supported region to receive funds.
+
+<ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
+<li>Argentina</li>
+<li>Australia</li>
+<li>Austria</li>
+<li>Belgium</li>
+<li>Bolivia</li>
+<li>Brazil</li>
+<li>Bulgaria</li>
+<li>Canada</li>
+<li>Chile</li>
+<li>Colombia</li>
+<li>Costa Rica</li>
+<li>Croatia</li>
+<li>Cyprus</li>
+<li>Czech Republic</li>
+<li>Denmark</li>
+<li>Dominican Republic</li>
+<li>Egypt</li>
+<li>Estonia</li>
+<li>Finland</li>
+<li>France</li>
+<li>Gambia</li>
+<li>Germany</li>
+<li>Gibraltar</li>
+<li>Greece</li>
+<li>Hong Kong SAR</li>
+<li>Hungary</li>
+<li>Iceland</li>
+<li>India</li>
+<li>Indonesia</li>
+<li>Ireland</li>
+<li>Israel</li>
+<li>Italy</li>
+<li>Japan</li>
+<li>Kenya</li>
+<li>Latvia</li>
+<li>Liechtenstein</li>
+<li>Lithuania</li>
+<li>Luxembourg</li>
+<li>Malta</li>
+<li>Mexico</li>
+<li>Morocco</li>
+<li>Netherlands</li>
+<li>New Zealand</li>
+<li>Norway</li>
+<li>Paraguay</li>
+<li>Peru</li>
+<li>Philippines</li>
+<li>Poland</li>
+<li>Portugal</li>
+<li>Romania</li>
+<li>Saudi Arabia</li>
+<li>Serbia</li>
+<li>Singapore</li>
+<li>Slovakia</li>
+<li>Slovenia</li>
+<li>South Africa</li>
+<li>South Korea</li>
+<li>Spain</li>
+<li>Sweden</li>
+<li>Switzerland</li>
+<li>Thailand</li>
+<li>Trinidad & Tobago</li>
+<li>Tunisia</li>
+<li>Turkey</li>
+<li>United Arab Emirates</li>
+<li>United Kingdom</li>
+<li>United States</li>
+<li>Uruguay</li>
+</ul>
+
 ## Sharing feedback about {% data variables.product.prodname_sponsors %}
 
 {% data reusables.sponsors.feedback %}
 
 ## Further reading
+
 - "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"
 - "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"
 - "[AUTOTITLE](/search-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"

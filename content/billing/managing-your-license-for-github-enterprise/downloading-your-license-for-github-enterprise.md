@@ -16,6 +16,12 @@ shortTitle: Download your license
 
 After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)."
 
+{% ifversion ghec %}
+
+{% data reusables.enterprise.invoiced-customer-to-access-ghes %}
+
+{% endif %}
+
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
 ## Downloading your license file
@@ -24,7 +30,7 @@ There are two possible ways to download a license file for {% data variables.pro
 
 1. If you are using a trial of {% data variables.product.prodname_ghe_server %}, if you do not have an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, or if you are not sure, you may be able to download your license file from the [{% data variables.product.prodname_enterprise %} website](https://enterprise.github.com/download).
 
-2. If you are an existing {% data variables.product.prodname_enterprise %} customer with an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, you can download your license file from {% data variables.product.prodname_dotcom_the_website %} using the following instructions.
+1. If you are an existing {% data variables.product.prodname_enterprise %} customer with an enterprise account on {% data variables.product.prodname_dotcom_the_website %}, you can download your license file from {% data variables.product.prodname_dotcom_the_website %} using the following instructions.
 
 If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}. For more information about enterprise accounts, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
 

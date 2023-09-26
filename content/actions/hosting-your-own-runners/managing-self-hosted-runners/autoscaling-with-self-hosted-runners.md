@@ -12,7 +12,6 @@ versions:
 type: overview
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About autoscaling
@@ -61,7 +60,11 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae %}
+{% ifversion actions-single-use-tokens %}
+
+Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
+
+{% endif %}
 
 ## Controlling runner software updates on self-hosted runners
 
@@ -84,8 +87,6 @@ For instructions on how to install the latest runner version, see the installati
 **Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
 
 {% endnote %}
-
-{% endif %}
 
 ## Using webhooks for autoscaling
 

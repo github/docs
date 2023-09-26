@@ -21,9 +21,9 @@ You can use the REST API to deploy your projects hosted on {% data variables.pro
 This guide will use the REST API to demonstrate a setup that you can use.
 In our scenario, we will:
 
-* Merge a pull request.
-* When the CI is finished, we'll set the pull request's status accordingly.
-* When the pull request is merged, we'll run our deployment to our server.
+- Merge a pull request.
+- When the CI is finished, we'll set the pull request's status accordingly.
+- When the pull request is merged, we'll run our deployment to our server.
 
 Our CI system and host server will be figments of our imagination. They could be
 Heroku, Amazon, or something else entirely. The crux of this guide will be setting up
@@ -74,12 +74,12 @@ After that, you'll create a new webhook in your repository, feeding it the URL t
 Click **Update webhook**. You should see a body response of `Well, it worked!`.
 Great! Click on **Let me select individual events.**, and select the following:
 
-* Deployment
-* Deployment status
-* Pull Request
+- Deployment
+- Deployment status
+- Pull Request
 
 These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
-occurs. We'll configure our server to *just* handle when pull requests are merged
+occurs. We'll configure our server to _just_ handle when pull requests are merged
 right now:
 
 ``` ruby
@@ -181,23 +181,23 @@ At GitHub, we've used a version of [Heaven][heaven] to manage
 our deployments for years. A common flow is essentially the same as the
 server we've built above:
 
-* Wait for a response on the state of the CI checks (success or failure)
-* If the required checks succeed, merge the pull request
-* Heaven takes the merged code, and deploys it to staging and production servers
-* In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
+- Wait for a response on the state of the CI checks (success or failure)
+- If the required checks succeed, merge the pull request
+- Heaven takes the merged code, and deploys it to staging and production servers
+- In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
 
 That's it! You don't need to build your own deployment setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /rest/reference/repos#deployments
-[status API]: /guides/building-a-ci-server
+[deploy API]: /rest/repos#deployments
+[status API]: /rest/guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
-[using ngrok]: /webhooks/configuring/#using-ngrok
+[using ngrok]: /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/delivering-deployments
 [Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
+[webhook]: /webhooks-and-events/webhooks/about-webhooks
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
+[access token]: /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 [travis api]: https://api.travis-ci.com/docs/
 [janky]: https://github.com/github/janky
 [heaven]: https://github.com/atmos/heaven

@@ -36,8 +36,8 @@ You can also customize your automated release notes, using labels to create cust
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type `.github/release.yml`. This will create a new file called `release.yml` in the `.github` directory.
-4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
+1. In the file name field, type `.github/release.yml`. This will create a new file called `release.yml` in the `.github` directory.
+1. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
 
 ### Configuration options
 
@@ -55,7 +55,8 @@ You can also customize your automated release notes, using labels to create cust
 A configuration for a repository that labels semver releases
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 # .github/release.yml
 
 changelog:
@@ -77,12 +78,14 @@ changelog:
       labels:
         - "*"
 ```
+
 {% endraw %}
 
 A configuration for a repository that doesn't tag pull requests but where we want to separate out {% data variables.product.prodname_dependabot %} automated pull requests in release notes (`labels: '*'` is required to display a catchall category)
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 # .github/release.yml
 
 changelog:
@@ -97,6 +100,7 @@ changelog:
       labels:
         - dependencies
 ```
+
 {% endraw %}
 
 ## Further reading

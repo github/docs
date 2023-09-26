@@ -28,7 +28,7 @@ topics:
 
 To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
-If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop)."
+If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)."
 
 If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
@@ -42,12 +42,12 @@ If you do not need to work with files locally, {% data variables.product.product
 1. [Download and install the latest version of Git](https://git-scm.com/downloads).
 
    {% note %}
-   
+
    **Note**: If you are using a Chrome OS device, additional setup is required:
-   
+
    1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-   1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted. 
-   
+   1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
+
    {% endnote %}
 
 1. [Set your username in Git](/get-started/getting-started-with-git/setting-your-username-in-git).
@@ -73,13 +73,12 @@ If you clone with SSH, you must generate SSH keys on each computer you use to pu
 
 ## Next steps
 
-You now have Git and {% data variables.product.prodname_dotcom %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world. 
+You now have Git and {% data variables.product.prodname_dotcom %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world.
 
-* {% data reusables.getting-started.create-a-repository %}.
+- {% data reusables.getting-started.create-a-repository %}.
 
-* {% data reusables.getting-started.fork-a-repository %}
+- {% data reusables.getting-started.fork-a-repository %}
 
-* {% data reusables.getting-started.being-social %}
+- {% data reusables.getting-started.being-social %}
 
-
-* {% data reusables.support.connect-in-the-forum-bootcamp %}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
@@ -48,7 +46,7 @@ redirect_from:
 
 Your migration source is your ADO organization.
 
-#### `createMigrationSource` mutation
+### `createMigrationSource` mutation
 
 ```graphql
 mutation createMigrationSource($name: String!, $ownerId: ID!) {
@@ -67,7 +65,7 @@ mutation createMigrationSource($name: String!, $ownerId: ID!) {
 
 {% data reusables.enterprise-migration-tool.createMigrationSource-table-ec %}
 
-#### `createMigrationSource` response
+### `createMigrationSource` response
 
 ```json
 {
@@ -90,7 +88,7 @@ In this example, `MS_kgDaACQxYmYxOWU4Yi0wNzZmLTQ3NTMtOTdkZC1hNGUzZmYxN2U2YzA` is
 
 {% data reusables.enterprise-migration-tool.start-repository-migration-ec %}
 
-#### `startRepositoryMigration` mutation
+### `startRepositoryMigration` mutation
 
 ```graphql
 mutation startRepositoryMigration (
@@ -150,7 +148,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 1. Install the {% data variables.product.prodname_ado2gh_cli_short %}.
 
-   ```shell{:copy}
+   ```shell copy
    gh extension install github/gh-ado2gh
    ```
 
@@ -160,7 +158,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 
 The {% data variables.product.prodname_ado2gh_cli %} is updated weekly. {% data reusables.enterprise-migration-tool.update-your-extension %}
 
-```shell{:copy}
+```shell copy
 gh extension upgrade github/gh-ado2gh
 ```
 
@@ -173,14 +171,14 @@ Before you can use the {% data variables.product.prodname_ado2gh_cli_short %} to
 
    - If you're using Terminal, use the `export` command.
 
-      ```shell{:copy}
+      ```shell copy
       export GH_PAT="TOKEN"
      export ADO_PAT="TOKEN"
       ```
 
    - If you're using PowerShell, use the `$env` command.
 
-      ```shell{:copy}
+      ```shell copy
       $env:GH_PAT="TOKEN"
      $env:ADO_PAT="TOKEN"
       ```
@@ -195,7 +193,7 @@ If you want to migrate a single repository, skip to the next step.
 
 To generate a migration script, run the `gh ado2gh generate-script` command.
 
-```shell{:copy}
+```shell copy
 gh ado2gh generate-script --ado-org SOURCE --github-org DESTINATION --output FILENAME
 ```
 
@@ -224,11 +222,12 @@ You can migrate multiple repositories with a migration script or a single reposi
 
 To migrate a single repository, use the `gh ado2gh migrate-repo` command.
 
-```shell{:copy}
+```shell copy
 gh ado2gh migrate-repo --ado-org SOURCE --ado-team-project TEAM-PROJECT --ado-repo CURRENT-NAME --github-org DESTINATION --github-repo NEW-NAME
 ```
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
+TEAM-PROJECT | Name of the team project of the repository you want to migrate
 
 ## Step 6: Validate your migration and check the error log
 

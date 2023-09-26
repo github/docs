@@ -32,7 +32,7 @@ Wiki history includes:
 
 ## Viewing previous content
 
-On the wiki history table, you can click a [SHA-1 hash](http://en.wikipedia.org/wiki/SHA-1)
+On the wiki history table, you can click a [SHA-1 hash](https://en.wikipedia.org/wiki/SHA-1)
 (the sequence of letters and numbers to the far right) to see a wiki page as it
 existed at a particular point in time.
 

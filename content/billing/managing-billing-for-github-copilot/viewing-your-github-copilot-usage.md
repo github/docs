@@ -20,7 +20,9 @@ If an organization admin has assigned one or more seats partway through the curr
 The spending information will display the total spending for each organization for the current billing cycle. The total spending for the organization for the current cycle will usually be the number of seats assigned, multiplied by the cost per seat ($19 per seat per month). {% ifversion ghec %}However, if the same organization member is assigned a seat in multiple organizations, their seat usage will be reflected in each organization, but as the enterprise will only be charged once, their spending will only be reflected in the organization where they were first assigned a seat.{% endif %}
 
 ## Viewing your usage for {% data variables.product.prodname_copilot_for_business %}
+
 {% ifversion ghec %}
+
 ### At the enterprise-level
 
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -30,10 +32,11 @@ The spending information will display the total spending for each organization f
     - Under "Spending" you can view the total cost of {% data variables.product.prodname_copilot_for_business %} for the current billing cycle per organization.
 
 ### At the organization-level
+
 {% endif %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Under "{% data variables.product.prodname_copilot_short %}", view the breakdown of your {% data variables.product.prodname_copilot %} usage and upcoming changes in your organization.
 
-   ![Screenshot of the organization-level {% data variables.product.prodname_copilot %} seat usage page](/assets/images/help/copilot/org-level-seat-view.png)
+   ![Screenshot of the organization-level {% data variables.product.prodname_copilot %} seat usage page.](/assets/images/help/copilot/org-level-seat-view.png)

@@ -4,7 +4,7 @@
 
 To receive the `project_card` attribute, project boards must be [enabled](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository) for a repository, and you must provide a custom [media type](/rest/overview/media-types) in the `Accept` header:
 
-```
+```text
 application/vnd.github.starfox-preview+json
 ```
 

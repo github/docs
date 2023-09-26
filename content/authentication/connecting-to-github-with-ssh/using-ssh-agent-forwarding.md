@@ -41,14 +41,14 @@ We're off to a great start. Let's set up SSH to allow agent forwarding to your s
 
 1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
 
-2. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
+1. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
 
         Host example.com
           ForwardAgent yes
 
 {% warning %}
 
-**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with *every* server you SSH into. They won't have direct access to the keys, but they will be able to use them *as you* while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
+**Warning:** You may be tempted to use a wildcard like `Host *` to just apply this setting to all SSH connections. That's not really a good idea, as you'd be sharing your local SSH keys with _every_ server you SSH into. They won't have direct access to the keys, but they will be able to use them _as you_ while the connection is established. **You should only add servers you trust and that you intend to use with agent forwarding.**
 
 {% endwarning %}
 
@@ -148,7 +148,7 @@ ssh-add -L
 If the command says that no identity is available, you'll need to add your key:
 
 ```shell
-$ ssh-add YOUR-KEY
+ssh-add YOUR-KEY
 ```
 
 {% tip %}
@@ -156,14 +156,14 @@ $ ssh-add YOUR-KEY
 On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
 
 ```shell
-$ ssh-add --apple-use-keychain YOUR-KEY
+ssh-add --apple-use-keychain YOUR-KEY
 ```
-
-For MacOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% endtip %}
 
+{% data reusables.ssh.apple-use-keychain %}
+
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
-[generating-keys]: /articles/generating-ssh-keys
-[ssh-passphrases]: /ssh-key-passphrases/
-[autolaunch-ssh-agent]: /github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows
+[generating-keys]: /authentication/connecting-to-github-with-ssh
+[ssh-passphrases]: /authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
+[autolaunch-ssh-agent]: /authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows

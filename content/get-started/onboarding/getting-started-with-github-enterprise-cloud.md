@@ -23,23 +23,23 @@ The main difference between the products is that {% data variables.product.prodn
 
 To get started with {% data variables.product.prodname_ghe_cloud %}, create an enterprise account and add one or more organizations.
 
-#### 1. About enterprise accounts
+### 1. About enterprise accounts
 
 An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.prodname_dotcom %} organizations, including member access, billing and usage and security. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
 
-#### 2. Creating an enterprise account
+### 2. Creating an enterprise account
 
 To create your enterprise account, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)."
 
 {% data reusables.enterprise.ghec-cta-button %}
 
-#### 3. Adding organizations to your enterprise account
+### 3. Adding organizations to your enterprise account
 
 You can add any number of new or existing organizations to manage within your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
-#### 4. Viewing the subscription and usage for your enterprise account
+### 4. Viewing the subscription and usage for your enterprise account
 
-You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+You can view your current subscription, license usage, invoices, payment history, and other billing information for your enterprise account at any time. Both enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see  "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 ## Part 2: Managing your enterprise members with {% data variables.product.prodname_ghe_cloud %}
 
@@ -47,24 +47,24 @@ If your enterprise uses {% data variables.product.prodname_emus %}, your members
 
 If your enterprise does not use {% data variables.product.prodname_emus %}, follow the steps below.
 
-#### 1. Assigning roles in an enterprise
+### 1. Assigning roles in an enterprise
 
 By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 
-#### 2. Inviting people to manage your enterprise
+### 2. Inviting people to manage your enterprise
 
 You can invite people to manage your enterprise as enterprise owners or billing managers or remove administrators who no longer need access. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 You can also grant enterprise members the ability to manage support tickets in the support portal. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
-#### 3. Viewing people in your enterprise
+### 3. Viewing people in your enterprise
 
 To audit access to enterprise-owned resources or user license usage, you can view every enterprise administrator, enterprise member, and outside collaborator in your enterprise. You can see the organizations that a member belongs to and the specific repositories that an outside collaborator has access to. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
 
 ## Part 3: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
-* [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
-* [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
+- [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
+- [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
 
 ### Managing security with {% data variables.product.prodname_emus  %}
 
@@ -112,11 +112,11 @@ You can enable and manage team synchronization between an identity provider (IdP
 
 To manage and moderate your enterprise, you can set policies for organizations within the enterprise, view audit logs, configure webhooks, and restrict email notifications.
 
-#### 1. Managing policies for organizations in your enterprise account
+### 1. Managing policies for organizations in your enterprise account
 
 You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies)."
 
-#### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
+### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
 
 You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)" and "[AUTOTITLE](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)."
 

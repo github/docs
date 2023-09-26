@@ -30,25 +30,27 @@ Organizations can use the `name@organization.com` email as a public point of con
 ## Creating commits with an `on-behalf-of` badge on the command line
 
 1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
-  ```shell
-  $ git commit -m "Refactor usability tests.
-  >
-  >
-  ```
-  {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+   ```shell
+   $ git commit -m "Refactor usability tests.
+   >
+   >
+   ```
 
-  {% endtip %}
+   {% tip %}
 
-2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+   **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
 
-  ```shell
-  $ git commit -m "Refactor usability tests.
-  >
-  >
-  on-behalf-of: @ORG NAME@ORGANIZATION.COM"
-  ```
+   {% endtip %}
+
+1. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+
+   ```shell
+   $ git commit -m "Refactor usability tests.
+   >
+   >
+   on-behalf-of: @ORG NAME@ORGANIZATION.COM"
+   ```
 
 The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository)."
 

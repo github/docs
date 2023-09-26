@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 import { loadPageMap, loadPages } from '../../lib/page-data.js'
-import renderContent from '../../lib/render-content/index.js'
-import { allVersions } from '../../lib/all-versions.js'
+import { renderContent } from '#src/content-render/index.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 describe('toc links', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -10,7 +10,7 @@ describe('toc links', () => {
     const pageList = await loadPages()
 
     const englishIndexPages = pageList.filter(
-      (page) => page.languageCode === 'en' && page.relativePath.endsWith('index.md')
+      (page) => page.languageCode === 'en' && page.relativePath.endsWith('index.md'),
     )
     const pages = await loadPageMap(pageList)
 

@@ -35,14 +35,14 @@ Because client connections to {% data variables.product.prodname_ghe_server %} c
 
 ### Enabling PROXY protocol support on {% data variables.location.product_location %}
 
-We strongly recommend enabling PROXY protocol support for both your instance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+We strongly recommend enabling PROXY protocol support for both your instance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Under "External load balancers", select **Enable support for PROXY protocol**.
+1. Under "External load balancers", select **Enable support for PROXY protocol**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
@@ -60,7 +60,7 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Under **External load balancers**, select **Allow HTTP X-Forwarded-For header**.
+1. Under **External load balancers**, select **Allow HTTP X-Forwarded-For header**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}

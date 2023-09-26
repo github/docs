@@ -10,8 +10,7 @@ versions:
 redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About matrix strategies

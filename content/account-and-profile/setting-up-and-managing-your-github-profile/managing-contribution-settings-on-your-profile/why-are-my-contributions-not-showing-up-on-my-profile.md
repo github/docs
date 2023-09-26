@@ -29,6 +29,7 @@ If you are part of an organization that uses SAML single sign-on (SSO), you wonâ
 Issues, pull requests, and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
 ### Commits
+
 Commits will appear on your contributions graph if they meet **all** of the following conditions:
 - The email address used for the commits is associated with your account on {% data variables.location.product_location %}.
 - The commits were made in a standalone repository, not a fork.
@@ -60,7 +61,7 @@ You can check the email address used for a commit by adding `.patch` to the end 
 
 [https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch](https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch)
 
-```
+```text
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
 From: The Octocat <octocat@nowhere.com>
 Date: Sun, 27 Apr 2014 15:36:39 +0530

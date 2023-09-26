@@ -20,4 +20,3 @@ children:
   - /viewing-and-updating-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
 ---
-

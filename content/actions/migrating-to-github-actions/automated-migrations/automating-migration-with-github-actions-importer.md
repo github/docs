@@ -16,14 +16,13 @@ topics:
 shortTitle: 'Automate migration with {% data variables.product.prodname_actions_importer %}'
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 [Legal notice](#legal-notice)
 
 ## About {% data variables.product.prodname_actions_importer %}
 
-You can use {% data variables.product.prodname_actions_importer %} to plan and automatically migrate your CI/CD pipelines to {% data variables.product.prodname_actions %} from Azure DevOps, CircleCI, GitLab, Jenkins, and Travis CI.
+You can use {% data variables.product.prodname_actions_importer %} to plan and automatically migrate your CI/CD supported pipelines to {% data variables.product.prodname_actions %}.
 
 {% data variables.product.prodname_actions_importer %} is distributed as a Docker container, and uses a [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) extension to interact with the container.
 
@@ -34,6 +33,8 @@ Any workflow that is converted by the {% data variables.product.prodname_actions
 You can use {% data variables.product.prodname_actions_importer %} to migrate from the following platforms:
 
 - Azure DevOps
+- Bamboo
+- Bitbucket Pipelines
 - CircleCI
 - GitLab
 - Jenkins
@@ -54,7 +55,7 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 To ensure you're running the latest version of {% data variables.product.prodname_actions_importer %}, you should regularly run the `update` command:
 
 ```bash
-$ gh actions-importer update
+gh actions-importer update
 ```
 
 ### Authenticating at the command line
@@ -62,7 +63,7 @@ $ gh actions-importer update
 You must configure credentials that allow {% data variables.product.prodname_actions_importer %} to communicate with {% data variables.product.prodname_dotcom %} and your current CI server. You can configure these credentials using environment variables or a `.env.local` file. The environment variables can be configured in an interactive prompt, by running the following command:
 
 ```bash
-$ gh actions-importer configure
+gh actions-importer configure
 ```
 
 ## Using the {% data variables.product.prodname_actions_importer %} CLI
@@ -84,6 +85,7 @@ Description:
 
 Commands:
   azure-devops  An audit will output a list of data used in an Azure DevOps instance.
+  bamboo        An audit will output a list of data used in a Bamboo instance.
   circle-ci     An audit will output a list of data used in a CircleCI instance.
   gitlab        An audit will output a list of data used in a GitLab instance.
   jenkins       An audit will output a list of data used in a Jenkins instance.
@@ -105,6 +107,7 @@ Description:
 
 Commands:
   azure-devops  Forecasts GitHub Actions usage from historical Azure DevOps pipeline utilization.
+  bamboo        Forecasts GitHub Actions usage from historical Bamboo pipeline utilization.
   jenkins       Forecasts GitHub Actions usage from historical Jenkins pipeline utilization.
   gitlab        Forecasts GitHub Actions usage from historical GitLab pipeline utilization.
   circle-ci     Forecasts GitHub Actions usage from historical CircleCI pipeline utilization.
@@ -127,6 +130,7 @@ Description:
 
 Commands:
   azure-devops  Convert an Azure DevOps pipeline to a GitHub Actions workflow and output its yaml file.
+  bamboo        Convert a Bamboo pipeline to GitHub Actions workflows and output its yaml file.
   circle-ci     Convert a CircleCI pipeline to GitHub Actions workflows and output the yaml file(s).
   gitlab        Convert a GitLab pipeline to a GitHub Actions workflow and output the yaml file.
   jenkins       Convert a Jenkins job to a GitHub Actions workflow and output its yaml file.
@@ -148,6 +152,7 @@ Description:
 
 Commands:
   azure-devops  Convert an Azure DevOps pipeline to a GitHub Actions workflow and open a pull request with the changes.
+  bamboo        Convert a Bamboo pipeline to GitHub Actions workflows and open a pull request with the changes.
   circle-ci     Convert a CircleCI pipeline to GitHub Actions workflows and open a pull request with the changes.
   gitlab        Convert a GitLab pipeline to a GitHub Actions workflow and open a pull request with the changes.
   jenkins       Convert a Jenkins job to a GitHub Actions workflow and open a pull request with the changes.
@@ -162,7 +167,7 @@ For more information about setting up self-serve migrations with IssueOps, see t
 
 ## Using the {% data variables.product.prodname_actions_importer %} labs repository
 
-The {% data variables.product.prodname_actions_importer %} labs repository contains platform-specific learning paths that teach you how to use {% data variables.product.prodname_actions_importer %} and how to approach migrations to {% data variables.product.prodname_actions %}. You can use this repository to learn how to use {% data variables.product.prodname_actions_importer %} to help plan, forecast, and automate your migration to {% data variables.product.prodname_actions %}. 
+The {% data variables.product.prodname_actions_importer %} labs repository contains platform-specific learning paths that teach you how to use {% data variables.product.prodname_actions_importer %} and how to approach migrations to {% data variables.product.prodname_actions %}. You can use this repository to learn how to use {% data variables.product.prodname_actions_importer %} to help plan, forecast, and automate your migration to {% data variables.product.prodname_actions %}.
 
 To learn more, see the [GitHub Actions Importer labs repository](https://github.com/actions/importer-labs/tree/main#readme).
 

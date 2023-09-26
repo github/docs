@@ -5,7 +5,7 @@ import { describe } from '@jest/globals'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
-import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
+import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
 import getRest from '../lib/index.js'
 
 const schemasPath = 'src/rest/data'
@@ -71,7 +71,7 @@ describe('markdown for each rest version', () => {
     const filenames = (await fs.readdir(referenceDir))
       .filter(
         (filename) =>
-          !excludeFromResourceNameCheck.find((excludedFile) => filename.endsWith(excludedFile))
+          !excludeFromResourceNameCheck.find((excludedFile) => filename.endsWith(excludedFile)),
       )
       .map((filename) => filename.replace('.md', ''))
 
@@ -98,7 +98,7 @@ describe('OpenAPI schema validation', () => {
         // Because the rest calendar dates now have latest, next, or calendar date attached to the name, we're
         // now checking if the decorated file names now start with an openApiBaseName
         expect(
-          decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName))
+          decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName)),
         ).toBe(true)
       })
   })
@@ -122,7 +122,7 @@ describe('OpenAPI schema validation', () => {
           const operations = await getRest(version, apiVersion)
           expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
         }
-      })
+      }),
     )
   })
 })

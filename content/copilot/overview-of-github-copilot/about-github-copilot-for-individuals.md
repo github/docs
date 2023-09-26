@@ -12,11 +12,11 @@ redirect_from:
 
 ## About {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor. {% data variables.product.prodname_copilot %} is powered by OpenAI Codex, a new AI system created by OpenAI.
+{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor. {% data variables.product.prodname_copilot %} is powered by a generative AI model developed by {% data variables.product.prodname_dotcom %}, OpenAI, and Microsoft.
 
 {% data variables.product.prodname_copilot %} is trained on all languages that appear in public repositories. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language. For example, JavaScript is well-represented in public repositories and is one of {% data variables.product.prodname_copilot %}'s best supported languages. Languages with less representation in public repositories may produce fewer or less robust suggestions.
 
-{% data variables.product.prodname_copilot %} is available as an extension in Visual Studio Code, Visual Studio, Neovim and the JetBrains suite of IDEs. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot)."
+{% data reusables.copilot.supported-tools %}
 
 ### Understanding the differences between {% data variables.product.prodname_copilot_individuals_short %} and {% data variables.product.prodname_copilot_business_short %}
 
@@ -42,7 +42,62 @@ Verified students, teachers, and maintainers of popular open source projects on 
 
 {% data variables.product.prodname_dotcom %}, Inc. is the licensor of the JetBrains plugin. The end user license agreement for this plugin is the [{% data variables.product.prodname_dotcom %} Terms for Additional Products and Features](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot) and use of this plugin is subject to those terms. JetBrains has no responsibility or liability in connection with the plugin or such agreement. By using the plugin, you agree to the foregoing terms.
 
+## About privacy for {% data variables.product.prodname_copilot_for_individuals %}
+
+You have the ability to manage and make choices regarding the collection, retention, and processing of your data, allowing you to maintain control over your privacy while using {% data variables.product.prodname_copilot_for_individuals %}.
+
+### What data does {% data variables.product.prodname_copilot_for_individuals %} collect?
+
+{% data variables.product.prodname_copilot_for_individuals %} relies on file content and additional data to work. It collects data to provide the service, some of which is then retained for further analysis and product improvements. {% data variables.product.prodname_copilot %} processes the following data for individual users.
+
+### User Engagement Data
+
+When you use {% data variables.product.prodname_copilot %} it will collect usage information about events generated when interacting with the IDE or editor. These events include user edit actions like if Suggestions are accepted or dismissed, and error and general usage data to identify metrics like latency and features engagement. This information may include personal data, such as pseudonymous identifiers.
+
+#### Prompts
+
+A Prompt is the bundle of contextual information the {% data variables.product.prodname_copilot %} extension sends when a user is working on a file and pauses typing, or when the user opens the {% data variables.product.prodname_copilot_short %} pane. Prompts are retained unless you have disabled code snippet collection in your settings.
+
+#### Suggestions
+
+A Suggestion is one or more lines of proposed text returned to the {% data variables.product.prodname_copilot %} extension after a Prompt is received and processed by the AI-model. Suggestions are retained unless you disable code snippet collection in your settings.
+
+### How is the data in {% data variables.product.prodname_copilot_for_individuals %} used and shared?
+
+User Engagement Data, Prompts and Suggestions are used by {% data variables.product.company_short %} and Microsoft to improve {% data variables.product.prodname_copilot %} and related services and to conduct product and academic research.
+
+- Enhancing {% data variables.product.prodname_copilot %}: The data collected is utilized to improve {% data variables.product.prodname_copilot %} by evaluating different strategies for processing and predicting suggestions that users may find valuable.
+- Developing related developer products and services: The insights gained from the data help in the development and improvement of other developer tools and services offered by {% data variables.product.company_short %} and Microsoft.
+- Detecting abuse and policy violations: The data is examined to investigate and identify any potential misuse or violation of the Acceptable Use Policies associated with {% data variables.product.prodname_copilot %}.
+- Conducting experiments and research: The data is used for conducting experiments and research related to developers and their utilization of developer tools and services. This aids in gaining valuable insights into user behavior and preferences.
+- Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
+- Improving code generation models: The collected data is employed to refine and enhance the underlying models responsible for generating code. This is achieved by utilizing both positive and negative examples.
+- Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
+
+### How is the transmitted Code Snippets data protected?
+
+To ensure the protection of sensitive data such as user edit actions, source code snippets, and repository URLs/file paths, several protective measures are implemented. These measures include:
+
+- Encryption of transmitted data: All data is encrypted both during transit and while at rest, ensuring that it remains secure and inaccessible to unauthorized parties.
+- Strict access control: Access to the data is tightly regulated and limited to specific individuals, including:
+    - Named {% data variables.product.company_short %} personnel working on the {% data variables.product.prodname_copilot %} team or the {% data variables.product.company_short %} platform health team.
+    - Microsoft personnel involved with the {% data variables.product.prodname_copilot %} team.
+- Role-based access controls and multi-factor authentication: People who require access to code snippet data must adhere to role-based access controls. Additionally, multi-factor authentication is implemented to add an extra layer of security, ensuring that only authorized individuals can access the data.
+
+### How can users of {% data variables.product.prodname_copilot_for_individuals %} control use of their Code Snippets Data?
+
+{% data variables.product.prodname_copilot %} gives you choices about how it uses the data it collects.
+
+- User Engagement Data: User Engagement Data, including pseudonymous identifiers and general usage data, is necessary for the proper functioning of {% data variables.product.prodname_copilot %}. This data is collected, processed, and shared with Microsoft while you use {% data variables.product.prodname_copilot %}.
+- Retention of Prompts and Suggestions: You have the option to decide whether Prompts and Suggestions are retained by {% data variables.product.company_short %} and shared with Microsoft. These preferences can be adjusted in the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot).
+- Requesting Deletion: If you wish to delete Prompts and Suggestions associated with your {% data variables.product.company_short %} identity, contact {% data variables.contact.contact_support %}.
+
+### Will my private code be shared with other users?
+
+No. We follow responsible practices in accordance with our [Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) to ensure that your code snippets will not be used as suggested code for other users of {% data variables.product.prodname_copilot %}.
+
 ## Further reading
 
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}
+- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"

@@ -36,6 +36,7 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.large_files.pack_confirm %}
 
 {% ifversion ghec %}
+
 ## Purchasing additional storage and bandwidth for an enterprise account
 
 {% data reusables.enterprise-accounts.billing-perms %}

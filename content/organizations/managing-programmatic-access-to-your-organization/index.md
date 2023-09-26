@@ -15,6 +15,7 @@ topics:
   - Organizations
   - Teams
 children:
+  - /about-programmatic-access-in-your-organization
   - /adding-and-removing-github-app-managers-in-your-organization
   - /reviewing-github-apps-installed-in-your-organization
   - /setting-a-personal-access-token-policy-for-your-organization

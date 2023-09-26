@@ -2,7 +2,7 @@
 
 import { program } from 'commander'
 import fs from 'fs/promises'
-import flat from 'flat'
+import { flatten } from 'flat'
 import { visit } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { gfmTable } from 'micromark-extension-gfm-table'
@@ -36,7 +36,7 @@ if (opts.all) headingChecks.forEach((headingCheck) => (opts[headingCheck] = true
 const requestedChecks = Object.keys(opts).filter((key) => allChecks.includes(key))
 if (!requestedChecks.length) program.help()
 const requestedheadingChecks = requestedChecks.filter((requestedCheck) =>
-  headingChecks.includes(requestedCheck)
+  headingChecks.includes(requestedCheck),
 )
 if (!opts.all && requestedheadingChecks.length) opts.all = true
 console.log(`\nNotes:
@@ -113,7 +113,7 @@ async function checkMarkdownPages() {
         const headingObjs = getheadingObjs(headingNodes)
         runheadingChecks(headingObjs, ast, errorObj)
       }
-    })
+    }),
   )
 }
 
@@ -159,7 +159,7 @@ function checkLevels(headingObjs, errorObj) {
 function checkDuplicates(headingObjs, errorObj) {
   const duplicates = headingObjs.filter((headingObj, index) => {
     return headingObjs.filter(
-      (hObj, ix) => headingObj.text.toLowerCase() === hObj.text.toLowerCase() && index !== ix
+      (hObj, ix) => headingObj.text.toLowerCase() === hObj.text.toLowerCase() && index !== ix,
     ).length
   })
   if (!duplicates.length) return
@@ -185,7 +185,7 @@ function checkContentInMdast(ast, errorObj) {
   if (!results.length) return
   results.forEach((resultObj) => {
     errorObj.content.add(
-      `${cleanHeading(resultObj.previous[0])}\n${cleanHeading(resultObj.current[0])}`
+      `${cleanHeading(resultObj.previous[0])}\n${cleanHeading(resultObj.current[0])}`,
     )
   })
 }
@@ -235,7 +235,7 @@ async function getReusableText(body) {
       const justReusable = reusable.match(justReusablesRegex)[1].trim()
       const text = getDataByLanguage(justReusable, 'en')
       newBody = body.replace(reusable, text)
-    })
+    }),
   )
   return newBody
 }
@@ -255,7 +255,7 @@ function getTablesFromMdast(ast, tableObj) {
   if (!tableNodes.length) return
   const firstRows = tableNodes.map((table) => {
     const firstRow = table.children[0]
-    return Object.entries(flat(firstRow))
+    return Object.entries(flatten(firstRow))
       .filter(([key, _val]) => key.endsWith('value'))
       .map(([_key, val]) => val)
       .join(', ')
@@ -281,7 +281,7 @@ function filterFiles(files) {
 
 function getheadingObjs(headingNodes) {
   return headingNodes.map((n) => {
-    const flatNodes = flat(n)
+    const flatNodes = flatten(n)
     const text = Object.entries(flatNodes)
       .filter(([key, _val]) => key.endsWith('value'))
       .map(([_key, val]) => val)

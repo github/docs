@@ -21,9 +21,9 @@ To make an API request as an installation, you must first generate an installati
 
 If a REST API endpoint works with a {% data variables.product.prodname_github_app %} installation access token, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_apps %}." Additionally, your app must have the required permissions to use the endpoint. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 
-App installations can also use the GraphQL API. Similar to the REST API, the app must have certain permissions to access objects in the GraphQL API. For GraphQL requests, you should test you app to ensure that your app has the required permissions for the GraphQL queries and mutations that you want to make.
+App installations can also use the GraphQL API. Similar to the REST API, the app must have certain permissions to access objects in the GraphQL API. For GraphQL requests, you should test that your app has the required permissions for the GraphQL queries and mutations that you want to make.
 
-You can also use an installation access token to authenticate for HTTP-based Git access. You app must have the "Contents" repository permission. You can then use the installation access token as the HTTP password. Replace `TOKEN` with the installation access token: `git clone https://x-access-token:TOKEN@github.com/owner/repo.git"`.
+You can also use an installation access token to authenticate for HTTP-based Git access. Your app must have the "Contents" repository permission. You can then use the installation access token as the HTTP password. Replace `TOKEN` with the installation access token: `git clone https://x-access-token:TOKEN@github.com/owner/repo.git"`.
 
 Requests made with an installation access token are sometimes called "server-to-server" requests.
 
@@ -65,7 +65,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
 ### Using Octokit.js to authenticate with an installation ID
 
-1. Get the ID of your app. You can find your app's ID on the settings page for your app. For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the slugified name of your app. Replace `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+1. Get the ID of your {% data variables.product.prodname_github_app %}. You can find your app's ID on the settings page for your {% data variables.product.prodname_github_app %}. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)".
 1. Get the ID of the installation that you want to authenticate as.
 
@@ -74,7 +74,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
    You can also use the REST API to find the ID for an installation of your app. For example, you can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, `GET /orgs/{org}/installation`, or `GET /app/installations` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)".
 1. Import `App` from `octokit`. Create a new instance of `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key.
 
-   ```javascript{:copy}
+   ```javascript copy
    import { App } from "octokit";
 
    const app = new App({
@@ -85,7 +85,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
 1. Use the `getInstallationOctokit` method to create an authenticated `octokit` instance. In the following example, replace `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of.
 
-   ```javascript{:copy}
+   ```javascript copy
    const octokit = await app.getInstallationOctokit(INSTALLATION_ID);
    ```
 
@@ -95,7 +95,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
    For example, to make a request to the GraphQL API:
 
-   ```javascript{:copy}
+   ```javascript copy
    await octokit.graphql(`
      query {
        viewer {
@@ -107,7 +107,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
    For example, to make a request to the REST API:
 
-   ```javascript{:copy}
+   ```javascript copy
    await octokit.request("GET /meta")
    ```
 
@@ -115,12 +115,12 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
 The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook event handlers.
 
-1. Get the ID of your app. You can find your app's ID on the settings page for your app. For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the slugified name of your app. Replace `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+1. Get the ID of your {% data variables.product.prodname_github_app %}. You can find your app's ID on the settings page for your {% data variables.product.prodname_github_app %}. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)".
 1. Get the webhook secret that you specified in your app's settings. For more information about webhook secrets, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret)."
 1. Import `App` from `octokit`. Create a new instance of `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `WEBHOOK_SECRET` with the your app's webhook secret.
 
-   ```javascript{:copy}
+   ```javascript copy
    import { App } from "octokit";
 
    const app = new App({

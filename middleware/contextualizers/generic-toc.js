@@ -35,7 +35,7 @@ export default async function genericToc(req, res, next) {
   const treePage = findPageInSiteTree(
     req.context.currentProductTree,
     req.context.currentEnglishTree,
-    req.pagePath
+    req.pagePath,
   )
 
   // By default, only include hidden child items on a TOC page if it's an Early Access category or
@@ -120,6 +120,6 @@ async function getTocItems(node, context, opts) {
         intro,
         childTocItems,
       }
-    })
+    }),
   )
 }

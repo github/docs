@@ -17,8 +17,7 @@ topics:
   - CI
 shortTitle: Continuous integration
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About continuous integration
@@ -41,8 +40,6 @@ You can configure your CI workflow to run when a {% data variables.product.prodn
 
 When you set up CI in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends CI workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a starter workflow that installs your Node.js packages and runs your tests. You can use the CI starter workflow suggested by {% data variables.product.product_name %}, customize the suggested starter workflow, or create your own custom workflow file to run your CI tests.
 
-![Screenshot of suggested continuous integration starter workflows](/assets/images/help/repository/ci-with-actions-template-picker.png)
-
 In addition to helping you set up CI workflows for your project, you can use {% data variables.product.prodname_actions %} to create workflows across the full software development life cycle. For example, you can use actions to deploy, package, or release your project. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
 
 For a definition of common terms, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
@@ -53,8 +50,9 @@ For a definition of common terms, see "[AUTOTITLE](/actions/learn-github-actions
 
 Browse the complete list of CI starter workflow offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.location.product_location %}{% endif %}.
 
+{% ifversion fpt or ghec %}
+
 ## Further reading
 
-{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 {% endif %}

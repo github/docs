@@ -4,13 +4,13 @@ import cheerio from 'cheerio'
 import { describe, expect } from '@jest/globals'
 
 import Page, { FrontmatterErrorsError } from '../../lib/page.js'
-import { allVersions } from '../../lib/all-versions.js'
-import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
+import enterpriseServerReleases, { latest } from '#src/versions/lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
-  v.startsWith('enterprise-server@')
+  v.startsWith('enterprise-server@'),
 )
 
 // get the `free-pro-team` segment of `free-pro-team@latest`
@@ -88,7 +88,7 @@ describe('Page class', () => {
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
       expect($.text()).toBe(
-        'This text should render on any actively supported version of Enterprise Server'
+        'This text should render on any actively supported version of Enterprise Server',
       )
       expect($.text()).not.toBe('This text should only render on non-Enterprise')
 
@@ -99,7 +99,7 @@ describe('Page class', () => {
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).toBe(
-        'This text should render on any actively supported version of Enterprise Server'
+        'This text should render on any actively supported version of Enterprise Server',
       )
       expect($.text()).not.toBe('This text should only render on non-Enterprise')
 
@@ -110,7 +110,7 @@ describe('Page class', () => {
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).not.toBe(
-        'This text should render on any actively supported version of Enterprise Server'
+        'This text should render on any actively supported version of Enterprise Server',
       )
       expect($.text()).toBe('This text should only render on non-Enterprise')
     })
@@ -172,13 +172,13 @@ describe('Page class', () => {
       const pageVersions = page.permalinks.map((permalink) => permalink.pageVersion)
       expect(
         enterpriseServerReleases.supported.every((version) =>
-          pageVersions.includes(`enterprise-server@${version}`)
-        )
+          pageVersions.includes(`enterprise-server@${version}`),
+        ),
       ).toBe(true)
       expect(
         enterpriseServerReleases.deprecated.every(
-          (version) => !pageVersions.includes(`enterprise-server@${version}`)
-        )
+          (version) => !pageVersions.includes(`enterprise-server@${version}`),
+        ),
       ).toBe(true)
     })
 
@@ -188,14 +188,14 @@ describe('Page class', () => {
         'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
+          .href,
       ).toBe(`/en/${expectedPath}`)
       expect(
         page.permalinks.find(
           (permalink) =>
             permalink.pageVersion ===
-            `enterprise-server@${enterpriseServerReleases.oldestSupported}`
-        ).href
+            `enterprise-server@${enterpriseServerReleases.oldestSupported}`,
+        ).href,
       ).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/${expectedPath}`)
     })
 
@@ -207,14 +207,14 @@ describe('Page class', () => {
       })
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
+          .href,
       ).toBe('/en')
       expect(
         page.permalinks.find(
           (permalink) =>
             permalink.pageVersion ===
-            `enterprise-server@${enterpriseServerReleases.oldestSupported}`
-        ).href
+            `enterprise-server@${enterpriseServerReleases.oldestSupported}`,
+        ).href,
       ).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
     })
 
@@ -227,10 +227,10 @@ describe('Page class', () => {
       expect(
         page.permalinks.find(
           (permalink) =>
-            permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`
-        ).href
+            permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`,
+        ).href,
       ).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`,
       )
       const pageVersions = page.permalinks.map((permalink) => permalink.pageVersion)
       expect(pageVersions.length).toBeGreaterThan(1)
@@ -245,138 +245,9 @@ describe('Page class', () => {
       })
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
+          .href,
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page.permalinks.length).toBe(1)
-    })
-  })
-
-  describe('learning tracks', () => {
-    let page
-
-    beforeEach(async () => {
-      page = await Page.init({
-        relativePath: 'article-with-learning-tracks.md',
-        basePath: path.join(__dirname, '../fixtures'),
-        languageCode: 'en',
-      })
-    })
-
-    it('includes learning tracks specified in frontmatter', async () => {
-      expect(page.learningTracks).toStrictEqual([
-        'track_1',
-        'track_2',
-        'non_existing_track',
-        '{% if currentVersion == "free-pro-team@latest" %}dotcom_only_track{% endif %}',
-        '{% if currentVersion != "free-pro-team@latest" %}enterprise_only_track{% endif %}',
-      ])
-    })
-
-    // Docs Engineering issue: 970
-    it.skip('renders learning tracks that have been defined', async () => {
-      // getLinkData.mockImplementation((guides) => { return guides })
-      const guides = ['/path/guide1', '/path/guide2']
-      const context = {
-        currentLanguage: 'en',
-        currentProduct: 'snowbird',
-        currentVersion: nonEnterpriseDefaultVersion,
-        enterpriseServerVersions,
-        site: {
-          data: {
-            'learning-tracks': {
-              snowbird: {
-                track_1: {
-                  title: 'title',
-                  description: 'description',
-                  guides,
-                  featured_track:
-                    '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}',
-                },
-                track_2: {
-                  title: 'title',
-                  description: 'description',
-                  guides,
-                  featured_track:
-                    '{% if enterpriseServerVersions contains currentVersion %}true{% else %}false{% endif %}',
-                },
-                dotcom_only_track: {
-                  title: 'title',
-                  description: 'description',
-                  guides,
-                },
-                enterprise_only_track: {
-                  title: 'title',
-                  description: 'description',
-                  guides,
-                },
-              },
-            },
-          },
-        },
-      }
-      // Test that Liquid versioning is respected during rendering.
-      // Start with Dotcom.
-      await page.render(context)
-      // To actually render the guides in this test, we would have to load context.pages and context.redirects;
-      // To avoid that we can just test that the function was called with the expected data.
-      // expect(getLinkData).toHaveBeenCalledWith(guides, context)
-      // Tracks for dotcom should exclude enterprise_only_track and the featured track_1.
-      expect(page.learningTracks).toHaveLength(2)
-      const dotcomTrackNames = page.learningTracks.map((t) => t.trackName)
-      expect(dotcomTrackNames.includes('track_2')).toBe(true)
-      expect(dotcomTrackNames.includes('dotcom_only_track')).toBe(true)
-      expect(page.featuredTrack.trackName === 'track_1').toBeTruthy()
-      expect(page.featuredTrack.trackName === 'track_2').toBeFalsy()
-
-      // Switch to Enterprise.
-      context.currentVersion = `enterprise-server@${latest}`
-      await page.render(context)
-      // Tracks for enterprise should exclude dotcom_only_track and the featured track_2.
-      expect(page.learningTracks).toHaveLength(2)
-      const ghesTrackNames = page.learningTracks.map((t) => t.trackName)
-      expect(ghesTrackNames.includes('track_1')).toBe(true)
-      expect(ghesTrackNames.includes('enterprise_only_track')).toBe(true)
-      expect(page.featuredTrack.trackName === 'track_1').toBeFalsy()
-      expect(page.featuredTrack.trackName === 'track_2').toBeTruthy()
-    })
-  })
-
-  describe('includeGuides', () => {
-    let page
-
-    beforeEach(async () => {
-      page = await Page.init({
-        relativePath: 'article-with-includeGuides.md',
-        basePath: path.join(__dirname, '../fixtures'),
-        languageCode: 'en',
-      })
-    })
-
-    it('includes guide paths specified in frontmatter', async () => {
-      expect(page.includeGuides).toStrictEqual(['/path/guide1', '/path/guide2', '/path/guide3'])
-    })
-
-    // Docs Engineering issue: 971
-    it.skip('renders guides and topics', async () => {
-      /* getLinkData.mockImplementation(() => {
-        return [{
-          page: { topics: ['Spring', 'Summer'] }
-        }, {
-          page: { topics: ['Summer', 'Fall'] }
-        }, {
-          page: { topics: ['Fall', 'Winter'] }
-        }]
-      }) */
-      // const guides = ['/path/guide1', '/path/guide2', '/path/guide3']
-      const context = {
-        currentVersion: nonEnterpriseDefaultVersion,
-        currentLanguage: 'en',
-      }
-      await page.render(context)
-      // expect(getLinkData).toHaveBeenCalledWith(guides, context)
-      expect(page.includeGuides).toHaveLength(3)
-      expect(page.allTopics).toHaveLength(4)
-      expect(page.allTopics).toEqual(expect.arrayContaining(['Spring', 'Summer', 'Fall', 'Winter']))
     })
   })
 
@@ -450,15 +321,6 @@ describe('Page class', () => {
   })
 
   describe('page.versions frontmatter', () => {
-    // Docs Engineering issue: 972
-    test.skip('pages that apply to older enterprise versions', async () => {
-      // There are none of these in the content at this time!
-    })
-    // Docs Engineering issue: 972
-    test.skip('pages that apply to newer enterprise versions', async () => {
-      // There are none of these in the content at this time!
-    })
-
     test('pages that use short names in versions frontmatter', async () => {
       const page = await Page.init({
         relativePath: 'short-versions.md',
@@ -479,7 +341,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en',
       })
-      expect(page.versions).toBe('*')
+      expect(page.versions).toEqual({ fpt: '*', ghae: '*', ghec: '*', ghes: '*' })
     })
 
     test('enterprise admin index page', async () => {
@@ -619,6 +481,7 @@ describe('catches errors thrown in Page class', () => {
       const context = {
         page: { version: `enterprise-server@3.2` },
         currentVersion: `enterprise-server@3.2`,
+        currentVersionObj: {},
         currentProduct: 'snowbird',
         currentLanguage: 'en',
         currentPath: '/en/enterprise-server@3.2/optional/attributes',

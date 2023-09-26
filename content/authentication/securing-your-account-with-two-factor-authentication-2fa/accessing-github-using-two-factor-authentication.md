@@ -37,18 +37,26 @@ After you sign in to {% data variables.product.product_name %} using your passwo
 
 ### Generating a code through a TOTP application
 
-If you chose to set up two-factor authentication using a TOTP application on your smartphone, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
+If you chose to set up two-factor authentication using a TOTP application, you can generate an authentication code for {% data variables.product.product_name %} at any time. In most cases, just launching the application will generate a new code. You should refer to your application's documentation for specific instructions.
 
 If you delete your authenticator application after configuring two-factor authentication, you'll need to provide your recovery code to get access to your account. Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)."
 
-### Using a security key 
+### Using a security key
 
-If you've set up a security key on your account, and your browser supports security keys, you can use it to complete your sign in. 
+If you've set up a security key on your account, and your browser supports security keys, you can use it to complete your sign in.
 
 1. Using your username and password, sign in to {% data variables.product.product_name %} through your browser.
-1. If you use a physical security key, ensure it's connected to your device. 
+1. If you use a physical security key, ensure it's connected to your device.
 1. To trigger the security key prompt from your operating system, select "Use security key".
 1. Select the appropriate option in the prompt. Depending on your security key configuration, you may type a PIN, complete a biometric prompt, or use a physical security key.
+
+{% ifversion passkeys %}
+
+### Using a passkey
+
+If you have enabled 2FA, and you have added a passkey to your account, you can use the passkey to sign in. Since passkeys satisfy both password and 2FA requirements, you can complete your sign in with a single step. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)."
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -62,14 +70,14 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 1. Sign in to {% data variables.product.product_name %} with your browser, using your username and password.
 1. {% data variables.product.product_name %} will send you a push notification to verify your sign in attempt. Opening the push notification or opening the {% data variables.product.prodname_mobile %} app will display a prompt, asking you to approve or reject this sign in attempt.
-  {% note %}
+   {% note %}
 
-  **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
+   **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
 
-  {% endnote %}
+   {% endnote %}
 
-    - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
-    - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[Keeping your account and data secure](/authentication/keeping-your-account-and-data-secure)."
+   - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
+   - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)."
 
 {% endif %}
 

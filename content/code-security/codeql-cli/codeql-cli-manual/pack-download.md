@@ -1,6 +1,6 @@
 ---
 title: pack download
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -16,6 +16,8 @@ intro: |-
   [Experimental] Download the set of qlpacks referenced by the query
   spec of the command line from the registry. Packs can be provided by
   name or implicitly inside of a query suite (.qls) file.
+redirect_from:
+  - /code-security/codeql-cli/manual/pack-download
 ---
 
 
@@ -25,7 +27,7 @@ intro: |-
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack download [--dir=<dir>] [--force] <options>... -- <scope/name[@version]|suite.qls>...
 ```
 
@@ -40,9 +42,11 @@ default.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
 
-#### `<scope/name[@version]|suite.qls>...`
+### Primary Options
+
+#### `<scope/name[@version]|suite.qls>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] List of CodeQL packs and query suites to download. If a
 query suite is provided, its instructions will be inspected and all
@@ -51,7 +55,7 @@ version for a CodeQL pack, then the latest version will be downloaded.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `-d, --dir=<dir>`
 
@@ -110,8 +114,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

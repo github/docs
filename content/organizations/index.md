@@ -11,8 +11,7 @@ introLinks:
 featuredLinks:
   startHere:
     - /get-started/learning-about-github/types-of-github-accounts
-    - /organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization
-    - /organizations/organizing-members-into-teams/about-teams
+    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization    - /organizations/organizing-members-into-teams/about-teams
   popular:
     - /organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch
     - /organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization
@@ -22,7 +21,7 @@ featuredLinks:
   guideCards:
     - /organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization
     - /organizations/managing-membership-in-your-organization/adding-people-to-your-organization
-    - /organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository
+    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository
     - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization
 layout: product-landing
 versions:
@@ -37,9 +36,9 @@ children:
   - /collaborating-with-groups-in-organizations
   - /managing-membership-in-your-organization
   - /managing-peoples-access-to-your-organization-with-roles
+  - /managing-user-access-to-your-organizations-repositories
   - /organizing-members-into-teams
   - /collaborating-with-your-team
-  - /managing-user-access-to-your-organizations-repositories
   - /managing-access-to-your-organizations-project-boards
   - /managing-programmatic-access-to-your-organization
   - /managing-oauth-access-to-your-organizations-data

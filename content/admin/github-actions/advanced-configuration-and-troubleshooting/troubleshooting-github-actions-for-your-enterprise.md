@@ -32,7 +32,7 @@ For the steps required to install a certificate, refer to the documentation for 
 
 Most actions are written in JavaScript and run using Node.js, which does not use the operating system certificate store. For the self-hosted runner application to use the certificate, you must set the `NODE_EXTRA_CA_CERTS` environment variable on the runner machine.
 
-You can set the environment variable as a system environment variable, or declare it in a file named _.env_ in the self-hosted runner application directory.
+You can set the environment variable as a system environment variable, or declare it in a file called `.env` in the self-hosted runner application directory (that is, the directory into which you downloaded and unpacked the runner software).
 
 For example:
 
@@ -50,7 +50,7 @@ If you use Docker container actions or service containers in your workflows, you
 
 {% data reusables.actions.enterprise-http-proxy %}
 
-If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
+If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://IP-ADDRESS` when setting or changing your {% data variables.product.prodname_actions %} configuration.
 
 ## Runners not connecting to {% data variables.product.prodname_ghe_server %} with a new hostname
 
@@ -60,8 +60,8 @@ If you deploy {% data variables.product.prodname_ghe_server %} in your environme
 
 You will need to update the configuration of your self-hosted runners to use the new hostname for {% data variables.location.product_location %}. Each self-hosted runner will require one of the following procedures:
 
-* In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
-* Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
+- In the self-hosted runner application directory, edit the `.runner` and `.credentials` files to replace all mentions of the old hostname with the new hostname, then restart the self-hosted runner application.
+- Remove the runner from {% data variables.product.prodname_ghe_server %} using the UI, and re-add it. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 ## Stuck jobs and {% data variables.product.prodname_actions %} memory and CPU limits
 
@@ -81,12 +81,12 @@ If the overall "System Health" CPU and memory usage is OK, scroll down the monit
 
 Each plot in these graphs corresponds to one service. For {% data variables.product.prodname_actions %} services, look for:
 
-* `mps_frontend`
-* `mps_backend`
-* `token_frontend`
-* `token_backend`
-* `actions_frontend`
-* `actions_backend`
+- `mps_frontend`
+- `mps_backend`
+- `token_frontend`
+- `token_backend`
+- `actions_frontend`
+- `actions_backend`
 
 If any of these services are at or near 100% CPU utilization, or the memory is near their limit (2 GB by default), then the resource allocation for these services might need increasing. Take note of which of the above services are at or near their limit.
 
@@ -101,7 +101,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    In the output, find the "Allocated Resources" section. It looks similar to the following example:
 
-   ```
+   ```text
    Allocated Resources
    CPU              Memory          Disk
    7740/49600 MHZ   23 GiB/32 GiB   4.4 GiB/7.9 GiB
@@ -122,12 +122,12 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    In this directory there are three files that correspond to the {% data variables.product.prodname_actions %} services from above:
 
-   * `mps.hcl.ctmpl`
-   * `token.hcl.ctmpl`
-   * `actions.hcl.ctmpl`
+   - `mps.hcl.ctmpl`
+   - `token.hcl.ctmpl`
+   - `actions.hcl.ctmpl`
 1. For the services that you identified that need adjustment, open the corresponding file and locate the `resources` group that looks like the following:
 
-   ```
+   ```text
    resources {
      cpu = 512
      memory = 2048
@@ -141,7 +141,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
    For example, to increase the resource limits in the above example to 1 GHz for the CPU and 4 GB of memory, change it to:
 
-   ```
+   ```text
    resources {
      cpu = 1024
      memory = 4096
@@ -150,6 +150,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
      }
    }
    ```
+
 1. Save and exit the file.
 1. Run `ghe-config-apply` to apply the changes.
 
@@ -157,6 +158,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
@@ -168,20 +170,24 @@ By default, {% data variables.product.prodname_actions %} workflow runs that are
 There are three ways to resolve this problem:
 
 1. You can update your workflows so that they are no longer triggered by {% data variables.product.prodname_dependabot %} using an expression like: `if: github.actor != 'dependabot[bot]'`. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
-2. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#responding-to-events)."
-3. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
+1. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#responding-to-events)."
+1. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
 
 ### Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions
 
 1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 1. To remove the limitations on workflows triggered by {% data variables.product.prodname_dependabot %} on {% data variables.location.product_location %}, use the following command.
+
     ``` shell
-    $ ghe-config app.actions.disable-dependabot-enforcement true
+    ghe-config app.actions.disable-dependabot-enforcement true
     ```
+
 1. Apply the configuration.
+
     ```shell
-    $ ghe-config-apply
+    ghe-config-apply
     ```
+
 1. Return to {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
@@ -204,20 +210,27 @@ To install the official bundled actions and starter workflows within a designate
 
 1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
+
     ```shell
-    $ ghe-config app.actions.actions-org ORGANIZATION
+    ghe-config app.actions.actions-org ORGANIZATION
     ```
+
     and:
+
     ```shell
-    $ ghe-config app.actions.github-org ORGANIZATION
+    ghe-config app.actions.github-org ORGANIZATION
     ```
-1.  To add the bundled actions to your organization, unset the SHA.
+
+1. To add the bundled actions to your organization, unset the SHA.
+
     ```shell
-    $ ghe-config --unset 'app.actions.actions-repos-sha1sum'
+    ghe-config --unset 'app.actions.actions-repos-sha1sum'
     ```
+
 1. Apply the configuration.
+
     ```shell
-    $ ghe-config-apply
+    ghe-config-apply
     ```
 
 After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."

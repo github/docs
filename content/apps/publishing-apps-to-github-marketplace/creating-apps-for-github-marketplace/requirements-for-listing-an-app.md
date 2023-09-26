@@ -17,6 +17,9 @@ topics:
   - Marketplace
 shortTitle: Listing requirements
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
 The requirements for listing an app on {% data variables.product.prodname_marketplace %} vary according to whether you want to offer a free or a paid app.

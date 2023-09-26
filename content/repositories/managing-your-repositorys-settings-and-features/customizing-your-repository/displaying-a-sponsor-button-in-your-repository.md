@@ -44,7 +44,8 @@ PHP | `packagist`
 C# | `nuget`
 
 Here's an example `FUNDING.yml` file:
-```
+
+```yaml
 github: [octocat, surftocat]
 patreon: octocat
 tidelift: npm/octo-package
@@ -79,5 +80,6 @@ Anyone with admin permissions can enable a sponsor button in a repository.
 {% data reusables.files.propose_new_file %}
 
 ## Further reading
+
 - "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)"
 - "[FAQ with the {% data variables.product.prodname_sponsors %} team](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" on {% data variables.product.prodname_blog %}

@@ -19,19 +19,21 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 ## Publishing your package
 
 1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
-2. Clone the repository to your local machine.
+1. Clone the repository to your local machine.
+
     ```shell
-    $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
-    $ cd YOUR-REPOSITORY
+    git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    cd YOUR-REPOSITORY
     ```
-3. Create an `index.js` file and add a basic alert to say "Hello world!"
-    {% raw %}
-    ```javascript{:copy}
+
+1. Create an `index.js` file and add a basic alert to say "Hello world!"
+
+    ```javascript copy
     console.log("Hello, World!");
     ```
-    {% endraw %}
-4. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
-    {% raw %}
+
+1. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
+
     ```shell
     $ npm init
       ...
@@ -40,17 +42,20 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       test command: exit 0
       ...    
     ```
-    {% endraw %}
-5. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
+
+1. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
+
     ```shell
-    $ npm install
-    $ git add index.js package.json package-lock.json
-    $ git commit -m "initialize npm package"
-    $ git push
+    npm install
+    git add index.js package.json package-lock.json
+    git commit -m "initialize npm package"
+    git push
     ```
-6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
-7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
-    ```yaml{:copy}
+
+1. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
+1. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
+
+    ```yaml copy
     name: Node.js Package
 
     on:
@@ -85,22 +90,24 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
             env:
               NODE_AUTH_TOKEN: ${% raw %}{{secrets.GITHUB_TOKEN}}{% endraw %}
     ```
-8. Tell npm which scope and registry to publish packages to using one of the following methods:
+
+1. Tell npm which scope and registry to publish packages to using one of the following methods:
    - Add an npm configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
-      {% raw %}
+
       ```shell
       @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
-      {% endraw %}
+
    - Edit the `package.json` file and specify the `publishConfig` key:
-      {% raw %}
+
       ```shell
       "publishConfig": {
-        "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
+        "@YOUR-USERNAME:registry": "https://npm.pkg.github.com"
       }
       ```
-      {% endraw %}
-9. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
+
+1. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
+
     ```shell
     $ git add .github/workflows/release-package.yml
     # Also add the file you created or edited in the previous step.
@@ -108,8 +115,9 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     $ git commit -m "workflow to publish package"
     $ git push
     ```
-10.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
-    
+
+1. The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
+
     To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
 
 ## Viewing your published package
