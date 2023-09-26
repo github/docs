@@ -1,9 +1,9 @@
 import { filterTokens, addError } from 'markdownlint-rule-helpers'
 
-import { getRange, isStringQuoted, isStringPunctuated } from '../helpers/utils.js'
+import { getRange, isStringQuoted, doesStringEndWithPeriod } from '../helpers/utils.js'
 
-export const internalLinkPunctuation = {
-  names: ['GHD008', 'internal-link-punctuation'],
+export const linkPunctuation = {
+  names: ['GHD008', 'link-punctuation'],
   description: 'Internal link titles must not contain punctuation',
   tags: ['links', 'url'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
@@ -18,15 +18,15 @@ export const internalLinkPunctuation = {
           inLink = false
         } else if (inLink && child.type === 'text') {
           const content = child.content.trim()
-          const hasPuntuation = isStringPunctuated(content)
+          const hasPeriod = doesStringEndWithPeriod(content)
           const hasQuotes = isStringQuoted(content)
 
-          if (hasPuntuation || hasQuotes) {
+          if (hasPeriod || hasQuotes) {
             const range = getRange(line, content)
             addError(
               onError,
               child.lineNumber,
-              'Remove ", \', ?, !, and . characters from the link title.',
+              'Remove quotes and/or period punctuation from the link title.',
               child.content,
               range,
               null, // No fix possible

@@ -32,7 +32,7 @@ Your issue and pull request dashboards are available at the top of any page. On 
 {% else %}
 1. At the top of any page, click **Pull requests** or **Issues**.
 
-   ![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The "Pull requests" and "Issues" tabs are highlighted with an orange outline.](/assets/images/help/navigation/issues_and_pr_dashboard.png)
+   ![Screenshot of the header of any page on {% data variables.product.prodname_dotcom %}. The "Pull requests" and "Issues" tabs are highlighted with an orange outline.](/assets/images/help/navigation/issues-and-pr-dashboard.png)
 
 {% endif %}
 1. Optionally, choose a filter or use the search bar to filter for more specific results. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)."

@@ -44,7 +44,7 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 
    If the type of issue you'd like to open isn't included in the available options, click **Open a blank issue**.
 
-   ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank_issue_link.png)
+   ![Screenshot of the template chooser for an issue. Below the template choices, a link, labeled "Open a blank issue," is outlined in dark orange.](/assets/images/help/issues/blank-issue-link.png)
 {% data reusables.repositories.type-issue-title-and-description %}
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}

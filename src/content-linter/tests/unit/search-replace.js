@@ -36,13 +36,14 @@ describe(searchReplace.names.join(' - '), () => {
       'developer.github.com/changes/',
       'developer.github.com/changes/changes',
       'developer.github.com/enterprise/1',
+      '<https://docs.github.com/en/rest/reference/code-scanning#upload-an-analysis-as-sarif-data>',
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
       testConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
-    expect(errors.length).toBe(9)
+    expect(errors.length).toBe(10)
   })
 
   test('Deprecated Liquid syntax causes error', async () => {

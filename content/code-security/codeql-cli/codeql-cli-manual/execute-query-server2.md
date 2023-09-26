@@ -39,9 +39,11 @@ streams.
 
 Available since `v2.10.11`.
 
-## Primary options
+## Options
 
-#### `--[no-]tuple-counting`
+### Primary Options
+
+#### `--[no-]tuple-counting` <!-- markdownlint-disable-line heading-increment -->
 
 \[Advanced] Display tuple counts for each evaluation step in the query
 evaluator logs. If the `--evaluator-log` option is provided, tuple
@@ -118,7 +120,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate `<pred>`.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
