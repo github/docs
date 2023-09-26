@@ -101,7 +101,7 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
 
     **Notes:**
     - If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    - If *secret_scanning.yml* is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
+    - If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
 
     {% endnote %}
 
