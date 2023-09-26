@@ -16,7 +16,7 @@ export const baseConfig = {
   },
   'first-heading-h1': {
     // MD002
-    severity: 'warning',
+    severity: 'error',
     level: 2,
     'partial-markdown-files': false,
   },

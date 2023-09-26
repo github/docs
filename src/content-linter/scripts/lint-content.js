@@ -124,6 +124,8 @@ async function main() {
     }
   }
   const end = Date.now()
+  // Ensure previous console logging is not truncated
+  console.log('\n\n')
   spinner.info(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
   if (warningFileCount > 0) {
     spinner.warn(`Found ${warningFileCount} file(s) with warnings(s)`)
