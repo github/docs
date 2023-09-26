@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'src/languages/components/useTranslation'
+import { useRouter } from 'next/router'
 
 // We postpone the initial delay a bit in case the user didn't mean to
 // hover over the link. Perhaps they just dragged the mouse over on their
@@ -34,6 +36,14 @@ let currentlyOpen: HTMLLinkElement | null = null
 // change accoding to the popover's true height. But this can cause a flicker.
 const BOUNDING_TOP_MARGIN = 300
 
+// All links that should have a hover card also get a
+// `aria-describedby="..."`. That ID is used to look up another DOM
+// element, that has a `visually-hidden` class. The value if the ID
+// isn't very important as long as it connects.
+// Note; at the moment this value is duplicated in the Playwright
+// tests because of trying to extract the value of `aria-describedby`.
+const DESCRIBEDBY_ELEMENT_ID = 'popover-describedby'
+
 type Info = {
   product: string
   title: string
@@ -45,7 +55,7 @@ type APIInfo = {
 }
 
 function getOrCreatePopoverGlobal() {
-  let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
+  let popoverGlobal = document.querySelector<HTMLDivElement>('div.Popover')
   if (!popoverGlobal) {
     const wrapper = document.createElement('div')
     wrapper.setAttribute('data-testid', 'popover')
@@ -62,16 +72,22 @@ function getOrCreatePopoverGlobal() {
     )
     inner.style.width = `360px`
 
-    const product = document.createElement('p')
+    const product = document.createElement('h3')
     product.classList.add('product')
     product.classList.add('f6')
     product.classList.add('color-fg-muted')
-    inner.appendChild(product)
+    const headingLink = document.createElement('a')
+    headingLink.href = ''
+    product.appendChild(headingLink)
     inner.appendChild(product)
 
     const title = document.createElement('h4')
+    title.classList.add('title')
     title.classList.add('h5')
     title.classList.add('my-1')
+    const titleLink = document.createElement('a')
+    titleLink.href = ''
+    title.appendChild(titleLink)
     inner.appendChild(title)
 
     const intro = document.createElement('p')
@@ -112,7 +128,29 @@ function getOrCreatePopoverGlobal() {
   return popoverGlobal
 }
 
-function popoverWrap(element: HTMLLinkElement) {
+function getOrCreateDescribeByElement() {
+  let element = document.querySelector<HTMLParagraphElement>(`#${DESCRIBEDBY_ELEMENT_ID}`)
+  if (!element) {
+    element = document.createElement('p')
+    element.id = DESCRIBEDBY_ELEMENT_ID
+    element.classList.add('visually-hidden')
+    // "All page content should be contained by landmarks"
+    // https://dequeuniversity.com/rules/axe/4.7/region
+    // The element that we use for the `aria-describedby` attribute
+    // needs to exist in the DOM inside a landmark. For example
+    // `<div role="footer">`. In our case we use our
+    // `<main id="main-content">` element.
+    // We "know" that this querySelector() query will always find a
+    // valid element, but it's theoretically not perfectly true, so we have to
+    // use a fallback.
+    const main = document.querySelector<HTMLDivElement>('main') || document.body
+    main.appendChild(element)
+  }
+
+  return element
+}
+
+function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDivElement) => void) {
   if (element.parentElement && element.parentElement.classList.contains('Popover')) {
     return
   }
@@ -158,7 +196,7 @@ function popoverWrap(element: HTMLLinkElement) {
     }
 
     if (title) {
-      fillPopover(element, { product, title, intro, anchor })
+      fillPopover(element, { product, title, intro, anchor }, filledCallback)
     }
     return
   }
@@ -168,25 +206,38 @@ function popoverWrap(element: HTMLLinkElement) {
   fetch(`/api/pageinfo/v1?${new URLSearchParams({ pathname })}`).then(async (response) => {
     if (response.ok) {
       const { info } = (await response.json()) as APIInfo
-      fillPopover(element, info)
+      fillPopover(element, info, filledCallback)
     }
   })
 }
 
-function fillPopover(element: HTMLLinkElement, info: Info) {
+function fillPopover(
+  element: HTMLLinkElement,
+  info: Info,
+  callback?: (popover: HTMLDivElement) => void,
+) {
   const { product, title, intro, anchor } = info
   const popover = getOrCreatePopoverGlobal()
-  const productHead = popover.querySelector('p.product') as HTMLParagraphElement | null
+
+  const productHead = popover.querySelector('.product') as HTMLHeadingElement | null
   if (productHead) {
+    const productHeadLink = productHead.querySelector('.product a') as HTMLLinkElement | null
     if (product) {
-      productHead.textContent = product
-      productHead.style.display = 'block'
+      if (productHeadLink) {
+        productHeadLink.textContent = product
+        const linkURL = new URL(element.href)
+        // All a.href attributes are always full absolute URLs, as a string.
+        // We assume that the "product landing page" is the first
+        // portion of all links.
+        productHeadLink.href = linkURL.pathname.split('/').slice(0, 3).join('/')
+        productHead.style.display = 'block'
+      }
     } else {
       productHead.style.display = 'none'
     }
   }
 
-  const anchorElement = popover.querySelector('p.anchor') as HTMLParagraphElement | null
+  const anchorElement = popover.querySelector('.anchor') as HTMLParagraphElement | null
   if (anchorElement) {
     if (anchor) {
       anchorElement.textContent = anchor
@@ -200,8 +251,14 @@ function fillPopover(element: HTMLLinkElement, info: Info) {
     window.clearTimeout(popoverCloseTimer)
   }
 
-  const header = popover.querySelector('h4')
-  if (header) header.textContent = title
+  const titleHead = popover.querySelector('.title')
+  if (titleHead) {
+    const titleHeadLink = titleHead.querySelector('a') as HTMLLinkElement | null
+    if (titleHeadLink) {
+      titleHeadLink.href = element.href
+      titleHeadLink.textContent = title
+    }
+  }
 
   const paragraph: HTMLParagraphElement | null = popover.querySelector('p.intro')
   if (paragraph) {
@@ -251,6 +308,10 @@ function fillPopover(element: HTMLLinkElement, info: Info) {
   } else {
     popover.style.top = `${top - popover.offsetHeight - 10}px`
   }
+
+  if (callback) {
+    callback(popover)
+  }
 }
 
 // The top/left offset of an element is only relative to its parent.
@@ -281,7 +342,7 @@ function getBoundingOffset(element: HTMLElement) {
   return [top, left]
 }
 
-function popoverShow(target: HTMLLinkElement) {
+function popoverShow(target: HTMLLinkElement, callback?: (popover: HTMLDivElement) => void) {
   if (popoverStartTimer) {
     window.clearTimeout(popoverStartTimer)
   }
@@ -295,10 +356,10 @@ function popoverShow(target: HTMLLinkElement) {
   // open, which happens when you hover over the popover and back again
   // to the link, then we don't want any delay.
   if (target === currentlyOpen) {
-    popoverWrap(target)
+    popoverWrap(target, callback)
   } else {
     popoverStartTimer = window.setTimeout(() => {
-      popoverWrap(target)
+      popoverWrap(target, callback)
       currentlyOpen = target
     }, DELAY_SHOW)
   }
@@ -323,22 +384,91 @@ function popoverHide() {
   }, DELAY_HIDE)
 }
 
+let lastFocussedLink: HTMLLinkElement | null = null
+
 export function LinkPreviewPopover() {
+  const { t } = useTranslation('popovers')
+  const { locale } = useRouter()
+
   useEffect(() => {
+    const element = getOrCreateDescribeByElement()
+    if (element) {
+      element.textContent = t('keyboard_shortcut_description')
+    }
+  }, [locale])
+
+  // This is to track if the user entirely tabs out of the window.
+  // For example if they go to the address bar.
+  useEffect(() => {
+    function windowBlur() {
+      popoverHide()
+    }
+    window.addEventListener('blur', windowBlur)
+    return () => {
+      window.removeEventListener('blur', windowBlur)
+    }
+  }, [])
+
+  useEffect(() => {
+    // If the current window is too narrow, the popover is not useful.
+    // Since this is tested on every event callback here in the handler,
+    // if the window width has changed since the mount, the number
+    // will change accordingly.
+    const wideEnough = window.innerWidth > 767
+
     function showPopover(event: MouseEvent) {
-      // If the current window is too narrow, the popover is not useful.
-      // Since this is tested on every event callback here in the handler,
-      // if the window width has changed since the mount, the number
-      // will change accordingly.
-      if (window.innerWidth < 767) {
+      if (!wideEnough) {
         return
       }
       const target = event.currentTarget as HTMLLinkElement
       popoverShow(target)
+
+      // Just in case you *had* used the keyboard shortcut, but now
+      // hovered over something else, reset the last focussed link.
+      lastFocussedLink = null
     }
 
     function hidePopover() {
       popoverHide()
+    }
+
+    function keyboardHandler(event: KeyboardEvent) {
+      if (event.key === 'ArrowUp' && event.altKey) {
+        event.preventDefault()
+        const target = event.currentTarget as HTMLLinkElement
+        popoverShow(target, (popover) => {
+          const productHeadingLink = popover.querySelector<HTMLParagraphElement>('.product a')
+          if (productHeadingLink) {
+            productHeadingLink.focus()
+            lastFocussedLink = target
+          }
+        })
+      } else if (event.key === 'ArrowDown' && event.altKey) {
+        event.preventDefault()
+        popoverHide()
+      }
+    }
+
+    // Note, this is attached, as an event listener, to the `document`
+    // meaning an Escape event here could be for anything.
+    // But the `popoverHide` function is cheap to call. If the popover
+    // was visible, it's hidden now. If it wasn't visible, nothing happens.
+    // Because we do other things on Escape, we have to make sure that
+    // this Escape was for closing a currently open popover.
+    function escapeHandler(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        const popover = getOrCreatePopoverGlobal()
+        if (popover.style.display !== 'none') {
+          popoverHide()
+
+          // If this is true, the keyboard shortcut was used to open
+          // the popover when the link (that can have a popover)
+          // was used. So upon, Escape go back to focussing on that link.
+          if (lastFocussedLink) {
+            lastFocussedLink.focus()
+          }
+        }
+      }
     }
 
     const links = Array.from(
@@ -376,13 +506,25 @@ export function LinkPreviewPopover() {
     for (const link of links) {
       link.addEventListener('mouseover', showPopover)
       link.addEventListener('mouseout', hidePopover)
+      link.addEventListener('keydown', keyboardHandler)
+
+      if (!link.getAttribute('aria-roledescription')) {
+        link.setAttribute('aria-roledescription', t('role_description'))
+      }
+      if (!link.getAttribute('aria-describedby')) {
+        link.setAttribute('aria-describedby', DESCRIBEDBY_ELEMENT_ID)
+      }
     }
+
+    document.addEventListener('keydown', escapeHandler)
 
     return () => {
       for (const link of links) {
         link.removeEventListener('mouseover', showPopover)
         link.removeEventListener('mouseout', hidePopover)
+        link.removeEventListener('keydown', keyboardHandler)
       }
+      document.removeEventListener('keydown', escapeHandler)
     }
   }) // Note that this runs on every single mount
 
