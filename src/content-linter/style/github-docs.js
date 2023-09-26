@@ -16,7 +16,7 @@ export const githubDocsConfig = {
   },
   'image-file-kebab': {
     // GHD004
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'internal-links-lang': {
