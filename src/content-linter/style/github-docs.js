@@ -36,7 +36,7 @@ export const githubDocsConfig = {
   },
   'link-punctuation': {
     // GHD008
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'yaml-scheduled-jobs': {
