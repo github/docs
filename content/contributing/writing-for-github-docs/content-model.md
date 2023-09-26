@@ -288,7 +288,7 @@ Troubleshooting content includes built-in errors we expect people to encounter, 
 
 #### Known issues
 
-Known issues are a subset of troubleshooting content specifically designed to respond to bugs, UX/UI issues, and other product quirks that generate a high volume of support tickets. Where troubleshooting content can describe errors that people *might* encounter, known issues explain problems that people *will* encounter.
+Known issues are a subset of troubleshooting content specifically designed to respond to bugs, UX/UI issues, and other product quirks that generate a high volume of support tickets. Where troubleshooting content can describe errors that people might encounter, known issues explain problems that people will encounter.
 
 Like all troubleshooting content, known issues can be a section in an article or a standalone article. If a known issue applies to a specific article, document it in that article. If a known issue applies to a specific set of articles or conceptual grouping of features, or if a product or feature has multiple known issues that should be grouped together, create a dedicated "Known issues with NAME" article.
 
@@ -612,7 +612,7 @@ Further reading sections highlight additional targeted articles that aren’t al
 
 #### Title and format for further reading sections
 
-```
+```markdown
 ### Further reading
 - "[Article title](article-URL)”
 - [External resource title](external-resource-URL) in External Resource Name

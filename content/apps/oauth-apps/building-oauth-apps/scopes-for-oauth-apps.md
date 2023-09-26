@@ -67,7 +67,7 @@ Name | Description
 &emsp;`read:public_key`| List and view details for public keys.
 **`admin:org_hook`** | Grants read, write, ping, and delete access to organization hooks. **Note:** OAuth tokens will only be able to perform these actions on organization hooks which were created by the {% data variables.product.prodname_oauth_app %}. {% data variables.product.pat_generic_caps %}s will only be able to perform these actions on organization hooks created by a user.
 **`gist`** | Grants write access to gists.
-**`notifications`** | Grants: <br/>*read access to a user's notifications*<br/> mark as read access to threads <br/>*watch and unwatch access to a repository, and*<br/> read, write, and delete access to thread subscriptions.
+**`notifications`** | Grants: <br/>read access to a user's notifications<br/> mark as read access to threads <br/>watch and unwatch access to a repository, and<br/> read, write, and delete access to thread subscriptions.
 **`user`** | Grants read/write access to profile info only.  Note that this scope includes `user:email` and `user:follow`.
 &emsp;`read:user`| Grants access to read a user's profile data.
 &emsp;`user:email`| Grants read access to a user's email addresses.

@@ -40,7 +40,7 @@ jobs:
 
       - name: Purge Fastly edge cache independent of language
         if: ${{ inputs.nuke_all }}
-        run: .github/actions-scripts/purge-fastly-edge-cache.js
+        run: src/workflows/purge-fastly-edge-cache.js
 
       - name: Purge Fastly edge cache per language
         if: ${{ !inputs.nuke_all }}

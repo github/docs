@@ -13,7 +13,7 @@ type: how_to
 
 {% raw %}
 
-```sh
+```shell
 {% data foo.bar.buzz %}
 {{ page.title }}
 ```

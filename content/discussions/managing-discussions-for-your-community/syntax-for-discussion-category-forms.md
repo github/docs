@@ -24,7 +24,7 @@ This example YAML configuration file defines a general discussion category form.
 
 The configuration file for a discussion category form must contain a `body` key, and the `body` must contain at least 1 non-Markdown field.
 
-```YAML copy
+```yaml copy
 body:
 - type: input
   id: suggestion

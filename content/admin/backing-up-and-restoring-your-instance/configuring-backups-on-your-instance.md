@@ -80,7 +80,7 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 
 1. To change into the local repository directory, run the following command.
 
-   ```
+   ```shell
    cd backup-utils
    ```
 
@@ -130,7 +130,7 @@ You can verify the installation method for {% data variables.product.prodname_en
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
 1. To check if a valid working directory exists inside a Git repository, run the following command.
 
-   ```
+   ```shell
    git rev-parse --is-inside-work-tree
    ```
 
@@ -167,27 +167,27 @@ To use Git instead of a compressed archive for upgrades, you must back up your e
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
 1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
 
-   ```
+   ```shell
    cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
    ```
 
 1. Change to the local directory on your backup host where you want to install the {% data variables.product.prodname_enterprise_backup_utilities %} Git repository.
 1. To clone the [project repository](https://github.com/github/backup-utils/) to the directory on your backup host, run the following command.
 
-   ```
+   ```shell
    git clone https://github.com/github/backup-utils.git
    ```
 
 1. To change into the cloned repository, run the following command.
 
-   ```
+   ```shell
    cd backup-utils
    ```
 
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
 
-   ```
+   ```shell
    cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
    ```
 

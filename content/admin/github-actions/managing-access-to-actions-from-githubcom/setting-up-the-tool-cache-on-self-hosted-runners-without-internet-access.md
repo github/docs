@@ -80,7 +80,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
     After extracting the tool cache artifact uploaded in the above example, you should have a directory structure on your self-hosted runner that is similar to the following example:
 
-    ```
+    ```text
     RUNNER_DIR
     ├── ...
     └── _work

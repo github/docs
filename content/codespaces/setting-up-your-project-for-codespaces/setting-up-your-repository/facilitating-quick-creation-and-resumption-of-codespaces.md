@@ -90,13 +90,13 @@ This type of URL is useful, for instance, in a README for your repository as it 
 1. Get the URL to the codespace creation page, or the "Resume codespace" page, as described in the previous sections.
 1. Add the following Markdown to, for example, the `README.md` file of your repository:
 
-   ```Markdown copy
+   ```markdown copy
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](URL)
    ```
 
    For example:
 
-   ```Markdown
+   ```markdown
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/docs)
    ```
 

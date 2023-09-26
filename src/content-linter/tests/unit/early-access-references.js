@@ -3,8 +3,8 @@ import { expect, jest } from '@jest/globals'
 import { runRule } from '../../lib/init-test.js'
 import { earlyAccessReferences } from '../../lib/linting-rules/early-access-references.js'
 
-const FIXTURE_FILEPATH_NON_EA = 'src/content-linter/tests/fixutres/not-secret.md'
-const FIXTURE_FILEPATH_EA = 'src/content-linter/tests/fixutres/early-access/secret.md'
+const FIXTURE_FILEPATH_NON_EA = 'src/content-linter/tests/fixtures/not-secret.md'
+const FIXTURE_FILEPATH_EA = 'src/content-linter/tests/fixtures/early-access/secret.md'
 jest.setTimeout(20 * 1000)
 
 describe(earlyAccessReferences.names.join(' - '), () => {

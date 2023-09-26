@@ -43,7 +43,7 @@ If you're using `nodenv`, see the [`nodenv` docs](https://github.com/nodenv/node
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open your terminal and run the following commands.
 
-```sh
+```shell
 git clone https://github.com/github/docs
 cd docs
 npm ci

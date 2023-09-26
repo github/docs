@@ -289,7 +289,7 @@ Enabling anonymous Git read access allows users to bypass authentication for cus
 
 Anonymous Git read access is disabled by default.{% ifversion ghes = 3.6 or ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
 
-```
+```text
 The unauthenticated git protocol on port 9418 is no longer supported.
 ```
 
@@ -297,7 +297,7 @@ The unauthenticated git protocol on port 9418 is no longer supported.
 
 If you wish to support the unathenticated Git protocol in your environment, you must manually re-enable the feature. Run the following commands after your upgrade:
 
-```ShellSession
+```shell
 sudo ghe-config app.gitauth.git-protocol true
 sudo ghe-config-apply
 ```

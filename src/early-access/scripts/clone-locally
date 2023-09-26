@@ -18,7 +18,7 @@ if [ -d "docs-early-access" ]; then
 fi
 
 # Clone the repo
-git clone git@github.com:github/docs-early-access.git
+git clone https://github.com/github/docs-early-access.git
 
 # Go back to the previous working directory
 popd > /dev/null

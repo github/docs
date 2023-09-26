@@ -82,7 +82,7 @@ These guidelines are designed to make the processing of requests to remove priva
 
 1. A working, clickable link to each file containing private information. (Note that we're not able to work from search results, examples, or screenshots.)
 1. Specific line numbers within each file containing the private information.
-1. A brief description of how each item you've identified poses a security risk to you or your organization. ***It is important that you provide an explanation of how the data poses a security risk beyond merely stating that it does.***
+1. A brief description of how each item you've identified poses a security risk to you or your organization. ***It is important that you provide an explanation of how the data poses a security risk beyond merely stating that it does.*** <!-- markdownlint-disable-line emphasis-style -->
 1. If you are a third party acting as an agent for an organization facing a security risk, include a statement that you have a legal right to act on behalf of that organization.
 1. OPTIONAL: Let us know if your request is particularly urgent, and why. We respond to all private information removal requests as quickly as possible. However, if this request is especially time-sensitive, such as a very recent credential exposure, please explain why.
 

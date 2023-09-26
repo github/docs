@@ -23,7 +23,7 @@
 // [end-readme]
 
 import { program } from 'commander'
-import main from '../.github/actions-scripts/content-changes-table-comment.js'
+import main from '#src/workflows/content-changes-table-comment.js'
 
 program
   .description('Produce a nice table based on the branch diff')

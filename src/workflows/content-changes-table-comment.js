@@ -8,7 +8,7 @@ import parse from '../../lib/read-frontmatter.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { allVersionShortnames } from '#src/versions/lib/all-versions.js'
-import { waitUntilUrlIsHealthy } from './lib/wait-until-url-is-healthy.js'
+import { waitUntilUrlIsHealthy } from './wait-until-url-is-healthy.js'
 
 const { GITHUB_TOKEN, APP_URL } = process.env
 const context = github.context

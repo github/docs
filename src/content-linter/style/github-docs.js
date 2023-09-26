@@ -34,9 +34,14 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-link-punctuation': {
+  'link-punctuation': {
     // GHD008
     severity: 'warning',
+    'partial-markdown-files': true,
+  },
+  'yaml-scheduled-jobs': {
+    // GHD009
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'list-first-word-capitalization': {
@@ -67,7 +72,7 @@ export const searchReplaceConfig = {
         message: 'Catch occurrences of docs.gitub.com domain.',
         search: 'docs.github.com',
         searchScope: 'all',
-        severity: 'error',
+        severity: 'warning',
         'partial-markdown-files': true,
       },
       {
@@ -105,6 +110,8 @@ export const searchReplaceConfig = {
         message: 'Catch occurrences of deprecated liquid data syntax.',
         searchPattern: '/{{\\s*?site\\.data\\.([a-zA-Z0-9-_]+(?:\\.[a-zA-Z0-9-_]+)+)\\s*?}}/g',
         replace: '{% data $1 %}',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         // Catches usage of old octicon variable syntax. For example:
@@ -114,6 +121,8 @@ export const searchReplaceConfig = {
         message:
           'The octicon liquid syntax used is deprecated. Use this format instead {% octicon "<octicon-name>" aria-label="<Octicon aria label>" %}',
         searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         // Catches usage of string personal access token, which should
@@ -122,6 +131,8 @@ export const searchReplaceConfig = {
         message:
           'The string "personal access token" can be replaced with a variable. You should use one of the variables from data/variables/product.yml instead of the literal phrase(s):',
         searchPattern: '/personal access tokens?/gi',
+        severity: 'warning',
+        'partial-markdown-files': true,
       },
       {
         // Catches usage of GitHub-owned actions that don't use a
@@ -151,7 +162,11 @@ export const searchReplaceConfig = {
           'A GitHub-owned action is referenced, but should be replaced with a reusable from data/reusables/actions.',
         searchPattern:
           '/(actions\\/(checkout|delete-package-versions|download-artifact|upload-artifact|github-script|setup-dotnet|setup-go|setup-java|setup-node|setup-python|stale|cache)|github\\/codeql-action[/a-zA-Z-]*)/g',
+        severity: 'warning',
+        'partial-markdown-files': true,
       },
     ],
   },
 }
+
+export const customConfig = { ...searchReplaceConfig, ...githubDocsConfig }
