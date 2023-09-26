@@ -19,7 +19,7 @@ topics:
 
 ## About secrets for {% data variables.product.prodname_github_codespaces %}
 
-You can add secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as secrets.
+You can add secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as secrets:
 
 - Access tokens to cloud services
 - Service principals
@@ -34,7 +34,7 @@ You can choose which repositories should have access to each secret. Then, you c
 
 {% data reusables.codespaces.secrets-naming %} For example, a secret created at the repository level must have a unique name in that repository.
 
-  {% data reusables.codespaces.secret-precedence %}
+{% data reusables.codespaces.secret-precedence %}
 
 ### Limits for secrets
 
@@ -47,7 +47,7 @@ Secrets are limited to 48 KB in size.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
 1. To the right of "Codespaces secrets", click **New secret**.
-1. Under "Name", type a name for your secret.
+1. Under "Name," type a name for your secret.
 {% data reusables.user-settings.codespaces-secret-value %}
 {% data reusables.user-settings.codespaces-secret-repository-access %}
 1. Click **Add secret**.
@@ -58,10 +58,10 @@ You can update the value of an existing secret, and you can change which reposit
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to edit, click **Update**.
-1. Under "Value", click the link "**enter a new value**."
+1. Under "Codespaces secrets," to the right of the secret you want to edit, click **Update**.
+1. Under "Value," click the link "**enter a new value**."
 
-   ![Screenshot of the "Codespaces / Update secret" page. The "enter a new value" link in highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-secret-update-value-text.png)
+   ![Screenshot of the "Codespaces / Update secret" page. The "enter a new value" link is highlighted with a dark orange outline.](/assets/images/help/codespaces/codespaces-secret-update-value-text.png)
 
 {% data reusables.user-settings.codespaces-secret-value %}
 {% data reusables.user-settings.codespaces-secret-repository-access %}
@@ -75,7 +75,7 @@ You can update the value of an existing secret, and you can change which reposit
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Under "Codespaces secrets", to the right of the secret you want to delete, click **Delete**.
+1. Under "Codespaces secrets," to the right of the secret you want to delete, click **Delete**.
 1. Read the warning, then click **OK**.
 
 ## Using secrets
