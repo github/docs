@@ -127,7 +127,7 @@ You can embed ASCII STL syntax directly in Markdown. For more information, see "
 
 {% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of _.csv_ (comma-separated) and ._tsv_ (tab-separated) files.
 
-![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered_csv.png)
+![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered-csv.png)
 
 When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
@@ -141,7 +141,7 @@ If you want to find a certain value in your dataset, you can start typing in the
 
 Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, a message appears above your raw text, suggesting what the error may be.
 
-![Screenshot of a text view of a CSV file. In the header, a message points out an error: "No commas found in this CSV file in line 0."](/assets/images/help/repository/csv_render_error.png)
+![Screenshot of a text view of a CSV file. In the header, a message points out an error: "No commas found in this CSV file in line 0."](/assets/images/help/repository/csv-render-error.png)
 
 Common errors include:
 
@@ -177,11 +177,11 @@ Prose rendering is supported for rendered documents supported by [github/markup]
 
 To see the changes made to the document as part of a commit, click {% octicon "file" aria-label="Display the rich diff" %}.
 
-![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered_prose_diff.png)
+![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered-prose-diff.png)
 
 This "rich diff" highlights the code that has been added and removed.
 
-![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered_prose_changes.png)
+![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered-prose-changes.png)
 
 ### Disabling Markdown rendering
 
@@ -193,7 +193,7 @@ We provide a tooltip
 describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
 another, we'd show a tooltip like this:
 
-![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose_diff_attributes.png)
+![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose-diff-attributes.png)
 
 ### Commenting on changes
 
