@@ -14,7 +14,7 @@ describe(searchReplace.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
     expect(errors.length).toBe(7)
@@ -40,7 +40,7 @@ describe(searchReplace.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
     expect(errors.length).toBe(10)
@@ -55,7 +55,7 @@ describe(searchReplace.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
     expect(errors.length).toBe(4)
@@ -70,7 +70,7 @@ describe(searchReplace.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
     expect(errors.length).toBe(3)
@@ -86,7 +86,7 @@ describe(searchReplace.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
     expect(errors.length).toBe(5)
