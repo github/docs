@@ -20,7 +20,7 @@ topics:
 
 ## About problems with SAML authentication
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% elsif ghes < 3.9 %}authentication log{% endif %} at {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}these log files{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.
+{% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% elsif ghes < 3.9 %}authentication log at{% endif %} {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}for the `github-unicorn` container{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}this log{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.
 
 For more information about SAML response requirements, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
 
@@ -42,12 +42,14 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} on {% data variables.location.product_location %}.
+1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} on {% data variables.location.product_location %}. {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server)."{% endif %}
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
 ## Decoding responses
 
-Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
+To decode the output, run the following command, replacing ENCODED_OUTPUT with the encoded output from the log.
 
 ```shell
 base64 --decode ENCODED_OUTPUT
