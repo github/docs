@@ -42,7 +42,7 @@ In your new `hello-world-docker-action` directory, create a new `Dockerfile` fil
 
 **Dockerfile**
 
-```Dockerfile copy
+```dockerfile copy
 # Container image that runs your code
 FROM alpine:3.10
 
@@ -102,11 +102,12 @@ Next, the script gets the current time and sets it as an output variable that ac
 
    echo "Hello $1"
    time=$(date)
-{%- ifversion actions-save-state-set-output-envs %}
+   {%- ifversion actions-save-state-set-output-envs %}
    echo "time=$time" >> $GITHUB_OUTPUT
-{%- else %}
+   {%- else %}
    echo "::set-output name=time::$time"
-{%- endif %}
+   {%- endif %}
+
    ```
 
    If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
@@ -114,8 +115,8 @@ Next, the script gets the current time and sets it as an output variable that ac
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
    ```shell copy
-   $ git add entrypoint.sh
-   $ git update-index --chmod=+x entrypoint.sh
+   git add entrypoint.sh
+   git update-index --chmod=+x entrypoint.sh
    ```
 
 1. Optionally, to check the permission mode of the file in the git index, run the following command.
@@ -241,6 +242,33 @@ jobs:
 ```
 
 {% data reusables.actions.test-private-action-example %}
+
+## Accessing files created by a container action
+
+When a container action runs, it will automatically map the default working directory (`GITHUB_WORKSPACE`) on the runner with the `/github/workspace` directory on the container. Any files added to this directory on the container will be available to any subsequent steps in the same job. For example, if you have a container action that builds your project, and you would like to upload the build output as an artifact, you can use the following steps.
+
+**workflow.yml**
+
+```yaml copy
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: {% data reusables.actions.action-checkout %}
+
+      # Output build artifacts to /github/workspace on the container.
+      - name: Containerized Build
+        uses: ./.github/actions/my-container-action
+
+      - name: Upload Build Artifacts
+        uses: {% data reusables.actions.action-upload-artifact %}
+        with:
+          name: workspace_artifacts
+          path: {% raw %}${{ github.workspace }}{% endraw %}
+```
+
+For more information about uploading build output as an artifact, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}
 

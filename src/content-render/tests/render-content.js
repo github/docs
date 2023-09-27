@@ -149,7 +149,7 @@ describe('renderContent', () => {
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
     expect($('ol').length).toBe(1)
-    expect($.html().includes('<span class="hljs-meta"># </span')).toBeTruthy()
+    expect($.html().includes('<span class="hljs-meta prompt_"># </span')).toBeTruthy()
     expect($.html().includes('some comment here')).toBeTruthy()
     expect($.html().includes('<h1 id="some-comment-here">')).toBeFalsy()
     expect($.html().includes('<a href="#some-comment-here">')).toBeFalsy()

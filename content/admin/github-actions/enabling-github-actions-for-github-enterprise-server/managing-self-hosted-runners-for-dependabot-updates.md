@@ -52,7 +52,7 @@ The CPU and memory requirements will depend on the number of concurrent runners 
 
 If you specify more than 14 concurrent runners on a VM, you must also update the Docker `/etc/docker/daemon.json` configuration to increase the default number of networks Docker can create.
 
-```
+```json
 {
   "default-address-pools": [
     {"base":"10.10.0.0/16","size":24}

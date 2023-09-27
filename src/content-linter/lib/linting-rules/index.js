@@ -7,6 +7,11 @@ import { incorrectAltTextLength } from './image-alt-text-length.js'
 import { internalLinksLang } from './internal-links-lang.js'
 import { internalLinksSlash } from './internal-links-slash.js'
 import { imageAltTextExcludeStartWords } from './image-alt-text-exclude-start-words.js'
+import { listFirstWordCapitalization } from './list-first-word-capitalization.js'
+import { linkPunctuation } from './link-punctuation.js'
+import { earlyAccessReferences } from './early-access-references.js'
+import { yamlScheduledJobs } from './yaml-scheduled-jobs.js'
+import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
 
 export const gitHubDocsMarkdownlint = {
   rules: [
@@ -18,5 +23,10 @@ export const gitHubDocsMarkdownlint = {
     internalLinksLang,
     internalLinksSlash,
     imageAltTextExcludeStartWords,
+    listFirstWordCapitalization,
+    linkPunctuation,
+    earlyAccessReferences,
+    yamlScheduledJobs,
+    liquidQuotedConditionalArg,
   ],
 }

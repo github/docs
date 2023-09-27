@@ -22,7 +22,7 @@ You can apply the `good first issue` label to issues in your public repository s
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
 1. Above the list of issues, select the **Label** dropdown menu.
 
-   ![Screenshot of the list of issues for a repository. In the header above the list, a dropdown menu, labeled "Label", is outlined in dark orange.](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+   ![Screenshot of the list of issues for a repository. In the header above the list, a dropdown menu, labeled "Label", is outlined in dark orange.](/assets/images/help/issues/issues-applying-labels-dropdown.png)
 1. In the "Search filters" field, start typing `good first issue`. Click the label's name to associate it with the selected items.
 
 ## Further reading

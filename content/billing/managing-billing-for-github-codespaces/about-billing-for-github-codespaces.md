@@ -26,7 +26,7 @@ redirect_from:
 
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
-Organizations can choose whether codespaces created from their repositories will be user-owned or organization-owned. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." An organization pays for a codespace if all the following things are true. 
+Organizations can choose whether codespaces created from their repositories will be user-owned or organization-owned. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." An organization pays for a codespace if all the following things are true.
 
 - The organization has chosen for codespaces to be organization-owned.
 {% data reusables.codespaces.when-an-org-pays %}
@@ -139,7 +139,7 @@ Organization owners can:
 - See the total {% data variables.product.prodname_github_codespaces %} compute and storage usage for your organization for the current month to date. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 - Configure your organization settings to manage the cost of {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)."
 
-To estimate the costs for metered services, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=codespaces).
+To estimate the costs for usage-based billing, you can use the {% data variables.product.prodname_dotcom %} [pricing calculator](https://github.com/pricing/calculator?feature=codespaces).
 
 ## About billing for {% data variables.product.prodname_codespaces %} prebuilds
 
@@ -218,7 +218,7 @@ Usage of codespaces created from a forked repository will be billed to your pers
 
 For example, consider a member, or outside collaborator, of an organization that has allowed billing for codespaces for that user. If the user has permission to fork an organization-owned private repository, they can subsequently create and use a codespace for the new repository at the organization's expense. This is because the organization is the owner of the parent repository. Note that the organization owner can remove the user's access to the private repository, the forked repository, and therefore also the codespace. The organization owner can also delete the parent repository which will also delete the forked repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)."
 
-{% data reusables.codespaces.prebuilds-billing-for-forks %} 
+{% data reusables.codespaces.prebuilds-billing-for-forks %}
 
 ## How billing is handled when a repository is transferred to another organization
 

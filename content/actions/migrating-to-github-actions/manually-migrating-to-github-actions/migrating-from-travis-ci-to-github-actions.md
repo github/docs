@@ -337,7 +337,7 @@ jobs:
 
 ### Building with Node.js
 
-##### Travis CI for building with Node.js
+#### Travis CI for building with Node.js
 
 {% raw %}
 
@@ -351,7 +351,7 @@ script:
 
 {% endraw %}
 
-##### {% data variables.product.prodname_actions %} workflow for building with Node.js
+#### {% data variables.product.prodname_actions %} workflow for building with Node.js
 
 ```yaml
 name: Node.js CI

@@ -107,6 +107,10 @@ dependency_version_updates:
     - >-
       /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - >-
+      /code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot
+    - >-
+      /code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries
+    - >-
       /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - >-
       /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
@@ -215,8 +219,6 @@ code_security_ci:
       /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
     - >-
       /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
-    - >-
-      /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
 end_to_end_supply_chain:
   title: End-to-end supply chain
   description: >-

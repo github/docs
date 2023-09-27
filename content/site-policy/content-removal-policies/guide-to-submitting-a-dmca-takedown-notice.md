@@ -20,15 +20,15 @@ As with all legal matters, it is always best to consult with a professional abou
 
 ## Before You Start
 
-***Tell the Truth.*** The DMCA requires that you swear to the facts in your copyright complaint _under penalty of perjury_. It is a federal crime to intentionally lie in a sworn declaration. (_See_ [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability — that is, you could get sued for money damages. The DMCA itself [provides for damages](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) against any person who knowingly materially misrepresents that material or activity is infringing.
+***Tell the Truth.*** The DMCA requires that you swear to the facts in your copyright complaint _under penalty of perjury_. It is a federal crime to intentionally lie in a sworn declaration. (_See_ [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) Submitting false information could also result in civil liability — that is, you could get sued for money damages. The DMCA itself [provides for damages](https://en.wikipedia.org/wiki/Online_Copyright_Infringement_Liability_Limitation_Act#%C2%A7_512(f)_Misrepresentations) against any person who knowingly materially misrepresents that material or activity is infringing. <!-- markdownlint-disable-line emphasis-style -->
 
-***Investigate.*** Millions of users and organizations pour their hearts and souls into the projects they create and contribute to on GitHub. Filing a DMCA complaint against such a project is a serious legal allegation that carries real consequences for real people. Because of that, we ask that you conduct a thorough investigation and consult with an attorney before submitting a takedown to make sure that the use isn't actually permissible.
+***Investigate.*** Millions of users and organizations pour their hearts and souls into the projects they create and contribute to on GitHub. Filing a DMCA complaint against such a project is a serious legal allegation that carries real consequences for real people. Because of that, we ask that you conduct a thorough investigation and consult with an attorney before submitting a takedown to make sure that the use isn't actually permissible. <!-- markdownlint-disable-line emphasis-style -->
 
-***Ask Nicely First.*** A great first step before sending us a takedown notice is to try contacting the user directly. They may have listed contact information on their public profile page or in the repository's README, or you could get in touch by opening an issue or pull request on the repository. This is not strictly required, but it is classy.
+***Ask Nicely First.*** A great first step before sending us a takedown notice is to try contacting the user directly. They may have listed contact information on their public profile page or in the repository's README, or you could get in touch by opening an issue or pull request on the repository. This is not strictly required, but it is classy. <!-- markdownlint-disable-line emphasis-style -->
 
-***Send In The Correct Request.*** We can only accept DMCA takedown notices for works that are protected by copyright, and that identify a specific copyrightable work. If you have a complaint about trademark abuse, please see our [trademark policy](/site-policy/content-removal-policies/github-trademark-policy). If you wish to remove sensitive data such as passwords, please see our [policy on sensitive data](/site-policy/content-removal-policies/github-private-information-removal-policy). If you are dealing with defamation or other abusive behavior, please see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines).
+***Send In The Correct Request.*** We can only accept DMCA takedown notices for works that are protected by copyright, and that identify a specific copyrightable work. If you have a complaint about trademark abuse, please see our [trademark policy](/site-policy/content-removal-policies/github-trademark-policy). If you wish to remove sensitive data such as passwords, please see our [policy on sensitive data](/site-policy/content-removal-policies/github-private-information-removal-policy). If you are dealing with defamation or other abusive behavior, please see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines). <!-- markdownlint-disable-line emphasis-style -->
 
-***Code Is Different From Other Creative Content.*** GitHub is built for collaboration on software code. This makes identifying a valid copyright infringement more complicated than it might otherwise be for, say, photos, music, or videos.
+***Code Is Different From Other Creative Content.*** GitHub is built for collaboration on software code. This makes identifying a valid copyright infringement more complicated than it might otherwise be for, say, photos, music, or videos. <!-- markdownlint-disable-line emphasis-style -->
 
 There are a number of reasons why code is different from other creative content. For instance:
 
@@ -40,15 +40,15 @@ There are a number of reasons why code is different from other creative content.
 
 This list isn't exhaustive, which is why speaking to a legal professional about your proposed complaint is doubly important when dealing with code.
 
-***No Bots.*** You should have a trained professional evaluate the facts of every takedown notice you send. If you are outsourcing your efforts to a third party, make sure you know how they operate, and make sure they are not using automated bots to submit complaints in bulk. These complaints are often invalid and processing them results in needlessly taking down projects!
+***No Bots.*** You should have a trained professional evaluate the facts of every takedown notice you send. If you are outsourcing your efforts to a third party, make sure you know how they operate, and make sure they are not using automated bots to submit complaints in bulk. These complaints are often invalid and processing them results in needlessly taking down projects! <!-- markdownlint-disable-line emphasis-style -->
 
-***Matters of Copyright Are Hard.*** It can be very difficult to determine whether or not a particular work is protected by copyright. For example, facts (including data) are generally not copyrightable. Words and short phrases are generally not copyrightable. URLs and domain names are generally not copyrightable. Since you can only use the DMCA process to target content that is protected by copyright, you should speak with a lawyer if you have questions about whether or not your content is protectable.
+***Matters of Copyright Are Hard.*** It can be very difficult to determine whether or not a particular work is protected by copyright. For example, facts (including data) are generally not copyrightable. Words and short phrases are generally not copyrightable. URLs and domain names are generally not copyrightable. Since you can only use the DMCA process to target content that is protected by copyright, you should speak with a lawyer if you have questions about whether or not your content is protectable. <!-- markdownlint-disable-line emphasis-style -->
 
-***You May Receive a Counter Notice.*** Any user affected by your takedown notice may decide to submit a [counter notice](/site-policy/content-removal-policies/guide-to-submitting-a-dmca-counter-notice). If they do, we will re-enable their content within 10-14 days unless you notify us that you have initiated a legal action seeking to restrain the user from engaging in infringing activity relating to the content on GitHub.
+***You May Receive a Counter Notice.*** Any user affected by your takedown notice may decide to submit a [counter notice](/site-policy/content-removal-policies/guide-to-submitting-a-dmca-counter-notice). If they do, we will re-enable their content within 10-14 days unless you notify us that you have initiated a legal action seeking to restrain the user from engaging in infringing activity relating to the content on GitHub. <!-- markdownlint-disable-line emphasis-style -->
 
-***Your Complaint Will Be Published.*** As noted in our [DMCA Takedown Policy](/site-policy/content-removal-policies/dmca-takedown-policy#d-transparency), after redacting personal information, we publish all complete and actionable takedown notices at <https://github.com/github/dmca>.
+***Your Complaint Will Be Published.*** As noted in our [DMCA Takedown Policy](/site-policy/content-removal-policies/dmca-takedown-policy#d-transparency), after redacting personal information, we publish all complete and actionable takedown notices at <https://github.com/github/dmca>. <!-- markdownlint-disable-line emphasis-style -->
 
-***GitHub Isn't The Judge.***
+***GitHub Isn't The Judge.*** <!-- markdownlint-disable-line emphasis-style -->
 GitHub exercises little discretion in the process other than determining whether the notices meet the minimum requirements of the DMCA. It is up to the parties (and their lawyers) to evaluate the merit of their claims, bearing in mind that notices must be made under penalty of perjury.
 
 ## Your Complaint Must ...
@@ -87,7 +87,7 @@ You can also send an email notification to <copyright@github.com>. You may inclu
 
 If you must send your notice by physical mail, you can do that too, but it will take _substantially_ longer for us to receive and respond to it. Notices we receive via plain-text email have a much faster turnaround than PDF attachments or physical mail. If you still wish to mail us your notice, our physical address is:
 
-```
+```text
 GitHub, Inc
 Attn: DMCA Agent
 88 Colin P Kelly Jr St

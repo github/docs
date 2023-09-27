@@ -9,7 +9,7 @@ versions:
 topics:
   - Enterprise
 children:
-  - /monitoring-your-appliance
+  - /monitoring-your-instance
   - /updating-the-virtual-machine-and-physical-resources
   - /configuring-clustering
   - /configuring-high-availability

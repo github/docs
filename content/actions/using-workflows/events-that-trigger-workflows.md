@@ -404,7 +404,6 @@ For example, you can run a workflow when the `checks_requested` activity has occ
 on:
   merge_group:
     types: [checks_requested]
-
 ```
 
 {% endif %}
@@ -764,7 +763,7 @@ on:
 
 jobs:
   approved:
-    if: github.event.review.state == 'approved'
+    if: github.event.review.state == 'APPROVED'
     runs-on: ubuntu-latest
     steps:
       - run: echo "This PR was approved"
@@ -942,7 +941,7 @@ jobs:
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag, or when you clone a repository.
+Runs your workflow when you push a commit or tag, or when you create a repository from a template.
 
 For example, you can run a workflow when the `push` event occurs.
 

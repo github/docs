@@ -83,6 +83,7 @@ The list of valid values for `source` are:
 - commit
 - pull_request_description
 - pull_request_comment
+- issue_title
 - issue_description
 - issue_comment
 - discussion_body
@@ -90,7 +91,7 @@ The list of valid values for `source` are:
 - commit_comment
 - gist_content
 - gist_comment
-- npm_package
+- npm
 - unknown
 
 ### Implement signature verification in your secret alert service
@@ -324,7 +325,7 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 
 **Validation sample in JavaScript**
 
-```js
+```javascript
 const crypto = require("crypto");
 const axios = require("axios");
 

@@ -1,7 +1,7 @@
 import { getProductGroups } from '../../lib/get-product-groups.js'
 import warmServer from '../../lib/warm-server.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
-import { allVersionKeys } from '../../lib/all-versions.js'
+import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 
 const isHomepage = (path) => {
   const split = path.split('/')

@@ -4,9 +4,9 @@ import cheerio from 'cheerio'
 import { describe, expect } from '@jest/globals'
 
 import Page, { FrontmatterErrorsError } from '../../lib/page.js'
-import { allVersions } from '../../lib/all-versions.js'
-import enterpriseServerReleases, { latest } from '../../lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
+import enterpriseServerReleases, { latest } from '#src/versions/lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>

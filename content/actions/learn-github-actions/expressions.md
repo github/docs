@@ -97,7 +97,6 @@ env:
   **Notes:**
   - {% data variables.product.company_short %} ignores case when comparing strings.
   - `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
-  - {% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
   - For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
 
   {% endnote %}
@@ -119,7 +118,7 @@ env:
 
 {% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
 
-#### Example
+### Example
 
 {% raw %}
 
@@ -197,7 +196,7 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 
 {% raw %}
 
-```js
+```javascript
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
 
@@ -209,7 +208,7 @@ Returns 'Hello Mona the Octocat'.
 
 {% raw %}
 
-```js
+```javascript
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 

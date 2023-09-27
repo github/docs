@@ -35,13 +35,14 @@ You should ensure that 2FA is enabled for unattended or shared access accounts i
    {% endnote %}
 
    If you have already configured 2FA using TOTP and you need to locate the TOTP secret, use the following steps:
-      1. In the shared account's settings, click **{% octicon "shield-lock" aria-hidden="true" %} Password and authentication**.
-      1. Under "Two-factor methods", to the right of "Authenticator app", click **Edit**.
-      1. In "Authenticator app", immediately below the QR code, click **setup key**.
+
+   1. In the shared account's settings, click **{% octicon "shield-lock" aria-hidden="true" %} Password and authentication**.
+   1. Under "Two-factor methods", to the right of "Authenticator app", click **Edit**.
+   1. In "Authenticator app", immediately below the QR code, click **setup key**.
 
       ![Screenshot of the "Authenticator app" settings. An embedded link, titled "setup key", is highlighted in a dark orange outline.](/assets/images/help/2fa/2fa-totp-secret-setup-key-link.png)
 
-      1. Copy the secret that's displayed in the dialog box.
-      1. Reconfigure 2FA using the copied secret.
+   1. Copy the secret that's displayed in the dialog box.
+   1. Reconfigure 2FA using the copied secret.
 1. Select a CLI app (such as oathtool) for generating TOTP codes from the TOTP secret. You will use the app to generate a new TOTP code from the TOTP secret every time you need to access the account. For more information, see [oathtool](https://www.nongnu.org/oath-toolkit/man-oathtool.html) in the OATH Toolkit documentation.
 1. When you need to access the account, use the password reset functionality to reset the password (via the mailing list), and use the CLI app to generate a TOTP code.

@@ -1,6 +1,6 @@
 1. In AWS, create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
 
-   ```
+   ```json
    {
       "Version": "2012-10-17",
       "Statement": [

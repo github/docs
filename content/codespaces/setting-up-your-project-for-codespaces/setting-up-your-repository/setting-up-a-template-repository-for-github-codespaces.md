@@ -62,7 +62,7 @@ You should configure your dev container with the tools and customization to give
 
 The following configuration settings for a React template will open the `app.js` file in the user's editor, run `npm start` (defined in a `package.json` file) to start a local server, and forward port `3000` to a preview browser tab in the codespace.
 
-```JSON
+```json
 {
     "postAttachCommand": {
       "server": "npm start"

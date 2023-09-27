@@ -21,6 +21,12 @@ topics:
   - Upgrades
 shortTitle: Migrate from 11.10.x to 2.1.23
 ---
+{% note %}
+
+**Note**: {% data variables.product.prodname_ghe_server %} 11.10 is an unsupported release from 2014. For a list of supported releases, see "[AUTOTITLE](/admin/all-releases)."
+
+{% endnote %}
+
 Migrations from {% data variables.product.prodname_enterprise %} 11.10.348 and later are supported. Migrating from {% data variables.product.prodname_enterprise %} 11.10.348 and earlier is not supported. You must first upgrade to 11.10.348 in several upgrades. For more information, see the 11.10.348 upgrading procedure, "[Upgrading to the latest release](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
 
 To upgrade to the latest version of {% data variables.product.prodname_enterprise %}, you must first migrate to {% data variables.product.prodname_ghe_server %} 2.1, then you can follow the normal upgrade process. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)".

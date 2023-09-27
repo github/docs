@@ -32,9 +32,11 @@ codeql generate extensible-predicate-metadata <options>... -- <pack-root-dir>
 \[Experimental] \[Deep plumbing] Report the extensible predicates
 found in the given pack.
 
-## Primary options
+## Options
 
-#### `<pack-root-dir>`
+### Primary Options
+
+#### `<pack-root-dir>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The pack root directory for which we are reporting
 extensible predicate metadata.

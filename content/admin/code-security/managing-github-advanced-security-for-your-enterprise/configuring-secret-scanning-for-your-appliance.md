@@ -28,7 +28,7 @@ If someone checks a secret with a known pattern into a repository, {% data varia
 
 ## Prerequisites for {% data variables.product.prodname_secret_scanning %}
 
-- The [SSSE3](https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf) (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.location.product_location %}.
+- The SSSE3 (Supplemental Streaming SIMD Extensions 3) CPU flag needs to be enabled on the VM/KVM that runs {% data variables.location.product_location %}. For more information about SSSE3, see [Intel 64 and IA-32 Architectures Optimization Reference Manual](https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf) in the Intel documentation.
 
 - A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 

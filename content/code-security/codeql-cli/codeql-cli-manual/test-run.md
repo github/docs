@@ -32,9 +32,11 @@ codeql test run [--threads=<num>] [--ram=<MB>] <options>... -- <test|dir>...
 
 Run unit tests for QL queries.
 
-## Primary options
+## Options
 
-#### `<test|dir>...`
+### Primary Options
+
+#### `<test|dir>...` <!-- markdownlint-disable-line heading-increment -->
 
 Each argument is one of:
 
@@ -203,7 +205,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

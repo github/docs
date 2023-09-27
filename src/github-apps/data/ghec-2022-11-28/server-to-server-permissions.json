@@ -216,23 +216,6 @@
       }
     ]
   },
-  "enterprise_self_hosted_runners": {
-    "title": "enterprise self hosted runners",
-    "displayTitle": "Enterprise self hosted runners permissions",
-    "permissions": [
-      {
-        "category": "actions",
-        "slug": "create-configuration-for-a-just-in-time-runner-for-an-enterprise",
-        "subcategory": "self-hosted-runners",
-        "verb": "post",
-        "requestPath": "/enterprises/{enterprise}/actions/runners/generate-jitconfig",
-        "access": "write",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": []
-      }
-    ]
-  },
   "organization_administration": {
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
@@ -2999,6 +2982,17 @@
         "subcategory": "workflow-runs",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "actions",
+        "slug": "force-cancel-a-workflow-run",
+        "subcategory": "workflow-runs",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

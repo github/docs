@@ -1,13 +1,14 @@
-export function testOptions(rule, module, fixtureFile) {
+export function testOptions(rule, module, { strings, files, testConfig }) {
   const config = {
     default: false,
-    [rule]: true,
+    [rule]: testConfig || true,
   }
 
   const options = {
-    files: [fixtureFile],
     customRules: [module],
     config,
   }
+  if (strings) options.strings = strings
+  if (files) options.files = files
   return options
 }

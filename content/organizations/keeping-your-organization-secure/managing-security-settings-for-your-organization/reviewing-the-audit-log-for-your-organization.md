@@ -42,6 +42,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `billing` | Contains all activities related to your organization's billing.{% endif %}{% ifversion fpt or ghec %}
 | `business` | Contains activities related to business settings for an enterprise. |{% endif %}{% ifversion fpt or ghec %}
 | `codespaces` | Contains all activities related to your organization's codespaces. |{% endif %}
+| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} subscription.
 | `dependabot_alerts` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% ifversion fpt or ghec or ghes %}
 | `dependabot_security_updates` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
@@ -129,6 +130,14 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 - `country:Mexico` finds all events that occurred in Mexico.
 - `country:"United States"` all finds events that occurred in the United States.
 
+{% ifversion ghec %}
+
+### Search based on access token
+
+You can identify all events that were performed by a specific access token. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token)."
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## Exporting the audit log
@@ -166,7 +175,7 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% ifversion ghec %}
-Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#git)."
 {% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.

@@ -31,6 +31,12 @@ You can sponsor an account on behalf of your personal account to invest in proje
 
 You can use a credit card to sponsor an account on {% data variables.product.product_name %}. Organizations can also pay by invoice. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice)."
 
+{% ifversion enterprise-orgs-sponsors-with-cc %}
+
+If your enterprise pays by credit card, you can allow your enterprise's organizations to sponsor open source contributors using the credit card. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-sponsors-in-your-enterprise)."
+
+{% endif %}
+
 {% data reusables.sponsors.no-fees %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
 
 When you sponsor an account using a credit card, the charge will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}

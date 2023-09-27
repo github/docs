@@ -51,7 +51,7 @@ Make sure to update the link to the file in its parent `index.md` file, which ge
 
 ### Inline links within other articles
 
-We link between articles in our documentation. We recommend searching for both the filename *and* title to find links to update.
+We link between articles in our documentation. We recommend searching for both the filename and title to find links to update.
 
 ### Links across {% data variables.product.prodname_dotcom %}
 

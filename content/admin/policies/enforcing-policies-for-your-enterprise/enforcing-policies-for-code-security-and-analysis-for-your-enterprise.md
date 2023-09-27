@@ -20,6 +20,12 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-policies-for-advanced-security-in-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise
+  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise
+  - /articles/enforcing-a-policy-on-dependency-insights
+  - /articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 shortTitle: Code security & analysis
 ---
 {% ifversion security-feature-enablement-policies %}
@@ -27,15 +33,34 @@ shortTitle: Code security & analysis
 ## About policies for code security and analysis in your enterprise
 
 You can enforce policies to manage the use of code security and analysis features within organizations owned by your enterprise. You can allow or disallow people with admin access to a repository to enable or disable the security and analysis features.
+
+Additionally, you can enforce policies for the use of {% data variables.product.prodname_GH_advanced_security %} in your enterprise's organizations and repositories.
 {% else %}
 
 ## About policies for {% data variables.product.prodname_GH_advanced_security %} in your enterprise
 
-{% endif %}
-
 {% data reusables.advanced-security.ghas-helps-developers %} For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
-{% ifversion ghes or ghec %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization{% ifversion ghec %} owned by your enterprise{% endif %} on {% data variables.location.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
+{% ifversion ghes %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization on {% data variables.location.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
+
+{% endif %}
+
+{% ifversion ghec %}
+
+## Enforcing a policy for visibility of dependency insights
+
+Dependency insights show all packages that repositories within your enterprise's organizations depend on. Dependency insights include aggregated information about security advisories and licenses. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)."
+
+Across all organizations owned by your enterprise, you can control whether organization members can view dependency insights. You can also allow owners to administer the setting on the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Code security and analysis**.
+1. Under "Dependency insights", review the information about changing the setting.
+1. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Dependency insights", select the the dropdown menu and click a policy.
+
+{% endif %}
 
 {% ifversion security-feature-enablement-policies-dependabot %}
 

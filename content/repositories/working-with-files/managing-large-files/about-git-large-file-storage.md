@@ -32,7 +32,7 @@ Using {% data variables.large_files.product_name_short %}, you can store files u
 
 {% data reusables.repositories.git-lfs %}
 
-You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
+You can also use {% data variables.large_files.product_name_short %} with {% data variables.product.prodname_desktop %}. For more information about cloning Git LFS repositories in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)."
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
@@ -40,7 +40,7 @@ You can also use {% data variables.large_files.product_name_short %} with {% dat
 
 {% data variables.large_files.product_name_short %}'s pointer file looks like this:
 
-```
+```text
 version {% data variables.large_files.version_name %}
 oid sha256:4cac19622fc3ada9c0fdeadb33f88f367b541f38b89102a3f1261ac81fd5bcb5
 size 84977953

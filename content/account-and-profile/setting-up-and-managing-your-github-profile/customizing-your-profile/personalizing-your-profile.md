@@ -96,11 +96,11 @@ For a longer-form and more prominent way of displaying customized information ab
 {% data reusables.user-settings.access_settings %}
 1. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
 
-  {% tip %}
+   {% tip %}
 
-  **Tip:** When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+   **Tip:** When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
 
-  {% endtip %}
+   {% endtip %}
 
 {% data reusables.profile.update-profile %}
 
@@ -208,7 +208,7 @@ To stop private contributions from counting toward your Achievements, or to turn
 
 ## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
 
-If you have authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+The Mars 2020 Helicopter Contributor achievement was given to those who had authored a commit for one of the repositories listed below. This event has now ended, and the badge is no longer available. We built the list based on information received from NASA's Jet Propulsion Laboratory.
 
 | {% data variables.product.prodname_dotcom %} Repository | Version | Tag |
 |---|---|---|

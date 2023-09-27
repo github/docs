@@ -2,7 +2,7 @@ import React from 'react'
 import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
 
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'src/languages/components/useTranslation'

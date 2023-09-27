@@ -41,6 +41,12 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 {% endif %}
 
+{% ifversion dependabot-alert-custom-rules-repo-level %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
+{% endif %}
+
 {% data reusables.dependabot.quickstart-link %}
 
 {% ifversion ghae %}

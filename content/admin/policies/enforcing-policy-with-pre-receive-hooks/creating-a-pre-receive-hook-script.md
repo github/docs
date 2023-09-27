@@ -25,7 +25,7 @@ A pre-receive hook script executes in a pre-receive hook environment on {% data 
 
 After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.location.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
 
-```
+```shell
 <old-value> SP <new-value> SP <ref-name> LF
 ```
 
@@ -180,7 +180,7 @@ You can test a pre-receive hook script locally before you create or update it on
 
 1. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
 
-   ```
+   ```shell
    #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"

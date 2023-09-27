@@ -1,5 +1,5 @@
 import { formatReleases, renderPatchNotes } from '#src/release-notes/lib/release-notes-utils.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { getReleaseNotes } from './get-release-notes.js'
 
 export default async function ghaeReleaseNotesContext(req, res, next) {

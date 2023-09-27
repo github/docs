@@ -16,7 +16,7 @@ shortTitle: Basic formatting syntax
 
 To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the hierarchy level and typeface size of the heading.
 
-```
+```markdown
 # A first-level heading
 ## A second-level heading
 ### A third-level heading
@@ -35,10 +35,10 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
 | Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `_This text is italicized_` | *This text is italicized* |
+| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `_This text is italicized_` | _This text is italicized_ |
 | Strikethrough | `~~ ~~` | None | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | None | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** |
+| All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** | <!-- markdownlint-disable-line emphasis-style -->
 | Subscript | `<sub> </sub>` | None | `This is a <sub>subscript</sub> text` | This is a <sub>subscript</sub> text |
 | Superscript | `<sup> </sup>` | None | `This is a <sup>superscript</sup> text` | This is a <sup>superscript</sup> text |
 
@@ -252,6 +252,7 @@ You can create multiple levels of nested lists using the same method. For exampl
 For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
 
 {% ifversion task-lists-v1 %}
+
 ## Task lists
 
 {% data reusables.repositories.task-list-markdown %}
@@ -317,7 +318,7 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 You can add footnotes to your content by using this bracket syntax:
 
-```
+```text
 Here is a simple footnote[^1].
 
 A footnote can also have multiple lines[^2].
@@ -345,17 +346,17 @@ Footnotes are not supported in wikis.
 
 {% note %}
 
-**Note**: The syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
+**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
 
 {% endnote %}
 
-Alerts are an extension of Markdown used to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
+Alerts are an extension of the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
 
 We recommend restricting the use of alerts to one or two per article to avoid overloading the reader. Consecutive notes should be avoided.
 
-There are three types of alerts available.
+Three types of alert are available. You can add an alert with a special blockquote line that specifies the alert type, and then add the alert information in a standard blockquote immediately after.
 
-```
+```markdown
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
 

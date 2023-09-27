@@ -37,11 +37,11 @@ Organizations can use the `name@organization.com` email as a public point of con
    >
    ```
 
-  {% tip %}
+   {% tip %}
 
-  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+   **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
 
-  {% endtip %}
+   {% endtip %}
 
 1. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
