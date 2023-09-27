@@ -36,7 +36,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
 
 ### Keyboard shortcuts for Windows
@@ -47,7 +47,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ### Keyboard shortcuts for Linux
@@ -58,7 +58,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %}
