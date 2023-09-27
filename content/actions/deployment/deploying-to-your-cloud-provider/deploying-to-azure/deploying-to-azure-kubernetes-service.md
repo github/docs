@@ -83,7 +83,7 @@ jobs:
     - name: Build image on ACR
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.29.1
+        azcliversion: 2.30.0
         inlineScript: |
           az configure --defaults acr={% raw %}${{ env.AZURE_CONTAINER_REGISTRY }}{% endraw %}
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
