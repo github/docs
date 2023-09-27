@@ -309,6 +309,8 @@ function fillPopover(
     popover.style.top = `${top - popover.offsetHeight - 10}px`
   }
 
+  popover.style.setProperty('top', popover.style.top, 'important')
+
   if (callback) {
     callback(popover)
   }
@@ -410,16 +412,7 @@ export function LinkPreviewPopover() {
   }, [])
 
   useEffect(() => {
-    // If the current window is too narrow, the popover is not useful.
-    // Since this is tested on every event callback here in the handler,
-    // if the window width has changed since the mount, the number
-    // will change accordingly.
-    const wideEnough = window.innerWidth > 767
-
     function showPopover(event: MouseEvent) {
-      if (!wideEnough) {
-        return
-      }
       const target = event.currentTarget as HTMLLinkElement
       popoverShow(target)
 

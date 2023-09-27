@@ -763,7 +763,7 @@ on:
 
 jobs:
   approved:
-    if: github.event.review.state == 'approved'
+    if: github.event.review.state == 'APPROVED'
     runs-on: ubuntu-latest
     steps:
       - run: echo "This PR was approved"
