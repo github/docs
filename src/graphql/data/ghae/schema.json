@@ -2166,6 +2166,14 @@
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
         },
         {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue that was linked to.</p>"
+        },
+        {
           "name": "linkedBranch",
           "type": "LinkedBranch",
           "id": "linkedbranch",
