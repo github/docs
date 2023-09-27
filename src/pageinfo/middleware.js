@@ -83,6 +83,22 @@ const pageinfoMiddleware = (req, res, next) => {
   return next()
 }
 
+// THIS IS AN EXPERIMENT. THIS CODE WILL BE DELETED IN THE NEAR FUTURE.
+// The cache-control headers (and surrogate-control) are set to be
+// aggressive. That means that in theory, after a deployment, when Fastly
+// has been purged accordingly, the next time a pageinfo is requested,
+// it'll come here to the backend code and produce the JSON response,
+// and once it's done it once, it won't be needed again, because,
+// in theory, the CDN will have cached it.
+// But pageinfo requests are very frequent. So frequent that sometimes,
+// the delay of CDN is longer than the chance of it being requested again
+// from the backend. This can possibly still happen even with a origin
+// shield.
+// In this experiment we want to measure how often this happens.
+// We are going to test how often the CDN requests the *same* pageinfo from the
+// backend.
+const CACHEABLE_PATHNAMES = new Map()
+
 router.get(
   '/v1',
   validationMiddleware,
@@ -159,8 +175,20 @@ router.get(
       intro,
     }
 
-    const tags = ['version:v1', `pathname:${pathname}`]
-    statsd.increment('api.pageinfo', 1, tags)
+    const tags = [
+      // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags
+      // the max length of a tag is 200 characters. Most of ours are less than
+      // that but we truncate just to be safe.
+      `pathname:${pathname}`.slice(0, 200),
+    ]
+    statsd.increment('pageinfo.lookup', 1, tags)
+
+    // See lengthy comment above about the experiment and the
+    // CACHEABLE_PATHNAMES global Map object.
+    if (CACHEABLE_PATHNAMES.has(pathname)) {
+      statsd.increment('pageinfo.cacheable', CACHEABLE_PATHNAMES.get(pathname), tags)
+    }
+    CACHEABLE_PATHNAMES.set(pathname, (CACHEABLE_PATHNAMES.get(pathname) || 0) + 1)
 
     defaultCacheControl(res)
 

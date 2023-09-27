@@ -35,7 +35,9 @@ codeql dataset upgrade [--threads=<num>] [--ram=<MB>] <options>... -- <dataset>
 This does the same as
 [codeql database upgrade](/code-security/codeql-cli/codeql-cli-manual/database-upgrade) but works on a raw dataset rather than an entire database.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
 
@@ -165,7 +167,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate `<pred>`.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`

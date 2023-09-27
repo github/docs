@@ -39,7 +39,9 @@ and is exposed as a separate plumbing command in order to (a) help with
 troubleshooting, and (b) provide a starting point for modifying the path
 in extraordinary cases where exact control is needed.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--dbscheme=<file>` <!-- markdownlint-disable-line heading-increment -->
 

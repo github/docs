@@ -39,7 +39,9 @@ this directory. This directory must contain a qlpack.yml or
 
 Available since `v2.7.1`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dir>` <!-- markdownlint-disable-line heading-increment -->
 
