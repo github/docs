@@ -129,9 +129,6 @@ async function run() {
         column_id: 12198119,
         content_id: issue.data.id,
         content_type: 'Issue',
-        mediaType: {
-          previews: ['inertia'],
-        },
       })
 
       if (addCard.status === 201) {
