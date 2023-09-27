@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { linkPunctuation } from '../../lib/linting-rules/link-punctuation.js'
-
-jest.setTimeout(60 * 1000)
 
 describe(linkPunctuation.names.join(' - '), () => {
   test('inline links without quotes or a period should not error', async () => {

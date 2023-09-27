@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { codeFenceLineLength } from '../../lib/linting-rules/code-fence-line-length.js'
-
-jest.setTimeout(60 * 1000)
 
 describe(codeFenceLineLength.names.join(' - '), () => {
   test('line length of max + 1 fails', async () => {
