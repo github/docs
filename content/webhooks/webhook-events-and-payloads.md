@@ -38,9 +38,9 @@ HTTP POST payloads that are delivered to your webhook's configured URL endpoint 
 - `X-GitHub-Event`: The name of the event that triggered the delivery.
 - `X-GitHub-Delivery`: A globally unique identifier (GUID) to identify the delivery.{% ifversion ghes or ghae %}
 - `X-GitHub-Enterprise-Version`: The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-- `X-GitHub-Enterprise-Host`: The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}
-- `X-Hub-Signature-256`: This header is sent if the webhook is configured with a secret. This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the configured secret as the HMAC `key`. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks)."{% ifversion not ghae %}
-- `X-Hub-Signature`: This header is sent if the webhook is configured with a secret. This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the configured secret as the HMAC `key`. `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}
+- `X-GitHub-Enterprise-Host`: The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
+- `X-Hub-Signature`: This header is sent if the webhook is configured with a `secret`. This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`. `X-Hub-Signature` is provided for compatibility with existing integrations. We recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}
+- `X-Hub-Signature-256`: This header is sent if the webhook is configured with a `secret`. This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks)."
 - `User-Agent`: This header will always have the prefix `GitHub-Hookshot/`.
 - `X-GitHub-Hook-Installation-Target-Type`: The type of resource where the webhook was created.
 - `X-GitHub-Hook-Installation-Target-ID`: The unique identifier of the resource where the webhook was created.
