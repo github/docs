@@ -318,7 +318,7 @@ This section compares how {% data variables.product.prodname_actions %} and Trav
 
 You can create custom environment variables in a {% data variables.product.prodname_actions %} job.
 
-#### Travis CI syntax for an environment variable
+### Travis CI syntax for an environment variable
 
 ```yaml
 env:

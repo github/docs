@@ -90,7 +90,7 @@ A merge queue creates temporary branches with a special prefix to validate pull 
 
 For information about merge methods, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
-#### Successful CI
+### Successful CI
 
 When multiple pull requests are added to the merge queue and when the temporary `merge_group` branches have successful CI results, they are both merged. In the following scenario, two pull requests are successfully added to the queue and merged to the target branch.
 
@@ -100,7 +100,7 @@ When multiple pull requests are added to the merge queue and when the temporary 
 1. The merge queue creates a temporary branch with the prefix of `main/pr-2` that contains code changes from the target branch, pull request #1, and pull request #2, and dispatches webhooks.
 1. When the {% data variables.product.product_name %} API receives successful CI responses for `merge_group` branches `main/pr-1` and `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch. The target branch now contains both changes from pull request #1 and #2.
 
-#### Failing CI
+### Failing CI
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
@@ -116,7 +116,7 @@ The following scenario outlines what happens when a CI reports a failing status 
 
 {% data reusables.pull_requests.merge-queue-removal-reasons %}
 
-#### Jumping to the top of the queue
+### Jumping to the top of the queue
 
 When adding a pull request to a merge queue, there is an option to move your pull request to the top of the queue.
 
