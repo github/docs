@@ -302,6 +302,16 @@ Reusable strings (commonly called content references or conrefs) contain content
 
 For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables and variables, see "[AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content)."
 
+## Table pipes
+
+Every row of a table in the {% data variables.product.prodname_docs %} must start and end with a pipe, `|`.
+
+```markdown
+| Where is the table located? | Does every row end with a pipe? |
+| --- | --- |
+| GitHub Docs | Yes |
+```
+
 ## Table row headers
 
 If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag {% raw %}`{% rowheaders %} {% endrowheaders %}`{% endraw %}. For more information on using markup for tables, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#use-proper-markup-for-row-and-column-headers)."
