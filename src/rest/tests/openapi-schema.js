@@ -7,6 +7,7 @@ import { isPlainObject, difference } from 'lodash-es'
 
 import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
 import getRest from '../lib/index.js'
+import readFrontmatter from '../../../lib/read-frontmatter.js'
 
 const schemasPath = 'src/rest/data'
 
@@ -82,6 +83,17 @@ describe('markdown for each rest version', () => {
     const missingFile =
       'Found an OpenAPI REST operation category that is not represented by a markdown file in content/rest.'
     expect(difference([...allCategories], filenames), missingFile).toEqual([])
+  })
+})
+
+describe('rest file structure', () => {
+  test('children of content/rest/index.md are in alphabetical order', async () => {
+    const indexContent = await fs.readFile('content/rest/index.md', 'utf8')
+    const { data } = readFrontmatter(indexContent)
+    const sortableChildren = data.children.filter(
+      (child) => child !== '/quickstart' && child !== '/overview' && child !== '/guides',
+    )
+    expect(sortableChildren).toStrictEqual([...sortableChildren].sort())
   })
 })
 
