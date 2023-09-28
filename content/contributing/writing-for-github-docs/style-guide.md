@@ -951,6 +951,8 @@ TEXT
 
 ## Tables
 
+Tables are added to the {% data variables.product.prodname_docs %} using Markdown. Because tables can be challenging to read and maintain, make sure that the data in a table is best represented in a table and not another format, like a list, before creating a table. Every row in a table must begin and end with a pipe, `|`.
+
 ### Use tables only for presenting tabular information
 
 Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](#lists)" section of this document.
