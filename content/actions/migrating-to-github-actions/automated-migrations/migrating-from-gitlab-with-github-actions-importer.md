@@ -262,7 +262,7 @@ The `--config-file-path` argument can also be used to specify which repository a
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file to perform an audit.
 
 ```shell
-gh actions-importer audit gitlab --output-dir path/to/output/ --config-file-path path/to/gitlab/config.yml
+gh actions-importer audit gitlab --output-dir path/to/output/ --namespace my-gitlab-namespace --config-file-path path/to/gitlab/config.yml
 ```
 
 To audit a GitLab instance using a configuration file, the file must be in the following format, and each `repository_slug` value must be unique:
