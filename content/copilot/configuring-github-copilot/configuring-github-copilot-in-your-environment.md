@@ -208,7 +208,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |:---|:---|:---|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>.</kbd>|Tools.Nextsuggestion|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Tools.Previoussuggestion|
-|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
+|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
 ### Rebinding keyboard shortcuts
 
@@ -266,7 +266,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> |editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\\</kbd><br> |editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Return</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
@@ -278,7 +278,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
@@ -290,7 +290,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
