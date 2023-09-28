@@ -76,6 +76,12 @@ You can change the name that is displayed on your profile. This name may also be
 {% data reusables.user-settings.access_settings %}
 1. Under "Public profile", in the "Name" field, type the name you want to be displayed on your profile.
 
+{ % note %}
+
+**Note:** If your Gravatar image is associated with the email you use for GitHub, it will be shown as your GitHub profile picture by default (rather than an identicon). To change your GitHub profile picture to your Gravatar image, you can either update your Gravatar account or upload a new image to GitHub, which will override the Gravatar image.
+
+{% endnote % }
+
 ## Adding a bio to your profile
 
 Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
