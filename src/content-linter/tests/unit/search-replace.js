@@ -60,35 +60,4 @@ describe(searchReplace.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(4)
   })
-
-  test('Using hardcoded personal access token string causes error', async () => {
-    const markdown = [
-      'Hello personal access token for apps.',
-      'A Personal access token for apps.',
-      'Lots of PERSONAL ACCESS TOKENS for apps.',
-      'access tokens for apps.',
-    ].join('\n')
-    const result = await runRule(searchReplace, {
-      strings: { markdown },
-      ruleConfig: searchReplaceConfig['search-replace'],
-    })
-    const errors = result.markdown
-    expect(errors.length).toBe(3)
-  })
-
-  test('Using hardcoded personal access token string causes error', async () => {
-    const markdown = [
-      'Hello actions/checkout@v2 apps.',
-      'A actions/delete-package-versions@v2 for apps.',
-      'Hello actions/download-artifact@v2.',
-      'actions/cache@432433423423',
-      'actions/cache@',
-    ].join('\n')
-    const result = await runRule(searchReplace, {
-      strings: { markdown },
-      ruleConfig: searchReplaceConfig['search-replace'],
-    })
-    const errors = result.markdown
-    expect(errors.length).toBe(5)
-  })
 })

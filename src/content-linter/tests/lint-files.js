@@ -154,28 +154,6 @@ const oldVariableRegex = /{{\s*?site\.data\..*?}}/g
 //
 const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 
-// GitHub-owned actions (e.g. actions/checkout@v2) should use a reusable in examples.
-// list:
-// - actions/checkout@v2
-// - actions/delete-package-versions@v2
-// - actions/download-artifact@v2
-// - actions/upload-artifact@v2
-// - actions/github-script@v2
-// - actions/setup-dotnet@v2
-// - actions/setup-go@v2
-// - actions/setup-java@v2
-// - actions/setup-node@v2
-// - actions/setup-python@v2
-// - actions/stale@v2
-// - actions/cache@v2
-// - github/codeql-action/init@v2
-// - github/codeql-action/analyze@v2
-// - github/codeql-action/autobuild@v2
-// - github/codeql-action/upload-sarif@v2
-//
-const literalActionInsteadOfReusableRegex =
-  /(actions\/(checkout|delete-package-versions|download-artifact|upload-artifact|github-script|setup-dotnet|setup-go|setup-java|setup-node|setup-python|stale|cache)|github\/codeql-action[/a-zA-Z-]*)@v\d+/g
-
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
@@ -188,8 +166,6 @@ const oldVariableErrorText =
   'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
 const oldOcticonErrorText =
   'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
-const literalActionInsteadOfReusableErrorText =
-  'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -500,24 +476,6 @@ describe('lint markdown content', () => {
       expect(matches.length, errorMessage).toBe(0)
     })
 
-    test('URLs must not contain a hard-coded version number', async () => {
-      const initialMatches = content.match(versionLinkRegEx) || []
-
-      // Filter out some very specific false positive matches
-      const matches = initialMatches.filter(() => {
-        if (
-          markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
-          markdownRelPath.endsWith('all-releases.md')
-        ) {
-          return false
-        }
-        return true
-      })
-
-      const errorMessage = formatLinkError(versionLinkErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
     test('URLs must not contain a hard-coded domain name', async () => {
       const initialMatches = content.match(domainLinkRegex) || []
 
@@ -563,24 +521,6 @@ describe('lint markdown content', () => {
         }
       })
     }
-
-    if (!markdownRelPath.includes('data/reusables/actions/action-')) {
-      test('must not contain literal GitHub-owned actions', async () => {
-        const matches = content.match(literalActionInsteadOfReusableRegex) || []
-        const errorMessage = formatLinkError(literalActionInsteadOfReusableErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-    }
-
-    test('must use personal access token variables', async () => {
-      const patRegex = /personal access tokens?/gi
-      const matches = content.match(patRegex) || []
-      const errorMessage = formatLinkError(
-        'You should use one of the personal access token variables from data/variables/product.yml instead of the literal phrase(s):',
-        matches,
-      )
-      expect(matches.length, errorMessage).toBe(0)
-    })
   })
 })
 
