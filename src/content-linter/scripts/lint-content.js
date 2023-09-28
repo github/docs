@@ -10,6 +10,7 @@ import { execSync } from 'child_process'
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig } from '../style/github-docs.js'
+import { defaultOptions, defaultConfig } from '../lib/default-markdownlint-options.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -75,12 +76,14 @@ async function main() {
 
   // Run Markdownlint for content directory
   const resultContent = await markdownlint.promises.markdownlint({
+    ...defaultOptions,
     files: files.content,
     config: config.content,
     customRules: configuredRules.content,
   })
   // Run Markdownlint for data directory
   const resultData = await markdownlint.promises.markdownlint({
+    ...defaultOptions,
     files: files.data,
     config: config.data,
     customRules: configuredRules.data,
@@ -312,12 +315,8 @@ function listRules() {
 */
 function getMarkdownLintConfig(errorsOnly, runRules) {
   const config = {
-    content: {
-      default: false, // By default, don't turn on all markdownlint rules
-    },
-    data: {
-      default: false, // By default, don't turn on all markdownlint rules
-    },
+    content: defaultConfig,
+    data: defaultConfig,
   }
   const configuredRules = {
     content: [],

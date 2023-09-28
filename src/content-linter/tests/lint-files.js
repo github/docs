@@ -154,28 +154,6 @@ const oldVariableRegex = /{{\s*?site\.data\..*?}}/g
 //
 const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 
-// GitHub-owned actions (e.g. actions/checkout@v2) should use a reusable in examples.
-// list:
-// - actions/checkout@v2
-// - actions/delete-package-versions@v2
-// - actions/download-artifact@v2
-// - actions/upload-artifact@v2
-// - actions/github-script@v2
-// - actions/setup-dotnet@v2
-// - actions/setup-go@v2
-// - actions/setup-java@v2
-// - actions/setup-node@v2
-// - actions/setup-python@v2
-// - actions/stale@v2
-// - actions/cache@v2
-// - github/codeql-action/init@v2
-// - github/codeql-action/analyze@v2
-// - github/codeql-action/autobuild@v2
-// - github/codeql-action/upload-sarif@v2
-//
-const literalActionInsteadOfReusableRegex =
-  /(actions\/(checkout|delete-package-versions|download-artifact|upload-artifact|github-script|setup-dotnet|setup-go|setup-java|setup-node|setup-python|stale|cache)|github\/codeql-action[/a-zA-Z-]*)@v\d+/g
-
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
@@ -188,8 +166,6 @@ const oldVariableErrorText =
   'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
 const oldOcticonErrorText =
   'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
-const literalActionInsteadOfReusableErrorText =
-  'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -345,7 +321,6 @@ describe('lint markdown content', () => {
     let content,
       ast,
       links,
-      yamlScheduledWorkflows,
       isHidden,
       isEarlyAccess,
       isSitePolicy,
@@ -377,40 +352,6 @@ describe('lint markdown content', () => {
       visit(ast, ['link', 'definition'], (node) => {
         links.push(node.url)
       })
-
-      yamlScheduledWorkflows = []
-      visit(ast, 'code', (node) => {
-        if (
-          /ya?ml/.test(node.lang) &&
-          node.value.includes('schedule:') &&
-          node.value.includes('cron:')
-        ) {
-          yamlScheduledWorkflows.push(node.value)
-        }
-      })
-
-      const context = {
-        currentLanguage: 'en',
-        // Any Liquid that might use our `ifversion` plugin requires and
-        // expects that there's a `currentVersionObj` object present in the
-        // environment.
-        currentVersionObj: {},
-      }
-
-      // visit is not async-friendly so we need to do an async map to parse the YML snippets
-      yamlScheduledWorkflows = (
-        await Promise.all(
-          yamlScheduledWorkflows.map(async (snippet) => {
-            // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
-            const rendered = await liquid.parseAndRender(snippet, context)
-            const parsed = yaml.load(rendered)
-            if (!parsed?.on?.schedule?.cron) return []
-            return parsed.on.schedule
-          }),
-        )
-      )
-        .flat()
-        .map((schedule) => schedule.cron)
     })
 
     test('placeholder string is not present in any markdown files', async () => {
@@ -479,20 +420,6 @@ describe('lint markdown content', () => {
 
       const errorMessage = formatLinkError(relativeArticleLinkErrorText, matches)
       expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('yaml snippets that include scheduled workflows must not run on the hour', async () => {
-      const hourlySchedules = yamlScheduledWorkflows.filter((schedule) => {
-        const hour = schedule.split(' ')[0]
-        // return any minute cron segments that equal 0, 00, 000, etc.
-        return !/[^0]/.test(hour)
-      })
-      expect(hourlySchedules).toEqual([])
-    })
-
-    // Note this only ensures that scheduled workflow snippets are unique _per Markdown file_
-    test('yaml snippets that include scheduled workflows run at unique times', () => {
-      expect(yamlScheduledWorkflows.length).toEqual(new Set(yamlScheduledWorkflows).size)
     })
 
     test('must not leak Early Access doc URLs', async () => {
@@ -612,24 +539,6 @@ describe('lint markdown content', () => {
         }
       })
     }
-
-    if (!markdownRelPath.includes('data/reusables/actions/action-')) {
-      test('must not contain literal GitHub-owned actions', async () => {
-        const matches = content.match(literalActionInsteadOfReusableRegex) || []
-        const errorMessage = formatLinkError(literalActionInsteadOfReusableErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-    }
-
-    test('must use personal access token variables', async () => {
-      const patRegex = /personal access tokens?/gi
-      const matches = content.match(patRegex) || []
-      const errorMessage = formatLinkError(
-        'You should use one of the personal access token variables from data/variables/product.yml instead of the literal phrase(s):',
-        matches,
-      )
-      expect(matches.length, errorMessage).toBe(0)
-    })
   })
 })
 

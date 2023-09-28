@@ -47,6 +47,7 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
   - PyCharm (Professional, Community, Educational)
   - Rider
   - RubyMine
+  - RustRover
   - WebStorm
 
   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
