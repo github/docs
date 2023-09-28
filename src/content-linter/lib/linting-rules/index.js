@@ -1,4 +1,5 @@
 import searchReplace from 'markdownlint-rule-search-replace'
+import markdownlintGitHub from '@github/markdownlint-github'
 
 import { codeFenceLineLength } from './code-fence-line-length.js'
 import { imageAltTextEndPunctuation } from './image-alt-text-end-punctuation.js'
@@ -15,9 +16,18 @@ import { hardcodedDataVariable } from './hardcoded-data-variable.js'
 import { githubOwnedActionReferences } from './github-owned-action-references.js'
 import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
 
+const noDefaultAltText = markdownlintGitHub.find((elem) =>
+  elem.names.includes('no-default-alt-text'),
+)
+const noGenericLinkText = markdownlintGitHub.find((elem) =>
+  elem.names.includes('no-generic-link-text'),
+)
+
 export const gitHubDocsMarkdownlint = {
   rules: [
     searchReplace, // Open-source plugin
+    noDefaultAltText, // markdownlint-github rule
+    noGenericLinkText, // markdownlint-github rule
     codeFenceLineLength,
     imageAltTextEndPunctuation,
     imageFileKebab,

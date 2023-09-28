@@ -27,7 +27,7 @@ This will include an "Open in {% data variables.product.prodname_vscode_shortnam
 
 {% note %}
 
-**Note:** The student must have Git installed on their computer to push code from {% data variables.product.prodname_vscode_shortname %} to their repository. This is not automatically installed when clicking the **Open in {% data variables.product.prodname_vscode_shortname %}** button. The student can download Git from [here](https://git-scm.com/downloads).
+**Note:** The student must have Git installed on their computer to push code from {% data variables.product.prodname_vscode_shortname %} to their repository. This is not automatically installed when clicking the **Open in {% data variables.product.prodname_vscode_shortname %}** button. The student can download Git from [Git download](https://git-scm.com/downloads).
 
 {% endnote %}
 
@@ -40,6 +40,6 @@ When the student launches the extension for the first time, they are automatical
 The student can push their commits to the latest version of remote, by clicking the **sync changes** button, displayed when hovering over the "Active Assignment" line. This abstracts away source control with Git, allowing instructors to teach Git at their own pace.
 Syncing changes also triggers "Tests" to run if a teacher has configured autograding for their assignment.
 
-The "Group" node under "Active Assignment" will show members of a group, if the assignment is a group project. It will also show the admin members of the repository who can help when a student is stuck. To collaborate on the project, a student can start a Live Share session with anyone in the group node, and they will immediately share the entire context of the repository with them. You can learn more about Live Share and collaborating with it [here](https://docs.microsoft.com/en-us/visualstudio/liveshare/).
+The "Group" node under "Active Assignment" will show members of a group, if the assignment is a group project. It will also show the admin members of the repository who can help when a student is stuck. To collaborate on the project, a student can start a Live Share session with anyone in the group node, and they will immediately share the entire context of the repository with them. For more information about Live Share and collaborating with it, see [What is Visual Studio Live Share?](https://docs.microsoft.com/en-us/visualstudio/liveshare/).
 
 Once a student is done with the assignment, they can also navigate to see other Assignments and Classrooms. These can be found under the GitHub tab.
