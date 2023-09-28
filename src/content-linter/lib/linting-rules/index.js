@@ -12,6 +12,7 @@ import { listFirstWordCapitalization } from './list-first-word-capitalization.js
 import { linkPunctuation } from './link-punctuation.js'
 import { earlyAccessReferences } from './early-access-references.js'
 import { yamlScheduledJobs } from './yaml-scheduled-jobs.js'
+import { internalLinksOldVersion } from './internal-links-old-version.js'
 import { hardcodedDataVariable } from './hardcoded-data-variable.js'
 import { githubOwnedActionReferences } from './github-owned-action-references.js'
 import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
@@ -39,6 +40,7 @@ export const gitHubDocsMarkdownlint = {
     linkPunctuation,
     earlyAccessReferences,
     yamlScheduledJobs,
+    internalLinksOldVersion,
     hardcodedDataVariable,
     githubOwnedActionReferences,
     liquidQuotedConditionalArg,

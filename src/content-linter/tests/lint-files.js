@@ -476,24 +476,6 @@ describe('lint markdown content', () => {
       expect(matches.length, errorMessage).toBe(0)
     })
 
-    test('URLs must not contain a hard-coded version number', async () => {
-      const initialMatches = content.match(versionLinkRegEx) || []
-
-      // Filter out some very specific false positive matches
-      const matches = initialMatches.filter(() => {
-        if (
-          markdownRelPath.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
-          markdownRelPath.endsWith('all-releases.md')
-        ) {
-          return false
-        }
-        return true
-      })
-
-      const errorMessage = formatLinkError(versionLinkErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
     test('URLs must not contain a hard-coded domain name', async () => {
       const initialMatches = content.match(domainLinkRegex) || []
 

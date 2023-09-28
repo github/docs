@@ -44,6 +44,11 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'internal-links-old-version': {
+    // GHD010
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
   'list-first-word-capitalization': {
     // GH011
     severity: 'warning',
