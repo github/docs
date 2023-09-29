@@ -13,6 +13,14 @@ topics:
 shortTitle: Your individual subscription
 ---
 
+## About managing your {% data variables.product.prodname_copilot_for_individuals %} subscription
+
+This article applies to setting up and managing a {% data variables.product.prodname_copilot %} subscription for your personal account. If you are an organization {% ifversion ghec %}or enterprise{% endif %} administrator and want to set up {% data variables.product.prodname_copilot %} for your organization{% ifversion ghec %} or enterprise{% endif %}, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise)."
+
+If you have access to {% data variables.product.prodname_copilot %} through a {% data variables.product.prodname_copilot_for_business %} seat, you will not be able to make administrative changes.
+
+{% data reusables.copilot.dotcom-settings %}
+
 ## Setting up a {% data variables.product.prodname_copilot %} trial or subscription for your personal account
 
 Before you can start using {% data variables.product.prodname_copilot_for_individuals %}, you will need to set up a free trial or subscription.
