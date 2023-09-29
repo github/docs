@@ -5,6 +5,8 @@ intro: "When it's necessary to change the title of an article, the name may need
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/syntax-and-versioning-for-github-docs/changing-an-articles-title
 ---
 
 ## Changing the title of an article

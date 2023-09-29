@@ -101,7 +101,7 @@ To meet the needs of more users, screenshots must:
 
 - Be accompanied by complete instructions in the procedural step, with no information conveyed entirely in visual form.
 - Be full contrast, as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
-- Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text)."
+- Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text)."
 - Be clear and crisp, with text and UI elements as legible as possible.
 
 ### Visual style

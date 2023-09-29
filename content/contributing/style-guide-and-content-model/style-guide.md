@@ -4,6 +4,8 @@ intro: 'Follow this guide to make sure {% data variables.product.company_short %
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/writing-for-github-docs/style-guide
 ---
 
 {% note %}
@@ -200,7 +202,7 @@ Headers must adequately describe the content under them. Follow the same guideli
 Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
-For more information, see the "[Content model](/contributing/writing-for-github-docs/content-model#titles)."
+For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
 
 ## Images
 
@@ -693,7 +695,7 @@ Otherwise, follow standard American English punctuation rules. For more guidance
 
 A set of release notes on {% data variables.product.prodname_docs %} tell readers about administrator- or user-facing changes to a versioned release of a product like {% data variables.product.prodname_ghe_server %} (GHES). Release notes appear in the [AUTOTITLE](/enterprise-server@latest/admin/release-notes).
 
-A good release note is a few sentences that sequentially answer the reader's questions about the change. For more information, see [Content model for GitHub Docs](/contributing/writing-for-github-docs/content-model#release-notes).
+A good release note is a few sentences that sequentially answer the reader's questions about the change. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/release-note-content-type).
 
 Each release note in a set describes one of the following changes.
 
@@ -836,7 +838,7 @@ A release note for a known issue answers the following questions.
 - To clarify actors and impact, avoid passive language when possible.
 - To reduce repetition and unnecessary words, "now" is usually implied.
 - If useful, include relevant links to GitHub Docs.
-- Known issues are also a [type of content on GitHub Docs](/contributing/writing-for-github-docs/content-model#known-issues). If useful, write or link to more in-depth and contextually relevant content in the docs.
+- Known issues are also a type of content on GitHub Docs. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type#known-issues)." If useful, write or link to more in-depth and contextually relevant content in the docs.
 
 #### Examples of release notes for known issues
 
@@ -1383,7 +1385,7 @@ When specifying the access required to take an action, refer only to the role at
 - **Use:** `People with write access to a repository can do X to the repository.`
 - **Avoid:** `Organization owners and people with write access can do X to the repository.`
 
-For more information about word choice for permissions statements, see "[Permissions statements](/contributing/writing-for-github-docs/content-model#permissions-statements)" in the content model.
+For more information about word choice for permissions statements, see "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements)" in the content model.
 
 ### Prepositions
 
