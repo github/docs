@@ -47,6 +47,7 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
   - PyCharm (Professional, Community, Educational)
   - Rider
   - RubyMine
+  - RustRover
   - WebStorm
 
   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
@@ -177,7 +178,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ![Screenshot of a list of search results. Next to the {% data variables.product.prodname_copilot %} extension, the "Download" button is highlighted with an orange outline.](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
 {% data reusables.copilot.vs-exit-and-relaunch %}
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
-  
+
    ![Screenshot of a list of installed extensions in {% data variables.product.prodname_vs %}. The "{% data variables.product.prodname_copilot %}" extension is highlighted with an orange outline.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}.
 1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
@@ -231,10 +232,6 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.accept-suggestion %}
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
-
-## Further reading
-
-- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
 
 {% endvisualstudio %}
 
@@ -354,10 +351,6 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
-## Further reading
-
-- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-
 {% endvscode %}
 
 {% vimneovim %}
@@ -427,8 +420,13 @@ For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovi
 :help copilot
 ```
 
-## Further reading
-
-- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-
 {% endvimneovim %}
+
+## Next steps
+
+{% data reusables.copilot.next-steps %}
+
+- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
+- [AUTOTITLE](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
+- [AUTOTITLE](/billing/managing-billing-for-github-copilot): Learn more about billing for {% data variables.product.prodname_copilot %}.
+- [AUTOTITLE](/copilot/troubleshooting-github-copilot): These guides provide information for troubleshooting {% data variables.product.prodname_copilot %}.

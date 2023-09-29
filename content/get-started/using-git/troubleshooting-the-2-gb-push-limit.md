@@ -29,7 +29,7 @@ You can avoid hitting the limit by breaking your push into smaller parts, each o
    git log --oneline --reverse refs/heads/BRANCH-NAME | awk 'NR % 1000 == 0'
    ```
 
-  This command reveals every 1000th commit. You can increase or decrease the number to adjust the step size.
+    This command reveals every 1000th commit. You can increase or decrease the number to adjust the step size.
 
 1. Push each of these commits one at a time to your {% data variables.product.prodname_dotcom %} hosted repository.
 

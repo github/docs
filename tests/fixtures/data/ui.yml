@@ -265,3 +265,6 @@ toggle_images:
   show_single: Show image
 scroll_button:
   scroll_to_top: Scroll to top
+popovers:
+  role_description: hover card
+  keyboard_shortcut_description: Press alt+up to activate

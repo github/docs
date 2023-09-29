@@ -39,7 +39,7 @@ jobs:
         timeout-minutes: 3
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-        run: .github/actions-scripts/find-past-built-pr.js
+        run: src/workflows/find-past-built-pr.js
 
       - name: Find content directory changes comment
         if: ${{ steps.get-number.outputs.number != '' }}

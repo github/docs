@@ -34,9 +34,11 @@ codeql resolve qlref <options>... -- <qlref>
 
 Accepts a .qlref file and returns the .ql file that it points to.
 
-## Primary options
+## Options
 
-#### `<qlref>`
+### Primary Options
+
+#### `<qlref>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] .qlref file to dereference.
 
@@ -111,7 +113,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

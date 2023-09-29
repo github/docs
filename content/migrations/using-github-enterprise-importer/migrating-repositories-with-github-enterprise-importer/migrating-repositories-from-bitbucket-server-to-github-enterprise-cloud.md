@@ -176,7 +176,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 
 Your migration archive will be generated, and its path will be printed in the command output:
 
-```
+```text
 [12:14] [INFO] Export completed. Your migration archive should be ready on your
 instance at $BITBUCKET_SHARED_HOME/data/migration/export/Bitbucket_export_9.tar
 ```

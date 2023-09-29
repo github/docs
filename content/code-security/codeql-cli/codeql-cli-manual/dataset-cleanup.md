@@ -1,6 +1,6 @@
 ---
 title: dataset cleanup
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -35,9 +35,11 @@ codeql dataset cleanup [--mode=<mode>] <options>... -- <dataset>
 This should not be used for datasets still under construction, as it
 will make it impossible to import further data into the dataset.
 
-## Primary options
+## Options
 
-#### `<dataset>`
+### Primary Options
+
+#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the raw QL dataset to clean up.
 

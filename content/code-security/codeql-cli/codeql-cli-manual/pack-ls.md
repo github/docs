@@ -39,9 +39,11 @@ this directory. This directory must contain a qlpack.yml or
 
 Available since `v2.7.1`.
 
-## Primary options
+## Options
 
-#### `<dir>`
+### Primary Options
+
+#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
 
 The root directory of the package or workspace, defaults to the current
 working directory. If this parameter points to a directory containing a

@@ -21,7 +21,7 @@ By default, your codespace is assigned a token scoped with `read` permission or 
 
 For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)."
 
-If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file, as described in ["Setting additional repository permissions"](#setting-additional-repository-permissions) later in this article. When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
+If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file, as described in "[Setting additional repository permissions](#setting-additional-repository-permissions)" later in this article. When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
 
 {% note %}
 

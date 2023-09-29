@@ -1,8 +1,9 @@
-import highlightJs from 'highlight.js'
+import fs from 'fs'
+import yaml from 'js-yaml'
 
-const highlightJsLanguages = highlightJs.listLanguages()
-const languageAliases = ['text']
-const allowedCodeFenceLanguages = new Set([...highlightJsLanguages, ...languageAliases])
+const allowedCodeFenceLanguages = Object.keys(
+  yaml.load(fs.readFileSync('data/variables/code-languages.yml', 'utf8')),
+)
 
 export const baseConfig = {
   // Don't run all rules by default. This must be done first to
@@ -10,12 +11,12 @@ export const baseConfig = {
   default: false,
   'heading-increment': {
     // MD001
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'first-heading-h1': {
     // MD002
-    severity: 'warning',
+    severity: 'error',
     level: 2,
     'partial-markdown-files': false,
   },
@@ -98,7 +99,7 @@ export const baseConfig = {
   },
   'fenced-code-language': {
     // MD040
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     allowed_languages: allowedCodeFenceLanguages,
   },
@@ -114,7 +115,7 @@ export const baseConfig = {
   },
   'emphasis-style': {
     // MD049
-    severity: 'warning',
+    severity: 'error',
     style: 'underscore',
     'partial-markdown-files': true,
   },

@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { internalLinksLang } from '../../lib/linting-rules/internal-links-lang.js'
-
-jest.setTimeout(30 * 1000)
 
 describe(internalLinksLang.names.join(' - '), () => {
   test('internal links with hardcoded language codes fail', async () => {

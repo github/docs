@@ -1,6 +1,6 @@
 ---
 title: version
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -32,9 +32,11 @@ codeql version <options>...
 
 Show the version of the CodeQL toolchain.
 
-## Primary options
+## Options
 
-#### `--format=<fmt>`
+### Primary Options
+
+#### `--format=<fmt>` <!-- markdownlint-disable-line heading-increment -->
 
 Select output format. Choices include `text` _(default)_ ,`terse`, and
 `json`.

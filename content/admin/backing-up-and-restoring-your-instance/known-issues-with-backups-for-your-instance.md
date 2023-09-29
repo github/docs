@@ -116,7 +116,7 @@ To ensure users can sign into the new target instance, ensure that your environm
 1. Wait for the configuration run to complete.
 1. To ensure that the target instance's configuration contains the keys, run the following {% ifversion ghes = 3.7 %}command{% elsif ghes = 3.8 or ghes = 3.9 %}commands{% endif %} and verify that the output matches step 1{% ifversion ghes = 3.8 or ghes = 3.9 %} and step 4{% endif %}.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material
    {%- ifversion ghes = 3.8 or ghes = 3.9 %}
    ghe-config secrets.github.encrypted-column-current-encryption-key

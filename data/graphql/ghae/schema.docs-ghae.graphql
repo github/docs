@@ -6860,6 +6860,11 @@ type CreateLinkedBranchPayload {
   clientMutationId: String
 
   """
+  The issue that was linked to.
+  """
+  issue: Issue
+
+  """
   The new branch issue reference.
   """
   linkedBranch: LinkedBranch
@@ -37257,7 +37262,7 @@ enum RepositoryRuleType {
   DELETION
 
   """
-  Prevent users with push access from force pushing to branches.
+  Prevent users with push access from force pushing to refs.
   """
   NON_FAST_FORWARD
 
@@ -37267,26 +37272,25 @@ enum RepositoryRuleType {
   PULL_REQUEST
 
   """
-  Choose which environments must be successfully deployed to before branches can
-  be merged into a branch that matches this rule.
+  Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
   """
   REQUIRED_DEPLOYMENTS
 
   """
-  Prevent merge commits from being pushed to matching branches.
+  Prevent merge commits from being pushed to matching refs.
   """
   REQUIRED_LINEAR_HISTORY
 
   """
-  Commits pushed to matching branches must have verified signatures.
+  Commits pushed to matching refs must have verified signatures.
   """
   REQUIRED_SIGNATURES
 
   """
   Choose which status checks must pass before branches can be merged into a
   branch that matches this rule. When enabled, commits must first be pushed to
-  another branch, then merged or pushed directly to a branch that matches this
-  rule after status checks have passed.
+  another branch, then merged or pushed directly to a ref that matches this rule
+  after status checks have passed.
   """
   REQUIRED_STATUS_CHECKS
 
@@ -38150,8 +38154,7 @@ interface RequirableByPullRequest {
 }
 
 """
-Choose which environments must be successfully deployed to before branches can
-be merged into a branch that matches this rule.
+Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
 """
 type RequiredDeploymentsParameters {
   """
@@ -38161,8 +38164,7 @@ type RequiredDeploymentsParameters {
 }
 
 """
-Choose which environments must be successfully deployed to before branches can
-be merged into a branch that matches this rule.
+Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
 """
 input RequiredDeploymentsParametersInput {
   """
@@ -38206,7 +38208,7 @@ input RequiredStatusCheckInput {
 """
 Choose which status checks must pass before branches can be merged into a branch
 that matches this rule. When enabled, commits must first be pushed to another
-branch, then merged or pushed directly to a branch that matches this rule after
+branch, then merged or pushed directly to a ref that matches this rule after
 status checks have passed.
 """
 type RequiredStatusChecksParameters {
@@ -38226,7 +38228,7 @@ type RequiredStatusChecksParameters {
 """
 Choose which status checks must pass before branches can be merged into a branch
 that matches this rule. When enabled, commits must first be pushed to another
-branch, then merged or pushed directly to a branch that matches this rule after
+branch, then merged or pushed directly to a ref that matches this rule after
 status checks have passed.
 """
 input RequiredStatusChecksParametersInput {

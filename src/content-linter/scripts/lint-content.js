@@ -9,7 +9,8 @@ import { execSync } from 'child_process'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
-import { githubDocsConfig } from '../style/github-docs.js'
+import { customConfig } from '../style/github-docs.js'
+import { defaultOptions, defaultConfig } from '../lib/default-markdownlint-options.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -75,12 +76,14 @@ async function main() {
 
   // Run Markdownlint for content directory
   const resultContent = await markdownlint.promises.markdownlint({
+    ...defaultOptions,
     files: files.content,
     config: config.content,
     customRules: configuredRules.content,
   })
   // Run Markdownlint for data directory
   const resultData = await markdownlint.promises.markdownlint({
+    ...defaultOptions,
     files: files.data,
     config: config.data,
     customRules: configuredRules.data,
@@ -124,6 +127,8 @@ async function main() {
     }
   }
   const end = Date.now()
+  // Ensure previous console logging is not truncated
+  console.log('\n\n')
   spinner.info(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
   if (warningFileCount > 0) {
     spinner.warn(`Found ${warningFileCount} file(s) with warnings(s)`)
@@ -308,14 +313,10 @@ function listRules() {
   Rules that can't be run on partials have the property
   `partial-markdown-files` set to false.
 */
-function getMarkdownLintConfig(errorsOnly, runRules, customRules) {
+function getMarkdownLintConfig(errorsOnly, runRules) {
   const config = {
-    content: {
-      default: false, // By default, don't turn on all markdownlint rules
-    },
-    data: {
-      default: false, // By default, don't turn on all markdownlint rules
-    },
+    content: Object.assign({}, defaultConfig),
+    data: Object.assign({}, defaultConfig),
   }
   const configuredRules = {
     content: [],
@@ -323,12 +324,12 @@ function getMarkdownLintConfig(errorsOnly, runRules, customRules) {
   }
 
   for (const [ruleName, ruleConfig] of Object.entries(allConfig)) {
-    const customRule = githubDocsConfig[ruleName] && getCustomRule(ruleName)
-
+    const customRule = customConfig[ruleName] && getCustomRule(ruleName)
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
     if (errorsOnly && getRuleSeverity(ruleConfig) !== 'error' && ruleName !== 'search-replace')
       continue
+
     if (runRules && !runRules.includes(ruleName)) continue
 
     // Handle the special case of the search-replace rule
@@ -360,7 +361,7 @@ function getMarkdownLintConfig(errorsOnly, runRules, customRules) {
 
     config.content[ruleName] = ruleConfig
     if (customRule) configuredRules.content.push(customRule)
-    if (ruleConfig['partial-markdown-files']) {
+    if (ruleConfig['partial-markdown-files'] === true) {
       config.data[ruleName] = ruleConfig
       if (customRule) configuredRules.data.push(customRule)
     }

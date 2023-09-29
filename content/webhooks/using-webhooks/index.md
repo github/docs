@@ -11,8 +11,10 @@ topics:
 children:
   - /creating-webhooks
   - /handling-webhook-deliveries
-  - /securing-your-webhooks
+  - /validating-webhook-deliveries
+  - /editing-webhooks
   - /handling-failed-webhook-deliveries
   - /disabling-webhooks
   - /best-practices-for-using-webhooks
 ---
+

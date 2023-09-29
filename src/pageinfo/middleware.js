@@ -159,8 +159,13 @@ router.get(
       intro,
     }
 
-    const tags = ['version:v1', `pathname:${pathname}`]
-    statsd.increment('api.pageinfo', 1, tags)
+    const tags = [
+      // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags
+      // the max length of a tag is 200 characters. Most of ours are less than
+      // that but we truncate just to be safe.
+      `pathname:${pathname}`.slice(0, 200),
+    ]
+    statsd.increment('pageinfo.lookup', 1, tags)
 
     defaultCacheControl(res)
 

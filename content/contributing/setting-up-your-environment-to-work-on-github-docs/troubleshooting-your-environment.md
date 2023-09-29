@@ -18,7 +18,7 @@ If a staging deployment is pending for more than ten minutes, try closing your p
 
 If that doesn't work, use the commands below to trigger a new staging deployment by pushing an empty commit on the command line.
   
-```
+```shell
 git commit --allow-empty -m 'empty commit to redeploy staging'
 git push
 ```
@@ -27,7 +27,7 @@ git push
 
 If your tests are stuck on "In progress" or "Pending" for more than an hour, use the commands below to rerun CI by pushing an empty commit on the command line.
 
-```
+```shell
 git commit --allow-empty -m 'empty commit to rerun CI'
 git push
 ```
@@ -36,13 +36,13 @@ git push
 
 If you are running `script/server` and get a `Cannot find module` error, try the following command before restarting the server.
 
-```
+```shell
 npm install
 ```
 
 If that doesn't fix the problem, use the following command to remove the `node_modules` directory and reinstall.
 
-```
+```shell
 rm -rf node_modules
 npm install
 ```
@@ -51,7 +51,7 @@ npm install
 
 If you are having trouble with the staging server, you should see more information about the error in your browser or on the command line if you run the site locally. Check out your branch locally and use the following command to launch the local server.
 
-```
+```shell
 script/server
 ```
 
@@ -59,7 +59,7 @@ When the server is running, navigate to the problematic article on `https://loca
 
 If you see an error resembling the one below, make sure single quotes are properly escaped in the frontmatter. Also, check the formatting in `redirect_from` blocks. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#escaping-single-quotes)."
 
-```
+```text
 error parsing file: /Users/z/git/github/docs/content/dotcom/articles/troubleshooting-custom-domains-and-github-pages.md
 (node:89324) UnhandledPromiseRejectionWarning: YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 4, column 14:
     redirect_from:
@@ -76,7 +76,7 @@ When you locate the broken link, make sure the link is versioned correctly. For 
 
 If an article that is available for {% data variables.product.prodname_ghe_server %} links to a {% data variables.product.prodname_dotcom_the_website %}-only article, include the version in the path to prevent the URL from automatically converting to include a {% data variables.product.prodname_ghe_server %} version number. The following example demonstrates how to link from a {% data variables.product.prodname_ghe_server %} article to a {% data variables.product.prodname_dotcom_the_website %}-only article.
   
-```
+```text
 [{% raw %}{{ data variables.product.prodname_github_connect }} Addendum to the {{ data variables.product.prodname_enterprise }} License Agreement{% endraw %}](/free-pro-team@latest/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/)"
 ```
 

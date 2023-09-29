@@ -1,6 +1,6 @@
 ---
 title: query format
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -32,9 +32,11 @@ codeql query format [--output=<file>] [--in-place] [--backup=<ext>] <options>...
 
 Autoformat QL source code.
 
-## Primary options
+## Options
 
-#### `<file>...`
+### Primary Options
+
+#### `<file>...` <!-- markdownlint-disable-line heading-increment -->
 
 One or more `.ql` or `.qll` source files to autoformat. A dash can be
 specified to read from standard input.

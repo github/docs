@@ -108,7 +108,7 @@ Index Name | Description
 
 Each record represents a section of a page. Sections are derived by splitting up pages by their headings. Each record has a `title`, `intro` (if one exists in the frontmatter), `body` content (in text, not HTML), a `url`, and a unique `objectID` that is currently just the permalink of the article. Here's an example:
 
-```js
+```javascript
 {
   objectID: '/en/actions/creating-actions/about-actions#about-actions',
   url: 'https://docs.github.com/en/actions/creating-actions/about-actions#about-actions',

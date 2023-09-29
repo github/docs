@@ -31,7 +31,7 @@ You can create tasklists using Markdown in the issue description (the opening co
 
 You can add a tasklist by copying the Markdown below into your issue description:
 
-````markdown{:copy}
+````markdown copy
 ```[tasklist]
 ### My tasks
 - [ ] https://github.com/octo-org/octo-repo/issues/45

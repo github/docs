@@ -22,7 +22,7 @@ To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodna
 
 ## Getting started
 
-If you haven't already, you should read the ["Basics of Authentication"][basics-of-authentication] guide before working through the examples below. The examples below assume that you have [registered an {% data variables.product.prodname_oauth_app %}][register-oauth-app] and that your [application has an OAuth token for a user][make-authenticated-request-for-user].
+If you haven't already, you should read the "[Basics of Authentication][basics-of-authentication]" guide before working through the examples below. The examples below assume that you have [registered an {% data variables.product.prodname_oauth_app %}][register-oauth-app] and that your [application has an OAuth token for a user][make-authenticated-request-for-user].
 
 ## Discover the repositories that your app can access for a user
 

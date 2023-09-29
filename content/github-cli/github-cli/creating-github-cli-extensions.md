@@ -190,7 +190,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
 1. In the directory you created, add some source code. For example:
 
-    ```go
+    ```golang
     package main
     import (
       "github.com/cli/go-gh"

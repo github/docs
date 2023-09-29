@@ -51,7 +51,7 @@ A credentials file must be a YAML file containing a list of server and access to
 
 For example:
 
-```yml
+```yaml
 - url: https://github.com
   access_token: ghp_mygeneraltoken
 - url: https://github.com/specific_org/
@@ -69,7 +69,7 @@ For the above credentials file, {% data variables.product.prodname_actions_impor
 
 For example:
 
-```yml
+```yaml
 - url: https://gitlab.com
   access_token: super_secret_token
   provider: gitlab

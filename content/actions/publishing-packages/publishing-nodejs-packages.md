@@ -83,7 +83,7 @@ jobs:
 
 In the example above, the `setup-node` action creates an `.npmrc` file on the runner with the following contents:
 
-```ini
+```shell
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 registry=https://registry.npmjs.org/
 always-auth=true
@@ -148,7 +148,7 @@ jobs:
 
 The `setup-node` action creates an `.npmrc` file on the runner. When you use the `scope` input to the `setup-node` action, the `.npmrc` file includes the scope prefix. By default, the `setup-node` action sets the scope in the `.npmrc` file to the account that contains that workflow file.
 
-```ini
+```shell
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://npm.pkg.github.com
 always-auth=true

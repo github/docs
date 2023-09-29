@@ -2166,6 +2166,14 @@
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
         },
         {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue that was linked to.</p>"
+        },
+        {
           "name": "linkedBranch",
           "type": "LinkedBranch",
           "id": "linkedbranch",
@@ -52568,7 +52576,7 @@
       "kind": "objects",
       "id": "requireddeploymentsparameters",
       "href": "/graphql/reference/objects#requireddeploymentsparameters",
-      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.</p>",
       "fields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -52610,7 +52618,7 @@
       "kind": "objects",
       "id": "requiredstatuschecksparameters",
       "href": "/graphql/reference/objects#requiredstatuschecksparameters",
-      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a ref that matches this rule after\nstatus checks have passed.</p>",
       "fields": [
         {
           "name": "requiredStatusChecks",
@@ -68543,7 +68551,7 @@
         },
         {
           "name": "NON_FAST_FORWARD",
-          "description": "<p>Prevent users with push access from force pushing to branches.</p>"
+          "description": "<p>Prevent users with push access from force pushing to refs.</p>"
         },
         {
           "name": "PULL_REQUEST",
@@ -68551,19 +68559,19 @@
         },
         {
           "name": "REQUIRED_DEPLOYMENTS",
-          "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>"
+          "description": "<p>Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.</p>"
         },
         {
           "name": "REQUIRED_LINEAR_HISTORY",
-          "description": "<p>Prevent merge commits from being pushed to matching branches.</p>"
+          "description": "<p>Prevent merge commits from being pushed to matching refs.</p>"
         },
         {
           "name": "REQUIRED_SIGNATURES",
-          "description": "<p>Commits pushed to matching branches must have verified signatures.</p>"
+          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
         },
         {
           "name": "REQUIRED_STATUS_CHECKS",
-          "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a branch that matches this\nrule after status checks have passed.</p>"
+          "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a ref that matches this rule\nafter status checks have passed.</p>"
         },
         {
           "name": "TAG_NAME_PATTERN",
@@ -77444,7 +77452,7 @@
       "kind": "inputObjects",
       "id": "requireddeploymentsparametersinput",
       "href": "/graphql/reference/input-objects#requireddeploymentsparametersinput",
-      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.</p>",
       "inputFields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -77486,7 +77494,7 @@
       "kind": "inputObjects",
       "id": "requiredstatuschecksparametersinput",
       "href": "/graphql/reference/input-objects#requiredstatuschecksparametersinput",
-      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a ref that matches this rule after\nstatus checks have passed.</p>",
       "inputFields": [
         {
           "name": "requiredStatusChecks",
