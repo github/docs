@@ -1,10 +1,7 @@
 ---
-title: Rules
-shortTitle: Rules
-intro: >-
-  Use the REST API to manage rulesets for organizations. Organization
-  rulesets control how people can interact with selected branches and tags in
-  repositories in an organization.
+title: Rule Suites
+shortTitle: Rule Suites
+intro: 'Use the REST API to manage rule suites for organizations.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
