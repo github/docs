@@ -315,8 +315,8 @@ function listRules() {
 */
 function getMarkdownLintConfig(errorsOnly, runRules) {
   const config = {
-    content: defaultConfig,
-    data: defaultConfig,
+    content: Object.assign({}, defaultConfig),
+    data: Object.assign({}, defaultConfig),
   }
   const configuredRules = {
     content: [],
@@ -325,7 +325,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
   for (const [ruleName, ruleConfig] of Object.entries(allConfig)) {
     const customRule = customConfig[ruleName] && getCustomRule(ruleName)
-
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
     if (errorsOnly && getRuleSeverity(ruleConfig) !== 'error' && ruleName !== 'search-replace')
@@ -362,7 +361,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
     config.content[ruleName] = ruleConfig
     if (customRule) configuredRules.content.push(customRule)
-    if (ruleConfig['partial-markdown-files']) {
+    if (ruleConfig['partial-markdown-files'] === true) {
       config.data[ruleName] = ruleConfig
       if (customRule) configuredRules.data.push(customRule)
     }
