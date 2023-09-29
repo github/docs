@@ -2450,6 +2450,16 @@
     "docs_reference_links": "/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository"
   },
   {
+    "action": "repository_secret_scanning_generic_secrets.disabled",
+    "description": "Generic secrets have been disabled at the repository level",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_generic_secrets.enabled",
+    "description": "Generic secrets have been enabled at the repository level",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_secret_scanning_push_protection.disable",
     "description": "Secret scanning push protection was disabled for a repository.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
