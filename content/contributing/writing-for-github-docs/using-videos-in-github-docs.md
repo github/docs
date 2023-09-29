@@ -75,7 +75,7 @@ Use videos that explain the value of the procedure or concept that they are show
 
 ## When to not use videos
 
-Do not use videos for features that change quickly and may make videos out of date. Do not use videos that contradict the written content or violate any parts of the "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text)." Do not use videos that just show a task without explaining or elaborating on the procedure. Videos must be useful and relevant, which includes staying accurate over time.
+Do not use videos for features that change quickly and may make videos out of date. Do not use videos that contradict the written content or violate any parts of the "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text)." Do not use videos that just show a task without explaining or elaborating on the procedure. Videos must be useful and relevant, which includes staying accurate over time.
 
 ## Accessibility requirements
 
@@ -144,7 +144,7 @@ product_video_transcript: /content/video-transcripts/TRANSCRIPT-TITLE
 
 ## Titles for videos
 
-Titles should be descriptive and follow the guidelines for titles in "[AUTOTITLE](/contributing/writing-for-github-docs/content-model#titles)."
+Titles should be descriptive and follow the guidelines for titles in the content model. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#titles)."
 
 ## Versioning
 

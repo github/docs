@@ -5,6 +5,8 @@ intro: 'You can use Markdown and Liquid to format content, create reusable conte
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs
 ---
 
 ## About using Markdown and Liquid in {% data variables.product.prodname_docs %}
@@ -51,7 +53,7 @@ This content is displayed on the {% data variables.product.prodname_docs %} site
 
 Callouts highlight important information that users need to know. We use standard formatting and colors for different types of callouts: notes, warnings, and danger notices. Use Liquid tags before and after the text you’d like included in the callout box.
 
-For information on when to use callout tags, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#callouts)."
+For information on when to use callout tags, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#callouts)."
 
 ### Example usage of a callout
 
@@ -147,7 +149,7 @@ If you're referencing an Octicon that appears in the UI, identify whether the Oc
    - Some Octicons used as labels have dynamic `aria-label` elements that change based on the state of the UI element or a user input. For example, when someone has two security policies-`Policy A` and `Policy B`-their UI will show two trash Octicons labelled `{% octicon "trash" aria-label="Delete Policy A" %}` and `{% octicon "trash" aria-label="Delete Policy B" %}`. For dynamic `aria-label` elements, since we can't document the exact `aria-label` that people will encounter, describe the Octicon and a placeholder example of the label (for example, `"{% octicon "trash" aria-label="The trash icon, labelled 'Delete YOUR-POLICY-NAME'." %}"`). This will help people identify both the Octicon and how it is labelled, and give context for collaborating with people who are visually describing the Octicon.
  - If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% octicon "plus" aria-hidden="true" %} Add message"`).
 
-If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#tables)."
+If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#tables)."
 
 ### Example usage of Octicons
 
@@ -314,7 +316,7 @@ Every row of a table in the {% data variables.product.prodname_docs %} must star
 
 ## Table row headers
 
-If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag {% raw %}`{% rowheaders %} {% endrowheaders %}`{% endraw %}. For more information on using markup for tables, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#use-proper-markup-for-row-and-column-headers)."
+If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag {% raw %}`{% rowheaders %} {% endrowheaders %}`{% endraw %}. For more information on using markup for tables, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#use-proper-markup-for-row-and-column-headers)."
 
 ### Example table with row headers
 
@@ -381,7 +383,7 @@ and when viewed on {% data variables.product.prodname_ghe_server %} docs, the ve
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
-For more information about links, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links)."
+For more information about links, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links)."
 
 ### Permalinks
 

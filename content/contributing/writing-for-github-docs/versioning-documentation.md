@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_docs %} uses YAML frontmatter and liq
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/syntax-and-versioning-for-github-docs/versioning-documentation
 ---
 
 On {% data variables.product.prodname_docs %}, we provide versions of our documentation that reflect the differences in UI and functionality across {% data variables.product.company_short %}'s major product offerings. Contributors can use versioning syntax to scope content to a specific product offering.
