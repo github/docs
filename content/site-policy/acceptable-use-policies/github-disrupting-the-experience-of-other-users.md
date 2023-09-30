@@ -3,10 +3,10 @@ title: GitHub Disrupting the Experience of Other Users
 shortTitle: Disrupting the Experience of Other Users
 versions:
   fpt: '*'
-topics:
+topics: @DIEGOHJ566
   - Policy
   - Legal
-redirect_from:
+redirect_from:https://github.com/github/docs/blob/49e87522dbfa560c138fbc1af619886d4a1a6ddf/content/site-policy/acceptable-use-policies/github-disrupting-the-experience-of-other-users.md
   - /github/site-policy/github-disrupting-the-experience-of-other-users
   - /github/site-policy/github-community-guidelines#disrupting-the-experience-of-other-users
 ---
