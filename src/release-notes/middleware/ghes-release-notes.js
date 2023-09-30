@@ -1,5 +1,5 @@
 import { formatReleases, renderPatchNotes } from '#src/release-notes/lib/release-notes-utils.js'
-import { all } from '../../../lib/enterprise-server-releases.js'
+import { all } from '#src/versions/lib/enterprise-server-releases.js'
 import { executeWithFallback } from '../../../lib/render-with-fallback.js'
 import { getReleaseNotes } from './get-release-notes.js'
 

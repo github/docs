@@ -56,7 +56,7 @@ For the purposes of this document, “private information” refers to content t
 
 1. **User Notifies GitHub of Changes.** If the user chooses to make the specified changes, they must tell us so within the window of time they've been allowed. If they don't, we will disable the repository. If the user notifies us that they made changes, we will verify that the changes have been made and notify the complainant.
 
-  OR
+   OR
 
 1. **User May Dispute the Request.** If a user believes the content in question is not private information subject to this Policy, they may dispute it. If they do, we will generally leave it up to the complainant to contact the user and work things out with them directly, within reason.
 
@@ -82,7 +82,7 @@ These guidelines are designed to make the processing of requests to remove priva
 
 1. A working, clickable link to each file containing private information. (Note that we're not able to work from search results, examples, or screenshots.)
 1. Specific line numbers within each file containing the private information.
-1. A brief description of how each item you've identified poses a security risk to you or your organization. ***It is important that you provide an explanation of how the data poses a security risk beyond merely stating that it does.***
+1. A brief description of how each item you've identified poses a security risk to you or your organization. ***It is important that you provide an explanation of how the data poses a security risk beyond merely stating that it does.*** <!-- markdownlint-disable-line emphasis-style -->
 1. If you are a third party acting as an agent for an organization facing a security risk, include a statement that you have a legal right to act on behalf of that organization.
 1. OPTIONAL: Let us know if your request is particularly urgent, and why. We respond to all private information removal requests as quickly as possible. However, if this request is especially time-sensitive, such as a very recent credential exposure, please explain why.
 

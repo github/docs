@@ -54,6 +54,12 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 
 {% data variables.product.prodname_dependabot_alerts %} are generated when {% data variables.product.prodname_dotcom %} identifies a dependency in the dependency graph with a vulnerability. {% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for any repository.{% endif %}
 
+{% ifversion dependabot-alert-custom-rules-repo-level %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
+{% endif %}
+
 {% data reusables.dependabot.quickstart-link %}
 
 {% ifversion fpt or ghec %}
@@ -156,5 +162,5 @@ You can view and manage alerts from security features to address dependencies an
 
 You can also use {% data variables.product.prodname_dotcom %}'s tools to audit responses to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
 
-{% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)" and "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)."
+{% ifversion fpt or ghec %}If you have a security vulnerability, you can create a security advisory to privately discuss and fix the vulnerability. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)" and "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory)."
 {% endif %}

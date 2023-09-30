@@ -100,6 +100,7 @@ This example configuration uses a primary and two replicas, which are located in
    ```
 
 1. To apply the configuration, use the `ghe-config-apply` command on the primary.
+
    ```shell
    (primary)$ ghe-config-apply
    ```
@@ -110,7 +111,7 @@ Configure Geo DNS using the IP addresses of the primary and replica nodes. You c
 
 For testing, you can add entries to the local workstation's `hosts` file (for example, `/etc/hosts`). These example entries will resolve requests for `HOSTNAME` to `replica2`. You can target specific hosts by commenting out different lines.
 
-```
+```text
 # <primary IP>      HOSTNAME
 # <replica1 IP>     HOSTNAME
 <replica2 IP>     HOSTNAME

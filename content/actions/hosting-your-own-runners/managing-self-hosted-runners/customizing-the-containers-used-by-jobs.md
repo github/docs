@@ -96,7 +96,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
   "state": {},
   "args": {
     "jobContainer": {
-      "image": "node:14.16",
+      "image": "node:18"
       "workingDirectory": "/__w/octocat-test2/octocat-test2",
       "createOptions": "--cpus 1",
       "environmentVariables": {
@@ -288,7 +288,7 @@ If you're using a Docker image, you can specify the image name in the `"image":`
     }
   },
   "args": {
-    "image": "node:14.16",
+    "image": "node:18",
     "dockerfile": null,
     "entryPointArgs": ["-f", "/dev/null"],
     "entryPoint": "tail",
@@ -500,7 +500,7 @@ When the resulting `index.js` is triggered by {% data variables.product.prodname
 
 ## Triggering the customization script
 
-The custom script must be located on the runner, but should not be stored in the self-hosted runner application directory. The scripts are executed in the security context of the service account that's running the runner service.
+The custom script must be located on the runner, but should not be stored in the self-hosted runner application directory (that is, the directory into which you downloaded and unpacked the runner software). The scripts are executed in the security context of the service account that's running the runner service.
 
 {% note %}
 

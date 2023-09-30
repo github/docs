@@ -219,3 +219,7 @@ You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap)
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
 If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".
+
+## About logging for LDAP
+
+Log events for LDAP appear in systemd journal logs on {% data variables.location.product_location %}. You'll find events related to LDAP operations in the logs for `github-unicorn` and `github-resqued`. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#journal-logs-for-the-github-application)."

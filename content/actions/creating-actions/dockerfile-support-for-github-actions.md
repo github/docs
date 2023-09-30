@@ -79,7 +79,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 Using the example Dockerfile above, {% data variables.product.product_name %} will send the `args` configured in the action's metadata file as arguments to `entrypoint.sh`. Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
 
-``` sh
+```shell
 #!/bin/sh
 
 # `$#` expands to the number of arguments and `$@` expands to the supplied `args`
@@ -90,13 +90,13 @@ printf '\n'
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
 
-``` sh
+```shell
 chmod +x entrypoint.sh
 ```
 
 When an `ENTRYPOINT` shell script is not executable, you'll receive an error similar to this:
 
-``` sh
+```shell
 Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "exec: \"/entrypoint.sh\": permission denied": unknown
 ```
 

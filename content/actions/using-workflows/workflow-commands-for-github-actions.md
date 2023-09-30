@@ -38,7 +38,7 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
@@ -179,7 +179,7 @@ echo "::set-output name=action_fruit::strawberry"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
@@ -206,7 +206,7 @@ echo "::debug::Set the Octocat variable"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::debug::Set the Octocat variable"
 ```
 
@@ -234,7 +234,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -262,7 +262,7 @@ echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -290,7 +290,7 @@ echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -363,7 +363,7 @@ echo "::add-mask::Mona The Octocat"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::add-mask::Mona The Octocat"
 ```
 
@@ -480,7 +480,7 @@ If you want to pass a masked secret between jobs or workflows, you should store 
 #### Setup
 
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
-1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 #### Workflow
 
@@ -783,7 +783,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 - Using PowerShell version 6 and higher:
 
-  ```pwsh copy
+  ```powershell copy
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Append
   ```
 
@@ -901,7 +901,7 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 ```
 
@@ -957,7 +957,7 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "{markdown content}" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
@@ -981,7 +981,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "### Hello world! :rocket:" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
@@ -1101,7 +1101,7 @@ echo "{path}" >> $GITHUB_PATH
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "{path}" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
@@ -1123,7 +1123,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
-```pwsh copy
+```powershell copy
 "$env:HOMEPATH/.local/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 

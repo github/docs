@@ -162,69 +162,111 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/actions')
-  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
+  await page.getByTestId('sidebar').getByText('Category').click()
   await page.getByText('Map & Topic').click()
-  await page.getByLabel('<article> link').click()
+  await page.getByText('<article>').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
 
-test('hovercards', async ({ page }) => {
-  await page.goto('/pages/quickstart')
+test.describe('hover cards', () => {
+  test('hover over link', async ({ page }) => {
+    await page.goto('/pages/quickstart')
 
-  // hover over a link and check for intro content from hovercard
-  await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
-  await expect(
-    page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.',
-    ),
-  ).toBeVisible()
+    // hover over a link and check for intro content from hovercard
+    await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
+    await expect(
+      page.getByText(
+        'Get started using GitHub to manage Git repositories and collaborate with others.',
+      ),
+    ).toBeVisible()
 
-  // now move the mouse away from hovering over the link, the hovercard should
-  // no longer be visible
-  await page.mouse.move(0, 0)
-  await expect(
-    page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.',
-    ),
-  ).not.toBeVisible()
+    // now move the mouse away from hovering over the link, the hovercard should
+    // no longer be visible
+    await page.mouse.move(0, 0)
+    await expect(
+      page.getByText(
+        'Get started using GitHub to manage Git repositories and collaborate with others.',
+      ),
+    ).not.toBeVisible()
 
-  // external links don't have a hovercard
-  await page.getByRole('link', { name: 'github.com/github/docs' }).hover()
-  await expect(page.getByTestId('popover')).not.toBeVisible()
+    // external links don't have a hovercard
+    await page.getByRole('link', { name: 'github.com/github/docs' }).hover()
+    await expect(page.getByTestId('popover')).not.toBeVisible()
 
-  // links in the main navigation sidebar don't have a hovercard
-  await page.getByTestId('sidebar').getByRole('link', { name: 'Quickstart' }).hover()
-  await expect(page.getByTestId('popover')).not.toBeVisible()
+    // links in the main navigation sidebar don't have a hovercard
+    await page.getByTestId('sidebar').getByRole('link', { name: 'Quickstart' }).hover()
+    await expect(page.getByTestId('popover')).not.toBeVisible()
 
-  // links in the secondary minitoc sidebar don't have a hovercard
-  await page
-    .getByTestId('minitoc')
-    .getByRole('link', { name: 'Regular internal link', exact: true })
-    .hover()
-  await expect(page.getByTestId('popover')).not.toBeVisible()
+    // links in the secondary minitoc sidebar don't have a hovercard
+    await page
+      .getByTestId('minitoc')
+      .getByRole('link', { name: 'Regular internal link', exact: true })
+      .hover()
+    await expect(page.getByTestId('popover')).not.toBeVisible()
 
-  // links in the article intro have a hovercard
-  await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
-  await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
-  // this page's intro has two links; one in-page and one internal
-  await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
-  await expect(
-    page.getByText('Follow this Hello World exercise to get started with GitHub.'),
-  ).toBeVisible()
+    // links in the article intro have a hovercard
+    await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
+    await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+    // this page's intro has two links; one in-page and one internal
+    await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
+    await expect(
+      page.getByText('Follow this Hello World exercise to get started with GitHub.'),
+    ).toBeVisible()
 
-  // same page anchor links have a hovercard
-  await page
-    .locator('#article-contents')
-    .getByRole('link', { name: 'introduction', exact: true })
-    .hover()
-  await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+    // same page anchor links have a hovercard
+    await page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'introduction', exact: true })
+      .hover()
+    await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
 
-  // links with formatted text need to work too
-  await page.locator('#article-contents').getByRole('link', { name: 'Bold is strong' }).hover()
-  await expect(page.getByText('The most basic of fixture data for GitHub')).toBeVisible()
-  await page.locator('#article-contents').getByRole('link', { name: 'bar' }).hover()
-  await expect(page.getByText("This page doesn't really have an intro")).toBeVisible()
+    // links with formatted text need to work too
+    await page.locator('#article-contents').getByRole('link', { name: 'Bold is strong' }).hover()
+    await expect(page.getByText('The most basic of fixture data for GitHub')).toBeVisible()
+    await page.locator('#article-contents').getByRole('link', { name: 'bar' }).hover()
+    await expect(page.getByText("This page doesn't really have an intro")).toBeVisible()
+  })
+
+  test('use keyboard shortcut to open hover card', async ({ page }) => {
+    await page.goto('/pages/quickstart')
+
+    // Simply putting focus on the link should not open the hovercard
+    await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).focus()
+    await expect(
+      page.getByText(
+        'Get started using GitHub to manage Git repositories and collaborate with others.',
+      ),
+    ).not.toBeVisible()
+
+    // Once a link has got focus, you can use Alt+ArrowUp to open the hovercard
+    await page.keyboard.press('Alt+ArrowUp')
+    await expect(
+      page.getByText(
+        'Get started using GitHub to manage Git repositories and collaborate with others.',
+      ),
+    ).toBeVisible()
+
+    // Press Escape to close it
+    await page.keyboard.press('Escape')
+    await expect(
+      page.getByText(
+        'Get started using GitHub to manage Git repositories and collaborate with others.',
+      ),
+    ).not.toBeVisible()
+  })
+
+  test('internal links get a aria-roledescription and aria-describedby', async ({ page }) => {
+    await page.goto('/pages/quickstart')
+    const link = page.locator('#article-contents').getByRole('link', { name: 'Quickstart' })
+    await expect(link).toHaveAttribute('aria-roledescription', 'hover card')
+
+    // The link gets a `aria-describedby="...ID..."` attribute that points to
+    // another element in the DOM that has the description text.
+    const id = 'popover-describedby'
+    await expect(link).toHaveAttribute('aria-describedby', id)
+    await expect(page.locator(`#${id}`)).toHaveText('Press alt+up to activate')
+  })
 })
 
 test.describe('test nav at different viewports', () => {
@@ -477,12 +519,12 @@ test.describe('survey', () => {
 test.describe('rest API reference pages', () => {
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
+    // Before using the sidebar, make sure the page has redirected to a
+    // URL that has that `?apiVersion=` query parameter.
+    await expect(page).toHaveURL(/\/en\/rest\?apiVersion=/)
     await page.getByTestId('sidebar').getByText('Actions').click()
-    await page.getByTestId('rest-subcategory').getByRole('link', { name: 'Artifacts' }).click()
-    await page
-      .getByTestId('rest-subcategory')
-      .getByRole('link', { name: 'About artifacts in GitHub Actions' })
-      .click()
+    await page.getByTestId('sidebar').getByLabel('Artifacts').click()
+    await page.getByLabel('About artifacts in GitHub Actions').click()
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })

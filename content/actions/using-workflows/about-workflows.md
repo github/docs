@@ -50,7 +50,7 @@ For more on managing workflow runs, such as re-running, cancelling, or deleting 
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)" and "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+For more information on using and creating starter workflows, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)" and "[AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
 
 ## Advanced workflow features
 
@@ -78,7 +78,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ### Creating dependent jobs
 

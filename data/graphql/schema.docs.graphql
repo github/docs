@@ -5679,6 +5679,26 @@ type ConnectedEvent implements Node {
 }
 
 """
+The Contributing Guidelines for a repository.
+"""
+type ContributingGuidelines {
+  """
+  The body of the Contributing Guidelines.
+  """
+  body: String
+
+  """
+  The HTTP path for the Contributing Guidelines.
+  """
+  resourcePath: URI
+
+  """
+  The HTTP URL for the Contributing Guidelines.
+  """
+  url: URI
+}
+
+"""
 Represents a contribution a user made on GitHub, such as opening an issue.
 """
 interface Contribution {
@@ -7328,6 +7348,11 @@ type CreateLinkedBranchPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The issue that was linked to.
+  """
+  issue: Issue
 
   """
   The new branch issue reference.
@@ -10837,6 +10862,11 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   includesCreatedEdit: Boolean!
 
   """
+  Only return answered/unanswered discussions
+  """
+  isAnswered: Boolean
+
+  """
   A list of labels associated with the object.
   """
   labels(
@@ -12560,6 +12590,31 @@ type EnterpriseBillingInfo {
 }
 
 """
+The connection type for Enterprise.
+"""
+type EnterpriseConnection {
+  """
+  A list of edges.
+  """
+  edges: [EnterpriseEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [Enterprise]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
 The possible values for the enterprise base repository permission setting.
 """
 enum EnterpriseDefaultRepositoryPermissionSettingValue {
@@ -12587,6 +12642,21 @@ enum EnterpriseDefaultRepositoryPermissionSettingValue {
   Organization members will be able to clone, pull, and push all organization repositories.
   """
   WRITE
+}
+
+"""
+An edge in a connection.
+"""
+type EnterpriseEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: Enterprise
 }
 
 """
@@ -12870,6 +12940,56 @@ enum EnterpriseMembersCanMakePurchasesSettingValue {
   The setting is enabled for organizations in the enterprise.
   """
   ENABLED
+}
+
+"""
+The possible values we have for filtering Platform::Objects::User#enterprises.
+"""
+enum EnterpriseMembershipType {
+  """
+  Returns all enterprises in which the user is an admin.
+  """
+  ADMIN
+
+  """
+  Returns all enterprises in which the user is a member, admin, or billing manager.
+  """
+  ALL
+
+  """
+  Returns all enterprises in which the user is a billing manager.
+  """
+  BILLING_MANAGER
+
+  """
+  Returns all enterprises in which the user is a member of an org that is owned by the enterprise.
+  """
+  ORG_MEMBERSHIP
+}
+
+"""
+Ordering options for enterprises.
+"""
+input EnterpriseOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order enterprises by.
+  """
+  field: EnterpriseOrderField!
+}
+
+"""
+Properties by which enterprise connections can be ordered.
+"""
+enum EnterpriseOrderField {
+  """
+  Order enterprises by name
+  """
+  NAME
 }
 
 """
@@ -27180,6 +27300,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     """
     type: PinnableItemType
   ): Boolean!
+
+  """
+  Identifies the date and time when the organization was archived.
+  """
+  archivedAt: DateTime
 
   """
   Audit log entries of the organization
@@ -42007,6 +42132,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   contactLinks: [RepositoryContactLink!]
 
   """
+  Returns the contributing guidelines for this repository.
+  """
+  contributingGuidelines: ContributingGuidelines
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -42194,6 +42324,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the elements in the list that come after the specified cursor.
     """
     after: String
+
+    """
+    Only show answered or unanswered discussions
+    """
+    answered: Boolean = null
 
     """
     Returns the elements in the list that come before the specified cursor.
@@ -44633,6 +44768,11 @@ type RepositoryRule implements Node {
   parameters: RuleParameters
 
   """
+  The repository ruleset associated with this rule configuration
+  """
+  repositoryRuleset: RepositoryRuleset
+
+  """
   The type of rule.
   """
   type: RepositoryRuleType!
@@ -44773,7 +44913,7 @@ enum RepositoryRuleType {
   DELETION
 
   """
-  Prevent users with push access from force pushing to branches.
+  Prevent users with push access from force pushing to refs.
   """
   NON_FAST_FORWARD
 
@@ -44783,26 +44923,25 @@ enum RepositoryRuleType {
   PULL_REQUEST
 
   """
-  Choose which environments must be successfully deployed to before branches can
-  be merged into a branch that matches this rule.
+  Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
   """
   REQUIRED_DEPLOYMENTS
 
   """
-  Prevent merge commits from being pushed to matching branches.
+  Prevent merge commits from being pushed to matching refs.
   """
   REQUIRED_LINEAR_HISTORY
 
   """
-  Commits pushed to matching branches must have verified signatures.
+  Commits pushed to matching refs must have verified signatures.
   """
   REQUIRED_SIGNATURES
 
   """
   Choose which status checks must pass before branches can be merged into a
   branch that matches this rule. When enabled, commits must first be pushed to
-  another branch, then merged or pushed directly to a branch that matches this
-  rule after status checks have passed.
+  another branch, then merged or pushed directly to a ref that matches this rule
+  after status checks have passed.
   """
   REQUIRED_STATUS_CHECKS
 
@@ -45706,8 +45845,7 @@ interface RequirableByPullRequest {
 }
 
 """
-Choose which environments must be successfully deployed to before branches can
-be merged into a branch that matches this rule.
+Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
 """
 type RequiredDeploymentsParameters {
   """
@@ -45717,8 +45855,7 @@ type RequiredDeploymentsParameters {
 }
 
 """
-Choose which environments must be successfully deployed to before branches can
-be merged into a branch that matches this rule.
+Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
 """
 input RequiredDeploymentsParametersInput {
   """
@@ -45762,7 +45899,7 @@ input RequiredStatusCheckInput {
 """
 Choose which status checks must pass before branches can be merged into a branch
 that matches this rule. When enabled, commits must first be pushed to another
-branch, then merged or pushed directly to a branch that matches this rule after
+branch, then merged or pushed directly to a ref that matches this rule after
 status checks have passed.
 """
 type RequiredStatusChecksParameters {
@@ -45782,7 +45919,7 @@ type RequiredStatusChecksParameters {
 """
 Choose which status checks must pass before branches can be merged into a branch
 that matches this rule. When enabled, commits must first be pushed to another
-branch, then merged or pushed directly to a branch that matches this rule after
+branch, then merged or pushed directly to a ref that matches this rule after
 status checks have passed.
 """
 input RequiredStatusChecksParametersInput {
@@ -50475,9 +50612,7 @@ input StartRepositoryMigrationInput {
   clientMutationId: String
 
   """
-  Whether to continue the migration on error. Defaults to `false`. We strongly
-  recommend setting this to `true` for the smoothest migration experience. *This
-  default will change to `true` on September 4, 2023.*
+  Whether to continue the migration on error. Defaults to `true`.
   """
   continueOnError: Boolean
 
@@ -57350,6 +57485,41 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   The user's publicly visible profile email.
   """
   email: String!
+
+  """
+  A list of enterprises that the user belongs to.
+  """
+  enterprises(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Filter enterprises returned based on the user's membership type.
+    """
+    membershipType: EnterpriseMembershipType = ALL
+
+    """
+    Ordering options for the User's enterprises.
+    """
+    orderBy: EnterpriseOrder = {field: NAME, direction: ASC}
+  ): EnterpriseConnection
 
   """
   The estimated next GitHub Sponsors payout for this user/organization in cents (USD).

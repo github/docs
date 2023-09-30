@@ -13,7 +13,7 @@ import assert from 'assert'
 import { program, Option } from 'commander'
 
 import { languageKeys } from '#src/languages/lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import searchSync from './sync.js'
 
 const shortNames = Object.fromEntries(

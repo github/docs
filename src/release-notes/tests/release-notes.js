@@ -1,6 +1,6 @@
 import { describe, jest } from '@jest/globals'
 
-import enterpriseServerReleases from '../../../lib/enterprise-server-releases.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get } from '../../../tests/helpers/e2etest.js'
 import Page from '../../../lib/page.js'
 

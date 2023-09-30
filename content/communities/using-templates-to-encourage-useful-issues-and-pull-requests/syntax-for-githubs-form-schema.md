@@ -28,7 +28,7 @@ For example, the following form definition includes four form elements: a text a
   attributes:
     label: Operating System
     description: What operating system are you using?
-    placeholder: Example: macOS Big Sur
+    placeholder: "Example: macOS Big Sur"
     value: operating system
   validations:
     required: true
@@ -99,7 +99,7 @@ For multi-line text, you can use the pipe operator.
 
 #### Example of `markdown`
 
-```YAML copy
+```yaml copy
 body:
 - type: markdown
   attributes:
@@ -136,7 +136,7 @@ You can use a `textarea` element to add a multi-line text field to your form. Co
 
 #### Example of `textarea`
 
-```YAML copy
+```yaml copy
 body:
 - type: textarea
   id: repro
@@ -178,7 +178,7 @@ You can use an `input` element to add a single-line text field to your form.
 
 #### Example of `input`
 
-```YAML copy
+```yaml copy
 body:
 - type: input
   id: prevalence
@@ -216,7 +216,7 @@ You can use a `dropdown` element to add a dropdown menu in your form.
 
 #### Example of `dropdown`
 
-```YAML copy
+```yaml copy
 body:
 - type: dropdown
   id: download
@@ -259,7 +259,7 @@ You can use the `checkboxes` element to add a set of checkboxes to your form.
 
 #### Example of `checkboxes`
 
-```YAML copy
+```yaml copy
 body:
 - type: checkboxes
   id: operating-systems

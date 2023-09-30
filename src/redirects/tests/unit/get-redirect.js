@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals'
 
 import getRedirect from '../../lib/get-redirect.js'
-import { latest, supported } from '../../../../lib/enterprise-server-releases.js'
+import { latest, supported } from '#src/versions/lib/enterprise-server-releases.js'
 const previousEnterpriserServerVersion = supported[1]
 
 describe('getRedirect basics', () => {

@@ -25,7 +25,7 @@ shortTitle: GitHub Advanced Security
 {% ifversion ghas-for-azure-devops %}
 {% note %}
 
-**Note:** If you want to try the preview of {% data variables.product.prodname_GH_advanced_security %} with Azure Repos, see [{% data variables.product.prodname_GH_advanced_security %} & Azure DevOps](https://resources.github.com/ghazdo/) in our resources site. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+**Note:** If you want to use {% data variables.product.prodname_GH_advanced_security %} with Azure Repos, see [{% data variables.product.prodname_GH_advanced_security %} & Azure DevOps](https://resources.github.com/ghazdo/) in our resources site. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 {% endnote %}
 {% endif %}
@@ -106,7 +106,7 @@ If you have an enterprise account, license use for the entire enterprise is show
 {% data reusables.advanced-security.starter-workflows-beta %}
 {% data reusables.advanced-security.starter-workflow-overview %}
 
-For more information on starter workflows, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)" and "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
+For more information on starter workflows, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)" and "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
 
 {% endif %}
 

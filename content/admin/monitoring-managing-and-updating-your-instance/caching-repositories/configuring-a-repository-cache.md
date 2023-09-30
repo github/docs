@@ -24,7 +24,7 @@ To have your CI machines fetch from the repository cache instead of the primary 
 
 For example, the global `.gitconfig` for the CI machine would include these lines.
 
-```
+```text
 [url "https://europe-ci.github.example.com/"]
 	insteadOf = https://github.example.com/
 ```
@@ -52,15 +52,16 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 
    - If you're configuring a repository cache in addition to one or more existing replicas, use the `-a` or `--add` argument.
 
-      ```
+      ```shell
       ghe-repl-setup -a PRIMARY-IP
       ```
+
 1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
     - Set a `cache-location` for the repository cache, replacing _CACHE-LOCATION_ with an alphanumeric identifier, such as the region where the cache is deployed.  The _CACHE-LOCATION_ value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)."
     - Set a `cache-domain` for the repository cache, replacing _EXTERNAL-CACHE-DOMAIN_ with the hostname Git clients will use to access the repository cache. If you do not specify a `cache-domain`, {% data variables.product.product_name %} will prepend the _CACHE-LOCATION_ value as a subdomain to the hostname configured for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
     - If you haven't already, set the datacenter name on the primary and any replica appliances, replacing DC-NAME with a datacenter name.
 
-      ```
+      ```shell
       ghe-repl-node --datacenter DC-NAME
       ```
 
@@ -88,19 +89,19 @@ Data location policies affect only Git content. Content in the database, such as
 
 You can configure a policy to replicate all networks with the `--default` flag. For example, this command will create a policy to replicate a single copy of every repository network to the set of repository caches whose `cache_location` is "kansas".
 
-```
+```shell
 ghe-spokesctl cache-policy set --default 1 kansas
 ```
 
 To configure replication for a repository network, specify the repository that is the root of the network. A repository network includes a repository and all of the repository's forks. You cannot replicate part of a network without replicating the whole network.
 
-```
+```shell
 ghe-spokesctl cache-policy set <owner/repository> 1 kansas
 ```
 
 You can override a policy that replicates all networks and exclude specific networks by specifying a replica count of zero for the network. For example, this command specifies that any repository cache in location "kansas" cannot contain any copies of that network.
 
-```
+```shell
 ghe-spokesctl cache-policy set <owner/repository> 0 kansas
 ```
 

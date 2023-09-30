@@ -37,11 +37,12 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
 | `account` | Contains all activities related to your organization account.{% endif %}{% ifversion fpt or ghec %}
-| `advisory_credit` | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."{% endif %}{% ifversion pat-v2%}
+| `advisory_credit` | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."{% endif %}{% ifversion pat-v2%}
 | `auto_approve_personal_access_token_requests` | Contains activities related to your organization's approval policy for {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% endif %}{% ifversion fpt or ghec %}
 | `billing` | Contains all activities related to your organization's billing.{% endif %}{% ifversion fpt or ghec %}
 | `business` | Contains activities related to business settings for an enterprise. |{% endif %}{% ifversion fpt or ghec %}
 | `codespaces` | Contains all activities related to your organization's codespaces. |{% endif %}
+| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} subscription.
 | `dependabot_alerts` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% ifversion fpt or ghec or ghes %}
 | `dependabot_security_updates` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
@@ -73,7 +74,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `project` | Contains all activities related to project boards.
 | `protected_branch` | Contains all activities related to protected branches.
 | `repo` | Contains activities related to the repositories owned by your organization.{% ifversion fpt or ghec %}
-| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 | `repository_content_analysis` | Contains all activities related to enabling or disabling data use for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."{% endif %}{% ifversion fpt or ghec %}
 | `repository_dependency_graph` | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae or ghec %}
 | `repository_secret_scanning` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." {% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
@@ -129,6 +130,14 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 - `country:Mexico` finds all events that occurred in Mexico.
 - `country:"United States"` all finds events that occurred in the United States.
 
+{% ifversion ghec %}
+
+### Search based on access token
+
+You can identify all events that were performed by a specific access token. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token)."
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## Exporting the audit log
@@ -166,7 +175,7 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% ifversion ghec %}
-Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#git)."
 {% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.

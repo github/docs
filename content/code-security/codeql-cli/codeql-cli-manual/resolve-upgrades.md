@@ -39,9 +39,11 @@ and is exposed as a separate plumbing command in order to (a) help with
 troubleshooting, and (b) provide a starting point for modifying the path
 in extraordinary cases where exact control is needed.
 
-## Primary options
+## Options
 
-#### `--dbscheme=<file>`
+### Primary Options
+
+#### `--dbscheme=<file>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The _current_ dbscheme of the dataset we want to upgrade.
 

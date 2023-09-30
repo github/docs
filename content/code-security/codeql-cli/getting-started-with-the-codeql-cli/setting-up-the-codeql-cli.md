@@ -13,7 +13,7 @@ topics:
   - CodeQL
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli
- 
+
 ---
 
 ## Setting up the {% data variables.product.prodname_codeql_cli %}
@@ -113,6 +113,7 @@ After you extract the {% data variables.product.prodname_codeql_cli %} bundle, y
 - `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
 
 Extract from successful output:
+
 ```shell
 codeql/cpp-all (/<extraction-root>/qlpacks/codeql/cpp-all/<version>)
 codeql/cpp-examples (/<extraction-root>/qlpacks/codeql/cpp-examples/<version>)

@@ -26,7 +26,7 @@ import {
   deprecated,
   firstReleaseStoredInBlobStorage,
   lastVersionWithoutArchivedRedirectsFile,
-} from '../lib/enterprise-server-releases.js'
+} from '#src/versions/lib/enterprise-server-releases.js'
 
 program
   .description(

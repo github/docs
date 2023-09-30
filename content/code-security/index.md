@@ -2,13 +2,15 @@
 title: Code security documentation
 shortTitle: Code security
 intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
+redirect_from:
+  - /code-security/guides
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
   startHere:
     - /code-security/getting-started/securing-your-repository
     - /code-security/getting-started/securing-your-organization
-    - '{% ifversion fpt or ghec %}/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
+    - '{% ifversion fpt or ghec %}/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
     - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning{% endif %}'
     - '{% ifversion ghes < 3.9 or ghae < 3.9 %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning{% endif %}'
   guideCards:
@@ -23,7 +25,7 @@ featuredLinks:
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
     - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
-    - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
     - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
@@ -56,5 +58,4 @@ children:
   - /supply-chain-security
   - /dependabot
   - /security-overview
-  - /guides
 ---

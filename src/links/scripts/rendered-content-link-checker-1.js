@@ -15,7 +15,7 @@ import {
   getCoreInject,
   getUploadArtifactInject,
 } from '../../../script/helpers/action-injections.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import github from '../../../script/helpers/github.js'
 
 const STATIC_PREFIXES = {

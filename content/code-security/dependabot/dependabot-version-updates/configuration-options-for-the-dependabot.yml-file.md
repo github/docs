@@ -28,7 +28,7 @@ shortTitle: Configure dependabot.yml
 
 The {% data variables.product.prodname_dependabot %} configuration file, `dependabot.yml`, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-You must store this file in the `.github` directory of your repository. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
+You must store this file in the `.github` directory of your repository in the default branch. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
@@ -327,6 +327,7 @@ If you use the same configuration as in the example above, bumping the `requests
    `pip dev: bump requests from 1.0.0 to 1.0.1`
 
 {% ifversion dependabot-version-updates-groups %}
+
 ### `groups`
 
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
@@ -470,7 +471,6 @@ updates:
       - ruby-github # only access to registries associated with this ecosystem/directory
     schedule:
       interval: "monthly"
-
 ```
 
 {% endraw %}
@@ -628,6 +628,8 @@ updates:
 ### `registries`
 
 To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. {% data reusables.dependabot.dependabot-updates-registries %} For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
+
+{% data reusables.dependabot.advanced-private-registry-config-link %}
 
 To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
@@ -921,9 +923,13 @@ updates:
 
 You must provide the required settings for each configuration `type` that you specify. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
+{% data reusables.dependabot.advanced-private-registry-config-link %}
+
 ### `composer-repository`
 
-The `composer-repository` type supports username and password.
+The `composer-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% raw %}
 
@@ -940,9 +946,12 @@ registries:
 
 ### `docker-registry`
 
-{% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+{% data variables.product.prodname_dependabot %} works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
-The `docker-registry` type supports username and password.
+The `docker-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1004,7 +1013,7 @@ registries:
 
 ### `git`
 
-The `git` type supports username and password.
+The `git` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1022,6 +1031,8 @@ registries:
 ### `hex-organization`
 
 The `hex-organization` type supports organization and key.
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% raw %}
 
@@ -1061,7 +1072,10 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1069,10 +1083,9 @@ The `maven-repository` type supports username and password.
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
-    replaces-base: true
 ```
 
 {% endraw %}
@@ -1083,7 +1096,7 @@ registries:
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
@@ -1092,7 +1105,7 @@ registries:
 
 ### `npm-registry`
 
-The `npm-registry` type supports username and password, or token.
+The `npm-registry` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
@@ -1159,7 +1172,7 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 ### `nuget-feed`
 
-The `nuget-feed` type supports username and password, or token.
+The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1189,7 +1202,9 @@ registries:
 
 ### `python-index`
 
-The `python-index` type supports username and password, or token.
+The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% raw %}
 
@@ -1221,7 +1236,9 @@ registries:
 
 ### `rubygems-server`
 
-The `rubygems-server` type supports username and password, or token.
+The `rubygems-server` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}

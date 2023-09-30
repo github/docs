@@ -1,7 +1,7 @@
 import Permalink from '../../lib/permalink.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 
 // Permalink constructor requires: languageCode, pageVersion, relativePath, title
 // Permalink.derive requires: languageCode, relativePath, title, versions (<- FM prop)

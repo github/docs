@@ -30,7 +30,7 @@ Make it easy for your users to confidentially report security vulnerabilities th
 
 ### Security advisories
 
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 
 {% endif %}
 {% ifversion fpt or ghec or ghes %}
@@ -39,6 +39,12 @@ Privately discuss and fix security vulnerabilities in your repository's code. Yo
 
 View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
 and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+{% endif %}
+
+{% ifversion dependabot-alert-custom-rules-repo-level %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
 {% endif %}
 
 {% data reusables.dependabot.quickstart-link %}

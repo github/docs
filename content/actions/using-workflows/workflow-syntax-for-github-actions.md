@@ -441,7 +441,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ## `jobs.<job_id>.steps[*].name`
 
@@ -570,7 +570,7 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as an encrypted secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
@@ -623,6 +623,10 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
+Alternatively, you can specify a default working directory for all `run` steps in a job, or for all `run` steps in the entire workflow. For more information, see "[`defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun)" and "[`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun)."
+
+You can also use a `run` step to run a script. For more information, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions#adding-scripts-to-your-workflow)."
+
 ## `jobs.<job_id>.steps[*].shell`
 
 You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
@@ -638,51 +642,51 @@ You can override the default shell settings in the runner's operating system usi
 | Windows | `pwsh` | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead.| `pwsh -command ". '{0}'"`. |
 | Windows | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
-### Example: Running a script using bash
+### Example: Running a command using Bash
 
 ```yaml
 steps:
   - name: Display the path
-    run: echo $PATH
     shell: bash
+    run: echo $PATH
 ```
 
-### Example: Running a script using Windows `cmd`
+### Example: Running a command using Windows `cmd`
 
 ```yaml
 steps:
   - name: Display the path
-    run: echo %PATH%
     shell: cmd
+    run: echo %PATH%
 ```
 
-### Example: Running a script using PowerShell Core
+### Example: Running a command using PowerShell Core
 
 ```yaml
 steps:
   - name: Display the path
-    run: echo ${env:PATH}
     shell: pwsh
-```
-
-### Example: Using PowerShell Desktop to run a script
-
-```yaml
-steps:
-  - name: Display the path
     run: echo ${env:PATH}
-    shell: powershell
 ```
 
-### Example: Running a python script
+### Example: Using PowerShell Desktop to run a command
 
 ```yaml
 steps:
   - name: Display the path
+    shell: powershell
+    run: echo ${env:PATH}
+```
+
+### Example: Running an inline Python script
+
+```yaml
+steps:
+  - name: Display the path
+    shell: python
     run: |
       import os
       print(os.environ['PATH'])
-    shell: python
 ```
 
 ### Custom shell
@@ -694,9 +698,9 @@ For example:
 ```yaml
 steps:
   - name: Display the environment variables and their values
+    shell: perl {0}
     run: |
       print %ENV
-    shell: perl {0}
 ```
 
 The command used, `perl` in this example, must be installed on the runner.

@@ -17,7 +17,7 @@ You can add a `CITATION.cff` file to the root of a repository to let others know
 
 Example `CITATION.cff` file:
 
-```
+```text
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
@@ -34,11 +34,11 @@ date-released: 2017-12-18
 url: "https://github.com/github-linguist/linguist"
 ```
 
-The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats:
+The {% data variables.product.company_short %} citation prompt on your repository will show the example `CITATION.cff` content in these formats:
 
 **APA**
 
-```
+```text
 Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer software]. https://doi.org/10.5281/zenodo.1234
 ```
 
@@ -46,7 +46,7 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 
 {% raw %}
 
-```
+```text
 @software{Lisa_My_Research_Software_2017,
   author = {Lisa, Mona and Bot, Hew},
   doi = {10.5281/zenodo.1234},
@@ -96,7 +96,7 @@ If you would prefer the {% data variables.product.prodname_dotcom %} citation in
 
 Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
 
-```
+```text
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
@@ -131,11 +131,11 @@ preferred-citation:
   year: 2021
 ```
 
-The example `CITATION.cff` file above will produce the following outputs in the GitHub citation prompt:
+The example `CITATION.cff` file above will produce the following outputs in the {% data variables.product.company_short %} citation prompt:
 
 **APA**
 
-```
+```text
 Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1. https://doi.org/10.0000/00000
 ```
 
@@ -143,7 +143,7 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 
 {% raw %}
 
-```
+```text
 @article{Lisa_My_awesome_research_2021,
   author = {Lisa, Mona and Bot, Hew},
   doi = {10.0000/00000},
@@ -165,11 +165,11 @@ If your repository contains a dataset, you can set `type: dataset` at the top le
 
 ## Other citation files
 
-The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
+The {% data variables.product.company_short %} citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
 
-GitHub will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
+{% data variables.product.company_short %} will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
 
-```
+```text
 # Note these are case-insensitive and must be in the root of the repository
 CITATION
 CITATIONS
@@ -186,4 +186,4 @@ inst/CITATION
 
 We currently support APA and BibTex file formats.
 
-Are you looking for additional citation formats? GitHub uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.
+Are you looking for additional citation formats? {% data variables.product.company_short %} uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.

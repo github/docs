@@ -81,7 +81,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 
 ### Example of a CODEOWNERS file
 
-```
+```text
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
 
@@ -141,6 +141,12 @@ apps/ @octocat
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
 /apps/github
+
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
+# subdirectory, as this subdirectory has its own owner @doctocat
+/apps/ @octocat
+/apps/github @doctocat
 ```
 
 ## CODEOWNERS and branch protection

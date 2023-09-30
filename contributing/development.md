@@ -12,7 +12,7 @@ You'll need Node.js to run the site. Check the version in `package.json`. To ins
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
 
-```sh
+```shell
 git clone https://github.com/github/docs
 cd docs
 npm ci

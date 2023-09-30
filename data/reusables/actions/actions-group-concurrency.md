@@ -2,7 +2,10 @@ When a concurrent job or workflow is queued, if another job or workflow using th
 
 {% note %}
 
-**Note:** The concurrency group name is case insensitive. For example, `prod` and `Prod` will be treated as the same concurrency group.
+**Notes:**
+
+- The concurrency group name is case insensitive. For example, `prod` and `Prod` will be treated as the same concurrency group.
+- Ordering is not guaranteed for jobs or runs using concurrency groups, they are handled in the order that they are processed.
 
 {% endnote %}
 

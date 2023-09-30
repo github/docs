@@ -2,7 +2,7 @@ import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from 'src/rest/components/types'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { useMainContext } from 'components/context/MainContext'
 
 type CodeExamples = Record<string, any>

@@ -33,11 +33,11 @@ The summary list of methods and functions is created from these supported file t
 
 1. Select the changed function or method from the drop-down menu. You can also enter the name of the function or method to filter results.
 
- {% note %}
+   {% note %}
 
- **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in _.go_, _.js_, _.ts_, _.py_, _.php_, and _.rb_ files appear in the drop-down menu.
+   **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in _.go_, _.js_, _.ts_, _.py_, _.php_, and _.rb_ files appear in the drop-down menu.
 
- {% endnote %}
+   {% endnote %}
 
 1. You'll be redirected to the first line of the function or method you selected.
 

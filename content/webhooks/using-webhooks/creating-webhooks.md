@@ -1,6 +1,6 @@
 ---
 title: Creating webhooks
-intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {% data variables.product.prodname_dotcom %} and how to set up a server to receive and manage the webhook payload.'
+intro: 'You can create webhooks to subscribe to specific events that occur on {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /webhooks/creating
   - /developers/webhooks-and-events/creating-webhooks
@@ -16,94 +16,90 @@ versions:
 topics:
   - Webhooks
 ---
-Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook-powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of issues it receives per day.
 
-Creating a webhook is a two-step process. You'll first need to set up what events your webhook should listen to. After that, you'll set up your server to receive and manage the payload.
+## About creating webhooks
 
-{% data reusables.webhooks.webhooks-rest-api-links %}
+{% ifversion fpt %}You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, {% data variables.product.prodname_marketplace %} account, or {% data variables.product.prodname_sponsors %} account. You can also set up a {% data variables.product.prodname_github_app %} to recieve webhooks when specific events occur on {% data variables.product.prodname_dotcom %}.{% endif %}
 
-## Exposing localhost to the internet
+{% ifversion ghec %}You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, {% data variables.product.prodname_enterprise %}, {% data variables.product.prodname_marketplace %} account, or {% data variables.product.prodname_sponsors %} account. You can also set up your {% data variables.product.prodname_github_app %} to recieve webhooks when specific events occur on {% data variables.product.prodname_dotcom %}.{% endif %}
 
-For the purposes of this tutorial, we're going to use a local server to receive webhook events from {% data variables.product.prodname_dotcom %}.
+{% ifversion ghes or ghae %}You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, or {% data variables.product.prodname_enterprise %}. You can also set up your {% data variables.product.prodname_github_app %} to recieve webhooks when specific events occur on {% data variables.product.prodname_dotcom %}.{% endif %}
 
-First of all, we need to expose our local development environment to the internet so {% data variables.product.prodname_dotcom %} can deliver events. We'll use [`ngrok`](https://ngrok.com) to do this.
+For more information about the different types of webhooks, see "[AUTOTITLE](/webhooks/about-webhooks)." For a complete list of webhook events, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
 
-{% ifversion cli-webhook-forwarding %}
-{% note %}
+## Creating a repository webhook
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+You can create a webhook to subscribe to events that occur in a specific repository. You must be a repository owner or have admin access in the repository to create webhooks in that repository.
 
-{% endnote %}
+You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to create a repository webhook. For more information about using the REST API to create a repository webhook, see "[AUTOTITLE](/rest/webhooks/repos#create-a-repository-webhook)."
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.webhooks.sidebar_webhooks %}
+{% data reusables.webhooks.add_webhook_button %}
+1. Under "Payload URL", type the URL where you'd like to receive payloads.
+{% data reusables.webhooks.content_type_and_secret %}
+1. Under "Which events would you like to trigger this webhook?", select the webhook events that you want to receive. You should only subscribe to the webhook events that you need.
+1. If you chose **Let me select individual events**, select the events that you want to trigger the webhook.
+1. To make the webhook active immediately after adding the configuration, select **Active**.
+{% data reusables.webhooks.add_webhook_button %}
+
+After you create a new webhook, {% data variables.product.prodname_dotcom %} will send you a simple `ping` event to let you know you've set up the webhook correctly. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#ping)."
+
+## Creating an organization webhook
+
+You can create a webhook to subscribe to events that occur in a specific organization. You must be an organization owner to create webhooks in that organization.
+
+You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to create an organization webhook. For more information about using the REST API to create an organization webhook, see "[AUTOTITLE](/rest/orgs/webhooks#create-an-organization-webhook)."
+
+1. In the upper-right corner of any page on {% data variables.location.product_location %}, click your profile photo.
+1. Click **Your organizations**.
+1. To the right of the organization, click **Settings**.
+{% data reusables.webhooks.sidebar_webhooks %}
+{% data reusables.webhooks.add_webhook_button %}
+1. Under "Payload URL", type the URL where you'd like to receive payloads.
+{% data reusables.webhooks.content_type_and_secret %}
+1. Under "Which events would you like to trigger this webhook?", select the types of webhooks you'd like to recieve. You should only subscribe to the webhook events that you need.
+1. If you chose **Let me select individual events**, select the events that will trigger the webhook.
+1. To make the webhook active immediately after adding the configuration, select **Active**.
+1. Click **Add webhook**.
+
+After you create a new webhook, {% data variables.product.prodname_dotcom %} will send you a simple `ping` event to let you know you've set up the webhook correctly. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#ping)."
+
+{% ifversion ghes or ghae or ghec %}
+
+## Creating a global webhook for a {% data variables.product.prodname_enterprise %}
+
+Enterprise owners can create a global webhook to subscribe to events that occur within their enterprise. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks)."
+
 {% endif %}
 
-`ngrok` is available, free of charge, for all major operating systems. For more information, see [the `ngrok` download page](https://ngrok.com/download).
+{% ifversion fpt or ghec %}
 
-After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
+## Creating a {% data variables.product.prodname_marketplace %} webhook
 
-```shell
-Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
-```
+You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the organization that owns the app, can create a {% data variables.product.prodname_marketplace %} webhook. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)."
 
-Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
+1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
+1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.
+1. In the sidebar, click **Webhook**.
+1. Under "Payload URL", type the URL where you'd like to receive payloads.
+{% data reusables.webhooks.content_type_and_secret %}
+1. To make the webhook active immediately after adding the configuration, select **Active**.
+1. Click **Create webhook**.
 
-## Setting up a webhook
+After you create a new webhook, {% data variables.product.prodname_dotcom %} will send you a simple `ping` event to let you know you've set up the webhook correctly. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#ping)."
 
-You can install webhooks on an organization or on a specific repository.
+## Creating a {% data variables.product.prodname_sponsors %} webhook
 
-{% data reusables.organizations.owners-and-admins-can %} manage webhooks for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+You can create a webhook to subscribe to events relating to {% data variables.product.prodname_sponsors %}. Only the owner of the sponsored account can create sponsorship webhooks for that account. For more information, see "[AUTOTITLE](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)."
 
-To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
+{% endif %}
 
-Alternatively, you can choose to build and manage a webhook [through the Webhooks API][webhook-api].
+## Creating webhooks for a {% data variables.product.prodname_github_app %}
 
-Webhooks require a few configuration options before you can make use of them. We'll go through each of these settings below.
+You can subscribe your {% data variables.product.prodname_github_app %} to webhook events to receive notifications whenever certain events occur. For more information, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps)."
 
-## Payload URL
+## Further reading
 
-{% data reusables.webhooks.webhooks-ipv6 %}
-
-{% data reusables.webhooks.payload_url %}
-
-Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
-
-## Content type
-
-{% data reusables.webhooks.content_type %} For this tutorial, the default content type of `application/json` is fine.
-
-## Secret
-
-{% data reusables.webhooks.secret %}
-
-## SSL verification
-
-{% data reusables.webhooks.webhooks_ssl %}
-
-## Active
-
-By default, webhook deliveries are "Active." You can choose to disable the delivery of webhook payloads by deselecting "Active."
-
-## Events
-
-Events are at the core of webhooks. These webhooks fire whenever a certain action is taken on the repository, which your server's payload URL intercepts and acts upon.
-
-A full list of webhook events, and when they execute, can be found in [the webhooks API][hooks-api] reference.
-
-Since our webhook is dealing with issues in a repository, we'll click **Let me select individual events** and then **Issues**. Make sure you select **Active** to receive issue events for triggered webhooks. You can also select all events using the default option.
-
-When you're finished, click **Add webhook**.
-
-Now that you've created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads) to learn how to do that.
-
-### Wildcard event
-
-To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
-
-[webhooks-overview]: /webhooks-and-events/webhooks/about-webhooks
-[webhook-api]: /rest/repos#hooks
-[hooks-api]: /webhooks-and-events/webhooks/about-webhooks#events
-
-### Ping event
-
-{% data reusables.webhooks.ping_short_desc %}
-
-For more information about the `ping` event webhook payload, see the [`ping`](/webhooks-and-events/webhooks/webhook-events-and-payloads#ping) event.
+- "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"

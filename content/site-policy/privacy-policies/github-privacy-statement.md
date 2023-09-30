@@ -201,7 +201,7 @@ Additionally, if you are unable to access certain personal data we have via the 
 
 ### Data portability
 
-As a GitHub User, you can always take your data with you. You can [clone your repositories to your desktop](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop), for example, or you can use our [Data Portability tools](https://developer.github.com/changes/2018-05-24-user-migration-api/) to download information we have about you.
+As a GitHub User, you can always take your data with you. You can [clone your repositories to your desktop](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop), for example, or you can use our [Data Portability tools](https://developer.github.com/changes/2018-05-24-user-migration-api/) to download information we have about you.
 
 ### Communication preferences
 
@@ -337,7 +337,7 @@ Below are translations of this document into other languages. In the event of an
 
 ### French
 
-Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(FR).pdf)
+Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf)
 
 ### Other translations
 

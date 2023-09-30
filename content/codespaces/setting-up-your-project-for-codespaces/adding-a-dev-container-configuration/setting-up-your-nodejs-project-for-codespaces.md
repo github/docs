@@ -51,7 +51,7 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
@@ -102,14 +102,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property and assign it the command `npm install`.
 
-   ```json copy
+   ```jsonc copy
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "npm install",
    ```
 
 {% data reusables.codespaces.add-extension-to-devcontainer %}
 
-   ```json
+   ```jsonc
    // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
    {
      "name": "Node.js",
@@ -143,7 +143,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing npm, and the "Code Spell Checker" extension will be available for use.
 

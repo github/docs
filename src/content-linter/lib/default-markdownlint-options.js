@@ -1,13 +1,7 @@
-export function testOptions(rule, module, fixtureFile) {
-  const config = {
-    default: false,
-    [rule]: true,
-  }
+export const defaultOptions = {
+  // frontMatter: null will be set soon
+}
 
-  const options = {
-    files: [fixtureFile],
-    customRules: [module],
-    config,
-  }
-  return options
+export const defaultConfig = {
+  default: false,
 }

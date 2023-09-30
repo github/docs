@@ -13,7 +13,7 @@ children:
   - /choosing-who-owns-and-pays-for-codespaces-in-your-organization
   - /listing-the-codespaces-in-your-organization
   - /managing-the-cost-of-github-codespaces-in-your-organization
-  - /managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
+  - /managing-secrets-for-your-repository-and-organization-for-github-codespaces
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-github-codespaces
   - /restricting-access-to-machine-types

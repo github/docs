@@ -7,6 +7,7 @@ name: Ready for docs-content review
 on:
   pull_request_target:
     types: [labeled, review_requested]
+  workflow_call:
 
 permissions:
   contents: read
@@ -20,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
@@ -33,7 +34,7 @@ jobs:
 
       - name: Run script
         run: |
-          node .github/actions-scripts/ready-for-docs-review.js
+          node src/workflows/ready-for-docs-review.js
         env:
           TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PROJECT_NUMBER: 2936

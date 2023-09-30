@@ -105,13 +105,13 @@ By default, the rate limit for {% data variables.product.prodname_actions %} is 
 
 1. To disable the rate limit after it's been enabled, run the following command.
 
-   ```
+   ```shell
    ghe-config actions-rate-limiting.enabled false
    ```
 
 1. To apply the configuration, run the following command.
 
-   ```
+   ```shell
    ghe-config-apply
    ```
 
