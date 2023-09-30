@@ -73,6 +73,7 @@ on:
 permissions:
   issues: write
   contents: read
+  pull-requests: write
 
 jobs:
   build_and_deploy:
@@ -84,7 +85,7 @@ jobs:
         with:
           submodules: true
       - name: Build And Deploy
-        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: {% raw %}${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}{% endraw %}
           repo_token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
@@ -99,7 +100,7 @@ jobs:
     name: Close Pull Request
     steps:
       - name: Close Pull Request
-        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: {% raw %}${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}{% endraw %}
           action: "close"
