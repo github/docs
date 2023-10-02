@@ -941,8 +941,8 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         run: |
             "SELECTED_COLOR=green" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get color
-        env:{% raw %}
-          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
         run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 
