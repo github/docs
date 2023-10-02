@@ -23,7 +23,7 @@ You can help people understand and use your package by providing a description a
 {% data reusables.package_registry.public-or-private-packages %} A repository can be connected to more than one package. To prevent confusion, make sure the README and description clearly provide information about each package.
 
 {% ifversion fpt or ghec %}
-If a new version of a package fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+If a new version of a package fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 {% endif %}
 
 ## Publishing a package

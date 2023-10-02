@@ -22,7 +22,7 @@ As you follow this guide, you will create several issues in a repository. You wi
 
 ## Creating an issue to track the work of adding a new landing page
 
-In this step, we will create the parent issue to track the subtasks required to publish the new landing page. 
+In this step, we will create the parent issue to track the subtasks required to publish the new landing page.
 
 1. Navigate to the repository where you want to track the work.
 1. Create a new blank issue with the title "Tracking issue for landing page." For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
@@ -44,7 +44,7 @@ Draft tasks are text items that are added to your tasklist. Draft tasks appear i
 
 1. If the text field is not already focused, click **Add item to Tasks**.
   
-  ![Screenshot of a tasklist. The "Add item to Tasks" field is highlighted with an orange rectangle.](/assets/images/help/projects-v2/tasklist-omnibar.png)
+   ![Screenshot of a tasklist. The "Add item to Tasks" field is highlighted with an orange rectangle.](/assets/images/help/projects-v2/tasklist-omnibar.png)
   
 1. Add some draft tasks to sketch out this work. Type your draft task and then press <kbd>Enter</kbd> after each one.
 
@@ -59,7 +59,7 @@ You can convert your draft tasks into issues. You can convert draft tasks when y
 
 1. Next to the "Design new landing page" draft task, click {% octicon "kebab-horizontal" aria-label="tracking block item menu" %}.
   
-  ![Screenshot of a tasklist. To the right of a draft task, the tracking block item menu is outlined in orange.](/assets/images/help/projects-v2/tasklist-draft-context-menu.png)
+   ![Screenshot of a tasklist. To the right of a draft task, the tracking block item menu is outlined in orange.](/assets/images/help/projects-v2/tasklist-draft-context-menu.png)
   
 1. In the menu, click **Convert to issue**.
 
@@ -69,7 +69,7 @@ You can now assign yourself to the new issue without leaving your tasklist.
 
 1. Next to the "Design new landing page" issue in your tasklist, click {% octicon "kebab-horizontal" aria-label="tracking block item menu" %}.
 
-  ![Screenshot of a tasklist. To the right of a task, the tracking block item menu, which is labeled with a horizontal kebab icon, is outlined in dark orange.](/assets/images/help/projects-v2/tasklists-item-context-menu.png) 
+   ![Screenshot of a tasklist. To the right of a task, the tracking block item menu, which is labeled with a horizontal kebab icon, is outlined in dark orange.](/assets/images/help/projects-v2/tasklists-item-context-menu.png)
   
 1. In the context menu, click **Set assignees**.
 1. In the list of people, select yourself.
@@ -86,26 +86,27 @@ You can change the title of a tasklist to better represent the tasks it is track
 
 1. In the menu, click **Rename**.
 1. Type a new title for your tasklist and press <kbd>Enter</kbd>.
-    
+
     For our example landing page scenario, you could rename this tasklist to "Landing page content."
-    
+
 ## Creating a second tasklist using Markdown
 
 You can create multiple tasklists in a single issue. Each tasklist has its own tasks and title. You can add tasklists using the **Add tasklist** button or by entering Markdown when you edit the issue.
 
 1. At the top of the issue description (the opening comment), click {% octicon "kebab-horizontal" aria-label="Show options" %}.
   
-  ![Screenshot of an issue containing a tasklist. The "Show options" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/edit-issue-tasklist.png)
+   ![Screenshot of an issue containing a tasklist. The "Show options" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/edit-issue-tasklist.png)
   
 1. In the menu, click **Edit**.
 1. In the issue description, below your first tasklist, add the Markdown below:
   
-   ````markdown{:copy}
+   ````markdown copy
    ```[tasklist]
    ### Tasks
    - [ ] Draft task
    ```
    ````
+
 1. To change the title of this tasklist, type a new title after `### `. For example, change `### Tasks` to `### Backend changes`.
 
 In the next two sections, we will make further changes to the Markdown before saving the comment.
@@ -160,6 +161,6 @@ Issues and pull requests are not automatically added to a project when they are 
 
 ## Conclusion
 
-After following this guide, you have created a tracking issue with two tasklists, made changes to those tasklists in the UI and directly with Markdown, converted a draft task into an issue, and integrated your tasklist data with a project. 
+After following this guide, you have created a tracking issue with two tasklists, made changes to those tasklists in the UI and directly with Markdown, converted a draft task into an issue, and integrated your tasklist data with a project.
 
 To learn more about managing the items in your tasklist, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/managing-tasks-in-a-tasklist)." For more information on integrating tasklists with your projects, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/using-projects-and-tasklists)."

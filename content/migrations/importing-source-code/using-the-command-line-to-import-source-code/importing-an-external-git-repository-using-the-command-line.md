@@ -54,3 +54,10 @@ For purposes of demonstration, we'll use:
    ```
 
 If the repository you are importing contains large files, you may run into a warning or error. For more information on large files and how to manage them, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+
+{% ifversion fpt or ghec %}
+
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

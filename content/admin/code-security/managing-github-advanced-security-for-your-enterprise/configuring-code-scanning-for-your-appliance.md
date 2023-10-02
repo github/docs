@@ -54,10 +54,8 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 {% ifversion code-scanning-runner-label %}
 If you are provisioning a self-hosted runner for {% data variables.product.prodname_codeql %} analysis, your runner must use a {% data variables.product.prodname_codeql %}-supported operating system version and CPU architecture. For more information, see the [{% data variables.product.prodname_codeql %} system requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/).
 
-{% ifversion code-scanning-default-setup-self-hosted-310 %}
-If you are using default setup for {% data variables.product.prodname_code_scanning %}, assign the `code-scanning` label to your self-hosted runner. For more information about using labels with self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)". For more information about using default setup for code scanning analysis of compiled languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages)."
+If you are using default setup for {% data variables.product.prodname_code_scanning %}, assign the `code-scanning` label to your self-hosted runner. For more information about using labels with self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."{% ifversion code-scanning-default-setup-self-hosted-310 %} For more information about using default setup for code scanning analysis of compiled languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages)."{% endif %}
 
-{% endif %}
 {% endif %}
 
 You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.

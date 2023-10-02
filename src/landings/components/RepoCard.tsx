@@ -19,7 +19,7 @@ export const RepoCard = ({ repo, href }: Props) => {
         />
       </div>
       <div className="flex-auto">
-        <h4>{repo.repo}</h4>
+        <h3 className="wb-break-word">{repo.repo}</h3>
         <p className="mt-1 color-fg-muted">{repo.description}</p>
       </div>
     </a>

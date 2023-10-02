@@ -32,7 +32,7 @@ Prerequisites for repository transfers:
 - The target account must not have a repository with the same name, or a fork in the same network.
 - The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.{% ifversion ghes < 3.7 or ghae %}
 - Internal repositories can't be transferred.{% endif %}
-- Private forks can't be transferred.
+- Single repositories forked from a private upstream network cannot be transferred.
 {%- ifversion ghec %}
 - Internal repositories can only be transferred to an organization in the enterprise. You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
 {%- endif %}

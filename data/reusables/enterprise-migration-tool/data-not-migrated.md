@@ -1,7 +1,8 @@
 Currently, the following data is **not** migrated.
 
+- Repositories owned by user accounts
 - {% data variables.large_files.product_name_short %} objects and large binaries (repositories using {% data variables.large_files.product_name_short %} are still supported, see "[Limitations of {% data variables.product.prodname_importer_proper_name %}](#limitations-of-github-enterprise-importer)")
-- {% data variables.product.prodname_actions %} secrets, variables, environments, or workflow run history
+- {% data variables.product.prodname_actions %} secrets, variables, environments, self-hosted runners, {% data variables.actions.hosted_runner %}s, or workflow run history
 - Webhook secrets
 - {% data variables.product.prodname_github_codespaces %} secrets
 - {% data variables.product.prodname_code_scanning_caps %} results
@@ -20,4 +21,4 @@ Currently, the following data is **not** migrated.
 - Repository watchers
 - Commit status checks
 - Edit history of issue comments and pull request comments
-- Users' profiles, SSH keys or signing keys
+- Users' profiles, SSH keys, signing keys, or {% data variables.product.pat_generic_plural %}

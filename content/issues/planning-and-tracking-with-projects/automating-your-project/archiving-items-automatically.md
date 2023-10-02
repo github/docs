@@ -22,10 +22,14 @@ You can configure your project's built-in workflows to automatically archive ite
 The auto-archive workflow supports a subset of filters. You can use the following filters when configuring your workflow.
 
 | Qualifier | Possible values
-| --- | --- | --- |
+| --- | --- |
 | `is` | `open`, `closed`, `merged`, `draft`, `issue`, `pr`
 | `reason` | `completed`, `reopened`, `"not planned"`
 | `updated` | <code><@today-<em>14</em>d</code> (the last 14 days), <code><@today-<em>3</em>w</code> (the last 3 weeks), <code><@today-<em>1</em>m</code> (the last month)
+
+{% data reusables.projects.last-updated-explanation %}
+
+Additionally, items are also marked as updated when field values in your project are changed.
 
 When you enable automatic archiving for issues or pull requests, items in your project that already meet your criteria will also be archived. There may be some delay in archiving large numbers of items that already meet the criteria.
 

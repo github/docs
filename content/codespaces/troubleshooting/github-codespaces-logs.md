@@ -13,11 +13,11 @@ redirect_from:
   - /codespaces/troubleshooting/codespaces-logs
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 Information on {% data variables.product.prodname_github_codespaces %} is output to various logs:
 
@@ -50,13 +50,13 @@ Other logs are available if you are using {% data variables.product.prodname_git
 
 {% endcli %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 - Creation logs
 
 Other logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} or in your web browser. Click the tabs above for details.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 {% webui %}
 
@@ -156,7 +156,7 @@ The following instructions are for Chrome. The steps for other browsers are simi
 
 {% endwebui %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.jetbrains-open-codespace-plugin %}
 1. In the {% data variables.product.prodname_github_codespaces %} tool window, click the log icon.
@@ -167,7 +167,7 @@ The following instructions are for Chrome. The steps for other browsers are simi
 
 You can download logs for the remote JetBrains IDE and the local client application by going to the **Help** menu in the JetBrains client application and clicking **Collect Host and Client Logs**.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## Further reading
 

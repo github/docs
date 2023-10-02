@@ -41,11 +41,11 @@ On Windows machines, the proxy environment variable names are case insensitive. 
 
 ## Using a .env file to set the proxy configuration
 
-If setting environment variables is not practical, you can set the proxy configuration variables in a file named _.env_ in the self-hosted runner application directory. For example, this might be necessary if you want to configure the runner application as a service under a system account. When the runner application starts, it reads the variables set in _.env_ for the proxy configuration.
+If setting environment variables is not practical, you can set the proxy configuration variables in a file named `.env` in the self-hosted runner application directory (that is, the directory into which you downloaded and unpacked the runner software). For example, this might be necessary if you want to configure the runner application as a service under a system account. When the runner application starts, it reads the variables set in `.env` for the proxy configuration.
 
-An example _.env_ proxy configuration is shown below:
+### Example `.env` proxy configuration
 
-```ini
+```shell
 https_proxy=http://proxy.local:8080
 no_proxy=example.com,myserver.local:443
 ```

@@ -44,7 +44,7 @@ Then, you need to write code to add functionality to your {% data variables.prod
 
 Once you have written the code for your {% data variables.product.prodname_github_app %}, your app needs to run somewhere. If your app is a website or web app, you might host your app on a server like [Azure App Service](https://azure.microsoft.com/products/app-service/). If your app is a client-side app, it might run on a user's device.
 
-In order to use your {% data variables.product.prodname_github_app %}, you must install the app on your organization or personal account. If your {% data variables.product.prodname_github_app %} is private, your can only install the {% data variables.product.prodname_github_app %} on the account that owns the app. If your {% data variables.product.prodname_github_app %} is public, other users and organizations can install your app. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
+In order to use your {% data variables.product.prodname_github_app %}, you must install the app on your organization or personal account. If your {% data variables.product.prodname_github_app %} is private, you can only install the {% data variables.product.prodname_github_app %} on the account that owns the app. If your {% data variables.product.prodname_github_app %} is public, other users and organizations can install your app. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
 
 ## Understanding what type of {% data variables.product.prodname_github_app %} to build
 

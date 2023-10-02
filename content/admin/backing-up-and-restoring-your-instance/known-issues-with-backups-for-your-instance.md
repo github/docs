@@ -46,24 +46,28 @@ To ensure users can sign into the new target instance, ensure that your environm
    ```shell copy
    ssh -p 122 admin@HOSTNAME
    ```
+
 {%- ifversion ghes = 3.7 %}
 1. To display a list of encryption and decryption keys, run the following command.
 
    ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material
    ```
+
 {%- elsif ghes = 3.8 or ghes = 3.9 %}
 1. To display a list of decryption keys, run the following command.
 
    ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material
    ```
+
 1. Copy the output to a safe and temporary location.
 1. To display a list of encryption keys, run the following command.
 
    ```shell copy
    ghe-config secrets.github.encrypted-column-current-encryption-key
    ```
+
 1. Copy the output to a safe and temporary location.
 {%- endif %}
 1. SSH into the destination {% data variables.product.product_name %} instance where you restored the backup. Replace HOSTNAME with the actual hostname of your instance.
@@ -71,6 +75,7 @@ To ensure users can sign into the new target instance, ensure that your environm
    ```shell copy
    ssh -p 122 admin@HOSTNAME
    ```
+
 1. Enable maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#enabling-maintenance-mode-immediately-or-scheduling-a-maintenance-window-for-a-later-time)."
 1. To verify that the destination instance is ready for configuration, run the following {% ifversion ghes = 3.7 %}command{% elsif ghes = 3.8 or ghes = 3.9 %}commands{% endif %}. There should be no output displayed.
 
@@ -80,38 +85,44 @@ To ensure users can sign into the new target instance, ensure that your environm
    ghe-config secrets.github.encrypted-column-current-encryption-key
    {%- endif %}
    ```
+
 {%- ifversion ghes = 3.7 %}
 1. To update the list of keys on the destination instance, run the following command. Replace KEY-LIST with the output from step 1.
 
    ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material "KEY-LIST"
    ```
-{%- elsif ghes = 3.8 %}
+
+{%- elsif ghes = 3.8 or ghes = 3.9 %}
 1. To update the decryption keys on the destination instance, run the following command. Replace DECRYPTION-KEY-LIST with the output from step 1.
 
    ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material "DECRYPTION-KEY-LIST"
    ```
+
 1. To update the encryption key on the destination instance, run the following command. Replace ENCRYPTION-KEY with the output from step 4.
 
    ```shell copy
    ghe-config secrets.github.encrypted-column-current-encryption-key "ENCRYPTION-KEY"
    ```
+
 {%- endif %}
 1. To apply the configuration, run the following command.
 
     ```shell copy
     ghe-config-apply
     ```
+
 1. Wait for the configuration run to complete.
 1. To ensure that the target instance's configuration contains the keys, run the following {% ifversion ghes = 3.7 %}command{% elsif ghes = 3.8 or ghes = 3.9 %}commands{% endif %} and verify that the output matches step 1{% ifversion ghes = 3.8 or ghes = 3.9 %} and step 4{% endif %}.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material
    {%- ifversion ghes = 3.8 or ghes = 3.9 %}
    ghe-config secrets.github.encrypted-column-current-encryption-key
    {%- endif %}
    ```
+
 1. Have a user sign into the destination instance. If any issues arise, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 
 {% endif %}

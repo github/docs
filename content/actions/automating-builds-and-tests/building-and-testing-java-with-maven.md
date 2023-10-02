@@ -16,7 +16,7 @@ topics:
   - Maven
 shortTitle: Build & test Java with Maven
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -39,43 +39,59 @@ We recommend that you have a basic understanding of Java and the Maven framework
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Maven starter workflow
+## Using a Maven starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. For more information, see the "[AUTOTITLE](/actions/quickstart)."
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Maven that should work for most Java with Maven projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Java with Maven".
+1. On the "Java with Maven" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-```yaml copy
-name: Java CI
+{%- ifversion ghes or ghae %}
 
-on: [push]
+   If you don't find the "Java with Maven" starter workflow, copy the following workflow code to a new file called `maven.yml` in the `.github/workflows` directory of your repository.
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+   ```yaml copy
+   name: Java CI with Maven
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up JDK 17
-        uses: {% data reusables.actions.action-setup-java %}
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
-```
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
 
-This workflow performs the following steps:
+   jobs:
+     build:
+       runs-on: ubuntu-latest
 
-1. The `checkout` step downloads a copy of your repository on the runner.
-1. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
-1. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Set up JDK 17
+         uses: {% data reusables.actions.action-setup-java %}
+         with:
+           java-version: '17'
+           distribution: 'temurin'
+           cache: maven
+       - name: Build with Maven
+         run: mvn -B package --file pom.xml
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
+       - name: Update dependency graph
+         uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
+   ```
 
-{% data reusables.actions.example-github-runner %}
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the Java version.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `maven.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 {% data reusables.actions.java-jvm-architecture %}
 

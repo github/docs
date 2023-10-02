@@ -15,11 +15,11 @@ topics:
 shortTitle: Develop in a codespace
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About development with {% data variables.product.prodname_github_codespaces %}
 
@@ -69,7 +69,7 @@ For troubleshooting information, see "[AUTOTITLE](/codespaces/troubleshooting/tr
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 The tabs in this article allow you to switch between information for each of these ways of working. You're currently on the tab for JetBrains IDEs.
 
@@ -120,7 +120,7 @@ For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/usin
 - "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
 - "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)"
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 {% cli %}
 

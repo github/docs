@@ -38,3 +38,10 @@ You can use the command line to import source code and, if the code has been tra
 {% endif %}
 
 All of these tools import source code and revision history, only. If you also want to import your settings and your collaboration history, such as issues and pull requests, you'll need to use more advanced tools. To determine the best tool to use for your migration, see "[AUTOTITLE](/migrations/overview/planning-your-migration-to-github)."
+
+{% ifversion fpt or ghec %}
+
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

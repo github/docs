@@ -46,7 +46,7 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/php
 {
@@ -89,14 +89,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. In the `devcontainer.json` file, delete the two commented-out lines about features:
 
-   ```json
+   ```jsonc
    // Features to add to the dev container. More info: https://containers.dev/features.
    // "features": {},
    ```
 
 1. Edit the `customizations` property as follows to install the "Composer" extension.
 
-   ```json copy
+   ```jsonc copy
    // Configure tool-specific properties.
    "customizations": {
      // Configure properties specific to VS Code.
@@ -118,14 +118,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property and add some text to the end to run the command `composer install` if a `composer.json` file exists. (The existing commands are just some setup procedures that allow Apache to access the files in the workspace.)
 
-   ```json copy
+   ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html; if [ -f composer.json ];then composer install;fi"
    ```
 
   The `devcontainer.json` file should now look similar to this, depending on which image you chose:
 
-   ```json
+   ```jsonc
    // For format details, see https://aka.ms/devcontainer.json. For config options, see the
    // README at: https://github.com/devcontainers/templates/tree/main/src/php
    {
@@ -161,7 +161,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing any Composer dependencies, and the "Composer" extension will be available for use.
 

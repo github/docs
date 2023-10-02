@@ -16,7 +16,7 @@ topics:
   - Gradle
 shortTitle: Build & test Java & Gradle
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -35,56 +35,66 @@ You should be familiar with YAML and the syntax for {% data variables.product.pr
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/learn-github-actions)"
 
-We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see [Getting Started](https://docs.gradle.org/current/userguide/getting_started.html) in the Gradle documentation.
+We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see the [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html).
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Gradle starter workflow
+## Using a Gradle starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. For more information, see the "[AUTOTITLE](/actions/quickstart)."
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Gradle that should work for most Java with Gradle projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Java with Gradle".
+1. On the "Java with Gradle" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-```yaml copy
-{% data reusables.actions.actions-not-certified-by-github-comment %}
+{%- ifversion ghes or ghae %}
 
-{% data reusables.actions.actions-use-sha-pinning-comment %}
+   If you don't find the "Java with Gradle" starter workflow, copy the following workflow code to a new file called `gradle.yml` in the `.github/workflows` directory of your repository.
 
-name: Java CI
+   ```yaml copy
+   name: Java CI with Gradle
 
-on: [push]
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+   permissions:
+     contents: read
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up JDK 17
-        uses: {% data reusables.actions.action-setup-java %}
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-        with:
-          arguments: build
-```
+   jobs:
+     build:
+       runs-on: ubuntu-latest
 
-This workflow performs the following steps:
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Set up JDK 11
+         uses: {% data reusables.actions.action-setup-java %}
+         with:
+           java-version: '11'
+           distribution: 'temurin'
+       - name: Build with Gradle
+         uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+         with:
+           arguments: build
+   ```
 
-1. The `checkout` step downloads a copy of your repository on the runner.
-1. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
-1. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
-1. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
+{%- endif %}
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+1. Edit the workflow as required. For example, change the Java version.
 
-{% data reusables.actions.example-github-runner %}
+   {% indented_data_reference reusables.actions.third-party-actions spaces=3 %}
+
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `gradle.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 {% data reusables.actions.java-jvm-architecture %}
 

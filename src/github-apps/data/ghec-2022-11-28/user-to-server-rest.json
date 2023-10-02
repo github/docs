@@ -619,6 +619,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel"
     },
     {
+      "slug": "force-cancel-a-workflow-run",
+      "subcategory": "workflow-runs",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel"
+    },
+    {
       "slug": "list-jobs-for-a-workflow-run",
       "subcategory": "workflow-jobs",
       "verb": "get",
@@ -1349,6 +1355,14 @@
       "subcategory": "suites",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/commits/{ref}/check-suites"
+    }
+  ],
+  "classroom": [
+    {
+      "slug": "get-assignment-grades",
+      "subcategory": "classroom",
+      "verb": "get",
+      "requestPath": "/assignments/{assignment_id}/grades"
     }
   ],
   "code-scanning": [
@@ -2237,6 +2251,78 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/shared-storage"
+    },
+    {
+      "slug": "list-provisioned-scim-groups-for-an-enterprise",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Groups"
+    },
+    {
+      "slug": "provision-a-scim-enterprise-group",
+      "subcategory": "scim",
+      "verb": "post",
+      "requestPath": "/scim/v2/Groups"
+    },
+    {
+      "slug": "get-scim-provisioning-information-for-an-enterprise-group",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "set-scim-information-for-a-provisioned-enterprise-group",
+      "subcategory": "scim",
+      "verb": "put",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "update-an-attribute-for-a-scim-enterprise-group",
+      "subcategory": "scim",
+      "verb": "patch",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "delete-a-scim-group-from-an-enterprise",
+      "subcategory": "scim",
+      "verb": "delete",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "list-scim-provisioned-identities-for-an-enterprise",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Users"
+    },
+    {
+      "slug": "provision-a-scim-enterprise-user",
+      "subcategory": "scim",
+      "verb": "post",
+      "requestPath": "/scim/v2/Users"
+    },
+    {
+      "slug": "get-scim-provisioning-information-for-an-enterprise-user",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
+    },
+    {
+      "slug": "set-scim-information-for-a-provisioned-enterprise-user",
+      "subcategory": "scim",
+      "verb": "put",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
+    },
+    {
+      "slug": "update-an-attribute-for-a-scim-enterprise-user",
+      "subcategory": "scim",
+      "verb": "patch",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
+    },
+    {
+      "slug": "delete-a-scim-user-from-an-enterprise",
+      "subcategory": "scim",
+      "verb": "delete",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
     }
   ],
   "gists": [
@@ -3305,6 +3391,18 @@
       "requestPath": "/orgs/{org}/rulesets"
     },
     {
+      "slug": "list-organization-rule-suites",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/rule-suites"
+    },
+    {
+      "slug": "get-an-organization-rule-suite",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}"
+    },
+    {
       "slug": "get-an-organization-repository-ruleset",
       "subcategory": "rules",
       "verb": "get",
@@ -4165,6 +4263,18 @@
       "requestPath": "/repos/{owner}/{repo}/languages"
     },
     {
+      "slug": "enable-private-vulnerability-reporting-for-a-repository",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
+      "slug": "disable-private-vulnerability-reporting-for-a-repository",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
       "slug": "get-rules-for-a-branch",
       "subcategory": "rules",
       "verb": "get",
@@ -4181,6 +4291,18 @@
       "subcategory": "rules",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/rulesets"
+    },
+    {
+      "slug": "list-repository-rule-suites",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites"
+    },
+    {
+      "slug": "get-a-repository-rule-suite",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}"
     },
     {
       "slug": "get-a-repository-ruleset",

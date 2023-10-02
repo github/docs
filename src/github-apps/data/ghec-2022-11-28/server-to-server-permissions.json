@@ -92,22 +92,126 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
-      }
-    ]
-  },
-  "enterprise_self_hosted_runners": {
-    "title": "enterprise self hosted runners",
-    "displayTitle": "Enterprise self hosted runners permissions",
-    "permissions": [
+      },
       {
-        "category": "actions",
-        "slug": "create-configuration-for-a-just-in-time-runner-for-an-enterprise",
-        "subcategory": "self-hosted-runners",
-        "verb": "post",
-        "requestPath": "/enterprises/{enterprise}/actions/runners/generate-jitconfig",
+        "category": "enterprise-admin",
+        "slug": "list-provisioned-scim-groups-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups",
         "access": "write",
-        "user-to-server": false,
-        "server-to-server": false,
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Groups",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-an-attribute-for-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "patch",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-group-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-scim-provisioned-identities-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-user",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-user-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
         "additional-permissions": []
       }
     ]
@@ -468,6 +572,28 @@
         "subcategory": "rules",
         "verb": "post",
         "requestPath": "/orgs/{org}/rulesets",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-organization-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-an-organization-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -2885,6 +3011,17 @@
       },
       {
         "category": "actions",
+        "slug": "force-cancel-a-workflow-run",
+        "subcategory": "workflow-runs",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "actions",
         "slug": "list-jobs-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",
@@ -3961,7 +4098,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "contents"
+        ]
       },
       {
         "category": "interactions",
@@ -4127,10 +4266,54 @@
       },
       {
         "category": "repos",
+        "slug": "enable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "disable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/rulesets",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "list-repository-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -5245,6 +5428,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "administration"
+        ]
       },
       {
         "category": "git",

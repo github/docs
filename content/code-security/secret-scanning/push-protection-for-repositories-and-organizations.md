@@ -28,6 +28,14 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization or personal account owners, security managers, and repository administrators who are watching the repository, with a link to the secret and the reason why it was allowed.{% endif %}
 
+{% ifversion ghec or fpt %}
+{% note %}
+
+**Note:** The github.dev web-based editor doesn't support push protection. For more information about the editor, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor)."
+
+{% endnote %}
+{% endif %}
+
 You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
 
 {% ifversion security-overview-push-protection-metrics-page %}
@@ -52,6 +60,12 @@ Organization owners, security managers, and repository administrators can also e
 
 {% ifversion secret-scanning-enterprise-level-api %}
 Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis)" in the REST API documentation.{% endif %}
+
+{% note %}
+
+**Note:** When you fork a repository with {% data variables.product.prodname_secret_scanning %} as a push protection enabled, this is not enabled by default on the fork. You can enable it on the fork the same way you enable it on a standalone repository.
+
+{% endnote %}
 
 {% ifversion secret-scanning-enterprise-level %}
 

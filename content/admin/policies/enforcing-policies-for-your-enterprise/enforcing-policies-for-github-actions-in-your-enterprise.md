@@ -24,7 +24,7 @@ topics:
   - Policies
 shortTitle: GitHub Actions policies
 ---
- 
+
 
 ## About policies for {% data variables.product.prodname_actions %} in your enterprise
 
@@ -41,7 +41,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under "Policies", select your options.
 
-   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+   {% data reusables.actions.actions-use-policy-settings %}
 
    {%- ifversion ghes or ghae %}
    {% note %}

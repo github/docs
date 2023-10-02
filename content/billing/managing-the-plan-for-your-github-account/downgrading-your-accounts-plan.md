@@ -89,13 +89,14 @@ To reduce the number of paid seats your organization uses, you can remove member
 1. Review the information about your new payment on your next billing date, then click **Remove seats**.
 
 {% ifversion ghec %}
+
 ## Downgrading your enterprise account's plan
 
 Enterprise accounts are only available with {% data variables.product.prodname_enterprise %}, so it's not possible to downgrade an enterprise account to another plan.
 
-To downgrade the plan of an individual organization within the enterprise account, you must remove the organization from the enterprise account first. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+To downgrade the plan of an individual organization within the enterprise account, you must remove the organization from the enterprise account. Removing an organization from an enterprise automatically downgrades the organization to {% data variables.product.prodname_free_team %}. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
 
-If you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, you can [contact our sales team](https://github.com/enterprise/contact). All organizations owned by the enterprise account will removed from the enterprise, and the enterprise account will be frozen.
+If you want to stop paying for {% data variables.product.prodname_enterprise %} altogether and your company pays via invoice, contact {% data variables.contact.contact_enterprise_sales %}. If your company pays for {% data variables.product.prodname_enterprise %} by credit card or PayPal, an enterprise owner can delete the enterprise account. For more information, see "[AUTOTITLE](/admin/overview/deleting-an-enterprise-account)."
 
 ## Removing paid seats for your enterprise account
 

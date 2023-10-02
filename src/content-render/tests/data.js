@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, expect, describe, it } from '@jest/globals'
 
 import Page from '../../../lib/page.js'
-import languages from '../../../lib/languages.js'
-import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
+import languages from '#src/languages/lib/languages.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { DataDirectory } from '../../../tests/helpers/data-directory.js'
 
 describe('data tag', () => {

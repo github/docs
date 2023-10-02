@@ -48,9 +48,11 @@ patterns, which can use the following wildcard characters:
 - The pattern "\*\*" matches zero or more complete directory
   components.
 
-## Primary options
+## Options
 
-#### `<dir>`
+### Primary Options
+
+#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
 
 The directory to be searched.
 

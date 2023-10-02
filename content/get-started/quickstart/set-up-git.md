@@ -28,7 +28,7 @@ topics:
 
 To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
-If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop)."
+If you want to work with Git locally, but do not want to use the command line, you can download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)."
 
 If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 

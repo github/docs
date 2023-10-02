@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import dayjs from 'dayjs'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { PatchNotes } from './PatchNotes'
 import { CurrentVersion, ReleaseNotePatch } from './types'
 
@@ -15,7 +15,7 @@ export function GHAEReleaseNotePatch({ patch, currentVersion }: Props) {
     <div ref={containerRef} className="mb-10 pb-6" id={patch.release}>
       <header
         style={{ zIndex: 1, marginTop: -1 }}
-        className="container-xl border-top border-bottom px-3 pt-4 pb-2"
+        className="container-md border-top border-bottom px-3 pt-4 pb-2"
       >
         <div className="d-flex flex-items-center">
           <h2 className="border-bottom-0 m-0 p-0">
@@ -36,7 +36,7 @@ export function GHAEReleaseNotePatch({ patch, currentVersion }: Props) {
         </p>
       </header>
 
-      <div className="container-xl px-3">
+      <div className="container-md px-3">
         <div className="mt-3" dangerouslySetInnerHTML={{ __html: patch.intro }} />
 
         <PatchNotes patch={patch} />

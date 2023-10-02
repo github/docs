@@ -76,6 +76,105 @@
         "requestPath": "/enterprises/{enterprise}/settings/billing/shared-storage",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-provisioned-scim-groups-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Groups",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-an-attribute-for-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "patch",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-group-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Groups/{scim_group_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-scim-provisioned-identities-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-user",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/Users",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-user-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/Users/{scim_user_id}",
+        "additional-permissions": [],
+        "access": "write"
       }
     ]
   },
@@ -375,6 +474,24 @@
         "subcategory": "rules",
         "verb": "post",
         "requestPath": "/orgs/{org}/rulesets",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-organization-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "get-an-organization-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}",
         "additional-permissions": [],
         "access": "write"
       },
@@ -2302,6 +2419,15 @@
       },
       {
         "category": "actions",
+        "slug": "force-cancel-a-workflow-run",
+        "subcategory": "workflow-runs",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "actions",
         "slug": "list-jobs-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",
@@ -3183,7 +3309,9 @@
         "subcategory": "forks",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/forks",
-        "additional-permissions": [],
+        "additional-permissions": [
+          "contents"
+        ],
         "access": "write"
       },
       {
@@ -3322,10 +3450,46 @@
       },
       {
         "category": "repos",
+        "slug": "enable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "disable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/rulesets",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "list-repository-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
         "additional-permissions": [],
         "access": "write"
       },
@@ -4248,6 +4412,17 @@
         "requestPath": "/repos/{owner}/{repo}/dispatches",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-fork",
+        "subcategory": "forks",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/forks",
+        "additional-permissions": [
+          "administration"
+        ],
+        "access": "read"
       },
       {
         "category": "git",

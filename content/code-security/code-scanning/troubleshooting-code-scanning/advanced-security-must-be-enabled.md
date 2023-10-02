@@ -3,7 +3,6 @@ title: 'Error: "Advanced Security must be enabled for this repository to use cod
 shortTitle: 'Advanced Security must be enabled'
 intro: 'If you see this error, make sure that {% data variables.product.prodname_GH_advanced_security %} is enabled.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 type: reference
 topics:
   - Code scanning

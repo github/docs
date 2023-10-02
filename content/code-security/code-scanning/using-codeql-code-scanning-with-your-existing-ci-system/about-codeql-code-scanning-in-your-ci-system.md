@@ -20,6 +20,14 @@ topics:
 redirect_from:
   - /code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
+  # Add redirects from CodeQL runner article
+  - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-code-scanning-in-your-ci-system
+  - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
+  # End redirects from CodeQL runner article
 ---
 <!--UI-LINK: When GitHub Enterprise Server 3.1+ doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
@@ -28,7 +36,7 @@ redirect_from:
 
 ## About {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system
 
-{% data reusables.code-scanning.about-code-scanning %} For information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+{% data reusables.code-scanning.about-code-scanning %} For information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 
 {% data reusables.code-scanning.codeql-context-for-actions-and-third-party-tools %}
 

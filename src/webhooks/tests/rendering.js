@@ -1,6 +1,6 @@
 import { expect, jest } from '@jest/globals'
 import { getDOM } from '../../../tests/helpers/e2etest.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { getWebhooks } from '../lib/index.js'
 
 describe('webhooks events and payloads', () => {

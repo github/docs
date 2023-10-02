@@ -41,9 +41,11 @@ language pack and store it in the database metadata, such that it won't
 need to be redone at each extraction command. It is not valid to switch
 extractors in the middle of an extraction operation anyway.)
 
-## Primary options
+## Options
 
-#### `<database>`
+### Primary Options
+
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database to create. This directory will
 be created, and _must not_ already exist (but its parent must).
@@ -159,7 +161,7 @@ default to <https://github.com/>
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

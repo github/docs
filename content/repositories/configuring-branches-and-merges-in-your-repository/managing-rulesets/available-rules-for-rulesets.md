@@ -14,7 +14,7 @@ You can create rulesets to control how users can interact with selected branches
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with certain permissions, specific teams, or {% data variables.product.prodname_github_apps %}. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
-For more information on creating and managing rulesets, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)" and {% endif %}"[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository)."
+For more information on creating rulesets, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)" and {% endif %}"[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
 
 ## Restrict creations
 
@@ -130,13 +130,38 @@ Enabling force pushes will not override any other rules. For example, if a branc
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
+{% ifversion repo-rules-required-workflows %}
+
+## Require workflows to pass before merging
+
+{% note %}
+
+**Notes:**
+
+- This rule is in public beta and subject to change.
+- This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
+
+{% endnote %}
+
+You can require all changes made to a targeted branch to pass specified workflows before they can be merged. This rule can only be configured at the organization level.
+
+To use this rule, you must first create a workflow file. The workflow file needs to be in a repository that matches the visibility of the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can only run on internal and private repositories, and a private workflow can only run on private repositories. For more information, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."
+
+If the workflow file is in an internal or private repository and you want to use the workflow in other repositories in the organization, you will need to allow access to the workflow from outside the repository. For more information, see "[Allowing access to components in an internal repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)" or "[Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."
+
+When you add this rule to a ruleset, you will select the source repository and the workflow you want to enforce. The workflow triggers on the `pull_request` or `merge_group` events.
+
+A workflow can also block someone from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.
+
+{% endif %}
+
 {% ifversion repo-rules-enterprise %}
 
 ## Metadata restrictions
 
 {% data reusables.repositories.rulesets-metadata-restrictions-notes %}
 
-Organizations on a {% data variables.product.prodname_enterprise %} plan can access additional rules to control how commit metadata must be formatted. You can use literal strings or regular expression syntax to define a pattern that the commit metadata must conform to. For example, you can require that commit messages contain a {% data variables.product.company_short %} issue number, or that the committer or author has an email address ending in `@octoorg.com`. You can also control the format of new branch names and tag names. For a selection of useful regular expressions for commit metadata, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#using-regular-expressions-for-commit-metadata)."
+Organizations on a {% data variables.product.prodname_enterprise %} plan can access additional rules to control how commit metadata must be formatted. You can use literal strings or regular expression syntax to define a pattern that the commit metadata must conform to. For example, you can require that commit messages contain a {% data variables.product.company_short %} issue number, or that the committer or author has an email address ending in `@octoorg.com`. You can also control the format of new branch names and tag names. For a selection of useful regular expressions for commit metadata, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-regular-expressions-for-commit-metadata)."
 
 If a contributor tries to update a branch or tag with a commit that doesn't meet your requirements, the contributor will see an error telling them what was wrong with their commit. This error can appear both in the command line, when the user pushes, and on {% data variables.product.prodname_dotcom_the_website %}, when the user tries to make a commit or merge a pull request. Commits are immutable in Git: once a contributor has created a commit, they cannot edit the commit's metadata, so they may need to perform a rebase to rewrite their commit history with new commits before they can successfully contribute their work to the repository.
 
@@ -149,7 +174,7 @@ Metadata restrictions block "ref updates." If a contributor pushes work that inc
 
 Metadata restrictions can increase friction for people contributing to a repository. Generally, if you impose metadata restrictions, you should do so on a limited set of branches to avoid impacting contributors' daily work. For example, instead of requiring consistent commit messages on any topic branch that a contributor might work on, you should require consistent commit messages on `main` only, then require pull requests into `main`.
 
-If you use squash merges, you should be aware that metadata restrictions are evaluated before the merge, so all commits on the pull request must meet the requirements.
+If you use squash merges, you should be aware that metadata restrictions are evaluated before the merge, so all commits on the pull request must meet the requirements. For metadata restrictions that apply to committer emails, the pattern must also include `noreply@github.com` for squash merges to satisfy the restriction.
 
 When you add metadata restrictions to an existing branch or tag, the rules are enforced for new commits pushed to the branch or tag from that point forward, but they are not enforced against the existing history of the branch or tag.
 

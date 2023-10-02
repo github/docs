@@ -16,7 +16,7 @@ topics:
   - Python
 shortTitle: Build & test Python
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -39,46 +39,68 @@ We recommend that you have a basic understanding of Python, PyPy, and pip. For m
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Python starter workflow
+## Using a Python starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Python that should work for most Python projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml copy
-name: Python package
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Python application".
+1. On the "Python application" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-on: [push]
+{%- ifversion ghes or ghae %}
 
-jobs:
-  build:
+   If you don't find the "Python application" starter workflow, copy the following workflow code to a new file called `python-app.yml` in the `.github/workflows` directory of your repository.
 
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+   ```yaml copy
+   name: Python application
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up Python {% raw %}${{ matrix.python-version }}{% endraw %}
-        uses: {% data reusables.actions.action-setup-python %}
-        with:
-          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install ruff pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Lint with ruff
-        run: |
-          # stop the build if there are Python syntax errors or undefined names
-          ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
-          # default set of ruff rules with GitHub Annotations
-          ruff --format=github --target-version=py37 .
-      - name: Test with pytest
-        run: |
-          pytest
-```
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
+
+   permissions:
+     contents: read
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Set up Python 3.10
+         uses: {% data reusables.actions.action-setup-python %}
+         with:
+           python-version: "3.10"
+       - name: Install dependencies
+         run: |
+           python -m pip install --upgrade pip
+           pip install flake8 pytest
+           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+       - name: Lint with flake8
+         run: |
+           # stop the build if there are Python syntax errors or undefined names
+           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+       - name: Test with pytest
+         run: |
+           pytest
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the Python version.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `python-app.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying a Python version
 
@@ -115,7 +137,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       # You can use PyPy versions in python-version.
-      # For example, {% ifversion actions-node16-action %}pypy2.7 and pypy3.9{% else %}pypy2 and pypy3{% endif %}
+      # For example, pypy2.7 and pypy3.9
       matrix:
         python-version: ["2.7", "3.7", "3.8", "3.9", "3.10", "3.11"]
 
@@ -176,7 +198,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", {% ifversion actions-node16-action %}pypy2.7, pypy3.9{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", pypy2.7, pypy3.9]
         exclude:
           - os: macos-latest
             python-version: "3.7"
@@ -377,7 +399,7 @@ jobs:
 
 You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
 
-For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -406,9 +428,8 @@ jobs:
       - name: Build package
         run: python -m build
       - name: Publish package
-        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          user: __token__
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 

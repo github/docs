@@ -25,7 +25,7 @@ If you have a license for {% data variables.product.prodname_copilot_business_sh
 
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication. If the proxy URL starts `https://`, the proxy is not currently supported.
+{% data variables.product.prodname_copilot %} supports basic HTTP proxy setups. If you need to authenticate to a proxy, {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If the proxy URL starts `https://`, the proxy is not currently supported.
 
 You can configure an HTTP proxy for {% data variables.product.prodname_copilot %} in your chosen editor. To view instructions for your editor, use the tabs at the top of this article.
 
@@ -48,7 +48,7 @@ If you have configured a proxy but are still encountering connection errors, see
 
 ### Configuring a proxy in a JetBrains IDE
 
-1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
+1. In your JetBrains IDE, click the **File** menu (Windows) or the name of the application in the menu bar (macOS), then click **Settings**.
 1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
 1. Select **Manual proxy configuration**, and then select **HTTP**.
 1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
@@ -60,7 +60,7 @@ If you have configured a proxy but are still encountering connection errors, see
 
    {% endwarning %}
 
-### Authentication
+### Basic authentication
 
 {% data variables.product.prodname_copilot %} for JetBrains supports basic authentication. To authenticate, you can select **Proxy authentication** on the "Manual proxy configuration" page, then enter your credentials.
 
@@ -83,7 +83,7 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 
    {% endwarning %}
 
-### Authentication
+### Basic authentication
 
 {% data variables.product.prodname_copilot %} for {% data variables.product.prodname_vscode_shortname %} supports basic authentication. To authenticate, you can include your credentials in the proxy URL, for example: `http://USERNAME:PASSWORD@10.203.0.1:5187/`. You can store this URL in your {% data variables.product.prodname_vscode_shortname %} settings or in one of the environment variables listed in "[Configuring proxy settings for {% data variables.product.prodname_copilot %}](#configuring-proxy-settings-for-github-copilot)."
 
@@ -95,11 +95,45 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 
 {% data variables.product.prodname_copilot %} for {% data variables.product.prodname_vs %} reads the proxy settings from Windows. For information about configuring proxy settings on Windows, see the instructions under "To set up a proxy server connection manually" in [Use a proxy server in Windows](https://support.microsoft.com/en-us/windows/use-a-proxy-server-in-windows-03096c53-0554-4ffe-b6ab-8b1deee8dae1) in the Microsoft documentation.
 
-### Authentication
+### Basic authentication
 
 {% data variables.product.prodname_copilot %} for {% data variables.product.prodname_vs %} does not retrieve authentication credentials from the Windows settings. If you need to authenticate to a proxy, you can include your credentials in the proxy URL (for example: `http://USERNAME:PASSWORD@10.203.0.1:5187/`), then set this URL as one of the supported environment variables listed in "[Configuring proxy settings for {% data variables.product.prodname_copilot %}](#configuring-proxy-settings-for-github-copilot)."
 
 {% endvisualstudio %}
+
+### Authentication with Kerberos
+
+Kerberos is an authentication protocol that allows users and services to prove their identity to each other. When a user successfully authenticates, an authentication service grants the user a ticket that gives them access to a service for a period of time. Network administrators may prefer Kerberos to basic authentication because it is more secure and doesn't require sending unencrypted credentials.
+
+{% data variables.product.prodname_copilot %} supports authentication to a proxy with Kerberos. To use Kerberos, you must have the appropriate krb5 library for your operating system installed on your machine, and an active ticket for the proxy service (either created manually with the `kinit` command, or by another application). You can use the `klist` command to check if you have a ticket for the proxy service.
+
+Kerberos uses a service principal name (SPN) to uniquely identify a service instance. By default, the SPN is derived from the proxy URL. For example, if the proxy URL is `http://proxy.example.com:3128`, the SPN is `HTTP/proxy.example.com`.
+
+If the default SPN isn't correct for your proxy, you can override the SPN in {% data variables.product.prodname_vscode_shortname %} and in JetBrains IDEs. You cannot currently override the default SPN in {% data variables.product.prodname_vs %}.
+
+{% vscode %}
+
+#### Overriding the default SPN in {% data variables.product.prodname_vscode_shortname %}
+
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} by pressing <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+1. Type `settings`, then click **Preferences: Open User Settings (JSON)**.
+1. In the JSON object, add the following top-level property, replacing `YOUR-SPN` with the correct SPN for your proxy service.
+
+   ```json copy
+   "http.proxyKerberosServicePrincipal": "YOUR-SPN",
+   ```
+
+{% endvscode %}
+
+{% jetbrains %}
+
+#### Overriding the default SPN in JetBrains IDEs
+
+1. In your JetBrains IDE, click the **File** menu (Windows) or the name of the application in the menu bar (macOS), then click **Settings**.
+1. In the left sidebar, click **Languages & Frameworks**, then click **GitHub Copilot**.
+1. In the "Advanced" section, in the "Override Kerberos Proxy Service Principal Name" field, type the SPN for your proxy service.
+
+{% endjetbrains %}
 
 ## Allowing {% data variables.product.prodname_copilot %} to use custom certificates
 

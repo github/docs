@@ -2,12 +2,12 @@ import path from 'path'
 import { visit } from 'unist-util-visit'
 import { distance } from 'fastest-levenshtein'
 import { getPathWithoutLanguage, getVersionStringFromPath } from '../../../lib/path-utils.js'
-import { getNewVersionedPath } from '../../../lib/old-versions-utils.js'
+import { getNewVersionedPath } from '#src/archives/lib/old-versions-utils.js'
 import patterns from '../../../lib/patterns.js'
-import { deprecated, latest } from '../../../lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
-import { allVersions } from '../../../lib/all-versions.js'
-import removeFPTFromPath from '../../../lib/remove-fpt-from-path.js'
+import { deprecated, latest } from '#src/versions/lib/enterprise-server-releases.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
+import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
 import readJsonFile from '../../../lib/read-json-file.js'
 import findPage from '../../../lib/find-page.js'
 
@@ -42,14 +42,20 @@ const matcherAnchorLinks = (node) =>
 // Content authors write links like `/some/article/path`, but they need to be
 // rewritten on the fly to match the current language and page version
 export default function rewriteLocalLinks(context) {
-  const { currentLanguage, currentVersion } = context
+  const { currentLanguage, autotitleLanguage, currentVersion } = context
   // There's no languageCode or version passed, so nothing to do
   if (!currentLanguage || !currentVersion) return
 
   return async function (tree) {
     const nodes = []
     visit(tree, matcherInternalLinks, (node) => {
-      const newHref = getNewHref(node, currentLanguage, currentVersion)
+      // The context *might* have a `autotitleLanguage` which can be
+      // different from the regular `currentLanguage`.
+      // This means that AUTOTITLE links should be different from how,
+      // for example, reusables or other `{% data ... %}` Liquid tags work.
+      // Our release notes, for example, prefer to force the rendered text
+      // in English, but all AUTOTITLE links in the current language.
+      const newHref = getNewHref(node, autotitleLanguage || currentLanguage, currentVersion)
       if (newHref) {
         node.properties.href = newHref
       }

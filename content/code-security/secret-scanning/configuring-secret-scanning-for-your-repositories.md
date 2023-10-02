@@ -27,11 +27,6 @@ shortTitle: Configure secret scans
 
 You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifversion fpt %}free public{% endif %} repository{% ifversion ghec or ghes or ghae %} that is owned by an organization{% else %} that you own{% endif %}. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}  {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} for issue descriptions and comments is in public beta and subject to change.
-
-{% endnote %}
 {% endif %}
 
 You can also enable {% data variables.product.prodname_secret_scanning %} for multiple repositories in an organization at the same time. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
@@ -94,6 +89,7 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
 {% data reusables.files.add-file %}
 1. In the file name field, type _.github/secret_scanning.yml_.
 1. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
+
     ``` yaml
     paths-ignore:
       - "foo/bar/*.js"
@@ -105,7 +101,7 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
 
     **Notes:**
     - If there are more than 1,000 entries in `paths-ignore`, {% data variables.product.prodname_secret_scanning %} will only exclude the first 1,000 directories from scans.
-    - If *secret_scanning.yml* is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
+    - If `secret_scanning.yml` is larger than 1 MB, {% data variables.product.prodname_secret_scanning %} will ignore the entire file.
 
     {% endnote %}
 

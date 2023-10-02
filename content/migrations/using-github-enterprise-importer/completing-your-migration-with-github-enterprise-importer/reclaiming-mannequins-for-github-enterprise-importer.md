@@ -68,12 +68,13 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
    - To generate a CSV file with a list of mannequins for an organization, use the `gh gei generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
-{% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
+     {% data reusables.enterprise-migration-tool.include-reclaimed %}
 
-    ```shell copy
-    gh gei generate-mannequin-csv --github-target-org DESTINATION --output FILENAME.csv
-    ```
-{% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
+     ```shell copy
+     gh gei generate-mannequin-csv --github-target-org DESTINATION --output FILENAME.csv
+     ```
+
+   {% data reusables.enterprise-migration-tool.edit-csv %}
 1. To reclaim mannequins, use the `gh gei reclaim-mannequin` command.
 
    {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
@@ -100,12 +101,13 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
    - To generate a CSV file with a list of mannequins for an organization, use the `gh ado2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
-{% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
+     {% data reusables.enterprise-migration-tool.include-reclaimed %}
 
-      ```shell copy
-      gh ado2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
-      ```
-{% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
+     ```shell copy
+     gh ado2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
+     ```
+
+   {% data reusables.enterprise-migration-tool.edit-csv %}
 1. To reclaim mannequins, use the `gh ado2gh reclaim-mannequin` command.
 
     {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}

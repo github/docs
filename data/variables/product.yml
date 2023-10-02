@@ -60,6 +60,9 @@ prodname_student_leader_program_singular: 'GitHub Campus Expert'
 prodname_octernships: 'GitHub Octernships'
 prodname_octernship_singular: 'GitHub Octernship'
 
+# GitHub Expert Services
+prodname_expert_services: 'GitHub Expert Services'
+
 # GitHub CLI
 prodname_cli: 'GitHub CLI'
 

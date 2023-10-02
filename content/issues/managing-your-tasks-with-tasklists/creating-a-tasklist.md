@@ -21,7 +21,7 @@ You can use the **Add tasklist** button to quickly add a tasklist to your issue.
 1. Navigate to the issue you want to contain your new tasklist. You can also create a new issue.
 1. At the bottom of the issue description, click {% octicon "plus" aria-hidden="true" %} **Add tasklist**.
 
-  ![Screenshot of an issue. The "Add tasklist" button is highlighted with an orange outline.](/assets/images/help/projects-v2/add-tasklist-ui.png)
+   ![Screenshot of an issue. The "Add tasklist" button is highlighted with an orange outline.](/assets/images/help/projects-v2/add-tasklist-ui.png)
 
 1. You can then add issues, pull requests, and draft tasks to your new tasklist. For more information, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/managing-tasks-in-a-tasklist)."
 
@@ -31,7 +31,7 @@ You can create tasklists using Markdown in the issue description (the opening co
 
 You can add a tasklist by copying the Markdown below into your issue description:
 
-````markdown{:copy}
+````markdown copy
 ```[tasklist]
 ### My tasks
 - [ ] https://github.com/octo-org/octo-repo/issues/45
@@ -46,8 +46,7 @@ You can also use the **Add tasklist** button while editing your issue to insert 
 Once you have started editing your tasklist Markdown, you can add new tasks by preceding each new task with `- [ ] ` and then adding either:
 
 - A draft task. Draft tasks are text that can later be converted into issues.
-- The full link to an issue or pull request or, if the issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `https://github.com/octo-org/octo-repo/issues/45` or `#45`.
-- If an issue or pull request is in the same repository
+- The full link to an issue or pull request.  For example, `https://github.com/octo-org/octo-repo/issues/45`. If an issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `#45`.
 
 If you add a draft task, it must meet these requirements:
 
@@ -73,7 +72,7 @@ When you create a new tasklist, the default title is "Tasks." You can modify the
 
 When you copy your tasklist using the "Copy Markdown" option, {% data variables.product.product_name %} copies Markdown to your clipboard and includes the issue title so you can paste the tasklist outside of GitHub without losing context. See below for an example of a copied Markdown tasklist:
 
-```
+```markdown
 - [x] [Design new landing page](https://github.com/octocat/octoproject/issues/4)
 - [ ] [Translate content into supported languages](https://github.com/octocat/octoproject/issues/11)
 ```

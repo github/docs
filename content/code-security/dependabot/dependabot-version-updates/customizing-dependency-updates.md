@@ -139,12 +139,14 @@ updates:
       - "Docker dependencies"
       - "triage-board"
 ```
+
 {% ifversion dependabot-version-updates-groups %}
+
 ## Grouping {% data variables.product.prodname_dependabot_version_updates %} into one pull request
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-semver %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
 
@@ -152,7 +154,11 @@ The first example _dependabot.yml_ file uses a mixture of `patterns` and `depend
 
 The second example changes the bundler configuration to create a group of dependencies. The configuration specifies `patterns` (strings of characters) that match with the name of a dependency (or multiple dependencies) in order to include the dependencies in the group.
 
- For more information about configuring dependency groups in the _dependabot.yml_ file, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
+In the third example, any packages matching the pattern `@angular*` where the highest resolvable version is `minor` or `patch` will be grouped together. {% data variables.product.prodname_dependabot %}  will create a separate pull request for any package that doesn't match the pattern, or that doesn't update to a `minor` or `patch` version.
+
+The fourth example uses an `ignore` condition to exclude updates to `major` versions of `@angular*` packages.
+
+For more information about configuring dependency groups in the _dependabot.yml_ file, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
 
 You must configure groups per package ecosystem.
 

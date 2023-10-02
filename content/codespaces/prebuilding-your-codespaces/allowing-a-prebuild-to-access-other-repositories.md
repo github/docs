@@ -15,7 +15,7 @@ product: '{% data reusables.gated-features.codespaces-repo %}'
 
 By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. Your project may use additional resources, located elsewhere, to build the development environment.
 
-## Allowing a prebuild read access external resources
+## Allowing a prebuild read access to external resources
 
 You can configure read access to other {% data variables.product.prodname_dotcom %} repositories, with the same repository owner, by specifying permissions in the `devcontainer.json` file used by your prebuild configuration. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
@@ -27,9 +27,9 @@ You can configure read access to other {% data variables.product.prodname_dotcom
 
 When you create or edit a prebuild configuration for a `devcontainer.json` file that sets up read access to other repositories with the same repository owner, you'll be prompted to grant these permissions when you click **Create** or **Update**. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
-## Allowing a prebuild write access external resources
+## Allowing a prebuild write access to external resources
 
-If your project requires write access to resources, or if the external resources reside in a repository with a different owner to the repository for which you are creating a prebuild configuration, you can use a {% data variables.product.pat_generic %} to grant this access.
+If your project requires write access to resources, or if the external resources reside in a repository with a different owner than the repository for which you are creating a prebuild configuration, you can use a {% data variables.product.pat_generic %} to grant this access.
 
 You will need to create a new personal account and then use this account to create a {% data variables.product.pat_v1 %} with the appropriate scopes.
 
@@ -49,14 +49,14 @@ You will need to create a new personal account and then use this account to crea
 {% ifversion ghec %}
 1. Click **Configure SSO** and authorize the token for use with SAML single sign-on (SSO), so that it can access repositories that are owned by organizations with SSO enabled. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
 
-   ![Screenshot of the "{% data variables.product.pat_v1_caps_plural %}" page. The "Configure SSO" button for a PAT is highlighted with a dark orange outline.](/assets/images/help/codespaces/configure-SSO-for-PAT.png)
+   ![Screenshot of the "{% data variables.product.pat_v1_caps_plural %}" page. The "Configure SSO" button for a PAT is highlighted with a dark orange outline.](/assets/images/help/codespaces/configure-sso-for-pat.png)
 
 {% endif %}
 1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
 1. Sign back into the account that has admin access to the repository.
-1. In the repository for which you want to create {% data variables.product.prodname_github_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
+1. In the repository for which you want to create {% data variables.product.prodname_github_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces#adding-secrets-for-a-repository)."
 
-The {% data variables.product.pat_generic %} will be used for all subsequent prebuilds created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
+The {% data variables.product.pat_generic %} will be used for all subsequent prebuilds created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available for use in codespaces created from your repository.
 
 ## Further reading
 

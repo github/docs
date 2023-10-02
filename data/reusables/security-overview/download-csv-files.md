@@ -1,0 +1,1 @@
+You can download comma-separated values (CSV) files containing data from the risk and coverage pages of security overview. These files can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets.

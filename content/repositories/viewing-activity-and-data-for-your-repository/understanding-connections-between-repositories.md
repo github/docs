@@ -28,7 +28,7 @@ shortTitle: Connections between repositories
 
 The network graph displays the branch history of the entire repository network, including fork branches. This graph is a timeline of the most recent commits, and shows up to 100 of the most recently pushed-to branches. The first row references the date and the first column references the branch owner. Use arrow keys or other keyboard shortcuts to more easily navigate the graph. They are provided in the “Keyboard shortcuts available” pop up under the graph.
 
-![Screenshot of the repository network graph.](/assets/images/help/graphs/repo_network_graph.png)
+![Screenshot of the repository network graph.](/assets/images/help/graphs/repo-network-graph.png)
 
 {% tip %}
 
@@ -41,7 +41,7 @@ The network graph displays the branch history of the entire repository network, 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Network**.
-![Screenshot of the left sidebar. The "Network" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/network_tab.png)
+![Screenshot of the left sidebar. The "Network" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/network-tab.png)
 
 ## Listing the forks of a repository
 

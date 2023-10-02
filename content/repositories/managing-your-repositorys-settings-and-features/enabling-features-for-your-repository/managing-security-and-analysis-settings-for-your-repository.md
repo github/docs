@@ -105,7 +105,7 @@ You can allow {% data variables.product.prodname_secret_scanning %} to automatic
 
 {% note %}
 
-**Note:** When you enable automatic validity checks for a repository, you also allow on-demand validity checks to be performed for patterns detected in that repository. 
+**Note:** When you enable automatic validity checks for a repository, you also allow on-demand validity checks to be performed for patterns detected in that repository.
 
 {% endnote %}
 

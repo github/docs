@@ -39,13 +39,13 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 ![Screenshot showing the header of a project. The "Add cards" button is highlighted with an orange outline.](/assets/images/help/projects/add-cards-button.png)
 1. Search for issues and pull requests to add to your {% data variables.projects.projects_v1_board %} using search qualifiers such as `is:issue is:open`. For more information on search qualifiers you can use, see "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)."
 
-  {% tip %}
+   {% tip %}
 
-  **Tips:**
-    - You can also add an issue or pull request by typing the URL in a card.
-    - If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your {% data variables.projects.projects_v1_board %} by searching for the label name. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
+   **Tips:**
+   - You can also add an issue or pull request by typing the URL in a card.
+   - If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your {% data variables.projects.projects_v1_board %} by searching for the label name. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
 
-  {% endtip %}
+   {% endtip %}
 1. From the filtered list of issues and pull requests, drag the card you'd like to add to your {% data variables.projects.projects_v1_board %} and drop it in the correct column. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}

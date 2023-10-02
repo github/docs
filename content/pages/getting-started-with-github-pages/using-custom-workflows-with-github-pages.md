@@ -26,7 +26,7 @@ To use the action place this snippet under your `jobs` in the desired workflow.
   uses: actions/configure-pages@v3
 ```
 
-This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use starter workflows for some of the most widely used static site generators. For more information, see "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
+This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use starter workflows for some of the most widely used static site generators. For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
 
 ## Configuring the `upload-pages-artifact` action
 
@@ -45,12 +45,13 @@ The `deploy-pages` action handles the necessary setup for deploying artifacts. T
 
 - The job must have a minimum of `pages: write` and `id-token: write` permissions.
 - The `needs` parameter must be set to the `id` of the build step. Not setting this parameter may result in an independent deployment that continuously searches for an artifact that hasn't been created.
-- An `environment` must be established to enforce branch/environment protection rules. The default environment is `github-pages`.
+- An `environment` must be established to enforce branch/deployment protection rules. The default environment is `github-pages`.
 - To specify the URL of the page as an output, utilize the `url:` field.
 
 For more information, see the [`deploy-pages`](https://github.com/marketplace/actions/deploy-github-pages-site) action.
 
 {% raw %}
+
 ```yaml
 ...
 
@@ -71,6 +72,7 @@ jobs:
         uses: actions/deploy-pages@v1
 ...
 ```
+
 {% endraw %}
 
 ## Linking separate build and deploy jobs

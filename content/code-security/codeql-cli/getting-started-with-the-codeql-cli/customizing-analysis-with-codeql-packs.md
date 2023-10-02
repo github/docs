@@ -22,11 +22,15 @@ redirect_from:
 
 {% data variables.product.prodname_codeql %} packs are used to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries. You can publish your own {% data variables.product.prodname_codeql %} packs and download packs created by others. {% data variables.product.prodname_codeql %} packs contain queries, library files, query suites, and metadata.
 
-There are two types of {% data variables.product.prodname_codeql %} packs: query packs and library packs.
+There are{% ifversion codeql-model-packs-java %} three{% else %} two{% endif %} types of {% data variables.product.prodname_codeql %} packs: {% ifversion codeql-model-packs-java %}query packs, library packs, and model packs{% else %} query packs and library packs{% endif %}.
 
-- Query packs are designed to be run. When a query pack is published, the bundle includes all the transitive dependencies and {% ifversion query-pack-compatibility %}pre-compiled representations of each query, in addition to the query sources{% else %}a compilation cache{% endif %}. This ensures consistent and efficient execution of the queries in the pack.
+- Query packs contain a set of pre-compiled queries that can be evaluated on a {% data variables.product.prodname_codeql %} database. Query parks are designed to be run. When a query pack is published, the bundle includes all the transitive dependencies and {% ifversion query-pack-compatibility %}pre-compiled representations of each query, in addition to the query sources{% else %}a compilation cache{% endif %}. This ensures consistent and efficient execution of the queries in the pack.
 
-- Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.
+- Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.{% ifversion codeql-model-packs-java %}
+
+- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default. Model packs are currently in beta and subject to change. During the beta, model packs are available for Java analysis at the repository level. For more information about creating your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack)."
+
+{% endif %}
 
 You can use the package management commands in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-and-working-with-codeql-packs)." You can also publish and download {% data variables.product.prodname_codeql %} packs using the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)."
 
@@ -45,13 +49,12 @@ The other files and directories within the pack should be logically organized. F
 their own top-level directories.
 
 {% ifversion codeql-packs %}
+
 ## Downloading and using {% data variables.product.prodname_codeql %} query packs
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
+The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries{% ifversion codeql-model-packs-java %}, while model packs (beta) can be used to expand {% data variables.product.prodname_code_scanning %} analysis to recognize libraries and frameworks that are not supported by default{% endif %}. For more information about query packs, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql-queries)." {% ifversion codeql-model-packs-java %} For information about writing your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack)."{% endif %}
 
-The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)."
-
-Before you can use a {% data variables.product.prodname_codeql %} pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see "[Uploading results to {% data variables.product.product_name %}](#uploading-results-to-github)".
+Before you can use a {% data variables.product.prodname_codeql %} query pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command, or running `codeql pack download`. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see "[Uploading results to {% data variables.product.product_name %}](#uploading-results-to-github)".
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
@@ -73,9 +76,9 @@ For more information about pack compatibility, see "[AUTOTITLE](/code-security/c
 This example runs the `codeql database analyze` command with the `--download` option to:
 
 1. Download the latest version of the `octo-org/security-queries` pack.
-2. Download a version of the `octo-org/optional-security-queries` pack that is _compatible_ with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
-3. Run all the default queries in `octo-org/security-queries`.
-4. Run only the query `queries/csrf.ql` from `octo-org/optional-security-queries`
+1. Download a version of the `octo-org/optional-security-queries` pack that is _compatible_ with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
+1. Run all the default queries in `octo-org/security-queries`.
+1. Run only the query `queries/csrf.ql` from `octo-org/optional-security-queries`
 
 ```shell
 $ echo $OCTO-ORG_ACCESS_TOKEN | codeql database analyze --download /codeql-dbs/example-repo \
@@ -108,7 +111,7 @@ echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download <scope/name@version:path> <sc
 
 ### Downloading {% data variables.product.prodname_codeql %} packs from multiple {% data variables.product.company_short %} container registries
 
-If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
+If your {% data variables.product.prodname_codeql %} packs reside on multiple container registries, then you must instruct the {% data variables.product.prodname_codeql_cli %} where to find each pack. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
 {% endif %}
 
 ## Specifying which queries to run in a {% data variables.product.prodname_codeql %} pack
@@ -167,11 +170,32 @@ You can see the sources for these query suites in the [{% data variables.product
 
 {% endnote %}
 
+{% ifversion codeql-model-packs-java %}
+
+## Using model packs to analyze calls to custom dependencies
+
+You can include published model packs in a {% data variables.product.prodname_code_scanning %} analysis with the `--model-packs` option. For example:
+
+```shell
+$ codeql database analyze /codeql-dbs/my-company --format=sarif-latest \
+  --model-packs my-repo/my-java-model-pack \
+  --output=/temp/my-company.sarif codeql/java-queries
+```
+
+In this example, the relevant queries in the standard query pack `codeql/java-queries` will use the dependency information from the model pack, `my-repo/my-java-model-pack`, to check for vulnerabilities in code that calls those dependencies.
+
+You can specify multiple published model packs in an analysis.
+
+For more information about writing your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack).
+
+{% endif %}
+
 {% ifversion query-pack-compatibility %}
+
 ### About published packs
 
 When a pack is published for use in analyses, the `codeql pack create` or `codeql pack publish` command verifies that the content is complete and also adds some additional pieces of content to it:
- 
+
 - For query packs, a copy of each of the library packs it depends on, in the precise versions it has been developed with. Users of the query pack won't need to download these library packs separately.
 
 - For query packs, precompiled representations of each of the queries. These are faster to execute than it would be to compile the QL source for the query at each analysis.

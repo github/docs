@@ -14,18 +14,30 @@ topics:
   - Notifications
 shortTitle: Marketing emails
 ---
-## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
 
-{% tip %}
+## About {% data variables.product.prodname_dotcom %} marketing emails
 
-**Tip:** If you unsubscribe from all marketing emails and then subscribe to the Explore newsletter, you'll only receive the Explore newsletter, and won't receive other marketing email.
+{% data reusables.accounts.marketing-emails %}
 
-{% endtip %}
+## Managing {% data variables.product.prodname_dotcom %} marketing emails
+
+If you have subscribed to {% data variables.product.prodname_dotcom %} marketing emails, you can choose which types of topics you still want to be informed about, and which topics you no longer want to receive updates on.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}
-1. Under _Email preferences_, select **Only receive account related emails, and those I subscribe to**.
-1. Click **Save email preferences**.
+{% data reusables.user-settings.email-preferences %}
+1. To stop receiving emails for a particular topic, deselect the checkbox next to that topic.
+1. Click **Save subscription preferences**.
+
+## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
+
+You can choose to unsubscribe from all {% data variables.product.prodname_dotcom %} marketing emails.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+{% data reusables.user-settings.email-preferences %}
+1. Select **Unsubscribe from all topics**.
+1. Click **Save subscription preferences**.
 
 ## Further reading
 

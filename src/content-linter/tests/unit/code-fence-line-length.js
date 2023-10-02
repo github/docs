@@ -1,29 +1,48 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { codeFenceLineLength } from '../../lib/linting-rules/code-fence-line-length.js'
 
-jest.setTimeout(60 * 1000)
-
-const fixtureFilePath = 'src/content-linter/tests/fixtures/code-fence-line-length.md'
-const result = await runRule(codeFenceLineLength, fixtureFilePath)
-const errors = result[fixtureFilePath]
-
 describe(codeFenceLineLength.names.join(' - '), () => {
-  test('line length of max length + 1 fails', async () => {
-    expect(errors.map((error) => error.lineNumber).includes(7)).toBe(true)
+  test('line length of max + 1 fails', async () => {
+    const markdown = [
+      '```shell',
+      '111',
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      'bbb',
+      '```',
+    ].join('\n')
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(3)
+    expect(errors[0].errorRange).toEqual([1, 61])
+    expect(errors[0].fixInfo).toBeNull()
   })
-  test('line length equals max length passes', async () => {
-    expect(errors.map((error) => error.lineNumber).includes(15)).toBe(false)
-  })
-  test('line length less than max length passes', async () => {
-    expect(errors.map((error) => error.lineNumber).includes(22)).toBe(false)
+  test('line length less than or equal to max length passes', async () => {
+    const markdown = [
+      '```javascript',
+      '111',
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+      '```',
+    ].join('\n')
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
   })
   test('multiple lines in code block that exceed max length fail', async () => {
-    expect(errors.map((error) => error.lineNumber).includes(28)).toBe(true)
-    expect(errors.map((error) => error.lineNumber).includes(30)).toBe(true)
-  })
-  test('errors only occur on expected lines', async () => {
-    expect(errors.length).toBe(3)
+    const markdown = [
+      '```',
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccc',
+      '1',
+      'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb',
+      '```',
+    ].join('\n')
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(2)
+    expect(errors[0].lineNumber).toBe(2)
+    expect(errors[1].lineNumber).toBe(4)
+    expect(errors[0].errorRange).toEqual([1, 61])
+    expect(errors[1].errorRange).toEqual([1, 61])
   })
 })
