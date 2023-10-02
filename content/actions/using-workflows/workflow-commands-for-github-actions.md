@@ -509,8 +509,8 @@ jobs:
         GENERATED_SECRET=$((RANDOM))
         echo "::add-mask::$GENERATED_SECRET"
         SECRET_HANDLE=$(secret-store store-secret "$GENERATED_SECRET"){% ifversion actions-save-state-set-output-envs %}
-        echo "handle=$secret_handle" >> "$GITHUB_OUTPUT"{% else %}
-        echo "::set-output name=handle::$secret_handle"{% endif %}
+        echo "handle=$SECRET_HANDLE" >> "$GITHUB_OUTPUT"{% else %}
+        echo "::set-output name=handle::$SECRET_HANDLE"{% endif %}
   secret-consumer:
     runs-on: macos-latest
     needs: secret-generator
