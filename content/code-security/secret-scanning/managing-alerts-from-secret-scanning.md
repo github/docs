@@ -37,12 +37,12 @@ shortTitle: Manage secret alerts
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view. {% ifversion secret-scanning-validity-check-partner-patterns %}
 1. Optionally, to perform a validity check on the token, on the top right-hand side of the alert, click {% octicon "sync" aria-label="Send token to partner for verification" %}. For more information, see "[Validating partner patterns](#validating-partner-patterns)." <br><br>
-  {% note %}
+   {% note %}
 
-  **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+   **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
 
-  {% endnote %}
-  {% endif %}{% ifversion ghes = 3.9 or ghes = 3.10 or ghes = 3.11 %}
+   {% endnote %}
+   {% endif %}{% ifversion ghes = 3.9 or ghes = 3.10 or ghes = 3.11 %}
 1. Optionally, if the leaked secret is a {% data variables.product.company_short %} token, check the validity of the secret and follow the remediation steps.
 
    {% note %}
