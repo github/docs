@@ -405,7 +405,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 On MacOS, you could run:
 
    ```shell
-      base64 -i cert.der -o cert.base64
+   base64 -i cert.der -o cert.base64
    ```
 
 On Linux, you could run:
