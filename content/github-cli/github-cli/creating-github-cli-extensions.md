@@ -162,9 +162,9 @@ For example, to create an issue programmatically, specify the title and body:
 gh issue create --title "My Title" --body "Issue description"
 ```
 
-### Fetching data programatically
+### Fetching data programmatically
 
-Many core commands support the `--json` flag for fetching data programatically. For example, to return a JSON object listing the number, title, and mergeability status of pull requests:
+Many core commands support the `--json` flag for fetching data programmatically. For example, to return a JSON object listing the number, title, and mergeability status of pull requests:
 
 ```shell
 gh pr list --json number,title,mergeStateStatus
