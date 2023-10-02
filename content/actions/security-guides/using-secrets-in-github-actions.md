@@ -403,7 +403,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 1. Use `base64` to encode your file into a Base64 string. For example:
 
    ```shell
-   base64 -i cert.der -o cert.base64
+   base64 -w 0 cert.der > cert.base64
    ```
 
 1. Create a secret that contains the Base64 string. For example:
