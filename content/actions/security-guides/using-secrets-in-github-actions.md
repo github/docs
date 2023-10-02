@@ -402,13 +402,13 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 
 1. Use `base64` to encode your file into a Base64 string. For example:
 
-On MacOS, you could run:
+   On MacOS, you could run:
 
    ```shell
    base64 -i cert.der -o cert.base64
    ```
 
-On Linux, you could run:
+   On Linux, you could run:
 
    ```shell
    base64 -w 0 cert.der > cert.base64
