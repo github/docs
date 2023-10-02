@@ -1,39 +1,30 @@
 <table style="width:100%">
 <thead>
   <tr>
-    <th scope="col" style="width:35%"><b>Runner image</b></th>
-    <th scope="col" style="width:25%"><b>YAML workflow label</b></th>
+    <th scope="col" style="width:10%"><b>Virtual Machine</b></th>
+    <th scope="col" style="width:10%"><b>Processor (CPU)</b></th>
+    <th scope="col" style="width:10%"><b>Memory (RAM)</b></th>
+    <th scope="col" style="width:10%"><b>Storage (SSD)</b></th>
+    <th scope="col" style="width:20%"><b>OS (YAML workflow label)</b></th>
     <th scope="col" style="width:40%"><b>Notes</b></th>
   </tr>
 </thead>
 <tbody>
 <tr>
 <td>
-Windows Server 2022
+Linux
 </td>
 <td>
-<code>windows-latest</code> or <code>windows-2022</code>
+2
 </td>
 <td>
-The <code>windows-latest</code> label currently uses the Windows Server 2022 runner image.
-</td>
-</tr>
-<tr>
-<td>
-Windows Server 2019
+7 GB
 </td>
 <td>
-<code>windows-2019</code>
-</td>
-<td>None
-</td>
-</tr>
-<tr>
-<td>
-Ubuntu 22.04
+14 GB
 </td>
 <td>
-<code>ubuntu-latest</code> or <code>ubuntu-22.04</code>
+<code>ubuntu-latest</code>, <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
 </td>
 <td>
 The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner image.
@@ -41,43 +32,61 @@ The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner imag
 </tr>
 <tr>
 <td>
-Ubuntu 20.04
+Windows
 </td>
 <td>
-<code>ubuntu-20.04</code>
+2
 </td>
-<td>None
-</rd>
-</tr>
-<tr>
-<td>
-macOS 13 Ventura [Beta]
+<td>7 GB
 </td>
 <td>
-<code>macos-13</code> or <code>macos-13-xl</code>
+14 GB
 </td>
 <td>
-None
-</td>
-<tr>
-<td>
-macOS 12 Monterey
+<code>windows-latest</code>, <code>windows-2022</code>, <code>windows-2019</code>
 </td>
 <td>
-<code>macos-latest</code>, <code>macos-12</code>, <code>macos-latest-xl</code> or <code>macos-12-xl</code>
-</td>
-<td>
-The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image.
+The <code>windows-latest</code> label currently uses the Windows 2022 runner image.
 </td>
 </tr>
 <tr>
 <td>
-macOS 11 Big Sur
+macOS
 </td>
 <td>
-<code>macos-11</code>
+3
 </td>
-<td>None
+<td>
+14 GB
+</td>
+<td>
+14 GB
+</td>
+<td>
+<code>macos-latest</code>, <code>macos-12</code>, <code>macos-11</code>
+</td>
+<td>
+The <code>macos-latest</code> workflow label currently uses the macOS 12 runner image.
+</td>
+</tr>
+<tr>
+<td>
+macOS
+</td>
+<td>
+4
+</td>
+<td>
+14 GB
+</td>
+<td>
+14 GB
+</td>
+<td>
+<code>macos-13</code> [Beta]
+</td>
+<td>
+N/A
 </td>
 </tr>
 </tbody>

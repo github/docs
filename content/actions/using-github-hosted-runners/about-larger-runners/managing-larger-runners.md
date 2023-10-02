@@ -9,6 +9,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/managing-larger-runners
 ---
 
+{% data reusables.actions.windows-linux-larger-runners-note %}
+
 {% ifversion ghec %}
 
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise
