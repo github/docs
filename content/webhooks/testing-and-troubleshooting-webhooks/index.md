@@ -12,6 +12,7 @@ children:
   - /viewing-webhook-deliveries
   - /redelivering-webhooks
   - /testing-webhooks
+  - /troubleshooting-webhooks
   - /receiving-webhooks-with-the-github-cli
 ---
 
