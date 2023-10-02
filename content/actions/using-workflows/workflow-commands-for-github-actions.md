@@ -104,10 +104,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -118,10 +118,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: Write-Output "::set-output name=SELECTED_COLOR::green"
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: Write-Output "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -921,11 +921,11 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
         env:{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
         run: echo "The selected color is $SELECTED_COLOR"
 ```
 
@@ -937,12 +937,12 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: |
             "SELECTED_COLOR=green" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get color
         env:{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
         run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 
