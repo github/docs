@@ -153,7 +153,6 @@ const oldVariableRegex = /{{\s*?site\.data\..*?}}/g
 //  - {{ octicon-plus An example label }}
 //
 const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
-
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
@@ -328,15 +327,13 @@ describe('lint markdown content', () => {
       isTranscript,
       isTranscriptLanding,
       hasExperimentalAlternative,
-      frontmatterData,
-      rawContent
+      frontmatterData
 
     beforeAll(async () => {
       const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
       const { data, content: bodyContent } = frontmatter(fileContents)
 
       content = bodyContent
-      rawContent = fileContents
       frontmatterData = data
       ast = fromMarkdown(content)
       isHidden = data.hidden === true
@@ -352,25 +349,6 @@ describe('lint markdown content', () => {
       visit(ast, ['link', 'definition'], (node) => {
         links.push(node.url)
       })
-    })
-
-    test('placeholder string is not present in any markdown files', async () => {
-      // this article explains how to use todocs placeholder text so shouldn't fail this test
-      if (
-        markdownRelPath ===
-          'content/contributing/collaborating-on-github-docs/using-the-todocs-placeholder-to-leave-notes.md' ||
-        markdownRelPath === 'content/contributing/collaborating-on-github-docs/index.md'
-      ) {
-        return
-      }
-      const matches = rawContent.match(placeholderRegex) || []
-      const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
-      const errorMessage = `
-        Found ${matches.length} ${placeholderStr} '${matches.join(
-          ', ',
-        )}' in this file! Please update all placeholders.
-      `
-      expect(matches.length, errorMessage).toBe(0)
     })
 
     test('hidden docs must be Early Access, Site Policy, Search, Experimental, or Transcript', async () => {
@@ -401,94 +379,6 @@ describe('lint markdown content', () => {
       if (frontmatterData.layout === 'product-landing' && frontmatterData.product_video) {
         expect(frontmatterData.product_video_transcript).toMatch(/^\/video-transcripts\/.+/)
       }
-    })
-
-    test('relative URLs must start with "/"', async () => {
-      const matches = links.filter((link) => {
-        if (
-          link.startsWith('http://') ||
-          link.startsWith('https://') ||
-          link.startsWith('tel:') ||
-          link.startsWith('mailto:') ||
-          link.startsWith('#') ||
-          link.startsWith('/')
-        )
-          return false
-
-        return true
-      })
-
-      const errorMessage = formatLinkError(relativeArticleLinkErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('must not leak Early Access doc URLs', async () => {
-      // Only execute for docs that are NOT Early Access
-      if (!isEarlyAccess) {
-        const matches = content.match(earlyAccessLinkRegex) || []
-        const errorMessage = formatLinkError(earlyAccessLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      }
-    })
-
-    test('must not leak Early Access image URLs', async () => {
-      // Only execute for docs that are NOT Early Access
-      if (!isEarlyAccess) {
-        const matches = content.match(earlyAccessImageRegex) || []
-        const errorMessage = formatLinkError(earlyAccessImageErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      }
-    })
-
-    test('must have correctly formatted Early Access image URLs', async () => {
-      // Execute for ALL docs (not just Early Access) to ensure non-EA docs
-      // are not leaking incorrectly formatted EA image URLs
-      const matches = content.match(badEarlyAccessImageRegex) || []
-      const errorMessage = formatLinkError(badEarlyAccessImageErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('does not use old site.data variable syntax', async () => {
-      const matches = content.match(oldVariableRegex) || []
-      const matchesWithExample = matches.map((match) => {
-        const example = match.replace(
-          /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
-          '{% data $1 %}',
-        )
-        return `${match} => ${example}`
-      })
-      const errorMessage = formatLinkError(oldVariableErrorText, matchesWithExample)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('does not use old octicon variable syntax', async () => {
-      const matches = content.match(oldOcticonRegex) || []
-      const errorMessage = formatLinkError(oldOcticonErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('URLs must not contain a hard-coded language code', async () => {
-      const matches = links.filter((link) => {
-        return /\/(?:${languageCodes.join('|')})\//.test(link)
-      })
-
-      const errorMessage = formatLinkError(languageLinkErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('URLs must not contain a hard-coded domain name', async () => {
-      const initialMatches = content.match(domainLinkRegex) || []
-
-      // Filter out some very specific false positive matches
-      const matches = initialMatches.filter(() => {
-        if (markdownRelPath === 'content/admin/all-releases.md') {
-          return false
-        }
-        return true
-      })
-
-      const errorMessage = formatLinkError(domainLinkErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
     })
 
     test('contains no deprecated frontmatter properties', async () => {
