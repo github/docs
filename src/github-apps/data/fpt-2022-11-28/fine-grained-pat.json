@@ -1453,6 +1453,12 @@
       "requestPath": "/repos/{owner}/{repo}/codespaces/new"
     },
     {
+      "slug": "check-if-permissions-defined-by-a-devcontainer-have-been-accepted-by-the-authenticated-user",
+      "subcategory": "codespaces",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/codespaces/permissions_check"
+    },
+    {
       "slug": "list-repository-secrets",
       "subcategory": "repository-secrets",
       "verb": "get",

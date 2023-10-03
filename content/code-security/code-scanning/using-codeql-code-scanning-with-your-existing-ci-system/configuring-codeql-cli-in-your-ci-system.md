@@ -69,8 +69,9 @@ You can display the command-line help for any command using the <nobr>`--help`</
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
-| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. |
+| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. | {% ifversion codeql-language-identifiers-311 %}
+| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %}. When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. | {% else %}
+| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. | {% endif %}
 | <nobr>`--command`</nobr> | {% octicon "x" aria-label="Optional" %} | (Recommended) Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. |
 | <nobr>`--db-cluster`</nobr> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>. |
 | <nobr>`--no-run-unnecessary-builds`</nobr> | {% octicon "x" aria-label="Optional" %} | (Recommended) Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |
@@ -84,7 +85,7 @@ For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started
 This example creates a {% data variables.product.prodname_codeql %} database for the repository checked out at `/checkouts/example-repo`. It uses the JavaScript extractor to create a hierarchical representation of the JavaScript and TypeScript code in the repository. The resulting database is stored in `/codeql-dbs/example-repo`.
 
 ```shell
-$ codeql database create /codeql-dbs/example-repo --language=javascript \
+$ codeql database create /codeql-dbs/example-repo --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
     --source-root /checkouts/example-repo
 
 > Initializing database at /codeql-dbs/example-repo.
@@ -110,7 +111,7 @@ The resulting databases are stored in `python` and `cpp` subdirectories of `/cod
 
 ```shell
 $ codeql database create /codeql-dbs/example-repo-multi \
-    --db-cluster --language python,cpp \
+    --db-cluster --language python,{% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} \
     --command make --no-run-unnecessary-builds \
     --source-root /checkouts/example-repo-multi
 Initializing databases at /codeql-dbs/example-repo-multi.
@@ -172,7 +173,7 @@ This example analyzes a {% data variables.product.prodname_codeql %} database st
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category=javascript \
+    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
     --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
@@ -192,7 +193,7 @@ To include file coverage information with your {% data variables.product.prodnam
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category=javascript \
+    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
     --sarif-add-baseline-file-info \ --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
@@ -268,7 +269,7 @@ You can create a SARIF file for the failed analysis using "[AUTOTITLE](/code-sec
 
 ```bash
 $ codeql database export-diagnostics codeql-dbs/example-repo \
-    --sarif-category=javascript --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
+    --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
 
@@ -366,13 +367,13 @@ This is an example of the series of commands that you might use to analyze a cod
 # Call the normal build script for the codebase: 'myBuildScript'
 
 codeql database create codeql-dbs --source-root=src \
-    --db-cluster --language=java,python --command=./myBuildScript
+    --db-cluster --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %},python --command=./myBuildScript
 
 # Analyze the CodeQL database for Java, 'codeql-dbs/java'
 # Tag the data as 'java' results and store in: 'java-results.sarif'
 
 codeql database analyze codeql-dbs/java java-code-scanning.qls \
-    --format=sarif-latest --sarif-category=java --output=java-results.sarif
+    --format=sarif-latest --sarif-category={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --output=java-results.sarif
 
 # Analyze the CodeQL database for Python, 'codeql-dbs/python'
 # Tag the data as 'python' results and store in: 'python-results.sarif'
