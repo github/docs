@@ -799,6 +799,12 @@ You can make an environment variable available to any subsequent steps in a work
 
 {% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see "[AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables)."
 
+{% ifversion github-env-node-options %}{% note %}
+
+**Note:** Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
+
+{% endnote %}{% endif %}
+
 ### Example of writing an environment variable to `GITHUB_ENV`
 
 {% bash %}
