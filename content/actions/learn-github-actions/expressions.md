@@ -23,17 +23,13 @@ Expressions are commonly used with the conditional `if` keyword in a workflow fi
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
+{% note %}
+
+**Note**: The exception to this rule is when you are using expressions in an `if` clause, where, optionally, you can usually omit {% raw %}`${{`{% endraw %} and {% raw %}`}}`{% endraw %}. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
+
+{% endnote %}
 
 {% data reusables.actions.context-injection-warning %}
-
-### Example expression in an `if` conditional
-
-```yaml
-steps:
-  - uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
-    if: <expression> 
-```
 
 ### Example setting an environment variable
 
