@@ -347,7 +347,6 @@ artifacts:
     path: math-homework.txt
 ```
 
-
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Databases and service containers
