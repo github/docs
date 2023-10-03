@@ -2,7 +2,7 @@ In AWS, set up a S3 bucket. For more information, see [Creating a bucket](https:
 
 You will also need an AWS access key and secret key with the following permissions:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

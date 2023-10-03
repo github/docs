@@ -51,6 +51,7 @@ If you've set up a security key on your account, and your browser supports secur
 1. Select the appropriate option in the prompt. Depending on your security key configuration, you may type a PIN, complete a biometric prompt, or use a physical security key.
 
 {% ifversion passkeys %}
+
 ### Using a passkey
 
 If you have enabled 2FA, and you have added a passkey to your account, you can use the passkey to sign in. Since passkeys satisfy both password and 2FA requirements, you can complete your sign in with a single step. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)."

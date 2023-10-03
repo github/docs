@@ -1,6 +1,6 @@
 import { getDataByLanguage } from '../../lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
-import { supported } from '../../lib/enterprise-server-releases.js'
+import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('spotlight', () => {
   test('renders styled warnings', async () => {
@@ -125,10 +125,10 @@ describe('rowheaders', () => {
     //         td
     //         td
     //
-    // (and there are 4 of these <tr> rows)
+    // (and there are 3 of these <tr> rows)
     const secondTable = tables.filter((i) => i === 1)
     expect($('tbody tr th', secondTable).length).toBe(0)
-    expect($('tbody tr td', secondTable).length).toBe(3 * 4)
+    expect($('tbody tr td', secondTable).length).toBe(3 * 3)
 
     // More specifically, the <th> tags should have the appropriate
     // `scope` attribute.
@@ -278,5 +278,24 @@ describe('data tag', () => {
 
     // The code block also a reusables that is just one line.
     expect(codeBlock).toMatch(/One Two Three Four\n/)
+
+    // On its own, if you look at
+    // tests/fixtures/data/reusables/injectables/paragraphs.md, you'll
+    // see each line is NOT prefixed with whitespace indentation.
+    // But because `{% data reusables.injectables.paragraphs %}` is
+    // inserted with some indentation, that's replicated on every line.
+    const li = $('#article-contents li')
+      .filter((_, element) => {
+        return $(element).text().trim().startsWith('Point 1')
+      })
+      .eq(0)
+    // You can't really test the exact whitespace with cheerio,
+    // of the original HTML, but it doesn't actually matter. What
+    // matters is that within the bullet point, that starts with "Point 1",
+    // it *contains* all the paragraphs
+    // from tests/fixtures/data/reusables/injectables/paragraphs.md.
+    expect(li.text()).toMatch(/Paragraph one/)
+    expect(li.text()).toMatch(/Paragraph two/)
+    expect(li.text()).toMatch(/Paragraph three/)
   })
 })

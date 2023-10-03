@@ -52,13 +52,24 @@ To configure the role and trust in IAM, see the AWS documentation "[Configure AW
 
 {% endnote %}
 
-Edit the trust policy to add the `sub` field to the validation conditions. For example:
+Edit the trust policy, adding the `sub` field to the validation conditions. For example:
 
 ```json copy
 "Condition": {
   "StringEquals": {
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
+  }
+}
+```
+
+If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:OWNER/REPOSITORY:environment:NAME`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
+
+```json copy
+"Condition": {
+  "StringEquals": {
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
+    "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:sub": "repo:octo-org/octo-repo:environment:prod"
   }
 }
 ```
@@ -117,8 +128,8 @@ env:
   AWS_REGION : "<example-aws-region>"
 # permission can be added at job level or workflow level    
 permissions:
-      id-token: write   # This is required for requesting the JWT
-      contents: read    # This is required for actions/checkout
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
@@ -126,7 +137,7 @@ jobs:
       - name: Git clone the repository
         uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

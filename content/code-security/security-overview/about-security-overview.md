@@ -35,7 +35,11 @@ Security overview shows which security features are enabled for repositories, an
 - Risk and coverage information about {% data variables.product.prodname_dependabot %} features and alerts is shown for all repositories.
 - Risk and coverage information for {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, is shown for enterprises that use {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghec %} and for public repositories{% endif %}.
 
-For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies) and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#dependabot-alerts-for-vulnerable-dependencies)" and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+
+{% ifversion security-overview-export-data %}
+{% data reusables.security-overview.download-csv-files %} For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages)."
+{% endif %}
 
 The views are interactive with filters that allow you to look at the aggregated data in detail and identify sources of high risk or low feature coverage. As you apply multiple filters to focus on narrower areas of interest, all data and metrics across the view change to reflect your current selection. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 

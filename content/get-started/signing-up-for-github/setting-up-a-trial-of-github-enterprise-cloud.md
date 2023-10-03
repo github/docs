@@ -22,10 +22,6 @@ shortTitle: Enterprise Cloud trial
 
 You can set up a trial to evaluate the additional features that come with {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO), internal repositories, audit log streaming, and included {% data variables.product.prodname_actions %} minutes. For a detailed list of the features available with {% data variables.product.prodname_ghe_cloud %}, see our [Pricing](https://github.com/pricing) page.
 
-Trials are also available for {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
-
-{% data reusables.products.which-product-to-use %}
-
 ## About trials of {% data variables.product.prodname_ghe_cloud %}
 
 You can set up a {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Your trial includes an enterprise account, which allows you to manage multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
@@ -38,14 +34,13 @@ You do not need to provide a payment method during the trial.
 
 {% data reusables.saml.saml-accounts %}
 
-{% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
-
 {% data reusables.enterprise.ghec-trial-azure %}
 
 ## Features not included in the trial
 
 The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
 
+- {% data variables.product.prodname_emus %}: If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 - {% data variables.product.prodname_GH_advanced_security %}
 - {% data variables.product.prodname_github_codespaces %}
 - {% data variables.product.prodname_copilot_for_business %}
@@ -57,7 +52,7 @@ The following features are not included in the trial of {% data variables.produc
 
 {% note %}
 
-**Note:** If you transfer an existing organization into your trial enterprise, all of these features will be disabled, but will be re-enabled if the organization is removed from the enterprise.
+**Note:** If you invite an existing organization into your trial enterprise, all of these features will be disabled, but will be re-enabled if the organization is removed from the enterprise.
 
 {% endnote %}
 

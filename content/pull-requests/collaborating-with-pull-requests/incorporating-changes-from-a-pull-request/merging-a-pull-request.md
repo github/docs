@@ -98,6 +98,6 @@ gh pr merge 523 --squash --body "my squash commit" --delete-branch
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)"
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" using {% data variables.product.prodname_desktop %}
+- "[AUTOTITLE](/desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" using {% data variables.product.prodname_desktop %}
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)"

@@ -7,7 +7,7 @@ versions:
   feature: 'contributing'
 ---
 
-## About {% data variables.product.prodname_github_codespaces %} 
+## About {% data variables.product.prodname_github_codespaces %}
 
 {% data variables.product.prodname_github_codespaces %} allows you to work in a development environment that's hosted remotely from your machine. You can get started quickly, without needing to set up the working environment or download files to your local computer.
 
@@ -21,10 +21,10 @@ The following steps assume you have {% data variables.product.prodname_github_co
 1. If you're an open source contributor, create a fork of the repository, then follow the rest of the steps in this procedure from your fork. For more information, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo)."
 1. Create a branch to work on. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
 1. On the main page of the repository, click **{% octicon "code" aria-hidden="true" %} Code**, then click **Create codespace on BRANCH-NAME**.
-   
+
    The "Setting up your codespace" page is displayed. After a short time the browser-based version of {% data variables.product.prodname_vscode %} is displayed.
 1. Use the Explorer to navigate to the markdown file you want to edit. If the file is an article, it will be located in the `content` directory. If the file is reusable content, it will be located in the `data` directory.
-   
+
    In most cases, the path to an article in the `content` directory matches the path in the URL, minus the `.md` file extension. For example, the source for the article `https://docs.github.com/en/codespaces/getting-started/quickstart` is the markdown file `content/codespaces/getting-started/quickstart.md`.
 1. Edit the markdown file as required.
 1. Save your changes.
@@ -35,7 +35,7 @@ The following steps assume you have {% data variables.product.prodname_github_co
 1. Navigate to the "Pull requests" tab of the `github/docs` repository at [github.com/github/docs/pulls](https://github.com/github/docs/pulls).
 1. Click **New pull request**.
 1. If you're an open source contributor, click **compare across forks**, then choose the forked repository you created and your working branch.
-   
+
    Otherwise, change the "compare" branch to your working branch.
 1. Check that the changes displayed include all of the changes you made in the codespace. If they do not, this may indicate there are changes you have not pushed from the codespace to {% data variables.product.prodname_dotcom %}.
 1. Click **Create pull request**.

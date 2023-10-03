@@ -1,7 +1,7 @@
 {%- ifversion ghae %}
 
 1. In the `plugins` element of the _pom.xml_ file, add the [checksum-maven-plugin](https://search.maven.org/artifact/net.nicoulaj.maven.plugins/checksum-maven-plugin) plugin, and configure the plugin to send at least SHA-256 checksums.
-    
+
     ```xml
     <plugins>
         <plugin>

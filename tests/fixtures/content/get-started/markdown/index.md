@@ -9,4 +9,5 @@ versions:
 children:
   - /intro
   - /permissions
+  - /code-annotations
 ---

@@ -34,7 +34,7 @@ shortTitle: Check out a PR locally
 
 1. In the merge box, click **command line instructions**. Follow the sequence of steps to bring down the proposed pull request.
 
-   ![Screenshot of the merge box in a pull request. The link to access command line pull request instructions is outlined in dark orange.](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
+   ![Screenshot of the merge box in a pull request. The link to access command line pull request instructions is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-show-command-line-merge.png)
 
 1. Optionally, to view proposed changes in {% data variables.product.prodname_desktop %}, next to the **Merge pull request** button, click **open this in {% data variables.product.prodname_desktop %}**.
 
@@ -66,7 +66,7 @@ Anyone can work with a previously opened pull request to continue working on it,
 1. In the "Pull Requests" list, click the pull request you'd like to merge.
 1. Find the ID number of the inactive pull request. This is the sequence of digits right after the pull request's title.
 
-   ![Screenshot of the title of a pull request. The pull request's ID number is outlined in dark orange.](/assets/images/help/pull_requests/pull_request_id_number.png)
+   ![Screenshot of the title of a pull request. The pull request's ID number is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-id-number.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Fetch the reference to the pull request based on its ID number, creating a new branch in the process.
@@ -78,7 +78,7 @@ Anyone can work with a previously opened pull request to continue working on it,
 1. Switch to the new branch that's based on this pull request:
 
    ```shell
-   [main] $ git checkout BRANCH_NAME
+   [main] $ git switch BRANCH_NAME
    > Switched to a new branch 'BRANCH_NAME'
    ```
 

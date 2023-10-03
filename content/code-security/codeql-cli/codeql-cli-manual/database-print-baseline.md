@@ -1,6 +1,6 @@
 ---
 title: database print-baseline
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -43,9 +43,11 @@ the count in metrics queries since metrics queries may include external
 files that are passed to the evaluator, but are not included in the
 source root.
 
-## Primary options
+## Options
 
-#### `<database>`
+### Primary Options
+
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database under construction. This must
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).

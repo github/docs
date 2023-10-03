@@ -1,19 +1,5 @@
-# COLOR-SCHEMES
+# Color schemes
 
-TBD what is COLOR-SCHEMES
+Color schemes are user preferences regarding which type of colors they would like the site to use. Currently we support a number of mode, including light, dark, and several accessibility options.
 
-## What COLOR-SCHEMES does
-
-TBD why is COLOR-SCHEMES on the docs
-
-## How COLOR-SCHEMES works
-
-TBD step-by-step instructions to work on COLOR-SCHEMES
-
-## How to work on COLOR-SCHEMES
-
-TBD step-by-step instructions on how to work on COLOR-SCHEMES
-
-## How to get help for COLOR-SCHEMES
-
-TBD reference material
+We chose the name "schemes" instead of modes or themes because that is what the HTML specification calls them.

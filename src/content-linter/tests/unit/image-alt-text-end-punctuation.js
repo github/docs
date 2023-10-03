@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { imageAltTextEndPunctuation } from '../../lib/linting-rules/image-alt-text-end-punctuation.js'
-
-jest.setTimeout(60 * 1000)
 
 describe(imageAltTextEndPunctuation.names.join(' - '), () => {
   test('image alt text without end punctutation errors', async () => {
@@ -14,11 +10,10 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
       '',
       '!["image"](./image.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextEndPunctuation, { markdown })
+    const result = await runRule(imageAltTextEndPunctuation, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(2)
-    expect(errors[0].lineNumber).toBe(3)
-    expect(errors[1].lineNumber).toBe(5)
+    expect(errors.map((error) => error.lineNumber)).toEqual([3, 5])
     expect(errors[0].errorRange).toEqual([3, 28])
     expect(errors[1].errorRange).toEqual([3, 7])
     expect(errors[0].fixInfo).toEqual({
@@ -49,8 +44,22 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
       '!["image"?](./image.png)',
       '!["image."](./image.png)',
     ].join('\n')
-    const result = await runRule(imageAltTextEndPunctuation, { markdown })
+    const result = await runRule(imageAltTextEndPunctuation, { strings: { markdown } })
     const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+  test('image alt text that is entirely empty', async () => {
+    const markdown = [
+      '# Heading',
+      '',
+      // Completely empty
+      '![](/images/this-is-ok.png)',
+    ].join('\n')
+    const result = await runRule(imageAltTextEndPunctuation, { strings: { markdown } })
+    const errors = result.markdown
+    // This rule is not concerned with empty alt text
+    // That will be caught by the incorrect-alt-text-length rule
+    // So technically, it's not imageAltTextEndPunctuation's problem.
     expect(errors.length).toBe(0)
   })
 })

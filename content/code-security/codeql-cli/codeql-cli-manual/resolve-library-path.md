@@ -46,9 +46,11 @@ query.
 **The command is deeply internal and its behavior or existence may
 change without much notice as the QL language ecosystem evolves.**
 
-## Primary options
+## Options
 
-#### `--[no-]find-extractors`
+### Primary Options
+
+#### `--[no-]find-extractors` <!-- markdownlint-disable-line heading-increment -->
 
 \[Advanced] Include in the output a summary of `extractor` fields from
 the QL packs that the query depends on. This is used only for a few rare
@@ -141,7 +143,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

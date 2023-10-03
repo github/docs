@@ -60,6 +60,7 @@ If you find the log file doesn't contain enough information to resolve an issue,
    ```text copy
    #com.github.copilot:trace
    ```
+
 1. Keep using your IDE until you encounter the issue again, then collect the log file as described in "[Collecting log files](#collecting-log-files)."
 1. When you have the information you need, disable debug mode by removing `#com.github.copilot:trace` from the "Custom Debug Log Configuration" window.
 
@@ -131,6 +132,7 @@ If you find the log file doesn't contain enough information to resolve an issue,
       }
    },
    ```
+
 1. Keep using your IDE until you encounter the issue again, then collect the log file as described in "[Viewing and collecting log files](#viewing-and-collecting-log-files)."
 1. When you have the information you need, disable debug mode by removing the content you added to your settings.
 

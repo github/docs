@@ -53,19 +53,19 @@ export default {
       versions: versionsProps,
       isPublic: {
         description: 'whether the secret is publicly available',
-        type: 'boolean',
+        type: ['boolean', 'string'],
       },
       isPrivateWithGhas: {
         description: 'whether the secret is available in GHAS',
-        type: 'boolean',
+        type: ['boolean', 'string'],
       },
       hasPushProtection: {
         description: 'whether the secret has push protection',
-        type: 'boolean',
+        type: ['boolean', 'string'],
       },
       hasValidityCheck: {
         description: 'whether the secret has its validation status checked',
-        type: 'boolean',
+        type: ['boolean', 'string'],
       },
     },
   },

@@ -21,7 +21,7 @@ The Tracked by field can be used to group items, creating a view that clearly sh
 
 You can also filter by the Tracked by field to display only items that are tracked by specific issues. Either start typing "tracked-by" and select an issue from the list or, if you know the repository and issue number, you can type the filter below in full.
 
-```
+```text
 tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"
 ```
 

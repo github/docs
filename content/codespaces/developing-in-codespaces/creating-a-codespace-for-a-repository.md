@@ -92,7 +92,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
       1. At the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and click **New with options**.
 
-      ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
+         ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
 
       1. On the options page for your codespace, choose your preferred options from the dropdown menus.
 

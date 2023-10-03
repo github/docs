@@ -14,7 +14,7 @@ import Bottleneck from 'bottleneck'
 //
 
 import { loadPages } from '../../../lib/page-data.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import languages from '#src/languages/lib/languages.js'
 const port = 4002
 

@@ -84,7 +84,7 @@ You can create a runner group to manage access to the runner that you added to y
 
    **Warning**:
 
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
+   {% data reusables.actions.self-hosted-runner-security %}
 
    For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
@@ -107,6 +107,7 @@ Optionally, organization owners can further restrict the access policy of the ru
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 
 ## 5. Automatically scale your self-hosted runners
+
 {% ifversion actions-runner-controller %}Optionally, you can use {% data variables.product.prodname_actions_runner_controller %} (ARC) to automatically scale self-hosted runners. {% data reusables.actions.actions-runner-controller-about-arc %}
 
 {% else %}Optionally, you can build custom tooling to automatically scale the self-hosted runners for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For example, your tooling can respond to webhook events from {% data variables.location.product_location %} to automatically scale a cluster of runner machines. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners)."

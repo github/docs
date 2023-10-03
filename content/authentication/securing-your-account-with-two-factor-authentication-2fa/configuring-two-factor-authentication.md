@@ -71,7 +71,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **setup key** to see a code, the TOTP secret, that you can manually enter in your TOTP app instead.
 
-   ![Screenshot of the "Setup authenticator app" section of the 2FA settings. A link, labeled "setup key", is highlighted in orange.](/assets/images/help/2fa/ghes_3.8_and_higher_2fa-wizard-app-click-code.png)
+   ![Screenshot of the "Setup authenticator app" section of the 2FA settings. A link, labeled "setup key", is highlighted in orange.](/assets/images/help/2fa/ghes-3.8-and-higher-2fa-wizard-app-click-code.png)
 1. The TOTP application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Verify the code from the app".
 {%- else %}
 1. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.
@@ -121,21 +121,28 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 
 {% endif %}
 
-## Configuring two-factor authentication using a security key
-
-{% data reusables.two_fa.after-2fa-add-security-key %}
-
 {% ifversion passkeys %}
-{% note %}
 
-**Note:** {% data reusables.passkeys.after-2fa-optional-add-passkey %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+## Configuring two-factor authentication using a passkey
 
-Passkeys are in public beta and are subject to change.
+{% data reusables.passkeys.about-passkeys %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
-{% endnote %}
+1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
+{% data reusables.passkeys.adding-a-passkey %}
+
 {% endif %}
 
+## Configuring two-factor authentication using a security key
+
+{% ifversion passkeys %}
+
+Not all FIDO authenticators can be used as passkeys, but you can still register those authenticators as security keys. Security keys are also webauthn credentials, but unlike passkeys they don't need to require user validation. Since security keys only need to verify user presence, they only count as a second factor and must be used in conjunction with your password.
+
+{% else %}
+
 On most devices and browsers, you can use a physical security key over USB or NFC. Most browsers can use the fingerprint reader, facial recognition, or password/PIN on your device as a security key as well.
+
+{% endif %}
 
 Registering a security key for your account is available after enabling 2FA with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
 
@@ -146,6 +153,7 @@ Registering a security key for your account is available after enabling 2FA with
 1. Next to "Security keys", click **Add**.
 
    ![Screenshot of the "two-factor methods" section of the 2FA settings. A gray button labeled "Add" is outlined in orange.](/assets/images/help/2fa/add-security-keys-option.png)
+
 1. Under "Security keys", click **Register new security key**.
 1. Type a nickname for the security key, then click **Add**.
 1. Following your security key's documentation, activate your security key. If using an authenticator that's built into your device, follow the activation instructions from your operating system. You may need to select options such as `Face`, `PIN`, or `built-in sensor` to access your device's authenticator, depending on your operating system and browser.
