@@ -43,7 +43,6 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 {% endnote %}
 If your Gravatar image is associated with the email you use for {% data variables.product.product_name %}, it will be shown as your {% data variables.product.product_name %} profile picture by default (rather than an identicon). To change your {% data variables.product.product_name %} profile picture to your Gravatar image, you can either update your Gravatar account or upload a new image to{% data variables.product.product_name %}, which will override the Gravatar image.
 
-
 ### Setting a profile picture
 
 {% data reusables.user-settings.access_settings %}
