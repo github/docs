@@ -1,6 +1,6 @@
 import { get, getDOM } from '../helpers/e2etest.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import { allVersions } from '../../lib/all-versions.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 describe('autotitle', () => {
   test('internal links with AUTOTITLE resolves', async () => {

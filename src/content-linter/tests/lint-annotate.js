@@ -1,14 +1,15 @@
 // Content files with {% annotate %} must also have layout: inline
-import fs from 'fs/promises'
+import fs from 'fs'
 import walkFiles from '../../../script/helpers/walk-files.js'
 
-const allFiles = walkFiles('content', '.md')
+const files = walkFiles('content', '.md')
+  .map((file) => [file, fs.readFileSync(file, 'utf8')])
+  .filter(([, contents]) => /```.*annotate/.test(contents))
 
 describe('lint-annotate', () => {
-  test.each(allFiles)('%s', async (file) => {
-    const fileContents = await fs.readFile(file, 'utf8')
-    if (fileContents.includes('{% annotate') && !fileContents.includes('layout: inline')) {
-      throw new Error(`File ${file} contains {% annotate %} but is missing layout: inline`)
+  test.each(files)('%s', async (file, contents) => {
+    if (!/layout:\s*inline/.test(contents)) {
+      throw new Error(`File ${file} contains \`\`\`* annotate but is missing layout: inline`)
     }
   })
 })

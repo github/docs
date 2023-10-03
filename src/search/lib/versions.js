@@ -1,4 +1,4 @@
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 export default Object.fromEntries(
   Object.entries(allVersions).map(([versionStr, versionObject]) => [

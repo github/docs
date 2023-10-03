@@ -6,7 +6,7 @@ import { slug } from 'github-slugger'
 import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { HeadingLink } from 'components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'

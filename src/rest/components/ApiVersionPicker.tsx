@@ -3,7 +3,7 @@ import Cookies from 'components/lib/cookies'
 import { InfoIcon } from '@primer/octicons-react'
 
 import { useMainContext } from 'components/context/MainContext'
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Picker } from 'src/tools/components/Picker'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { API_VERSION_COOKIE_NAME } from 'src/rest/components/RestRedirect'

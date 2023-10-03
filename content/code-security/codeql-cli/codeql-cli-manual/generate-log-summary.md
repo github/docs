@@ -1,6 +1,6 @@
 ---
 title: generate log-summary
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -39,9 +39,11 @@ implementing a script that uses output from the logs, it is strongly
 recommended to run this command and use its output rather than using the
 event logs directly.
 
-## Primary options
+## Options
 
-#### `<input>`
+### Primary Options
+
+#### `<input>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the event log file to produce a summary of.
 

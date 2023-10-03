@@ -34,8 +34,6 @@ shortTitle: Dependabot alerts
 
 If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
 
-{% data reusables.security-advisory.link-browsing-advisory-db %}
-
 {% data reusables.dependabot.quickstart-link %}
 
 ## Detection of insecure dependencies
@@ -88,6 +86,12 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 {% data variables.product.product_name %} may also notify the maintainers of affected repositories about new alerts according to their notification preferences.{% ifversion dependabot-suppressed-notifications %} When {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.product_name %} does not send notifications for all vulnerable dependencies found in your repository, only for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
 {% data reusables.dependabot.dependabot-alert-create-PR %}
+
+{% ifversion dependabot-alert-custom-rules-repo-level %}
+
+{% data reusables.dependabot.dependabot-alert-rules %}
+
+{% endif %}
 
 {% warning %}
 

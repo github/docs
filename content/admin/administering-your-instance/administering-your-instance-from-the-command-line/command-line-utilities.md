@@ -205,7 +205,7 @@ $ ghe-es-index-status -do | column -ts,
 
 ### ghe-legacy-github-services-report
 
-This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[AUTOTITLE](/webhooks-and-events/webhooks/replacing-github-services)." For more information about this command or for additional options, use the `-h` flag.
+This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %}. For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
 ghe-legacy-github-services-report
@@ -488,7 +488,7 @@ Run this utility to add a certificate chain for S/MIME commit signature verifica
 
 Run this utility when {% data variables.location.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.location.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
 
-```
+```text
 SSL-Session:
     Protocol  : TLSv1
     Cipher    : AES128-SHA
@@ -503,7 +503,7 @@ SSL-Session:
 
 If, on the other hand, the remote server's SSL certificate can _not_ be verified, your `SSL-Session` should have a nonzero return code:
 
-```
+```text
 SSL-Session:
     Protocol  : TLSv1
     Cipher    : AES128-SHA
@@ -846,7 +846,7 @@ This utility helps to analyze Git traffic. It queries _Governor_ data files, loc
 ghe-governor <subcommand> <column> [options]
 ```
 
-```
+```text
 ghe-governor -h
 Usage: ghe-governor [-h] <subcommand> args
 
@@ -917,7 +917,7 @@ ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
 
 If your storage system is configured correctly, you'll see the following output.
 
-```
+```text
 All Storage tests passed
 ```
 
@@ -988,7 +988,7 @@ ghe-repl-stop
 
 This utility completely disables replication on an existing replica node, removing the replica configuration. You can run the following command from a replica node, but if the replica node is unreachable, you can also run the command from the primary node.
 
-```
+```shell
 ghe-repl-teardown
 ```
 

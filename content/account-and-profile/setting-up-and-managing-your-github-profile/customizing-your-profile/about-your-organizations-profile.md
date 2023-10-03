@@ -25,7 +25,7 @@ To confirm your organization's identity and display a "Verified" badge on your o
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-![Screenshot of the profile page for the @docs organization.](/assets/images/help/profile/org_profile.png)
+![Screenshot of the profile page for the @docs organization.](/assets/images/help/profile/org-profile.png)
 {% endif %}
 
 ## Further reading

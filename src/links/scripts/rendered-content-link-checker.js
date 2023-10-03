@@ -9,23 +9,21 @@ import chalk from 'chalk'
 import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
 
-import shortVersions from '../../../middleware/contextualizers/short-versions.js'
+import shortVersions from '#src/versions/middleware/short-versions.js'
 import contextualize from '../../../middleware/context.js'
-import features from '../../../middleware/contextualizers/features.js'
+import features from '#src/versions/middleware/features.js'
 import getRedirect from '#src/redirects/lib/get-redirect.js'
 import warmServer from '../../../lib/warm-server.js'
 import { liquid } from '#src/content-render/index.js'
-import { deprecated } from '../../../lib/enterprise-server-releases.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 import excludedLinks from '#src/links/lib/excluded-links.js'
-import { getEnvInputs, boolEnvVar } from '../../../.github/actions-scripts/lib/get-env-inputs.js'
-import {
-  debugTimeEnd,
-  debugTimeStart,
-} from '../../../.github/actions-scripts/lib/debug-time-taken.js'
-import { uploadArtifact as uploadArtifactLib } from '../../../.github/actions-scripts/lib/upload-artifact.js'
+import { getEnvInputs, boolEnvVar } from '../../../src/workflows/get-env-inputs.js'
+import { debugTimeEnd, debugTimeStart } from './debug-time-taken.js'
+import { uploadArtifact as uploadArtifactLib } from './upload-artifact.js'
 import github from '../../../script/helpers/github.js'
-import { getActionContext } from '../../../.github/actions-scripts/lib/action-context.js'
+import { getActionContext } from '../../../src/workflows/action-context.js'
 import { createMinimalProcessor } from '#src/content-render/unified/processor.js'
+import { createReportIssue, linkReports } from '../../../src/workflows/issue-report.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -187,6 +185,9 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
     createReport = false,
     failOnFlaw = false,
     shouldComment = false,
+    reportRepository = 'github/docs-content',
+    reportAuthor = 'docs-bot',
+    reportLabel = 'broken link report',
   } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
@@ -265,9 +266,26 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
     core.info(`All flaws written to artifact log.`)
     if (createReport) {
       core.info(`Creating issue for flaws...`)
-      const newReport = await createReportIssue(core, octokit, flaws, opts)
+      const reportProps = {
+        core,
+        octokit,
+        reportTitle: `${flaws.length} broken links found`,
+        reportBody: flawIssueDisplay(flaws, opts),
+        reportRepository,
+        reportLabel,
+      }
+      const newReport = await createReportIssue(reportProps)
+
       if (linkReports) {
-        await linkReports(core, octokit, newReport, opts)
+        const linkProps = {
+          core,
+          octokit,
+          newReport,
+          reportRepository,
+          reportAuthor,
+          reportLabel,
+        }
+        await linkReports(linkProps)
       }
     }
     if (shouldComment) {
@@ -286,7 +304,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       core.setOutput('has_flaws_at_level', flawsInLevel.length > 0)
       if (failOnFlaw) {
         core.setFailed(
-          `${flaws.length + 1} broken links found. See action artifact uploads for details`,
+          `${flaws.length} broken links found. See action artifact uploads for details`,
         )
       }
     }
@@ -295,128 +313,6 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
     // and now it can update that comment to say all is well again.
     if (shouldComment) {
       await commentOnPR(core, octokit, flaws, opts)
-    }
-  }
-}
-
-async function createReportIssue(core, octokit, flaws, opts) {
-  const { reportRepository = 'github/docs-content', reportLabel = 'broken link report' } = opts
-  const [owner, repo] = reportRepository.split('/')
-
-  const brokenLinksDisplay = flawIssueDisplay(flaws, opts)
-
-  // Create issue with broken links
-  let newReport
-  try {
-    const { data } = await octokit.request('POST /repos/{owner}/{repo}/issues', {
-      owner,
-      repo,
-      title: `${flaws.length + 1} broken links found`,
-      body: brokenLinksDisplay,
-      labels: [reportLabel],
-    })
-    newReport = data
-    core.info(`Created broken links report at ${newReport.html_url}\n`)
-  } catch (error) {
-    core.error(error)
-    core.setFailed('Error creating new issue')
-    throw error
-  }
-
-  return newReport
-}
-
-async function linkReports(core, octokit, newReport, opts) {
-  const {
-    reportRepository = 'github/docs-content',
-    reportAuthor = 'docs-bot',
-    reportLabel = 'broken link report',
-  } = opts
-
-  const [owner, repo] = reportRepository.split('/')
-
-  core.info('Attempting to link reports...')
-  // Find previous broken link report issue
-  let previousReports
-  try {
-    previousReports = await octokit.rest.issues.listForRepo({
-      owner,
-      repo,
-      creator: reportAuthor,
-      labels: reportLabel,
-      state: 'all', // We want to get the previous report, even if it is closed
-      sort: 'created',
-      direction: 'desc',
-      per_page: 25,
-    })
-    previousReports = previousReports.data
-  } catch (error) {
-    core.setFailed('Error listing issues for repo')
-    throw error
-  }
-  core.info(`Found ${previousReports.length} previous reports`)
-
-  if (previousReports.length <= 1) {
-    core.info('No previous reports to link to')
-    return
-  }
-
-  // 2nd report should be most recent previous report
-  const previousReport = previousReports[1]
-
-  // Comment the old report link on the new report
-  try {
-    await octokit.rest.issues.createComment({
-      owner,
-      repo,
-      issue_number: newReport.number,
-      body: `⬅️ [Previous report](${previousReport.html_url})`,
-    })
-    core.info(`Linked old report to new report via comment on new report, #${newReport.number}`)
-  } catch (error) {
-    core.setFailed(`Error commenting on newReport, #${newReport.number}`)
-    throw error
-  }
-
-  // Comment on all previous reports that are still open
-  for (const previousReport of previousReports) {
-    if (previousReport.state === 'closed' || previousReport.html_url === newReport.html_url) {
-      continue
-    }
-
-    //  If an old report is not assigned to someone we close it
-    const shouldClose = !previousReport.assignees.length
-    let body = `➡️ [Newer report](${newReport.html_url})`
-    if (shouldClose) {
-      body += '\n\nClosing in favor of newer report since there are no assignees on this issue'
-    }
-    try {
-      await octokit.rest.issues.createComment({
-        owner,
-        repo,
-        issue_number: previousReport.number,
-        body,
-      })
-      core.info(
-        `Linked old report to new report via comment on old report: #${previousReport.number}.`,
-      )
-    } catch (error) {
-      core.setFailed(`Error commenting on previousReport, #${previousReport.number}`)
-      throw error
-    }
-    if (shouldClose) {
-      try {
-        await octokit.rest.issues.update({
-          owner,
-          repo,
-          issue_number: previousReport.number,
-          state: 'closed',
-        })
-        core.info(`Closing old report: #${previousReport.number} because it doesn't have assignees`)
-      } catch (error) {
-        core.setFailed(`Error closing previousReport, #${previousReport.number}`)
-        throw error
-      }
     }
   }
 }

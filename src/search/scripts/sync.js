@@ -4,7 +4,7 @@ import chalk from 'chalk'
 import languages from '#src/languages/lib/languages.js'
 import buildRecords from './build-records.js'
 import findIndexablePages from './find-indexable-pages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { namePrefix } from '#src/search/lib/config.js'
 import { writeIndexRecords } from './search-index-records.js'
 

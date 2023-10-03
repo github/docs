@@ -40,7 +40,7 @@ remote: error: Required status check "ci-build" is failing
 
 ## Conflicts between head commit and test merge commit
 
-Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch. 
+Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch.
 
 If there is a conflict between the test merge commit and head commit, the checks for the test merge commit are shown in the pull request status checks box. This is indicated in the pull request status box by a line starting with `Showing checks for the merge commit`. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls#get-a-pull-request)."
 
@@ -92,6 +92,6 @@ It is recommended that you do not use path filtering (as shown in the previous e
 
 It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
 
-```
+```text
 Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.
 ```

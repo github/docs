@@ -28,7 +28,7 @@ In the `handle-redirects.js` middleware, the language part of the URL is
 removed, looked up, and if matched to something, redirects with language
 put back in. Demonstrated with pseudo code:
 
-```js
+```javascript
 var fullPath = '/ja/foo'
 var newPath = redirects['/foo']
 if (newPath) {

@@ -120,7 +120,7 @@ As with a bare clone, a mirrored clone includes all remote branches and tags, bu
 
 ## Further reading
 
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"
-- "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)"
+- "[AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop#pushing-changes-to-github)"
+- "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)"
 
 {% endif %}

@@ -323,13 +323,35 @@ The `category` value will appear as the `<run>.automationDetails.id` property in
 
 Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
 
+{% ifversion codeql-model-packs-java %}
+
+## Extending {% data variables.product.prodname_codeql %} coverage with {% data variables.product.prodname_codeql %} model packs
+
+If your codebase depends on a library or framework that is not recognized by the standard queries in {% data variables.product.prodname_codeql %}, you can extend the {% data variables.product.prodname_codeql %} coverage in your {% data variables.product.prodname_code_scanning %} workflow by specifying published {% data variables.product.prodname_codeql %} model packs. For more information about creating your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack)."
+
+{% data reusables.code-scanning.beta-model-packs %}
+
+To add one or more published {% data variables.product.prodname_codeql %} model packs, specify them inside the `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+
+``` yaml copy
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    config-file: ./.github/codeql/codeql-config.yml
+    queries: security-extended
+    packs: my-company/my-java-queries@~7.8.9,my-repo/my-java-model-pack
+```
+
+In this example, the default queries will be run for Java, as well as the queries from a version greater than or equal to `7.8.9` and less than `7.9.0` of the query pack `my-company/my-java-queries`. The dependencies modeled in the latest version of the model pack `my-repo/my-java-model-pack` will be available to both the default queries and those in `my-company/my-java-queries`.
+
+{% endif %}
+
 ## Running additional queries
 
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% ifversion codeql-packs %}
 
-### Using {% data variables.product.prodname_codeql %} query packs
+### Using query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 

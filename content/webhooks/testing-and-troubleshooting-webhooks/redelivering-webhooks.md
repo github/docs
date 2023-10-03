@@ -12,7 +12,7 @@ topics:
 
 ## About redelivering webhooks
 
-You may want to redeliver a webhook to help you test your application or to recover from server downtime. You can redeliver webhook deliveries that occurred in the past 30 days.
+You may want to redeliver a webhook to help you test your application or to recover from server downtime. You can redeliver webhook deliveries that occurred in the past 30 days. {% data variables.product.company_short %} does not automatically redeliver failed deliveries.
 
 ## Redelivering repository webhooks
 
@@ -90,8 +90,6 @@ Only the owner of the sponsored account can redeliver sponsorship webhooks for t
 ## Redelivering global webhooks
 
 Only enterprise owners can redeliver webhooks in that enterprise.
-
-{% ifversion  ghes or ghae %}You can use the {% data variables.product.company_short %} web interface or the REST API to redeliver global webhooks. For more information about using the REST API to redeliver webhooks, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

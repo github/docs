@@ -1,4 +1,4 @@
-{% data variables.product.prodname_codeql %} analyzes the {% data variables.code-scanning.compiled_languages %} source files in your repository that are built. 
+{% data variables.product.prodname_codeql %} analyzes the {% data variables.code-scanning.compiled_languages %} source files in your repository that are built.
 
 {% ifversion code-scanning-without-workflow-310 %}
 

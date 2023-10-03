@@ -275,7 +275,7 @@ By default, {% data variables.product.prodname_actions_importer %} fetches pipel
 For example:
 
 ```shell
-gh actions-importer dry-run azure-devops --output-dir ./output/ --source-file-path ./path/to/azure_devops/pipeline.yml
+gh actions-importer dry-run azure-devops pipeline --output-dir ./output/ --source-file-path ./path/to/azure_devops/pipeline.yml
 ```
 
 #### `--config-file-path`

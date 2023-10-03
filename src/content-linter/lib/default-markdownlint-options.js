@@ -1,13 +1,7 @@
-export function testOptions(rule, module, strings) {
-  const config = {
-    default: false,
-    [rule]: true,
-  }
+export const defaultOptions = {
+  // frontMatter: null will be set soon
+}
 
-  const options = {
-    strings,
-    customRules: [module],
-    config,
-  }
-  return options
+export const defaultConfig = {
+  default: false,
 }

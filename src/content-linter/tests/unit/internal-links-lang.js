@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { internalLinksLang } from '../../lib/linting-rules/internal-links-lang.js'
-
-jest.setTimeout(30 * 1000)
 
 describe(internalLinksLang.names.join(' - '), () => {
   test('internal links with hardcoded language codes fail', async () => {
@@ -12,7 +8,7 @@ describe(internalLinksLang.names.join(' - '), () => {
       '[Link to just a landing page in english](/en)',
       '[Korean Docs](/ko/actions)',
     ].join('\n')
-    const result = await runRule(internalLinksLang, { markdown })
+    const result = await runRule(internalLinksLang, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(3)
     expect(errors.map((error) => error.lineNumber)).toEqual([1, 2, 3])
@@ -33,7 +29,7 @@ describe(internalLinksLang.names.join(' - '), () => {
       // A link that starts with a language code
       '[Enterprise](/enterprise/overview)',
     ].join('\n')
-    const result = await runRule(internalLinksLang, { markdown })
+    const result = await runRule(internalLinksLang, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })

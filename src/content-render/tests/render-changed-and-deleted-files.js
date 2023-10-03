@@ -31,6 +31,8 @@
 
 import path from 'path'
 
+import { jest } from '@jest/globals'
+
 import { head, get } from '../../../tests/helpers/e2etest.js'
 import { loadPages } from '../../../lib/page-data.js'
 
@@ -55,6 +57,12 @@ function getContentFiles(spaceSeparatedList) {
     )
   })
 }
+
+// If the list of changed pages is very large, this test can take a long time.
+// It can also happen if some of the pages involves are infamously slow.
+// For example guide pages because they involved a lot of processing
+// to gather and preview linked data.
+jest.setTimeout(60 * 1000)
 
 describe('changed-content', () => {
   const changedContentFiles = getChangedContentFiles()
@@ -118,6 +126,9 @@ describe('deleted-content', () => {
       res.statusCode === 404
         ? `The deleted file ${file} did not set up a redirect when deleted.`
         : ''
-    expect(res.statusCode, error).toBe(301)
+    // Certain articles that are deleted and moved under a directory with the same article name
+    // should just route to the map topic page instead of redirecting (docs content team confirmed).
+    // So, in this scenario, we'd get a 200 status code.
+    expect(res.statusCode === 301 || res.statusCode === 200, error).toBe(true)
   })
 })

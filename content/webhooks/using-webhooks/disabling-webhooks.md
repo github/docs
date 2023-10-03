@@ -46,6 +46,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 {% data reusables.webhooks.disable_webhook %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Disabling a global webhook for a {% data variables.product.prodname_enterprise %}
 
 Enterprise owners can disable a global webhook in an {% data variables.product.prodname_enterprise %}. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks)."

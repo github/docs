@@ -297,7 +297,7 @@ This is the same as the process for uploading SARIF files from successful analys
 
 The {% data variables.product.prodname_codeql_cli %} bundle includes queries that are maintained by {% data variables.product.company_short %} experts, security researchers, and community contributors. If you want to run queries developed by other organizations, {% data variables.product.prodname_codeql %} query packs provide an efficient and reliable way to download and run queries. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql-queries)."
 
-Before you can use a {% data variables.product.prodname_codeql %} pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see "[Uploading results to {% data variables.product.product_name %}](#uploading-results-to-github)" above.
+Before you can use a {% data variables.product.prodname_codeql %} pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command, or running `codeql pack download`. If a package is not publicly available, you will need to use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to authenticate. For more information and an example, see "[Uploading results to {% data variables.product.product_name %}](#uploading-results-to-github)".
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
@@ -396,6 +396,26 @@ codeql github upload-results \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=python-results.sarif
 ```
+
+{% ifversion codeql-model-packs-java %}
+
+## Using model packs to analyze calls to custom dependencies
+
+You can include published model packs in a {% data variables.product.prodname_code_scanning %} analysis with the `--model-packs` option. For example:
+
+```shell
+$ codeql database analyze /codeql-dbs/my-company --format=sarif-latest \
+  --model-packs my-repo/my-java-model-pack \
+  --output=/temp/my-company.sarif codeql/java-queries
+```
+
+In this example, the relevant queries in the standard query pack `codeql/java-queries` will use the dependency information from the model pack, `my-repo/my-java-model-pack`, to check for vulnerabilities in code that calls those dependencies.
+
+You can specify multiple published model packs in an analysis.
+
+For more information about writing your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack).
+
+{% endif %}
 
 ## Troubleshooting the {% data variables.product.prodname_codeql_cli %} in your CI system
 

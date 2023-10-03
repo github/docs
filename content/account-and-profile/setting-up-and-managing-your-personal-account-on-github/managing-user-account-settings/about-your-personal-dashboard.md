@@ -52,7 +52,27 @@ You can also find a list of your recently visited repositories, teams, and proje
 
 ## Staying updated with activity from the community
 
-{% ifversion for-you-feed %}
+{% ifversion feed %}
+
+{% note %}
+
+**Note:** The new feed is currently in public beta and subject to change.
+
+{% endnote %}
+
+The feed is designed to help you discover relevant content from projects you follow, keep up with your friends and community members, and track recent activity in your communities.
+
+You can use the {% octicon "filter" aria-hidden="true" %} **Filter** dropdown in the upper right corner to filter the feed to show only the exact event types you'd like to see. For example, you'll see updates when someone you follow:
+
+- Stars a repository.
+- Follows another user.
+- Creates a public repository.
+- Opens an issue or pull request with `help wanted` or `good first issue` label on a repository you're watching.
+- Pushes commits to a repository you watch.
+- Forks a public repository.
+- Publishes a new release.
+
+{% else %}
 The main section of your dashboard has two activity feeds:
 
 - Following: Activity by people you follow and from repositories you watch.
@@ -62,23 +82,15 @@ The main section of your dashboard has two activity feeds:
 
 This feed shows activity from repositories and users you have shown a direct interest in, by following a user or watching a repository. For example, you'll see updates when a user you follow:
 
-{% else %}
-In the "All activity" section of your news feed, you can view updates from repositories you watch and users you follow.
-
-You'll see updates in your news feed when a user you follow:
-{% endif %}
-
 - Stars a repository.
-- Follows another user.{% ifversion fpt or ghes or ghec %}
-- Creates a public repository.{% endif %}
+- Follows another user.
+- Creates a public repository.
 - Opens an issue or pull request with "help wanted" or "good first issue" label on a repository you're watching.
-- Pushes commits to a repository you watch.{% ifversion fpt or ghes or ghec %}
-- Forks a public repository.{% endif %}
+- Pushes commits to a repository you watch.
+- Forks a public repository.
 - Publishes a new release.
 
 For more information about following people and watching repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/quickstart/be-social)."
-
-{% ifversion for-you-feed %}
 
 ### For you feed
 

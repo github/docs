@@ -52,7 +52,7 @@ The following features are not included in the trial of {% data variables.produc
 
 {% note %}
 
-**Note:** If you transfer an existing organization into your trial enterprise, all of these features will be disabled, but will be re-enabled if the organization is removed from the enterprise.
+**Note:** If you invite an existing organization into your trial enterprise, all of these features will be disabled, but will be re-enabled if the organization is removed from the enterprise.
 
 {% endnote %}
 

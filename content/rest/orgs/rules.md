@@ -2,7 +2,7 @@
 title: Rules
 shortTitle: Rules
 intro: >-
-  Use the rulesets API to manage rulesets for repositories. Organization
+  Use the REST API to manage rulesets for organizations. Organization
   rulesets control how people can interact with selected branches and tags in
   repositories in an organization.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖

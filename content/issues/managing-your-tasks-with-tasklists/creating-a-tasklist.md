@@ -31,7 +31,7 @@ You can create tasklists using Markdown in the issue description (the opening co
 
 You can add a tasklist by copying the Markdown below into your issue description:
 
-````markdown{:copy}
+````markdown copy
 ```[tasklist]
 ### My tasks
 - [ ] https://github.com/octo-org/octo-repo/issues/45
@@ -72,7 +72,7 @@ When you create a new tasklist, the default title is "Tasks." You can modify the
 
 When you copy your tasklist using the "Copy Markdown" option, {% data variables.product.product_name %} copies Markdown to your clipboard and includes the issue title so you can paste the tasklist outside of GitHub without losing context. See below for an example of a copied Markdown tasklist:
 
-```
+```markdown
 - [x] [Design new landing page](https://github.com/octocat/octoproject/issues/4)
 - [ ] [Translate content into supported languages](https://github.com/octocat/octoproject/issues/11)
 ```

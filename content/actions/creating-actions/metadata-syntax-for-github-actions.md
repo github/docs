@@ -157,11 +157,11 @@ For more information on how to use context syntax, see "[AUTOTITLE](/actions/lea
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js v16
+### Example: Using Node.js v20
 
 ```yaml
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'main.js'
 ```
 
@@ -169,7 +169,7 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-- Use `node16` for Node.js v16.
+- Use `node20` for Node.js v20.
 
 ### `runs.main`
 
@@ -183,7 +183,7 @@ In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: 'node16'
+  using: 'node20'
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -210,7 +210,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -270,7 +270,7 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#gi
 
 #### `runs.steps[*].shell`
 
-**Optional** The shell where you want to run the command. You can use any of the shells listed [here](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
+**Optional** The shell where you want to run the command. You can use any of the shells listed in "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell)." Required if `run` is set.
 
 #### `runs.steps[*].if`
 

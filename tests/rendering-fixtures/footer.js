@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 
 import { getDOM } from '../helpers/e2etest.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 
 describe('footer', () => {
   jest.setTimeout(10 * 60 * 1000)

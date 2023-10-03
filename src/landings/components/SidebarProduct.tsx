@@ -56,12 +56,15 @@ export const SidebarProduct = () => {
     return (
       <>
         <div className="ml-3">
-          <NavList aria-label="REST sidebar">
+          <NavList aria-label="REST sidebar overview articles">
             {conceptualPages.map((childPage) => (
               <NavListItem key={childPage.href} childPage={childPage} />
             ))}
+          </NavList>
 
-            <hr data-testid="rest-sidebar-reference" />
+          <hr data-testid="rest-sidebar-reference" className="m-2" />
+
+          <NavList aria-label="REST sidebar reference pages">
             {restPages.map((category) => (
               <RestNavListItem key={category.href} category={category} />
             ))}

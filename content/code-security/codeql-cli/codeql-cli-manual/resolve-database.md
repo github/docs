@@ -1,6 +1,6 @@
 ---
 title: resolve database
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -32,9 +32,11 @@ codeql resolve database <options>... -- <database>
 
 \[Deep plumbing] Report metadata about the database.
 
-## Primary options
+## Options
 
-#### `<database>`
+### Primary Options
+
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The database for which to load the metadata.
 

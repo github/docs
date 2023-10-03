@@ -118,7 +118,7 @@ env:
 
 {% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
 
-#### Example
+### Example
 
 {% raw %}
 
@@ -196,7 +196,7 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 
 {% raw %}
 
-```js
+```javascript
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
 
@@ -208,7 +208,7 @@ Returns 'Hello Mona the Octocat'.
 
 {% raw %}
 
-```js
+```javascript
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
 

@@ -102,6 +102,7 @@ You must be using Moodle version 3.0 or greater.
 
 1. Select the **Supports Deep Linking (Content-Item Message)** checkbox.
 1. Under the "Services" dropdown, next to "IMS LTI Names and Role Provisioning", select "Use this service to retrieve members' information as per privacy settings" from the dropdown menu.
+1. Under the "Privacy" dropdown, set "Share launcher's name with tool" to "Always" and set "Share launcher's email with tool" to "Always."
 1. Click **Save changes**.
 1. GitHub Classroom has now been registered as an external tool. Under "Tools", on the 'GitHub Classroom" box, click the menu icon to see the "Tool configuration details" screen. This screen contains important information you'll need to input in the last step of registering your instance in {% data variables.product.prodname_classroom %} below.
 
