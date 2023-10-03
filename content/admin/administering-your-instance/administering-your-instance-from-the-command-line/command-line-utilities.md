@@ -404,10 +404,10 @@ stop/waiting
 
 ### ghe-set-password
 
-With `ghe-set-password`, you can set a new password to authenticate into the [{% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console).
+This utility allows you to set a new {% ifversion enterprise-management-console-multi-user-auth %}root site administrator {% endif %}password for authentication to the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console)."
 
 ```shell
-ghe-set-password <new_password>
+ghe-set-password
 ```
 
 ### ghe-setup-network
