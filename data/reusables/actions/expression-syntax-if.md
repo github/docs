@@ -3,5 +3,5 @@ When you use expressions in an `if` conditional, you can, optionally, omit the {
 You must always use the {% raw %}`${{ }}`{% endraw %} expression syntax or escape with `''`, `""`,  or `()` when the expression starts with `!`, since `!` is reserved notation in YAML format. For example:
 
 ```yaml
-if: {% raw %}}${{ ! startsWith(github.ref, 'refs/tags/') }}{% endraw %}
+if: {% raw %}${{ ! startsWith(github.ref, 'refs/tags/') }}{% endraw %}
 ```
