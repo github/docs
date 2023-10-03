@@ -91,7 +91,7 @@ You can create a SARIF file for the failed analysis using "[AUTOTITLE](/code-sec
 
 ```shell
 $ codeql database export-diagnostics codeql-dbs/example-repo \
-    --sarif-category=javascript --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
+    --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
 
