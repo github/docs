@@ -120,7 +120,7 @@ This example analyzes a {% data variables.product.prodname_codeql %} database st
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category=javascript \
+    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
     --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
@@ -140,7 +140,7 @@ To include file coverage information with your {% data variables.product.prodnam
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category=javascript \
+    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
     --sarif-add-baseline-file-info \ --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
