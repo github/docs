@@ -15,8 +15,6 @@ topics:
 
 ## About {% data variables.product.prodname_sponsors %}
 
-{% data reusables.sponsors.paypal-deprecation %}
-
 {% data reusables.sponsors.sponsorship-details %}
 
 {% data reusables.sponsors.no-fees %}
