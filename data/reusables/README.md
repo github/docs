@@ -18,7 +18,7 @@ Indented reusables require a special liquid tag: `indented_data_reference` which
 
 For example, to indent `/data/reusables/foo/bar.md` in an ordered list, you could:
 
-```md
+```markdown
 1. My first list item
 {% indented_data_reference reusables.foo.par spaces=2 %}
 1. My second list item

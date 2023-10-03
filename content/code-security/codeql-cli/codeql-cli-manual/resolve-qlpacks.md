@@ -1,6 +1,6 @@
 ---
 title: resolve qlpacks
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -41,9 +41,11 @@ conflicting locations within a single search element, so it cannot
 actually be resolved. The caller may use the actual locations to format
 an error message.
 
-## Primary options
+## Options
 
-#### `--search-path=<dir>[:<dir>...]`
+### Primary Options
+
+#### `--search-path=<dir>[:<dir>...]` <!-- markdownlint-disable-line heading-increment -->
 
 A list of directories under which QL packs may be found. Each directory
 can either be a QL pack (or bundle of packs containing a
@@ -75,8 +77,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

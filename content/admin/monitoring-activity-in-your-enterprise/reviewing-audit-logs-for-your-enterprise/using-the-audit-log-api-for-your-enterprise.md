@@ -26,6 +26,8 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 
 {% data reusables.audit_log.retention-periods %}
 
+{% ifversion ghec %}Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#exceeding-the-rate-limit)" and "[AUTOTITLE](/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)."{% endif %}
+
 For more information about the audit log REST API, see "[AUTOTITLE](/rest/enterprise-admin#audit-log)" and "[AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization)."
 
 ## Example 1: All events in an enterprise, for a specific date, with pagination
@@ -46,7 +48,7 @@ curl -H "Authorization: Bearer TOKEN" \
 
 The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and returns the first page with a maximum of 100 items per page using pagination. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)." The `--include` flag causes the headers to be returned along with the response.
 
-```
+```shell
 curl --include -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&per_page=100"
@@ -54,7 +56,7 @@ curl --include -H "Authorization: Bearer TOKEN" \
 
 If there are more than 100 results, the `link` header will include URLs to fetch the next, first, and previous pages of results.
 
-```
+```text
 link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
 <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
 <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"

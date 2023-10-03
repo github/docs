@@ -1,6 +1,6 @@
 ---
 title: pack packlist
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -41,9 +41,11 @@ pack or in an ancestor directory.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
 
-#### `<dir>`
+### Primary Options
+
+#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
 
 The root directory of the package.
 

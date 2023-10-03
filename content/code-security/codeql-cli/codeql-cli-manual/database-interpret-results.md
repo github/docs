@@ -1,6 +1,6 @@
 ---
 title: database interpret-results
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -38,9 +38,11 @@ such as SARIF or CSV.
 The results should have been computed and stored in a CodeQL database
 directory using [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries). (Usually you'd want to do these steps together, by using [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze)).
 
-## Primary options
+## Options
 
-#### `<database>`
+### Primary Options
+
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database that has been queried.
 
@@ -238,8 +240,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

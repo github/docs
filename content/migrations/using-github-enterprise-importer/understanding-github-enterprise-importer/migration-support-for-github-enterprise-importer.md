@@ -38,8 +38,6 @@ If you want to migrate Azure Pipelines to {% data variables.product.prodname_act
 
 ## Bitbucket Server migration support
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
 
 If your migration source is Bitbucket Server, you can migrate repositories. We currently only support migrating the following repository data from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}.
@@ -49,6 +47,7 @@ If your migration source is Bitbucket Server, you can migrate repositories. We c
 
 Currently, the following data is **not** migrated.
 
+- Personal repositories owned by users
 - Branch permissions
 - Commit comments
 - Repository settings
@@ -91,7 +90,7 @@ When you migrate a repository, either directly or as part of an organization mig
 - Active webhooks
 - Repository topics
 - Repository settings
-  - Branch protections (see ["Branch protections"](#branch-protections) for more details)
+  - Branch protections (see "[Branch protections](#branch-protections)" for more details)
   - {% data variables.product.prodname_pages %} settings
   - Autolink references
   - {% data variables.product.prodname_GH_advanced_security %} settings
@@ -178,3 +177,4 @@ There are limits to what {% data variables.product.prodname_importer_proper_name
 - **{% data variables.large_files.product_name_short %} objects not migrated**: The {% data variables.product.prodname_importer_secondary_name %} can migrate repositories that use {% data variables.large_files.product_name_short %}, but the LFS objects themselves will not be migrated. They can be pushed to your migration destination as a follow-up task after the migration is complete. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)."
 - **Follow-up tasks required:** When migrating between {% data variables.product.prodname_dotcom %} products, certain settings are not migrated and must be reconfigured in the new repository. For a list of follow-up tasks you'll need to complete after each migration, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#completing-follow-up-tasks)."
 - **Delayed code search functionality:** Re-indexing the search index can take a few hours after a repository is migrated, and code searches may return unexpected results until re-indexing is complete.
+- **Rulesets configured for your organization can cause migrations to fail**: For example, if you configured a rule that requires email addresses for commit authors to end with `@monalisa.cat`, and the repository you're migrating contains commits that don't comply with this rule, your migration will fail. For more information about rulesets, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."

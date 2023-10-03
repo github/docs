@@ -1,10 +1,10 @@
-# Content <!-- omit in toc -->
+# Content <!-- omit in toc --><!-- markdownlint-disable -->
 
 The `/content` directory is where all the site's (English) Markdown content lives!
 
-See the [markup reference guide](/contributing/content-markup-reference.md) for more information about supported Markdown features.
+See the [markup reference guide](https://docs.github.com/en/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs) for more information about supported Markdown features.
 
-See the [contributing docs](/CONTRIBUTING.md) for general information about working with the docs.
+See the [contributing docs](https://docs.github.com/en/contributing) for general information about working with the docs.
 
 - [Frontmatter](#frontmatter)
   - [`versions`](#versions)
@@ -54,7 +54,7 @@ See [`lib/frontmatter.js`](../lib/frontmatter.js).
 
 ### `versions`
 
-- Purpose: Indicates the [versions](../lib/all-versions.js) to which a page applies.
+- Purpose: Indicates the [versions](#src/versions/lib/all-versions.js) to which a page applies.
 See [Versioning](#versioning) for more info.
 - Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](../lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
@@ -196,7 +196,7 @@ featuredLinks:
 
 ### `allowTitleToDifferFromFilename`
 
-- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `script/reconcile-ids-with-filenames.js`.
+- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `script/reconcile-ids-with-filenames.js`. Use this value if a file's `title` frontmatter includes Liquid or punctuation that cannot be part of the filename. For example, the article "[About Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)" uses a Liquid reusable in its title, `'About {% data variables.product.prodname_emus %}'`, which cannot be in the filename, `about-enterprise-managed-users.md`, so the `allowTitleToDifferFromFilename` frontmatter is set to `true`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
@@ -292,16 +292,20 @@ Do not add hardcoded "In this article" sections in the Markdown source or else t
 
 A content file can have **two** types of versioning:
 
-* [`versions`](#versions) frontmatter (**required**)
-    * Determines in which versions the page is available. See [contributing/permalinks](../contributing/permalinks.md) for more info.
-* Liquid statements in content (**optional**)
-    * Conditionally render content depending on the current version being viewed. See [contributing/liquid-helpers](../contributing/liquid-helpers.md) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
+- [`versions`](#versions) frontmatter (**required**)
+    - Determines in which versions the page is available. See [contributing/permalinks](../contributing/permalinks.md) for more info.
+- Liquid statements in content (**optional**)
+    - Conditionally render content depending on the current version being viewed. See [contributing/liquid-helpers](../contributing/liquid-helpers.md) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
 **Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
 
 ## Filenames
 
-When adding a new article, make sure the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) version of the title you use in the article's [`title`](#title) frontmatter. This can get tricky when a title has punctuation (such as "GitHub's Billing Plans"). A test will flag any discrepancies between title and filename. To override this requirement for a given article, you can add [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename) frontmatter.
+When adding a new article, the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) version of the article's [`title`](#title) frontmatter. For example, the article "[About GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli)" has a `title` frontmatter of `About GitHub CLI` and a filename of `about-github-cli.md`.
+
+Directory names for categories and map topics can match the `title` or `shortTitle` frontmatter.
+
+For a title that contains punctuation (such as "GitHub's Billing Plans"), you can omit the punctuation in the filename (`githubs-billing-plans.md`). For a title that uses a Liquid variable (such as `About {% data variables.product.prodname_emus %}`), you can use the words that the Liquid renders as in the filename (`about-enterprise-managed-users.md`). A test will flag any discrepancies between title and filename. To override the requirement that titles and filenames match for a given article, you can add [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename) in the frontmatter.
 
 ## Whitespace control
 
@@ -341,7 +345,7 @@ Links to docs in the `docs-internal` repository must start with a product ID (li
 
 Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
 
-The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](/lib/render-content/plugins/rewrite-local-links.js).
 
 For example, if you include the following link in a content file:
 
@@ -359,7 +363,7 @@ and when viewed on GitHub Enterprise Server docs, the version is included as wel
 
 ### Using AUTOTITLE for internal links
 
-If you create an internal link, you can use the AUTOTITLE keyword to generate an article's title in the rendered link. See the [markup reference](../contributing/content-markup-reference.md#internal-links-with-autotitle) for details.
+If you create an internal link, you can use the AUTOTITLE keyword to generate an article's title in the rendered link. See the [markup reference](https://docs.github.com/en/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#internal-links-with-autotitle) for details.
 
 ### Linking to the current article in a different version of the docs
 
@@ -382,7 +386,7 @@ Sometimes you want to link to a Dotcom-only article in Enterprise content and yo
 "[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
 ```
 
-Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
+Sometimes the canonical home of content moves outside the docs site. None of the links included in [`src/redirects/lib/external-sites.json`](/src/redirects/lib/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
 
 ### Legacy filepaths and redirects for links
 

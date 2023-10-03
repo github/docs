@@ -10,13 +10,11 @@ topics:
 shortTitle: Available rules
 ---
 
-{% data reusables.repositories.rulesets-public-beta %}
-
 You can create rulesets to control how users can interact with selected branches and tags in a repository. When you create a ruleset, you can choose to enable or disable the rules described in the following sections.
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with certain permissions, specific teams, or {% data variables.product.prodname_github_apps %}. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
-For more information on creating and managing rulesets, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)" and {% endif %}"[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository)."
+For more information on creating rulesets, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)" and {% endif %}"[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository)."
 
 ## Restrict creations
 
@@ -118,7 +116,7 @@ You can think of required status checks as being either "loose" or "strict." The
 | **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
 | **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
-For troubleshooting information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/troubleshooting-required-status-checks)."
+For troubleshooting information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks)."
 
 ## Block force pushes
 
@@ -132,40 +130,52 @@ Enabling force pushes will not override any other rules. For example, if a branc
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
-{% ifversion repo-rules-enterprise %}
+{% ifversion repo-rules-required-workflows %}
 
-## Metadata restrictions
+## Require workflows to pass before merging
 
 {% note %}
 
 **Notes:**
 
-- Adding restrictions for commit metadata may impact the experience of people contributing to your repository.
-- Metadata restrictions are intended to increase consistency between commits in your repository. They are not intended to replace security measures such as requiring code review via pull requests.
+- This rule is in public beta and subject to change.
+- This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
 
 {% endnote %}
 
-Organizations on a {% data variables.product.prodname_enterprise %} plan can access additional rules to control how commit metadata must be formatted. You can use literal strings or regular expression syntax to define a pattern that the commit metadata must conform to. For example, you can require that commit messages contain a {% data variables.product.company_short %} issue number, or that the committer or author has an email address ending in `@octoorg.com`. You can also control the format of new branch names and tag names. For a selection of useful regular expressions for commit metadata, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#using-regular-expressions-for-commit-metadata)."
+You can require all changes made to a targeted branch to pass specified workflows before they can be merged. This rule can only be configured at the organization level.
+
+To use this rule, you must first create a workflow file. The workflow file needs to be in a repository that matches the visibility of the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can only run on internal and private repositories, and a private workflow can only run on private repositories. For more information, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."
+
+If the workflow file is in an internal or private repository and you want to use the workflow in other repositories in the organization, you will need to allow access to the workflow from outside the repository. For more information, see "[Allowing access to components in an internal repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)" or "[Allowing access to components in a private repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."
+
+When you add this rule to a ruleset, you will select the source repository and the workflow you want to enforce. The workflow triggers on the `pull_request` or `merge_group` events.
+
+A workflow can also block someone from creating a repository, since a workflow can't run against a repository that's being initialized. To get around this, the ruleset either needs to have "Evaluate" as the enforcement status, or someone with bypass permissions needs to create the repository and bypass the branch protection.
+
+{% endif %}
+
+{% ifversion repo-rules-enterprise %}
+
+## Metadata restrictions
+
+{% data reusables.repositories.rulesets-metadata-restrictions-notes %}
+
+Organizations on a {% data variables.product.prodname_enterprise %} plan can access additional rules to control how commit metadata must be formatted. You can use literal strings or regular expression syntax to define a pattern that the commit metadata must conform to. For example, you can require that commit messages contain a {% data variables.product.company_short %} issue number, or that the committer or author has an email address ending in `@octoorg.com`. You can also control the format of new branch names and tag names. For a selection of useful regular expressions for commit metadata, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-regular-expressions-for-commit-metadata)."
 
 If a contributor tries to update a branch or tag with a commit that doesn't meet your requirements, the contributor will see an error telling them what was wrong with their commit. This error can appear both in the command line, when the user pushes, and on {% data variables.product.prodname_dotcom_the_website %}, when the user tries to make a commit or merge a pull request. Commits are immutable in Git: once a contributor has created a commit, they cannot edit the commit's metadata, so they may need to perform a rebase to rewrite their commit history with new commits before they can successfully contribute their work to the repository.
 
-Metadata restrictions are useful for enforcing consistency between the commits in a branch's history. This can be useful for enforcing adherence to best practices, such as the [Conventional Commits](https://www.conventionalcommits.org/) specification, or for integrating with tooling that relies on commit metadata. For example, it is easier to run scripts based on the contents of a commit message if each message conforms to a predictable format. {% ifversion ghes %}You may want to use metadata restrictions as an alternative for setting up custom pre-receive hook scripts. For more information, see "[AUTOTITLE
+Metadata restrictions are useful for enforcing consistency between the commits in a branch's history. This can be useful for enforcing adherence to best practices, such as the [Conventional Commits](https://www.conventionalcommits.org/) specification, or for integrating with tooling that relies on commit metadata. For example, it is easier to run scripts based on the contents of a commit message if each message conforms to a predictable format. {% ifversion ghes %}You may want to use metadata restrictions as an alternative for setting up custom pre-receive hook scripts. For more information, see "[AUTOTITLE]
 (/admin/policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks)."{% endif %}
 
 ### Important considerations for metadata restrictions
 
 Metadata restrictions block "ref updates." If a contributor pushes work that includes a commit that doesn't meet the requirements, the push is not rejected, but the branch or tag they are targeting is not updated. Technically, the commits still enter your repository: the commits will be "retrievable" (you can navigate to them in your repository), but not "reachable" (they are not connected to the history of a branch or tag). If the contributor's push also includes work on other branches or tags, with commits that meet the requirements of those branches or tags, then those references will be successfully updated.
 
-Metadata restrictions can increase friction for people contributing to a repository. Generally, if you impose metadata restrictions, you should do so on a limited set of branches to avoid impacting contributors' daily work. For example, instead of requiring consistent commit messages on any topic branch that a contributor might work on, you should require consistent commit messages on `main`, then require pull requests and squash merges into `main`. Contributors will only have to think about the restrictions when they merge a pull request into `main`, not for every commit they make. You can also configure the default message for the squash merge to use the required format. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
+Metadata restrictions can increase friction for people contributing to a repository. Generally, if you impose metadata restrictions, you should do so on a limited set of branches to avoid impacting contributors' daily work. For example, instead of requiring consistent commit messages on any topic branch that a contributor might work on, you should require consistent commit messages on `main` only, then require pull requests into `main`.
 
-When you add metadata restrictions to an existing branch or tag, the rules are enforced for new commits pushed to the branch or tag from that point forward, but they are not enforced against the existing history of the branch or tag. However, if you create a new branch or tag that is targeted by a metadata restriction, the rules are enforced against its entire history.
+If you use squash merges, you should be aware that metadata restrictions are evaluated before the merge, so all commits on the pull request must meet the requirements. For metadata restrictions that apply to committer emails, the pattern must also include `noreply@github.com` for squash merges to satisfy the restriction.
 
-To understand more about how metadata restrictions work, consider the following example. In this example, you are adding a restriction to ensure that every commit message starts with an issue number. The following points outline some of the effects of adding this restriction.
-
-- You add the restriction to a ruleset targeting your `main` branch. You can add the restriction without changing the existing history of the branch, even if the history contains commits that do not meet the new requirement. However, from now on, new commits pushed to `main` will need to meet the new requirement.
-- You have an existing branch pushed to the repository, called `new-feature`. The commits that exist in the `new-feature` branch, but not in `main`, will be evaluated if you try to merge the branch into `main`. To merge the branch, you may need to use a squash merge with an appropriate commit message.
-- You update the ruleset targeting `main` so that any branches that match the pattern `release-*` are also targeted. Then, you try to create a new branch from `main`, called `release-3.2`. You won't be able to create this new branch, because for the creation of the new branch the metadata requirement is evaluated against the entire commit history of `main`.
-
-These considerations may or may not pose a problem, depending on how you expect contributors to work in your repository and who has bypass permissions in the ruleset.
+When you add metadata restrictions to an existing branch or tag, the rules are enforced for new commits pushed to the branch or tag from that point forward, but they are not enforced against the existing history of the branch or tag.
 
 {% endif %}

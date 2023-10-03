@@ -1,6 +1,6 @@
 ---
 title: resolve extensions
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -39,9 +39,11 @@ This plumbing command resolves the set of data extensions and
 GitHub-created machine learning models that are available to the query
 specifiers passed in as command line arguments.
 
-## Primary options
+## Options
 
-#### `<querysuite|pack>...`
+### Primary Options
+
+#### `<querysuite|pack>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:
@@ -97,8 +99,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

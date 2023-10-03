@@ -60,15 +60,23 @@ If an error blocked {% data variables.product.prodname_dependabot %} from creati
 
 ## Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, it posts the error icon on the manifest file. The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
+When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, {% ifversion dependabot-job-log %} you can view the job logs list to find out more about the error {% else %} it posts the error icon on the manifest file{% endif %}.
 
-![Screenshot of the {% data variables.product.prodname_dependabot %} view. An alert icon, and a link, titled "Last checked 10 hours ago", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view-error.png)
+{% ifversion dependabot-job-log %}
 
-{% ifversion fpt or ghec %}
+{% data reusables.dependabot.dependabot-jobs-log-access %}
 
-To see the log file for any manifest file, click the **Last checked TIME ago** link. When you display the log file for a manifest that's shown with an error symbol, any errors are also displayed.
+To view the full logs files for a particular job, to the right of the log entry you are interested in, click **view logs**.
+
+![Screenshot of the Dependabot job log entries for a manifest file. A button, called "View logs", is highlighted in a dark orange outline.](/assets/images/help/dependabot/dependabot-job-log-error-message.png)
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/viewing-dependabot-job-logs)."
 
 {% else %}
+
+The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
+
+![Screenshot of the {% data variables.product.prodname_dependabot %} view. An alert icon, and a link, titled "Last checked 10 hours ago", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view-error.png)
 
 To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
 
@@ -92,7 +100,7 @@ The best way to avoid this problem is to stay up to date with the most recently 
 
 For example, a project with a dependency on `A` version `~2.0.0` which has a transitive dependency on `B` version `~1.0.0` which has resolved to `1.0.1`.
 
-```
+```shell
 my project
 |
 --> A (2.0.0) [~2.0.0]
@@ -149,37 +157,47 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
-You must configure groups per package ecosystem.
-
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+
+You must configure groups per package ecosystem. To debug the problem, we recommend you look at the logs. For information about accessing the logs for a manifest, see "[Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}](#investigating-errors-with-dependabot-version-updates)" above.
+
+You may have unintentionally created empty groups. This happens, for example, when you set a `dependency-type` in the `allow` key for the overall job.
+
+```yaml
+allow:
+  dependency-type: production
+  # this restricts the entire job to production dependencies
+  groups:
+      development-dependencies:
+        dependency-type: "development"
+        # this group will always be empty
+```
+
+In this example, {% data variables.product.prodname_dependabot %} will:
+1. Look at your dependency list and restrict the job to dependencies used in `production` only.
+1. Try to create a group called `development-dependencies` which is a subset of this reduced list.
+1. Work out that the `development-dependencies` group is empty as all `development` dependencies were removed in step 1.
+1. **Individually** update all the dependencies that are not in the group. As the group for dependencies in production is empty, {% data variables.product.prodname_dependabot %} will ignore the group, and create a separate pull request for each dependency.
+
+You need to ensure that configuration settings don't cancel each other, and update them appropriately in your configuration file.
 
 For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
 
 ### {% data variables.product.prodname_dependabot %} fails to update one of the dependencies in a grouped pull request
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
-**Version updates only.** {% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+**Version updates only.**{% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 If the dependency still fails to update, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
 
 If the dependency still fails to update, there may be a problem with the dependency itself, or with {% data variables.product.prodname_dependabot %} for that specific ecosystem.
 
-If you want to ignore version updates for the dependency, you must configure an `ignore` rule for the dependency in the `dependabot.yml` file.
-
-For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+{% data reusables.dependabot.dependabot-ignore-dependencies %}
 
 ### Continuous integration (CI) fails on my grouped pull request
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
 **Version updates only.** If the failure is due to a single dependency, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
 
-If you want to ignore version updates for the dependency, you must configure an `ignore` rule for the dependency in the `dependabot.yml` file.
-
-For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+{% data reusables.dependabot.dependabot-ignore-dependencies %}
 
 If you continue to see CI failures, you should remove the group configuration so that {% data variables.product.prodname_dependabot %} reverts to raising individual pull requests for each dependency. Then, you should check and confirm that the update works correctly for each individual pull request.
 

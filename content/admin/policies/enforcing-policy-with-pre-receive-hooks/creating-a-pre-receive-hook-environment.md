@@ -25,19 +25,19 @@ If you have a specific requirement that isn't met by this environment, such as s
 You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](https://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
 
 {% data reusables.linux.ensure-docker %}
-1. Create the file `Dockerfile.alpine-3.3` that contains this information:
+1. Create the file `Dockerfile.alpine` that contains this information:
 
-   ```
-   FROM gliderlabs/alpine:3.3
+   ```dockerfile
+   FROM alpine:latest
    RUN apk add --no-cache git bash
    ```
 
-1. From the working directory that contains `Dockerfile.alpine-3.3`, build an image:
+1. From the working directory that contains `Dockerfile.alpine`, build an image:
 
    ```shell
-   $ docker build -f Dockerfile.alpine-3.3 -t pre-receive.alpine-3.3 .
+   $ docker build -f Dockerfile.alpine -t pre-receive.alpine .
    > Sending build context to Docker daemon 12.29 kB
-   > Step 1 : FROM gliderlabs/alpine:3.3
+   > Step 1 : FROM alpine:latest
    >  ---> 8944964f99f4
    > Step 2 : RUN apk add --no-cache git bash
    >  ---> Using cache
@@ -48,16 +48,16 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 1. Create a container:
 
    ```shell
-   docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
+   docker create --name pre-receive.alpine pre-receive.alpine /bin/true
    ```
 
 1. Export the Docker container to a `gzip` compressed `tar` file:
 
    ```shell
-   docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
+   docker export pre-receive.alpine | gzip > alpine.tar.gz
    ```
 
-   This file `alpine-3.3.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
+   This file `alpine.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
 
 ## Creating a pre-receive hook environment using chroot
 
@@ -98,6 +98,6 @@ For more information about creating a chroot environment see "[Chroot](https://w
 1. Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.
 
    ```shell
-   admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz
+   admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine.tar.gz
    > Pre-receive hook environment 'AlpineTestEnv' (2) has been created.
    ```

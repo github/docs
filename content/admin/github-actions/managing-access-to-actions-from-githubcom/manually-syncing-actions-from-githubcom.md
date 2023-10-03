@@ -68,6 +68,12 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
 
 1. Download and extract the latest [`actions-sync` release](https://github.com/actions/actions-sync/releases) for your machine's operating system.
 1. Create a directory to store cache files for the tool.
+1. In your terminal, change to the `bin` directory within the release directory you just extracted. For example:
+
+   ```shell
+   cd PATH/TO/gh_DATETIME_OS_ARCHITECTURE/bin
+   ```
+
 1. Run the `actions-sync sync` command:
 
    ```shell
@@ -84,7 +90,7 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
    - `--destination-token`: A {% data variables.product.pat_generic %} for the destination enterprise instance.
    - `--destination-url`: The URL of the destination enterprise instance.
    - `--repo-name`: The action repository to sync. This takes the format of `owner/repository:destination_owner/destination_repository`.
-   
+
      - The above example syncs the [`actions/stale`](https://github.com/actions/stale) repository to the `synced-actions/actions-stale` repository on the destination enterprise instance. You must create the organization named `synced-actions` in your enterprise before running the above command.
      - If you omit `:destination_owner/destination_repository`, the tool uses the original owner and repository name for your enterprise. Before running the command, you must create a new organization in your enterprise that matches the owner name of the action. Consider using a central organization to store the synced actions in your enterprise, as this means you will not need to create multiple new organizations if you sync actions from different owners.
      - You can sync multiple actions by replacing the `--repo-name` parameter with `--repo-name-list` or `--repo-name-list-file`. For more information, see the [`actions-sync` README](https://github.com/actions/actions-sync#actions-sync).

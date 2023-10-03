@@ -21,7 +21,7 @@ When you create a new organization from scratch, it doesn't have any repositorie
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
-1. Follow the prompts to create your organization. {% ifversion fpt or ghec %}For more information about the plans available for your team, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."{% endif %}
+1. Follow the prompts to create your organization. {% ifversion fpt or ghec %}For more information about the plans available for your team, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."{% endif %}
 
 ## Further reading
 

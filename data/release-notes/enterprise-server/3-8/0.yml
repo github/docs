@@ -251,10 +251,9 @@ sections:
         - |
           To avoid providing full administrative access to a repository when unnecessary, repository administrators can create a custom role that allows users to bypass branch protections. To enforce branch protections for all users with administrative access or bypass permissions, administrators can enable **Do not allow bypassing the above settings**. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization#repository)" and "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#do-not-allow-bypassing-the-above-settings)."
 
-        # https://github.com/github/releases/issues/2610
         # https://github.com/github/releases/issues/2626
         - |
-          Repository administrators can ensure the security and stability of branches by requiring pull request approval by someone other than the last pusher, or by locking the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-settings)."
+          Repository administrators can ensure the security and stability of branches by locking the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#lock-branch)."
 
         # https://github.com/github/releases/issues/2666
         - |
@@ -437,6 +436,8 @@ sections:
 
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
@@ -465,6 +466,8 @@ sections:
       ```
     - |
       On an instance with a GitHub Advanced Security license where secret scanning is enabled, excessive logging in `/var/log` may cause user-facing errors and degraded system performance if logs consume all free space on the volume. To prevent this issue from impacting users, monitor free space on your instance's root volume. For more information, see "[Configuring secret scanning for your appliance](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)" and "[Monitoring your appliance](/admin/enterprise-management/monitoring-your-appliance)." If you suspect that this issue is affecting your instance and you need help, [contact GitHub Support](https://support.github.com/contact). [Updated: 2023-05-03]
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
 
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections
@@ -481,3 +484,7 @@ sections:
 
   errata:
     - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'
+
+    # https://github.com/github/releases/issues/2626
+    - |
+      "[Repositories](#3.8.0-repositories)" incorrectly indicated that repository administrators can require pull request approval by someone other than the last pusher. This feature is unavailable in GitHub Enterprise Server 3.8, and is available in GitHub Enterprise Server 3.10. For more information, see "[AUTOTITLE](/enterprise-server@3.10/admin/release-notes#repositories)." [Updated 2023-08-07]

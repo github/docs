@@ -1,6 +1,6 @@
 ---
 title: database run-queries
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -43,9 +43,11 @@ source-code alerts, you may find [codeql database analyze](/code-security/codeql
 Alternatively, if you have only a single query to run, you might prefer
 [codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run), which can display human-readable output for quick inspection of results while you're debugging.
 
-## Primary options
+## Options
 
-#### `<database>`
+### Primary Options
+
+#### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database to query.
 
@@ -164,7 +166,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate *\<pred>*.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
@@ -301,8 +303,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

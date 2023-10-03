@@ -7,7 +7,7 @@ import { HTTPError } from 'got'
 
 import parsePageSectionsIntoRecords from './parse-page-sections-into-records.js'
 import getPopularPages from './popular-pages.js'
-import languages from '../../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import domwaiter from '../../../script/domwaiter.js'
 
 const pageMarker = chalk.green('|')
@@ -23,6 +23,12 @@ dotenv.config()
 //  echo 'BUILD_RECORDS_MIN_TIME=50' >> .env
 const MAX_CONCURRENT = parseInt(process.env.BUILD_RECORDS_MAX_CONCURRENT || '200', 10)
 const MIN_TIME = parseInt(process.env.BUILD_RECORDS_MIN_TIME || '5', 10)
+
+// These products, forcibly always get a popularity of 0 independent of
+// their actual popularity which comes from an external JSON file.
+// The objective for this is to reduce their search result ranking
+// when multiple docs match on a certain keyword(s).
+const FORCE_0_POPULARITY_PRODUCTS = new Set(['contributing'])
 
 export default async function buildRecords(
   indexName,
@@ -71,8 +77,15 @@ export default async function buildRecords(
       if (!noMarkers) process.stdout.write(pageMarker)
       const newRecord = parsePageSectionsIntoRecords(page)
       const pathArticle = page.relativePath.replace('/index.md', '').replace('.md', '')
-      const popularity = (hasPopularPages && popularPages[pathArticle]) || 0.0
+      let popularity = (hasPopularPages && popularPages[pathArticle]) || 0.0
+      if (FORCE_0_POPULARITY_PRODUCTS.size) {
+        const product = newRecord.objectID.split('/')[2]
+        if (FORCE_0_POPULARITY_PRODUCTS.has(product)) {
+          popularity = 0.0
+        }
+      }
       newRecord.popularity = popularity
+
       if (!noMarkers) process.stdout.write(recordMarker)
       records.push(newRecord)
     })

@@ -45,7 +45,7 @@ In the event of any conflict or inconsistency between the DPA and any other term
 
 1.10 “**Sensitive Data**” means any Personal Data revealing racial or ethnic origin; political opinions, religious or philosophical beliefs or trade union membership; processing of genetic data or biometric data for the purposes of uniquely identifying a natural person; data concerning health, a natural person’s sex life or sexual orientation; and data relating to offences, criminal convictions, or security measures.
 
-## 2. Status and Compliance.
+### 2. Status and Compliance.
 
 ### 2.1 Data Processing.
 

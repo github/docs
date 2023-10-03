@@ -1,5 +1,7 @@
 # Content style guide for GitHub Docs <!-- omit in toc -->
 
+**Note:** This version of the style guide is no longer maintained and will be deprecated. See the [content model](https://docs.github.com/en/contributing/writing-for-github-docs/content-model) on docs.github.com for the most up to date version. Open any pull requests against the `contributing/writing-for-github-docs/content-model.md` file.
+
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"
@@ -96,7 +98,7 @@ Avoid inline links in command names.
 
 ### Examples
 
-When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context. You can add code annotations to explain long code examples. See "[Code annotations](./code-annotations)" for more information.
+When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context. You can add code annotations to explain long code examples. See "[Code annotations](./content-markup-reference.md#code-sample-annotations)" for more information.
 
 - **Use:**
 
@@ -693,6 +695,12 @@ A release note for a security fix answers the following questions.
 
 - > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
 
+#### Base image and package updates
+
+We also include base image and dependent package updates in the "Security fixes" section, since these updates often address security issues. We consolidate all of these updates in the following note.
+
+> Packages have been updated to the latest security versions.
+
 ### Bug fixes
 
 A release note for a bug fix describes a correction to an undesired or otherwise unexpected behavior. Generally, notes for bug fixes are only part of patch releases.
@@ -1240,7 +1248,7 @@ If the reader manages an enterprise account, and you're describing the people's 
 The following documentation should reference "user accounts."
 
 - The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
-- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
 - Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
 - Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 

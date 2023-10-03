@@ -14,7 +14,7 @@ shortTitle: Troubleshoot license usage
 
 ## About unexpected license usage
 
-If the number of consumed licenses for your enterprise is unexpected, you can review your consumed license report to audit your license usage across all your enterprise deployments and subscriptions. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" and "[AUTOTITLE](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+If the number of consumed licenses for your enterprise is unexpected, you can review your consumed license report to audit your license usage across all your enterprise deployments and subscriptions. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise)" and "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 If you find errors, you can try troubleshooting steps.
 
@@ -22,20 +22,13 @@ For privacy reasons, enterprise owners cannot directly access the details of use
 
 ## About the calculation of consumed licenses
 
-If a user meets one or more of the following conditions, {% data variables.product.company_short %} bills for the user.
-
-- The user utilizes deployments of {% data variables.product.prodname_ghe_server %}.
-- The user is a member of one of your organizations on {% data variables.product.prodname_ghe_cloud %}.
-- The user has write access to one of your organization's private repositories.
-- The user is a {% data variables.visual_studio.prodname_vs_subscriber %}.
-
-Invitations for these roles will consume a license until the invitation is accepted or expires. For more information about the people in your enterprise who consume a license, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+A person consumes a license for {% data variables.product.prodname_enterprise %} depending on specific criteria. If a user has not yet accepted an invitation to join your enterprise, or if the user is an unlinked {% data variables.visual_studio.prodname_vs_subscriber %}, the user still consumes a license. For more information about the people in your enterprise who consume a license, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)."
 
 For each user to consume a single seat regardless of how many deployments they use, you must synchronize license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 
 After you synchronize license usage, {% data variables.product.prodname_dotcom %} matches user accounts on {% data variables.product.prodname_ghe_server %} with user accounts on {% data variables.product.prodname_ghe_cloud %} by email address.
 
-First, we first check the primary email address of each user on {% data variables.product.prodname_ghe_server %}. Then, we attempt to match that address with the email address for a user account on {% data variables.product.prodname_ghe_cloud %}. If your enterprise uses SAML SSO, we first check the following SAML attributes for email addresses.
+First, we check the primary email address of each user on {% data variables.product.prodname_ghe_server %}. Then, we attempt to match that address with the email address for a user account on {% data variables.product.prodname_ghe_cloud %}. If your enterprise on {% data variables.product.prodname_dotcom_the_website %} or any of the enterprise's organizations use SAML authentication or SCIM provisioning, we first check the linked SAML or SCIM identities to see if the identity contains one of the attributes below. We attempt to match the values of these attributes to the primary email address of each {% data variables.product.prodname_ghe_server %} user.
 
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 - `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
@@ -43,7 +36,7 @@ First, we first check the primary email address of each user on {% data variable
 - `NameID`
 - `emails`
 
-If no email addresses found in these attributes match the primary email address on {% data variables.product.prodname_ghe_server %}, or if your enterprise doesn't use SAML SSO, we then check each of the user's verified email addresses on {% data variables.product.prodname_ghe_cloud %}. For more information about verification of email addresses on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/verifying-your-email-address){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+If there is no match, or if SAML authentication or SCIM provisioning is not in use, we attempt to match the primary email address on {% data variables.product.prodname_ghe_server %} with a verified email address for a user account on {% data variables.product.prodname_dotcom_the_website %}. For more information about verification of email addresses on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/verifying-your-email-address){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 ## Fields in the consumed license files
 
@@ -73,8 +66,6 @@ The license usage report for your enterprise is a CSV file that contains the fol
 | visual_studio_subscription_email | The email address associated with the user's VSS |
 | visual_studio_license_status | Whether the Visual Studio license has been matched to a {% data variables.product.company_short %} user |
 
-{% data variables.visual_studio.prodname_vs_subscriber %}s who are not yet members of at least one organization in your enterprise will be included in the report with a pending invitation status, and will be missing values for the "Name" or "Profile link" field.
-
 ### {% data variables.product.prodname_ghe_server %} exported license usage (JSON file)
 
 Your {% data variables.product.prodname_ghe_server %} license usage is a JSON file that is typically used when performing a manual sync of user licenses between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} deployments. The file contains the following information specific to your {% data variables.product.prodname_ghe_server %} environment.
@@ -97,9 +88,10 @@ To ensure that the each user is only consuming a single seat for different deplo
 
    {% note %}
 
-  **Note:** To make troubleshooting easier, we recommend using verified domains with your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+   **Note:** To make troubleshooting easier, we recommend using verified domains with your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
 
-  {% endnote %}
+   {% endnote %}
+
 1. After you identify users who are consuming multiple seats, make sure that the same email address is associated with all of the user's accounts. For more information about which email addresses must match, see "[About the calculation of consumed licenses](#about-the-calculation-of-consumed-licenses)."
 1. If an email address was recently updated or verified to correct a mismatch, view the timestamp of the last license sync job. If a job hasn't run since the correction was made, manually trigger a new job. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 

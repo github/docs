@@ -25,7 +25,7 @@ A pre-receive hook script executes in a pre-receive hook environment on {% data 
 
 After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.location.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
 
-```
+```shell
 <old-value> SP <new-value> SP <ref-name> LF
 ```
 
@@ -114,7 +114,7 @@ The following variables are available in the pre-receive hook environment when t
 | Variable | Description | Example value |
 | :- | :- | :- |
 |  <pre>$GITHUB_PULL_REQUEST_AUTHOR_LOGIN</pre> | Username of account that authored the pull request | octocat |
-|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | The name of the pull request's topic branch, in the format `USERNAME:BRANCH` | <nobr>octocat:fix-bug</nobr> |
+|  <pre>$GITHUB_PULL_REQUEST_HEAD</pre> | The name of the pull request's topic branch, in the format `USERNAME:BRANCH` | <span style="white-space: nowrap;">octocat:fix-bug</span> |
 |  <pre>$GITHUB_PULL_REQUEST_BASE</pre> | The name of the pull request's base branch, in the format `USERNAME:BRANCH` | octocat:main |
 
 #### Available for pushes using SSH authentication
@@ -180,7 +180,7 @@ You can test a pre-receive hook script locally before you create or update it on
 
 1. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
 
-   ```
+   ```shell
    #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"

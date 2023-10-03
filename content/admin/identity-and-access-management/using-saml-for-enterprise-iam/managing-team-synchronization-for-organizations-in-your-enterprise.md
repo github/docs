@@ -60,10 +60,10 @@ You can also configure and manage team synchronization for an individual organiz
 
 {% ifversion team-sync-manage-org-invites %}
 
-## Managing whether team synchronization can invite non-members to organizations
+## Managing whether team synchronization can re-invite non-members to organizations
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "Team synchronization", select or deselect **Do not allow Team Sync to invite non-members to organizations.**
+1. Under "Team synchronization", select or deselect **Do not allow Team Sync to re-invite past members to organizations that were removed by an organization owner.**
 {% endif %}

@@ -1,6 +1,6 @@
 import { renderContent } from '#src/content-render/index.js'
 import getLinkData from './get-link-data.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import { getDataByLanguage } from '../../../lib/get-data.js'
 import { executeWithFallback } from '../../../lib/render-with-fallback.js'
 
@@ -11,17 +11,15 @@ const renderOpts = { textOnly: true }
 export default async function processLearningTracks(rawLearningTracks, context) {
   const learningTracks = []
 
-  let featuredTrack
-
   if (!context.currentProduct) {
     throw new Error(`Missing context.currentProduct value.`)
   }
 
   for (const rawTrackName of rawLearningTracks) {
-    let isFeaturedTrack = false
-
     // Track names in frontmatter may include Liquid conditionals.
-    const renderedTrackName = await renderContent(rawTrackName, context, renderOpts)
+    const renderedTrackName = rawTrackName.includes('{')
+      ? await renderContent(rawTrackName, context, renderOpts)
+      : rawTrackName
     if (!renderedTrackName) continue
 
     // Find the data for the current product and track name.
@@ -48,7 +46,7 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     // We do this for two reasons:
     //
     //   1. For each learning-track .yml file (in data) always want the
-    //      English values for `guides`, `versions`, `featured_track`.
+    //      English values for `guides`, `versions`.
     //       Meaning, for the translated learning tracks we only keep the
     //      `title` and `description`.
     //
@@ -69,7 +67,6 @@ export default async function processLearningTracks(rawLearningTracks, context) 
       // from the English equivalent.
       track.guides = enTrack.guides
       track.versions = enTrack.versions
-      track.featured_track = enTrack.featured_track
     }
 
     // If there is no `versions` prop in the learning track frontmatter, assume the track should display in all versions.
@@ -103,24 +100,11 @@ export default async function processLearningTracks(rawLearningTracks, context) 
       guides: await getLinkData(track.guides, context),
     }
 
-    // Determine if this is the featured track.
-    if (track.featured_track) {
-      // Featured track properties may be booleans or string that include Liquid conditionals with versioning.
-      // We need to parse any strings to determine if the featured track is relevant for this version.
-      isFeaturedTrack =
-        track.featured_track === true ||
-        (await renderContent(track.featured_track, context, renderOpts)) === 'true'
-
-      if (isFeaturedTrack) {
-        featuredTrack = learningTrack
-      }
-    }
-
     // Only add the track to the array of tracks if there are guides in this version and it's not the featured track.
-    if (learningTrack.guides.length && !isFeaturedTrack) {
+    if (learningTrack.guides.length) {
       learningTracks.push(learningTrack)
     }
   }
 
-  return { featuredTrack, learningTracks }
+  return { learningTracks }
 }

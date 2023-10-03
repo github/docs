@@ -36,7 +36,7 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js 16.x, which includes npm.
+1. Download and install Node.js 20.x, which includes npm.
 
    https://nodejs.org/en/download/
 1. Create a new public repository on {% data variables.location.product_location %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
@@ -71,7 +71,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'index.js'
 ```
 
@@ -285,3 +285,10 @@ jobs:
 
 - [`javascript-action` template repository](https://github.com/actions/javascript-action)
 - [`typescript-action` template repository](https://github.com/actions/typescript-action)
+
+## Example JavaScript actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of JavaScript actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [DevExpress/testcafe-action](https://github.com/DevExpress/testcafe-action)
+- [duckduckgo/privacy-configuration](https://github.com/duckduckgo/privacy-configuration)

@@ -26,107 +26,107 @@ These two examples show how to calculate the total nodes in a call.
 
 1. Simple query:
 
-  <pre>query {
-    viewer {
-      repositories(first: <span class="redbox">50</span>) {
-        edges {
-          repository:node {
-            name
+   <pre>query {
+     viewer {
+       repositories(first: <span class="redbox">50</span>) {
+         edges {
+           repository:node {
+             name
 
-            issues(first: <span class="greenbox">10</span>) {
-              totalCount
-              edges {
-                node {
-                  title
-                  bodyHTML
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }</pre>
+             issues(first: <span class="greenbox">10</span>) {
+               totalCount
+               edges {
+                 node {
+                   title
+                   bodyHTML
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   }</pre>
 
-  Calculation:
+   Calculation:
 
-  <pre><span class="redbox">50</span>         = 50 repositories
-   +
-  <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
+   <pre><span class="redbox">50</span>         = 50 repositories
+    +
+   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
 
-              = 550 total nodes</pre>
+               = 550 total nodes</pre>
 
 1. Complex query:
 
-  <pre>query {
-    viewer {
-      repositories(first: <span class="redbox">50</span>) {
-        edges {
-          repository:node {
-            name
+   <pre>query {
+     viewer {
+       repositories(first: <span class="redbox">50</span>) {
+         edges {
+           repository:node {
+             name
 
-            pullRequests(first: <span class="greenbox">20</span>) {
-              edges {
-                pullRequest:node {
-                  title
+             pullRequests(first: <span class="greenbox">20</span>) {
+               edges {
+                 pullRequest:node {
+                   title
 
-                  comments(first: <span class="bluebox">10</span>) {
-                    edges {
-                      comment:node {
-                        bodyHTML
-                      }
-                    }
-                  }
-                }
-              }
-            }
+                   comments(first: <span class="bluebox">10</span>) {
+                     edges {
+                       comment:node {
+                         bodyHTML
+                       }
+                     }
+                   }
+                 }
+               }
+             }
 
-            issues(first: <span class="greenbox">20</span>) {
-              totalCount
-              edges {
-                issue:node {
-                  title
-                  bodyHTML
+             issues(first: <span class="greenbox">20</span>) {
+               totalCount
+               edges {
+                 issue:node {
+                   title
+                   bodyHTML
 
-                  comments(first: <span class="bluebox">10</span>) {
-                    edges {
-                      comment:node {
-                        bodyHTML
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+                   comments(first: <span class="bluebox">10</span>) {
+                     edges {
+                       comment:node {
+                         bodyHTML
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
 
-      followers(first: <span class="bluebox">10</span>) {
-        edges {
-          follower:node {
-            login
-          }
-        }
-      }
-    }
-  }</code></pre>
+       followers(first: <span class="bluebox">10</span>) {
+         edges {
+           follower:node {
+             login
+           }
+         }
+       }
+     }
+   }</code></pre>
 
-  Calculation:
+   Calculation:
 
-  <pre><span class="redbox">50</span>              = 50 repositories
-   +
-  <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
-   +
-  <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 pullRequest comments
-   +
-  <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 issues
-   +
-  <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 issue comments
-   +
-  <span class="bluebox">10</span>              = 10 followers
+   <pre><span class="redbox">50</span>              = 50 repositories
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 pullRequest comments
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 issues
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 issue comments
+    +
+   <span class="bluebox">10</span>              = 10 followers
 
-                   = 22,060 total nodes</pre>
+                    = 22,060 total nodes</pre>
 
 ## Rate limit
 

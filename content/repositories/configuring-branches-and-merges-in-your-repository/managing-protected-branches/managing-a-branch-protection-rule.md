@@ -55,6 +55,12 @@ For more information about each of the available branch protection settings, see
 
 When you create a branch rule, the branch you specify doesn't have to exist yet in the repository.
 
+{% note %}
+
+**Note:** Actors may only be added to bypass lists when the repository belongs to an organization.
+
+{% endnote %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}

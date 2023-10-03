@@ -4,7 +4,6 @@ intro: 'You can stream audit and Git events data from {% data variables.product.
 versions:
   feature: audit-log-streaming
   ghec: '*'
-  ghes: '>=3.9'
 type: tutorial
 topics:
   - Auditing
@@ -40,6 +39,18 @@ The benefits of streaming audit data include:
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
 
 All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
+
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} uses an at-least-once delivery method. Due to certain network or system issues, some events may be duplicated.
+
+{% endnote %}
+
+{% ifversion ghes %}
+
+Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+
+{% endif %}
 
 ## Setting up audit log streaming
 
@@ -100,7 +111,7 @@ For information on creating or accessing your access key ID and secret key, see 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
 
-     ```
+     ```json
      "Condition": {
         "StringEquals": {
            "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",
@@ -282,7 +293,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
-{% ifversion ghec %}
+{% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
 
@@ -297,4 +308,6 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
 1. Under "API Requests", select **Enable API Request Events**.
-1. {% endif %}
+1. Click **Save**.
+
+{% endif %}

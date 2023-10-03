@@ -65,7 +65,7 @@ mutation createMigrationSource($name: String!, $ownerId: ID!) {
 
 {% data reusables.enterprise-migration-tool.createMigrationSource-table-ec %}
 
-#### `createMigrationSource` response
+### `createMigrationSource` response
 
 ```json
 {

@@ -21,7 +21,7 @@ permissions:
 
 # This allows one deploy workflow to interrupt another
 concurrency:
-  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
   cancel-in-progress: true
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     timeout-minutes: 5
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER }}
 
     steps:
       - name: 'Az CLI login'
@@ -40,12 +40,12 @@ jobs:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: Check out repo
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: .github/actions-scripts/get-preview-app-info.sh
+        run: src/workflows/get-preview-app-info.sh
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any in progress deployments'

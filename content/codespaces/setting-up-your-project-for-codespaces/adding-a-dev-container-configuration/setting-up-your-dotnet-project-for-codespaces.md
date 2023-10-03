@@ -22,6 +22,7 @@ This tutorial guide shows you how to set up an example C# (.NET) project {% data
 
 ## Step 1: Open the project in a codespace
 
+{% data reusables.getting-started.sign-in-dotcom %}
 1. Go to https://github.com/microsoft/vscode-remote-try-dotnet.
 {% data reusables.codespaces.use-this-template %}
 
@@ -50,7 +51,7 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
@@ -98,7 +99,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.add-comma-after-features %}
 
-   ```json copy
+   ```jsonc copy
      "features": {
        "ghcr.io/devcontainers/features/dotnet:1": {}
      },
@@ -109,21 +110,21 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `forwardPorts` property and change its value to port `5000` only.
 
-   ```json copy
+   ```jsonc copy
    // Use 'forwardPorts' to make a list of ports inside the container available locally.
    "forwardPorts": [5000],
    ```
 
 1. Uncomment the `postCreateCommand` property.
 
-   ```json copy
+   ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "dotnet restore",
    ```
 
 {% data reusables.codespaces.add-extension-to-devcontainer %}
 
-   ```json
+   ```jsonc
    // For format details, see https://aka.ms/devcontainer.json. For config options, see the
    // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
    {
@@ -163,7 +164,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.save-changes %}
 {% data reusables.codespaces.rebuild-command %}
-{% indented_data_reference reusables.codespaces.rebuild-reason %}
+   {% data reusables.codespaces.rebuild-reason %}
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, restoring the required dependencies, and the "Code Spell Checker" extension will be available for use.
 

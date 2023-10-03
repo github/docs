@@ -22,7 +22,7 @@ shortTitle: Create a codespace for a repo
 
 You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.prodname_dotcom_the_website %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
 
-Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
 
 {% data reusables.codespaces.when-you-can-create-codespaces %}
 
@@ -92,7 +92,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
       1. At the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and click **New with options**.
 
-      ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
+         ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
 
       1. On the options page for your codespace, choose your preferred options from the dropdown menus.
 
@@ -126,7 +126,7 @@ If you enter a value for a recommended secret, the secret will available in the 
 
 If the name of a secret is shown with a checkbox that is unavailable for selection, and no input box, this is because you already have a secret of this name configured in your personal settings for {% data variables.product.prodname_codespaces %}, and you have associated it with this repository. If you've created a secret of this name but have not associated it with this repository, the checkbox will be available to select and by doing so you can update your settings to add the association.
 
-If you want to change the value of a preselected secret you can do so from your personal settings for {% data variables.product.prodname_codespaces %} at [github.com/settings/codespaces](https://github.com/settings/codespaces). For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+If you want to change the value of a preselected secret you can do so from your personal settings for {% data variables.product.prodname_codespaces %} at [github.com/settings/codespaces](https://github.com/settings/codespaces). For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
 
 {% endwebui %}
 
@@ -168,3 +168,4 @@ For full details of the options for this command, see [the {% data variables.pro
 
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
+- "[AUTOTITLE](/rest/codespaces)" (REST API reference)

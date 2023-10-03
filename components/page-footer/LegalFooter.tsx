@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import cx from 'classnames'
-import { useTranslation } from '../hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const LegalFooter = () => {
   const router = useRouter()

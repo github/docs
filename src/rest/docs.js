@@ -2,7 +2,7 @@
 
 import chalk from 'chalk'
 import { readFile } from 'fs/promises'
-import { allVersions } from '../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 // Translate the docs versioning nomenclature back to the OpenAPI names
 const invertedVersionMapping = JSON.parse(await readFile('src/rest/lib/config.json')).versionMapping
@@ -35,6 +35,13 @@ log(
   chalk.cyan.bold('  - Dotcom and next calendar date version:') +
     ' ' +
     chalk.magenta('npm run sync-rest -- --next --versions api.github.com ; npm run dev'),
+)
+log(
+  chalk.cyan.bold('  - Dotcom only, including unpublished operations:') +
+    '   ' +
+    chalk.magenta(
+      'npm run sync-rest -- --versions api.github.com --include-unpublished ; npm run dev',
+    ),
 )
 log(chalk.green.bold.underline('\nWebhook docs\n'))
 log(chalk.green.bold('  Examples of ways you can build the Webhook docs locally:\n'))

@@ -36,7 +36,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
 
 ### Keyboard shortcuts for Windows
@@ -47,7 +47,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ### Keyboard shortcuts for Linux
@@ -58,7 +58,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %}
@@ -77,22 +77,112 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
 
-1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
-1. Under **Languages & Frameworks**, click **{% data variables.product.prodname_copilot %}**.
+{% data reusables.copilot.jetbrains-settings %}
+{% data reusables.copilot.jetbrains-languages-and-frameworks %}
 1. Edit the settings according to your personal preferences.
    - To adjust the behavior and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
    - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
-   - Under "Disabled languages," use the checkboxes to select or deselect the languages you want to disable {% data variables.product.prodname_copilot %} for.
 
-## Configuring proxy settings for {% data variables.product.prodname_copilot %}
+## Configuring language settings for {% data variables.product.prodname_copilot %}
 
-You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in a JetBrains IDE. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication.
+You can specify which languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for either in the IDE or by editing your `github-copilot.xml` file. If you make changes to language settings in your IDE, you can individually select and deselect the languages you want to activate or deactivate.
 
-1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
-1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
-1. Select **Manual proxy configuration**, and then select **HTTP**.
-1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
-1. Optionally, in the left sidebar, click **Tools** and then click **Server Certificates**. Then select or deselect **Accept non-trusted certificates automatically**, depending on whether you want to accept non-trusted certificates automatically.
+If you make changes to the language settings in your `github-copilot.xml` file, you can specify individual languages, or you can use a wildcard to activate or deactivate {% data variables.product.prodname_copilot %} for all languages. You can also specify exceptions, which will override the wild card setting for the specified languages. For example, you can deactivate {% data variables.product.prodname_copilot %} for all languages, except for Python and YAML. By default, when you install the {% data variables.product.prodname_copilot %} extension, {% data variables.product.prodname_copilot %} is activated for all languages.
+
+### Configuring language settings in the IDE
+
+{% data reusables.copilot.jetbrains-settings %}
+{% data reusables.copilot.jetbrains-languages-and-frameworks %}
+1. Under "Languages," select or deselect the checkboxes for the languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for.
+1. Click **Apply**, and then click **OK**.
+1. Restart your JetBrains IDE for the changes to take effect.
+
+### Editing your `github-copilot.xml` file
+
+To configure language settings in the `github-copilot.xml` file, you must edit the `languageAllowList`. Every line you add to the `languageAllowList` must contain an entry key and a value. The entry key is the name of the language, or (`*`) for a wildcard. The value is either `true` or `false`. If the value is `true`, {% data variables.product.prodname_copilot %} is activated for the specified language. If the value is `false`, {% data variables.product.prodname_copilot %} is deactivated for the specified language.
+
+The file is located in the following directory:
+
+- **macOS**: `~/Library/Application Support/JetBrains/<product><version>/options/github-copilot.xml`
+- **Windows**: `%APPDATA%\JetBrains\<product><version>\options\github-copilot.xml`
+- **Linux**: `~/.config/JetBrains/<product><version>/options/github-copilot.xml`
+
+For example, if you are using IntelliJ IDEA 2021.1 on macOS, the file is located at `~/Library/Application Support/JetBrains/IdeaIC2021.1/options/github-copilot.xml`.
+
+The `github-copilot.xml` file might not be generated until you make a change to your default language configuration in the IDE's settings. If you cannot locate the file, you should try modifying the default language settings in the IDE. For more information, see "[Configuring language settings in the IDE](#configuring-language-settings-in-the-ide)."
+
+Alternatively, you can create the file manually and save it in the location for your operating system listed above. For more information, see "[Example language configurations](#example-language-configurations)."
+
+1. Open the `github-copilot.xml` file in a text editor.
+1. Between the `<map>` tags, add the line or lines for the languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for. For example, to deactivate {% data variables.product.prodname_copilot %} for all languages:
+
+    ```xml copy
+    <entry key="*" value="false" />
+    ```
+
+1. Save the changes to the `github-copilot.xml` file.
+1. Restart your JetBrains IDE for the changes to take effect.
+
+### Example language configurations
+
+The default configuration of the `github-copilot.xml` file, which enables {% data variables.product.prodname_copilot %} for all languages is as follows:
+
+```xml copy
+<application>
+  <component name="github-copilot">
+    <languageAllowList>
+      <map>
+        <entry key="*" value="true" />
+      </map>
+    </languageAllowList>
+  </component>
+</application>
+```
+
+To deactivate {% data variables.product.prodname_copilot %} for all languages, the wildcard (`*`) value is changed to `false`:
+
+```xml copy
+<application>
+  <component name="github-copilot">
+    <languageAllowList>
+      <map>
+        <entry key="*" value="false" />
+      </map>
+    </languageAllowList>
+  </component>
+</application>
+```
+
+To specify languages individually, add an entry for each language you want to activate or deactivate {% data variables.product.prodname_copilot %} for. Specific language settings will override the wildcard. For example, to activate {% data variables.product.prodname_copilot %} for Python and YAML, and deactivate {% data variables.product.prodname_copilot %} for all other languages, add the following entries:
+
+```xml copy
+<application>
+  <component name="github-copilot">
+    <languageAllowList>
+      <map>
+        <entry key="*" value="false" />
+        <entry key="Python" value="true" />
+        <entry key="YAML" value="true" />
+      </map>
+    </languageAllowList>
+  </component>
+</application>
+```
+
+You can also add a configuration to make the `languageAllowList` readonly in the IDE's settings. This will prevent you from changing the language settings in the IDE. For example:
+
+```xml copy
+<application>
+  <component name="github-copilot">
+    <option name="languageAllowListReadOnly" value="true" />
+    <languageAllowList>
+      <map>
+        <entry key="*" value="true" />
+      </map>
+    </languageAllowList>
+  </component>
+</application>
+```
 
 {% data reusables.copilot.dotcom-settings %}
 
@@ -118,7 +208,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |:---|:---|:---|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>.</kbd>|Tools.Nextsuggestion|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Tools.Previoussuggestion|
-|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
+|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
 ### Rebinding keyboard shortcuts
 
@@ -176,7 +266,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> |editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\\</kbd><br> |editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Return</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
@@ -188,7 +278,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
@@ -200,7 +290,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
@@ -308,16 +398,6 @@ After you have revoked authorization, if you want to continue using {% data vari
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Continue**.
 1. In the "Open {% data variables.product.prodname_vscode %}?" pop-up, click **Open {% data variables.product.prodname_vscode %}**.
-
-## Configuring proxy settings for {% data variables.product.prodname_copilot %}
-
-You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication.
-
-{% data reusables.copilot.vscode-settings %}
-1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
-1. In the textbox under "Proxy", type the address of your proxy server, for example `http://localhost:3128`. Alternatively, {% data variables.product.prodname_copilot %} will use the `http_proxy` and `https_proxy` variables from your environment.
-1. Optionally, under "Proxy Authorization", click **Edit in settings.json** and add your required value to send as the `Proxy-Authorization` header for every network request.
-1. Optionally, under "Proxy Strict SSL", select or deselect the checkbox to enable or disable strict SSL.
 
 {% data reusables.copilot.dotcom-settings %}
 

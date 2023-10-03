@@ -32,7 +32,7 @@ jobs:
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Checkout
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - uses: ./.github/actions/node-npm-setup
       - name: Run updater scripts
         env:
@@ -66,7 +66,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
-        run: node .github/actions-scripts/enable-automerge.js
+        run: node src/workflows/enable-automerge.js
 
       - if: ${{ failure() && env.FREEZE != 'true'}}
         name: Delete remote branch (if previous steps failed)

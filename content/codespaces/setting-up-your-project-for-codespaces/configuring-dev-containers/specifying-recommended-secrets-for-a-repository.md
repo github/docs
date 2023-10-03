@@ -32,7 +32,7 @@ Recommended secrets are listed at the bottom of the page.
 
 Each recommended secret is displayed in one of three ways:
 
-- If the person has not set the recommended secret in their {% data variables.product.prodname_codespaces %} settings, an input box is displayed, allowing them to create the secret now. A description and link to more information are displayed if you have configured them. Entering a value is optional. 
+- If the person has not set the recommended secret in their {% data variables.product.prodname_codespaces %} settings, an input box is displayed, allowing them to create the secret now. A description and link to more information are displayed if you have configured them. Entering a value is optional.
 - If the person has already created the recommended secret but has not associated it with this repository, they can select a checkbox to add this association. Doing so is optional.
 - If the person has already created the recommended secret and associated it with this repository, a preselected checkbox is displayed.
 
@@ -40,7 +40,7 @@ Each recommended secret is displayed in one of three ways:
 
 You should use recommended secrets for secrets that the user who creates the codespace, rather than the owner of the repository or organization, must provide. For example, if you have a public project, and users must provide a personal API key to run the application in your project, you can specify a recommended secret so that users will be prompted to provide the key as the value of the secret when they use the advanced options page to create a codespace.
 
-Alternatively, for secrets that the owner of the repository or organization can provide, such as API keys shared across a team, you can set secrets at the level of the repository or organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)."
+Alternatively, for secrets that the owner of the repository or organization can provide, such as API keys shared across a team, you can set secrets at the level of the repository or organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces)."
 
 ## Specifying recommended secrets in the dev container configuration
 

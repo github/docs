@@ -1,6 +1,6 @@
 ---
 title: resolve ml-models
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -41,9 +41,11 @@ command line arguments.
 
 This command is deprecated. Use [codeql resolve extensions](/code-security/codeql-cli/codeql-cli-manual/resolve-extensions) instead.
 
-## Primary options
+## Options
 
-#### `<querysuite|pack>...`
+### Primary Options
+
+#### `<querysuite|pack>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:
@@ -99,8 +101,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

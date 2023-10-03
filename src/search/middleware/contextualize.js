@@ -1,5 +1,6 @@
 import got from 'got'
 import { errors } from '@elastic/elasticsearch'
+import statsd from '#src/observability/lib/statsd.js'
 
 import { getPathWithoutVersion, getPathWithoutLanguage } from '../../../lib/path-utils.js'
 import { getSearchFromRequest } from './get-search-request.js'
@@ -61,8 +62,10 @@ export default async function contextualizeSearch(req, res, next) {
       // In local dev, you get to see the error. In production,
       // you get a "Oops! Something went wrong" which involves a Failbot
       // send.
+      const tags = [`indexName:${search.indexName}`]
+      const timed = statsd.asyncTimer(getSearchResults, 'contextualize.search', tags)
       try {
-        req.context.search.results = await getSearchResults(search)
+        req.context.search.results = await timed(search)
       } catch (error) {
         // If the error coming from the Elasticsearch client is any sort
         // of 4xx error, it will be bubbled up to the next middleware

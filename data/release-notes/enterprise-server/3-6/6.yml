@@ -36,3 +36,6 @@ sections:
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
     - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

@@ -10,7 +10,6 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
 versions:
   fpt: '*'
-  ghec: '*'
 type: how_to
 topics:
   - Discounts
@@ -22,7 +21,13 @@ topics:
 
 {% data reusables.dotcom_billing.coupon-expires %}
 
-You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
+{% note %}
+
+**Notes:**
+- You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
+- You cannot use coupons to pay for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise#about-billing-for-your-enterprise)."
+
+{% endnote %}
 
 ## Redeeming a coupon for your personal account
 

@@ -12,8 +12,8 @@ import { existsSync } from 'fs'
 import assert from 'assert'
 import { program, Option } from 'commander'
 
-import { languageKeys } from '../../../lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import searchSync from './sync.js'
 
 const shortNames = Object.fromEntries(

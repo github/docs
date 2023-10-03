@@ -20,7 +20,7 @@ Each mannequin only has a display name, which comes from the display name in the
 
 ![Screenshot of the header of an issue comment. The commenter is labeled as a mannequin, and the "Mannequin" label is outlined in dark orange.](/assets/images/help/github-enterprise-importer/mannequin-example.png)
 
-{% data reusables.enterprise-migration-tool.how-to-reclaim %} You can also view the status of all attribution invitations. After the person accepts the invitation, the mannequin is reclaimed.
+{% data reusables.enterprise-migration-tool.how-to-reclaim %}
 
 Reclaiming is optional and can happen any time after a migration is finished. For this reason, you can allow your team to begin working in migrated repositories before reclaiming.
 
@@ -28,22 +28,26 @@ Mannequins are not used for Git commit attribution. For more details about commi
 
 ## Reclaiming mannequins
 
-You can reclaim a mannequin by sending an attribution invitation to an organization member, either with the {% data variables.product.prodname_cli %} or in your browser.
-
-{% note %}
-
-**Note:** You can only send attribution invitations to organization members. Before attempting to reclaim a mannequin, verify that the {% data variables.product.prodname_dotcom %} user you want to invite is already added to the organization.
-
-{% endnote %}
-
-The member can choose to accept or reject the invitation. After a member accepts an attribution invitation, all contributions previously attributed to the mannequin will be attributed to the member instead. In future migrations to the same organization, any contributions from the same mannequin will be automatically reclaimed for the same member.
-
-{% data variables.product.prodname_importer_proper_name %} does not migrate user access to repositories. After reclaiming mannequins, if any of the members do not already have appropriate access to the repository via team membership, you must separately give the members access to the repository. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
-
 You can reclaim mannequins with {% data variables.product.prodname_cli %} (recommended) or the browser.
 
 - [Reclaiming mannequins with the {% data variables.product.prodname_cli %} (recommended)](#reclaiming-mannequins-with-the-github-cli-recommended)
 - [Reclaiming mannequins in your browser](#reclaiming-mannequins-in-your-browser)
+
+By default, reclaiming a mannequin will send an attribution invitation to the target user.
+
+The target user can choose to accept or reject the invitation. After a user accepts an attribution invitation, all contributions previously attributed to the mannequin will be attributed to the user instead. In future migrations to the same organization, any contributions from the same mannequin will be automatically reclaimed for the same user.
+
+If your organization uses {% data variables.product.prodname_emus %} and you choose to reclaim mannequins with the {% data variables.product.prodname_cli %}, you can optionally skip the invitation process, immediately reclaiming the mannequin without the user's approval.
+
+{% note %}
+
+**Notes:**
+- You cannot reclaim mannequins after you have transferred a repository to another organization. If you wish to transfer a repository to another organization after your migration, you must reclaim the mannequins before the transfer.
+- When reclaiming mannequins, you can only target existing organization members. Before attempting to reclaim a mannequin, verify that the {% data variables.product.prodname_dotcom %} user you want to invite is already added to the organization.
+
+{% endnote %}
+
+{% data variables.product.prodname_importer_proper_name %} does not migrate user access to repositories. After reclaiming mannequins, if any of the users do not already have appropriate access to the repository via team membership, you must separately give the users access to the repository. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
 
 ### Reclaiming mannequins with the {% data variables.product.prodname_cli %} (recommended)
 
@@ -62,14 +66,15 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 
-- To generate a CSV file with a list of mannequins for an organization, use the `gh gei generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
+   - To generate a CSV file with a list of mannequins for an organization, use the `gh gei generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
-{% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
+     {% data reusables.enterprise-migration-tool.include-reclaimed %}
 
-    ```shell copy
-    gh gei generate-mannequin-csv --github-target-org DESTINATION --output FILENAME.csv
-    ```
-{% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
+     ```shell copy
+     gh gei generate-mannequin-csv --github-target-org DESTINATION --output FILENAME.csv
+     ```
+
+   {% data reusables.enterprise-migration-tool.edit-csv %}
 1. To reclaim mannequins, use the `gh gei reclaim-mannequin` command.
 
    {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
@@ -94,14 +99,15 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 
-- To generate a CSV file with a list of mannequins for an organization, use the `gh ado2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
+   - To generate a CSV file with a list of mannequins for an organization, use the `gh ado2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
-{% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
+     {% data reusables.enterprise-migration-tool.include-reclaimed %}
 
-      ```shell copy
-      gh ado2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
-      ```
-{% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
+     ```shell copy
+     gh ado2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
+     ```
+
+   {% data reusables.enterprise-migration-tool.edit-csv %}
 1. To reclaim mannequins, use the `gh ado2gh reclaim-mannequin` command.
 
     {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
@@ -138,8 +144,8 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
 You can view the status of all attribution invitations for your organization.
 
-- Invited: The user has not replied to the invitation yet.
-- Completed: The user has accepted, and their contributions have been reattributed.
+- Invited: The user has been sent an invitation, but has not replied to the invitation yet.
+- Completed: The user has accepted, or the invitation process was skipped. The user's contributions have been reattributed.
 - Rejected: The user chose not to be credited for the mannequin's contributions.
 
 {% data reusables.profile.access_org %}

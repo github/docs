@@ -17,9 +17,13 @@ shortTitle: Your business subscription
 
 {% endnote %}
 
+## About managing your {% data variables.product.prodname_copilot_for_business %} subscription
+
+This article applies to setting up and managing a {% data variables.product.prodname_copilot %} subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. If you want to set up {% data variables.product.prodname_copilot %} for your personal account, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account)."
+
 {% ifversion ghec %}
 
-You can set up a {% data variables.product.prodname_copilot_for_business %} subscription for your organization or enterprise account. If you set up a subscription for your organization account, you can grant access to {% data variables.product.prodname_copilot %} for individuals and teams within your organization. If you set up a subscription for your enterprise account, you can grant access to {% data variables.product.prodname_copilot %} for organizations within your enterprise.
+You can set up a {% data variables.product.prodname_copilot_business_short %} subscription for your organization or enterprise account. If you set up a subscription for your organization account, you can grant access to {% data variables.product.prodname_copilot %} for individuals and teams within your organization. If you set up a subscription for your enterprise account, you can grant access to {% data variables.product.prodname_copilot %} for organizations within your enterprise.
 
 ## Setting up a {% data variables.product.prodname_copilot_business_short %} subscription for your enterprise
 

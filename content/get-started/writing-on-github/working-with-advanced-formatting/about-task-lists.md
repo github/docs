@@ -8,10 +8,7 @@ redirect_from:
   - /issues/tracking-your-work-with-issues/creating-issues/about-task-lists
   - /issues/tracking-your-work-with-issues/about-task-lists
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: task-lists-v1
 topics:
   - Pull requests
   - Issues
@@ -20,7 +17,7 @@ topics:
 {% ifversion projects-v2-tasklists %}
 {% note %}
 
-**Note:** For more information about the new iteration of tasklists, which is currently in a private beta, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+**Note:** For more information about the new iteration of tasklists, which is currently in beta, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 {% endnote %}
 {% endif %}
@@ -76,7 +73,8 @@ Any issues that are referenced in a task list specify that they are tracked by t
 
 {% endif %}
 
+{% ifversion code-scanning-task-lists %}
+
 ## Further reading
 
-{% ifversion code-scanning-task-lists %}
-- "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+- "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

@@ -40,7 +40,7 @@ Certain GitLab constructs must be migrated manually. These include:
 - Masked project or group variable values
 - Artifact reports
 
-For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manual-migrations/migrating-from-gitlab-cicd-to-github-actions)."
+For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions)."
 
 ## Installing the {% data variables.product.prodname_actions_importer %} CLI extension
 
@@ -50,7 +50,7 @@ For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-t
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with GitLab and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
 
    Your token must have the `workflow` scope.
 
@@ -78,15 +78,15 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    $ gh actions-importer configure
-  ✔ Which CI providers are you configuring?: GitLab
-  Enter the following values (leave empty to omit):
-  ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
-  ✔ Base url of the GitHub instance: https://github.com
-  ✔ Private token for GitLab: ***************
-  ✔ Base url of the GitLab instance: http://localhost
-  Environment variables successfully updated.
-
+   ✔ Which CI providers are you configuring?: GitLab
+   Enter the following values (leave empty to omit):
+   ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
+   ✔ Base url of the GitHub instance: https://github.com
+   ✔ Private token for GitLab: ***************
+   ✔ Base url of the GitLab instance: http://localhost
+   Environment variables successfully updated.
    ```
+
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
@@ -144,7 +144,7 @@ To forecast an entire namespace and all of its subgroups, you must specify each 
 
 For example:
 
-```
+```shell
 gh actions-importer forecast gitlab --namespace my-gitlab-namespace my-gitlab-namespace/subgroup-one my-gitlab-namespace/subgroup-two ...
 ```
 
@@ -195,13 +195,13 @@ To migrate a GitLab pipeline to {% data variables.product.prodname_actions %}, r
 - `my-gitlab-project` with the URL for your GitLab project
 - `my-gitlab-namespace` with the namespace or group you are migrating
 
-```
+```shell
 gh actions-importer migrate gitlab --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --namespace my-gitlab-namespace --project my-gitlab-project
 ```
 
 The command's output includes the URL to the pull request that adds the converted workflow to your repository. An example of a successful output is similar to the following:
 
-```
+```shell
 $ gh actions-importer migrate gitlab --target-url https://github.com/octo-org/octo-repo --output-dir tmp/migrate --namespace octo-org --project monas-project
 [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/actions-importer-20220916-014033.log'
 [2022-08-20 22:08:20] Pull request: 'https://github.com/octo-org/octo-repo/pull/1'
@@ -261,8 +261,8 @@ The `--config-file-path` argument can also be used to specify which repository a
 
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file to perform an audit.
 
-```bash
-gh actions-importer audit gitlab --output-dir path/to/output/ --config-file-path path/to/gitlab/config.yml
+```shell
+gh actions-importer audit gitlab --output-dir path/to/output/ --namespace my-gitlab-namespace --config-file-path path/to/gitlab/config.yml
 ```
 
 To audit a GitLab instance using a configuration file, the file must be in the following format, and each `repository_slug` value must be unique:
@@ -281,7 +281,7 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 
 The pipeline is selected by matching the `repository_slug` in the configuration file to the value of the `--namespace` and `--project` options. The `path` is then used to pull the specified source file.
 
-```bash
+```shell
 gh actions-importer dry-run gitlab --namespace my-gitlab-namespace --project my-gitlab-project-name --output-dir ./output/ --config-file-path ./path/to/gitlab/config.yml
 ```
 
@@ -291,7 +291,7 @@ gh actions-importer dry-run gitlab --namespace my-gitlab-namespace --project my-
 
 To begin, you should run an audit without the `--config-file-path` argument:
 
-```bash
+```shell
 gh actions-importer audit gitlab --output-dir ./output/
 ```
 
@@ -306,13 +306,13 @@ reusable_workflows:
 
 You can use this file to specify which repository and ref a reusable workflow or composite action should be added to. You can then use the `--config-file-path` argument to provide the `config.yml` file to {% data variables.product.prodname_actions_importer %}. For example, you can use this file when running a `migrate` command to open a pull request for each unique repository defined in the config file:
 
-```bash
+```shell
 gh actions-importer migrate gitlab --project my-project-name --output-dir output/ --config-file-path config.yml --target-url https://github.com/my-org/my-repo
 ```
 
 ### Supported syntax for GitLab pipelines
 
-The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how GitLab pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manual-migrations/migrating-from-gitlab-cicd-to-github-actions)".
+The following table shows the type of properties {% data variables.product.prodname_actions_importer %} is currently able to convert. For more details about how GitLab pipeline syntax aligns with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions)".
 
 | GitLab Pipelines                        | GitHub Actions                  | Status                      |
 | :-------------------------------------- | :------------------------------ | :-------------------------- |

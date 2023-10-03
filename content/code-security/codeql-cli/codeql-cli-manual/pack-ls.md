@@ -1,6 +1,6 @@
 ---
 title: pack ls
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -39,9 +39,11 @@ this directory. This directory must contain a qlpack.yml or
 
 Available since `v2.7.1`.
 
-## Primary options
+## Options
 
-#### `<dir>`
+### Primary Options
+
+#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
 
 The root directory of the package or workspace, defaults to the current
 working directory. If this parameter points to a directory containing a
@@ -61,8 +63,8 @@ List of CodeQL pack groups to include or exclude from this operation. A
 qlpack in the given workspace is included if:
 
 - It is in at least one of the groups listed without a minus sign (this
-    condition is automatically satisfied if there are no groups listed
-    without a minus sign), and
+  condition is automatically satisfied if there are no groups listed
+  without a minus sign), and
 - It is not in any group listed with a minus sign
 
 ### Common options

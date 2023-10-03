@@ -16,8 +16,8 @@ import chalk from 'chalk'
 import dotenv from 'dotenv'
 
 import { retryOnErrorTest } from '../../../script/helpers/retry-on-error-test.js'
-import { languageKeys } from '../../../lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import statsd from '#src/observability/lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
@@ -137,7 +137,7 @@ async function main(opts, args) {
       // All ElasticsearchClientError error subclasses have a `name` and
       // `message` but only some have a `meta`.
       if (error.meta) {
-        console.error(`Error meta: ${error.meta}`)
+        console.error('Error meta: %O', error.meta)
       }
       throw new Error(error.message)
     }

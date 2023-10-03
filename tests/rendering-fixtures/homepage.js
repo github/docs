@@ -16,11 +16,16 @@ describe('home page', () => {
     const main = $('[data-testid="product"]')
     const links = main.find('a[href*="/"]')
     const hrefs = links.map((i, link) => $(link)).get()
+    let externalLinks = 0
     for (const href of hrefs) {
-      const res = await get(href.attr('href'))
-      expect(res.statusCode).toBe(200) // Not needing to redirect
-      expect(href.text().includes('{%')).toBe(false)
+      if (!href.attr('href').startsWith('https://')) {
+        const res = await get(href.attr('href'))
+        expect(res.statusCode).toBe(200) // Not needing to redirect
+        expect(href.text().includes('{%')).toBe(false)
+      } else {
+        externalLinks++
+      }
     }
-    expect.assertions(hrefs.length * 2)
+    expect.assertions((hrefs.length - externalLinks) * 2)
   })
 })

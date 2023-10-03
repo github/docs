@@ -11,7 +11,7 @@ topics:
   - API
 ---
 
-Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)
+Building an application that integrates with {% data variables.product.prodname_dotcom %}? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register).
 
 ## Scratch an itch
 
@@ -23,7 +23,8 @@ Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to re
 
 ## Have an integration that works with GitHub?
 
-Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
+Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:
+
 - [Let us know about your integration](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration).
 - Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub.
 - Post a video or a blog on your website about your integration.

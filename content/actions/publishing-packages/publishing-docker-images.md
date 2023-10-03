@@ -15,6 +15,7 @@ topics:
   - Packaging
   - Publishing
   - Docker
+layout: inline
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -35,7 +36,7 @@ We recommend that you have a basic understanding of workflow configuration optio
 
 You might also find it helpful to have a basic understanding of the following:
 
-- "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"
+- "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
 - "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)"{% else %}
 - "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-docker-registry)"{% endif %}
@@ -63,7 +64,7 @@ In the example workflow below, we use the Docker `login-action` and `build-push-
 To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 The `login-action` options required for Docker Hub are:
-- `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+- `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 The `metadata-action` option required for Docker Hub is:
 - `images`: The namespace and name for the Docker image you are building/pushing to Docker Hub.
@@ -140,7 +141,7 @@ The `build-push-action` options required for {% data variables.product.prodname_
 - `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
 - `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
 - `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
-- `tags`: Must be set in the format {% ifversion ghes %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`. 
+- `tags`: Must be set in the format {% ifversion ghes %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
   
    For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
   

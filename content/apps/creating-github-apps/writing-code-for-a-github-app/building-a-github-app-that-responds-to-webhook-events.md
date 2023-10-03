@@ -248,13 +248,13 @@ http.createServer(middleware).listen(port, () => {
 
 1. In your `package.json` file, add a top level key `type` with the value `module`. For example:
 
-   ```json
+   ```jsonc
       {
-       ...rest of the JSON object,
+       // rest of the JSON object,
        "version": "1.0.0",
        "description": "",
        "type": "module",
-       ...rest of the JSON object,
+       // rest of the JSON object,
      }
    ```
 
@@ -308,7 +308,7 @@ For testing, you will use your computer or codespace as a server. Your app will 
 
    You should see output that looks like this, where `WEBHOOK_PROXY_URL` is your webhook proxy URL:
 
-   ```
+   ```shell
    Forwarding WEBHOOK_PROXY_URL to http://localhost:3000/api/webhook
    Connected WEBHOOK_PROXY_URL
    ```

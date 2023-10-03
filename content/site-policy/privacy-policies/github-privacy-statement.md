@@ -201,7 +201,7 @@ Additionally, if you are unable to access certain personal data we have via the 
 
 ### Data portability
 
-As a GitHub User, you can always take your data with you. You can [clone your repositories to your desktop](/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop), for example, or you can use our [Data Portability tools](https://developer.github.com/changes/2018-05-24-user-migration-api/) to download information we have about you.
+As a GitHub User, you can always take your data with you. You can [clone your repositories to your desktop](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop), for example, or you can use our [Data Portability tools](https://developer.github.com/changes/2018-05-24-user-migration-api/) to download information we have about you.
 
 ### Communication preferences
 
@@ -303,7 +303,7 @@ We transfer personal data from the European Union, the United Kingdom, and Switz
 
 If you have a privacy inquiry or concerns about the way GitHub is handling your personal data, please let us know immediately. We want to help. You may contact us by filling out the [Privacy contact form](https://support.github.com/contact/privacy). We will respond promptly.
 
-Our addresses are:
+Our address is:
 
 **GitHub Privacy Team**
 
@@ -311,16 +311,6 @@ GitHub, Inc. <br/>
 88 Colin P. Kelly Jr. St. <br/>
 San Francisco, CA 94107 <br/>
 United States
-
-[Privacy contact form](https://support.github.com/contact/privacy)
-
-**GitHub Data Protection Officer**
-
-c/o DP Dock DPO Services GmbH, <br/>
-Attn: GitHub BV, Gut Projensdorf, <br/>
-24161 Altenholz, Germany
-
-CC: GitHub BV, Vijzelstraat 68-72, 1017 HL Amsterdam, The Netherlands
 
 [Privacy contact form](https://support.github.com/contact/privacy)
 
@@ -347,7 +337,7 @@ Below are translations of this document into other languages. In the event of an
 
 ### French
 
-Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(FR).pdf)
+Cliquez ici pour obtenir la version française: [Déclaration de confidentialité de GitHub (PDF)](/assets/images/help/site-policy/github-privacy-statement(07.22.20)(fr).pdf)
 
 ### Other translations
 

@@ -84,16 +84,6 @@ When looking directly at an STL file on {% data variables.product.product_name %
 - Scroll to zoom in and out.
 - Click the different view modes to change the view.
 
-### Diffs
-
-When looking at a commit or set of changes which includes an STL file, you'll be able to see a before and after diff of the file.
-
-By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
-
-![Screenshot of the diff for a STL file. Portions of a 3D object are red, and other portions are green.](/assets/images/help/repository/stl_wireframe.png)
-
-You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
-
 ### Fixing slow performance
 
 If you see {% octicon "info" aria-label="the info icon" %} in the corner of the viewer, with the tooltip "WebGL powered hardware support not available," then the WebGL technology is not available on your browser.
@@ -137,7 +127,7 @@ You can embed ASCII STL syntax directly in Markdown. For more information, see "
 
 {% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of _.csv_ (comma-separated) and ._tsv_ (tab-separated) files.
 
-![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered_csv.png)
+![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered-csv.png)
 
 When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. By default, we'll always assume the first row is your header row.
 
@@ -151,7 +141,7 @@ If you want to find a certain value in your dataset, you can start typing in the
 
 Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, a message appears above your raw text, suggesting what the error may be.
 
-![Screenshot of a text view of a CSV file. In the header, a message points out an error: "No commas found in this CSV file in line 0."](/assets/images/help/repository/csv_render_error.png)
+![Screenshot of a text view of a CSV file. In the header, a message points out an error: "No commas found in this CSV file in line 0."](/assets/images/help/repository/csv-render-error.png)
 
 Common errors include:
 
@@ -187,11 +177,11 @@ Prose rendering is supported for rendered documents supported by [github/markup]
 
 To see the changes made to the document as part of a commit, click {% octicon "file" aria-label="Display the rich diff" %}.
 
-![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered_prose_diff.png)
+![Screenshot of the diff for a Markdown file. In the header of the file, a file icon is outlined in dark orange.](/assets/images/help/repository/rendered-prose-diff.png)
 
 This "rich diff" highlights the code that has been added and removed.
 
-![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered_prose_changes.png)
+![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered-prose-changes.png)
 
 ### Disabling Markdown rendering
 
@@ -203,7 +193,7 @@ We provide a tooltip
 describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
 another, we'd show a tooltip like this:
 
-![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose_diff_attributes.png)
+![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose-diff-attributes.png)
 
 ### Commenting on changes
 
@@ -244,7 +234,7 @@ You can customize the way features are displayed, such as specifying a particula
 
 - `marker-size` - `small`, `medium`, or `large`
 - `marker-color` - valid RGB hex color
-- `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
+- `marker-symbol` - an icon ID from [the Maki project](https://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
 - `stroke` - color of a polygon edge or line (RGB)
 - `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
 - `stroke-width` - width of a polygon edge or line
@@ -256,7 +246,7 @@ See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simpl
 
 ### Embedding your map elsewhere
 
-Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (for example, [{% data variables.product.prodname_pages %}](https://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -295,7 +285,7 @@ The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap
 
 ### Troubleshooting GeoJSON/TopoJSON files
 
-If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
+If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (for example, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
 
 Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that says we can't show files that large.
 
@@ -342,7 +332,7 @@ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 
 For example, if you add a `.mmd` file with the following content to your repository:
 
-```
+```text
 graph TD
     A[Friend's Birthday] -->|Get money| B(Go shopping)
     B --> C{Let me think}

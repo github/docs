@@ -83,7 +83,7 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)." Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite)." Although only the `completed` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -404,7 +404,6 @@ For example, you can run a workflow when the `checks_requested` activity has occ
 on:
   merge_group:
     types: [checks_requested]
-
 ```
 
 {% endif %}
@@ -764,7 +763,7 @@ on:
 
 jobs:
   approved:
-    if: github.event.review.state == 'approved'
+    if: github.event.review.state == 'APPROVED'
     runs-on: ubuntu-latest
     steps:
       - run: echo "This PR was approved"
@@ -942,7 +941,7 @@ jobs:
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag.
+Runs your workflow when you push a commit or tag, or when you create a repository from a template.
 
 For example, you can run a workflow when the `push` event occurs.
 
@@ -1177,7 +1176,7 @@ The `schedule` event allows you to trigger a workflow at a scheduled time.
 
 Cron syntax has five fields separated by a space, and each field represents a unit of time.
 
-```
+```text
 ┌───────────── minute (0 - 59)
 │ ┌───────────── hour (0 - 23)
 │ │ ┌───────────── day of the month (1 - 31)
@@ -1247,11 +1246,11 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`watch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch) | - `starred` | Last commit on default branch | Default branch |
+| [`watch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch) | - `started` | Last commit on default branch | Default branch |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `starred` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1259,12 +1258,12 @@ jobs:
 
 Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[AUTOTITLE](/rest/activity#starring)" in the REST API documentation.
 
-For example, you can run a workflow when someone stars a repository, which is the `starred` activity type for a watch event.
+For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
 
 ```yaml
 on:
   watch:
-    types: [starred]
+    types: [started]
 ```
 
 ## `workflow_call`
@@ -1345,7 +1344,7 @@ If you run this workflow from a browser you must enter values for the required i
 
 You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
 
-```
+```shell
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 

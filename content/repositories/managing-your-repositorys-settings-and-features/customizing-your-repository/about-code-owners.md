@@ -34,11 +34,19 @@ If a file has a code owner, you can see who the code owner is before you open a 
 
 ## CODEOWNERS file location
 
-To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `docs/`, or `.github/` directory of the repository, in the branch where you'd like to add the code owners.
+To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the `.github/`, root, or `docs/` directory of the repository, in the branch where you'd like to add the code owners. If `CODEOWNERS` files exist in more than one of those locations, {% data variables.product.prodname_dotcom %} will search for them in that order and use the first one it finds.
 
 Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for _.js_ files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to _.js_ files is opened between the head branch and `gh-pages`.
+
+## CODEOWNERS and forks
+
+To trigger review requests, pull requests use the version of `CODEOWNERS` from the base branch of the pull request. The base branch is the branch that a pull request will modify if the pull request is merged.
+
+If you create a pull request from a fork, and the base branch is in the upstream repository, then the pull request will use the `CODEOWNERS` file from that branch in the upstream repository. If the base branch is a branch within your fork, then the pull request will use the `CODEOWNERS` file from that branch in your fork, but this will only trigger review requests if the code owners are added to your fork specifically with `write` access.
+
+When you view who is responsible for a file by hovering over {% octicon "shield-lock" aria-label="Owned by USER or TEAM (from CODEOWNERS line NUMBER)" %}, you will see information from the `CODEOWNERS` file for whichever branch in whichever repository you're looking at.
 
 ## CODEOWNERS file size
 
@@ -73,7 +81,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 
 ### Example of a CODEOWNERS file
 
-```
+```text
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
 
@@ -133,6 +141,12 @@ apps/ @octocat
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
 /apps/github
+
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
+# subdirectory, as this subdirectory has its own owner @doctocat
+/apps/ @octocat
+/apps/github @doctocat
 ```
 
 ## CODEOWNERS and branch protection
@@ -143,6 +157,6 @@ Repository owners can add branch protection rules to ensure that changed code is
 
 - "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)"
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"

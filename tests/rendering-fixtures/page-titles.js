@@ -1,4 +1,4 @@
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { getDOM } from '../helpers/e2etest.js'
 
 describe('page titles', () => {

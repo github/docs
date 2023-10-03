@@ -24,7 +24,7 @@ GitHub dispatches `deployment` and `deployment_status` events when new deploymen
 
 Below is a simple sequence diagram for how these interactions would work.
 
-```
+```text
 +---------+             +--------+            +-----------+        +-------------+
 | Tooling |             | GitHub |            | 3rd Party |        | Your Server |
 +---------+             +--------+            +-----------+        +-------------+

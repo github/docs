@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals'
 
 import { getOpenApiSchemaFiles } from '../scripts/utils/sync.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 const supportedReleases = Object.keys(allVersions).map(
   (version) => allVersions[version].openApiVersionName,

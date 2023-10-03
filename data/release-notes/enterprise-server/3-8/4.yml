@@ -2,7 +2,7 @@ date: '2023-05-30'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. GitHub has requested CVE ID [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
+      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
     - Packages have been updated to the latest security versions.
   bugs:
     - On an instance in a cluster configuration, when upgrading the MySQL master node, the post-upgrade configuration run would take 600 seconds longer than required due to incorrect detection of unhealthy nodes. 
@@ -15,6 +15,8 @@ sections:
   changes:
     - People with administrative SSH access to an instance can configure the maximum memory usage in gigabytes for Redis using `ghe-config redis.max-memory-gb VALUE`. 
   known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
@@ -34,4 +36,6 @@ sections:
     - |
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
     - |
-      On an instance with subdomain isolation disabled, Mermaid diagrams in the web UI display an "Unable to render rich display" error and fail to render.
+      {% data reusables.release-notes.mermaid-rendering-known-issue %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

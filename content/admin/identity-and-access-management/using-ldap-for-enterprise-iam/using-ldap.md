@@ -116,7 +116,9 @@ You can establish role-based access control for users from your LDAP server by s
 
 {% note %}
 
-**Note:** If you use Active Directory, user lookups and team synchronization may fail when the LDAP groups configured for teams or in the {% data variables.enterprise.management_console %} exceed 1500 members, due to the `MaxValRange` limit in Active Directory. As a workaround, you can use Active Directory groups that contain less than 1500 members, or you can work with your Active Directory administrator to increase the `MaxValRange` value for your domain controllers. For more information, see [View and set LDAP policy in Active Directory by using Ntdsutil.exe](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil) in Microsoft Learn.
+**Note:** Using LDAP Synchronization with groups that exceed 1499 members may lead to team membership synchronization failures.
+
+If you use Active Directory specifically, user lookups and team synchronization may fail when the LDAP groups configured for teams or in the {% data variables.enterprise.management_console %} exceed 1500 members, due to the `MaxValRange` limit in Active Directory. As a workaround, you can use Active Directory groups that contain less than 1500 members, or you can work with your Active Directory administrator to increase the `MaxValRange` value for your domain controllers. For more information, see [View and set LDAP policy in Active Directory by using Ntdsutil.exe](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil) in Microsoft Learn.
 
 If you need help determining if modifying the `MaxValRange` is the right approach for your Active Directory environment, contact Microsoft Support.
 
@@ -217,3 +219,7 @@ You can also [use the API to trigger a manual sync](/rest/enterprise-admin#ldap)
 If [LDAP Sync is enabled](#enabling-ldap-sync), removing a user's LDAP credentials will suspend their account after the next synchronization run.
 
 If LDAP Sync is **not** enabled, you must manually suspend the {% data variables.product.prodname_ghe_server %} account after you remove the LDAP credentials. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".
+
+## About logging for LDAP
+
+Log events for LDAP appear in systemd journal logs on {% data variables.location.product_location %}. You'll find events related to LDAP operations in the logs for `github-unicorn` and `github-resqued`. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#journal-logs-for-the-github-application)."

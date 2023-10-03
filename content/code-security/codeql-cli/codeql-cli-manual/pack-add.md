@@ -1,6 +1,6 @@
 ---
 title: pack add
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -40,9 +40,11 @@ Formatting and comments will be removed.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
 
-#### `<scope/name[@range]>...`
+### Primary Options
+
+#### `<scope/name[@range]>...` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] The scope, name, and optional version range of the pack to
 add to the dependency list.

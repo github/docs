@@ -12,6 +12,7 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
+layout: inline
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -87,27 +88,36 @@ You can use {% data variables.product.prodname_actions %} to automatically publi
 
 {% data reusables.package_registry.actions-configuration %}
 
-The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}.
+The following example demonstrates how you can use {% data variables.product.prodname_actions %} to build {% ifversion not fpt or ghec %}and test{% endif %} your app, and then automatically create a Docker image and publish it to {% data variables.product.prodname_registry %}. The relevant settings are explained in the code. For full details about each element in a workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
-Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML:
+Create a new workflow file in your repository (such as `.github/workflows/deploy-image.yml`), and add the following YAML.
 
 {% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
 {% else %}
 
-```yaml copy
-{% data reusables.actions.actions-not-certified-by-github-comment %}
+{% note %}
 
-{% data reusables.actions.actions-use-sha-pinning-comment %}
+**Notes:**
 
+- {% data reusables.actions.actions-not-certified-by-github %}
+- {% data reusables.actions.actions-use-sha-pinning %}
+
+{% endnote %}
+
+```yaml annotate copy
+#
 name: Create and publish a Docker image
 
+# Configures this workflow to run every time a change is pushed to the branch called `release`.
 on:
   push:
     branches: ['release']
 
 jobs:
+# This job checks out the repository contents, installs `npm`, uses npm and webpack to build the app, and uploads the built files as an artifact that can be downloaded later in the workflow.
+# It assumes that the built files are written to a directory called `public`.
   run-npm-build:
     runs-on: ubuntu-latest
     steps:
@@ -121,13 +131,14 @@ jobs:
           name: webpack artifacts
           path: public/
 
+# This job uses `npm test` to test the code. `needs: run-npm-build` makes this job dependent on the `run-npm-build` job.
   run-npm-test:
     runs-on: ubuntu-latest
     needs: run-npm-build
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [12.x, 14.x]
+        node-version: [14.x, 16.x]
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
@@ -145,21 +156,27 @@ jobs:
         env:
           CI: true
 
+# This job publishes the package. `needs: run-npm-test` makes this job dependent on the `run-npm-test` job.
   build-and-push-image:
     runs-on: ubuntu-latest
     needs: run-npm-test {% ifversion ghes or ghae %}
+    # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
       contents: read
       packages: write {% endif %}
+      #
     steps:
       - name: Checkout
         uses: {% data reusables.actions.action-checkout %}
+      # Uses the `docker/login-action` action to log in to the registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+      # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
+      # It uses the `tags` parameter to tag the image with the SHA of the commit that triggered the workflow.
       - name: Build and push Docker image
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
@@ -169,318 +186,6 @@ jobs:
 ```
 
 {% endif %}
-
-The relevant settings are explained in the following table. For full details about each element in a workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
-
-<table>
-<tr>
-  <th scope="col">Code</th>
-  <th scope="col">Explanation</th>
-</tr>
-<tr>
-<td>
-{% raw %}
-```yaml
-on:
-  push:
-    branches: ['release']
-```
-{% endraw %}
-</td>
-<td>
-  Configures the <code>Create and publish a Docker image</code> workflow to run every time a change is pushed to the branch called <code>release</code>.
-</td>
-</tr>
-
-{% ifversion fpt or ghec %}
-
-<tr>
-<td>
-{% raw %}
-```yaml
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-```
-{% endraw %}
-</td>
-<td>
-  Defines two custom environment variables for the workflow. These are used for the {% data variables.product.prodname_container_registry %} domain, and a name for the Docker image that this workflow builds.
-</td>
-</tr>
-
-<tr>
-<td>
-{% raw %}
-```yaml
-jobs:
-  build-and-push-image:
-    runs-on: ubuntu-latest
-```
-{% endraw %}
-</td>
-<td>
-  There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
-</td>
-</tr>
-
-{% else %}
-
-<tr>
-<td>
-
-```yaml
-run-npm-build:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: {% data reusables.actions.action-checkout %}
-    - name: npm install and build webpack
-      run: |
-        npm install
-        npm run build
-    - uses: {% data reusables.actions.action-upload-artifact %}
-      with:
-        name: webpack artifacts
-        path: public/
-```
-
-</td>
-<td>
-  This job installs npm and uses it to build the app.
-</td>
-</tr>
-
-<tr>
-<td>
-
-```yaml
-run-npm-test:
-  runs-on: ubuntu-latest
-  needs: run-npm-build
-  strategy:
-    matrix:
-      os: [ubuntu-latest]
-      node-version: [12.x, 14.x]
-  steps:
-    - uses: {% data reusables.actions.action-checkout %}
-    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
-      uses: {% data reusables.actions.action-setup-node %}
-      with:
-        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
-    - uses: {% data reusables.actions.action-download-artifact %}
-      with:
-        name: webpack artifacts
-        path: public
-    - name: npm install, and test
-      run: |
-        npm install
-        npm test
-      env:
-        CI: true
-```
-
-</td>
-<td>
-  This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
-</td>
-</tr>
-
-<tr>
-<td>
-{% raw %}
-```yaml
-build-and-push-image:
-  runs-on: ubuntu-latest
-  needs: run-npm-test
-```
-{% endraw %}
-</td>
-<td>
-  This job publishes the package. The <code>needs: run-npm-test</code> command makes this job dependent on the <code>run-npm-test</code> job.
-</td>
-</tr>
-
-{% endif %}
-
-<tr>
-<td>
-{% raw %}
-```yaml
-permissions:
-  contents: read
-  packages: write
-```
-{% endraw %}
-</td>
-<td>
-  Sets the permissions granted to the <code>GITHUB_TOKEN</code> for the actions in this job.
-</td>
-</tr>
-
-{% ifversion fpt or ghec %}
-<tr>
-<td>
-{% raw %}
-```yaml
-- name: Log in to the Container registry
-  uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-  with:
-    registry: ${{ env.REGISTRY }}
-    username: ${{ github.actor }}
-    password: ${{ secrets.GITHUB_TOKEN }}
-```
-{% endraw %}
-</td>
-<td>
-  Creates a step called <code>Log in to the {% data variables.product.prodname_container_registry %}</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
-</td>
-</tr>
-
-<tr>
-<td>
-{% raw %}
-```yaml
-- name: Extract metadata (tags, labels) for Docker
-  id: meta
-  uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-  with:
-    images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-```
-{% endraw %}
-</td>
-<td>
-  This step uses <code><a href="https://github.com/docker/metadata-action#about">docker/metadata-action</a></code> to extract tags and labels that will be applied to the specified image. The <code>id</code> "meta" allows the output of this step to be referenced in a subsequent step. The <code>images</code> value provides the base name for the tags and labels.
-</td>
-</tr>
-
-{% else %}
-<tr>
-<td>
-{% raw %}
-```yaml
-- name: Log in to GitHub Docker Registry
-  uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-  with:
-    registry: {% endraw %}{% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
-    username: ${{ github.actor }}
-    password: ${{ secrets.GITHUB_TOKEN }}
-```
-{% endraw %}
-</td>
-<td>
-  Creates a new step called <code>Log in to GitHub Docker Registry</code>, which logs in to the registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
-</td>
-</tr>
-{% endif %}
-
-<tr>
-<td>
-{% raw %}
-```yaml
-- name: Build and push Docker image
-```
-{% endraw %}
-</td>
-<td>
-  Creates a new step called <code>Build and push Docker image</code>. This step runs as part of the <code>build-and-push-image</code> job.
-</td>
-</tr>
-
-<tr>
-<td>
-{% raw %}
-```yaml
-uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
-```
-{% endraw %}
-</td>
-<td>
-  Uses the Docker <code>build-push-action</code> action to build the image, based on your repository's <code>Dockerfile</code>. If the build succeeds, it pushes the image to {% data variables.product.prodname_registry %}.
-</td>
-</tr>
-
-<tr>
-<td>
-{% raw %}
-```yaml
-with:
-```
-{% endraw %}
-</td>
-<td>
-  Sends the required parameters to the <code>build-push-action</code> action. These are defined in the subsequent lines.
-</td>
-</tr>
-
-{% ifversion fpt or ghec %}
-<tr>
-<td>
-{% raw %}
-```yaml
-context: .
-```
-{% endraw %}
-</td>
-<td>
-  Defines the build's context as the set of files located in the specified path. For more information, see "<a href="https://github.com/docker/build-push-action#usage">Usage</a>."
-</td>
-</tr>
-{% endif %}
-
-<tr>
-<td>
-{% raw %}
-```yaml
-push: true
-```
-{% endraw %}
-</td>
-<td>
-  Pushes this image to the registry if it is built successfully.
-</td>
-</tr>
-
-{% ifversion fpt or ghec %}
-<tr>
-<td>
-{% raw %}
-```yaml
-tags: ${{ steps.meta.outputs.tags }}
-labels: ${{ steps.meta.outputs.labels }}
-```
-{% endraw %}
-</td>
-<td>
-  Adds the tags and labels extracted in the "meta" step.
-</td>
-</tr>
-
-{% else %}
-<tr>
-<td>
-{% ifversion ghae %}
-{% raw %}
-```yaml
-tags: |
-docker.YOUR-HOSTNAME.com/${{ github.repository }}/octo-image:${{ github.sha }}
-```
-{% endraw %}
-{% else %}
-{% raw %}
-```yaml
-tags: |
-docker.pkg.github.com/${{ github.repository }}/octo-image:${{ github.sha }}
-```
-{% endraw %}
-{% endif %}
-</td>
-<td>
-  Tags the image with the SHA of the commit that triggered the workflow.
-</td>
-</tr>
-{% endif %}
-
-</table>
 
 This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
 
@@ -515,37 +220,36 @@ Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with 
 1. Optionally, use {% data variables.package_registry.package-settings-actions-access-role-dropdown %}
 1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
-For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
+For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate. For more information, see "[Set up Automated Builds](https://docs.docker.com/docker-hub/builds/)" in the Docker documentation.
 
-```yaml copy
+```yaml annotate copy
+#
 name: Demo Push
 
+# This workflow runs when any of the following occur:
+# - A push is made to a branch called `main` or `seed`
+# - A tag starting with "v" is created
+# - A pull request is created or updated
 on:
   push:
-    # Publish `main` as Docker `latest` image.
     branches:
       - main
       - seed
-
-    # Publish `v1.2.3` tags as releases.
     tags:
       - v*
-
-  # Run tests for any PRs.
   pull_request:
-
+  # This creates an environment variable called `IMAGE_NAME ` with the value `ghtoken_product_demo`.
 env:
   IMAGE_NAME: ghtoken_product_demo
-
+#
 jobs:
-  # Push image to GitHub Packages.
-  # See also https://docs.docker.com/docker-hub/builds/
+  # This pushes the image to {% data variables.product.prodname_registry %}.
   push:
     runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
-
+      #
     steps:
       - uses: {% data reusables.actions.action-checkout %}
 
@@ -553,20 +257,19 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
-        # This is where you will update the {% data variables.product.pat_generic %} to GITHUB_TOKEN
         run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
+        #
       - name: Push image
         run: |
           IMAGE_ID=ghcr.io/{% raw %}${{ github.repository_owner }}{% endraw %}/$IMAGE_NAME
 
-          # Change all uppercase to lowercase
+          # This changes all uppercase characters to lowercase.
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-          # Strip git ref prefix from version
+          # This strips the git ref prefix from the version.
           VERSION=$(echo "{% raw %}${{ github.ref }}{% endraw %}" | sed -e 's,.*/\(.*\),\1,')
-          # Strip "v" prefix from tag name
+          # This strips the "v" prefix from the tag name.
           [[ "{% raw %}${{ github.ref }}{% endraw %}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          # Use Docker `latest` tag convention
+          # This uses the Docker `latest` tag convention.
           [ "$VERSION" == "main" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION

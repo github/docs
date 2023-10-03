@@ -49,12 +49,12 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: check out repo content
-        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: .github/actions-scripts/get-preview-app-info.sh
+        run: src/workflows/get-preview-app-info.sh
 
       - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
@@ -72,7 +72,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APP_URL: ${{ env.APP_URL }}
-        run: .github/actions-scripts/content-changes-table-comment.js
+        run: src/workflows/content-changes-table-comment.js
 
       - name: Find content directory changes comment
         uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0

@@ -83,6 +83,7 @@ The list of valid values for `source` are:
 - commit
 - pull_request_description
 - pull_request_comment
+- issue_title
 - issue_description
 - issue_comment
 - discussion_body
@@ -90,7 +91,7 @@ The list of valid values for `source` are:
 - commit_comment
 - gist_content
 - gist_comment
-- npm_package
+- npm
 - unknown
 
 ### Implement signature verification in your secret alert service
@@ -138,7 +139,7 @@ Content-Length: 83
 **Note**: The key id and signature from the example payload is derived from a test key.
 The public key for them is:
 
-```
+```shell
 -----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsz9ugWDj5jK5ELBK42ynytbo38gP
 HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
@@ -324,7 +325,7 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 
 **Validation sample in JavaScript**
 
-```js
+```javascript
 const crypto = require("crypto");
 const axios = require("axios");
 
@@ -377,7 +378,7 @@ When we report secrets to you, we send a JSON array with each element containing
 
 You can send us the raw token:
 
-```
+```json
 [
   {
     "token_raw": "The raw token",
@@ -389,7 +390,7 @@ You can send us the raw token:
 
 You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
 
-```
+```json
 [
   {
     "token_hash": "The SHA-256 hashed form of the raw token",

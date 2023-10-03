@@ -1,6 +1,6 @@
 ---
 title: dataset upgrade
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -35,9 +35,11 @@ codeql dataset upgrade [--threads=<num>] [--ram=<MB>] <options>... -- <dataset>
 This does the same as
 [codeql database upgrade](/code-security/codeql-cli/codeql-cli-manual/database-upgrade) but works on a raw dataset rather than an entire database.
 
-## Primary options
+## Options
 
-#### `<dataset>`
+### Primary Options
+
+#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the raw QL dataset to upgrade.
 
@@ -65,8 +67,8 @@ doesn't matter; it is an error if a pack name is found in two different
 places through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -165,7 +167,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate *\<pred>*.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`

@@ -12,7 +12,7 @@ export function RestPreviewNotice({ slug, previews, heading }: Props) {
       </h3>
       {previews.map((preview, index) => (
         <div
-          className="extended-markdown note border rounded-1 mb-6 p-3 color-border-accent-emphasis color-bg-accent f5"
+          className="ghd-spotlight ghd-spotlight-note border rounded-1 mb-6 p-3 color-border-accent-emphasis color-bg-accent f5"
           dangerouslySetInnerHTML={{ __html: preview }}
           key={JSON.stringify(preview) + index}
         />

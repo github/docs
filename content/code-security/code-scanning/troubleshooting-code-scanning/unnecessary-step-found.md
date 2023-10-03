@@ -3,7 +3,6 @@ title: 'Warning: "1 issue was detected with this workflow: git checkout HEAD^2 i
 shortTitle: 'Unnecessary step found'
 intro: 'If you see this warning, you should update your workflow to follow current best practice.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,7 +14,7 @@ versions:
 
 If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
 
-```
+```shell
 Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer
 necessary. Please remove this step as Code Scanning recommends analyzing the merge
 commit for best results.
@@ -49,4 +48,4 @@ The revised `steps` section of the workflow will look like this:
       ...
 ```
 
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#editing-a-code-scanning-workflow)."
+For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."

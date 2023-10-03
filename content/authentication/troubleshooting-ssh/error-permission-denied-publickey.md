@@ -76,7 +76,10 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
-  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
+   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
+
+   {% data reusables.desktop.note-start-ssh-agent %}
+
 1. Verify that you have a private key generated and loaded into SSH.
 
    ```shell
@@ -94,9 +97,9 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
    ```shell
    $ ssh-add -l -E sha256
-   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
-  
+
 {% endlinux %}
 
 The `ssh-add` command _should_ print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
@@ -206,7 +209,7 @@ You must provide your public key to {% data variables.product.product_name %} to
    > 2048 a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
 
-  If you're using OpenSSH 6.8 or newer:
+   If you're using OpenSSH 6.8 or newer:
 
    ```shell
    $ ssh-add -l -E md5

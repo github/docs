@@ -173,6 +173,12 @@ export async function getBodyParams(schema, topLevel = false) {
         param.description = param.anyOf[0].description
         param.isRequired = param.anyOf[0].required
       }
+    } else if (param && param.allOf) {
+      // this else is only used for webhooks handling of allOf
+      for (const prop of param.allOf) {
+        paramType.push('object')
+        childParamsGroups.push(...(await getBodyParams(prop, false)))
+      }
     }
 
     const paramDecorated = await getTransformedParam(param, paramType, {

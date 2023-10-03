@@ -1078,6 +1078,40 @@
       ]
     },
     {
+      "name": "addPullRequestReviewThreadReply",
+      "kind": "mutations",
+      "id": "addpullrequestreviewthreadreply",
+      "href": "/graphql/reference/mutations#addpullrequestreviewthreadreply",
+      "description": "<p>Adds a reply to an existing Pull Request Review Thread.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddPullRequestReviewThreadReplyInput!",
+          "id": "addpullrequestreviewthreadreplyinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addpullrequestreviewthreadreplyinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "comment",
+          "type": "PullRequestReviewComment",
+          "id": "pullrequestreviewcomment",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequestreviewcomment",
+          "description": "<p>The newly created reply.</p>"
+        }
+      ]
+    },
+    {
       "name": "addReaction",
       "kind": "mutations",
       "id": "addreaction",
@@ -2130,6 +2164,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue that was linked to.</p>"
         },
         {
           "name": "linkedBranch",
@@ -12205,6 +12247,39 @@
       ]
     },
     {
+      "name": "ContributingGuidelines",
+      "kind": "objects",
+      "id": "contributingguidelines",
+      "href": "/graphql/reference/objects#contributingguidelines",
+      "description": "<p>The Contributing Guidelines for a repository.</p>",
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>The body of the Contributing Guidelines.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for the Contributing Guidelines.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for the Contributing Guidelines.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
       "name": "ContributionCalendar",
       "kind": "objects",
       "id": "contributioncalendar",
@@ -16209,6 +16284,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isAnswered",
+          "description": "<p>Only return answered/unanswered discussions.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "labels",
           "description": "<p>A list of labels associated with the object.</p>",
           "type": "LabelConnection",
@@ -17991,6 +18074,72 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseConnection",
+      "kind": "objects",
+      "id": "enterpriseconnection",
+      "href": "/graphql/reference/objects#enterpriseconnection",
+      "description": "<p>The connection type for Enterprise.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseEdge]",
+          "id": "enterpriseedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterpriseedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Enterprise]",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseEdge",
+      "kind": "objects",
+      "id": "enterpriseedge",
+      "href": "/graphql/reference/objects#enterpriseedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
         }
       ]
     },
@@ -23365,6 +23514,11 @@
           "href": "/graphql/reference/interfaces#subscribable"
         },
         {
+          "name": "SubscribableThread",
+          "id": "subscribablethread",
+          "href": "/graphql/reference/interfaces#subscribablethread"
+        },
+        {
           "name": "UniformResourceLocatable",
           "id": "uniformresourcelocatable",
           "href": "/graphql/reference/interfaces#uniformresourcelocatable"
@@ -24321,6 +24475,22 @@
           "id": "subscriptionstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#subscriptionstate"
+        },
+        {
+          "name": "viewerThreadSubscriptionFormAction",
+          "description": "<p>Identifies the viewer's thread subscription form action.</p>",
+          "type": "ThreadSubscriptionFormAction",
+          "id": "threadsubscriptionformaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionformaction"
+        },
+        {
+          "name": "viewerThreadSubscriptionStatus",
+          "description": "<p>Identifies the viewer's thread subscription status.</p>",
+          "type": "ThreadSubscriptionState",
+          "id": "threadsubscriptionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionstate"
         }
       ]
     },
@@ -33189,6 +33359,14 @@
           ]
         },
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the organization was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "auditLog",
           "description": "<p>Audit log entries of the organization.</p>",
           "type": "OrganizationAuditEntryConnection!",
@@ -34058,6 +34236,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -47951,6 +48139,14 @@
           "href": "/graphql/reference/objects#repositorycontactlink"
         },
         {
+          "name": "contributingGuidelines",
+          "description": "<p>Returns the contributing guidelines for this repository.</p>",
+          "type": "ContributingGuidelines",
+          "id": "contributingguidelines",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#contributingguidelines"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -48338,6 +48534,16 @@
               }
             },
             {
+              "name": "answered",
+              "description": "<p>Only show answered or unanswered discussions.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "before",
               "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
               "type": {
@@ -48549,6 +48755,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -51137,6 +51353,14 @@
           "href": "/graphql/reference/unions#ruleparameters"
         },
         {
+          "name": "repositoryRuleset",
+          "description": "<p>The repository ruleset associated with this rule configuration.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset"
+        },
+        {
           "name": "type",
           "description": "<p>The type of rule.</p>",
           "type": "RepositoryRuleType!",
@@ -52352,7 +52576,7 @@
       "kind": "objects",
       "id": "requireddeploymentsparameters",
       "href": "/graphql/reference/objects#requireddeploymentsparameters",
-      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.</p>",
       "fields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -52394,7 +52618,7 @@
       "kind": "objects",
       "id": "requiredstatuschecksparameters",
       "href": "/graphql/reference/objects#requiredstatuschecksparameters",
-      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a ref that matches this rule after\nstatus checks have passed.</p>",
       "fields": [
         {
           "name": "requiredStatusChecks",
@@ -58355,6 +58579,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isLocked",
               "description": "<p>If non-null, filters repositories according to whether they have been locked.</p>",
               "type": {
@@ -59355,6 +59589,77 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterprises",
+          "description": "<p>A list of enterprises that the user belongs to.</p>",
+          "type": "EnterpriseConnection",
+          "id": "enterpriseconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterpriseconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "membershipType",
+              "defaultValue": "ALL",
+              "description": "<p>Filter enterprises returned based on the user's membership type.</p>",
+              "type": {
+                "name": "EnterpriseMembershipType",
+                "id": "enterprisemembershiptype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#enterprisemembershiptype"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's enterprises.</p>",
+              "type": {
+                "name": "EnterpriseOrder",
+                "id": "enterpriseorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#enterpriseorder"
+              }
+            }
+          ]
         },
         {
           "name": "followers",
@@ -60421,6 +60726,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isArchived",
               "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
               "type": {
@@ -60538,6 +60853,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssues",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -61160,6 +61485,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -64318,6 +64653,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isArchived",
               "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
               "type": {
@@ -64584,6 +64929,31 @@
           "id": "subscriptionstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#subscriptionstate"
+        }
+      ]
+    },
+    {
+      "name": "SubscribableThread",
+      "kind": "interfaces",
+      "id": "subscribablethread",
+      "href": "/graphql/reference/interfaces#subscribablethread",
+      "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "fields": [
+        {
+          "name": "viewerThreadSubscriptionFormAction",
+          "description": "<p>Identifies the viewer's thread subscription form action.</p>",
+          "type": "ThreadSubscriptionFormAction",
+          "id": "threadsubscriptionformaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionformaction"
+        },
+        {
+          "name": "viewerThreadSubscriptionStatus",
+          "description": "<p>Identifies the viewer's thread subscription status.</p>",
+          "type": "ThreadSubscriptionState",
+          "id": "threadsubscriptionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionstate"
         }
       ]
     },
@@ -65610,6 +65980,44 @@
         {
           "name": "ENABLED",
           "description": "<p>The setting is enabled for organizations in the enterprise.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMembershipType",
+      "kind": "enums",
+      "id": "enterprisemembershiptype",
+      "href": "/graphql/reference/enums#enterprisemembershiptype",
+      "description": "<p>The possible values we have for filtering Platform::Objects::User#enterprises.</p>",
+      "values": [
+        {
+          "name": "ADMIN",
+          "description": "<p>Returns all enterprises in which the user is an admin.</p>"
+        },
+        {
+          "name": "ALL",
+          "description": "<p>Returns all enterprises in which the user is a member, admin, or billing manager.</p>"
+        },
+        {
+          "name": "BILLING_MANAGER",
+          "description": "<p>Returns all enterprises in which the user is a billing manager.</p>"
+        },
+        {
+          "name": "ORG_MEMBERSHIP",
+          "description": "<p>Returns all enterprises in which the user is a member of an org that is owned by the enterprise.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseOrderField",
+      "kind": "enums",
+      "id": "enterpriseorderfield",
+      "href": "/graphql/reference/enums#enterpriseorderfield",
+      "description": "<p>Properties by which enterprise connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "NAME",
+          "description": "<p>Order enterprises by name.</p>"
         }
       ]
     },
@@ -67219,6 +67627,23 @@
       ]
     },
     {
+      "name": "PullRequestBranchUpdateMethod",
+      "kind": "enums",
+      "id": "pullrequestbranchupdatemethod",
+      "href": "/graphql/reference/enums#pullrequestbranchupdatemethod",
+      "description": "<p>The possible methods for updating a pull request's head branch with the base branch.</p>",
+      "values": [
+        {
+          "name": "MERGE",
+          "description": "<p>Update branch via merge.</p>"
+        },
+        {
+          "name": "REBASE",
+          "description": "<p>Update branch via rebase.</p>"
+        }
+      ]
+    },
+    {
       "name": "PullRequestMergeMethod",
       "kind": "enums",
       "id": "pullrequestmergemethod",
@@ -68126,7 +68551,7 @@
         },
         {
           "name": "NON_FAST_FORWARD",
-          "description": "<p>Prevent users with push access from force pushing to branches.</p>"
+          "description": "<p>Prevent users with push access from force pushing to refs.</p>"
         },
         {
           "name": "PULL_REQUEST",
@@ -68134,19 +68559,19 @@
         },
         {
           "name": "REQUIRED_DEPLOYMENTS",
-          "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>"
+          "description": "<p>Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.</p>"
         },
         {
           "name": "REQUIRED_LINEAR_HISTORY",
-          "description": "<p>Prevent merge commits from being pushed to matching branches.</p>"
+          "description": "<p>Prevent merge commits from being pushed to matching refs.</p>"
         },
         {
           "name": "REQUIRED_SIGNATURES",
-          "description": "<p>Commits pushed to matching branches must have verified signatures.</p>"
+          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
         },
         {
           "name": "REQUIRED_STATUS_CHECKS",
-          "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a branch that matches this\nrule after status checks have passed.</p>"
+          "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a ref that matches this rule\nafter status checks have passed.</p>"
         },
         {
           "name": "TAG_NAME_PATTERN",
@@ -68874,6 +69299,72 @@
         {
           "name": "MEMBER",
           "description": "<p>User is a member of the team.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ThreadSubscriptionFormAction",
+      "kind": "enums",
+      "id": "threadsubscriptionformaction",
+      "href": "/graphql/reference/enums#threadsubscriptionformaction",
+      "description": "<p>The possible states of a thread subscription form action.</p>",
+      "values": [
+        {
+          "name": "NONE",
+          "description": "<p>The User cannot subscribe or unsubscribe to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBE",
+          "description": "<p>The User can subscribe to the thread.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBE",
+          "description": "<p>The User can unsubscribe to the thread.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ThreadSubscriptionState",
+      "kind": "enums",
+      "id": "threadsubscriptionstate",
+      "href": "/graphql/reference/enums#threadsubscriptionstate",
+      "description": "<p>The possible states of a subscription.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The subscription status is currently disabled.</p>"
+        },
+        {
+          "name": "IGNORING_LIST",
+          "description": "<p>The User is never notified because they are ignoring the list.</p>"
+        },
+        {
+          "name": "IGNORING_THREAD",
+          "description": "<p>The User is never notified because they are ignoring the thread.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>The User is not recieving notifications from this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_LIST",
+          "description": "<p>The User is notified becuase they are watching the list.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD",
+          "description": "<p>The User is notified because they are subscribed to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_EVENTS",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_TYPE",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "UNAVAILABLE",
+          "description": "<p>The subscription status is currently unavailable.</p>"
         }
       ]
     },
@@ -71227,6 +71718,49 @@
           "id": "pullrequestreviewthreadsubjecttype",
           "kind": "enums",
           "href": "/graphql/reference/enums#pullrequestreviewthreadsubjecttype"
+        }
+      ]
+    },
+    {
+      "name": "AddPullRequestReviewThreadReplyInput",
+      "kind": "inputObjects",
+      "id": "addpullrequestreviewthreadreplyinput",
+      "href": "/graphql/reference/input-objects#addpullrequestreviewthreadreplyinput",
+      "description": "<p>Autogenerated input type of AddPullRequestReviewThreadReply.</p>",
+      "inputFields": [
+        {
+          "name": "body",
+          "description": "<p>The text of the reply.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pullRequestReviewId",
+          "description": "<p>The Node ID of the pending review to which the reply will belong.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "pullRequestReviewThreadId",
+          "description": "<p>The Node ID of the thread to which this reply is being written.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -74827,6 +75361,31 @@
       ]
     },
     {
+      "name": "EnterpriseOrder",
+      "kind": "inputObjects",
+      "id": "enterpriseorder",
+      "href": "/graphql/reference/input-objects#enterpriseorder",
+      "description": "<p>Ordering options for enterprises.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprises by.</p>",
+          "type": "EnterpriseOrderField!",
+          "id": "enterpriseorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseorderfield"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseServerInstallationOrder",
       "kind": "inputObjects",
       "id": "enterpriseserverinstallationorder",
@@ -74981,7 +75540,7 @@
       "kind": "inputObjects",
       "id": "filechanges",
       "href": "/graphql/reference/input-objects#filechanges",
-      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#encoding\">Encoding<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#modeling-file-changes\">Modeling file changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<p>   {\n\"additions\" [\n{\n\"path\": \"docs/README.txt\",\n\"contents\": base64encode(\"hello world\\n\")\n}\n]\n}</p>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
+      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#encoding\">Encoding<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#modeling-file-changes\">Modeling file changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
       "inputFields": [
         {
           "name": "additions",
@@ -76893,7 +77452,7 @@
       "kind": "inputObjects",
       "id": "requireddeploymentsparametersinput",
       "href": "/graphql/reference/input-objects#requireddeploymentsparametersinput",
-      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.</p>",
       "inputFields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -76935,7 +77494,7 @@
       "kind": "inputObjects",
       "id": "requiredstatuschecksparametersinput",
       "href": "/graphql/reference/input-objects#requiredstatuschecksparametersinput",
-      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a ref that matches this rule after\nstatus checks have passed.</p>",
       "inputFields": [
         {
           "name": "requiredStatusChecks",
@@ -77298,7 +77857,7 @@
         },
         {
           "name": "continueOnError",
-          "description": "<p>Whether to continue the migration on error. Defaults to <code>false</code>.</p>",
+          "description": "<p>Whether to continue the migration on error. Defaults to <code>true</code>.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -79665,6 +80224,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "updateMethod",
+          "description": "<p>The update branch method to use. If omitted, defaults to 'MERGE'.</p>",
+          "type": "PullRequestBranchUpdateMethod",
+          "id": "pullrequestbranchupdatemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestbranchupdatemethod"
         }
       ]
     },

@@ -1,6 +1,6 @@
 ---
 title: resolve files
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -42,15 +42,17 @@ The `--include`, `--exclude`, and `--prune` options all take glob
 patterns, which can use the following wildcard characters:
 
 - A single "?" matches any character other than a forward/backward
-    slash;
+  slash;
 - A single "\*" matches any number of characters other than a
-    forward/backward slash;
+  forward/backward slash;
 - The pattern "\*\*" matches zero or more complete directory
-    components.
+  components.
 
-## Primary options
+## Options
 
-#### `<dir>`
+### Primary Options
+
+#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
 
 The directory to be searched.
 

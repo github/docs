@@ -32,21 +32,12 @@ export type SearchResultsT = {
 
 export type SearchQueryT = {
   query: string
-  version: string
-  language: string
-  size: number
-  page: number
-  sort: string
-  highlights: string[]
-  autocomplete: boolean
   debug: boolean
-  include: string[]
-  indexName: string
 }
 
 export type SearchValidationErrorT = {
   error: string
-  key: string
+  // key: string
 }
 
 export type SearchT = {

@@ -2,13 +2,10 @@
 
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
 
-const reporters = ['default']
-
-if (isActions) {
-  reporters.push('jest-github-actions-reporter')
-}
+const reporters = ['default', 'github-actions']
 
 export default {
+  preset: 'ts-jest',
   coverageThreshold: {
     global: {
       branches: 95,
@@ -22,16 +19,10 @@ export default {
     '@primer/behaviors': '<rootDir>/node_modules/@primer/behaviors/dist/cjs/index.js',
   },
   reporters,
-  modulePathIgnorePatterns: ['assets/'],
+  //  modulePathIgnorePatterns: ['assets/'],
   setupFilesAfterEnv: ['./jest.setup.js', 'jest-expect-message'],
   testEnvironment: 'node',
-  testPathIgnorePatterns: [
-    'node_modules/',
-    'vendor/',
-    'tests/fixtures/',
-    'tests/helpers/',
-    'tests/javascripts/',
-  ],
+  testPathIgnorePatterns: ['node_modules/', 'vendor/', 'tests/fixtures/', 'tests/helpers/'],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
   globalSetup: './script/start-server-for-jest.js',

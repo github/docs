@@ -62,7 +62,7 @@ To do this, create or update a file called `.gitattributes` in your repository r
 
 For example, the following `.gitattributes` file would cause files in the `build/` directory to be available to the file finder:
 
-```
+```text
 build/** linguist-generated=false
 ```
 

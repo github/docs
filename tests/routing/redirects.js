@@ -5,10 +5,10 @@ import { describe, expect, jest, test } from '@jest/globals'
 
 import enterpriseServerReleases, {
   deprecatedWithFunctionalRedirects,
-} from '../../lib/enterprise-server-releases.js'
+} from '#src/versions/lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
-import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
+import versionSatisfiesRange from '../../src/versions/lib/version-satisfies-range.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -83,6 +83,11 @@ describe('redirects', () => {
     test('do not work on other paths that include "search"', async () => {
       const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise`
       const res = await get(reqPath)
+      expect(res.statusCode).toBe(200)
+    })
+
+    test('Do not redirect to search if on GraphQL Explorer "search"', async () => {
+      const res = await get('/en/graphql/overview/explorer?query=anything')
       expect(res.statusCode).toBe(200)
     })
   })
@@ -365,7 +370,7 @@ describe('redirects', () => {
 
   describe('desktop guide', () => {
     const desktopGuide =
-      '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
+      '/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
 
     test('no language code redirects to english', async () => {
       const res = await get(

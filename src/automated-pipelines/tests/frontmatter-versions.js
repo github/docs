@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals'
 
-import { supported } from '../../../lib/enterprise-server-releases.js'
-import { allVersionKeys, allVersions } from '../../../lib/all-versions.js'
+import { supported } from '#src/versions/lib/enterprise-server-releases.js'
+import { allVersionKeys, allVersions } from '#src/versions/lib/all-versions.js'
 import { convertVersionsToFrontmatter } from '../lib/update-markdown.js'
 
 describe('frontmatter versions are generated correctly from automated data', () => {

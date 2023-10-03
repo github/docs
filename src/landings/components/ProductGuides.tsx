@@ -4,7 +4,7 @@ import { LandingSection } from 'src/landings/components/LandingSection'
 import { GuidesHero } from 'src/landings/components/GuidesHero'
 import { LearningTracks } from 'src/learning-track/components/guides/LearningTracks'
 import { ArticleCards } from 'src/landings/components/ArticleCards'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { useMainContext } from 'components/context/MainContext'
 
 export const ProductGuides = () => {

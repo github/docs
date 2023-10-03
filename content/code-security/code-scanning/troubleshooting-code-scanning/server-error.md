@@ -3,7 +3,6 @@ title: 'Error: "Server error"'
 shortTitle: 'Server error'
 intro: 'If you see this error, try these steps.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghec: '*'

@@ -35,3 +35,6 @@ sections:
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

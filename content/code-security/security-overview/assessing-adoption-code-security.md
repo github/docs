@@ -24,6 +24,10 @@ You can use security overview to see which repositories and teams have already e
 
 ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, and search field.](/assets/images/help/security-overview/security-coverage-view-summary.png)
 
+{% ifversion security-overview-export-data %}
+You can download a CSV file of the data displayed on the "Security coverage" page. This data file can be used for efforts like security research and in-depth data analysis, and can integrate easily with external datasets. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-the-risk-and-coverage-pages)."
+{% endif %}
+
 ## Viewing the enablement of code security features for an organization
 
 {% data reusables.security-overview.information-varies-GHAS %}
@@ -42,6 +46,13 @@ In the list of repositories, the "Paused" label under "{% data variables.product
 1. Optionally, click **{% octicon "gear" aria-hidden="true" %} Security settings** to enable code security features for a repository and click **Save security settings** to confirm the changes. If a feature is not shown, it has more complex configuration requirements and you need to use the repository settings dialog. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
 {% ifversion code-security-multi-repo-enablement %}
 1. Optionally, select some or all of the repositories that match your current search and click **Security settings** in the table header to display a side panel where you can enable security features for the selected repositories. When you've finished, click **Apply changes** to confirm the changes. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+{% endif %}
+{% ifversion bulk-code-scanning-query-suite %}
+{% note %}
+
+**Note:** For {% ifversion code-security-multi-repo-enablement %}both the single and multiple {% else %}the single {% endif %}repository enablement settings, enabling {% data variables.product.prodname_code_scanning %} will override any existing {% data variables.product.prodname_code_scanning %} configurations for the selected repositories, including any previous query suite selections and workflows for advanced setups.
+
+{% endnote %}
 {% endif %}
 
 {% ifversion security-overview-org-risk-coverage-enterprise %}

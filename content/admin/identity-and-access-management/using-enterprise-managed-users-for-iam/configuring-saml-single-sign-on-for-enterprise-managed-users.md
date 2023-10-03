@@ -59,17 +59,15 @@ To configure your IdP, follow the instructions they provide for configuring the 
 
      - [{% data variables.product.prodname_emu_idp_application %} application on Azure Active Directory](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview)
      - [{% data variables.product.prodname_emu_idp_application %} application on Okta](https://www.okta.com/integrations/github-enterprise-managed-user)
-     - [{% data variables.product.prodname_emu_idp_application %} connector on PingFederate](https://www.pingidentity.com/en/resources/downloads/pingfederate.html) (public beta)
+     - [{% data variables.product.prodname_emu_idp_application %} connector on PingFederate](https://www.pingidentity.com/en/resources/downloads/pingfederate.html)
 
        To download the PingFederate connector, navigate to the **Add-ons** tab and select **GitHub EMU Connector 1.0**.
-
-{% indented_data_reference reusables.enterprise-accounts.public-beta-pingfed-for-emu spaces=3 %}
 
 1. To configure the {% data variables.product.prodname_emu_idp_application %} application and your IdP, click the link below and follow the instructions provided by your IdP:
 
      - [Azure Active Directory tutorial for {% data variables.product.prodname_emus %}](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial)
      - [Okta documentation for {% data variables.product.prodname_emus %}](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html)
-     - [PingFederate documentation for {% data variables.product.prodname_emus %}](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_emu_connector) (public beta)
+     - [PingFederate documentation for {% data variables.product.prodname_emus %}](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_emu_connector)
 
 1. So you can test and configure your enterprise, assign yourself or the user that will be configuring SAML SSO on {% data variables.product.prodname_dotcom %} to the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
 
@@ -95,7 +93,7 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
 1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}
-1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**.
+1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 1. Click **Save**.
 
     {% note %}

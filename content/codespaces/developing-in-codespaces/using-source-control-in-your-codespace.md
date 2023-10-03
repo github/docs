@@ -12,11 +12,11 @@ topics:
 shortTitle: Source control
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About source control in {% data variables.product.prodname_github_codespaces %}
 
@@ -50,7 +50,7 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 
 ## About automatic forking
 
-If you only have read access to a repository, you can usually create a codespace for the repository as long as you can fork it.
+To create a codespace for a repository for which you only have read access, you must have permission to fork the repository.
 
 You do not need to fork the repository before you create the codespace. For example, you can create a codespace from the repository to look at the project and make experimental changes, then delete the codespace if you no longer need it.
 
@@ -74,13 +74,13 @@ When {% data variables.product.prodname_github_codespaces %} creates a fork, or 
 
 By default, source control commands that you access from your editor's user interface, such as the **Sync Changes** button in {% data variables.product.prodname_vscode_shortname %}, target your fork. If you're working from the command line, you can use `origin` to refer to your fork and `upstream` to refer to the upstream repository. For example, you can fetch changes from the upstream repository to ensure your codespace is up to date with the latest changes to the project.
 
-```Shell
+```shell
 git fetch upstream
 ```
 
 When you have made some changes, you can push them to a feature branch of your fork.
 
-```Shell
+```shell
 git push origin my-feature-branch
 ```
 
@@ -98,7 +98,7 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Creating or switching branches
 
@@ -162,4 +162,4 @@ You can push changes you've saved and committed. This applies those changes to t
 
 1. In the Push Commits dialog, click **Push**.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
