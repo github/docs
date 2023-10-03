@@ -24,6 +24,16 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 {% data variables.product.prodname_dotcom %} provides runners that you can use to run your jobs, or you can [host your own runners](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners). Each {% data variables.product.prodname_dotcom %}-hosted runner is a new virtual machine (VM) hosted by {% data variables.product.prodname_dotcom %} with the runner application and other tools preinstalled, and is available with Ubuntu Linux, Windows, or macOS operating systems. When you use a {% data variables.product.prodname_dotcom %}-hosted runner, machine maintenance and upgrades are taken care of for you.
 
+{% ifversion github-hosted-runners-emus-entitlements %}
+
+{% note %}
+
+**Note:** {% data reusables.actions.entitlement-minutes-emus %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+
+{% endnote %}
+
+{% endif %}
+
 {% ifversion not ghes %}
 
 ## Using a {% data variables.product.prodname_dotcom %}-hosted runner

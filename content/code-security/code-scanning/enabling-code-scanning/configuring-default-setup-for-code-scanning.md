@@ -79,6 +79,13 @@ Compiled languages are not automatically included in default setup configuration
 ## Configuring default setup for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
+
+   {% note %}
+
+   **Note:** If you are configuring default setup on a fork, you must first enable {% data variables.product.prodname_actions %}. To enable {% data variables.product.prodname_actions %}, under your repository name, click {% octicon "play" aria-hidden="true" %} **Actions**, then click **I understand my workflows, go ahead and enable them**. Be aware that this will enable all existing workflows on your fork.
+
+   {% endnote %}
+
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.user-settings.security-analysis %}
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
