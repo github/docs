@@ -53,17 +53,7 @@ You must specify:
 - `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
 - `--language`: the identifier for the language to create a database for. When used with `--db-cluster`, the option accepts a comma-separated list, or can be specified more than once. {% data variables.product.prodname_codeql %} supports creating databases for the following languages:
 
-| Language | Identifier
-|------------------|-------------------
-| C/C++ | `cpp`
-| C# | `csharp`
-| Go | `go`
-| Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %} | `java`
-| JavaScript/TypeScript | `javascript`
-| Python | `python`
-| Ruby | `ruby` {% ifversion codeql-swift-beta %}
-| Swift | `swift` {% endif %}
-
+{% data reusables.code-scanning.codeql-language-identifiers-table %}
 {% data reusables.code-scanning.beta-kotlin-or-swift-support %}
 {% data reusables.code-scanning.beta-ruby-support %}
 
@@ -71,8 +61,9 @@ You can specify additional options depending on the location of your source file
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
-| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. |
+| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. | {% ifversion codeql-language-identifiers-311 %}
+| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %}. When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. | {% else %}
+| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. | {% endif %}
 | <nobr>`--command`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. |
 | <nobr>`--db-cluster`</nobr> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>. |
 | <nobr>`--no-run-unnecessary-builds`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |
@@ -89,7 +80,7 @@ For full details of all the options you can use when creating databases, see "[A
 This example creates a {% data variables.product.prodname_codeql %} database for the repository checked out at `/checkouts/example-repo`. It uses the JavaScript extractor to create a hierarchical representation of the JavaScript and TypeScript code in the repository. The resulting database is stored in `/codeql-dbs/example-repo`.
 
 ```shell
-$ codeql database create /codeql-dbs/example-repo --language=javascript \
+$ codeql database create /codeql-dbs/example-repo --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
     --source-root /checkouts/example-repo
 
 > Initializing database at /codeql-dbs/example-repo.
@@ -115,7 +106,7 @@ The resulting databases are stored in `python` and `cpp` subdirectories of `/cod
 
 ```shell
 $ codeql database create /codeql-dbs/example-repo-multi \
-    --db-cluster --language python,cpp \
+    --db-cluster --language python,{% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} \
     --command make --no-run-unnecessary-builds \
     --source-root /checkouts/example-repo-multi
 Initializing databases at /codeql-dbs/example-repo-multi.
@@ -151,10 +142,10 @@ The {% data variables.product.prodname_codeql_cli %} includes extractors to crea
 
 ### JavaScript and TypeScript
 
-Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, you must install Node.js 6.x or later. In the command line you can specify `--language=javascript` to extract both JavaScript and TypeScript files:
+Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, you must install Node.js 6.x or later. In the command line you can specify `--language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}` to extract both JavaScript and TypeScript files:
 
 ```shell
-codeql database create --language=javascript --source-root <folder-to-extract> <output-folder>/javascript-database
+codeql database create --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --source-root <folder-to-extract> <output-folder>/javascript-database
 ```
 
 Here, we have specified a `--source-root` path, which is the location where database creation is executed, but is not necessarily the checkout root of the codebase.
@@ -202,7 +193,7 @@ An autobuilder is invoked automatically when you execute `codeql database create
 `--command` option. For example, for a Java codebase, you would simply run:
 
 ```shell
-codeql database create --language=java <output-folder>/java-database
+codeql database create --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} <output-folder>/java-database
 ```
 
 If a codebase uses a standard build system, relying on an autobuilder is often the simplest way to create a database. For sources that require non-standard build steps, you may need to explicitly define each step in the command line.
@@ -229,7 +220,7 @@ The following examples are designed to give you an idea of some of the build com
 - C/C++ project built using `make`:
 
   ```shell
-  codeql database create cpp-database --language=cpp --command=make
+  codeql database create cpp-database --language={% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} --command=make
   ```
 
 - C# project built using `dotnet build`:
@@ -256,19 +247,19 @@ The following examples are designed to give you an idea of some of the build com
 
   ```shell
   # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL:
-  codeql database create java-database --language=java --command='gradle --no-daemon clean test'
+  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='gradle --no-daemon clean test'
   ```
 
 - Java project built using Maven:
 
   ```shell
-  codeql database create java-database --language=java --command='mvn clean install'
+  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='mvn clean install'
   ```
 
 - Java project built using Ant:
 
   ```shell
-  codeql database create java-database --language=java --command='ant -f build.xml'
+  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='ant -f build.xml'
   ```
 
 {% ifversion codeql-swift-beta %}
