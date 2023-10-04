@@ -115,7 +115,6 @@ The OIDC token also includes additional standard JOSE header parameters and clai
 | `exp`| Expires at | Identifies the expiry time of the JWT. |
 | `iat`| Issued at | The time when the JWT was issued. |
 | `jti`| JWT token identifier | Unique identifier for the OIDC token. |
-| `kid`| Key identifier | Unique key for the OIDC token. |
 | `nbf`| Not before | JWT is not valid for use before this time. |
 
 The token also includes custom claims provided by {% data variables.product.prodname_dotcom %}.
