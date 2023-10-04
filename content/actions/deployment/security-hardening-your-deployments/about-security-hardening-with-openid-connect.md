@@ -108,6 +108,7 @@ The OIDC token also includes additional standard JOSE header parameters and clai
 |    Header Parameter    | Parameter type | Description            |
 | ----------- | -----| ---------------------- |
 | `alg`| Algorithm | The algorithm used by the OIDC provider. |
+| `kid`| Key identifier | Unique key for the OIDC token. |
 | `typ`| Type | Describes the type of token. This is a JSON Web Token (JWT). |
 
 |    Claim    | Claim type | Description            |
