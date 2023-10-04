@@ -73,6 +73,7 @@ on:
 permissions:
   issues: write
   contents: read
+  pull-requests: write
 
 jobs:
   build_and_deploy:

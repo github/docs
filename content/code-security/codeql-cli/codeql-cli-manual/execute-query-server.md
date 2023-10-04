@@ -35,7 +35,9 @@ codeql execute query-server <options>...
 The
 [codeql execute query-server](/code-security/codeql-cli/codeql-cli-manual/execute-query-server) subcommand is unsupported and no longer works. If you are using the official CodeQL extension for Visual Studio Code, please upgrade the extension to 1.7.6 or a later version. Otherwise please migrate your CodeQL IDE integration to the `codeql execute query-server2` subcommand.
 
-## Primary options
+## Options
+
+### Primary Options
 
 ### Common options
 

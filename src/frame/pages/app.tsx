@@ -10,8 +10,8 @@ import {
   LanguagesContext,
   LanguagesContextT,
   LanguageItem,
-} from 'components/context/LanguagesContext'
-import { useTheme } from 'components/hooks/useTheme'
+} from 'src/languages/components/LanguagesContext'
+import { useTheme } from 'src/color-schemes/components/useTheme'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean

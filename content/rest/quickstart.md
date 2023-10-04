@@ -82,9 +82,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
-
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-
+   {% ifversion ghes < 3.12 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
+   
+   {% data reusables.actions.actions-use-sha-pinning-comment %}
+   {% endif %}
    on:
      workflow_dispatch:
    jobs:
@@ -93,17 +95,15 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
+           uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
            run: |
              gh api repos/octocat/Spoon-Knife/issues
-
    ```
 
 {% endcli %}
@@ -229,9 +229,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
-
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-
+   {% ifversion ghes < 3.12 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
+   
+   {% data reusables.actions.actions-use-sha-pinning-comment %}
+   {% endif %}
    on:
      workflow_dispatch:
    jobs:
@@ -252,7 +254,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
    
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
+           uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -358,9 +360,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+   {% ifversion ghes < 3.12 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
 
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-
+   {% data reusables.actions.actions-use-sha-pinning-comment %}
+   {% endif %}
    on:
      workflow_dispatch:
    jobs:
@@ -369,7 +373,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
+           uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}

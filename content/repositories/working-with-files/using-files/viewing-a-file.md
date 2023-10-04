@@ -71,7 +71,7 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
 1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
 1. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
 
-    ```ini
+    ```shell
     # .git-blame-ignore-revs
     # Removed semi-colons from the entire codebase
     a8940f7fbddf7fad9d7d50014d4e8d46baf30592

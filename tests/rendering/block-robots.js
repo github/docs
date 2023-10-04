@@ -1,6 +1,6 @@
 import { blockIndex } from '../../middleware/block-robots.js'
 import { productMap } from '../../lib/all-products.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 
 function allowIndex(path) {
   return !blockIndex(path)

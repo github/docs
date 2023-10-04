@@ -82,6 +82,14 @@ Run the specified linter rules on specific files or directories:
 npm run lint-content -- --rules heading-increment code-fence-line-length --path content/FILENAME.md content/DIRECTORY
 ```
 
+#### Bypass the commit hook
+
+If the linter catches errors that you did not introduce, you can bypass the git commit hook by using the `--no-verify` option when you commit your changes.
+
+```shell
+git commit -m 'MESSAGE' --no-verify
+```
+
 ### Display the help menu for the content linter script
 
 ```shell
@@ -133,3 +141,31 @@ These rules should be fixed before merging content into the `main` branch, but t
 | [GHD001](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/code-fence-line-length.js) | Code fence content should be 60 lines or less in length. |
 | [GHD003](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. |
 | [GHD004](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/internal-links-slash.js) | Internal links must start with a `/`. |
+
+## Suppressing linter rules
+
+Rarely, you may need to document something that violates one or more linter rules. In these cases, you can suppress rules by adding a comment to the Markdown file. You can disable all rules or specific rules. Always try to limit as few rules as possible.
+
+<!-- markdownlint-disable MD011 -->
+For example, if you are writing an article that includes a regular expression such as <code>(^|/)[Cc]+odespace/</code>, you can suppress the `MD011` rule that checks for reversed link syntax by adding the following comment.
+
+<pre>
+&lt;!-- markdownlint-disable MD011 --&gt;
+(^|/)[Cc]+odespace/
+&lt;!-- markdownlint-enable MD011 --&gt;
+</pre>
+
+<!-- markdownlint-enable MD011 -->
+
+You can use these comments to enable or disable rules.
+
+| Comment | Effect |
+| :-- | :-- |
+| <pre>&lt;!-- markdownlint-disable --&gt;</pre> | Disable all rules |
+| <pre>&lt;!-- markdownlint-enable --&gt;</pre> | Enable all rules |
+| <pre>&lt;!-- markdownlint-disable-line --&gt;</pre> | Disable all rules for the current line |
+| <pre>&lt;!-- markdownlint-disable-next-line --&gt;</pre> | Disable all rules for the next line |
+| <pre>&lt;!-- markdownlint-disable RULE-ONE RULE-TWO --&gt;</pre> | Disable one or more rules by name |
+| <pre>&lt;!-- markdownlint-enable RULE-ONE RULE-TWO --&gt;</pre> | Enable one or more rules by name |
+| <pre>&lt;!-- markdownlint-disable-line RULE-NAME --&gt;</pre> | Disable one or more rules by name for the current line |
+| <pre>&lt;!-- markdownlint-disable-next-line RULE-NAME --&gt;</pre> | Disable one or more rules by name for the next line |

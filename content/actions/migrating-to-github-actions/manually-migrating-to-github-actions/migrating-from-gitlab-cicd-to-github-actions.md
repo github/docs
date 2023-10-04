@@ -60,8 +60,6 @@ job1:
 
 ### {% data variables.product.prodname_actions %} syntax for jobs
 
-{% raw %}
-
 ```yaml
 jobs:
   job1:
@@ -69,8 +67,6 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: echo "Run your script here"
 ```
-
-{% endraw %}
 
 ## Runners
 
@@ -269,7 +265,7 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trig
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} support setting variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ## Caching
 
@@ -343,8 +339,6 @@ artifacts:
 
 ### {% data variables.product.prodname_actions %} syntax for artifacts
 
-{% raw %}
-
 ```yaml
 - name: Upload math result for job 1
   uses: {% data reusables.actions.action-upload-artifact %}
@@ -352,8 +346,6 @@ artifacts:
     name: homework
     path: math-homework.txt
 ```
-
-{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
@@ -396,8 +388,6 @@ container-job:
 
 ### {% data variables.product.prodname_actions %}  syntax for databases and service containers
 
-{% raw %}
-
 ```yaml
 jobs:
   container-job:
@@ -430,7 +420,5 @@ jobs:
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
-
-{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."

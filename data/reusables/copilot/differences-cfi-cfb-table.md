@@ -9,6 +9,7 @@
 | Plugs right into your editor | {% octicon "check" aria-label="Included" %}                          | {% octicon "check" aria-label="Included" %}                                  |
 | Offers multi-line function suggestions  | {% octicon "check" aria-label="Included" %}                          | {% octicon "check" aria-label="Included" %}                                  |
 | Organization-wide policy management     | {% octicon "x" aria-label="Not included" %}                          | {% octicon "check" aria-label="Included" %}                                  |
+| Audit logs  | {% octicon "x" aria-label="Not included" %} |{% octicon "check" aria-label="Included" %} |
 | HTTP proxy support via custom certificates    | {% octicon "x" aria-label="Not included" %}                          | {% octicon "check" aria-label="Included" %}                                  |
 
 {% endrowheaders %}

@@ -1,6 +1,7 @@
 ---
 title: Finding security vulnerabilities and errors in your code with code scanning
 shortTitle: Code scanning
+allowTitleToDifferFromFilename: true
 intro: 'Keep your code secure by using {% data variables.product.prodname_code_scanning %} to identify and fix potential security vulnerabilities and other errors in your code.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
@@ -25,5 +26,5 @@ children:
   - /integrating-with-code-scanning
   - /using-codeql-code-scanning-with-your-existing-ci-system
   - /troubleshooting-code-scanning
-  - /troubleshooting-sarif
+  - /troubleshooting-sarif-uploads
 ---

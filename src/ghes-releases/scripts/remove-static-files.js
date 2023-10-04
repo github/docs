@@ -12,8 +12,8 @@ import path from 'path'
 import { rimraf } from 'rimraf'
 import walk from 'walk-sync'
 
-import { allVersions } from '../../../lib/all-versions.js'
-import { deprecated } from '../../../lib/enterprise-server-releases.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'src/webhooks/data')

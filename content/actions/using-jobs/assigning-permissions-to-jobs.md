@@ -25,7 +25,7 @@ versions:
 
 ## Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
 
-You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow. 
+You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow.
 
 ### Example: Setting the `GITHUB_TOKEN` permissions for an entire workflow
 

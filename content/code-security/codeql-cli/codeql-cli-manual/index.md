@@ -1,6 +1,7 @@
 ---
 title: CodeQL CLI commands manual
 shortTitle: CodeQL CLI manual
+allowTitleToDifferFromFilename: true
 intro: >-
   Reference information for the commands available in the most recent release of
   {% data variables.product.prodname_codeql_cli %}.

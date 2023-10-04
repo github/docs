@@ -1,4 +1,4 @@
-export const githubDocsConfig = {
+const githubDocsConfig = {
   'code-fence-line-length': {
     // GHD001
     severity: 'warning',
@@ -16,7 +16,7 @@ export const githubDocsConfig = {
   },
   'image-file-kebab': {
     // GHD004
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'internal-links-lang': {
@@ -29,4 +29,137 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'image-alt-text-exclude-words': {
+    // GHD007
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'link-punctuation': {
+    // GHD008
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'yaml-scheduled-jobs': {
+    // GHD009
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'internal-links-old-version': {
+    // GHD010
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'list-first-word-capitalization': {
+    // GH011
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
+  'early-access-references': {
+    // GH035
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-quoted-conditional-arg': {
+    // LQ111
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'hardcoded-data-variable': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'github-owned-action-references': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+}
+
+const githubMarkdownlintConfig = {
+  'no-default-alt-text': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'no-generic-link-text': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+}
+
+export const searchReplaceConfig = {
+  'search-replace': {
+    rules: [
+      {
+        name: 'todocs-placeholder',
+        message: 'Catch occurrences of TODOCS placeholder.',
+        searchPattern: '/todocs/gi',
+        searchScope: 'all',
+        severity: 'error',
+        'severity-local': 'warning',
+        'partial-markdown-files': true,
+      },
+      {
+        name: 'docs-domain',
+        message: 'Catch occurrences of docs.gitub.com domain.',
+        search: 'docs.github.com',
+        searchScope: 'all',
+        severity: 'warning',
+        'partial-markdown-files': true,
+      },
+      {
+        name: 'help-domain',
+        message: 'Catch occurrences of help.github.com domain.',
+        search: 'help.github.com',
+        searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+      {
+        name: 'preview-domain',
+        message: 'Catch occurrences of preview.ghdocs.com domain.',
+        search: 'preview.ghdocs.com',
+        searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+      {
+        name: 'developer-domain',
+        message: 'Catch occurrences of developer.github.com domain.',
+        // Do not match developer.github.com/changes or
+        // developer.github.com/enterprise/[0-9] or
+        // developer.github.com/enterprise/{{something}} (e.g. liquid).
+        // There are occurences that will likely always remain in the content.
+        searchPattern: '/developer\\.github\\.com(?!\\/(changes|enterprise\\/([0-9]|{))).*/g',
+        searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+      {
+        // Catches usage of old liquid data reusable syntax. For example:
+        // {{ site.data.variables.product_releases }}
+        name: 'deprecated liquid syntax: site.data',
+        message: 'Catch occurrences of deprecated liquid data syntax.',
+        searchPattern: '/{{\\s*?site\\.data\\.([a-zA-Z0-9-_]+(?:\\.[a-zA-Z0-9-_]+)+)\\s*?}}/g',
+        replace: '{% data $1 %}',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+      {
+        // Catches usage of old octicon variable syntax. For example:
+        // - {{ octicon-plus }}
+        // - {{ octicon-plus An example label }}
+        name: 'deprecated liquid syntax: octicon-<icon-name>',
+        message:
+          'The octicon liquid syntax used is deprecated. Use this format instead {% octicon "<octicon-name>" aria-label="<Octicon aria label>" %}',
+        searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+    ],
+  },
+}
+
+export const customConfig = {
+  ...searchReplaceConfig,
+  ...githubDocsConfig,
+  ...githubMarkdownlintConfig,
 }

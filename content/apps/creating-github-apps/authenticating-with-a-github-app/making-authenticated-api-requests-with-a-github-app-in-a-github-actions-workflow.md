@@ -29,17 +29,18 @@ In order to use a {% data variables.product.prodname_github_app %} to make authe
 1. Install the {% data variables.product.prodname_github_app %} on your user account or organization and grant it access to any repositories that you want your workflow to access. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
 1. In your {% data variables.product.prodname_actions %} workflow, create an installation access token, which you can use to make API requests.
 
-   To do this, you can use a pre-made action as demonstrated in the following example. If you prefer to not use a third party action, you can fork and modify the `tibdex/github-app-token` action, or you can write a script to make your workflow create an installation token manually. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
+   {% ifversion ghes < 3.12 %}To do this, you can use a pre-made action as demonstrated in the following example. If you prefer to not use a third party action, you can fork and modify the `tibdex/github-app-token` action, or you can write a script to make your workflow create an installation token manually. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."{% else %}To do this, you can use a {% data variables.product.company_short %}-owned action as demonstrated in the following example. If you prefer to not use this action, you can fork and modify the [`actions/create-github-app-token` action](https://github.com/actions/create-github-app-token), or you can write a script to make your workflow create an installation token manually. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."{% endif %}
 
-   The following example workflow uses the `tibdex/github-app-token` action to generate an installation access token. Then, the workflow uses the token to make an API request via the {% data variables.product.prodname_cli %}.
+   The following example workflow uses the {% ifversion ghes < 3.12 %}`tibdex/github-app-token`{% else %}`actions/create-github-app-token`{% endif %} action to generate an installation access token. Then, the workflow uses the token to make an API request via the {% data variables.product.prodname_cli %}.
 
    In the following workflow, replace `APP_ID` with the name of the secret where you stored your app ID. Replace `APP_PRIVATE_KEY` with the name of the secret where you stored your app private key.
 
 ```yaml copy
+{% ifversion ghes < 3.12 %}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
-
+{% endif %}
 on:
   workflow_dispatch:
 jobs:
@@ -48,7 +49,7 @@ jobs:
     steps:
       - name: Generate a token
         id: generate_token
-        uses: tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92
+        uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
         with:
           app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
           private_key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}

@@ -9,14 +9,14 @@ versions:
 featuredLinks:
   startHere:
     - /contributing/writing-for-github-docs/about-githubs-documentation-philosophy
-    - /contributing/writing-for-github-docs/style-guide
-    - /contributing/writing-for-github-docs/content-model
+    - /contributing/style-guide-and-content-model/style-guide
+    - /contributing/style-guide-and-content-model/about-the-content-model
     - /contributing/collaborating-on-github-docs/about-contributing-to-github-docs
 changelog:
   label: docs
 children:
   - /writing-for-github-docs
-  - /syntax-and-versioning-for-github-docs
+  - /style-guide-and-content-model
   - /collaborating-on-github-docs
   - /setting-up-your-environment-to-work-on-github-docs
 ---

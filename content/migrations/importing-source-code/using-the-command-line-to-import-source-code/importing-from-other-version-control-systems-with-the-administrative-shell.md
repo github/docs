@@ -93,4 +93,5 @@ permissions: Site administrators can use the administrative shell to import data
 
 ## Further reading
 
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#import-and-export)"
+- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#import-and-export)"{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"{% endif %}

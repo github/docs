@@ -110,9 +110,11 @@ Finally, if you're willing to help {% data variables.product.company_short %}  u
 
 The data you submit helps {% data variables.product.company_short %} continue to provide a performant product, but {% data variables.product.company_short %} does not guarantee any additional mitigation steps or changes to the product as a result of the data you provide.
 
-## MySQL does not start after upgrade to {% data variables.product.prodname_ghe_server %} 3.9
+## MySQL does not start after upgrade to {% data variables.product.prodname_ghe_server %} 3.9 or 3.10
 
-During an upgrade to {% data variables.product.prodname_ghe_server %} 3.9, if MySQL did not gracefully shut down during the shutdown of the {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 instance, MySQL will attempt to go through crash recovery when the {% data variables.product.prodname_ghe_server %} 3.9 instance starts up. Since {% data variables.product.prodname_ghe_server %} 3.7 and 3.8 uses MySQL 5.7 and {% data variables.product.prodname_ghe_server %} 3.9 has been upgraded to MySQL 8.0, MySQL will not be able to complete crash recovery.
+During an upgrade to {% data variables.product.prodname_ghe_server %} 3.9 (from 3.7 or 3.8) or 3.10 (from 3.8 only), if MySQL did not gracefully shut down during the shutdown of the {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 instance, MySQL will attempt to go through crash recovery when the {% data variables.product.prodname_ghe_server %} 3.9 or 3.10 instance starts up. Since {% data variables.product.prodname_ghe_server %} 3.7 and 3.8 uses MySQL 5.7 and {% data variables.product.prodname_ghe_server %} 3.9 and 3.10 have been upgraded to MySQL 8.0, MySQL will not be able to complete crash recovery.
+
+If you are upgrading from {% data variables.product.prodname_ghe_server %} 3.9 to 3.10 then you will not be affected by this issue, as MySQL has already been upgraded from 5.7 to 8.0 on your instance.
 
 If you experience this problem, the following error will be in the mysql error log (`/var/log/mysql/mysql.err`):
 
@@ -122,61 +124,69 @@ If you experience this problem, the following error will be in the mysql error l
 
 ### Avoiding this issue
 
-We strongly recommend you upgrade your {% data variables.product.prodname_ghe_server %} instance to the latest patch version (3.7.14 or higher, or 3.8.7 or higher) before you upgrade to 3.9. These versions contain a fix for the upgrade issue.
+We strongly recommend you upgrade your {% data variables.product.prodname_ghe_server %} instance to the latest patch version (3.7.14 or higher, or 3.8.7 or higher) before you upgrade to 3.9 or 3.10. These versions contain a fix for the upgrade issue.
 
-If you cannot upgrade {% data variables.location.product_location %}, then you can avoid the issue by updating the nomad timeout for MySQL before starting an upgrade to {% data variables.product.prodname_ghe_server %} 3.9:
+If you cannot upgrade {% data variables.location.product_location %}, then you can avoid the issue by updating the nomad timeout for MySQL before starting an upgrade to {% data variables.product.prodname_ghe_server %} 3.9 (from 3.7 or 3.8) or 3.10 (from 3.8 only).
 
 1. Put your instance into maintenance mode:
 
-  ```shell copy
-  ghe-maintenance -s
-  ```
+   ```shell copy
+   ghe-maintenance -s
+   ```
+
 1. Update consul template for nomad:
 
-  ```shell copy
-  sudo sed -i.bak '/kill_signal/i \      kill_timeout = "10m"' /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl
-  ```
+   ```shell copy
+   sudo sed -i.bak '/kill_signal/i \      kill_timeout = "10m"' /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl
+   ```
+
 1. Render consul template for nomad:
 
-  ```shell copy
-  sudo consul-template -once -template /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl:/etc/nomad-jobs/mysql/mysql.hcl
-  ```
+   ```shell copy
+   sudo consul-template -once -template /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl:/etc/nomad-jobs/mysql/mysql.hcl
+   ```
+
 1. Verify current `kill_timeout` setting:
 
-  ```shell copy
-  nomad job inspect mysql | grep KillTimeout
-  ```
+   ```shell copy
+   nomad job inspect mysql | grep KillTimeout
+   ```
 
-  Expected response:
+   Expected response:
 
-  ```shell copy
-  "KillTimeout": 5000000000
-  ```
+   ```shell copy
+   "KillTimeout": 5000000000
+   ```
+
 1. Stop MySQL:
 
-  ```shell copy
-  nomad job stop mysql
-  ```
+   ```shell copy
+   nomad job stop mysql
+   ```
+
 1. Run new MySQL job:
 
-  ```shell copy
-  nomad job run /etc/nomad-jobs/mysql/mysql.hcl
-  ```
+   ```shell copy
+   nomad job run /etc/nomad-jobs/mysql/mysql.hcl
+   ```
+
 1. Verify kill_timeout has been updated:
 
-  ```shell copy
-  nomad job inspect mysql | grep KillTimeout
-  ```
-  Expected response:
+   ```shell copy
+   nomad job inspect mysql | grep KillTimeout
+   ```
 
-  ```shell copy
-  "KillTimeout": 600000000000,
-  ```
+   Expected response:
+
+   ```shell copy
+   "KillTimeout": 600000000000,
+   ```
+
 1. Take instance out of maintenance mode:
 
-  ```shell copy
-  ghe-maintenance -u
-  ```
+   ```shell copy
+   ghe-maintenance -u
+   ```
 
 Now that the nomad timeout for MySQL has been updated you can upgrade your {% data variables.product.prodname_ghe_server %} instance to 3.9.
 

@@ -1,6 +1,6 @@
 ---
 title: github upload-results
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -42,9 +42,11 @@ Alternatively, the `GITHUB_TOKEN` environment variable can be set.
 
 This token must have the `security_events` scope.
 
-## Primary options
+## Options
 
-#### `-s, --sarif=<file>`
+### Primary Options
+
+#### `-s, --sarif=<file>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the SARIF file to upload. This should be the
 output of [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) (or [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results)) with `--format sarif-latest` for upload to github.com or

@@ -22,7 +22,7 @@ shortTitle: Using Copilot Chat
 
 - To use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %}, you must have the latest version of {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/).
 
-- To use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %}, you must be signed into {% data variables.product.prodname_vscode %} with the same {% data variables.product.prodname_dotcom %} ID that has been granted access to the {% data variables.product.prodname_copilot_chat %} limited public beta.
+- To use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %}, you must be signed into {% data variables.product.prodname_vscode %} with the same {% data variables.product.prodname_dotcom %} ID that has access to {% data variables.product.prodname_copilot %}.
 
 {% data reusables.copilot.enabling-copilot-chat-beta %}
 
@@ -105,10 +105,10 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Further reading
 
-- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvscode %}
 
@@ -124,7 +124,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 - To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.6 or higher. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
 
-- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has been granted access to the {% data variables.product.prodname_copilot_chat %} limited public beta.
+- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has access to {% data variables.product.prodname_copilot %}.
 
 {% data reusables.copilot.enabling-copilot-chat-beta %}
 

@@ -1,7 +1,7 @@
 import { ArrowRightIcon, ArrowUpIcon, FileIcon, ListUnorderedIcon } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'components/Link'
 import { useRouter } from 'next/router'
 

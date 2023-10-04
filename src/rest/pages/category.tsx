@@ -57,7 +57,7 @@ export default function Category({
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('src/rest/lib/index.js')
   const nonEnterpriseDefaultVersion = (await import(
-    'lib/non-enterprise-default-version.js'
+    'src/versions/lib/non-enterprise-default-version.js'
   )) as unknown as string
 
   const req = context.req as any

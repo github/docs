@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import { IconButton, TextInput } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'components/hooks/useTranslation'
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { useTranslation } from 'src/languages/components/useTranslation'
+import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { useQuery } from 'src/search/components/useQuery'
 import { useBreakpoint } from 'src/search/components/useBreakpoint'
 import { EventType, sendEvent } from 'src/events/components/events'
@@ -53,7 +53,6 @@ export function Search() {
           <label className="text-normal width-full">
             <span
               className="visually-hidden"
-              aria-label={t`label`}
               aria-describedby={t`description`}
             >{t`placeholder`}</span>
             <TextInput
@@ -83,6 +82,7 @@ export function Search() {
                 borderBottomRightRadius: 'unset',
                 borderTopRightRadius: 'unset',
                 borderRight: 'none',
+                minWidth: localQuery ? 'unset' : '15rem',
               }}
             />
           </label>

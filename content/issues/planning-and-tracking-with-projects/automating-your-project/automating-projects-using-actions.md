@@ -52,9 +52,17 @@ For more information about authenticating in a {% data variables.product.prodnam
 1. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
 1. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 1.  In order for this specific example to work, your project must also have a "Date posted" date field.
 
+   {% ifversion ghes < 3.12 %}{% note %}
+
+   **Notes:**
+
+   - {% data reusables.actions.actions-not-certified-by-github %}
+   - {% data reusables.actions.actions-use-sha-pinning %}
+
+   {% endnote %}{% endif %}
+
 ```yaml annotate copy
-{% data reusables.actions.actions-not-certified-by-github-comment %}
-{% data reusables.actions.actions-use-sha-pinning-comment %}
+#
 name: Add PR to project
 # This workflow runs whenever a pull request in the repository is marked as "ready for review".
 on:
@@ -65,14 +73,14 @@ jobs:
   track_pr:
     runs-on: ubuntu-latest
     steps:
-    # Uses the [tibdex/github-app-token](https://github.com/tibdex/github-app-token) action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}`.
+    # Uses the {% ifversion ghes < 3.12 %}[tibdex/github-app-token](https://github.com/tibdex/github-app-token){% else %}[actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token){% endif %} action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}`.
     #
     #Replace `APP_ID` with the name of the secret that contains your app ID.
     #
     #Replace `APP_PEM` with the name of the secret that contains your app private key.
       - name: Generate token
         id: generate_token
-        uses: tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92
+        uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
         with:
           app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
           private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -187,7 +195,6 @@ jobs:
                 }
               }
             }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value={% raw %}${{ env.TODO_OPTION_ID }}{% endraw %} -f date_field=$DATE_FIELD_ID -f date_value=$DATE --silent
-
 ```
 
 ## Example workflow authenticating with a {% data variables.product.pat_generic %}

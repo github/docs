@@ -1,6 +1,7 @@
 ---
 title: Getting started with code security
 shortTitle: Getting started
+allowTitleToDifferFromFilename: true
 intro: 'Introduction to code security with {% data variables.product.product_name %}.'
 versions:
   fpt: '*'

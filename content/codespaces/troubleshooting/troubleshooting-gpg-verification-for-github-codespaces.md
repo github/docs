@@ -30,7 +30,7 @@ If you have disabled GPG verification, and are working in an existing codespace,
 
 To keep making regular, unsigned commits in your codespace, reset `commit.gpgsign` to the default value of `false` by entering the following command in the terminal.
 
-```Shell copy
+```shell copy
 git config --unset commit.gpgsign
 ```
 
@@ -54,7 +54,7 @@ To sign your commits with GPG, {% data variables.product.prodname_github_codespa
 
 To check that these values are set correctly in a codespace, you can use the `git config --list --show-origin` command. Because {% data variables.product.prodname_github_codespaces %} sets this configuration at the system level, the required configuration settings should come from `/usr/local/etc/gitconfig`.
 
-```Shell
+```shell
 $ git config --list --show-origin
 file:/usr/local/etc/gitconfig   credential.helper=/.codespaces/bin/gitcredential_github.sh
 file:/usr/local/etc/gitconfig   user.name=Mona Lisa
@@ -82,7 +82,7 @@ For example, if the global `.gitconfig` file on your local machine contains a `g
 1. On your local machine, open a terminal.
 1. To remove the conflicting value from `~/.gitconfig` (Mac/Linux) or `C:\Users\YOUR-USER\.gitconfig` (Windows), use the `git config --global --unset` command.
 
-   ```Shell
+   ```shell
    git config --global --unset gpg.program
    ```
 
@@ -91,13 +91,13 @@ For example, if the global `.gitconfig` file on your local machine contains a `g
 
    For example, you can use the `--system` flag to set the configuration in the system-level file at `PATH/etc/gitconfig`, where `PATH` is the directory in which Git is installed on your system.
 
-   ```Shell
+   ```shell
    git config --system gpg.program gpg2
    ```
 
 Alternatively, if your dotfiles repository contains an installation script in a recognized file such as `install.sh`, you can use the `$CODESPACES` environment variable to add conditional logic, such as only setting `gpg.program` when you are not in a codespace. In the following example, `-z "$CODESPACES"` returns `true` if you are not in a codespace.
 
-```Shell copy
+```shell copy
 if [ -z "$CODESPACES" ]; then
   git config --global gpg.program gpg2
 fi

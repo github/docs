@@ -69,7 +69,14 @@ export default function handleInvalidQuerystrings(req, res, next) {
       return
     }
 
-    if (keys.length >= MAX_UNFAMILIAR_KEYS_REDIRECT) {
+    // This is a pattern we've observed in production and we're shielding
+    // against it happening again. The root home page is hit with a
+    // 8 character long query string that has no value.
+    const rootHomePage = path.split('/').length === 2
+    const badKeylessQuery =
+      rootHomePage && keys.length === 1 && keys[0].length === 8 && !query[keys[0]]
+
+    if (keys.length >= MAX_UNFAMILIAR_KEYS_REDIRECT || badKeylessQuery) {
       defaultCacheControl(res)
       const sp = new URLSearchParams(query)
       keys.forEach((key) => sp.delete(key))

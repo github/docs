@@ -48,7 +48,6 @@ query(
     id
   }
 }
-
 ```
 
 {% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}

@@ -87,14 +87,9 @@ You can make and save changes to the files in your repository. On {% data variab
 1. Under the `readme-edits` branch you created, click the _README.md_ file.
 1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
 1. In the editor, write a bit about yourself. Try using different Markdown elements.
-{% ifversion code-search-code-view %}
-1. Click **Commit changes...**.
-1. In the "Propose changes" box, write a commit message that describes your changes.
-1. Click **Propose changes**.
-{% else %}
+{% ifversion code-search-code-view %}1. Click **Commit changes...**.{% endif %}
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
-{% endif %}
 
 These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
 
@@ -119,7 +114,7 @@ You can even open pull requests in your own repository and merge them yourself. 
 
 1. Click **Create pull request**.
 1. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
-1. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+1. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**, **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 1. Click **Create pull request**.
 
 Your collaborators can now review your edits and make suggestions.

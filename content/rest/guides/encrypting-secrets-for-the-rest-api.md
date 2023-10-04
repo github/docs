@@ -72,7 +72,7 @@ If you are using C#, you can encrypt your secret using the Sodium.Core package. 
 
 In the following example, replace `YOUR_SECRET` with the plain text value that you want to encrypt. Replace `YOUR_BASE64_KEY` with your Base64 encoded public key. The documentation for the endpoint that you will use to create a secret will tell you which endpoint you can use to get the public key.
 
-```C# copy
+```csharp copy
 var secretValue = System.Text.Encoding.UTF8.GetBytes("YOUR_SECRET");
 var publicKey = Convert.FromBase64String("YOUR_BASE64_KEY");
 

@@ -98,6 +98,9 @@ parameter_table:
   type: Type
   single_enum_description: Value
 products:
+  audit_logs:
+    action: Action
+    description: Description
   button_text:
     copy_to_clipboard: Copy to clipboard
     copied: Copied!
@@ -262,3 +265,6 @@ toggle_images:
   show_single: Show image
 scroll_button:
   scroll_to_top: Scroll to top
+popovers:
+  role_description: hover card
+  keyboard_shortcut_description: Press alt+up to activate

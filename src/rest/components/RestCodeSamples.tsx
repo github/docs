@@ -9,7 +9,7 @@ import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import useClipboard from 'src/rest/components/useClipboard'
 import {
   getShellExample,
@@ -20,7 +20,7 @@ import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 
 type Props = {
   slug: string
@@ -248,7 +248,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         </div>
         <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center pt-2">
           <div className="d-inline-flex ml-2">
-            <TabNav aria-label="Example language selector">
+            <TabNav aria-label={`Example language selector for ${operation.title}`}>
               {languageSelectOptions.map((optionKey) => (
                 <TabNav.Link
                   key={optionKey}
@@ -276,8 +276,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
               <button
-                aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
                 className="js-btn-copy btn-octicon"
+                aria-label={
+                  isCopied
+                    ? t('button_text.copied')
+                    : `${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`
+                }
+                aria-live="polite"
+                aria-atomic="true"
                 onClick={() => setCopied()}
               >
                 {isCopied ? <CheckIcon /> : <CopyIcon />}
@@ -294,6 +300,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
         >
           <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
         </div>
@@ -308,7 +316,10 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       ></h4>
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
-          <TabNav className="pt-2 mx-2" aria-label="Example response format selector">
+          <TabNav
+            className="pt-2 mx-2"
+            aria-label={`Example response format selector for ${operation.title}`}
+          >
             {responseSelectOptions.map((optionKey) => (
               <TabNav.Link
                 key={optionKey}
@@ -347,6 +358,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
+              // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+              tabIndex={0}
             >
               <code ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example

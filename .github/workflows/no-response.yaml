@@ -39,3 +39,10 @@ jobs:
             that we can investigate further. See [this blog post on bug reports and the
             importance of repro steps](https://www.lee-dohm.com/2015/01/04/writing-good-bug-reports/)
             for more information about the kind of information that may be helpful.
+          days-before-pr-stale: 7
+          days-before-pr-close: 0
+          close-pr-message: >
+            This PR has been automatically closed because there has been no response to
+            to our request for more information from the original author. Please reach out
+            if you have the information we requested, or open a [new issue](https://github.com/github/docs/issues/new/choose)
+            to describing your changes. Then we can begin the review process.
