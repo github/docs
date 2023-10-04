@@ -103,7 +103,7 @@ The token includes the standard audience, issuer, and subject claims.
 | `iss`| Issuer | The issuer of the OIDC token: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %} |
 | `sub`| Subject | Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way. |
 
-The OIDC token also includes additional standard header parameters and claims.
+The OIDC token also includes additional standard JOSE header parameters and claims.
 
 |    Header Parameter    | Parameter type | Description            |
 | ----------- | -----| ---------------------- |
