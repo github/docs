@@ -283,7 +283,7 @@ There are multiple ways to manage caches for your repositories:
 
 - Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
 - Using the REST API. For more information, see the "[AUTOTITLE](/rest/actions/cache)" REST API documentation.
-- Installing a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information, see the [gh-actions-cache](https://github.com/actions/gh-actions-cache) extension.
+- Installing the `gh cache` subcommand to manage your caches from the command line. For more information, see the [GitHub CLI documentation](https://cli.github.com/manual/gh_cache). Note that you should ensure that you have version 2.32.0 or higher of the CLI installed if you are doing this manually.
 
 {% else %}
 
