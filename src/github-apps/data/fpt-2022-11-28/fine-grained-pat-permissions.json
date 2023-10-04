@@ -3437,6 +3437,15 @@
       },
       {
         "category": "codespaces",
+        "slug": "check-if-permissions-defined-by-a-devcontainer-have-been-accepted-by-the-authenticated-user",
+        "subcategory": "codespaces",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/permissions_check",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "codespaces",
         "slug": "create-a-codespace-from-a-pull-request",
         "subcategory": "codespaces",
         "verb": "post",

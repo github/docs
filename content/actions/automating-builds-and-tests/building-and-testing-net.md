@@ -157,7 +157,7 @@ steps:
   with:
     path: ~/.nuget/packages
     # Look to see if there is a cache hit for the corresponding requirements file
-    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
     restore-keys: |
       ${{ runner.os }}-nuget{% endraw %}
 - name: Install dependencies
