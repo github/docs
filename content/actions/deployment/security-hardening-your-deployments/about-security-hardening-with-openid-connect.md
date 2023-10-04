@@ -112,13 +112,11 @@ The OIDC token also includes additional standard JOSE header parameters and clai
 
 |    Claim    | Claim type | Description            |
 | ----------- | -----| ---------------------- |
-| `alg`| Algorithm | The algorithm used by the OIDC provider. |
 | `exp`| Expires at | Identifies the expiry time of the JWT. |
 | `iat`| Issued at | The time when the JWT was issued. |
 | `jti`| JWT token identifier | Unique identifier for the OIDC token. |
 | `kid`| Key identifier | Unique key for the OIDC token. |
 | `nbf`| Not before | JWT is not valid for use before this time. |
-| `typ`| Type | Describes the type of token. This is a JSON Web Token (JWT). |
 
 The token also includes custom claims provided by {% data variables.product.prodname_dotcom %}.
 
