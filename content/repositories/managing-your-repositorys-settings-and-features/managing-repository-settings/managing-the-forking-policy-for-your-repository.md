@@ -25,7 +25,7 @@ You can help prevent sensitive information from being exposed by disabling the a
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Features", select **Allow forking**.
+1. Under "Features", select **Allow forking**. If you do not have this option, you may not have permissions to control this setting. Check with the owner of the organization that administers the repository or with the owner of the repository about your access.
 
 ## Further reading
 
