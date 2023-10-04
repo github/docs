@@ -93,7 +93,7 @@ For instructions on how to install the latest runner version, see the installati
 You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
 
 - For more information about the `workflow_job` webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks)."
+- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks)."
 
 ## Authentication requirements
 
