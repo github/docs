@@ -130,7 +130,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
 | `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  |
 {%- ifversion actions-oidc-custom-claims %}
-| `job_workflow_sha`| {% data reusables.actions.job-workflow-sha-description %}                  |
+| `job_workflow_sha`| For jobs using a reusable workflow, the commit SHA for the reusable workflow file.                   |
 {%- endif %}
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   |
 | `ref_type`| The type of `ref`, for example: "branch".                  |

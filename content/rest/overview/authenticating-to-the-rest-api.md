@@ -73,7 +73,21 @@ curl --request POST \
 }'
 ```
 
-You can find the client ID and generate a client secret on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
+The client ID and client secret are associated with the app, not with the owner of the app or a user who authorized the app. They are used to perform operations on behalf of the app, such as creating access tokens.
+
+If you are the owner of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, or if you are an app manager for a {% data variables.product.prodname_github_app %}, you can find the client ID and generate a client secret on the settings page for your app. To navigate to your app's settings page:
+
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. Navigate to your account settings.
+   - For an app owned by a personal account, click **Settings**.
+   - For an app owned by an organization:
+     1. Click **Your organizations**.
+     1. To the right of the organization, click **Settings**.
+{% data reusables.user-settings.developer_settings %}
+1. In the left sidebar, click **{% data variables.product.prodname_github_apps %}** or **{% data variables.product.prodname_oauth_apps %}**.
+1. For {% data variables.product.prodname_github_apps %}, to the right of the {% data variables.product.prodname_github_app %} you want to access, click **Edit**. For {% data variables.product.prodname_oauth_apps %}, click the app that you want to access.
+1. Next to **Client ID**, you will see the client ID for your app.
+1. Next to **Client secrets**, click **Generate a new client secret** to generate a client secret for your app.
 
 ## Authenticating in a {% data variables.product.prodname_actions %} workflow
 

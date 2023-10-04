@@ -265,7 +265,14 @@ This query would only match files containing the term `README.md`, rather than m
 
 ### Is qualifier
 
-To filter based on repository properties, you can use the `is:` qualifier. At this time, `is:` supports two values: `archived`, which restricts the search to archived repositories, and `fork`, which restricts the search to forked repositories. For example:
+To filter based on repository properties, you can use the `is:` qualifier. `is:` supports the following values:
+
+- `archived`: restricts the search to archived repositories.
+- `fork`: restricts the search to forked repositories.
+- `vendored`: restricts the search to content detected as vendored.
+- `generated`: restricts the search to content detected as generated.
+
+For example:
 
 ```text
 path:/^MIT.txt$/ is:archived
