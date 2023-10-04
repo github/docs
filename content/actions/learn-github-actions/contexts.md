@@ -676,7 +676,7 @@ For workflows with a matrix, the `strategy` context contains information about t
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `strategy` | `object` | This context changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `strategy.fail-fast` | `boolean` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.fail-fast` | `boolean` or `expression` | When this evaluates to `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
 | `strategy.job-index` | `number` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
 | `strategy.job-total` | `number` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
 | `strategy.max-parallel` | `number` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
