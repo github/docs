@@ -13,7 +13,7 @@ topics:
 
 ## Subscribe to the minimum number of events
 
-You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information, see "[AUTOTITLE](/webhooks/creating-webhooks)."
+You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information about subscribing to events, see "[AUTOTITLE](/webhooks/creating-webhooks)" and "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
 
 ## Use a webhook secret
 
