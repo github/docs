@@ -12,6 +12,8 @@ redirect_from:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% data reusables.actions.windows-linux-larger-runners-note %}
+
 ## About runner groups
 
 {% data reusables.actions.about-runner-groups %}

@@ -615,6 +615,8 @@ Each `run` keyword represents a new process and shell in the runner environment.
       npm run build
   ```
 
+## `jobs.<job_id>.steps[*].working-directory`
+
 Using the `working-directory` keyword, you can specify the working directory of where to run the command.
 
 ```yaml

@@ -72,6 +72,11 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'annotate-frontmatter': {
+    // GH040
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
 }
 
 const githubMarkdownlintConfig = {
