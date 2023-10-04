@@ -1,4 +1,4 @@
-1. Under "Recent deliveries", all deliveries from the past 30 days will be listed. If this webhook has not been delivered within the past 30 days, no deliveries will be listed. If webhooks are not active, the "Recent Deliveries" section will not be present.
+1. Under "Recent deliveries", all deliveries from the past {% data variables.webhooks.retention %} days will be listed. If this webhook has not been delivered within the past {% data variables.webhooks.retention %} days, no deliveries will be listed. If webhooks are not active, the "Recent Deliveries" section will not be present.
 
    Click a delivery GUID to view details.
 
