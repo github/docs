@@ -28,6 +28,7 @@ Unless you set a profile picture for a team, the team profile picture will match
 1. Click and drag to crop the image as needed, then click **Set new team avatar**.
 
 ## Using a Gravatar image
+
 You can set a team profile picture using a Gravatar image. Here's how it's done:
 1. In the "Gravatar email" field, type the email that is associated with your Gravatar image.
 1. Select **Update profile**
