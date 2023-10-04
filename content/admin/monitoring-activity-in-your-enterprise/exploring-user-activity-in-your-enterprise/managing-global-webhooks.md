@@ -79,4 +79,4 @@ For example, you can configure {% data variables.location.product_location %} to
 
 ## Viewing recent deliveries and responses
 
-You can view details about webhook deliveries that occurred in the past 30 days. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+You can view details about webhook deliveries that occurred in the past {% data variables.webhooks.retention %} days. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
