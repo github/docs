@@ -261,6 +261,8 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
 
   summarizeFlaws(core, flaws)
 
+  const uniqueHrefs = new Set(flaws.map((flaw) => flaw.href))
+
   if (flaws.length > 0) {
     await uploadJsonFlawsArtifact(uploadArtifact, flaws, opts)
     core.info(`All flaws written to artifact log.`)
@@ -269,7 +271,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       const reportProps = {
         core,
         octokit,
-        reportTitle: `${flaws.length} broken links found`,
+        reportTitle: `${uniqueHrefs.size} broken links found`,
         reportBody: flawIssueDisplay(flaws, opts),
         reportRepository,
         reportLabel,
