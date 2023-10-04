@@ -54,7 +54,7 @@ A codespace is paid for by the account that owns it. The codespace owner can be 
 
 If your organization owns a codespace, your organization has control over that codespace. For example, for codespaces owned by your organization, you can:
 
-- Use the "[REST API](/rest/codespaces/organizations)" to manage codespaces, such as stopping or deleting a codespace
+- Use the [REST API](/rest/codespaces/organizations) to manage codespaces, such as stopping or deleting a codespace
 - Access audit logs to review actions related to {% data variables.product.prodname_github_codespaces %}
 - Set policies to manage constraints, such as restricting the base image or machine type that can be used in codespaces, or setting a default timeout and retention period
 
