@@ -136,7 +136,7 @@ be discarded after the queries have been executed.
 #### `--[no-]keep-full-cache`
 
 \[Advanced] Don't clean up the disk cache after evaluation completes.
-This may save time if you're going to do "[codeql dataset cleanup](/code-security/codeql-cli/codeql-cli-manual/dataset-cleanup")" or "[codeql database cleanup](/code-security/codeql-cli/codeql-cli-manual/database-cleanup)" afterwards anyway.
+This may save time if you're going to do "[codeql dataset cleanup](/code-security/codeql-cli/codeql-cli-manual/dataset-cleanup)" or "[codeql database cleanup](/code-security/codeql-cli/codeql-cli-manual/database-cleanup)" afterwards anyway.
 
 #### `--max-disk-cache=<MB>`
 
