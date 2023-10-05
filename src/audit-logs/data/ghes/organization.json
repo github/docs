@@ -286,13 +286,13 @@
   },
   {
     "action": "org.codeql_disabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization disables code scanning for repositories that use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.codeql_enabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization enables code scanning for repositories that are eligible to use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.config.disable_collaborators_only",
@@ -596,22 +596,22 @@
   },
   {
     "action": "organization_domain.approve",
-    "description": "An enterprise domain was approved for an organization.",
+    "description": "A domain was approved for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#approving-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.create",
-    "description": "An enterprise domain was added to an organization.",
+    "description": "A domain was added to an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.destroy",
-    "description": "An enterprise domain was removed from an organization.",
+    "description": "A domain was removed from an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain"
   },
   {
     "action": "organization_domain.verify",
-    "description": "An enterprise domain was verified for an organization.",
+    "description": "A domain was verified for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
@@ -951,13 +951,13 @@
   },
   {
     "action": "repo.codeql_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.codeql_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.code_scanning_analysis_deleted",
