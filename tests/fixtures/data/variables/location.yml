@@ -5,3 +5,6 @@ product_location: >-
 # Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 # Do not use in other situations!
 product_location_enterprise: 'your GitHub Enterprise Server instance'
+
+foo:
+  bar: 'location'
