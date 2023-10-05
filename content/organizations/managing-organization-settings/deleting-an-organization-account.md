@@ -30,7 +30,7 @@ Deleting your organization account removes all repositories, forks of private re
 
 {% tip %}
 
-**Tip**: If you want to replace your organization, instead of deleting the existing one, consider [renaming it](/organizations/managing-organization-settings/renaming-an-organization). Deleting an organization causes its name to be unavailable for 90 days, but renaming it frees the name up immediately.
+**Tip**: To replace your organization, consider [renaming it](/organizations/managing-organization-settings/renaming-an-organization) instead of deleting the existing one. Deleting an organization causes its name to be unavailable for 90 days, while renaming an organization allows you to create a new one with the same name immediately.
 
 {% endtip %}
 
