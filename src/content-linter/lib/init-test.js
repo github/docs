@@ -1,8 +1,8 @@
 import markdownlint from 'markdownlint'
 
-import { defaultOptions, defaultConfig } from './default-markdownlint-options.js'
+import { defaultConfig } from './default-markdownlint-options.js'
 
-export async function runRule(module, { strings, files, ruleConfig }) {
+export async function runRule(module, { strings, files, ruleConfig, markdownlintOptions = {} }) {
   if ((!strings && !files) || (strings && files))
     throw new Error('Must provide either Markdown strings or files to run a rule')
 
@@ -17,6 +17,6 @@ export async function runRule(module, { strings, files, ruleConfig }) {
   if (strings) testOptions.strings = strings
   if (files) testOptions.files = files
 
-  const options = { ...defaultOptions, ...testOptions }
+  const options = { ...markdownlintOptions, ...testOptions }
   return await markdownlint.promises.markdownlint(options)
 }
