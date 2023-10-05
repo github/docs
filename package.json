@@ -156,7 +156,7 @@
     "@typescript-eslint/eslint-plugin": "6.7.0",
     "@typescript-eslint/parser": "6.7.0",
     "chalk": "^5.0.1",
-    "change-case": "^4.1.2",
+    "change-case": "^5.0.2",
     "commander": "^11.0.0",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
