@@ -44,6 +44,8 @@ After someone reports a security vulnerability in your project, you can use {% d
 By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
 {% endif %}
 
+For an example of a real `SECURITY.md` file, see [https://github.com/electron/electron/blob/main/SECURITY.md](https://github.com/electron/electron/blob/main/SECURITY.md).
+
 ## Adding a security policy to your repository
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -16,6 +16,7 @@ import { internalLinksOldVersion } from './internal-links-old-version.js'
 import { hardcodedDataVariable } from './hardcoded-data-variable.js'
 import { githubOwnedActionReferences } from './github-owned-action-references.js'
 import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
+import { annotateFrontmatter } from './annotate-frontmatter.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -44,5 +45,6 @@ export const gitHubDocsMarkdownlint = {
     hardcodedDataVariable,
     githubOwnedActionReferences,
     liquidQuotedConditionalArg,
+    annotateFrontmatter,
   ],
 }
