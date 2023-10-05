@@ -5,6 +5,8 @@ intro: 'You can use a tool switcher to show how to complete tasks using specific
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles
 ---
 
 ## About tool switchers
@@ -35,12 +37,14 @@ Tool tags are Liquid tags that wrap content specific to a tool. <!--For more inf
 
 Put tools in alphabetical order. By default, the first tool tag will be selected for an article. You can define a different default tool for an article by specifying a `defaultTool:` property in the article's frontmatter. For more information, see the [content README](https://github.com/github/docs/blob/main/content/README.md#defaulttool).
 
-You can also link to an article with a specific tool selected by adding `?tool=TOOLNAME` to the end of the link. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links-to-a-specific-tool)."
+You can also link to an article with a specific tool selected by adding `?tool=TOOLNAME` to the end of the link. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links-to-a-specific-tool)."
 
 Only include a maximum of eight different tools in an article. Including more tools causes the tool switcher tabs to overflow with an article's table of contents, which prevents people from using either the tool switcher or table of contents. It is unlikely that you will ever need to include eight separate tools in an article. In general, plan to use as few separate tools as possible in an article.
 
 ## Adding new tools
 
-If a writer determines that adding a new tool is the only way to accurately document something, they should explain their reasoning in the content planning stage. Whoever reviews content plan should consider if there are any alternative ways to address the documentation need without adding a new tool. If a new tool is the only way to create accurate documentation, the new tool should be added. If there is an alternative content solution that does not add a new tool, that option should be used.
+{% data variables.product.prodname_docs %} documents and maintains tool tags for {% data variables.product.prodname_dotcom %} products, {% data variables.product.prodname_dotcom %}-developed tools, and select third-party extensions.
+
+New tools are only added when they are the only way to accurately document something for a specific user need. If a writer determines that adding a new tool is the only way to accurately document something, they need to propose the new tool in a content design plan. Whoever reviews the content design plan should consider any alternative ways to address the documentation needs without adding a new tool. If a new tool is the only way to create accurate documentation, the new tool should be added. If there is an alternative content solution that does not add a new tool, that option should be used.
 
 To add a new tool, add an entry to the `allTools` object in the [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) file as a key-value pair. Add new tools in alphabetical order.

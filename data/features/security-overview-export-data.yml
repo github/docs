@@ -2,4 +2,4 @@
 # Documentation for the ability to download CSV files of data from the risk and coverage pages of security overview.
 versions:
   ghec: '*'
-  ghes: '>3.11'
+  ghes: '>3.12'

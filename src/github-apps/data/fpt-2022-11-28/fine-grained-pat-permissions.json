@@ -207,6 +207,24 @@
       },
       {
         "category": "orgs",
+        "slug": "list-organization-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "get-an-organization-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
         "slug": "get-an-organization-repository-ruleset",
         "subcategory": "rules",
         "verb": "get",
@@ -2801,6 +2819,24 @@
       },
       {
         "category": "repos",
+        "slug": "list-repository-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
         "slug": "update-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "put",
@@ -3396,6 +3432,15 @@
         "subcategory": "codespaces",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/codespaces/new",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "codespaces",
+        "slug": "check-if-permissions-defined-by-a-devcontainer-have-been-accepted-by-the-authenticated-user",
+        "subcategory": "codespaces",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/permissions_check",
         "additional-permissions": [],
         "access": "write"
       },

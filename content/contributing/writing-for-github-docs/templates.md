@@ -8,7 +8,7 @@ versions:
 
 ## Conceptual article template
 
-Use the content model for full instructions and examples on how to write conceptual content. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/content-model#conceptual)."
+Use the content model for full instructions and examples on how to write conceptual content. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/conceptual-content-type)."
 
 ```yaml
 {% raw %}---
@@ -56,7 +56,7 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 ## Referential article template
 
-Use the content model for full instructions and examples on how to write referential content. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/content-model#referential)."
+Use the content model for full instructions and examples on how to write referential content. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/referential-content-type)."
 
 ```yaml
 {% raw %}---
@@ -104,7 +104,7 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 ## Procedural article template
 
-Use the content model for full instructions and examples on how to write procedural content. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/content-model#procedural)."
+Use the content model for full instructions and examples on how to write procedural content. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/procedural-content-type)."
 
 ```yaml
 {% raw %}---
@@ -131,7 +131,7 @@ Remove these comments from your article file when you're done writing
 
 {% comment %} 
 Include prerequisite information or specific permissions information here. 
-Then write procedural steps following the instructions in https://docs.github.com/contributing/writing-for-github-docs/style-guide#procedural-steps. 
+Then write procedural steps following the instructions in https://docs.github.com/contributing/style-guide-and-content-model/style-guide#procedural-steps. 
 Check if there's already a reusable string for the step you want to write in https://github.com/github/docs/tree/main/data/reusables. Look at the source file for a procedure located in the same area of the user interface to find reusables. 
 {% endcomment %}
 
@@ -152,7 +152,7 @@ Optionally, include a bulleted list of related articles the user can reference t
 
 ## Quickstart article template
 
-Use the content model for full instructions and examples on how to write quickstarts. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/content-model#quickstart)."
+Use the content model for full instructions and examples on how to write quickstarts. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/quickstart-content-type)."
 
 ```yaml
 {% raw %}---
@@ -216,7 +216,7 @@ Provide a quick recap of what has been accomplished in the quick start as a mean
 
 ## Tutorial article template
 
-Use the content model for full instructions and examples on how to write tutorials. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/content-model#tutorial)."
+Use the content model for full instructions and examples on how to write tutorials. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/tutorial-content-type)."
 
 ```yaml
 {% raw %}---
@@ -287,7 +287,7 @@ Include a bulleted list of tutorials or articles the user can reference to exten
 
 ## Language guides for GitHub Actions
 
-Use the content model for full instructions and examples on how to write for {% data variables.product.prodname_docs %}. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/content-model)."
+Use the content model for full instructions and examples on how to write for {% data variables.product.prodname_docs %}. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/about-the-content-model)."
 
 ```yaml
 {% raw %}---

@@ -20,7 +20,7 @@ Specify the port number when making API calls to endpoints for the Manage {% dat
 
 ### Authentication
 
-To authenticate requests to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API, specify the password for the instance's root site administrator account as an authentication token. Use standard HTTP authentication to send the password. The `api_key` user identifies the root site administrator. The following example demonstrates authentication for this API. Replace ROOT-SITE-ADMINISTRATOR-PASSWORD with the password, and ADMINISTRATION-PORT with either 8442 or 8080.
+To authenticate requests to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API, specify the password for the instance's root site administrator account as an authentication token. Use standard HTTP authentication to send the password. The `api_key` user identifies the root site administrator. The following example demonstrates authentication for this API. Replace ROOT-SITE-ADMINISTRATOR-PASSWORD with the password, and ADMINISTRATION-PORT with either 8443 or 8080.
 
 ```shell
 curl -L -u "api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'

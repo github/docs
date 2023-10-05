@@ -6,6 +6,8 @@ product: '{% data reusables.contributing.product-note %}'
 layout: inline
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/syntax-and-versioning-for-github-docs/annotating-code-examples
 ---
 
 ## About code annotations

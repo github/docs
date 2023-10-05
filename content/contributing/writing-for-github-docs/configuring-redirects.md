@@ -4,6 +4,8 @@ intro: "If an article's title, version, or location changes, you can create a re
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/syntax-and-versioning-for-github-docs/configuring-redirects
 ---
 
 ## About redirects

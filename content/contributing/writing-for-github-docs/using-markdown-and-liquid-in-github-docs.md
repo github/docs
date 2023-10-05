@@ -5,6 +5,8 @@ intro: 'You can use Markdown and Liquid to format content, create reusable conte
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+redirect_from:
+  - /contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs
 ---
 
 ## About using Markdown and Liquid in {% data variables.product.prodname_docs %}
@@ -51,7 +53,7 @@ This content is displayed on the {% data variables.product.prodname_docs %} site
 
 Callouts highlight important information that users need to know. We use standard formatting and colors for different types of callouts: notes, warnings, and danger notices. Use Liquid tags before and after the text you’d like included in the callout box.
 
-For information on when to use callout tags, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#callouts)."
+For information on when to use callout tags, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#callouts)."
 
 ### Example usage of a callout
 
@@ -147,7 +149,7 @@ If you're referencing an Octicon that appears in the UI, identify whether the Oc
    - Some Octicons used as labels have dynamic `aria-label` elements that change based on the state of the UI element or a user input. For example, when someone has two security policies-`Policy A` and `Policy B`-their UI will show two trash Octicons labelled `{% octicon "trash" aria-label="Delete Policy A" %}` and `{% octicon "trash" aria-label="Delete Policy B" %}`. For dynamic `aria-label` elements, since we can't document the exact `aria-label` that people will encounter, describe the Octicon and a placeholder example of the label (for example, `"{% octicon "trash" aria-label="The trash icon, labelled 'Delete YOUR-POLICY-NAME'." %}"`). This will help people identify both the Octicon and how it is labelled, and give context for collaborating with people who are visually describing the Octicon.
  - If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% octicon "plus" aria-hidden="true" %} Add message"`).
 
-If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#tables)."
+If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#tables)."
 
 ### Example usage of Octicons
 
@@ -192,7 +194,9 @@ You can define a default platform in an article's YAML frontmatter. For more inf
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools ({% data variables.product.prodname_dotcom %} UI, {% data variables.product.prodname_cli %}, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_github_codespaces %}, curl, Visual Studio Code, JetBrains IDEs, {% data variables.product.prodname_importer_proper_name %} CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation that has different instructions for different tools. For example, the {% data variables.product.prodname_dotcom %} UI, {% data variables.product.prodname_cli %}, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_github_codespaces %}, and Visual Studio Code might be able to accomplish the same task using different steps. We use tool tags to control what information is displayed for each tool.
+
+{% data variables.product.prodname_docs %} maintains tool tags for {% data variables.product.prodname_dotcom %} products and selected third-party extensions. See the [`all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) object in the `github/docs` repository for a list of all supported tools.
 
 On rare occasions, we will add new tools. Before adding a new tool, read "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles)." To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, and the value is how the tool will be identified on the tool picker at the top of the article.
 
@@ -314,7 +318,7 @@ Every row of a table in the {% data variables.product.prodname_docs %} must star
 
 ## Table row headers
 
-If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag {% raw %}`{% rowheaders %} {% endrowheaders %}`{% endraw %}. For more information on using markup for tables, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#use-proper-markup-for-row-and-column-headers)."
+If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag {% raw %}`{% rowheaders %} {% endrowheaders %}`{% endraw %}. For more information on using markup for tables, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#use-proper-markup-for-row-and-column-headers)."
 
 ### Example table with row headers
 
@@ -381,7 +385,7 @@ and when viewed on {% data variables.product.prodname_ghe_server %} docs, the ve
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
-For more information about links, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links)."
+For more information about links, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links)."
 
 ### Permalinks
 
