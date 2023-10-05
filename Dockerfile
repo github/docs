@@ -44,7 +44,6 @@ RUN npm prune --production
 # ---------------
 FROM all_deps as builder
 
-COPY stylesheets ./stylesheets
 COPY components ./components
 COPY lib ./lib
 COPY src ./src
