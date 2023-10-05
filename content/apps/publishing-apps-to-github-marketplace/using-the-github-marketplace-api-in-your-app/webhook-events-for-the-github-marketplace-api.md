@@ -62,4 +62,22 @@ Key | Type | Description
 `unit_name` | `string` | The name of the unit. If the pricing model is not `per-unit` this will be `nil`.
 `bullet` | `array of strings` | The names of the bullets set in the pricing plan.
 
+## Manual Webhook Deliveries for Financial Onboarding
+There are rare occassions where when a user sets up a new webhook for their Financial Onboarding and the webhook does not run at all. Due to this, we are unable to determine if a users webhook has been setup correctly, therefore we are unable to make a determination on the verification of a listing. If this ever happens, it is the reviewing team members responsibility to test out the webhook manually to determine if it has been set it up properly. In order to do this, we need to manually run a request with an HTTP client (Postman is a great option, but can use any client of your choice). In order to make this request, you will need to follow these steps:
+
+1. Go into biztools and find the listing. and click on the 'webhook' tab, and copy the URL.
+2. Go into your HTTP client and paste the URL into the URL field. 
+3. Select 'POST' as your method.
+4. Enter in the following body for your request, you may adjust the data as necessary, but please ake sure to follow the exact same format for the body of your HTTP request. If you are using Postman, please make sure you select "raw" format for the body: 
+  `{
+    "unit_count": 1,
+    "on_free_trial": true,
+    "free_trial_ends_on": "2023-01-14",
+    "next_billing_date": "2023-02-01",
+    "plan": "free"
+   }`
+5. Finally, send your request. 
+
+If your request returns anything other than a 200, you will need to double check the data. If you determine that all of the data and format in your request body are correct, then it is safe to assume that the webhook was not properly setup. If that is the case, please refer back to "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)", otherwise, congratulations! You have set up a successful webhook! 
+
 <br/>
