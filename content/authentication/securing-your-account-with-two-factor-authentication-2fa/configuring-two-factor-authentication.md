@@ -21,7 +21,7 @@ shortTitle: Configure 2FA
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-You can configure two-factor authentication (2FA) using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
+You can configure two-factor authentication (2FA) using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. After you have configured 2FA using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}, you can then also add security keys as alternate 2FA methods.
 
 We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA{% ifversion fpt or ghec %}, and security keys as backup methods instead of SMS. TOTP applications are more reliable than SMS, especially for locations outside the United States{% endif %}. Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
 
