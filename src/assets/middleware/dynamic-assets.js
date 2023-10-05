@@ -93,6 +93,35 @@ export default async function dynamicAssets(req, res, next) {
         }
       }
 
+      // The default in sharp.webp() for effort is 4. It's a sensible
+      // balance between time and compression.
+      // If you make it low, it makes the webp conversion faster.
+      // If you make it high, the webp conversion is slower but the
+      // resulting WEBP file are smaller.
+      // Given that our App Service containers aren't very strong in
+      // terms of CPU, we avoid the highest effort. But given how
+      // well our CDN protects repeated requests for the same image,
+      // we can pay this cost once and reap it for a very long time.
+      // Be mindful at the highest (6), it can be extremely slow so
+      // let's avoid that for now.
+      //
+      // For more information about the effort option, see:
+      // https://www.peterbe.com/plog/comparing-different-efforts-with-webp-in-sharp
+      //
+      let effort = 5
+      if (process.env.NODE_ENV === 'test') {
+        // When running tests, we want to make the conversion as fast
+        // as possible because the resulting WEBP buffer will most
+        // likely never be enjoyed by network or human eyes.
+        effort = 1
+      } else if (process.env.NODE_ENV === 'development') {
+        // If you're doing local development (or preview!), the
+        // network is not precious (localhost:4000) and you have no
+        // CDN to cache it for you. Make it low but not too unrealistically
+        // low.
+        effort = 1
+      }
+
       // Note that by default, sharp will use a lossy compression.
       // (i.e. `{lossless: false}` in the options)
       // The difference is that a lossless image is slightly crisper
@@ -107,7 +136,7 @@ export default async function dynamicAssets(req, res, next) {
       // to preserve as much quality as possible at the source level.
       // The default quality is 80% which, combined with `lossless:false`
       // makes our images 2.8x smaller than the average PNG.
-      const buffer = await image.webp().toBuffer()
+      const buffer = await image.webp({ effort }).toBuffer()
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
     } catch (error) {

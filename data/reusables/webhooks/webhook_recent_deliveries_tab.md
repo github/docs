@@ -1,1 +1,1 @@
-1. Click **Recent deliveries**. All deliveries from the past 30 days will be listed. If this webhook has not been delivered within the past 30 days, no deliveries will be listed.
+1. Click **Recent deliveries**. All deliveries from the past {% data variables.webhooks.retention %} days will be listed. If this webhook has not been delivered within the past {% data variables.webhooks.retention %} days, no deliveries will be listed.

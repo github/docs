@@ -27,7 +27,7 @@ If the author of a commit in your imported repository has a GitHub account assoc
 
 If the author of a commit in your imported repository has neither set a public email address on their GitHub profile, nor [set their commit email address as private](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address), GitHub Importer may not be able to match the email address associated with the commit with their GitHub account.
 
-The commit author can resolve this by setting their email address as private. Their commits will then be attributed to `<username>@users.noreply.github.com`, and the imported commits will be associated with their GitHub account.
+The commit author can resolve this by setting their email address as private. Their commits will then be attributed to a no-reply email, and the imported commits will be associated with their GitHub account. For more information about the exact form the no-reply email address can take, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
 
 ## Attributing commits using an email address
 

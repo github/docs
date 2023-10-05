@@ -31,7 +31,7 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 
    If you click on any of the specific suggestions, you will be taken directly to the page for that suggestion (for example, the repository or project page). If you click on a recent or saved search, depending on the type of search, the search query will appear in the search bar or you will be taken to the search results page for the search term.
 
-1. Once you start typing a search query, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you type more qualifiers, you will see more specific suggestions, such as code files you can jump to directly.
+{% data reusables.search.type-code-search-query-step %}
 
    ![Screenshot of a search for "repo:octocat/spoon-knife". The code results are outlined in dark orange.](/assets/images/help/search/code-search-beta-search-bar-code-suggestions.png)
 
@@ -53,3 +53,11 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 To construct a search query, as well as view and filter results, using a visual interface, you can use the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. If you press Enter after typing a search query in the search bar, you will also be taken to the search results view.
 
 On the search results view, you can navigate between different types of search results, including code, issues, pull request, repositories, and more. You can also view and use filters.
+
+## Using {% data variables.product.prodname_dotcom%} code search on {% data variables.product.prodname_mobile %}
+
+On {% data variables.product.prodname_mobile %}, you can navigate to a repository and use code search on the code in that repository. Code search on {% data variables.product.prodname_mobile %} uses the same syntax as code search on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
+
+1. On {% data variables.product.prodname_mobile %}, navigate to the main page of a repository.
+1. Tap {% octicon "file-code" aria-hidden="true" %} **Code**, then tap the search bar.
+{% data reusables.search.type-code-search-query-step %}

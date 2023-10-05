@@ -1,6 +1,6 @@
 ---
 title: early-access secret
-descriptions: Early-Access secret
+descriptions: Early-Access early-Access secret
 redirect_from: 
   - /early-access/secret
 versions:
