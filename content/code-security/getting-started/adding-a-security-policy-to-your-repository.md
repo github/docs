@@ -30,7 +30,7 @@ You can create a default security policy for your organization or personal accou
 
 {% tip %}
 
-**Tip:** To help people find your security policy, you can link to your `SECURITY.md` file from other places in your repository, such as your README file. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+**Tip:** To help people find your security policy, you can link to your `SECURITY.md` file from other places in your repository, such as your `README` file. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
 {% endtip %}
 
