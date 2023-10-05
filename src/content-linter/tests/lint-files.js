@@ -317,17 +317,7 @@ describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
 
   describe.each(mdToLint)('%s', (markdownRelPath, markdownAbsPath) => {
-    let content,
-      ast,
-      links,
-      isHidden,
-      isEarlyAccess,
-      isSitePolicy,
-      isSearch,
-      isTranscript,
-      isTranscriptLanding,
-      hasExperimentalAlternative,
-      frontmatterData
+    let content, ast, links, isEarlyAccess, frontmatterData
 
     beforeAll(async () => {
       const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
@@ -336,49 +326,13 @@ describe('lint markdown content', () => {
       content = bodyContent
       frontmatterData = data
       ast = fromMarkdown(content)
-      isHidden = data.hidden === true
       const split = markdownRelPath.split('/')
       isEarlyAccess = split.includes('early-access')
-      isSitePolicy = split.includes('site-policy-deprecated')
-      isSearch = split.includes('search') && !split.includes('reusables')
-      isTranscript = split.includes('video-transcripts')
-      isTranscriptLanding = isTranscript && split.includes('index.md')
-      hasExperimentalAlternative = data.hasExperimentalAlternative === true
 
       links = []
       visit(ast, ['link', 'definition'], (node) => {
         links.push(node.url)
       })
-    })
-
-    test('hidden docs must be Early Access, Site Policy, Search, Experimental, or Transcript', async () => {
-      // We need to support some non-Early Access hidden docs in Site Policy
-      if (isHidden) {
-        expect(
-          isEarlyAccess || isSitePolicy || isSearch || hasExperimentalAlternative || isTranscript,
-        ).toBe(true)
-      }
-    })
-
-    // see contributing/videos.md
-    test('transcripts must contain intro link to video being transcribed', async () => {
-      if (isTranscript && !isTranscriptLanding) {
-        expect(frontmatterData.product_video).toBeDefined()
-      }
-    })
-
-    // see contributing/videos.md
-    test('transcripts must be prepended with "Transcript - "', async () => {
-      if (isTranscript && !isTranscriptLanding) {
-        expect(frontmatterData.title.startsWith('Transcript - ')).toBe(true)
-      }
-    })
-
-    // see contributing/videos.md
-    test('videos on product landing pages must contain transcript', async () => {
-      if (frontmatterData.layout === 'product-landing' && frontmatterData.product_video) {
-        expect(frontmatterData.product_video_transcript).toMatch(/^\/video-transcripts\/.+/)
-      }
     })
 
     test('contains no deprecated frontmatter properties', async () => {

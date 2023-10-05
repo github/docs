@@ -1031,13 +1031,13 @@
   },
   {
     "action": "forbid_auto_approve_personal_access_token_requests.disable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Auto-approve policy for fine-grained personal access tokens was enabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-an-approval-policy-for-fine-grained-personal-access-tokens"
   },
   {
     "action": "forbid_auto_approve_personal_access_token_requests.enable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Auto-approve policy for fine-grained personal access tokens was disabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-an-approval-policy-for-fine-grained-personal-access-tokens"
   },
   {
     "action": "git.clone",
