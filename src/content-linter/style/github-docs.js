@@ -79,6 +79,26 @@ const githubDocsConfig = {
   },
 }
 
+export const githubDocsFrontmatterConfig = {
+  'frontmatter-hidden-docs': {
+    // GHD034
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-video-transcripts': {
+    // GH036
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-early-access-references': {
+    // GH060
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+}
+
+// Configures rules from the `github/markdownlint-github` repo
+// created by the accessibility team.
 const githubMarkdownlintConfig = {
   'no-default-alt-text': {
     severity: 'error',
@@ -90,6 +110,9 @@ const githubMarkdownlintConfig = {
   },
 }
 
+// Configures rules from the open-source Markdownlint extension
+// search-replace:
+// https://www.npmjs.com/package/markdownlint-rule-search-replace
 export const searchReplaceConfig = {
   'search-replace': {
     rules: [
@@ -167,4 +190,5 @@ export const customConfig = {
   ...searchReplaceConfig,
   ...githubDocsConfig,
   ...githubMarkdownlintConfig,
+  ...githubDocsFrontmatterConfig,
 }
