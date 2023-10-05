@@ -26,7 +26,15 @@ shortTitle: Delete organization
 {% endtip %}
 
 {% endif %}
-Deleting your organization account removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. {% ifversion fpt or ghec %}Your billing will end and, after 90 days, the organization name becomes available for use on a new user or organization account.{% endif %}
+Deleting your organization account removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. {% ifversion fpt or ghec %}Your billing will end and, after 90 days, the organization name becomes available for use on a new user or organization account.
+
+{% tip %}
+
+**Tip**: If you want to replace your organization, instead of deleting the existing one, consider [renaming it](/organizations/managing-organization-settings/renaming-an-organization). Deleting an organization causes its name to be unavailable for 90 days, but renaming it frees the name up immediately. 
+
+{% endtip %}
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
