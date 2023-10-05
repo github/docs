@@ -629,7 +629,6 @@ For more information, see [Securing Nexus Repository Manager](https://help.sonat
 
   Registries can be proxied to reach out to a public registry in case a dependency is not available in the private regstry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public regsitry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
 
-
 ### ProGet
 
 For information about ProGet and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with feeds in ProGet, see [the ProGet documentation](https://docs.inedo.com/docs/proget-overview).
@@ -651,4 +650,3 @@ registries:
 The `token` should be an API Key that with access to view packages; see [API Access and API Keys](https://docs.inedo.com/docs/buildmaster-administration-security-api-keys).
 
 You can check whether the private registry is has been sucessfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
-
