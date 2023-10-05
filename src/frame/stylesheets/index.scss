@@ -10,19 +10,11 @@
 @import "@primer/css/alerts/index.scss";
 @import "@primer/css/popover/index.scss";
 
-// Primer and native tag overrides
 @import "headings.scss";
-@import "markdown-overrides.scss";
-@import "images.scss";
+@import "scroll-button.scss";
 @import "scroll-top.scss";
-
-// Components
-@import "heading-links.scss";
-@import "syntax-highlighting.scss";
-@import "spotlight.scss";
-@import "annotate.scss";
-@import "hover-card.scss";
-
-// Utility classes
-@import "utilities.scss";
 @import "shadows.scss";
+@import "utilities.scss";
+
+@import "src/content-render/stylesheets/index.scss";
+@import "src/links/stylesheets/hover-card.scss";

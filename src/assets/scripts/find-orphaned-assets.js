@@ -95,7 +95,7 @@ async function main(opts) {
     }
   }
 
-  const roots = ['tests', 'components', 'script', 'stylesheets', 'contributing', 'src', 'assets']
+  const roots = ['tests', 'components', 'script', 'contributing', 'src', 'assets']
 
   for (const root of roots) {
     sourceFiles.push(
