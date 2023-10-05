@@ -44,6 +44,7 @@ const commentRegexes = {
   slash: /^\s*\/\/\s*/,
   xml: /^\s*<!--\s*/,
   percent: /^\s*%%?\s*/,
+  hyphen: /^\s*--\s*/,
 }
 
 const matcher = (node) =>

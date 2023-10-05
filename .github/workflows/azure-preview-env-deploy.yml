@@ -202,7 +202,6 @@ jobs:
           rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
           rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
           rsync -rptovR ./user-code/src/./**/*.tsx ./src
-          rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:

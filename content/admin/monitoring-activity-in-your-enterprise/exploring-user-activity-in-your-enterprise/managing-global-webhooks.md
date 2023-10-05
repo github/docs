@@ -35,48 +35,16 @@ For example, you can configure {% data variables.location.product_location %} to
 
 ## Adding a global webhook
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-1. Click **Add webhook**.
-1. In the "Payload URL" field, type the URL where you'd like to receive payloads.
-1. Optionally, select the **Content type** drop-down menu, and click a data format to receive the webhook payload in.
-1. Optionally, in the **Secret** field, type a string to use as a `secret` key.
-1. Optionally, if your payload URL is HTTPS and you would not like {% data variables.product.prodname_ghe_server %} to verify SSL certificates when delivering payloads, under "SSL verification", select **Disable**. Read the information about SSL verification, then click **Disable, I understand my webhooks may not be secure**.
-
-   {% warning %}
-
-   **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
-
-   {% endwarning %}
-
-1. Under "Which events would you like to trigger this webhook?", select if you'd like this webhook to trigger for every event or for selected events.
-    - For every event, select **Send me everything**.
-    - To choose specific events, select **Let me select individual events**.
-1. If you chose to select individual events, select the events that will trigger the webhook.
-1. To make the webhook active immediately after adding the configuration, select **Active**.
-1. Click **Add webhook**.
+You can add a global webhook for your enterprise. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-a-global-webhook-for-a-github-enterprise)."
 
 ## Editing a global webhook
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-1. Next to the webhook you'd like to edit, click **Edit**.
+You can edit a global webhook to change any of the settings that were selected when the webhook was initially created. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-a-global-webhook-for-a-github-enterprise)."
 
-   ![Screenshot of the "Webhooks" page. To the right of a webhook, the "Edit" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
-1. Update the webhook's settings.
-1. Click **Update webhook**.
+## Disabling a global webhook
 
-## Deleting a global webhook
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-1. Next to the webhook you'd like to delete, click **Delete**.
-   ![Screenshot of the "Webhooks" page. To the right of a webhook, the "Delete" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
-1. Read the information about deleting a webhook, then click **Yes, delete webhook**.
+You can disable or delete a global webhook. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-a-global-webhook-for-a-github-enterprise)."
 
 ## Viewing recent deliveries and responses
 
-You can view details about webhook deliveries that occurred in the past 30 days. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+You can view details about webhook deliveries that occurred in the past {% data variables.webhooks.retention %} days. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
