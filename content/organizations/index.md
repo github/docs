@@ -11,7 +11,8 @@ introLinks:
 featuredLinks:
   startHere:
     - /get-started/learning-about-github/types-of-github-accounts
-    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization    - /organizations/organizing-members-into-teams/about-teams
+    - /organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization
+    - /organizations/organizing-members-into-teams/about-teams
   popular:
     - /organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch
     - /organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization
