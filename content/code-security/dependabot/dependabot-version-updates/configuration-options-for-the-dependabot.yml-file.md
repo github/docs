@@ -90,6 +90,7 @@ updates:
 
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: "/"
     schedule:
       interval: "weekly"
@@ -109,7 +110,9 @@ updates:
 
 ### `directory`
 
-**Required**. You must define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). You define the directory relative to the root of the repository for all ecosystems except GitHub Actions. For GitHub Actions, set the directory to `/` to check for workflow files in `.github/workflows`.
+**Required**. You must define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). You define the directory relative to the root of the repository for all ecosystems except {% data variables.product.prodname_actions %}.
+
+For {% data variables.product.prodname_actions %}, you do not need to set the directory to `/.github/workflows`. Configuring the key to `/` automatically instructs {% data variables.product.prodname_dependabot %} to search the `/.github/workflows` directory, as well as the _action.yml_ / _action.yaml_ file from the root directory.
 
 ```yaml
 # Specify location of manifest files for each package manager
@@ -129,8 +132,7 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "github-actions"
-    # Workflow files stored in the
-    # default location of `.github/workflows`
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: "/"
     schedule:
       interval: "weekly"
@@ -159,6 +161,7 @@ version: 2
 updates:
 
   - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: "/"
     schedule:
       # Check for updates to GitHub Actions every weekday

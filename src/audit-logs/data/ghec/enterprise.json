@@ -146,8 +146,8 @@
   },
   {
     "action": "business.cancel_trial",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The trial of GitHub Enterprise Cloud was cancelled.",
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.clear_actions_settings",
@@ -166,13 +166,13 @@
   },
   {
     "action": "business.connect_usage_metrics_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Server statistics were exported for the enterprise.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
   },
   {
     "action": "business.convert_trial",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The enterprise account on a trial of GitHub Enterprise Cloud was upgraded to a paid enterprise account.",
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.create",
@@ -181,13 +181,13 @@
   },
   {
     "action": "business.create_trial",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A trial of GitHub Enterprise Cloud began.",
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.delete",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The enterprise was deleted.",
+    "docs_reference_links": "/admin/overview/deleting-an-enterprise-account"
   },
   {
     "action": "business.dependabot_alerts_repo_admin_enablement_policy_update",
@@ -241,13 +241,13 @@
   },
   {
     "action": "business.expire_trial",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The trial of GitHub Enterprise Cloud expired.",
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.import_license_usage",
     "description": "License usage information was imported from a GitHub Enterprise Server instance to an enterprise account on GitHub.com.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-uploading-github-enterprise-server-license-usage"
   },
   {
     "action": "business.invite_admin",
@@ -278,6 +278,16 @@
     "action": "business.members_can_update_protected_branches.enable",
     "description": "The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.recovery_code_failed",
+    "description": "An enterprise owner failed to sign into a enterprise with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable"
+  },
+  {
+    "action": "business.recovery_code_used",
+    "description": "An enterprise owner successfully signed into an enterprise with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable"
   },
   {
     "action": "business.remove_admin",
@@ -316,7 +326,7 @@
   },
   {
     "action": "business.restore",
-    "description": "N/A",
+    "description": "The deleted enterprise was restored.",
     "docs_reference_links": "N/A"
   },
   {
@@ -406,8 +416,8 @@
   },
   {
     "action": "business.upgrade_from_organization",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The organization was upgraded to an enterprise account.",
+    "docs_reference_links": "/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan"
   },
   {
     "action": "business_advanced_security.disabled",
@@ -881,33 +891,33 @@
   },
   {
     "action": "enterprise_domain.approve",
-    "description": "An enterprise domain was approved for an enterprise.",
+    "description": "A domain was approved for an enterprise.",
     "docs_reference_links": "/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#approving-a-domain-for-your-enterprise-account"
   },
   {
     "action": "enterprise_domain.create",
-    "description": "An enterprise domain was added to an enterprise.",
+    "description": "A domain was added to an enterprise.",
     "docs_reference_links": "/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account"
   },
   {
     "action": "enterprise_domain.destroy",
-    "description": "An enterprise domain was removed from an enterprise.",
+    "description": "A domain was removed from an enterprise.",
     "docs_reference_links": "/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#removing-an-approved-or-verified-domain"
   },
   {
     "action": "enterprise_domain.verify",
-    "description": "An enterprise domain was verified for an enterprise.",
+    "description": "A domain was verified for an enterprise.",
     "docs_reference_links": "/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account"
   },
   {
     "action": "enterprise_installation.create",
-    "description": "The GitHub App associated with an GitHub Connect enterprise connection was created.",
-    "docs_reference_links": "N/A"
+    "description": "The GitHub App associated with a GitHub Connect connection was created.",
+    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
   },
   {
     "action": "enterprise_installation.destroy",
-    "description": "The GitHub App associated with an GitHub Connect enterprise connection was deleted.",
-    "docs_reference_links": "N/A"
+    "description": "The GitHub App associated with a GitHub Connect connection was deleted.",
+    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
   },
   {
     "action": "environment.add_protection_rule",
@@ -1191,7 +1201,7 @@
   },
   {
     "action": "ip_allow_list.disable_user_level_enforcement",
-    "description": "N/A",
+    "description": "IP allow list user level enforcement was disabled.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1211,7 +1221,7 @@
   },
   {
     "action": "ip_allow_list.enable_user_level_enforcement",
-    "description": "N/A",
+    "description": "IP allow list user level enforcement was enabled.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1471,7 +1481,7 @@
   },
   {
     "action": "org.add_outside_collaborator",
-    "description": "N/A",
+    "description": "An outside collaborator was added to a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1546,13 +1556,13 @@
   },
   {
     "action": "org.codeql_disabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization disables code scanning for repositories that use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.codeql_enabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization enables code scanning for repositories that are eligible to use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.codespaces_access_updated",
@@ -1976,8 +1986,8 @@
   },
   {
     "action": "org.transfer_outgoing",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An organization was transferred between enterprise accounts.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts"
   },
   {
     "action": "org.unblock_user",
@@ -2056,22 +2066,22 @@
   },
   {
     "action": "organization_domain.approve",
-    "description": "An enterprise domain was approved for an organization.",
+    "description": "A domain was approved for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#approving-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.create",
-    "description": "An enterprise domain was added to an organization.",
+    "description": "A domain was added to an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.destroy",
-    "description": "An enterprise domain was removed from an organization.",
+    "description": "A domain was removed from an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain"
   },
   {
     "action": "organization_domain.verify",
-    "description": "An enterprise domain was verified for an organization.",
+    "description": "A domain was verified for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
@@ -2661,13 +2671,13 @@
   },
   {
     "action": "repo.codeql_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.codeql_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.codespaces_trusted_repo_access_granted",
@@ -2787,6 +2797,11 @@
   {
     "action": "repo.pages_public",
     "description": "A GitHub Pages site visibility was changed to public.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete",
+    "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
     "docs_reference_links": "N/A"
   },
   {
