@@ -38,7 +38,7 @@ Before you generate a {% data variables.product.prodname_codeql %} database, you
 
 Once the codebase is ready, you can run `codeql database create` to create the database.
 
-For information about using the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see [Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system). For information about enabling {% data variables.product.prodname_codeql %} code scanning using {% data variables.product.prodname_actions %}, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and {% endif %}"[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
+For information about using the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)". For information about enabling {% data variables.product.prodname_codeql %} code scanning using {% data variables.product.prodname_actions %}, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and {% endif %}"[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
 ## Running `codeql database create`
 
@@ -468,7 +468,7 @@ When you have confirmed that a {% data variables.product.prodname_codeql %} data
 gh api /repos/<owner>/<repo>/code-scanning/codeql/databases/<language> -H 'Accept: application/zip' > path/to/local/database.zip
 ```
 
-For more information, see the documentation for the [Get {% data variables.product.prodname_codeql %} database endpoint](/rest/code-scanning?apiVersion=2022-11-28#get-a-codeql-database-for-a-repository).
+For more information, see the documentation for the "[Get {% data variables.product.prodname_codeql %} database endpoint](/rest/code-scanning?apiVersion=2022-11-28#get-a-codeql-database-for-a-repository)".
 
 Before running an analysis with the {% data variables.product.prodname_codeql_cli %}, you must unzip the databases.
 

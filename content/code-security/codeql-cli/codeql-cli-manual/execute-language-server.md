@@ -47,7 +47,7 @@ and output streams.
 
 #### `--search-path=<dir>[:<dir>...]`
 
-This works like the similar option to [codeql query compile](/code-security/codeql-cli/codeql-cli-manual/query-compile) (q.v.).
+This works like the similar option to "[codeql query compile](/code-security/codeql-cli/codeql-cli-manual/query-compile)" (q.v.).
 
 There are no `--additional-packs` or `--library-path` options, as the
 corresponding values are provided online by the IDE extension through

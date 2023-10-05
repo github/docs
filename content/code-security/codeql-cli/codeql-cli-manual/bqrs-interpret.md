@@ -100,13 +100,13 @@ location.
 
 \[SARIF formats only] Include Markdown query help in the results. It
 loads query help for /path/to/query.ql from the /path/to/query.md file.
-This option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+This option has no effect when passed to "[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)".
 
 #### `--[no-]sarif-group-rules-by-pack`
 
 \[SARIF formats only] Place the rule object for each query under its
 corresponding QL pack in the `<run>.tool.extensions` property. This
-option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+option has no effect when passed to "[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)".
 
 #### `--[no-]sarif-multicause-markdown`
 

@@ -38,7 +38,7 @@ names and sizes of each result set (table) in the BQRS file, and the
 column types of each result set.
 
 It can also optionally precompute offsets for using the pagination
-options of [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode). This is mainly useful for IDE plugins.
+options of "[codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode)". This is mainly useful for IDE plugins.
 
 ## Options
 

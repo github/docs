@@ -32,8 +32,7 @@ codeql github upload-results --sarif=<file> [--github-auth-stdin] [--github-url=
 
 Uploads a SARIF file to GitHub code scanning.
 
-See:
-<https://docs.github.com/en/code-security/secure-coding/running-codeql-cli-in-your-ci-system#uploading-results-to-github>
+See "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#uploading-results-to-github)".
 
 A GitHub Apps token or personal access token must be set. For best
 security practices, it is recommended to set the `--github-auth-stdin`
@@ -49,7 +48,7 @@ This token must have the `security_events` scope.
 #### `-s, --sarif=<file>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the SARIF file to upload. This should be the
-output of [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) (or [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results)) with `--format sarif-latest` for upload to github.com or
+output of "[codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze)" (or "[codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results))" with `--format sarif-latest` for upload to github.com or
 GitHub AE, or the appropriate supported format tag for GitHub Enterprise
 Server instances (see <https://docs.github.com/> for the right value for
 your release).

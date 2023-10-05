@@ -113,7 +113,7 @@ at the top, or at the location given by `--start-at`.
 #### `--start-at=<offset>`
 
 \[Advanced] Start printing the row defined at a particular byte offset
-in the BQRS file. The offset must be gotten from [codeql bqrs info](/code-security/codeql-cli/codeql-cli-manual/bqrs-info), or from the "next" pointer found in JSON output from a previous invocation with `--rows`
+in the BQRS file. The offset must be gotten from "[codeql bqrs info](/code-security/codeql-cli/codeql-cli-manual/bqrs-info)", or from the "next" pointer found in JSON output from a previous invocation with `--rows`
 set. Other offsets are likely to produce nonsense output and/or explicit
 errors.
 

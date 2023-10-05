@@ -36,7 +36,7 @@ codeql database interpret-results --format=<format> --output=<output> [--threads
 such as SARIF or CSV.
 
 The results should have been computed and stored in a CodeQL database
-directory using [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries). (Usually you'd want to do these steps together, by using [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze)).
+directory using "[codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries)". (Usually you'd want to do these steps together, by using "[codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze))".
 
 ## Options
 
@@ -51,7 +51,7 @@ directory using [codeql database run-queries](/code-security/codeql-cli/codeql-c
 Repeat the specification of which queries were executed here.
 
 If omitted, the CLI will determine a suitable set of queries using the
-same logic as [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries).
+same logic as "[codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries)".
 
 (In a future version it ought to be possible to omit this and instead
 interpret all results that are found in the database. That glorious
@@ -108,13 +108,13 @@ location.
 
 \[SARIF formats only] Include Markdown query help in the results. It
 loads query help for /path/to/query.ql from the /path/to/query.md file.
-This option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+This option has no effect when passed to "[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)".
 
 #### `--[no-]sarif-group-rules-by-pack`
 
 \[SARIF formats only] Place the rule object for each query under its
 corresponding QL pack in the `<run>.tool.extensions` property. This
-option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+option has no effect when passed to "[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)".
 
 #### `--[no-]sarif-multicause-markdown`
 

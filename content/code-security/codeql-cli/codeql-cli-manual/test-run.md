@@ -97,7 +97,7 @@ useful for testing extractors.
 #### `--[no-]check-databases`
 
 \[Advanced] Run
-[codeql dataset check](/code-security/codeql-cli/codeql-cli-manual/dataset-check) over each test database created and report a failure if it detects inconsistencies. This is useful when testing extractors. If the check is (temporarily!) expected to fail for a particular database, place a `DB-CHECK.expected` file in the test directory.
+"[codeql dataset check](/code-security/codeql-cli/codeql-cli-manual/dataset-check)" over each test database created and report a failure if it detects inconsistencies. This is useful when testing extractors. If the check is (temporarily!) expected to fail for a particular database, place a `DB-CHECK.expected` file in the test directory.
 
 #### `--[no-]show-extractor-output`
 
@@ -276,7 +276,7 @@ timed parts are "RA layers" of the optimized query, but that might
 change in the future.
 
 If no timeout is specified, or is given as 0, no timeout will be set
-(except for [codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
+(except for "[codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run)", where the default timeout is 5 minutes).
 
 #### `-j, --threads=<num>`
 

@@ -72,4 +72,4 @@ You can tell the {% data variables.product.prodname_codeql_cli %} how to handle 
 
 ## Further reading
 
-- "[Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)"
+- [Query help files](https://codeql.github.com/docs/writing-codeql-queries/query-help-files/#query-help-files)

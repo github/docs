@@ -24,7 +24,7 @@ redirect_from:
 
 You can customize your {% data variables.product.prodname_codeql %} analyses by writing your own queries to highlight specific vulnerabilities or errors.
 
-This topic is specifically about writing queries to use with the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze) command to produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results).
+This topic is specifically about writing queries to use with the "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)" command to produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results).
 
 {% data reusables.codeql-cli.advanced-query-execution %}
 
@@ -32,7 +32,7 @@ This topic is specifically about writing queries to use with the [AUTOTITLE](/co
 
 ## Writing a valid query
 
-Before running a custom analysis you need to write a valid query, and save it in a file with a `.ql` extension. There is extensive documentation available to help you write queries. For more information, see "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)."
+Before running a custom analysis you need to write a valid query, and save it in a file with a `.ql` extension. There is extensive documentation available to help you write queries. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries).
 
 ## Including query metadata
 
@@ -48,7 +48,7 @@ For more information about these metadata properties, see "[Metadata for {% data
 
 {% note %}
 
-**Note:** Metadata requirements may differ if you want to use your query with other applications. For more information, see "[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)."
+**Note:** Metadata requirements may differ if you want to use your query with other applications. For more information, see [Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries).
 
 {% endnote %}
 
@@ -78,4 +78,4 @@ If you would like to share your query with other {% data variables.product.prodn
 
 ## Further reading
 
-- "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
+- [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)

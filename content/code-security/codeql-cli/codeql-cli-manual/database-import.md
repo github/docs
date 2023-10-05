@@ -55,7 +55,7 @@ meaningful.
 #### `<database>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the CodeQL database under construction. This must
-have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
+have been prepared for extraction with "[codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init)".
 
 If the `--db-cluster` option is given, this is not a database itself,
 but a directory that _contains_ databases, and all of those databases

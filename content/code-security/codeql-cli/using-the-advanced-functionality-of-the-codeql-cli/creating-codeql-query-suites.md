@@ -143,7 +143,7 @@ regular expressions. When there is more than one metadata key, each key must be 
 The standard metadata keys available to match on are: `description`, `id`, `kind`,
 `name`, `tags`, `precision`, and `problem.severity`.
 For more information about query metadata properties, see
-"[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries)."
+[Metadata for {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/#metadata-for-codeql-queries).
 
 In addition to metadata tags, the keys in the constraint block can also be:
 
@@ -377,7 +377,7 @@ instruction:
 - description: <name-of-query-suite>
 ```
 
-This value is displayed when you run [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries), if the suite is added to a "well-known"
+This value is displayed when you run "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries)", if the suite is added to a "well-known"
 directory. For more information, see "[Specifying well-known query suites](#specifying-well-known-query-suites)."
 
 {% ifversion codeql-packs %}

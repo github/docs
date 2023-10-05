@@ -39,7 +39,7 @@ This plumbing command resolves the set of GitHub-created machine
 learning models that are available to the query specifiers passed in as
 command line arguments.
 
-This command is deprecated. Use [codeql resolve extensions](/code-security/codeql-cli/codeql-cli-manual/resolve-extensions) instead.
+This command is deprecated. Use "[codeql resolve extensions](/code-security/codeql-cli/codeql-cli-manual/resolve-extensions)" instead.
 
 ## Options
 

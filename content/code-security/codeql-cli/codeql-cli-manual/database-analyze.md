@@ -39,9 +39,9 @@ Run a query suite (or some individual queries) against a CodeQL
 database, producing results, styled as alerts or paths, in SARIF or
 another interpreted format.
 
-This command combines the effect of the [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries) and [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results) commands. If you want to run queries whose results _don't_ meet the requirements for
+This command combines the effect of the "[codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries)" and "[codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results)" commands. If you want to run queries whose results _don't_ meet the requirements for
 being interpreted as source-code alerts, use
-[codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries) or [codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run) instead, and then [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode) to convert the raw results to a readable notation.
+"[codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries)" or "[codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run)" instead, and then "[codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode)" to convert the raw results to a readable notation.
 
 ## Options
 
@@ -146,13 +146,13 @@ location.
 
 \[SARIF formats only] Include Markdown query help in the results. It
 loads query help for /path/to/query.ql from the /path/to/query.md file.
-This option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+This option has no effect when passed to "[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)".
 
 #### `--[no-]sarif-group-rules-by-pack`
 
 \[SARIF formats only] Place the rule object for each query under its
 corresponding QL pack in the `<run>.tool.extensions` property. This
-option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+option has no effect when passed to "[codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret)".
 
 #### `--[no-]sarif-multicause-markdown`
 
@@ -223,7 +223,7 @@ timed parts are "RA layers" of the optimized query, but that might
 change in the future.
 
 If no timeout is specified, or is given as 0, no timeout will be set
-(except for [codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
+(except for "[codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run)", where the default timeout is 5 minutes).
 
 #### `-j, --threads=<num>`
 
@@ -248,7 +248,7 @@ be discarded after the queries have been executed.
 #### `--[no-]keep-full-cache`
 
 \[Advanced] Don't clean up the disk cache after evaluation completes.
-This may save time if you're going to do [codeql dataset cleanup](/code-security/codeql-cli/codeql-cli-manual/dataset-cleanup) or [codeql database cleanup](/code-security/codeql-cli/codeql-cli-manual/database-cleanup) afterwards anyway.
+This may save time if you're going to do "[codeql dataset cleanup](/code-security/codeql-cli/codeql-cli-manual/dataset-cleanup)" or "[codeql database cleanup](/code-security/codeql-cli/codeql-cli-manual/database-cleanup)" afterwards anyway.
 
 #### `--max-disk-cache=<MB>`
 
