@@ -1,5 +1,5 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
-import matter from 'gray-matter'
+import { getFrontmatter } from '../helpers/utils.js'
 
 export const annotateFrontmatter = {
   names: ['GHD040', 'annotate-frontmatter'],
@@ -10,8 +10,8 @@ export const annotateFrontmatter = {
   function: function GHD040(params, onError) {
     filterTokens(params, 'fence', (token) => {
       if (!token.info.includes('annotate')) return
-      const fm = matter(params.frontMatterLines.join('\n')).data
-      if (fm.layout && fm.layout === 'inline') return
+      const fm = getFrontmatter(params.frontMatterLines)
+      if (!fm || (fm.layout && fm.layout === 'inline')) return
 
       addError(
         onError,
