@@ -93,7 +93,6 @@ You can replace the identicon with an image that represents your organization. T
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-
 1. Under your profile picture, click **Upload new picture**, then select an image.
 
 ### Using a Gravatar image
