@@ -6019,28 +6019,6 @@
       },
       {
         "category": "codespaces",
-        "slug": "list-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "codespaces",
-        "slug": "set-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "codespaces",
         "slug": "add-a-selected-repository-to-a-user-secret",
         "subcategory": "secrets",
         "verb": "put",
@@ -7659,9 +7637,7 @@
         "subcategory": "secrets",
         "verb": "get",
         "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "additional-permissions": [
-          "metadata"
-        ],
+        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -7670,9 +7646,7 @@
         "subcategory": "secrets",
         "verb": "put",
         "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "additional-permissions": [
-          "metadata"
-        ],
+        "additional-permissions": [],
         "access": "write"
       },
       {
