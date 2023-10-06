@@ -19,6 +19,8 @@ This article applies to setting up and managing a {% data variables.product.prod
 
 If you have access to {% data variables.product.prodname_copilot %} through a {% data variables.product.prodname_copilot_for_business %} seat, you will not be able to make administrative changes.
 
+{% data reusables.billing.billing-info %}
+
 {% data reusables.copilot.dotcom-settings %}
 
 ## Setting up a {% data variables.product.prodname_copilot %} trial or subscription for your personal account
@@ -61,5 +63,5 @@ You can cancel your {% data variables.product.prodname_copilot_individuals_short
 
 ## Further reading
 
-- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)
-- [Getting started with {% data variables.product.prodname_copilot %}](/copilot/getting-started-with-github-copilot)
+- "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)"
+- "[AUTOTITLE](/copilot/getting-started-with-github-copilot)"
