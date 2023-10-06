@@ -40,7 +40,7 @@ Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
 // By setting this env var to something >0, it enables the disk-based
 // caching of external links.
 const EXTERNAL_LINK_CHECKER_MAX_AGE_MS =
-  parseInt(process.env.EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS || 0) * 24 * 60 * 60 * 1000
+  parseInt(process.env.EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS || '7') * 24 * 60 * 60 * 1000
 const EXTERNAL_LINK_CHECKER_DB =
   process.env.EXTERNAL_LINK_CHECKER_DB || 'external-link-checker-db.json'
 
@@ -237,6 +237,28 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   }
 
   await externalLinkCheckerDB.read()
+
+  if (verbose && checkExternalLinks) {
+    core.info(`Checking of external links is is cached to ${EXTERNAL_LINK_CHECKER_DB}`)
+    core.info(
+      `External link cache max age is ${
+        EXTERNAL_LINK_CHECKER_MAX_AGE_MS / 1000 / 60 / 60 / 24
+      } days`,
+    )
+    let countNotTooOld = 0
+    let countTooOld = 0
+    for (const { timestamp } of Object.values(externalLinkCheckerDB.data.urls || {})) {
+      const age = Date.now() - timestamp
+      if (age > EXTERNAL_LINK_CHECKER_MAX_AGE_MS) {
+        countTooOld++
+      } else {
+        countNotTooOld++
+      }
+    }
+    core.info(
+      `External link cache: ${countNotTooOld.toLocaleString()} are still fresh, ${countTooOld.toLocaleString()} links too old`,
+    )
+  }
 
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
@@ -846,15 +868,15 @@ function isTemporaryRequestError(requestError) {
 // same cache key.
 async function checkExternalURLCached(core, href, { verbose, patient }, db) {
   const cacheMaxAge = EXTERNAL_LINK_CHECKER_MAX_AGE_MS
-  const timestamp = new Date().getTime()
+  const now = new Date().getTime()
   const url = href.split('#')[0]
 
   if (cacheMaxAge) {
-    const tooOld = timestamp - Math.floor(jitter(cacheMaxAge, 10))
+    const tooOld = now - Math.floor(jitter(cacheMaxAge, 10))
     if (db && db.data.urls[url]) {
       if (db.data.urls[url].timestamp > tooOld) {
         if (verbose) {
-          core.debug(`External URL ${url} in cache`)
+          core.info(`External URL ${url} in cache`)
         }
         return db.data.urls[url].result
       } else if (verbose) {
@@ -875,7 +897,7 @@ async function checkExternalURLCached(core, href, { verbose, patient }, db) {
     // to try 40xx and 50x errors another go.
     if (db && result.ok) {
       db.data.urls[url] = {
-        timestamp,
+        timestamp: now,
         result,
       }
     }

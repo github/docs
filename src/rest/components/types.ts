@@ -44,7 +44,7 @@ export interface CodeSample {
   request: {
     contentType: string
     acceptHeader: string
-    bodyParameters: Record<string, string>
+    bodyParameters: Record<string, string | Array<string>>
     parameters: Record<string, string>
     description: string
   }
