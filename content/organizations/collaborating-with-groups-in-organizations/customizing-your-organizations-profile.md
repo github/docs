@@ -99,6 +99,5 @@ You can replace the identicon with an image that represents your organization. T
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-
 1. In the "Gravatar email (Private)" field, enter the email address associated with your Gravatar image.
 1. Click **Update profile**.
