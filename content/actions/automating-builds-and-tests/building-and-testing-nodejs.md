@@ -102,7 +102,7 @@ Each job can access the value defined in the matrix `node-version` array using t
 ```yaml copy
 strategy:
   matrix:
-    node-version: [14.x, 16.x, 18.x]
+    node-version: ['14.x', '16.x', '18.x']
 
 steps:
 - uses: {% data reusables.actions.action-checkout %}
@@ -117,7 +117,7 @@ Alternatively, you can build and test with exact Node.js versions.
 ```yaml copy
 strategy:
   matrix:
-    node-version: [10.17.0, 17.9.0]
+    node-version: ['10.17.0', '17.9.0']
 ```
 
 Or, you can build and test using a single version of Node.js too.

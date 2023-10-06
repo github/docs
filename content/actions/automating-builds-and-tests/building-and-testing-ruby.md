@@ -287,7 +287,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
-          ruby-version: 2.6
+          ruby-version: '2.6'
       - run: bundle install
       - name: Rubocop
         run: rubocop
@@ -328,7 +328,7 @@ jobs:
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
-          ruby-version: 2.6
+          ruby-version: '2.6'
       - run: bundle install
 
       - name: Publish to GPR
