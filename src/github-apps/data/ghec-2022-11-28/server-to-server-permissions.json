@@ -579,6 +579,28 @@
       },
       {
         "category": "orgs",
+        "slug": "list-organization-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-an-organization-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
         "slug": "get-an-organization-repository-ruleset",
         "subcategory": "rules",
         "verb": "get",
@@ -4277,6 +4299,28 @@
       },
       {
         "category": "repos",
+        "slug": "list-repository-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
         "slug": "update-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "put",
@@ -4992,6 +5036,17 @@
         "subcategory": "codespaces",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/codespaces/new",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": []
+      },
+      {
+        "category": "codespaces",
+        "slug": "check-if-permissions-defined-by-a-devcontainer-have-been-accepted-by-the-authenticated-user",
+        "subcategory": "codespaces",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/permissions_check",
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
@@ -7322,32 +7377,6 @@
       },
       {
         "category": "codespaces",
-        "slug": "list-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
-        "slug": "set-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
         "slug": "add-a-selected-repository-to-a-user-secret",
         "subcategory": "secrets",
         "verb": "put",
@@ -9292,9 +9321,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",
@@ -9305,9 +9332,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",

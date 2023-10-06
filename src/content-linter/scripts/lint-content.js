@@ -9,7 +9,8 @@ import { execSync } from 'child_process'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
-import { customConfig } from '../style/github-docs.js'
+import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
+import { defaultConfig } from '../lib/default-markdownlint-options.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -85,10 +86,25 @@ async function main() {
     config: config.data,
     customRules: configuredRules.data,
   })
+
+  // Run Markdownlint for data directory
+  const resultFrontmatter = await markdownlint.promises.markdownlint({
+    frontMatter: null,
+    files: files.content,
+    config: config.frontMatter,
+    customRules: configuredRules.frontMatter,
+  })
   // There are no collisions when assigning the results to the new object
   // because the keys are filepaths and the individual runs of Markdownlint
   // are in separate directories (content and data).
   const results = Object.assign({}, resultContent, resultData)
+
+  // Merge in the results for frontmatter tests, which could be
+  // in a file that already exists as a key in the `results` object.
+  Object.entries(resultFrontmatter).forEach(([key, value]) => {
+    if (results[key]) results[key].push(...value)
+    else results[key] = value
+  })
 
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
@@ -312,21 +328,18 @@ function listRules() {
 */
 function getMarkdownLintConfig(errorsOnly, runRules) {
   const config = {
-    content: {
-      default: false, // By default, don't turn on all markdownlint rules
-    },
-    data: {
-      default: false, // By default, don't turn on all markdownlint rules
-    },
+    content: structuredClone(defaultConfig),
+    data: structuredClone(defaultConfig),
+    frontMatter: structuredClone(defaultConfig),
   }
   const configuredRules = {
     content: [],
     data: [],
+    frontMatter: [],
   }
 
   for (const [ruleName, ruleConfig] of Object.entries(allConfig)) {
     const customRule = customConfig[ruleName] && getCustomRule(ruleName)
-
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
     if (errorsOnly && getRuleSeverity(ruleConfig) !== 'error' && ruleName !== 'search-replace')
@@ -334,6 +347,12 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
     if (runRules && !runRules.includes(ruleName)) continue
 
+    // There are a subset of rules run on just the frontmatter in files
+    if (githubDocsFrontmatterConfig[ruleName]) {
+      config.frontMatter[ruleName] = ruleConfig
+      if (customRule) configuredRules.frontMatter.push(customRule)
+      continue
+    }
     // Handle the special case of the search-replace rule
     // which has nested rules each with their own
     // severity and metadata.
@@ -363,7 +382,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
     config.content[ruleName] = ruleConfig
     if (customRule) configuredRules.content.push(customRule)
-    if (ruleConfig['partial-markdown-files']) {
+    if (ruleConfig['partial-markdown-files'] === true) {
       config.data[ruleName] = ruleConfig
       if (customRule) configuredRules.data.push(customRule)
     }

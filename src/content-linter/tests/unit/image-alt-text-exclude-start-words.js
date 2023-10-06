@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { imageAltTextExcludeStartWords } from '../../lib/linting-rules/image-alt-text-exclude-start-words.js'
-
-jest.setTimeout(60 * 1000)
 
 describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
   test('image alt text that starts with exclude words fails', async () => {

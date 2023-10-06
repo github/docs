@@ -19,10 +19,6 @@ When you register a {% data variables.product.prodname_github_app %}, select the
 
 When your {% data variables.product.prodname_github_app %} creates an installation access token or user access token, you can further limit the repositories that the app can access and the permissions that the token has. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 
-## Use multiple callback URLs
-
-When you register a {% data variables.product.prodname_github_app %}, you can specify callback URLs that users will be redirected to after they authorize your app. The most secure approach is to use multiple callback URLs so that there is an exact match with the URL users are redirected to. You should avoid using wildcards in callback URLs. For more information on callback URLs, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-user-authorization-callback-url)."
-
 ## Stay under the rate limit
 
 Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."

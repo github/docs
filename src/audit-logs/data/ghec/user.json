@@ -546,7 +546,7 @@
   },
   {
     "action": "org.add_outside_collaborator",
-    "description": "N/A",
+    "description": "An outside collaborator was added to a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -972,6 +972,11 @@
   {
     "action": "repo.pages_public",
     "description": "A GitHub Pages site visibility was changed to public.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete",
+    "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
     "docs_reference_links": "N/A"
   },
   {

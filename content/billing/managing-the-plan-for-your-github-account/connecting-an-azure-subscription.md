@@ -36,6 +36,12 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)" | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits)" |
 | {% data variables.product.prodname_copilot_business_short %} usage | "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-for-business)" | N/A |
 
+## About billing through Azure
+
+If you link your {% data variables.product.company_short %} account to Azure, any usage-based costs starting from that point will be billed through Azure and charged on the 1st of each month. However, remaining {% data variables.product.company_short %} charges, for example charges for your {% data variables.product.prodname_dotcom %} plan, will still be billed on your usual billing date.
+
+For example, you link your Azure subscription to your organization {% ifversion ghec %}or enterprise{% endif%} account on June 16th and you also have a {% data variables.product.prodname_copilot_for_business %} subscription. From that date onwards, any usage costs for {% data variables.product.prodname_copilot_business_short %} will be included in your Azure bill and charged on July 1st. However, any charges incurred before June 16th for {% data variables.product.prodname_copilot_business_short %} will be billed separately through {% data variables.product.company_short %} on your account's usual billing date.
+
 ## Prerequisites
 
 - You must have {% ifversion ghec %}either an {% endif %} organization {% ifversion ghec %}or an enterprise{% endif %} account on {% data variables.location.product_location %}. For more information about the differences between these two types of accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
@@ -46,7 +52,7 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
   - If the organization you want to connect an Azure subscription to belongs to an enterprise account, you must connect your Azure subscription to the enterprise account, not the organization. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} version](/enterprise-cloud@latest/{{ currentArticle }}) of this article.{% endif %}
 
 - You must be an owner of the organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see {% ifversion fpt %}"[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."{% elsif ghec %}the following articles.
-  
+
   - "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
   - "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise)"
   {% endif %}
@@ -104,6 +110,13 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 1. Click **Connect**.
 1. Go back to the "Payment information" page in your enterprise billing settings. (To return to the "Payment information" page, follow steps three through five above.)
 1. Under "Metered billing settings", select **Enable metered billing through Azure**, then click **Update metered billing settings**.
+
+   {% note %}
+
+   **Note:** If you pay for {% data variables.product.prodname_enterprise %} via invoice, you do not need to select **Enable metered billing through Azure**, as Azure will be targeted automatically.
+
+   {% endnote %}
+
 {% endif %}
 
 ## Disconnecting your Azure subscription from your organization account

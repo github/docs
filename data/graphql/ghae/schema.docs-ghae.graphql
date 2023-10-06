@@ -6860,6 +6860,11 @@ type CreateLinkedBranchPayload {
   clientMutationId: String
 
   """
+  The issue that was linked to.
+  """
+  issue: Issue
+
+  """
   The new branch issue reference.
   """
   linkedBranch: LinkedBranch

@@ -39,7 +39,7 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 
 {% data variables.product.product_name %} writes several categories of system logs to the instance's disk in plain text. People with administrative SSH access to the instance can parse these files using Linux command-line tools such as `cat`, `tail`, `head`, `less`, and `more`.
 
-{%- ifversion ghes < 3.10 %}
+{%- ifversion ghes < 3.9 %}
 - [Log files for authentication](#log-files-for-authentication)
 {%- endif %}
 - [Log files for databases](#log-files-for-databases)
@@ -52,7 +52,7 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 - [Log files for webhooks](#log-files-for-webhooks)
 - [Log files for system services](#log-files-for-system-services)
 
-{% ifversion ghes < 3.10 %}
+{% ifversion ghes < 3.9 %}
 
 ### Log files for authentication
 

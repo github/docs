@@ -1471,6 +1471,12 @@
       "requestPath": "/repos/{owner}/{repo}/codespaces/new"
     },
     {
+      "slug": "check-if-permissions-defined-by-a-devcontainer-have-been-accepted-by-the-authenticated-user",
+      "subcategory": "codespaces",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/codespaces/permissions_check"
+    },
+    {
       "slug": "list-repository-secrets",
       "subcategory": "repository-secrets",
       "verb": "get",
@@ -3069,6 +3075,18 @@
       "requestPath": "/orgs/{org}/rulesets"
     },
     {
+      "slug": "list-organization-rule-suites",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/rule-suites"
+    },
+    {
+      "slug": "get-an-organization-rule-suite",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}"
+    },
+    {
       "slug": "get-an-organization-repository-ruleset",
       "subcategory": "rules",
       "verb": "get",
@@ -3957,6 +3975,18 @@
       "subcategory": "rules",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/rulesets"
+    },
+    {
+      "slug": "list-repository-rule-suites",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites"
+    },
+    {
+      "slug": "get-a-repository-rule-suite",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}"
     },
     {
       "slug": "get-a-repository-ruleset",

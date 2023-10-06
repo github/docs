@@ -10,8 +10,6 @@ introLinks:
 featuredLinks:
   startHere:
     - '{% ifversion fpt or ghec %}/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method{% endif %}'
-    - '{% ifversion fpt %}/billing/managing-the-plan-for-your-github-accountt/upgrading-your-accounts-plan{% endif %}'
-    - '{% ifversion ghec %}/billing/managing-the-plan-for-your-github-accountt/about-billing-for-your-enterprise{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/managing-your-github-billing-settings/setting-your-billing-email{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/managing-the-plan-for-your-github-account/about-per-user-pricing{% endif %}'
     - '{% ifversion ghes %}/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account{% endif %}'
