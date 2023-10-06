@@ -17,6 +17,8 @@ You can either set up a {% data variables.product.prodname_copilot %} subscripti
 
 {% data reusables.copilot.tp-users-trial-eligibility %}{% endif %}
 
+{% data reusables.billing.billing-info %}
+
 ## Pricing for {% data variables.product.prodname_copilot_for_individuals %}
 
 The {% data variables.product.prodname_copilot %} subscription is available on a monthly or yearly cycle. If you choose a monthly billing cycle, you will be billed $10 per calendar month. If you choose a yearly billing cycle, you will be billed $100 per year. You can modify your billing cycle at any time, and the modification will be reflected from the start of your next billing cycle.
