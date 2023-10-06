@@ -64,6 +64,15 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'liquid-data-references-defined': {
+    // LQ112
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-data-tag-format': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
   'hardcoded-data-variable': {
     severity: 'error',
     'partial-markdown-files': true,
