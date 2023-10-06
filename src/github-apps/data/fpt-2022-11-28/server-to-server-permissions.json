@@ -6557,32 +6557,6 @@
       },
       {
         "category": "codespaces",
-        "slug": "list-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
-        "slug": "set-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
         "slug": "add-a-selected-repository-to-a-user-secret",
         "subcategory": "secrets",
         "verb": "put",
@@ -8527,9 +8501,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",
@@ -8540,9 +8512,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",
