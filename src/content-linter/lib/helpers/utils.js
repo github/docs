@@ -114,7 +114,7 @@ export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.git
 // frontmatter properties.
 export function getFrontmatter(lines) {
   const fmString = lines.join('\n')
-  const data = matter(fmString).data
+  const { data } = matter(fmString)
   // If there is no frontmatter or the frontmatter contains
   // no keys, matter will return an empty object.
   if (Object.keys(data).length === 0) return null
