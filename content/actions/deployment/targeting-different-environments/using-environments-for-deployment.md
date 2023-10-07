@@ -68,35 +68,25 @@ Use a wait timer to delay a job for a specific amount of time after the job is i
 
 {% endnote %}{% endif %}
 
-### Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}
+### Deployment branches
 
-Use deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} to restrict which branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to the environment. Below are the options for deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} for an environment:
+Use deployment branches to restrict which branches can deploy to the environment. Below are the options for deployment branches for an environment:
 
-{% ifversion deployment-protections-tag-patterns %}
-- **No restriction**: No restriction on which branch or tag can deploy to the enviornment.
-{%- else %}
 - **All branches**: All branches in the repository can deploy to the environment.
-{%- endif %}
-- **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."{% ifversion actions-protected-branches-restrictions %}
-
+- **Protected branches**: Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."{% ifversion actions-protected-branches-restrictions %}
+  
   {% note %}
 
   **Note:** Deployment workflow runs triggered by tags with the same name as a protected branch and forks with branches that match the protected branch name cannot deploy to the environment.
 
   {% endnote %}{% endif %}
-- **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**: Only branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} that match your specified name patterns can deploy to the environment.
+- **Selected branches**: Only branches that match your specified name patterns can deploy to the environment.
 
-  If you specify `releases/*` as a deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule, only a branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches{% ifversion deployment-protections-tag-patterns %} or tags{% endif %} that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
-
-  {% ifversion deployment-protections-tag-patterns %}
-
-  {% data reusables.actions.branch-and-tag-deployment-rules-configuration %}
-
-  {% endif %}
+  For example, if you specify `releases/*` as a deployment branch rule, only branches whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a deployment branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
 
 {% ifversion fpt %}{% note %}
 
-**Note:** Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are also available for private repositories.
+**Note:** Deployment branches are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, deployment branches are also available for private repositories.
 
 {% endnote %}{% endif %}
 
@@ -205,17 +195,9 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Select the custom protection rule you want to enable.
    1. Click **Save protection rules**.
 {%- endif %}
-1. Optionally, specify what branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to this environment. For more information, see "[Deployment branches](#deployment-branches)."
+1. Optionally, specify what branches can deploy to this environment. For more information, see "[Deployment branches](#deployment-branches)."
    1. Select the desired option in the **Deployment branches** dropdown.
-   1. If you chose **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}**, to add a new rule, click **Add deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule**
-   {% ifversion deployment-protections-tag-patterns %}1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-label="The branch icon" %} Branch** or **{% octicon "tag" aria-label="The tag icon" %} Tag**.{% endif %}
-   1. Enter the name pattern for the branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} that you want to allow.
-      {% ifversion deployment-protections-tag-patterns %}
-
-      {% data reusables.actions.branch-and-tag-deployment-rules-configuration %}
-
-      {% endif %}
-   1. Click **Add rule**.
+   1. If you chose **Selected branches**, enter the branch name patterns that you want to allow.
 1. Optionally, add environment secrets. These secrets are only available to workflow jobs that use the environment. Additionally, workflow jobs that use this environment can only access these secrets after any configured rules (for example, required reviewers) pass. For more information, see "[Environment secrets](#environment-secrets)."
    1. Under **Environment secrets**, click **Add Secret**.
    1. Enter the secret name.
