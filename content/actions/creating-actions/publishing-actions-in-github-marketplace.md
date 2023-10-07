@@ -72,6 +72,7 @@ Action repositories can be moved by exporting or cloning the original repository
 - An action in the marketplace is linked to a repository by ID, allowing for new releases to be published under the same marketplace listing from the "new" repo
 - If an action repository is deleted, so is the marketplace listing. The unique `name` identifier becomes available again.
 - The `verified` status seen on GitHub org profiles is different from the marketplace `verified` badge. By transferring an action repo, the owner changes and the marketplace badge will be lost unless the new owner is a verified publisher too.
+  
 ## About badges in {% data variables.product.prodname_marketplace %}
 
 Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
