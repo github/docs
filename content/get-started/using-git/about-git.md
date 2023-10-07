@@ -14,28 +14,28 @@ topics:
 
 ## About version control and Git
 
-A version control system, or VCS, tracks the history of changes as people and teams collaborate on projects together. As developers make changes to the project, any earlier version of the project can be recovered at any time.
+A version control system (VCS) keeps track of changes over time as people and teams work together on projects. When developers make changes to a project, they can always go back to a previous version of the project.
 
-Developers can review project history to find out:
+Developers can look back at a project’s history to see:
 
-- Which changes were made?
-- Who made the changes?
-- When were the changes made?
-- Why were changes needed?
+What was changed?
+Who changed it?
+When was it changed?
+Why was it changed?
 
-VCSs give each contributor a unified and consistent view of a project, surfacing work that's already in progress. Seeing a transparent history of changes, who made them, and how they contribute to the development of a project helps team members stay aligned while working independently.
+VCSs provide each contributor with a unified and unified view of the project, highlighting work that has already been completed. Having a clear record of changes, the origin of those changes, and how those changes contribute to the advancement of the project allows team members to work in harmony while working independently.
 
-In a distributed version control system, every developer has a full copy of the project and project history. Unlike once popular centralized version control systems, DVCSs don't need a constant connection to a central repository. Git is the most popular distributed version control system. Git is commonly used for both open source and commercial software development, with significant benefits for individuals, teams and businesses.
+A distributed version control system is a system where every developer has a copy of their project and its history. Unlike the days when centralized version control systems were the go-to, a DVCS doesn't need to be connected to a central repository all the time. The most popular version control system is known as Git, and it's used for both free and commercial software development. People, teams, and businesses all benefit from using Git.
 
-- Git lets developers see the entire timeline of their changes, decisions, and progression of any project in one place. From the moment they access the history of a project, the developer has all the context they need to understand it and start contributing.
+- Git makes it easy for developers to keep track of all the changes they've made, the decisions they've made, and the progress of their projects all in one spot. From the first time they look at a project's history, they have all the info they need to get started and get involved.
 
-- Developers work in every time zone. With a DVCS like Git, collaboration can happen any time while maintaining source code integrity. Using branches, developers can safely propose changes to production code.
+- No matter what time zone you're in, developers are working in the same place. With a distributed version control system like Git, you can collaborate whenever you want while keeping source code safe. With branches, you can easily suggest changes to your production code.
 
-- Businesses using Git can break down communication barriers between teams and keep them focused on doing their best work. Plus, Git makes it possible to align experts across a business to collaborate on major projects.
+- Using Git can help teams communicate better and stay focused on what they do best. Plus, it allows teams across the company to work together on big projects.
 
 ## About repositories
 
-A repository, or Git project, encompasses the entire collection of files and folders associated with a project, along with each file's revision history. The file history appears as snapshots in time called commits. The commits can be organized into multiple lines of development called branches. Because Git is a DVCS, repositories are self-contained units and anyone who has a copy of the repository can access the entire codebase and its history. Using the command line or other ease-of-use interfaces, a Git repository also allows for: interaction with the history, cloning the repository, creating branches, committing, merging, comparing changes across versions of code, and more.
+A Git repository is a collection of all the files and folders related to a project, plus the revision history of each file. The revision history is shown as snapshots of time, called commits, and the commits can be divided into different lines of development, called branches. Since Git is a version control system, the repository is self-contained, and anyone with a copy of it can see the whole codebase and the history of the project. You can also interact with the history using the command line, clone the repository, create branches, commit, merge, compare changes across versions, and more using the easy-to-use interfaces.
 
 Through platforms like {% data variables.product.product_name %}, Git also provides more opportunities for project transparency and collaboration. Public repositories help teams work together to build the best possible final product.
 
