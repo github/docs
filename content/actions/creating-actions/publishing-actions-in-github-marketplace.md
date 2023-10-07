@@ -64,6 +64,14 @@ To remove a published action from {% data variables.product.prodname_marketplace
 1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
 1. Click **Update release** at the bottom of the page.
 
+## Transferring action repositories
+
+Action repositories can be moved by exporting or cloning the original repository, making a new repository on the target platform, and then pushing the code to the new repository.
+
+- A repo can be transferred and actions will continue to work because there is a redirect in place (users of the action won't have to update their workflows)
+- An action in the marketplace is linked to a repository by ID, allowing for new releases to be published under the same marketplace listing from the "new" repo
+- If an action repository is deleted, so is the marketplace listing. The unique `name` identifier becomes available again.
+- The `verified` status seen on GitHub org profiles is different from the marketplace `verified` badge. By transferring an action repo, the owner changes and the marketplace badge will be lost unless the new owner is a verified publisher too.
 ## About badges in {% data variables.product.prodname_marketplace %}
 
 Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
