@@ -15287,6 +15287,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "preventSelfReview",
+          "description": "<p>Whether deployments to this environment can be approved by the user who created the deployment.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "reviewers",
           "description": "<p>The teams or users that can review the deployment.</p>",
           "type": "DeploymentReviewerConnection!",
@@ -79652,6 +79660,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "preventSelfReview",
+          "description": "<p>Whether deployments to this environment can be approved by the user who created the deployment.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "reviewers",
