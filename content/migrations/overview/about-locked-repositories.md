@@ -17,7 +17,7 @@ Whether your repositories will be locked during migration depends on the tooling
 > This repository is currently being migrated. It's locked while the migration is in progress.
 
 {% ifversion ghes %}
-Site administrators may also lock repositories for other reasons besides migrations. 
+Site administrators may also lock repositories for other reasons besides migrations.
 {% endif %}
 
 Often, repositories are unlocked automatically when the migration is complete. In other cases, unlocking a repository is a manual step, and the process required to unlock a repository depends on the migration tool you used.

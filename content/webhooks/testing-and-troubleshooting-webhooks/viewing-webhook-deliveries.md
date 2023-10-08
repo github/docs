@@ -1,6 +1,6 @@
 ---
 title: Viewing webhook deliveries
-intro: 'You can view details about webhook deliveries from the past 30 days.'
+intro: 'You can view details about webhook deliveries from the past {% data variables.webhooks.retention %} days.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +12,7 @@ topics:
 
 ## About webhook deliveries
 
-You can view details about webhook deliveries that occurred in the past 30 days. Viewing past deliveries can help you verify whether your webhooks are working as expected.
+You can view details about webhook deliveries that occurred in the past {% data variables.webhooks.retention %} days. Viewing past deliveries can help you verify whether your webhooks are working as expected.
 
 For each webhook delivery, you can view:
 
@@ -75,6 +75,7 @@ The owner of a {% data variables.product.prodname_github_app %} can view recent 
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Viewing deliveries for {% data variables.product.prodname_sponsors %} webhooks
 
 Only the owner of the sponsored account can view deliveries for sponsorship webhooks for that account.
@@ -92,8 +93,6 @@ Only the owner of the sponsored account can view deliveries for sponsorship webh
 ## Viewing deliveries for global webhooks
 
 Only enterprise owners can view deliveries for webhooks in that enterprise.
-
-{% ifversion  ghes or ghae %}You can use the {% data variables.product.company_short %} web interface or the REST API to view recent deliveries for global webhooks. For more information about using the REST API to view recent deliveries, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -130,6 +130,14 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 - `country:Mexico` finds all events that occurred in Mexico.
 - `country:"United States"` all finds events that occurred in the United States.
 
+{% ifversion ghec %}
+
+### Search based on access token
+
+You can identify all events that were performed by a specific access token. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token)."
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## Exporting the audit log
@@ -167,7 +175,7 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% ifversion ghec %}
-Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#git)."
 {% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.

@@ -30,29 +30,52 @@ You should already be familiar with YAML syntax and how it's used with {% data v
 
 We recommend that you have a basic understanding of Swift packages. For more information, see "[Swift Packages](https://developer.apple.com/documentation/swift_packages)" in the Apple developer documentation.
 
-## Using the Swift starter workflow
+## Using a Swift starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Swift starter workflow that should work for most Swift projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [Swift starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Swift that should work for most Swift projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml copy
-name: Swift
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "swift".
+1. Filter the selection of workflows by clicking **Continuous integration**.
+1. On the "Swift" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-on: [push]
+{%- ifversion ghes or ghae %}
 
-jobs:
-  build:
+   If you don't find the "Swift" starter workflow, copy the following workflow code to a new file called `swift.yml` in the `.github/workflows` directory of your repository.
 
-    runs-on: macos-latest
+   ```yaml copy
+   name: Swift
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Build
-        run: swift build
-      - name: Run tests
-        run: swift test
-```
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
+
+   jobs:
+     build:
+       runs-on: macos-latest
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Build
+         run: swift build -v
+       - name: Run tests
+         run: swift test -v
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the branch on which the workflow will run.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `swift.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying a Swift version
 

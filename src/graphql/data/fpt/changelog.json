@@ -4,6 +4,47 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>preventSelfReview</code> was added to object type <code>DeploymentProtectionRule</code></p>",
+          "<p>Input field <code>preventSelfReview</code> of type <code>Boolean</code> was added to input object type <code>UpdateEnvironmentInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>issue</code> was added to object type <code>CreateLinkedBranchPayload</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-09-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>isAnswered</code> was added to object type <code>Discussion</code></p>",
+          "<p>Argument <code>answered: Boolean</code> added to field <code>Repository.discussions</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-09-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>repositoryRuleset</code> was added to object type <code>RepositoryRule</code></p>"
         ]
       }

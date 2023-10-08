@@ -11,7 +11,7 @@ import {
   XIcon,
 } from '@primer/octicons-react'
 
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 import { useHasAccount } from 'components/hooks/useHasAccount'
@@ -21,7 +21,7 @@ import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Search } from 'src/search/components/Search'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
-import { VersionPicker } from 'components/page-header/VersionPicker'
+import { VersionPicker } from 'src/versions/components/VersionPicker'
 import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { AllProductsLink } from 'components/sidebar/AllProductsLink'
 

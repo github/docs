@@ -73,7 +73,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.x'
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish
@@ -83,7 +83,7 @@ jobs:
 
 In the example above, the `setup-node` action creates an `.npmrc` file on the runner with the following contents:
 
-```ini
+```shell
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 registry=https://registry.npmjs.org/
 always-auth=true
@@ -136,7 +136,7 @@ jobs:
       # Setup .npmrc file to publish to GitHub Packages
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.x'
+          node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
@@ -148,7 +148,7 @@ jobs:
 
 The `setup-node` action creates an `.npmrc` file on the runner. When you use the `scope` input to the `setup-node` action, the `.npmrc` file includes the scope prefix. By default, the `setup-node` action sets the scope in the `.npmrc` file to the account that contains that workflow file.
 
-```ini
+```shell
 //npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://npm.pkg.github.com
 always-auth=true
@@ -171,7 +171,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '16.x'
+          node-version: 20.x'
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'

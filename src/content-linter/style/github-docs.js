@@ -1,4 +1,4 @@
-export const githubDocsConfig = {
+const githubDocsConfig = {
   'code-fence-line-length': {
     // GHD001
     severity: 'warning',
@@ -16,7 +16,7 @@ export const githubDocsConfig = {
   },
   'image-file-kebab': {
     // GHD004
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'internal-links-lang': {
@@ -34,9 +34,19 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-link-punctuation': {
+  'link-punctuation': {
     // GHD008
-    severity: 'warning',
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'yaml-scheduled-jobs': {
+    // GHD009
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'internal-links-old-version': {
+    // GHD010
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'list-first-word-capitalization': {
@@ -44,39 +54,109 @@ export const githubDocsConfig = {
     severity: 'warning',
     'partial-markdown-files': true,
   },
-  'no-github-docs-domains': {
-    // GHD020
+  'early-access-references': {
+    // GH035
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'search-replace': {
+  'liquid-quoted-conditional-arg': {
+    // LQ111
     severity: 'error',
-    'severity-local-env': 'warning',
     'partial-markdown-files': true,
+  },
+  'liquid-data-references-defined': {
+    // LQ112
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-data-tag-format': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'hardcoded-data-variable': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'github-owned-action-references': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'annotate-frontmatter': {
+    // GH040
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+}
+
+export const githubDocsFrontmatterConfig = {
+  'frontmatter-hidden-docs': {
+    // GHD034
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-video-transcripts': {
+    // GH036
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-early-access-references': {
+    // GH060
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+}
+
+// Configures rules from the `github/markdownlint-github` repo
+// created by the accessibility team.
+const githubMarkdownlintConfig = {
+  'no-default-alt-text': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'no-generic-link-text': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+}
+
+// Configures rules from the open-source Markdownlint extension
+// search-replace:
+// https://www.npmjs.com/package/markdownlint-rule-search-replace
+export const searchReplaceConfig = {
+  'search-replace': {
     rules: [
       {
         name: 'todocs-placeholder',
         message: 'Catch occurrences of TODOCS placeholder.',
-        search: 'TODOCS',
+        searchPattern: '/todocs/gi',
         searchScope: 'all',
+        severity: 'error',
+        'severity-local': 'warning',
+        'partial-markdown-files': true,
       },
       {
         name: 'docs-domain',
         message: 'Catch occurrences of docs.gitub.com domain.',
-        search: 'docs.gitub.com',
+        search: 'docs.github.com',
         searchScope: 'all',
+        severity: 'warning',
+        'partial-markdown-files': true,
       },
       {
         name: 'help-domain',
         message: 'Catch occurrences of help.github.com domain.',
         search: 'help.github.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'preview-domain',
         message: 'Catch occurrences of preview.ghdocs.com domain.',
         search: 'preview.ghdocs.com',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         name: 'developer-domain',
@@ -85,9 +165,39 @@ export const githubDocsConfig = {
         // developer.github.com/enterprise/[0-9] or
         // developer.github.com/enterprise/{{something}} (e.g. liquid).
         // There are occurences that will likely always remain in the content.
-        searchPattern: '/developer.github.com(?!/(changes|enterprise/([0-9]|{))).*/g',
+        searchPattern: '/developer\\.github\\.com(?!\\/(changes|enterprise\\/([0-9]|{))).*/g',
         searchScope: 'all',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+      {
+        // Catches usage of old liquid data reusable syntax. For example:
+        // {{ site.data.variables.product_releases }}
+        name: 'deprecated liquid syntax: site.data',
+        message: 'Catch occurrences of deprecated liquid data syntax.',
+        searchPattern: '/{{\\s*?site\\.data\\.([a-zA-Z0-9-_]+(?:\\.[a-zA-Z0-9-_]+)+)\\s*?}}/g',
+        replace: '{% data $1 %}',
+        severity: 'error',
+        'partial-markdown-files': true,
+      },
+      {
+        // Catches usage of old octicon variable syntax. For example:
+        // - {{ octicon-plus }}
+        // - {{ octicon-plus An example label }}
+        name: 'deprecated liquid syntax: octicon-<icon-name>',
+        message:
+          'The octicon liquid syntax used is deprecated. Use this format instead {% octicon "<octicon-name>" aria-label="<Octicon aria label>" %}',
+        searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
     ],
   },
+}
+
+export const customConfig = {
+  ...searchReplaceConfig,
+  ...githubDocsConfig,
+  ...githubMarkdownlintConfig,
+  ...githubDocsFrontmatterConfig,
 }

@@ -42,6 +42,8 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 {% endnote %}
 
+If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.product_name %}, the image will be shown as your {% data variables.product.product_name %} profile picture by default (rather than an identicon). To change your {% data variables.product.product_name %} profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.product_name %} and override the Gravatar image.
+
 ### Setting a profile picture
 
 {% data reusables.user-settings.access_settings %}
@@ -208,7 +210,7 @@ To stop private contributions from counting toward your Achievements, or to turn
 
 ## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
 
-If you have authored any commit(s) present in the commit history for the listed tag of one or more of the repositories below, you'll receive the Mars 2020 Helicopter Contributor achievement on your profile. The authored commit must be with a verified email address, associated with your account at the time {% data variables.product.prodname_dotcom %} determined the eligible contributions, in order to be attributed to you. You can be the original author or [one of the co-authors](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors) of the commit. Future changes to verified emails will not have an effect on the badge. We built the list based on information received from NASA's Jet Propulsion Laboratory.
+The Mars 2020 Helicopter Contributor achievement was given to those who had authored a commit for one of the repositories listed below. This event has now ended, and the badge is no longer available. We built the list based on information received from NASA's Jet Propulsion Laboratory.
 
 | {% data variables.product.prodname_dotcom %} Repository | Version | Tag |
 |---|---|---|

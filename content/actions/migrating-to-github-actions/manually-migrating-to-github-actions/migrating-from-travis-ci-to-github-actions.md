@@ -74,8 +74,8 @@ Below is an example comparing the syntax for each system.
 ```yaml
 matrix:
   include:
-    - rvm: 2.5
-    - rvm: 2.6.3
+    - rvm: '2.5'
+    - rvm: '2.6.3'
 ```
 
 {% endraw %}
@@ -89,7 +89,7 @@ jobs:
   build:
     strategy:
       matrix:
-        ruby: [2.5, 2.6.3]
+        ruby: ['2.5', '2.6.3']
 ```
 
 {% endraw %}
@@ -337,7 +337,7 @@ jobs:
 
 ### Building with Node.js
 
-##### Travis CI for building with Node.js
+#### Travis CI for building with Node.js
 
 {% raw %}
 
@@ -351,7 +351,7 @@ script:
 
 {% endraw %}
 
-##### {% data variables.product.prodname_actions %} workflow for building with Node.js
+#### {% data variables.product.prodname_actions %} workflow for building with Node.js
 
 ```yaml
 name: Node.js CI

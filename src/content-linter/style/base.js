@@ -1,8 +1,9 @@
-import highlightJs from 'highlight.js'
+import fs from 'fs'
+import yaml from 'js-yaml'
 
-const highlightJsLanguages = highlightJs.listLanguages()
-const languageAliases = ['text']
-const allowedCodeFenceLanguages = new Set([...highlightJsLanguages, ...languageAliases])
+const allowedCodeFenceLanguages = Object.keys(
+  yaml.load(fs.readFileSync('data/variables/code-languages.yml', 'utf8')),
+)
 
 export const baseConfig = {
   // Don't run all rules by default. This must be done first to
@@ -10,12 +11,12 @@ export const baseConfig = {
   default: false,
   'heading-increment': {
     // MD001
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'first-heading-h1': {
     // MD002
-    severity: 'warning',
+    severity: 'error',
     level: 2,
     'partial-markdown-files': false,
   },
@@ -27,7 +28,7 @@ export const baseConfig = {
   },
   'no-trailing-spaces': {
     // MD009
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'no-reversed-links': {
@@ -57,7 +58,7 @@ export const baseConfig = {
   },
   'blanks-around-headings': {
     // MD022
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': false,
   },
   'heading-start-left': {
@@ -83,7 +84,7 @@ export const baseConfig = {
   },
   'blanks-around-fences': {
     // MD031
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'no-space-in-emphasis': {
@@ -98,22 +99,23 @@ export const baseConfig = {
   },
   'fenced-code-language': {
     // MD040
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     allowed_languages: allowedCodeFenceLanguages,
   },
   'no-empty-links': {
     // MD042
     severity: 'error',
+    'partial-markdown-files': true,
   },
   'single-trailing-newline': {
     // MD047
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'emphasis-style': {
     // MD049
-    severity: 'warning',
+    severity: 'error',
     style: 'underscore',
     'partial-markdown-files': true,
   },

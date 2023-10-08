@@ -113,7 +113,7 @@ You can create your own runner image that meets your requirements. Your runner i
 
 You can use the following example Dockerfile to start creating your own runner image.
 
-```Dockerfile copy
+```dockerfile copy
 FROM mcr.microsoft.com/dotnet/runtime-deps:6.0 as build
 
 # Replace value with the latest runner release version

@@ -1,6 +1,6 @@
 ---
 title: dataset import
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -37,9 +37,11 @@ files to an existing dataset. Updating a dataset is only possible if it
 has the correct dbscheme _and_ its ID pool has been preserved from the
 initial import.
 
-## Primary options
+## Options
 
-#### `<dataset>`
+### Primary Options
+
+#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
 
 \[Mandatory] Path to the raw QL dataset to create or update. The
 directory will be created if it doesn't already exist.

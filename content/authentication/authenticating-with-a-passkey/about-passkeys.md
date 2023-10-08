@@ -6,15 +6,10 @@ versions:
   feature: passkeys
 shortTitle: About passkeys
 ---
-{% note %}
-
-{% data reusables.passkeys.beta-note %}
-
-{% endnote %}
 
 ## About passkeys
 
-Passkeys allow you to sign in securely to {% data variables.product.prodname_dotcom_the_website %}, without having to input your password. If you use two-factor authentication (2FA), passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. You can also use passkeys for sudo mode and resetting your password.
+{% data reusables.passkeys.about-passkeys %}
 
 Passkeys are pairs of cryptographic keys (a public key and a private key) that are stored by an authenticator you control. The authenticator can prove that a user is present and is authorized to use the passkey. Authenticators prove authorization with a PIN, passcode, biometric, or device password, depending on the authenticator's capabilities and configuration. Authenticators come in many forms, such as an iPhone or Android device, Windows Hello, a FIDO2 hardware security key, or a password manager.
 
@@ -36,15 +31,12 @@ Authenticators can also be portable devices. Passkeys stored on FIDO2 hardware s
 
 For information on whether your device and operating system support passkeys, see [Device support](https://passkeys.dev/device-support/) in the Passkeys.dev documentation, and [Web Authentication API](https://caniuse.com/webauthn) in the CanIUse documentation.
 
-## Enabling and disabling the feature preview for passkeys
-
-{% data reusables.passkeys.enable-disable-passkey-beta %}
-
 ## Feedback
 
-You can share your feedback on passkeys with {% data variables.product.company_short %}. To join the conversation, see "[Passkey feature preview feedback](https://gh.io/passkey-feedback)."
+You can share your feedback on passkeys with {% data variables.product.company_short %}. To join the conversation, see "[[Feedback] Passkeys for passwordless authentication](https://gh.io/passkey-feedback)."
 
 ## Further reading
+
 - [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)
 - [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)
 - [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)

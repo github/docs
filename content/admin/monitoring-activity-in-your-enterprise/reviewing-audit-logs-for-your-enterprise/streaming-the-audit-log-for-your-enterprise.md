@@ -111,7 +111,7 @@ For information on creating or accessing your access key ID and secret key, see 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
 
-     ```
+     ```json
      "Condition": {
         "StringEquals": {
            "oidc-configuration.audit-log.githubusercontent.com:aud": "sts.amazonaws.com",

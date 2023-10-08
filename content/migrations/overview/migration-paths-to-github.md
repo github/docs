@@ -98,10 +98,8 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 ### Bitbucket Server or Bitbucket Data Center to {% data variables.product.prodname_dotcom_the_website %}
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 - **Scope**: Source, history, and metadata
-- **Tooling**: {% data variables.product.prodname_importer_proper_name %} (public beta)
+- **Tooling**: {% data variables.product.prodname_importer_proper_name %}
 - **More information**:
   - "[AUTOTITLE]({% ifversion ghae %}/free-pro-team@latest{% endif %}/migrations/using-github-enterprise-importer)"
   - [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
@@ -116,7 +114,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 - **More information**: [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 - **Caveats**:
   - Enterprise Cloud Importer is only available for expert-led migrations.
-  - {% data reusables.migrations.migration-instructions-for-any-git-repository-to-githubcom %}     
+  - {% data reusables.migrations.migration-instructions-for-any-git-repository-to-githubcom %}
 
 ### Any Git repository to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -148,7 +146,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 - **Scope**: Source and history
 - **Tooling**: `git-p4`, then Git CLI
-- **More information**: 
+- **More information**:
   - [git-p4](https://git-scm.com/docs/git-p4) in the Git documentation
   - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)"
 
@@ -221,7 +219,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 - **More information**:
   - [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
   - "[AUTOTITLE](/enterprise-server/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)"
-- **Caveats**: {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghes %}     
+- **Caveats**: {% data reusables.migrations.migration-instructions-for-any-git-repository-to-ghes %}
 
 ### Any Git repository to {% data variables.product.prodname_ghe_server %}
 
@@ -251,7 +249,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 
 - **Scope**: Source and history
 - **Tooling**: `git-p4`, then Git CLI
-- **More information**: 
+- **More information**:
   - [git-p4](https://git-scm.com/docs/git-p4) in the Git documentation
   - "[AUTOTITLE](/enterprise-server/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#importing-a-git-repository-with-the-command-line)"
 

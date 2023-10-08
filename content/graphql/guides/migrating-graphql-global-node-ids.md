@@ -48,7 +48,7 @@ To perform bulk operations, you can use aliases to submit multiple node queries 
 
 You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
 
-```json
+```graphql
 {
   organization(login: "github") {
     repositories(last: 10) {

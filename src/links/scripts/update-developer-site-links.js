@@ -6,7 +6,7 @@ import frontmatter from '../../../lib/read-frontmatter.js'
 import { loadPages, loadPageMap } from '../../../lib/page-data.js'
 import patterns from '../../../lib/patterns.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
-import { allVersionKeys } from '../../../lib/all-versions.js'
+import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 
 // get all content and data files
 const files = ['content', 'data']

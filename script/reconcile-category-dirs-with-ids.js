@@ -18,7 +18,7 @@ import { decode } from 'html-entities'
 
 import frontmatter from '../lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
-import { allVersions } from '../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { ROOT } from '../lib/constants.js'
 
 const slugger = new GithubSlugger()

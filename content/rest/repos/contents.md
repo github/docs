@@ -37,6 +37,6 @@ For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTM
 Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects
 for a directory, the response will be an object with an `entries` attribute containing the array of objects.
 
-You can read more about the use of media types in the API [here](/rest/overview/media-types).
+For more information about the use of media types in the API, see "[AUTOTITLE](/rest/overview/media-types)."
 
 <!-- Content after this section is automatically generated -->

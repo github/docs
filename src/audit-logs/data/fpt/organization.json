@@ -161,37 +161,47 @@
   },
   {
     "action": "copilot.cfb_org_settings_changed",
-    "description": "N/A",
+    "description": "Settings for Copilot for Business were changed at the organization level.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.cfb_seat_added",
+    "description": "A seat was added to the Copilot for Business subscription for a user and they have received access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_created",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A seat assignment was newly created for a user.",
+    "docs_reference_links": "/copilot/overview-of-github-copilot/about-github-copilot-for-business"
   },
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
-    "description": "N/A",
+    "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_reused",
-    "description": "N/A",
+    "description": "A seat assignment was re-created for a user who already had a seat with no pending cancellation date.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_assignment_unassigned",
-    "description": "N/A",
+    "description": "A seat was unassigned from a user and they will lose access to GitHub Copilot at the end of the billing cycle.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.cfb_seat_cancelled",
+    "description": "A seat was canceled from the Copilot for Business subscription and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "N/A",
+    "description": "A seat was canceled from the Copilot for Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_management_changed",
-    "description": "N/A",
+    "description": "The seat management setting was changed for the Copilot for Business subscription.",
     "docs_reference_links": "N/A"
   },
   {
@@ -311,13 +321,13 @@
   },
   {
     "action": "enterprise_installation.create",
-    "description": "The GitHub App associated with an GitHub Connect enterprise connection was created.",
-    "docs_reference_links": "N/A"
+    "description": "The GitHub App associated with a GitHub Connect connection was created.",
+    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
   },
   {
     "action": "enterprise_installation.destroy",
-    "description": "The GitHub App associated with an GitHub Connect enterprise connection was deleted.",
-    "docs_reference_links": "N/A"
+    "description": "The GitHub App associated with a GitHub Connect connection was deleted.",
+    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
   },
   {
     "action": "environment.add_protection_rule",
@@ -801,7 +811,7 @@
   },
   {
     "action": "org.add_outside_collaborator",
-    "description": "N/A",
+    "description": "An outside collaborator was added to a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -891,13 +901,13 @@
   },
   {
     "action": "org.codeql_disabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization disables code scanning for repositories that use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.codeql_enabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization enables code scanning for repositories that are eligible to use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.codespaces_access_updated",
@@ -906,6 +916,16 @@
   },
   {
     "action": "org.codespaces_ownership_updated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.codespaces_team_access_allowed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.codespaces_team_access_revoked",
     "description": "N/A",
     "docs_reference_links": "N/A"
   },
@@ -971,8 +991,8 @@
   },
   {
     "action": "org.connect_usage_metrics_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Server statistics were exported for the organization.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
   },
   {
     "action": "org.create",
@@ -1123,6 +1143,16 @@
     "action": "org.rate_limited_invites",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.recovery_code_failed",
+    "description": "An organization owner failed to sign into a organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
+  },
+  {
+    "action": "org.recovery_code_used",
+    "description": "An organization owner successfully signed into an organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
   },
   {
     "action": "org.register_self_hosted_runner",
@@ -1336,8 +1366,8 @@
   },
   {
     "action": "org.transfer_outgoing",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An organization was transferred between enterprise accounts.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts"
   },
   {
     "action": "org.unarchive",
@@ -1426,22 +1456,22 @@
   },
   {
     "action": "organization_domain.approve",
-    "description": "An enterprise domain was approved for an organization.",
+    "description": "A domain was approved for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#approving-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.create",
-    "description": "An enterprise domain was added to an organization.",
+    "description": "A domain was added to an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.destroy",
-    "description": "An enterprise domain was removed from an organization.",
+    "description": "A domain was removed from an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain"
   },
   {
     "action": "organization_domain.verify",
-    "description": "An enterprise domain was verified for an organization.",
+    "description": "A domain was verified for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
@@ -1481,6 +1511,11 @@
   },
   {
     "action": "organization_role.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "organization_role.update",
     "description": "N/A",
     "docs_reference_links": "N/A"
   },
@@ -2036,13 +2071,13 @@
   },
   {
     "action": "repo.codeql_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.codeql_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.codespaces_trusted_repo_access_granted",
@@ -2162,6 +2197,11 @@
   {
     "action": "repo.pages_public",
     "description": "A GitHub Pages site visibility was changed to public.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete",
+    "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2495,6 +2535,16 @@
     "docs_reference_links": "/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository"
   },
   {
+    "action": "repository_secret_scanning_generic_secrets.disabled",
+    "description": "Generic secrets have been disabled at the repository level",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_generic_secrets.enabled",
+    "description": "Generic secrets have been enabled at the repository level",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_secret_scanning_push_protection.disable",
     "description": "Secret scanning push protection was disabled for a repository.",
     "docs_reference_links": "/code-security/secret-scanning/protecting-pushes-with-secret-scanning"
@@ -2727,12 +2777,12 @@
   {
     "action": "sponsors.sponsor_sponsorship_create",
     "description": "A sponsorship was created, by sponsoring an account.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor"
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
   },
   {
     "action": "sponsors.sponsor_sponsorship_payment_complete",
     "description": "After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor"
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
   },
   {
     "action": "sponsors.sponsor_sponsorship_preference_change",

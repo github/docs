@@ -81,7 +81,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 
 ### Example of a CODEOWNERS file
 
-```
+```text
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
 

@@ -216,23 +216,6 @@
       }
     ]
   },
-  "enterprise_self_hosted_runners": {
-    "title": "enterprise self hosted runners",
-    "displayTitle": "Enterprise self hosted runners permissions",
-    "permissions": [
-      {
-        "category": "actions",
-        "slug": "create-configuration-for-a-just-in-time-runner-for-an-enterprise",
-        "subcategory": "self-hosted-runners",
-        "verb": "post",
-        "requestPath": "/enterprises/{enterprise}/actions/runners/generate-jitconfig",
-        "access": "write",
-        "user-to-server": false,
-        "server-to-server": false,
-        "additional-permissions": []
-      }
-    ]
-  },
   "organization_administration": {
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
@@ -589,6 +572,28 @@
         "subcategory": "rules",
         "verb": "post",
         "requestPath": "/orgs/{org}/rulesets",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-organization-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-an-organization-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -3006,6 +3011,17 @@
       },
       {
         "category": "actions",
+        "slug": "force-cancel-a-workflow-run",
+        "subcategory": "workflow-runs",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "actions",
         "slug": "list-jobs-for-a-workflow-run",
         "subcategory": "workflow-jobs",
         "verb": "get",
@@ -4283,6 +4299,28 @@
       },
       {
         "category": "repos",
+        "slug": "list-repository-rule-suites",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-rule-suite",
+        "subcategory": "rule-suites",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
         "slug": "update-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "put",
@@ -4998,6 +5036,17 @@
         "subcategory": "codespaces",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/codespaces/new",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": []
+      },
+      {
+        "category": "codespaces",
+        "slug": "check-if-permissions-defined-by-a-devcontainer-have-been-accepted-by-the-authenticated-user",
+        "subcategory": "codespaces",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/permissions_check",
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
@@ -7328,32 +7377,6 @@
       },
       {
         "category": "codespaces",
-        "slug": "list-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
-        "slug": "set-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
         "slug": "add-a-selected-repository-to-a-user-secret",
         "subcategory": "secrets",
         "verb": "put",
@@ -9298,9 +9321,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",
@@ -9311,9 +9332,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",

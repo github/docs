@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 import yaml from 'js-yaml'
-import flat from 'flat'
+import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const workflowsDir = path.join(__dirname, '../../.github/workflows')
@@ -16,7 +16,7 @@ const workflows = fs
   })
 
 function actionsUsedInWorkflow(workflow) {
-  return Object.keys(flat(workflow))
+  return Object.keys(flatten(workflow))
     .filter((key) => key.endsWith('.uses'))
     .map((key) => get(workflow, key))
 }

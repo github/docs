@@ -2,7 +2,7 @@ import { Tokenizer } from 'liquidjs'
 
 import { getLiquidConditionalsWithContent } from '../../../script/helpers/get-liquid-conditionals.js'
 import getVersionBlocks from './get-version-blocks.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import supportedOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
 
 const supportedShortVersions = Object.values(allVersions).map((v) => v.shortName)

@@ -28,41 +28,67 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 - [Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 - [Ruby in 20 minutes](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Using the Ruby starter workflow
+## Using a Ruby starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Ruby that should work for most Ruby projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml
-{% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "ruby".
+1. Filter the selection of workflows by clicking **Continuous integration**.
+1. On the "Ruby" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-{% data reusables.actions.actions-use-sha-pinning-comment %}
+{%- ifversion ghes or ghae %}
 
-name: Ruby
+   If you don't find the "Ruby" starter workflow, copy the following workflow code to a new file called `ruby.yml` in the `.github/workflows` directory of your repository.
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+   ```yaml copy
+   name: Ruby
 
-jobs:
-  test:
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
 
-    runs-on: ubuntu-latest
+   permissions:
+     contents: read
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-        with:
-          ruby-version: '3.1'
-      - name: Install dependencies
-        run: bundle install
-      - name: Run tests
-        run: bundle exec rake
-```
+   jobs:
+     test:
+       runs-on: ubuntu-latest
+       strategy:
+         matrix:
+           ruby-version: ['2.6', '2.7', '3.0']
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Set up Ruby
+       # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+       # change this to (see https://github.com/ruby/setup-ruby#versioning):
+       # uses: ruby/setup-ruby@v1
+         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+         with:
+           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
+           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+       - name: Run tests
+         run: bundle exec rake
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the Ruby versions you want to use.
+
+   {% indented_data_reference reusables.actions.third-party-actions spaces=3 %}
+
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `ruby.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying the Ruby version
 
@@ -261,7 +287,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
-          ruby-version: 2.6
+          ruby-version: '2.6'
       - run: bundle install
       - name: Rubocop
         run: rubocop
@@ -302,7 +328,7 @@ jobs:
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
-          ruby-version: 2.6
+          ruby-version: '2.6'
       - run: bundle install
 
       - name: Publish to GPR

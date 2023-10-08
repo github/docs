@@ -28,7 +28,7 @@ shortTitle: Configure dependabot.yml
 
 The {% data variables.product.prodname_dependabot %} configuration file, `dependabot.yml`, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-You must store this file in the `.github` directory of your repository. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
+You must store this file in the `.github` directory of your repository in the default branch. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
@@ -90,6 +90,7 @@ updates:
 
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: "/"
     schedule:
       interval: "weekly"
@@ -109,7 +110,9 @@ updates:
 
 ### `directory`
 
-**Required**. You must define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). You define the directory relative to the root of the repository for all ecosystems except GitHub Actions. For GitHub Actions, set the directory to `/` to check for workflow files in `.github/workflows`.
+**Required**. You must define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). You define the directory relative to the root of the repository for all ecosystems except {% data variables.product.prodname_actions %}.
+
+For {% data variables.product.prodname_actions %}, you do not need to set the directory to `/.github/workflows`. Configuring the key to `/` automatically instructs {% data variables.product.prodname_dependabot %} to search the `/.github/workflows` directory, as well as the _action.yml_ / _action.yaml_ file from the root directory.
 
 ```yaml
 # Specify location of manifest files for each package manager
@@ -129,8 +132,7 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "github-actions"
-    # Workflow files stored in the
-    # default location of `.github/workflows`
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: "/"
     schedule:
       interval: "weekly"
@@ -159,6 +161,7 @@ version: 2
 updates:
 
   - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: "/"
     schedule:
       # Check for updates to GitHub Actions every weekday
@@ -327,6 +330,7 @@ If you use the same configuration as in the example above, bumping the `requests
    `pip dev: bump requests from 1.0.0 to 1.0.1`
 
 {% ifversion dependabot-version-updates-groups %}
+
 ### `groups`
 
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
@@ -928,6 +932,8 @@ You must provide the required settings for each configuration `type` that you sp
 
 The `composer-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
 
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% raw %}
 
 ```yaml
@@ -946,6 +952,9 @@ registries:
 {% data variables.product.prodname_dependabot %} works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
 The `docker-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1026,6 +1035,8 @@ registries:
 
 The `hex-organization` type supports organization and key.
 
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% raw %}
 
 ```yaml
@@ -1065,6 +1076,8 @@ registries:
 ### `maven-repository`
 
 The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}
@@ -1194,6 +1207,8 @@ registries:
 
 The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
 {% raw %}
 
 ```yaml
@@ -1225,6 +1240,8 @@ registries:
 ### `rubygems-server`
 
 The `rubygems-server` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}

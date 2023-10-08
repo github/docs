@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { codeFenceLineLength } from '../../lib/linting-rules/code-fence-line-length.js'
-
-jest.setTimeout(60 * 1000)
 
 describe(codeFenceLineLength.names.join(' - '), () => {
   test('line length of max + 1 fails', async () => {
@@ -14,7 +10,7 @@ describe(codeFenceLineLength.names.join(' - '), () => {
       'bbb',
       '```',
     ].join('\n')
-    const result = await runRule(codeFenceLineLength, { markdown })
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)
@@ -29,7 +25,7 @@ describe(codeFenceLineLength.names.join(' - '), () => {
       'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
       '```',
     ].join('\n')
-    const result = await runRule(codeFenceLineLength, { markdown })
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -41,7 +37,7 @@ describe(codeFenceLineLength.names.join(' - '), () => {
       'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb',
       '```',
     ].join('\n')
-    const result = await runRule(codeFenceLineLength, { markdown })
+    const result = await runRule(codeFenceLineLength, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors[0].lineNumber).toBe(2)

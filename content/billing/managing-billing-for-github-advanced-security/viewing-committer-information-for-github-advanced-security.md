@@ -37,7 +37,7 @@ Under "Calculate Additional Advanced Committers", you can calculate how many mor
 1. In the left sidebar, click **Advanced Security Committers**.
 1. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. For example:
 
-   ```
+   ```text
    example-org
    octo-org/octo-repo
    ```

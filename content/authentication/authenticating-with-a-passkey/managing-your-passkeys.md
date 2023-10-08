@@ -7,11 +7,6 @@ versions:
 type: how_to
 shortTitle: Manage your passkeys
 ---
-{% note %}
-
-{% data reusables.passkeys.beta-note %}
-
-{% endnote %}
 
 ## About managing your passkeys
 
@@ -23,19 +18,16 @@ For information on how to remove a passkey from your account, see "[Removing a p
 
 ## Adding a passkey to your account
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.passkeys.add-passkey-settings-page %}
-1. If prompted, authenticate with your password, or use another existing authentication method.
-1. Under “Configure passwordless authentication”, review the prompt, then click **Add passkey**.
-1. At the prompt, follow the steps outlined by the passkey provider.
-{% data reusables.passkeys.passkey-success-done %}
+{% data reusables.passkeys.adding-a-passkey %}
 
 ## Upgrading an existing security key to a passkey
 
 {% note %}
 
-**Note:** Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
+**Notes:**
+
+- Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
+- If you have used a security key recently and it's eligible for an upgrade, an upgrade button will be shown next to the security key in the settings menu. You can use the button to trigger the upgrade flow. You can also attempt to upgrade other keys by registering them as a passkey, even if the upgrade button isn't shown.
 
 {% endnote %}
 
@@ -50,6 +42,7 @@ Before starting the upgrade procedure, make sure that you are using the device t
 {% data reusables.passkeys.passkey-success-done %}
 
 ## Removing a passkey from your account
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 1. To the right of the passkey that you want to remove, click **{% octicon "trash" aria-label="Delete passkey" %}**.
@@ -64,5 +57,6 @@ In some cases, your passkey may be "device-bound", which means the passkey canno
 You can see which of your passkeys are synced, and which are device-bound, under "Passkeys" in your account security settings. Synced passkeys will include a blue `Synced` label next to their name.
 
 ## Further reading
+
 - [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
 - [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)

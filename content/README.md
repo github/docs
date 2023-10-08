@@ -54,7 +54,7 @@ See [`lib/frontmatter.js`](../lib/frontmatter.js).
 
 ### `versions`
 
-- Purpose: Indicates the [versions](../lib/all-versions.js) to which a page applies.
+- Purpose: Indicates the [versions](#src/versions/lib/all-versions.js) to which a page applies.
 See [Versioning](#versioning) for more info.
 - Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](../lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.

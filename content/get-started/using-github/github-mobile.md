@@ -26,11 +26,14 @@ With {% data variables.product.prodname_mobile %} you can:
 - Edit files in pull requests
 - Search for, browse, and interact with users, repositories, and organizations
 - Receive a push notification when someone mentions your username
+{% ifversion mobile-code-search %}- Search through code in a specific repository{% endif %}
 {% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
 - Verify your sign in attempts on unrecognized devices{% endif %}
 
-For more information about notifications for {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+The following documentation contains more information about using {% data variables.product.company_short %} features on {% data variables.product.prodname_mobile %}.
 
+- For more information about notifications for {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
+{% ifversion mobile-code-search %}- For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile)."{% endif %}
 {% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile)." {% endif %}
 
 ## Installing {% data variables.product.prodname_mobile %}
@@ -55,7 +58,7 @@ During the beta for {% data variables.product.prodname_mobile %} with {% data va
 
 ### Adding, switching, or signing out of accounts
 
-You can sign into mobile with any {% data variables.product.company_short %} account, either on {% data variables.product.prodname_dotcom_the_website %} or on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in. 
+You can sign into mobile with any {% data variables.product.company_short %} account, either on {% data variables.product.prodname_dotcom_the_website %} or on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in.
 
 After signing in with an account on {% data variables.product.prodname_ghe_server %}, you can switch between any other accounts you're currently logged into within the app. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap the account you want to switch to.
 

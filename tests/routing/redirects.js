@@ -5,10 +5,10 @@ import { describe, expect, jest, test } from '@jest/globals'
 
 import enterpriseServerReleases, {
   deprecatedWithFunctionalRedirects,
-} from '../../lib/enterprise-server-releases.js'
+} from '#src/versions/lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
 import { get, head } from '../helpers/e2etest.js'
-import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
+import versionSatisfiesRange from '../../src/versions/lib/version-satisfies-range.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -370,7 +370,7 @@ describe('redirects', () => {
 
   describe('desktop guide', () => {
     const desktopGuide =
-      '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
+      '/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
 
     test('no language code redirects to english', async () => {
       const res = await get(

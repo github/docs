@@ -16,7 +16,6 @@ topics:
   - Node
   - JavaScript
 shortTitle: Build & test Node.js
-layout: inline
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -34,52 +33,61 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Node.js starter workflow
+## Using a Node.js starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Node.js starter workflow that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the starter workflow. For more information, see the [Node.js starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-{% data reusables.actions.workflows.starter-workflows %}
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Node.js that should work for most Node.js projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Node.js".
+1. Filter the selection of workflows by clicking **Continuous integration**.
+1. On the "Node.js" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-```yaml annotate copy
-# {% data reusables.actions.workflows.workflow-syntax-name %}
-name: Node.js CI
+{%- ifversion ghes or ghae %}
 
-# This example workflow assumes that the default branch for your repository is `main`. If the default branch has a different name, edit this example and add your repository's default branch.
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+   If you don't find the "Node.js" starter workflow, copy the following workflow code to a new file called `node.js.yml` in the `.github/workflows` directory of your repository.
 
-#
-jobs:
-  build:
+   ```yaml copy
+   name: Node.js CI
 
-    {% data reusables.actions.example-github-runner-comment %}
-    runs-on: ubuntu-latest
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
 
-    # This job uses a matrix strategy to run the job four times, once for each specified Node version. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x, 20.x]
-#
-    steps:
-      {% data reusables.actions.workflows.workflow-checkout-step-explainer %}
-      - uses: {% data reusables.actions.action-checkout %}
-      # This step uses the `actions/setup-node` action to set up Node.js for each version indicated by the `matrix.node-version` key above.
-      - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
-        uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
-      # This step runs `npm ci` to install any dependencies listed in your `package.json` file.
-      - run: npm ci
-      # This step runs the `build` script if there is one specified under the `scripts` key in your `package.json` file.
-      - run: npm run build --if-present
-      # This step runs the `test` script that is specified under the `scripts` key in your `package.json` file.
-      - run: npm test
-```
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+
+       strategy:
+         matrix:
+           node-version: [14.x, 16.x, 18.x]
+           # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+         uses: {% data reusables.actions.action-setup-node %}
+         with:
+           node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+           cache: 'npm'
+       - run: npm ci
+       - run: npm run build --if-present
+       - run: npm test
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the Node versions you want to use.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `node.js.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying the Node.js version
 
@@ -87,14 +95,14 @@ The easiest way to specify a Node.js version is by using the `setup-node` action
 
 The `setup-node` action takes a Node.js version as an input and configures that version on the runner. The `setup-node` action finds a specific version of Node.js from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. Using the `setup-node` action is the recommended way of using Node.js with {% data variables.product.prodname_actions %} because it ensures consistent behavior across different runners and different versions of Node.js. If you are using a self-hosted runner, you must install Node.js and add it to `PATH`.
 
-The starter workflow includes a matrix strategy that builds and tests your code with four Node.js versions: 14.x, 16.x, 18.x, and 20.x. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the `node-version` array creates a job that runs the same steps.
+The starter workflow includes a matrix strategy that builds and tests your code with the Node.js versions listed in `node-version`. The 'x' in the version number is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the `node-version` array creates a job that runs the same steps.
 
 Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
 ```yaml copy
 strategy:
   matrix:
-    node-version: [14.x, 16.x, 18.x, 20.x]
+    node-version: ['14.x', '16.x', '18.x']
 
 steps:
 - uses: {% data reusables.actions.action-checkout %}
@@ -109,7 +117,7 @@ Alternatively, you can build and test with exact Node.js versions.
 ```yaml copy
 strategy:
   matrix:
-    node-version: [10.17.0, 17.9.0]
+    node-version: ['10.17.0', '17.9.0']
 ```
 
 Or, you can build and test using a single version of Node.js too.
@@ -129,7 +137,7 @@ jobs:
       - name: Use Node.js
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '18.x'
+          node-version: '20.x'
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
@@ -156,7 +164,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: npm ci
 ```
@@ -169,7 +177,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: npm install
 ```
@@ -184,7 +192,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: yarn --frozen-lockfile
 ```
@@ -197,7 +205,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - name: Install dependencies
   run: yarn
 ```
@@ -219,7 +227,7 @@ steps:
   uses: {% data reusables.actions.action-setup-node %}
   with:
     always-auth: true
-    node-version: '18.x'
+    node-version: '20.x'
     registry-url: https://registry.npmjs.org
     scope: '@octocat'
 - name: Install dependencies
@@ -230,7 +238,7 @@ steps:
 
 The example above creates an _.npmrc_ file with the following contents:
 
-```ini
+```shell
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://registry.npmjs.org/
 always-auth=true
@@ -249,7 +257,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '14'
+    node-version: '20'
     cache: 'npm'
 - run: npm install
 - run: npm test
@@ -262,7 +270,7 @@ steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '14'
+    node-version: '20'
     cache: 'yarn'
 - run: yarn
 - run: yarn test
@@ -282,7 +290,7 @@ steps:
     version: 6.10.0
 - uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '14'
+    node-version: '20'
     cache: 'pnpm'
 - run: pnpm install
 - run: pnpm test
@@ -302,7 +310,7 @@ steps:
 - name: Use Node.js
   uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: '18.x'
+    node-version: '20.x'
 - run: npm install
 - run: npm run build --if-present
 - run: npm test

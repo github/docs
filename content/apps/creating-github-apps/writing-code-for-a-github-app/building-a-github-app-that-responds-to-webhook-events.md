@@ -248,13 +248,13 @@ http.createServer(middleware).listen(port, () => {
 
 1. In your `package.json` file, add a top level key `type` with the value `module`. For example:
 
-   ```json
+   ```jsonc
       {
-       ...rest of the JSON object,
+       // rest of the JSON object,
        "version": "1.0.0",
        "description": "",
        "type": "module",
-       ...rest of the JSON object,
+       // rest of the JSON object,
      }
    ```
 

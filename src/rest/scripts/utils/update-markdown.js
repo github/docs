@@ -6,9 +6,9 @@ import {
   updateContentDirectory,
   convertVersionsToFrontmatter,
 } from '../../../automated-pipelines/lib/update-markdown.js'
-import { getDocsVersion } from '../../../../lib/all-versions.js'
+import { getDocsVersion } from '#src/versions/lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
-import { deprecated } from '../../../../lib/enterprise-server-releases.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 const { frontmatterDefaults, targetDirectory } = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf-8'),

@@ -64,7 +64,7 @@ To discover how a member was added to an organization, you can filter the member
 |-------------------|------|------|
 | Azure Active Directory | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| PingFederate (public beta) | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| PingFederate | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% else %}
 
@@ -108,6 +108,7 @@ To discover how a member was added to an organization, you can filter the member
   - Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization can pay for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
   - Cannot create codespaces for their personal repositories, other than forks of repositories owned by their organization; for any other repositories outside their organization; or from {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
   - Cannot publish a codespace created from a template to a new repository.
+- {% data reusables.actions.entitlement-minutes-emus %}
 
 ## Getting started with {% data variables.product.prodname_emus %}
 
@@ -117,9 +118,9 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
    Your contact on the GitHub Sales team will work with you to create your new {% data variables.enterprise.prodname_emu_enterprise %}. You'll need to provide the email address for the user who will set up your enterprise and a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-1. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password and saving the recovery codes for the user. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer be allowed to access enterprise or organization settings once SSO is configured, unless an SSO recovery code is used. 
+1. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password and saving the recovery codes for the user. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer be allowed to access enterprise or organization settings once SSO is configured, unless an SSO recovery code is used.
 
-   The setup user's username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`. If you need to sign in as the setup user later, you can enter the username and password at any login page. A link to the login page is also provided on the SSO page, for convenience. 
+   The setup user's username is your enterprise's shortcode suffixed with `_admin`, for example `fabrikam_admin`. If you need to sign in as the setup user later, you can enter the username and password at any login page. A link to the login page is also provided on the SSO page, for convenience.
 
    {% note %}
 
@@ -129,7 +130,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 1. After you log in as the setup user, we recommend enabling two-factor authentication. The setup user's password and two-factor credentials can also be used to enter sudo mode, which is required to take sensitive actions. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)" and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
 
-1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using another identity provider, like Okta or PingFederate (public beta), you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using another identity provider, like Okta or PingFederate, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
    {%- ifversion oidc-for-emu %}
 

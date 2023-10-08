@@ -113,8 +113,6 @@ You must manage billing settings, payment method, and paid features and products
 
 {% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
-{% data reusables.sponsors.paypal-deprecation %}
-
 {% ifversion fpt or ghec %}For qualifying usage-based services, you may choose to pay for the services from your {% data variables.product.prodname_dotcom %} account or from an Azure subscription. The terms of the billing method you choose will apply to services billed in this manner.{% endif %}
 
 For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings)."

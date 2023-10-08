@@ -27,38 +27,57 @@ You should already be familiar with YAML syntax and how it's used with {% data v
 
 We recommend that you have a basic understanding of the .NET Core SDK. For more information, see [Getting started with .NET](https://dotnet.microsoft.com/learn).
 
-## Using the .NET starter workflow
+## Using a .NET starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data variables.product.prodname_dotcom %} provides a starter workflow for .NET that should work for most .NET projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml
-name: dotnet package
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "dotnet".
+1. On the ".NET" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-on: [push]
+{%- ifversion ghes or ghae %}
 
-jobs:
-  build:
+   If you don't find the ".NET" starter workflow, copy the following workflow code to a new file called `dotnet.yml` in the `.github/workflows` directory of your repository.
 
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-version: [ '3.1.x', '6.0.x' ]
+   ```yaml copy
+   name: .NET
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Setup .NET Core SDK {% raw %}${{ matrix.dotnet-version }}{% endraw %}
-        uses: {% data reusables.actions.action-setup-dotnet %}
-        with:
-          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
-      - name: Install dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --configuration Release --no-restore
-      - name: Test
-        run: dotnet test --no-restore --verbosity normal
-```
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Setup .NET
+         uses: {% data reusables.actions.action-setup-dotnet %}
+         with:
+           dotnet-version: 6.0.x
+       - name: Restore dependencies
+         run: dotnet restore
+       - name: Build
+         run: dotnet build --no-restore
+       - name: Test
+         run: dotnet test --no-build --verbosity normal
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the .NET version.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `dotnet.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying a .NET version
 
@@ -94,14 +113,14 @@ jobs:
 
 ### Using a specific .NET version
 
-You can configure your job to use a specific version of .NET, such as `3.1.3`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 3.
+You can configure your job to use a specific version of .NET, such as `6.0.22`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 6.
 
 ```yaml
-    - name: Setup .NET SDK
+    - name: Setup .NET 6.x
       uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         # Semantic version range syntax or exact version of a dotnet version
-        dotnet-version: '6.0.x'
+        dotnet-version: '6.x'
 ```
 
 ## Installing dependencies
@@ -138,7 +157,7 @@ steps:
   with:
     path: ~/.nuget/packages
     # Look to see if there is a cache hit for the corresponding requirements file
-    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
     restore-keys: |
       ${{ runner.os }}-nuget{% endraw %}
 - name: Install dependencies

@@ -38,7 +38,7 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
@@ -104,10 +104,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -118,10 +118,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: Write-Output "::set-output name=SELECTED_COLOR::green"
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: Write-Output "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -179,7 +179,7 @@ echo "::set-output name=action_fruit::strawberry"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
@@ -206,7 +206,7 @@ echo "::debug::Set the Octocat variable"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::debug::Set the Octocat variable"
 ```
 
@@ -234,7 +234,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -262,7 +262,7 @@ echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -290,7 +290,7 @@ echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -363,7 +363,7 @@ echo "::add-mask::Mona The Octocat"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 Write-Output "::add-mask::Mona The Octocat"
 ```
 
@@ -509,8 +509,8 @@ jobs:
         GENERATED_SECRET=$((RANDOM))
         echo "::add-mask::$GENERATED_SECRET"
         SECRET_HANDLE=$(secret-store store-secret "$GENERATED_SECRET"){% ifversion actions-save-state-set-output-envs %}
-        echo "handle=$secret_handle" >> "$GITHUB_OUTPUT"{% else %}
-        echo "::set-output name=handle::$secret_handle"{% endif %}
+        echo "handle=$SECRET_HANDLE" >> "$GITHUB_OUTPUT"{% else %}
+        echo "::set-output name=handle::$SECRET_HANDLE"{% endif %}
   secret-consumer:
     runs-on: macos-latest
     needs: secret-generator
@@ -783,7 +783,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 - Using PowerShell version 6 and higher:
 
-  ```pwsh copy
+  ```powershell copy
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Append
   ```
 
@@ -798,6 +798,12 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access.
 
 {% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see "[AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables)."
+
+{% ifversion github-env-node-options %}{% note %}
+
+**Note:** Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
+
+{% endnote %}{% endif %}
 
 ### Example of writing an environment variable to `GITHUB_ENV`
 
@@ -901,7 +907,7 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 ```
 
@@ -915,11 +921,11 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
         env:{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
         run: echo "The selected color is $SELECTED_COLOR"
 ```
 
@@ -931,12 +937,12 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: |
             "SELECTED_COLOR=green" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get color
-        env:{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
         run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 
@@ -957,7 +963,7 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "{markdown content}" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
@@ -981,7 +987,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "### Hello world! :rocket:" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
@@ -1101,7 +1107,7 @@ echo "{path}" >> $GITHUB_PATH
 
 {% powershell %}
 
-```pwsh copy
+```powershell copy
 "{path}" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
@@ -1123,7 +1129,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
-```pwsh copy
+```powershell copy
 "$env:HOMEPATH/.local/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 

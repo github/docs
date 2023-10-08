@@ -11,12 +11,18 @@ const excludeStartWords = ['image', 'graphic']
 export const imageAltTextExcludeStartWords = {
   names: ['GHD007', 'image-alt-text-exclude-words'],
   description: 'Alternate text for images should not begin with words like "image" or "graphic".',
-  severity: 'error',
   tags: ['accessibility', 'images'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD007(params, onError) {
     forEachInlineChild(params, 'image', function forToken(token) {
       const imageAltText = token.content.trim()
+
+      // If the alt text is empty, there is nothing to check and you can't
+      // produce a valid range.
+      // We can safely return early because the image-alt-text-length rule
+      // will fail this one.
+      if (!token.content) return
+
       const range = getRange(token.line, imageAltText)
       if (
         excludeStartWords.some((excludeWord) => imageAltText.toLowerCase().startsWith(excludeWord))

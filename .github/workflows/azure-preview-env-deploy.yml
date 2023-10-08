@@ -112,7 +112,7 @@ jobs:
       - name: Get preview app info
         env:
           APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: .github/actions-scripts/get-preview-app-info.sh
+        run: src/workflows/get-preview-app-info.sh
 
       - name: 'Set env vars'
         run: |
@@ -202,7 +202,6 @@ jobs:
           rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
           rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
           rsync -rptovR ./user-code/src/./**/*.tsx ./src
-          rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:
@@ -210,7 +209,7 @@ jobs:
 
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
-        run: .github/actions-scripts/prune-for-preview-env.sh
+        run: src/workflows/prune-for-preview-env.sh
 
       - name: 'Build and push image'
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09

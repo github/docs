@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // For testing the GitHub Action that executes
-// .github/actions-scripts/content-changes-table-comment.js but doing it
+// src/workflows/content-changes-table-comment.js but doing it
 // locally.
 // This is more convenient and faster than relying on seeing that the
 // Action produces in a PR. Especially since
@@ -23,7 +23,7 @@
 // [end-readme]
 
 import { program } from 'commander'
-import main from '../.github/actions-scripts/content-changes-table-comment.js'
+import main from '#src/workflows/content-changes-table-comment.js'
 
 program
   .description('Produce a nice table based on the branch diff')
