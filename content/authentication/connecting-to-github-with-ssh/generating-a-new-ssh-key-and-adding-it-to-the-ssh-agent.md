@@ -166,16 +166,17 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. In a new *admin elevated* terminal window (PowerShell or CMD), ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
+1. In a new _admin elevated_ terminal window (PowerShell or CMD), ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
+
    ```powershell
    # start the ssh-agent in the background
    Get-Service -Name ssh-agent | Set-Service -StartupType Manual
    Start-Service ssh-agent
    ```
 
-1. In a terminal window without elevated permissions, add your SSH private key to the ssh-agent. 
+1. In a terminal window without elevated permissions, add your SSH private key to the ssh-agent.
    {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   
+
    ```powershell
    ssh-add C:\Users\YOU/.ssh/id_ed25519
    ```
@@ -208,15 +209,19 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 1. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
 
    {% mac %}
+
    ```shell
    ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
    ```
-  {% endmac %}
+  
+   {% endmac %}
 
    {% windows %}
+   
    ```powershell
    ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
    ```
+   
    {% endwindows %}
    {%- ifversion not ghae %}
    {% note %}
