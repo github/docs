@@ -217,11 +217,11 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    {% endmac %}
 
    {% windows %}
-   
+
    ```powershell
    ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
    ```
-   
+
    {% endwindows %}
    {%- ifversion not ghae %}
    {% note %}
