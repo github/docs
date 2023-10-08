@@ -176,14 +176,14 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. In a new *admin elevated* terminal window (PowerShell or CMD), ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
+1. In a new *admin elevated* terminal window (PowerShell or CMD), ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
    ```powershell
    # start the ssh-agent in the background
    Get-Service -Name ssh-agent | Set-Service -StartupType Manual
    Start-Service ssh-agent
    ```
 
-1. Add your SSH private key to the ssh-agent. 
+1. In a terminal window without elevated permissions, add your SSH private key to the ssh-agent. 
    {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    
    ```powershell
