@@ -8954,6 +8954,11 @@ type DeploymentProtectionRule {
   databaseId: Int
 
   """
+  Whether deployments to this environment can be approved by the user who created the deployment.
+  """
+  preventSelfReview: Boolean
+
+  """
   The teams or users that can review the deployment
   """
   reviewers(
@@ -44786,6 +44791,11 @@ input UpdateEnvironmentInput {
   The node ID of the environment.
   """
   environmentId: ID! @possibleTypes(concreteTypes: ["Environment"])
+
+  """
+  Whether deployments to this environment can be approved by the user who created the deployment.
+  """
+  preventSelfReview: Boolean
 
   """
   The ids of users or teams that can approve deployments to this environment

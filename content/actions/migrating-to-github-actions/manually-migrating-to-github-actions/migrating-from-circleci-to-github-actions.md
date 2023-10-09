@@ -390,7 +390,7 @@ jobs:
 
     strategy:
       matrix:
-        ruby: [2.5, 2.6.3]
+        ruby: ['2.5', '2.6.3']
 
     runs-on: ubuntu-latest
 
