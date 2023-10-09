@@ -649,6 +649,6 @@ registries:
 
 #### Notes
 
-The `token` should be an API Key that with access to view packages; see [API Access and API Keys](https://docs.inedo.com/docs/buildmaster-administration-security-api-keys).
+The `token` should be an API Key with access to view packages. For more information, see [API Access and API Keys](https://docs.inedo.com/docs/buildmaster-administration-security-api-keys) in the ProGet documentation.
 
 You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
