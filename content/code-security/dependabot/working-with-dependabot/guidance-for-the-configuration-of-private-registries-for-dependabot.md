@@ -631,7 +631,7 @@ For more information, see [Securing Nexus Repository Manager](https://help.sonat
 
 ### ProGet
 
-For information about ProGet and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with feeds in ProGet, see [the ProGet documentation](https://docs.inedo.com/docs/proget-overview).
+For information about ProGet and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with feeds in ProGet, see the [ProGet documentation](https://docs.inedo.com/docs/proget-overview).
 
 Example of ProGet registry for a NuGet feed:
 
@@ -647,6 +647,8 @@ registries:
 
 {% endraw %}
 
+#### Notes
+
 The `token` should be an API Key that with access to view packages; see [API Access and API Keys](https://docs.inedo.com/docs/buildmaster-administration-security-api-keys).
 
-You can check whether the private registry is has been sucessfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
+You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
