@@ -54,7 +54,7 @@ Today it's a dynamic Node.js webserver powered by Express, using [middleware](..
 
 The tooling for this site has changed over the years, but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved:
 
-- Content is written in Markdown files, which live in the `content` directory.
+- Content is written in Markdown files, which are live in the `content` directory.
 - Content can use the [Liquid templating language](liquid-helpers.md).
 - Files in the `data` directory are available to templates via the `{% data %}` tag.
 - Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
@@ -69,7 +69,7 @@ For more info about working with this site, check out these READMEs:
 - [data/README.md](../data/README.md)
 - [data/reusables/README.md](../data/reusables/README.md)
 - [data/variables/README.md](../data/variables/README.md)
-- [includes/liquid-tags/README.md](../includes/liquid-tags/README.md)
+- [tests/fixtures/README.md](tests/fixtures/README.md)
 - [includes/README.md](../includes/README.md)
 <!-- The following will be moved into src directory over time: -->
 - [components/README.md](../components/README.md)
