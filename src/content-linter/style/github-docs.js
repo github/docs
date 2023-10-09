@@ -104,6 +104,10 @@ export const githubDocsFrontmatterConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
+  'frontmatter-format': {
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
 }
 
 // Configures rules from the `github/markdownlint-github` repo
