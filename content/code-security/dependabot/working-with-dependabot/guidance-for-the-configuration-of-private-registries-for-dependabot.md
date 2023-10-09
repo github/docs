@@ -562,7 +562,7 @@ registries:
 
 The Azure Artifacts password must be an unencoded token and should include a `:` after the token. In addition, the password cannot be base64-encoded.
 
-You can check whether the private registry is has been sucessfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
+You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
 
 ### {% data variables.product.prodname_registry %} registry
 
