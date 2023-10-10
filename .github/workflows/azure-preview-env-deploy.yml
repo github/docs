@@ -17,12 +17,6 @@ on:
   # unlike 'pull_request_target', these only have secrets if the pull
   # request creator has permission to access secrets.
   pull_request_target:
-    types:
-      # In case someone puts the 'preview-with-translations' label on the PR
-      - opened
-      - synchronize
-      - reopened
-      - labeled
   merge_group:
   workflow_dispatch:
     inputs:
@@ -60,7 +54,7 @@ jobs:
          && (github.event.number || inputs.PR_NUMBER || github.run_id)
        )
        && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
-       &&  github.actor != 'dependabot[bot]'
+       && github.actor != 'dependabot[bot]'
     timeout-minutes: 15
     environment:
       name: preview-env-${{ github.event.number }}
