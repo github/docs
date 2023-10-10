@@ -171,7 +171,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: 20.x'
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
