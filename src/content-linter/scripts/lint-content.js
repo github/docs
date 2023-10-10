@@ -1,16 +1,19 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import { extname } from 'path'
+import { execSync } from 'child_process'
+
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
-import fs from 'fs'
+import boxen from 'boxen'
 import ora from 'ora'
-import { extname } from 'path'
-import { execSync } from 'child_process'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
 import { defaultConfig } from '../lib/default-markdownlint-options.js'
+import { prettyPrintResults } from './pretty-print-results.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -24,14 +27,6 @@ program
       'Only report rules that have the severity of error, not warning.',
     ).conflicts('rules'),
   )
-  .addOption(
-    new Option(
-      '--local-errors-only',
-      'Used by the git commit hook. Runs just like --errors-only but uses the local development severity if set for a rule.',
-    )
-      .implies({ errorsOnly: true })
-      .conflicts('rules'),
-  )
   .option('--fix', 'Automatically fix errors that can be fixed.')
   .addOption(
     new Option(
@@ -40,6 +35,7 @@ program
     ).conflicts(['error', 'paths', 'rules', 'fix']),
   )
   .option('--verbose', 'Output additional error detail.')
+  .option('--precommit', 'Informs this script that it was executed by a pre-commit hook.')
   .addOption(
     new Option(
       '-r, --rules [rules...]',
@@ -51,10 +47,18 @@ program
   )
   .parse(process.argv)
 
-const { fix, paths, errorsOnly, localErrorsOnly, rules, summaryByRule, outputFile, verbose } =
-  program.opts()
+const {
+  fix,
+  paths,
+  errorsOnly,
+  rules,
+  summaryByRule,
+  outputFile,
+  verbose,
+  precommit: isPrecommit,
+} = program.opts()
+
 const ALL_CONTENT_DIR = ['content', 'data']
-const LOCAL_ERRORS_ONLY = localErrorsOnly || false
 
 main()
 
@@ -117,7 +121,7 @@ async function main() {
 
   // The results don't yet contain severity information and are
   // in the format received directly from Markdownlint.
-  const formattedResults = getFormattedResults(results)
+  const formattedResults = getFormattedResults(results, isPrecommit)
   const errorFileCount = getErrorCountByFile(formattedResults)
   const warningFileCount = getWarningCountByFile(formattedResults)
 
@@ -136,23 +140,72 @@ async function main() {
       )
       console.log(`Output written to ${outputFile}`)
     } else {
-      console.log(formattedResults)
+      prettyPrintResults(formattedResults)
     }
   }
   const end = Date.now()
   // Ensure previous console logging is not truncated
-  console.log('\n\n')
+  console.log('\n')
   spinner.info(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
   if (warningFileCount > 0) {
-    spinner.warn(`Found ${warningFileCount} file(s) with warnings(s)`)
+    spinner.warn(
+      `Found ${warningFileCount} ${pluralize(warningFileCount, 'file')} with ${pluralize(
+        warningFileCount,
+        'warning',
+      )}`,
+    )
   }
   if (errorFileCount > 0) {
-    spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
+    spinner.fail(
+      `Found ${errorFileCount} ${pluralize(errorFileCount, 'file')} with ${pluralize(
+        errorFileCount,
+        'error',
+      )}`,
+    )
   }
-  if (errorFileCount || warningFileCount) {
+
+  if (isPrecommit) {
+    if (errorFileCount) {
+      console.log('') // Just for some whitespace before the box message
+      console.log(
+        boxen(
+          'GIT COMMIT IS ABORTED. Please fix the errors before committing.\n\n' +
+            `This commit contains ${errorFileCount} ${pluralize(
+              errorFileCount,
+              'file',
+            )} with ${pluralize(errorFileCount, 'error')}.\n` +
+            'To skip this check, add `--no-verify` to your git commit command.\n\n' +
+            'More info about the linter: https://gh.io/ghdocs-linter',
+          { title: 'Content linting', titleAlignment: 'center', padding: 1 },
+        ),
+      )
+    }
+
+    const fixableFiles = Object.entries(formattedResults)
+      .filter(([_, results]) => results.some((result) => result.fixable))
+      .map(([file]) => file)
+    if (fixableFiles.length) {
+      console.log('') // Just for some whitespace before the next message
+      console.log(
+        `Content linting found ${fixableFiles.length} ${pluralize(fixableFiles, 'file')} ` +
+          'that can be automatically fixed.\nTo apply the fixes run this command:\n',
+      )
+      console.log(`  npm run lint-content -- --fix --paths ${fixableFiles.join(' ')}\n`)
+    }
+  }
+
+  if (errorFileCount) {
     process.exit(1)
   }
   spinner.succeed('No errors found')
+}
+
+function pluralize(things, word, pluralForm = null) {
+  const isPlural = Array.isArray(things) ? things.length !== 1 : things !== 1
+  if (isPlural) {
+    return pluralForm || `${word}s`
+  }
+  return word
 }
 
 // Parse filepaths and directories, only allowing
@@ -226,7 +279,7 @@ function reportSummaryByRule(results, config) {
   result. Results are sorted by severity per file, with errors
   listed first then warnings.
 */
-function getFormattedResults(allResults) {
+function getFormattedResults(allResults, isPrecommit) {
   const output = {}
   Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
@@ -235,7 +288,7 @@ function getFormattedResults(allResults) {
       if (verbose) {
         output[key] = [...results]
       } else {
-        const formattedResults = results.map((flaw) => formatResult(flaw))
+        const formattedResults = results.map((flaw) => formatResult(flaw, isPrecommit))
         const errors = formattedResults.filter((result) => result.severity === 'error')
         const warnings = formattedResults.filter((result) => result.severity === 'warning')
         const sortedResult = [...errors, ...warnings]
@@ -268,13 +321,13 @@ function getCountBySeverity(results, severityLookup) {
 // Removes null values and properties that are not relevant to content
 // writers, adds the severity to each result object, and transforms
 // some error and fix data into a more readable format.
-function formatResult(object) {
+function formatResult(object, isPrecommit) {
   const formattedResult = {}
 
   // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
   formattedResult.severity =
-    allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object)
+    allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
@@ -319,7 +372,7 @@ function listRules() {
   return ruleList
 }
 
-/* 
+/*
   Based on input options, configure the Markdownlint rules to run
   There are a subset of rules that can't be run on data files, since
   those Markdown files are partials included in full Markdown files.
@@ -342,8 +395,13 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     const customRule = customConfig[ruleName] && getCustomRule(ruleName)
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
-    if (errorsOnly && getRuleSeverity(ruleConfig) !== 'error' && ruleName !== 'search-replace')
+    if (
+      errorsOnly &&
+      getRuleSeverity(ruleConfig, isPrecommit) !== 'error' &&
+      ruleName !== 'search-replace'
+    ) {
       continue
+    }
 
     if (runRules && !runRules.includes(ruleName)) continue
 
@@ -361,7 +419,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       const dataSearchReplaceRules = []
 
       for (const searchRule of ruleConfig.rules) {
-        const searchRuleSeverity = getRuleSeverity(searchRule)
+        const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
         if (errorsOnly && searchRuleSeverity !== 'error') continue
         searchReplaceRules.push(searchRule)
         if (searchRule['partial-markdown-files']) {
@@ -391,15 +449,11 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
   return { config, configuredRules }
 }
 
-/*
-  The severity of the rule can be different when running locally vs in CI
-  If the --local-errors-only option is set, use the severity-local property
-  to determine severity, if it is defined.
-*/
-function getRuleSeverity(rule) {
-  const defaultSev = rule.severity
-  const localSev = rule['severity-local'] || defaultSev
-  return LOCAL_ERRORS_ONLY ? localSev : defaultSev
+// Return the severity value of a rule but keep in mind it could be
+// running as a precommit hook, which means the severity could be
+// deliberately different.
+function getRuleSeverity(rule, isPrecommit) {
+  return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
 }
 
 // Gets a custom rule function from the name of the rule
@@ -413,8 +467,8 @@ function getCustomRule(ruleName) {
   return rule
 }
 
-/* 
-  The severity of the search-replace custom rule is embedded in 
+/*
+  The severity of the search-replace custom rule is embedded in
   each individual search rule. This function returns the severity
   of the individual search rule. The name we define for each search
   rule shows up the the errorDetail property of the error object.
@@ -431,7 +485,8 @@ function getCustomRule(ruleName) {
     fixInfo: null
   }
 */
-function getSearchReplaceRuleSeverity(ruleName, object) {
+function getSearchReplaceRuleSeverity(ruleName, object, isPrecommit) {
   const pluginRuleName = object.errorDetail.split(':')[0].trim()
-  return allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName).severity
+  const rule = allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName)
+  return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
 }
