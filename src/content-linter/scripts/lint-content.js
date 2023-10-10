@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import fs from 'fs'
-import { extname } from 'path'
+import path from 'path'
 import { execSync } from 'child_process'
 
 import { program, Option } from 'commander'
@@ -222,21 +222,33 @@ function getFilesToLint(paths) {
     data: [],
   }
 
-  for (const path of paths) {
-    const extension = extname(path)
+  // The path passed to Markdownlint is what is displayed
+  // in the error report, so we want to normalize it and
+  // and make it relative if it's absolute.
+  for (const rawPath of paths) {
+    // Normalizes a path like './data/foo/bar.md' to 'data/foo/bar.md'
+    const lintPath = path.normalize(rawPath)
+    const extension = path.extname(lintPath)
+    // We currently only lint Markdown files but will add
+    // YAML files soon.
     const isMdFile = extension === '.md'
     const isDirectory = extension === ''
     if (!isMdFile && !isDirectory) continue
+    // The path can be relative or absolute. All paths get
+    // resolved to the path relative to the current working directory.
+    const cwd = path.resolve()
+    const relPath = path.isAbsolute(lintPath) ? path.relative(cwd, lintPath) : lintPath
+    const isDataDir = relPath.startsWith('data')
 
     if (isMdFile) {
       // Add each file to the relevant fileList group
-      path.startsWith('data') ? fileList.data.push(path) : fileList.content.push(path)
+      isDataDir ? fileList.data.push(relPath) : fileList.content.push(relPath)
     } else {
       // It's a directory, walk the files in the directory and
       // add them to the relevant fileList group
-      path.startsWith('data')
-        ? fileList.data.push(...walkFiles(path, ['.md'], { includeBasePath: true }))
-        : fileList.content.push(...walkFiles(path, ['.md'], { includeBasePath: true }))
+      isDataDir
+        ? fileList.data.push(...walkFiles(relPath, ['.md']))
+        : fileList.content.push(...walkFiles(relPath, ['.md']))
     }
   }
   // Add a total fileList length property
