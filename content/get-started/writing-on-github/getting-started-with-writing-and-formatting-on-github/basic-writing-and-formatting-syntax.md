@@ -350,8 +350,10 @@ Footnotes are not supported in wikis.
 
 The deprecated syntax that was previously used is as follow:
 
+```markdown
 > **Note**
 > This is a note
+```
 
 {% endnote %}
 
@@ -378,14 +380,7 @@ The changes you make to an existing markdown file when previewed may display the
 
 Here are the rendered alerts.
 
-> [!NOTE]
-> Highlights information that users should take into account, even when skimming.
-
-> [!IMPORTANT]
-> Crucial information necessary for users to succeed.
-
-> [!WARNING]
-> Critical content demanding immediate user attention due to potential risks.
+![Screenshot of rendered Markdown showing how alerts render as colored boxes with icons.](/assets/images/help/writing/alerts-rendered.png)
 
 {% endif %}
 
