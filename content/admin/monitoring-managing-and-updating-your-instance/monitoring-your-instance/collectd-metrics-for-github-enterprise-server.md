@@ -26,7 +26,7 @@ Plugins provide metrics to `collectd`. You can learn about each plugin available
 | Plugin | Metrics gathered | More information |
 | :- | :- | :- |
 | `cpu` | Amount of time spent by the instance's CPU in various states: for example, execution of user code, execution of system code, waiting for I/O operations, and remaining idle | [Plugin:CPU](https://collectd.org/wiki/index.php/Plugin:CPU) in the `collectd` wiki |
-| `curl_json` | On an instance in a high-availability, repository cachine, or cluster configuration, data related to repository replication | [Plugin:cURL-JSON](https://collectd.org/wiki/index.php/Plugin:cURL-JSON) in the `collectd` wiki |
+| `curl_json` | On an instance in a high-availability, repository caching, or cluster configuration, data related to repository replication | [Plugin:cURL-JSON](https://collectd.org/wiki/index.php/Plugin:cURL-JSON) in the `collectd` wiki |
 | `df` | Usage information about the instance's file system | [Plugin:DF](https://collectd.org/wiki/index.php/Plugin:DF) in the `collectd` wiki |
 | `disk` | Performance statistics for the instance's hard disks and other block devices | [Plugin:Disk](https://collectd.org/wiki/index.php/Plugin:Disk) in the `collectd` wiki |
 | `elasticsearch` | Statistics for Elasticsearch, which provides the instance's search functionality | [phobos182/collectd-elasticsearch](https://github.com/phobos182/collectd-elasticsearch/) repository on {% data variables.product.prodname_dotcom_the_website %} |
