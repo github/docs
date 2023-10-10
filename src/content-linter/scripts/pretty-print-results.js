@@ -9,7 +9,7 @@ function shorten(text, length = 70) {
   return `${text.slice(0, length - 3)}…`
 }
 
-export function prettyPrintResults(results) {
+export function prettyPrintResults(results, { fixed = false } = {}) {
   const PREFIX_PADDING = ' '.repeat(4)
   const columnPadding = 'Description'.length // The longest column header word
 
@@ -49,16 +49,24 @@ export function prettyPrintResults(results) {
         if (ruleDescription) {
           console.log('')
         }
-        console.log(
-          `${PREFIX_PADDING}${
-            result.severity === 'error'
-              ? chalk.bold(chalk.red('ERROR'))
-              : result.severity === 'warning'
-              ? chalk.yellow('WARNING')
-              : chalk.blue(result.severity)
-          }`,
-        )
-        if (result.fixable) {
+        if (result.fixable && fixed) {
+          console.log(
+            `${PREFIX_PADDING}${chalkFunColors('✨ FIXED!')} (was ${
+              result.severity === 'error' ? 'an error' : 'a warning'
+            })`,
+          )
+        } else {
+          console.log(
+            `${PREFIX_PADDING}${
+              result.severity === 'error'
+                ? chalk.bold(chalk.red('ERROR'))
+                : result.severity === 'warning'
+                ? chalk.yellow('WARNING')
+                : chalk.blue(result.severity)
+            }`,
+          )
+        }
+        if (result.fixable && !fixed) {
           console.log(`${PREFIX_PADDING}${chalk.green('Fixable!')}`)
         }
         console.log(
@@ -87,4 +95,28 @@ export function prettyPrintResults(results) {
     }
     console.log('\n')
   }
+}
+
+function chalkFunColors(text) {
+  const colors = [
+    'red',
+    'yellow',
+    'green',
+    'magenta',
+    'cyan',
+    'redBright',
+    'yellowBright',
+    'greenBright',
+    'magentaBright',
+    'cyanBright',
+  ].sort(() => Math.random() - 0.5)
+  let colorIndex = 0
+  return text
+    .split('')
+    .map((char) => {
+      const color = colors[colorIndex]
+      colorIndex = (colorIndex + 1) % colors.length
+      return chalk[color](char)
+    })
+    .join('')
 }
