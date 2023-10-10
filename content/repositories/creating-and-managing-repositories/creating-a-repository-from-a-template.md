@@ -1,6 +1,7 @@
 ---
 title: Creating a repository from a template
 intro: You can generate a new repository with the same directory structure and files as an existing repository.
+permissions: 'Anyone with read access to a template repository can create a repository from that template.'
 redirect_from:
   - /articles/creating-a-repository-from-a-template
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
@@ -16,7 +17,7 @@ shortTitle: Create from a template
 ---
 ## About repository templates
 
-Anyone with read permissions to a template repository can create a repository from that template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
+{% data reusables.repositories.about-template-repositories %} For more information about creation of a repository template, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
 
 {% tip %}
 
