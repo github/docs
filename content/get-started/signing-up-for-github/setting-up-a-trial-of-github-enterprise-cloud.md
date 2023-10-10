@@ -41,7 +41,6 @@ You do not need to provide a payment method during the trial.
 The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
 
 - {% data variables.product.prodname_emus %}: If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
-- {% data variables.product.prodname_GH_advanced_security %}
 - {% data variables.product.prodname_github_codespaces %}
 - {% data variables.product.prodname_copilot_for_business %}
 - {% data variables.product.prodname_sponsors %}
@@ -71,6 +70,8 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
 {% data reusables.enterprise.best-practices %}
+
+During your trial, you can evaluate the extra security features that {% data variables.product.company_short %} offers to customers on {% data variables.product.prodname_enterprise %} by setting up a free trial of {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_GH_advanced_security %} is a separate license that gives you access to extra security features in private repositories in your enterprise, such as automatically scanning code for vulnerabilities and detecting leaked secrets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
 
 {% data reusables.products.product-roadmap %}
 
