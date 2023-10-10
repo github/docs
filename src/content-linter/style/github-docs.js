@@ -86,6 +86,16 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
+  'liquid-if-tags': {
+    // LQ114
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-ifversion-tags': {
+    // LQ113
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
