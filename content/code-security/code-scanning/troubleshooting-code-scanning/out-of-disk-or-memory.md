@@ -15,13 +15,15 @@ versions:
 {% data reusables.code-scanning.beta %}
 
 {% ifversion ghes %}
-On very large projects, you may see `Error: "Out of disk"` or `Error: "Out of memory"` on self-hosted runners when running {% data variables.product.prodname_codeql %}. In this case, you may need to increase the memory or disk space available on your runners. You can review the recommended hardware resources for running {% data variables.product.prodname_codeql %} to make sure your self-hosted runners meet those requirements. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
+On very large projects, you may see `Error: "Out of disk"` or `Error: "Out of memory"` on self-hosted runners when running {% data variables.product.prodname_code_scanning %}. In this case, you may need to increase the memory or disk space available on the runners used for {% data variables.product.prodname_code_scanning %} analysis.
+
+You can review the recommended hardware resources for running {% data variables.product.prodname_codeql %} to make sure your self-hosted runners meet those requirements. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
 
 {% else %}
 
 ## Use self-hosted runners
 
-Self-hosted runners offer more control of hardware, operating system, and software tools than {% data variables.product.company_short %}-hosted runners can provide. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)." You can review the recommended hardware resources for running {% data variables.product.prodname_codeql %} to make sure your self-hosted runners meet those requirements. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
+Self-hosted runners offer more control of hardware, operating system, and software tools than {% data variables.product.company_short %}-hosted runners can provide. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)." If you're using {% data variables.product.prodname_codeql %} with advanced setup, you can review the recommended hardware resources for running {% data variables.product.prodname_codeql %} to make sure your self-hosted runners meet those requirements. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
 
 {% ifversion actions-hosted-runners %}
 
