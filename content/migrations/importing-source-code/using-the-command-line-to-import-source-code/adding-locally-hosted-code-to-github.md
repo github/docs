@@ -79,11 +79,11 @@ After you've initialized a Git repository, you can push the repository to {% dat
 
 ### Adding a local repository to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_cli %}
 
-1. To create a repository for your project on GitHub, use the `gh repo create` subcommand. When prompted, select **Push an existing local repository to GitHub** and enter the desired name for your repository. If you want your project to belong to an organization instead of your user account, specify the organization name and project name with `organization-name/project-name`.
+1. To create a repository for your project on {% data variables.product.prodname_dotcom %}, use the `gh repo create` subcommand. When prompted, select **Push an existing local repository to {% data variables.product.prodname_dotcom %}** and enter the desired name for your repository. If you want your project to belong to an organization instead of your user account, specify the organization name and project name with `organization-name/project-name`.
 
 1. Follow the interactive prompts. To add the remote and push the repository, confirm yes when asked to add the remote and push the commits to the current branch.
 
-1. Alternatively, to skip all the prompts, supply the path to the repository with the `--source` flag and pass a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create --source=. --public`. Specify a remote with the `--remote` flag. To push your commits, pass the `--push` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+1. Alternatively, to skip all the prompts, supply the path to the repository with the `--source` flag and pass a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create --source=. --public`. Specify a remote with the `--remote` flag. To push your commits, pass the `--push` flag. For more information about possible arguments, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_repo_create).
 
 ### Adding a local repository to {% data variables.product.prodname_dotcom %} using Git
 
@@ -93,22 +93,26 @@ After you've initialized a Git repository, you can push the repository to {% dat
 1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
-1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
+1. To add the URL for the remote repository where your local repository will be pushed, run the following command. Replace `REMOTE-URL` with the repository's full URL on {% data variables.product.prodname_dotcom %}.
 
    ```shell
-   $ git remote add origin <REMOTE_URL>
-   # Sets the new remote
-   $ git remote -v
-   # Verifies the new remote URL
+   git remote add origin REMOTE-URL
    ```
 
-1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
+   For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
-   $ git push -u origin main
-   # Pushes the changes in your local repository up to the remote repository you specified as the origin
+   git remote -v
+   ```
+
+1. To push the changes in your local repository to {% data variables.location.product_location %}, run the following command.
+
+   ```shell
+   git push -u origin main
    ```
 
 {% endmac %}
@@ -121,20 +125,23 @@ After you've initialized a Git repository, you can push the repository to {% dat
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
-1. In the Command prompt, [add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
+1. To add the URL for the remote repository where your local repository will be pushed, run the following command. Replace `REMOTE-URL` with the repository's full URL on {% data variables.product.prodname_dotcom %}.
 
    ```shell
-   $ git remote add origin <REMOTE_URL>
-   # Sets the new remote
-   $ git remote -v
-   # Verifies the new remote URL
+   git remote add origin REMOTE-URL
    ```
 
-1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
+   For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
-   $ git push origin main
-   # Pushes the changes in your local repository up to the remote repository you specified as the origin
+   git remote -v
+   ```
+
+1. To push the changes in your local repository to {% data variables.location.product_location %}, run the following command.
+
+   ```shell
+   git push origin main
    ```
 
 {% endwindows %}
@@ -147,20 +154,23 @@ After you've initialized a Git repository, you can push the repository to {% dat
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
-1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
+1. To add the URL for the remote repository where your local repository will be pushed, run the following command. Replace `REMOTE-URL` with the repository's full URL on {% data variables.product.prodname_dotcom %}.
 
    ```shell
-   $ git remote add origin <REMOTE_URL>
-   # Sets the new remote
-   $ git remote -v
-   # Verifies the new remote URL
+   git remote add origin REMOTE-URL
    ```
 
-1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
+   For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
-   $ git push origin main
-   # Pushes the changes in your local repository up to the remote repository you specified as the origin
+   git remote -v
+   ```
+
+1. To push the changes in your local repository to {% data variables.location.product_location %}, run the following command.
+
+   ```shell
+   git push origin main
    ```
 
 {% endlinux %}
