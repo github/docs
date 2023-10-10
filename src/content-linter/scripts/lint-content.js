@@ -111,25 +111,34 @@ async function main() {
   })
 
   // Apply markdownlint fixes if available and rewrite the files
+  let countFixedFiles = 0
   if (fix) {
     for (const file of [...files.content, ...files.data]) {
+      if (!results[file] || !results[file].some((flaw) => flaw.fixInfo)) {
+        continue
+      }
       const content = fs.readFileSync(file, 'utf8')
       const applied = applyFixes(content, results[file])
-      fs.writeFileSync(file, applied, 'utf-8')
+      if (content !== applied) {
+        countFixedFiles++
+        fs.writeFileSync(file, applied, 'utf-8')
+      }
     }
   }
 
   // The results don't yet contain severity information and are
   // in the format received directly from Markdownlint.
   const formattedResults = getFormattedResults(results, isPrecommit)
-  const errorFileCount = getErrorCountByFile(formattedResults)
-  const warningFileCount = getWarningCountByFile(formattedResults)
+  // If we applied fixes, it's important that we don't count those that
+  // might now be entirely fixed.
+  const errorFileCount = getErrorCountByFile(formattedResults, fix)
+  const warningFileCount = getWarningCountByFile(formattedResults, fix)
 
   // Used for a temporary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
-  if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0)) {
+  if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0 || countFixedFiles > 0)) {
     reportSummaryByRule(results, config)
-  } else if (errorFileCount > 0 || warningFileCount > 0) {
+  } else if (errorFileCount > 0 || warningFileCount > 0 || countFixedFiles > 0) {
     if (outputFile) {
       fs.writeFileSync(
         `${outputFile}`,
@@ -140,13 +149,23 @@ async function main() {
       )
       console.log(`Output written to ${outputFile}`)
     } else {
-      prettyPrintResults(formattedResults)
+      prettyPrintResults(formattedResults, {
+        fixed: fix,
+      })
     }
   }
   const end = Date.now()
   // Ensure previous console logging is not truncated
   console.log('\n')
-  spinner.info(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
+  const took = end - start
+  spinner.info(
+    `🕦 Markdownlint finished in ${(took > 1000 ? took / 1000 : took).toFixed(1)} ${
+      took > 1000 ? 's' : 'ms'
+    }`,
+  )
+  if (countFixedFiles > 0) {
+    spinner.info(`🛠️  Fixed ${countFixedFiles} ${pluralize(countFixedFiles, 'file')}`)
+  }
   if (warningFileCount > 0) {
     spinner.warn(
       `Found ${warningFileCount} ${pluralize(warningFileCount, 'file')} with ${pluralize(
@@ -314,19 +333,23 @@ function getFormattedResults(allResults, isPrecommit) {
 // and the value being an array of errors for that filepath.
 // Each result has a rule name, which when looked up in `allConfig`
 // will give us its severity and we filter those that are 'warning'.
-function getWarningCountByFile(results) {
-  return getCountBySeverity(results, 'warning')
+function getWarningCountByFile(results, fixed = false) {
+  return getCountBySeverity(results, 'warning', fixed)
 }
 
 // Results are formatted with the key being the filepath
 // and the value being an array of results for that filepath.
 // Each result in the array has a severity of error or warning.
-function getErrorCountByFile(results) {
-  return getCountBySeverity(results, 'error')
+function getErrorCountByFile(results, fixed = false) {
+  return getCountBySeverity(results, 'error', fixed)
 }
-function getCountBySeverity(results, severityLookup) {
+function getCountBySeverity(results, severityLookup, fixed) {
   return Object.values(results).filter((results) =>
-    results.some((result) => result.severity === severityLookup),
+    results.some((result) => {
+      // If --fix was applied, we don't want to know about files that
+      // no longer have errors or warnings.
+      return result.severity === severityLookup && (!fixed || !result.fixable)
+    }),
   ).length
 }
 
