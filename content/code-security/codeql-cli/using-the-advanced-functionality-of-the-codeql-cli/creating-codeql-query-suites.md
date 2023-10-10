@@ -236,7 +236,7 @@ recommendation`, use:
 ```
 
 To create a suite that selects all queries with `@tag security` and
-`@problem.severity high` or `very-high` from the `codeql/cpp-queries` {% data variables.product.prodname_codeql %} pack,
+`@precision high` or `very-high` from the `codeql/cpp-queries` {% data variables.product.prodname_codeql %} pack,
 use:
 
 ```yaml
@@ -244,7 +244,7 @@ use:
   from: codeql/cpp-queries
 - include:
     tags contain: security
-    problem.severity:
+    precision:
     - high
     - very-high
 ```
