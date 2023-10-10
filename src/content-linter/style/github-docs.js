@@ -135,7 +135,7 @@ export const searchReplaceConfig = {
         searchPattern: '/todocs/gi',
         searchScope: 'all',
         severity: 'error',
-        'severity-local': 'warning',
+        precommitSeverity: 'warning',
         'partial-markdown-files': true,
       },
       {
