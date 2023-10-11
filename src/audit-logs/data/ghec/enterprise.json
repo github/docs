@@ -206,8 +206,8 @@
   },
   {
     "action": "business.disable_source_ip_disclosure",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Display of IP addresses within audit log events for the enterprise was disabled.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise"
   },
   {
     "action": "business.disable_two_factor_requirement",
@@ -226,8 +226,8 @@
   },
   {
     "action": "business.enable_source_ip_disclosure",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Display of IP addresses within audit log events for the enterprise was enabled.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise"
   },
   {
     "action": "business.enable_two_factor_requirement",
@@ -278,6 +278,26 @@
     "action": "business.members_can_update_protected_branches.enable",
     "description": "The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.recovery_codes_downloaded",
+    "description": "An enterprise owner downloaded the enterprise's SSO recovery codes.",
+    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "business.recovery_codes_generated",
+    "description": "An enterprise owner generated the enterprise's SSO recovery codes.",
+    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "business.recovery_codes_printed",
+    "description": "An enterprise owner printed the enterprise's SSO recovery codes.",
+    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "business.recovery_codes_viewed",
+    "description": "An enterprise owner viewed the enterprise's SSO recovery codes.",
+    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
   },
   {
     "action": "business.recovery_code_failed",
@@ -1526,8 +1546,8 @@
   },
   {
     "action": "org.audit_log_git_event_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An export of the organization's Git events was created.",
+    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
   },
   {
     "action": "org.billing_signup_error",
