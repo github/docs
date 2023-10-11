@@ -86,6 +86,16 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
+  'liquid-if-tags': {
+    // LQ114
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-ifversion-tags': {
+    // LQ113
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
@@ -101,6 +111,10 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-early-access-references': {
     // GH060
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-format': {
     severity: 'error',
     'partial-markdown-files': false,
   },
@@ -131,7 +145,7 @@ export const searchReplaceConfig = {
         searchPattern: '/todocs/gi',
         searchScope: 'all',
         severity: 'error',
-        'severity-local': 'warning',
+        precommitSeverity: 'warning',
         'partial-markdown-files': true,
       },
       {

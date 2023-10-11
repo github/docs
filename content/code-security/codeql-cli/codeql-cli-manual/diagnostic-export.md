@@ -38,7 +38,7 @@ Available since `v2.12.6`.
 
 ### Primary Options
 
-#### `--format=<format>` <!-- markdownlint-disable-line heading-increment -->
+#### `--format=<format>`
 
 \[Mandatory] The format in which to write the results. One of:
 

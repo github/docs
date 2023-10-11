@@ -70,7 +70,7 @@ If you are a site administrator for {% data variables.location.product_location 
    > Generating public/private ALGORITHM key pair.
    ```
 
-When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ssh_keyname with your custom key name.
+   When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ssh_keyname with your custom key name.
 
    {% mac %}
 
@@ -82,7 +82,7 @@ When you're prompted to "Enter a file in which to save the key", you can press *
 
    {% windows %}
 
-   ```shell
+   ```powershell
    > Enter a file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
    ```
 
@@ -164,19 +164,22 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% windows %}
 
-1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
+{% data reusables.desktop.windows_git_bash %}
 
-   ```shell
+1. In a new _admin elevated_ terminal window (PowerShell or CMD), ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
+
+   ```powershell
    # start the ssh-agent in the background
-   $ eval "$(ssh-agent -s)"
-   > Agent pid 59566
+   Get-Service -Name ssh-agent | Set-Service -StartupType Manual
+   Start-Service ssh-agent
    ```
 
-1. Add your SSH private key to the ssh-agent.
-
+1. In a terminal window without elevated permissions, add your SSH private key to the ssh-agent.
    {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
-   {% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
+   ```powershell
+   ssh-add C:\Users\YOU/.ssh/id_ed25519
+   ```
 
 {% data reusables.ssh.add-public-key-to-github %}
 
@@ -202,12 +205,24 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
 1. Insert your hardware security key into your computer.
 {% data reusables.command_line.open_the_multi_os_terminal %}
+
 1. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
+
+   {% mac %}
 
    ```shell
    ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
    ```
+  
+   {% endmac %}
 
+   {% windows %}
+
+   ```powershell
+   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
+   ```
+
+   {% endwindows %}
    {%- ifversion not ghae %}
    {% note %}
 

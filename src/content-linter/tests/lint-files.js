@@ -10,7 +10,7 @@ import fs from 'fs/promises'
 import { existsSync } from 'fs'
 import { jest } from '@jest/globals'
 
-import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
+import { frontmatter } from '../../../lib/frontmatter.js'
 import languages from '#src/languages/lib/languages.js'
 import { liquid } from '#src/content-render/index.js'
 import { getDiffFiles } from '../lib/diff-files.js'
@@ -317,7 +317,7 @@ describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
 
   describe.each(mdToLint)('%s', (markdownRelPath, markdownAbsPath) => {
-    let content, ast, links, isEarlyAccess, frontmatterData
+    let content, ast, links, frontmatterData
 
     beforeAll(async () => {
       const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
@@ -326,25 +326,11 @@ describe('lint markdown content', () => {
       content = bodyContent
       frontmatterData = data
       ast = fromMarkdown(content)
-      const split = markdownRelPath.split('/')
-      isEarlyAccess = split.includes('early-access')
 
       links = []
       visit(ast, ['link', 'definition'], (node) => {
         links.push(node.url)
       })
-    })
-
-    test('contains no deprecated frontmatter properties', async () => {
-      if (!isEarlyAccess) {
-        const usedDeprecateProps = deprecatedProperties.filter((prop) => {
-          return Object.keys(frontmatterData).includes(prop)
-        })
-        expect(
-          usedDeprecateProps,
-          `The following frontmatter properties are deprecated: ${usedDeprecateProps}. Please remove the property from your article's frontmatter.`,
-        ).toEqual([])
-      }
     })
 
     test('contains valid Liquid', async () => {

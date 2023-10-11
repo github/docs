@@ -16,7 +16,8 @@ children:
   - /accessing-the-monitor-dashboard
   - /recommended-alert-thresholds
   - /setting-up-external-monitoring
-  - /configuring-collectd
+  - /configuring-collectd-for-your-instance
+  - /collectd-metrics-for-github-enterprise-server
   - /monitoring-using-snmp
   - /about-system-logs
   - /generating-a-health-check-for-your-enterprise

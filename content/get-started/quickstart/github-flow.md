@@ -29,11 +29,7 @@ To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% 
 
 {% tip %}
 
-{% ifversion fpt or ghec %}
-**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through {% data variables.product.prodname_dotcom %} web interface, command line and [{% data variables.product.prodname_cli %}](https://cli.github.com), or [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop).
-{% else %}
-**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through {% data variables.product.prodname_dotcom %} web interface or through the command line and [{% data variables.product.prodname_cli %}](https://cli.github.com).
-{% endif %}
+**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through the {% data variables.product.prodname_dotcom %} web interface, command line and [{% data variables.product.prodname_cli %}](https://cli.github.com), or [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop). For more information about the tools you can use to connect to {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
 
 {% endtip %}
 

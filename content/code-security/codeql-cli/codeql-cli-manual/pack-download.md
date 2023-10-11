@@ -46,7 +46,7 @@ Available since `v2.6.0`.
 
 ### Primary Options
 
-#### `<scope/name[@version]|suite.qls>...` <!-- markdownlint-disable-line heading-increment -->
+#### `<scope/name[@version]|suite.qls>...`
 
 \[Mandatory] List of CodeQL packs and query suites to download. If a
 query suite is provided, its instructions will be inspected and all

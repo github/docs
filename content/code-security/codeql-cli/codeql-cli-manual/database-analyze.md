@@ -47,7 +47,7 @@ being interpreted as source-code alerts, use
 
 ### Primary Options
 
-#### `<database>` <!-- markdownlint-disable-line heading-increment -->
+#### `<database>`
 
 \[Mandatory] Path to the CodeQL database to query.
 
