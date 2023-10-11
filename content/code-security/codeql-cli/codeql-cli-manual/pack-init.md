@@ -41,7 +41,7 @@ Available since `v2.6.0`.
 
 ### Primary Options
 
-#### `<package-name>` <!-- markdownlint-disable-line heading-increment -->
+#### `<package-name>`
 
 \[Mandatory] The scope and name of the pack to create. Scope is only
 required if this pack is to be published.

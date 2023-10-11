@@ -39,7 +39,7 @@ This does the same as
 
 ### Primary Options
 
-#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
+#### `<dataset>`
 
 \[Mandatory] Path to the raw QL dataset to upgrade.
 

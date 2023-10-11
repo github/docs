@@ -41,7 +41,7 @@ and output streams.
 
 ### Primary Options
 
-#### `--check-errors=<checkErrors>` <!-- markdownlint-disable-line heading-increment -->
+#### `--check-errors=<checkErrors>`
 
 \[Mandatory] How to check errors. One of: ON\_CHANGE, EXPLICIT.
 
