@@ -19,7 +19,9 @@ shortTitle: Initiate a failover to replica
 
 If the datacenter for your active cluster experiences a failure and you've configured high availability, you can fail over to your replica cluster.
 
-Failing over to your replica cluster promotes it to be your new active cluster, and decouples the new active cluster from the old active cluster. After failover, you will have two standalone clusters without high availability configured. You can reconfigure replication from the new active cluster. For more information, see "[AUTOTITLE](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)."
+Failing over to your replica cluster promotes it to be your new active cluster, and decouples the new active cluster from the old active cluster. The nodes in your old active cluster are placed in maintenance mode if they are in a healthy enough state for this operation to be performed.
+
+After failover, you will have two standalone clusters without high availability configured. You can reconfigure replication from the new active cluster. For more information, see "[AUTOTITLE](/enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster#reconfiguring-high-availability-replication-after-a-failover)."
 
 ## Prerequisites
 

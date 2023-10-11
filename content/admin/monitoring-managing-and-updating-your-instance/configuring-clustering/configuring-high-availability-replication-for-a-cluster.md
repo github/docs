@@ -311,16 +311,14 @@ You can use `ghe-cluster-status` to review the overall health of your cluster. F
 
 ## Reconfiguring high availability replication after a failover
 
-After you fail over from the cluster's active nodes to the cluster's replica nodes, you can reconfigure high availability replication in two ways.
-
-### Provisioning and configuring new replica nodes
-
-After a failover, you can reconfigure high availability in two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
+After you fail over from the cluster's active nodes to the cluster's replica nodes, you can reconfigure high availability in one of two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
 
 - Provision and configure a new set of replica nodes for each of the new active nodes in your secondary datacenter.
 - Use the original active nodes as the new replica nodes.
 
 The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see "[Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster)."
+
+If you use the original active nodes, after reconfiguring high availability, you will need to unset maintenance mode on the nodes. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."
 
 ## Disabling high availability replication for a cluster
 
