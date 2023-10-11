@@ -448,3 +448,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 **Note**: Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.
 
 {% endnote %}
+
+## Redacting secrets from workflow run logs
+
+While {% data variables.product.prodname_dotcom %} automatically redacts secrets printed to workflow logs, runners can only delete secrets they have access to. This means a secret will only be redacted if it was used within a job. As a security measure, you can delete workflow run logs to prevent sensitive values being leaked. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#deleting-logs)."
