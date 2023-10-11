@@ -55,6 +55,14 @@ In the event that your app's client secret is compromised, you will need to gene
 
 In the event that user access tokens are compromised, you should immediately revoke these tokens. For more information, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)."
 
+## Verify a user's access to your organizations
+
+Your OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
+
+To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user)" in the REST API documentation.
+
+{% data reusables.emus.oauth-app-note %}
+
 ## Conduct regular vulnerability scans
 
 {% data reusables.apps.app-scans %}

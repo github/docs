@@ -36,7 +36,7 @@ Autoformat QL source code.
 
 ### Primary Options
 
-#### `<file>...` <!-- markdownlint-disable-line heading-increment -->
+#### `<file>...`
 
 One or more `.ql` or `.qll` source files to autoformat. A dash can be
 specified to read from standard input.

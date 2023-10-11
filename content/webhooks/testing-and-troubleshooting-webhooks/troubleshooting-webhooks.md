@@ -88,3 +88,9 @@ You should configure your server to return a 2xx status. If your server returns 
 ## Webhook deliveries are not immediate
 
 Webhook deliveries can take a few minutes to be delivered and to appear in the recent deliveries log. Before concluding that your webhook delivery failed, wait a few minutes and then check again.
+
+## Failed signature verification
+
+You should use a webhook secret and the `X-Hub-Signature-256` header to verify that a webhook delivery is from {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries)."
+
+{% data reusables.webhooks.signature-troubleshooting %}

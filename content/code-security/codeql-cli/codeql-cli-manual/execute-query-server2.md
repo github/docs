@@ -43,7 +43,7 @@ Available since `v2.10.11`.
 
 ### Primary Options
 
-#### `--[no-]tuple-counting` <!-- markdownlint-disable-line heading-increment -->
+#### `--[no-]tuple-counting`
 
 \[Advanced] Display tuple counts for each evaluation step in the query
 evaluator logs. If the `--evaluator-log` option is provided, tuple

@@ -44,7 +44,7 @@ options of [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs
 
 ### Primary Options
 
-#### `<file>` <!-- markdownlint-disable-line heading-increment -->
+#### `<file>`
 
 \[Mandatory] BQRS file to show information about.
 

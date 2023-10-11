@@ -52,7 +52,7 @@ Available since `v2.12.4`.
 
 ### Primary Options
 
-#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
+#### `<dir>`
 
 The root directory of the package.
 
