@@ -375,10 +375,6 @@ We recommend restricting the use of alerts to one or two per article to avoid ov
 
 Three types of alert are available. You can add an alert with a special blockquote line that specifies the alert type, and then add the alert information in a standard blockquote immediately after.
 
-These alert syntax are supported in Issues, Pull requests, Discussions, Gists, Releases, and Markdown files.
-
-The changes you make to an existing markdown file when previewed may display the raw syntax of the alerts. However when the changes are committed you will see that the alerts will be displayed correctly.
-
 ```markdown
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
