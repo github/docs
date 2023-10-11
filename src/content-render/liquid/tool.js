@@ -1,6 +1,7 @@
 import { allTools } from '#src/tools/lib/all-tools.js'
+import { allPlatforms } from '#src/tools/lib/all-platforms.js'
 
-export const tags = Object.keys(allTools).concat(['mac', 'windows', 'linux', 'rowheaders'])
+export const tags = Object.keys(allTools).concat(allPlatforms).concat(['rowheaders'])
 
 const template = '<div class="ghd-tool {{ tagName }}">{{ output }}</div>'
 
