@@ -346,7 +346,7 @@ Footnotes are not supported in wikis.
 
 {% note %}
 
-**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
+**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the current syntax as described in this section.
 
 The deprecated syntax is as follows:
 
