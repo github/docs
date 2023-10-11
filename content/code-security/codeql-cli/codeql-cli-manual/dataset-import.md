@@ -41,7 +41,7 @@ initial import.
 
 ### Primary Options
 
-#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
+#### `<dataset>`
 
 \[Mandatory] Path to the raw QL dataset to create or update. The
 directory will be created if it doesn't already exist.

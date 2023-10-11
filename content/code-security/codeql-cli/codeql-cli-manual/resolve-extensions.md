@@ -43,7 +43,7 @@ specifiers passed in as command line arguments.
 
 ### Primary Options
 
-#### `<querysuite|pack>...` <!-- markdownlint-disable-line heading-increment -->
+#### `<querysuite|pack>...`
 
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:

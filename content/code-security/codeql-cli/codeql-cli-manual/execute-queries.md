@@ -39,7 +39,7 @@ This command should not normally be invoked directly. Instead use either
 
 ### Primary Options
 
-#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
+#### `<dataset>`
 
 \[Mandatory] Path to the raw QL dataset to query.
 
