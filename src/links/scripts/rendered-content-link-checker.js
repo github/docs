@@ -470,7 +470,8 @@ function flawIssueDisplay(flaws, opts, mentionExternalExclusionList = true) {
   if (mentionExternalExclusionList) {
     output +=
       '\n\n---\n\nIf any link reported in this issue is not actually broken ' +
-      'and repeatedly shows up on reports, consider making a PR that adds it as an exception to `lib/excluded-link.js`.'
+      'and repeatedly shows up on reports, consider making a PR that adds it as an exception to `src/links/lib/excluded-links.js`. ' +
+      'For more information, see [Fixing broken links in GitHub user docs](https://github.com/github/docs/blob/main/src/links/lib/README.md).'
   }
 
   return `${flawsToDisplay} broken${
