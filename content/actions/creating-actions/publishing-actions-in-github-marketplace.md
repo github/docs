@@ -68,7 +68,7 @@ To remove a published action from {% data variables.product.prodname_marketplace
 
 You can transfer an action repository to another user or organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
 
-- A repo can be transferred and actions will continue to work because there is a redirect in place (users of the action won't have to update their workflows)
+When a repository admin transfers an action repository, {% data variables.product.prodname_dotcom %} automatically creates a redirect from the previous URL to the new URL, meaning workflows that use the affected action do not need to be updated.
 - An action in the marketplace is linked to a repository by ID, allowing for new releases to be published under the same marketplace listing from the "new" repo
 - If an action repository is deleted, so is the marketplace listing. The unique `name` identifier becomes available again.
 - The `verified` status seen on GitHub org profiles is different from the marketplace `verified` badge. By transferring an action repo, the owner changes and the marketplace badge will be lost unless the new owner is a verified publisher too.
