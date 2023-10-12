@@ -846,8 +846,8 @@
   },
   {
     "action": "org.audit_log_git_event_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An export of the organization's Git events was created.",
+    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
   },
   {
     "action": "org.billing_signup_error",

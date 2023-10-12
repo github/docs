@@ -52,7 +52,7 @@ patterns, which can use the following wildcard characters:
 
 ### Primary Options
 
-#### `<dir>` <!-- markdownlint-disable-line heading-increment -->
+#### `<dir>`
 
 The directory to be searched.
 

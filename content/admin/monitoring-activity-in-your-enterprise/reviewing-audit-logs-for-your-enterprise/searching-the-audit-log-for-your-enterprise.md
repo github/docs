@@ -90,7 +90,10 @@ Key            | Value
 `org_id`       | ID of the organization affected by the action (if applicable).{% endif %}
 {%- ifversion ghes or ghae %}
 `repo_id`      | ID of the repository affected by the action (if applicable).{% endif %}
-`repository`        | Name with owner of the repository where the action occurred (such as `octocat/octo-repo`).
+{%- ifversion ghes or ghae %}
+`repository`        | Name with owner of the repository where the action occurred (such as `"octocat/octo-repo"`).{% endif %}
+{%- ifversion ghec %}
+`repository`        | Name with owner of the repository where the action occurred (such as `octocat/octo-repo`).{% endif %}
 {%- ifversion ghes or ghae %}
 `user_id`      | ID of the user affected by the action.{% endif %}
 `user`         | Name of the user affected by the action.

@@ -766,8 +766,8 @@
   },
   {
     "action": "personal_access_token.credential_revoked",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A fine-grained personal access token was revoked by GitHub Advanced Security.",
+    "docs_reference_links": "/code-security/getting-started/github-security-features#secret-scanning-alerts-for-users"
   },
   {
     "action": "personal_access_token.destroy",
@@ -791,8 +791,8 @@
   },
   {
     "action": "personal_access_token.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A fine-grained personal access token was updated.",
+    "docs_reference_links": "/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens"
   },
   {
     "action": "premium_runner.create",

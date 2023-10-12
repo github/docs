@@ -1,16 +1,19 @@
 #!/usr/bin/env node
+import fs from 'fs'
+import path from 'path'
+import { execSync } from 'child_process'
+
 import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
-import fs from 'fs'
+import boxen from 'boxen'
 import ora from 'ora'
-import { extname } from 'path'
-import { execSync } from 'child_process'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
 import { defaultConfig } from '../lib/default-markdownlint-options.js'
+import { prettyPrintResults } from './pretty-print-results.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -24,14 +27,6 @@ program
       'Only report rules that have the severity of error, not warning.',
     ).conflicts('rules'),
   )
-  .addOption(
-    new Option(
-      '--local-errors-only',
-      'Used by the git commit hook. Runs just like --errors-only but uses the local development severity if set for a rule.',
-    )
-      .implies({ errorsOnly: true })
-      .conflicts('rules'),
-  )
   .option('--fix', 'Automatically fix errors that can be fixed.')
   .addOption(
     new Option(
@@ -40,6 +35,7 @@ program
     ).conflicts(['error', 'paths', 'rules', 'fix']),
   )
   .option('--verbose', 'Output additional error detail.')
+  .option('--precommit', 'Informs this script that it was executed by a pre-commit hook.')
   .addOption(
     new Option(
       '-r, --rules [rules...]',
@@ -51,10 +47,18 @@ program
   )
   .parse(process.argv)
 
-const { fix, paths, errorsOnly, localErrorsOnly, rules, summaryByRule, outputFile, verbose } =
-  program.opts()
+const {
+  fix,
+  paths,
+  errorsOnly,
+  rules,
+  summaryByRule,
+  outputFile,
+  verbose,
+  precommit: isPrecommit,
+} = program.opts()
+
 const ALL_CONTENT_DIR = ['content', 'data']
-const LOCAL_ERRORS_ONLY = localErrorsOnly || false
 
 main()
 
@@ -107,25 +111,34 @@ async function main() {
   })
 
   // Apply markdownlint fixes if available and rewrite the files
+  let countFixedFiles = 0
   if (fix) {
     for (const file of [...files.content, ...files.data]) {
+      if (!results[file] || !results[file].some((flaw) => flaw.fixInfo)) {
+        continue
+      }
       const content = fs.readFileSync(file, 'utf8')
       const applied = applyFixes(content, results[file])
-      fs.writeFileSync(file, applied, 'utf-8')
+      if (content !== applied) {
+        countFixedFiles++
+        fs.writeFileSync(file, applied, 'utf-8')
+      }
     }
   }
 
   // The results don't yet contain severity information and are
   // in the format received directly from Markdownlint.
-  const formattedResults = getFormattedResults(results)
-  const errorFileCount = getErrorCountByFile(formattedResults)
-  const warningFileCount = getWarningCountByFile(formattedResults)
+  const formattedResults = getFormattedResults(results, isPrecommit)
+  // If we applied fixes, it's important that we don't count those that
+  // might now be entirely fixed.
+  const errorFileCount = getErrorCountByFile(formattedResults, fix)
+  const warningFileCount = getWarningCountByFile(formattedResults, fix)
 
   // Used for a temporary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
-  if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0)) {
+  if (summaryByRule && (errorFileCount > 0 || warningFileCount > 0 || countFixedFiles > 0)) {
     reportSummaryByRule(results, config)
-  } else if (errorFileCount > 0 || warningFileCount > 0) {
+  } else if (errorFileCount > 0 || warningFileCount > 0 || countFixedFiles > 0) {
     if (outputFile) {
       fs.writeFileSync(
         `${outputFile}`,
@@ -136,23 +149,82 @@ async function main() {
       )
       console.log(`Output written to ${outputFile}`)
     } else {
-      console.log(formattedResults)
+      prettyPrintResults(formattedResults, {
+        fixed: fix,
+      })
     }
   }
   const end = Date.now()
   // Ensure previous console logging is not truncated
-  console.log('\n\n')
-  spinner.info(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
+  console.log('\n')
+  const took = end - start
+  spinner.info(
+    `🕦 Markdownlint finished in ${(took > 1000 ? took / 1000 : took).toFixed(1)} ${
+      took > 1000 ? 's' : 'ms'
+    }`,
+  )
+  if (countFixedFiles > 0) {
+    spinner.info(`🛠️  Fixed ${countFixedFiles} ${pluralize(countFixedFiles, 'file')}`)
+  }
   if (warningFileCount > 0) {
-    spinner.warn(`Found ${warningFileCount} file(s) with warnings(s)`)
+    spinner.warn(
+      `Found ${warningFileCount} ${pluralize(warningFileCount, 'file')} with ${pluralize(
+        warningFileCount,
+        'warning',
+      )}`,
+    )
   }
   if (errorFileCount > 0) {
-    spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
+    spinner.fail(
+      `Found ${errorFileCount} ${pluralize(errorFileCount, 'file')} with ${pluralize(
+        errorFileCount,
+        'error',
+      )}`,
+    )
   }
-  if (errorFileCount || warningFileCount) {
+
+  if (isPrecommit) {
+    if (errorFileCount) {
+      console.log('') // Just for some whitespace before the box message
+      console.log(
+        boxen(
+          'GIT COMMIT IS ABORTED. Please fix the errors before committing.\n\n' +
+            `This commit contains ${errorFileCount} ${pluralize(
+              errorFileCount,
+              'file',
+            )} with ${pluralize(errorFileCount, 'error')}.\n` +
+            'To skip this check, add `--no-verify` to your git commit command.\n\n' +
+            'More info about the linter: https://gh.io/ghdocs-linter',
+          { title: 'Content linting', titleAlignment: 'center', padding: 1 },
+        ),
+      )
+    }
+
+    const fixableFiles = Object.entries(formattedResults)
+      .filter(([_, results]) => results.some((result) => result.fixable))
+      .map(([file]) => file)
+    if (fixableFiles.length) {
+      console.log('') // Just for some whitespace before the next message
+      console.log(
+        `Content linting found ${fixableFiles.length} ${pluralize(fixableFiles, 'file')} ` +
+          'that can be automatically fixed.\nTo apply the fixes run this command:\n',
+      )
+      console.log(`  npm run lint-content -- --fix --paths ${fixableFiles.join(' ')}\n`)
+    }
+  }
+
+  if (errorFileCount) {
     process.exit(1)
   }
   spinner.succeed('No errors found')
+}
+
+function pluralize(things, word, pluralForm = null) {
+  const isPlural = Array.isArray(things) ? things.length !== 1 : things !== 1
+  if (isPlural) {
+    return pluralForm || `${word}s`
+  }
+  return word
 }
 
 // Parse filepaths and directories, only allowing
@@ -169,21 +241,33 @@ function getFilesToLint(paths) {
     data: [],
   }
 
-  for (const path of paths) {
-    const extension = extname(path)
+  // The path passed to Markdownlint is what is displayed
+  // in the error report, so we want to normalize it and
+  // and make it relative if it's absolute.
+  for (const rawPath of paths) {
+    // Normalizes a path like './data/foo/bar.md' to 'data/foo/bar.md'
+    const lintPath = path.normalize(rawPath)
+    const extension = path.extname(lintPath)
+    // We currently only lint Markdown files but will add
+    // YAML files soon.
     const isMdFile = extension === '.md'
     const isDirectory = extension === ''
     if (!isMdFile && !isDirectory) continue
+    // The path can be relative or absolute. All paths get
+    // resolved to the path relative to the current working directory.
+    const cwd = path.resolve()
+    const relPath = path.isAbsolute(lintPath) ? path.relative(cwd, lintPath) : lintPath
+    const isDataDir = relPath.startsWith('data')
 
     if (isMdFile) {
       // Add each file to the relevant fileList group
-      path.startsWith('data') ? fileList.data.push(path) : fileList.content.push(path)
+      isDataDir ? fileList.data.push(relPath) : fileList.content.push(relPath)
     } else {
       // It's a directory, walk the files in the directory and
       // add them to the relevant fileList group
-      path.startsWith('data')
-        ? fileList.data.push(...walkFiles(path, ['.md'], { includeBasePath: true }))
-        : fileList.content.push(...walkFiles(path, ['.md'], { includeBasePath: true }))
+      isDataDir
+        ? fileList.data.push(...walkFiles(relPath, ['.md']))
+        : fileList.content.push(...walkFiles(relPath, ['.md']))
     }
   }
   // Add a total fileList length property
@@ -226,7 +310,7 @@ function reportSummaryByRule(results, config) {
   result. Results are sorted by severity per file, with errors
   listed first then warnings.
 */
-function getFormattedResults(allResults) {
+function getFormattedResults(allResults, isPrecommit) {
   const output = {}
   Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
@@ -235,7 +319,7 @@ function getFormattedResults(allResults) {
       if (verbose) {
         output[key] = [...results]
       } else {
-        const formattedResults = results.map((flaw) => formatResult(flaw))
+        const formattedResults = results.map((flaw) => formatResult(flaw, isPrecommit))
         const errors = formattedResults.filter((result) => result.severity === 'error')
         const warnings = formattedResults.filter((result) => result.severity === 'warning')
         const sortedResult = [...errors, ...warnings]
@@ -249,32 +333,36 @@ function getFormattedResults(allResults) {
 // and the value being an array of errors for that filepath.
 // Each result has a rule name, which when looked up in `allConfig`
 // will give us its severity and we filter those that are 'warning'.
-function getWarningCountByFile(results) {
-  return getCountBySeverity(results, 'warning')
+function getWarningCountByFile(results, fixed = false) {
+  return getCountBySeverity(results, 'warning', fixed)
 }
 
 // Results are formatted with the key being the filepath
 // and the value being an array of results for that filepath.
 // Each result in the array has a severity of error or warning.
-function getErrorCountByFile(results) {
-  return getCountBySeverity(results, 'error')
+function getErrorCountByFile(results, fixed = false) {
+  return getCountBySeverity(results, 'error', fixed)
 }
-function getCountBySeverity(results, severityLookup) {
+function getCountBySeverity(results, severityLookup, fixed) {
   return Object.values(results).filter((results) =>
-    results.some((result) => result.severity === severityLookup),
+    results.some((result) => {
+      // If --fix was applied, we don't want to know about files that
+      // no longer have errors or warnings.
+      return result.severity === severityLookup && (!fixed || !result.fixable)
+    }),
   ).length
 }
 
 // Removes null values and properties that are not relevant to content
 // writers, adds the severity to each result object, and transforms
 // some error and fix data into a more readable format.
-function formatResult(object) {
+function formatResult(object, isPrecommit) {
   const formattedResult = {}
 
   // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
   formattedResult.severity =
-    allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object)
+    allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
@@ -319,7 +407,7 @@ function listRules() {
   return ruleList
 }
 
-/* 
+/*
   Based on input options, configure the Markdownlint rules to run
   There are a subset of rules that can't be run on data files, since
   those Markdown files are partials included in full Markdown files.
@@ -342,8 +430,13 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     const customRule = customConfig[ruleName] && getCustomRule(ruleName)
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
-    if (errorsOnly && getRuleSeverity(ruleConfig) !== 'error' && ruleName !== 'search-replace')
+    if (
+      errorsOnly &&
+      getRuleSeverity(ruleConfig, isPrecommit) !== 'error' &&
+      ruleName !== 'search-replace'
+    ) {
       continue
+    }
 
     if (runRules && !runRules.includes(ruleName)) continue
 
@@ -361,7 +454,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       const dataSearchReplaceRules = []
 
       for (const searchRule of ruleConfig.rules) {
-        const searchRuleSeverity = getRuleSeverity(searchRule)
+        const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
         if (errorsOnly && searchRuleSeverity !== 'error') continue
         searchReplaceRules.push(searchRule)
         if (searchRule['partial-markdown-files']) {
@@ -391,15 +484,11 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
   return { config, configuredRules }
 }
 
-/*
-  The severity of the rule can be different when running locally vs in CI
-  If the --local-errors-only option is set, use the severity-local property
-  to determine severity, if it is defined.
-*/
-function getRuleSeverity(rule) {
-  const defaultSev = rule.severity
-  const localSev = rule['severity-local'] || defaultSev
-  return LOCAL_ERRORS_ONLY ? localSev : defaultSev
+// Return the severity value of a rule but keep in mind it could be
+// running as a precommit hook, which means the severity could be
+// deliberately different.
+function getRuleSeverity(rule, isPrecommit) {
+  return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
 }
 
 // Gets a custom rule function from the name of the rule
@@ -413,8 +502,8 @@ function getCustomRule(ruleName) {
   return rule
 }
 
-/* 
-  The severity of the search-replace custom rule is embedded in 
+/*
+  The severity of the search-replace custom rule is embedded in
   each individual search rule. This function returns the severity
   of the individual search rule. The name we define for each search
   rule shows up the the errorDetail property of the error object.
@@ -431,7 +520,8 @@ function getCustomRule(ruleName) {
     fixInfo: null
   }
 */
-function getSearchReplaceRuleSeverity(ruleName, object) {
+function getSearchReplaceRuleSeverity(ruleName, object, isPrecommit) {
   const pluginRuleName = object.errorDetail.split(':')[0].trim()
-  return allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName).severity
+  const rule = allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName)
+  return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
 }

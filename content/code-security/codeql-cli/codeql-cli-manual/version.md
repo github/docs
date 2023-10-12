@@ -36,7 +36,7 @@ Show the version of the CodeQL toolchain.
 
 ### Primary Options
 
-#### `--format=<fmt>` <!-- markdownlint-disable-line heading-increment -->
+#### `--format=<fmt>`
 
 Select output format. Choices include `text` _(default)_ ,`terse`, and
 `json`.
