@@ -24,6 +24,7 @@ import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
 import { liquidDataReferencesDefined, liquidDataTagFormat } from './liquid-data-tags.js'
 import { frontmatterFormat } from './frontmatter-format.js'
 import { annotateFrontmatter } from './annotate-frontmatter.js'
+import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
 import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
@@ -60,6 +61,8 @@ export const gitHubDocsMarkdownlint = {
     frontmatterVideoTranscripts,
     frontmatterFormat,
     annotateFrontmatter,
+    frontmatterLiquidSyntax,
+    liquidSyntax,
     liquidIfTags,
     liquidIfVersionTags,
   ],

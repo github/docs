@@ -4,15 +4,11 @@ import slash from 'slash'
 import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
-import { fromMarkdown } from 'mdast-util-from-markdown'
-import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
 import { existsSync } from 'fs'
 import { jest } from '@jest/globals'
 
-import { frontmatter } from '../../../lib/frontmatter.js'
 import languages from '#src/languages/lib/languages.js'
-import { liquid } from '#src/content-render/index.js'
 import { getDiffFiles } from '../lib/diff-files.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
@@ -312,47 +308,6 @@ if (mdToLint.length + ymlToLint.length < 1) {
     test('void', () => {})
   })
 }
-
-describe('lint markdown content', () => {
-  if (mdToLint.length < 1) return
-
-  describe.each(mdToLint)('%s', (markdownRelPath, markdownAbsPath) => {
-    let content, ast, links, frontmatterData
-
-    beforeAll(async () => {
-      const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
-      const { data, content: bodyContent } = frontmatter(fileContents)
-
-      content = bodyContent
-      frontmatterData = data
-      ast = fromMarkdown(content)
-
-      links = []
-      visit(ast, ['link', 'definition'], (node) => {
-        links.push(node.url)
-      })
-    })
-
-    test('contains valid Liquid', async () => {
-      // If Liquid can't parse the file, it'll throw an error.
-      // For example, the following is invalid and will fail this test:
-      // {% if currentVersion ! "github-ae@latest" %}
-      expect(() => liquid.parse(content)).not.toThrow()
-    })
-
-    if (!markdownRelPath.includes('data/reusables')) {
-      test('frontmatter contains valid liquid', async () => {
-        const fmKeysWithLiquid = ['title', 'shortTitle', 'intro', 'product', 'permission'].filter(
-          (key) => Boolean(frontmatterData[key]),
-        )
-
-        for (const key of fmKeysWithLiquid) {
-          expect(() => liquid.parse(frontmatterData[key])).not.toThrow()
-        }
-      })
-    }
-  })
-})
 
 describe('lint yaml content', () => {
   if (ymlToLint.length < 1) return
