@@ -633,7 +633,7 @@ For more information, see [Securing Nexus Repository Manager](https://help.sonat
 
 For information about ProGet and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with feeds in ProGet, see the [ProGet documentation](https://docs.inedo.com/docs/proget-overview).
 
-Example of ProGet registry for a NuGet feed:
+Example of ProGet registry configuration for a NuGet feed:
 
 {% raw %}
 
@@ -647,7 +647,7 @@ registries:
 
 {% endraw %}
 
-Example of ProGet registry for Bundler (rubygems):
+Example of ProGet registry configuration for Bundler (rubygems):
 
 {% raw %}
 
@@ -661,7 +661,7 @@ registries:
 
 {% endraw %}
 
-Example of ProGet registry for Python (PyPI):
+Example of ProGet registry configuration for Python (PyPI):
 
 {% raw %}
 
