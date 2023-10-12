@@ -647,6 +647,34 @@ registries:
 
 {% endraw %}
 
+Example of ProGet registry for Bundler (rubygems):
+
+{% raw %}
+
+```yaml
+registries:
+  proget-gems-feed:
+    type: rubygems-server
+    url: https://proget.corp.local/rubygems/MyRubygemsFeed
+    token: ${{secrets.PROGET_APK_KEY}}
+```
+
+{% endraw %}
+
+Example of ProGet registry for Python (PyPI):
+
+{% raw %}
+
+```yaml
+registries:
+  proget-python-feed:
+    type: python-index
+    url: https://proget.corp.local/pypi/MyPythonFeed
+    token: ${{secrets.PROGET_APK_KEY}}
+```
+
+{% endraw %}
+
 #### Notes
 
 The `token` should be an API Key with access to view packages. For more information, see [API Access and API Keys](https://docs.inedo.com/docs/buildmaster-administration-security-api-keys) in the ProGet documentation.
