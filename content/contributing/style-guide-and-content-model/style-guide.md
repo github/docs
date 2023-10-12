@@ -277,6 +277,10 @@ Be descriptive when naming image files: include the name, action, and UI element
 
 To learn about creating and versioning images, see "[Creating and updating screenshots](/contributing/writing-for-github-docs/creating-screenshots)."
 
+### Diagrams
+
+To learn about creating diagrams, see "[AUTOTITLE](/contributing/writing-for-github-docs/creating-diagrams-for-github-docs)."
+
 ## Inclusive language
 
 As home to the largest developer community in the world, {% data variables.product.company_short %} is committed to promoting diversity and inclusion in every aspect of what we do. All of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.

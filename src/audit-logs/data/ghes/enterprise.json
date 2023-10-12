@@ -46,8 +46,8 @@
   },
   {
     "action": "business.disable_source_ip_disclosure",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Display of IP addresses within audit log events for the enterprise was disabled.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise"
   },
   {
     "action": "business.disable_two_factor_requirement",
@@ -56,8 +56,8 @@
   },
   {
     "action": "business.enable_source_ip_disclosure",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Display of IP addresses within audit log events for the enterprise was enabled.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise"
   },
   {
     "action": "business.enable_two_factor_requirement",
@@ -946,7 +946,7 @@
   },
   {
     "action": "org.sso_response",
-    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is only available via audit log streaming and the REST API.",
+    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization.",
     "docs_reference_links": "N/A"
   },
   {

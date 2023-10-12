@@ -36,7 +36,7 @@ found in the given pack.
 
 ### Primary Options
 
-#### `<pack-root-dir>` <!-- markdownlint-disable-line heading-increment -->
+#### `<pack-root-dir>`
 
 \[Mandatory] The pack root directory for which we are reporting
 extensible predicate metadata.
