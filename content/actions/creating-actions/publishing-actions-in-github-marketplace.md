@@ -66,7 +66,7 @@ To remove a published action from {% data variables.product.prodname_marketplace
 
 ## Transferring an action repository
 
-Action repositories can be moved by exporting or cloning the original repository, making a new repository on the target platform, and then pushing the code to the new repository.
+You can transfer an action repository to another user or organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
 
 - A repo can be transferred and actions will continue to work because there is a redirect in place (users of the action won't have to update their workflows)
 - An action in the marketplace is linked to a repository by ID, allowing for new releases to be published under the same marketplace listing from the "new" repo
