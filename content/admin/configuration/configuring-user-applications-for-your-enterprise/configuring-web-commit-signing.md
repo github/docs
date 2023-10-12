@@ -36,12 +36,6 @@ You can enable web commit signing, rotate the private key used for web commit si
     ghe-config app.github.web-commit-signing-enabled true
     ```
 
-1. Apply the configuration, then wait for the configuration run to complete.
-
-   ```bash copy
-   ghe-config-apply
-   ```
-
 1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
    - The user's username must be the same username you used when creating the PGP key in step 1 above, for example, `web-flow`.
    - The user's email address must be the same address you used when creating the PGP key.
