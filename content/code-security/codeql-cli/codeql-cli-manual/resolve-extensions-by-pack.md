@@ -44,7 +44,7 @@ Available since `v2.13.3`.
 
 ### Primary Options
 
-#### `<pack>...` <!-- markdownlint-disable-line heading-increment -->
+#### `<pack>...`
 
 The path to the root of the packs to resolve extensions for.
 

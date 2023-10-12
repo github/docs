@@ -161,7 +161,7 @@ You can use the `cache-dependency-path` parameter for cases when multiple depend
 
 ```yaml copy
       - name: Setup Go
-      - uses: {% data reusables.actions.action-setup-go %}
+        uses: {% data reusables.actions.action-setup-go %}
         with:
           go-version: '1.17'
           cache-dependency-path: subdir/go.sum

@@ -136,10 +136,7 @@ If a site administrator has blocked force pushes to the default branch only, you
 
 {% note %}
 
-**Notes:**
-
-- This rule is in public beta and subject to change.
-- This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
+**Note:** This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
 
 {% endnote %}
 

@@ -38,7 +38,7 @@ Available since `v2.12.6`.
 
 ### Primary Options
 
-#### `--markdown-message=<markdownMessage>` <!-- markdownlint-disable-line heading-increment -->
+#### `--markdown-message=<markdownMessage>`
 
 Message for the diagnostic, in GitHub-flavored Markdown format.
 
