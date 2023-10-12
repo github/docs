@@ -69088,6 +69088,10 @@
           "description": "<p>Open-source federated microblogging service.</p>"
         },
         {
+          "name": "NPM",
+          "description": "<p>JavaScript package registry.</p>"
+        },
+        {
           "name": "REDDIT",
           "description": "<p>Social news aggregation and discussion website.</p>"
         },
