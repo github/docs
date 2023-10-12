@@ -306,20 +306,6 @@ describe('Page class', () => {
     })
   })
 
-  describe('Page.getLanguageVariants()', () => {
-    it('returns an array of language variants of the given URL', () => {
-      const variants = Page.getLanguageVariants('/en')
-      expect(variants.every((variant) => variant.name)).toBe(true)
-      expect(variants.every((variant) => variant.code)).toBe(true)
-      expect(variants.every((variant) => variant.href)).toBe(true)
-    })
-
-    it('works for the homepage', () => {
-      const variants = Page.getLanguageVariants('/en')
-      expect(variants.find(({ code }) => code === 'en').href).toBe('/en')
-    })
-  })
-
   describe('page.versions frontmatter', () => {
     test('pages that use short names in versions frontmatter', async () => {
       const page = await Page.init({
