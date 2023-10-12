@@ -64,7 +64,7 @@ To remove a published action from {% data variables.product.prodname_marketplace
 1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
 1. Click **Update release** at the bottom of the page.
 
-## Transferring action repositories
+## Transferring an action repository
 
 Action repositories can be moved by exporting or cloning the original repository, making a new repository on the target platform, and then pushing the code to the new repository.
 
