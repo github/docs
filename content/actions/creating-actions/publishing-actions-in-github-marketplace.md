@@ -66,17 +66,13 @@ To remove a published action from {% data variables.product.prodname_marketplace
 
 ## Transferring an action repository
 
-You can transfer an action repository to another user or organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
+- You can transfer an action repository to another user or organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
 
-When a repository admin transfers an action repository, {% data variables.product.prodname_dotcom %} automatically creates a redirect from the previous URL to the new URL, meaning workflows that use the affected action do not need to be updated.
+- When a repository admin transfers an action repository, {% data variables.product.prodname_dotcom %} automatically creates a redirect from the previous URL to the new URL, meaning workflows that use the affected action do not need to be updated.
 
-Actions published on {% data variables.product.prodname_marketplace %} are linked to a repository by their unique `name` identifier, meaning you can publish new releases of an action from the transferred repository under the same {% data variables.product.prodname_marketplace %} listing. If an action repository is deleted, the {% data variables.product.prodname_marketplace %} listing is also deleted, and the unique `name` identifier becomes available.
-
-{% note %}
+- Actions published on {% data variables.product.prodname_marketplace %} are linked to a repository by their unique `name` identifier, meaning you can publish new releases of an action from the transferred repository under the same [{% data variables.product.prodname_marketplace %}] listing. If an action repository is deleted, the {% data variables.product.prodname_marketplace %} listing is also deleted, and the unique `name` identifier becomes available.
 
 **Note:** The "Verified" badge seen on an organization's {% data variables.product.prodname_dotcom %} profile is different from the verified creator badge on {% data variables.product.prodname_marketplace %}. If you transfer an action repository, the {% data variables.product.prodname_marketplace %} listing will lose the verified creator badge unless the new owner is also a verified creator.
-
-{% endnote %}
   
 ## About badges in {% data variables.product.prodname_marketplace %}
 
