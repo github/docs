@@ -17,6 +17,12 @@ When you create a ruleset for an organization, you use `fnmatch` syntax to defin
 
 Forks do not inherit rulesets from their upstream repositories. However, forks owned by your organization are subject to the rulesets you create, like any other repository.
 
+{% ifversion repo-rules-management %}
+
+{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history)."
+
+{% endif %}
+
 To create a ruleset, complete the following procedures:
 
 - [Creating a branch or tag ruleset](#creating-a-branch-or-tag-ruleset)
