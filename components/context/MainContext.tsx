@@ -90,13 +90,7 @@ export type MainContextT = {
     introPlainText?: string
     hidden: boolean
     noEarlyAccessBanner: boolean
-    permalinks?: Array<{
-      languageCode: string
-      relativePath: string
-      title: string
-      pageVersion: string
-      href: string
-    }>
+    applicableVersions: string[]
   }
 
   enterpriseServerVersions: Array<string>
@@ -167,9 +161,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
-      permalinks: req.context.page?.permalinks.map((obj: any) =>
-        pick(obj, ['title', 'pageVersion', 'href', 'relativePath', 'languageCode']),
-      ),
+      applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
     },
