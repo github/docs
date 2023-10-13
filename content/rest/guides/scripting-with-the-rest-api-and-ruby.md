@@ -37,11 +37,11 @@ If {% ifversion ghec or fpt %}these options are not possible{% else %}this is no
 
 {% endwarning %}
 
-### Authenticating with a {% data variables.product.prodname_pat_generic %}
+### Authenticating with a {% data variables.product.pat_generic %}
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.prodname_pat_generic_title_case %} (PAT). For more information about creating a PAT, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
 
-First, require the `octokit` library. Then, create an instance of `Octokit` by passing your PAT as the `access_token` option. In the following example, replace `YOUR-TOKEN` with your PAT.
+First, require the `octokit` library. Then, create an instance of `Octokit` by passing your {% data variables.product.pat_generic %} as the `access_token` option. In the following example, replace `YOUR-TOKEN` with your {% data variables.product.pat_generic %}.
 
 ```ruby
 require 'octokit'
@@ -209,7 +209,6 @@ end
 
 Sometimes, {% data variables.product.company_short %} uses a 4xx status code to indicate a non-error response. If the endpoint you are using does this, you can add additional handling for specific errors. For example, the `GET /user/starred/{owner}/{repo}` endpoint will return a `404` if the repository is not starred. The following example uses the `404` response to indicate that the repository was not starred; all other error codes are treated as errors.
 
-
 ```ruby copy
 begin
 octokit.request("GET /user/starred/{owner}/{repo}", owner: "github", repo: "docs")
@@ -267,10 +266,9 @@ puts "The title of the first issue is: #{response.data[0]['title']}"
 
 ## Example script
 
-Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.prodname_pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[AUTOTITLE](#authenticating-with-a-github-app)" in this guide.
+Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[AUTOTITLE](#authenticating-with-a-github-app)" in this guide.
 
 The `get_changed_files` function gets all of the files changed for a pull request. The `comment_if_data_files_changed` function calls the `get_changed_files` function. If any of the files that the pull request changed include `/data/` in the file path, then the function will comment on the pull request.
-
 
 ```ruby copy
 require "octokit"
