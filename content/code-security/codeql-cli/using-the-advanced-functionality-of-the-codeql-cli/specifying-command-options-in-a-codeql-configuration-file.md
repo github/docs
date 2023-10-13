@@ -16,8 +16,6 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/specifying-command-options-in-a-codeql-configuration-file
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About specifying command options in a {% data variables.product.prodname_codeql %} configuration file
 
 You can save default or frequently used options for your commands in a per-user configuration file.
