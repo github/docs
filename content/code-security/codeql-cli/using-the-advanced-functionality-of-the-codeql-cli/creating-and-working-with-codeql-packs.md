@@ -13,15 +13,13 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/creating-and-working-with-codeql-packs
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 {% data reusables.codeql-cli.beta-note-package-management %}
 
 ## About {% data variables.product.prodname_codeql %} packs and the {% data variables.product.prodname_codeql_cli %}
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
 
-With {% data variables.product.prodname_codeql %} packs and the package management commands in the {% data variables.product.prodname_codeql_cli %}, you can publish your custom queries and integrate them into your codebase analysis.
+{% data variables.product.prodname_codeql %} packs are used to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries. {% data variables.product.prodname_codeql %} packs contain queries, library files, query suites, and metadata. With {% data variables.product.prodname_codeql %} packs and the package management commands in the {% data variables.product.prodname_codeql_cli %}, you can publish your custom queries and integrate them into your codebase analysis.
 
 There are{% ifversion codeql-model-packs-java %} three{% else %} two{% endif %} types of {% data variables.product.prodname_codeql %} packs: {% ifversion codeql-model-packs-java %}query packs, library packs, and model packs{% else %} query packs and library packs{% endif %}.
 
@@ -29,13 +27,34 @@ There are{% ifversion codeql-model-packs-java %} three{% else %} two{% endif %} 
 
 - Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.{% ifversion codeql-model-packs-java %}
 
-- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in beta and subject to change. During the beta, model packs are available for Java analysis at the repository level. For more information about creating your own model packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack)."{% endif %}
+- Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in beta and subject to change. During the beta, model packs are available for Java analysis at the repository level. For more information about creating your own model packs, see "[{% data variables.product.prodname_codeql %}](#creating-a-codeql-model-pack)."{% endif %}
 
 You can use the `pack` command in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. You can also publish and download {% data variables.product.prodname_codeql %} packs using the `pack` command. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs)."
 
 {% ifversion query-pack-compatibility %}
 For more information about compatibility between published query packs and different {% data variables.product.prodname_codeql %} releases, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 {% endif %}
+
+The standard {% data variables.product.prodname_codeql %} packages for all supported languages are published in the [{% data variables.product.prodname_container_registry %}](https://github.com/orgs/codeql/packages). The [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql) contains source files for the standard {% data variables.product.prodname_codeql %} packs for all supported languages. The core query packs, which are included in the CodeQL CLI bundle, but you can otherwise download, are:
+
+  - `codeql/cpp-queries`
+  - `codeql/csharp-queries`
+  - `codeql/go-queries`
+  - `codeql/java-queries`
+  - `codeql/javascript-queries`
+  - `codeql/python-queries`
+  - `codeql/ruby-queries`
+
+## {% data variables.product.prodname_codeql %} pack structure
+
+A {% data variables.product.prodname_codeql %} pack must contain a file called `qlpack.yml` in its root directory. In the `qlpack.yml` file, the `name:` field must have a value that follows the format of `<scope>/<pack>`, where `<scope>` is the {% data variables.product.prodname_dotcom %} organization or user account that the pack will be published to and `<pack>` is the name of the pack. Additionally, query packs and library packs with {% data variables.product.prodname_codeql %} tests contain a `codeql-pack.lock.yml` file that contains the resolved dependencies of the pack. This file is generated during a call to the `codeql pack install` command, is not meant to be edited by hand, and should be added to your version control system.
+
+The other files and directories within the pack should be logically organized. For example, typically:
+
+- Queries are organized into directories for specific categories.
+
+- Queries for specific products, libraries, and frameworks are organized into
+their own top-level directories.
 
 ## Creating a {% data variables.product.prodname_codeql %} pack
 

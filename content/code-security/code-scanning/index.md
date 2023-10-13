@@ -24,7 +24,6 @@ children:
   - /managing-code-scanning-alerts
   - /managing-your-code-scanning-configuration
   - /integrating-with-code-scanning
-  - /using-codeql-code-scanning-with-your-existing-ci-system
   - /troubleshooting-code-scanning
   - /troubleshooting-sarif-uploads
 ---
