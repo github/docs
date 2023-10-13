@@ -172,7 +172,7 @@ async function main(opts, nameTuple) {
 function validateFileInputs(oldPath, newPath, isFolder) {
   if (isFolder) {
     // Make sure that only the last portion of the path is different
-    // and that all preceeding are equal.
+    // and that all preceding are equal.
     const [oldBase, oldName] = splitDirectory(oldPath)
     const [newBase] = splitDirectory(newPath)
     if (oldBase !== newBase && !existsAndIsDirectory(newBase)) {
