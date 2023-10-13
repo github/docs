@@ -54,7 +54,7 @@ Run this command to fix staged and changed files only:
 npm run lint-content -- --fix
 ```
 
-Run this command to fix speficic files or directories:
+Run this command to fix specific files or directories:
 
 ```shell
 npm run lint-content -- --fix --paths content/file.md content/actions
@@ -115,7 +115,7 @@ These rules _must_ be fixed before merging content into the `main` branch.
 
 ### Warnings
 
-These rules _should_ be fixed before merging content into the `main` branch, but fixing them won't prevent commiting changes to your local branch.
+These rules _should_ be fixed before merging content into the `main` branch, but fixing them won't prevent committing changes to your local branch.
 
 | **Rule ID** | **Description** |
 |---|---|
