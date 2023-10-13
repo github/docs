@@ -82,6 +82,13 @@ $ git fetch upstream recover-B
 # Fetch commit into your local repository.
 ```
 
+You can also easily fetch it yourself explicitly:
+
+```shell
+$ git fetch upstream [COMMIT_HASH]
+$ git checkout [COMMIT_HASH]
+```
+
 ## Avoid force pushes
 
 Avoid force pushing to a repository unless absolutely necessary. This is especially true if more than one person can push to the repository. If someone force pushes to a repository, the force push may overwrite commits that other people based their work on. Force pushing changes the repository history and can corrupt pull requests.
