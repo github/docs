@@ -44,6 +44,10 @@ const BOUNDING_TOP_MARGIN = 300
 // tests because of trying to extract the value of `aria-describedby`.
 const DESCRIBEDBY_ELEMENT_ID = 'popover-describedby'
 
+// used to identify the first focusable element in the hover card
+const FIRST_LINK_ID = '_hc_first_focusable'
+const TITLE_ID = '_hc_title'
+
 type Info = {
   product: string
   title: string
@@ -63,6 +67,21 @@ function getOrCreatePopoverGlobal() {
     wrapper.style.display = 'none'
     wrapper.style.outline = 'none'
     wrapper.style.zIndex = `100`
+
+    // Semantics for the hovercard so SR users are aware they're about to be
+    // focus trapped
+    wrapper.setAttribute('role', 'dialog')
+    wrapper.setAttribute('aria-modal', 'true')
+    wrapper.setAttribute('aria-labelledby', TITLE_ID)
+
+    // this extra element and its event listener are used to help us direct
+    // where focus should go when entering a hover card; see `bottomBumper` for
+    // its counterpart
+    const topBumper = document.createElement('span')
+    topBumper.setAttribute('tabindex', '0')
+    topBumper.setAttribute('aria-hidden', 'true')
+    wrapper.appendChild(topBumper)
+
     const inner = document.createElement('div')
     // Note that this is lacking the 'Popover-message--bottom-left'
     // or 'Popover-message--top-right`. These get set later when we
@@ -76,9 +95,14 @@ function getOrCreatePopoverGlobal() {
     product.classList.add('product')
     product.classList.add('f6')
     product.classList.add('color-fg-muted')
+
     const headingLink = document.createElement('a')
     headingLink.href = ''
+    // the id is necessary since we're intercepting natural focus order,
+    // so when focus enters the topBumper, we'll manually move it to the link
+    headingLink.id = FIRST_LINK_ID
     product.appendChild(headingLink)
+
     inner.appendChild(product)
 
     const title = document.createElement('h4')
@@ -87,6 +111,8 @@ function getOrCreatePopoverGlobal() {
     title.classList.add('my-1')
     const titleLink = document.createElement('a')
     titleLink.href = ''
+    titleLink.id = TITLE_ID
+
     title.appendChild(titleLink)
     inner.appendChild(title)
 
@@ -104,6 +130,15 @@ function getOrCreatePopoverGlobal() {
     inner.appendChild(anchor)
 
     wrapper.appendChild(inner)
+
+    // this extra element and its event listener are used to help us direct
+    // where focus should go when reachign the end of a hover card;
+    // see `topBumper` for its counterpart
+    const bottomBumper = document.createElement('span')
+    bottomBumper.setAttribute('aria-hidden', 'true')
+    bottomBumper.setAttribute('tabindex', '0')
+    wrapper.appendChild(bottomBumper)
+
     document.body.appendChild(wrapper)
 
     wrapper.addEventListener('mouseover', () => {
@@ -124,7 +159,44 @@ function getOrCreatePopoverGlobal() {
     })
 
     popoverGlobal = wrapper
+
+    // The top bumper simply moves focus into either:
+    // (a) the first focusable element in the hover card, or
+    // (b) if traversing in reverse, the last focusable element
+    topBumper.addEventListener('keyup', (event) => {
+      if (event.key === 'Tab' && event.shiftKey) titleLink.focus()
+      else if (event.key === 'Tab') headingLink.focus()
+    })
+
+    // The bottom bumper is more complex and handled via handleBottomBumer()
+    bottomBumper.addEventListener('keyup', (event) => {
+      handleBottomBumper(titleLink, headingLink, event)
+    })
+    bottomBumper.addEventListener('focus', () => {
+      handleBottomBumper(headingLink)
+    })
   }
+
+  // When the bottom bumper receives focus, it could be via one of two events:
+  // (a) a keyboard event, or (b) a focus event. This function essentially
+  // "de-bounces" the resulting behavior.
+  function handleBottomBumper(
+    primaryFocus: HTMLAnchorElement,
+    loopAroundFocus?: HTMLAnchorElement,
+    event?: KeyboardEvent,
+  ) {
+    // If we got here via keyboard events, we just need to determine if we
+    // should loops around to the top of the hover card or traverse in reverse
+    // the final part of the conditional essentially defaults the focus
+    if (event && event.key === 'Tab' && event.shiftKey) {
+      primaryFocus.focus()
+    } else if (event && event.key === 'Tab' && loopAroundFocus) {
+      loopAroundFocus.focus()
+    } else if (!event) {
+      primaryFocus.focus()
+    }
+  }
+
   return popoverGlobal
 }
 
@@ -431,8 +503,10 @@ export function LinkPreviewPopover() {
         const target = event.currentTarget as HTMLLinkElement
         popoverShow(target, (popover) => {
           const productHeadingLink = popover.querySelector<HTMLParagraphElement>('.product a')
-          if (productHeadingLink) {
-            productHeadingLink.focus()
+          const first = document.getElementById(FIRST_LINK_ID)
+
+          if (productHeadingLink && first) {
+            first.focus()
             lastFocussedLink = target
           }
         })

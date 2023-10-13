@@ -55,6 +55,7 @@ type EnterpriseServerReleases = {
   nextDeprecationDate: string
   supported: Array<string>
 }
+
 export type MainContextT = {
   breadcrumbs: {
     product: BreadcrumbT
@@ -83,20 +84,13 @@ export type MainContextT = {
   page: {
     documentType: string
     type?: string
-    languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
     noEarlyAccessBanner: boolean
-    permalinks?: Array<{
-      languageCode: string
-      relativePath: string
-      title: string
-      pageVersion: string
-      href: string
-    }>
+    applicableVersions: string[]
   }
 
   enterpriseServerVersions: Array<string>
@@ -160,16 +154,13 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,
     page: {
-      languageVariants: req.context.page.languageVariants,
       documentType,
       type: req.context.page.type || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
-      permalinks: req.context.page?.permalinks.map((obj: any) =>
-        pick(obj, ['title', 'pageVersion', 'href', 'relativePath', 'languageCode']),
-      ),
+      applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
     },

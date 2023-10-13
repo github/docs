@@ -40,7 +40,7 @@ Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
 // By setting this env var to something >0, it enables the disk-based
 // caching of external links.
 const EXTERNAL_LINK_CHECKER_MAX_AGE_MS =
-  parseInt(process.env.EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS || 0) * 24 * 60 * 60 * 1000
+  parseInt(process.env.EXTERNAL_LINK_CHECKER_MAX_AGE_DAYS || '7') * 24 * 60 * 60 * 1000
 const EXTERNAL_LINK_CHECKER_DB =
   process.env.EXTERNAL_LINK_CHECKER_DB || 'external-link-checker-db.json'
 
@@ -238,6 +238,28 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
 
   await externalLinkCheckerDB.read()
 
+  if (verbose && checkExternalLinks) {
+    core.info(`Checking of external links is is cached to ${EXTERNAL_LINK_CHECKER_DB}`)
+    core.info(
+      `External link cache max age is ${
+        EXTERNAL_LINK_CHECKER_MAX_AGE_MS / 1000 / 60 / 60 / 24
+      } days`,
+    )
+    let countNotTooOld = 0
+    let countTooOld = 0
+    for (const { timestamp } of Object.values(externalLinkCheckerDB.data.urls || {})) {
+      const age = Date.now() - timestamp
+      if (age > EXTERNAL_LINK_CHECKER_MAX_AGE_MS) {
+        countTooOld++
+      } else {
+        countNotTooOld++
+      }
+    }
+    core.info(
+      `External link cache: ${countNotTooOld.toLocaleString()} are still fresh, ${countTooOld.toLocaleString()} links too old`,
+    )
+  }
+
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
   const flawsGroups = await Promise.all(
@@ -261,6 +283,8 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
 
   summarizeFlaws(core, flaws)
 
+  const uniqueHrefs = new Set(flaws.map((flaw) => flaw.href))
+
   if (flaws.length > 0) {
     await uploadJsonFlawsArtifact(uploadArtifact, flaws, opts)
     core.info(`All flaws written to artifact log.`)
@@ -269,7 +293,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       const reportProps = {
         core,
         octokit,
-        reportTitle: `${flaws.length} broken links found`,
+        reportTitle: `${uniqueHrefs.size} broken links found`,
         reportBody: flawIssueDisplay(flaws, opts),
         reportRepository,
         reportLabel,
@@ -446,7 +470,8 @@ function flawIssueDisplay(flaws, opts, mentionExternalExclusionList = true) {
   if (mentionExternalExclusionList) {
     output +=
       '\n\n---\n\nIf any link reported in this issue is not actually broken ' +
-      'and repeatedly shows up on reports, consider making a PR that adds it as an exception to `lib/excluded-link.js`.'
+      'and repeatedly shows up on reports, consider making a PR that adds it as an exception to `src/links/lib/excluded-links.js`. ' +
+      'For more information, see [Fixing broken links in GitHub user docs](https://github.com/github/docs/blob/main/src/links/lib/README.md).'
   }
 
   return `${flawsToDisplay} broken${
@@ -844,15 +869,15 @@ function isTemporaryRequestError(requestError) {
 // same cache key.
 async function checkExternalURLCached(core, href, { verbose, patient }, db) {
   const cacheMaxAge = EXTERNAL_LINK_CHECKER_MAX_AGE_MS
-  const timestamp = new Date().getTime()
+  const now = new Date().getTime()
   const url = href.split('#')[0]
 
   if (cacheMaxAge) {
-    const tooOld = timestamp - Math.floor(jitter(cacheMaxAge, 10))
+    const tooOld = now - Math.floor(jitter(cacheMaxAge, 10))
     if (db && db.data.urls[url]) {
       if (db.data.urls[url].timestamp > tooOld) {
         if (verbose) {
-          core.debug(`External URL ${url} in cache`)
+          core.info(`External URL ${url} in cache`)
         }
         return db.data.urls[url].result
       } else if (verbose) {
@@ -873,7 +898,7 @@ async function checkExternalURLCached(core, href, { verbose, patient }, db) {
     // to try 40xx and 50x errors another go.
     if (db && result.ok) {
       db.data.urls[url] = {
-        timestamp,
+        timestamp: now,
         result,
       }
     }

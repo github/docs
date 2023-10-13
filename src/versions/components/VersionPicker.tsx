@@ -17,19 +17,20 @@ export const VersionPicker = ({ xs }: Props) => {
   const { currentVersion } = useVersion()
   const { allVersions, page, enterpriseServerVersions } = useMainContext()
   const { t } = useTranslation(['pages', 'picker'])
-  const isSearchResultsPage = router.route === '/search' || router.route === '/[versionId]/search'
 
-  if (page.permalinks && page.permalinks.length < 1) {
+  if (page.applicableVersions && page.applicableVersions.length < 1) {
     return null
   }
 
-  const allLinks = (page.permalinks || []).map((permalink) => ({
-    text: allVersions[permalink.pageVersion].versionTitle,
-    selected: currentVersion === permalink.pageVersion,
-    href:
-      isSearchResultsPage && typeof router.query.query === 'string'
-        ? permalink.href + `?${new URLSearchParams({ query: router.query.query })}`
-        : permalink.href,
+  const versionToHref = (version: string) => {
+    const prefix = `/${router.locale}${version === DEFAULT_VERSION ? '' : `/${version}`}`
+    return prefix + router.asPath.replace(`/${currentVersion}`, '')
+  }
+
+  const allLinks = (page.applicableVersions || []).map((pageVersion) => ({
+    text: allVersions[pageVersion].versionTitle,
+    selected: currentVersion === pageVersion,
+    href: versionToHref(pageVersion),
     extra: {
       arrow: false,
       info: false,
@@ -37,8 +38,8 @@ export const VersionPicker = ({ xs }: Props) => {
     divider: false,
   }))
 
-  const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
-    permalink.pageVersion.startsWith('enterprise-server'),
+  const hasEnterpriseVersions = (page.applicableVersions || []).some((pageVersion) =>
+    pageVersion.startsWith('enterprise-server'),
   )
 
   allLinks.push({

@@ -1577,7 +1577,7 @@ end
 
 You should now have an app that receives API events, creates check runs, uses RuboCop to find Ruby errors, creates annotations in a pull request, and automatically fixes linter errors. Next you might want to expand your app's code, deploy your app, and make your app public.
 
-If you have any questions, you can ask for help or advice on GitHub Community, in the "[API and Webhooks discussions](https://github.com/orgs/community/discussions/categories/api-and-webhooks)."
+If you have any questions, start a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/api-and-webhooks) in the API and Webhooks category.
 
 ### Modify the app code
 

@@ -1,4 +1,5 @@
 import { addError } from 'markdownlint-rule-helpers'
+import matter from 'gray-matter'
 
 // Adds an error object with details conditionally via the onError callback
 export function addFixErrorDetail(onError, lineNumber, expected, actual, range, fixInfo) {
@@ -105,3 +106,17 @@ export function filterTokensByOrder(tokens, tokenOrder) {
 }
 
 export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.github.com']
+
+// Lines is an array of strings read from a
+// Markdown file a split around new lines.
+// This is the format we get from Markdownlint.
+// Returns null if the lines do not contain
+// frontmatter properties.
+export function getFrontmatter(lines) {
+  const fmString = lines.join('\n')
+  const { data } = matter(fmString)
+  // If there is no frontmatter or the frontmatter contains
+  // no keys, matter will return an empty object.
+  if (Object.keys(data).length === 0) return null
+  return data
+}

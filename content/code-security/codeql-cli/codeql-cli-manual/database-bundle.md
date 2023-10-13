@@ -40,7 +40,7 @@ that results, logs, TRAP, or similar should be included.
 
 ### Primary Options
 
-#### `<database>` <!-- markdownlint-disable-line heading-increment -->
+#### `<database>`
 
 \[Mandatory] Path to the CodeQL database to bundle.
 

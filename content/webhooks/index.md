@@ -9,10 +9,11 @@ featuredLinks:
   startHere:
     - /webhooks/using-webhooks/creating-webhooks
     - /webhooks/using-webhooks/handling-webhook-deliveries
-    - /webhooks/using-webhooks/securing-your-webhooks
+    - /webhooks/using-webhooks/validating-webhook-deliveries
   popular:
-    - /webhooks-and-events/webhooks/webhook-events-and-payloads
+    - /webhooks/webhook-events-and-payloads
     - /webhooks/using-webhooks/best-practices-for-using-webhooks
+    - /webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks
   guideCards:
     - /webhooks/using-webhooks/handling-webhook-deliveries
     - /webhooks/using-webhooks/handling-failed-webhook-deliveries
@@ -26,8 +27,8 @@ topics:
   - Webhooks
 children:
   - /about-webhooks
+  - /types-of-webhooks
   - /webhook-events-and-payloads
-  - /about-webhooks-for-repositories
   - /using-webhooks
   - /testing-and-troubleshooting-webhooks
 changelog:
@@ -39,3 +40,4 @@ redirect_from:
   - /developers/webhooks-and-events/webhooks
   - /webhooks-and-events/webhooks
 ---
+

@@ -36,6 +36,8 @@ You can also rename the default branch. For more information, see "[AUTOTITLE](/
 
 To change the default branch, your repository must have more than one branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
+Additionally, you need to have admin access to a repository to change the default branch.
+
 ## Changing the default branch
 
 {% data reusables.repositories.navigate-to-repo %}

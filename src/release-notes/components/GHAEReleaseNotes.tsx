@@ -1,6 +1,5 @@
 import cx from 'classnames'
 
-import { Link } from 'components/Link'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { GHAEReleaseNotesContextT } from './types'
 import { GHAEReleaseNotePatch } from './GHAEReleaseNotePatch'
@@ -30,9 +29,9 @@ export function GHAEReleaseNotes({ context }: Props) {
                 {releases.map((release) => {
                   return (
                     <li key={release.version} className="my-2 px-3 f4 d-inline-block d-md-block">
-                      <Link className="text-underline" href={`#${release.version}`}>
+                      <a href={`#${release.version}`} className="text-underline">
                         {release.version}
-                      </Link>
+                      </a>
                     </li>
                   )
                 })}

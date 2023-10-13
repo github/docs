@@ -17,7 +17,7 @@ topics:
 
 ## About forks
 
-Forks let you make changes to a project without affecting the original repository, also known as the "upstream" repository. After you fork a repository, you can fetch updates from the upstream repository to keep your fork up to date, and you can propose changes from your fork to the upstream repository with pull requests. A fork can be owned by either a personal account or an organization.
+{% data reusables.repositories.about-forks %} A fork can be owned by either a personal account or an organization.
 
 When you view a forked repository on {% data variables.product.product_name %}, the upstream repository is indicated below the name of the fork.
 

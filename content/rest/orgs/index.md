@@ -21,6 +21,8 @@ children:
   - /orgs
   - /outside-collaborators
   - /personal-access-tokens
+  - /properties
+  - /rule-suites
   - /rules
   - /security-managers
   - /webhooks

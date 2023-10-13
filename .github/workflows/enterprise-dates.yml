@@ -56,7 +56,7 @@ jobs:
           HUSKY: '0'
         with:
           # need to use a token with repo and workflow scopes for this step
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           commit-message: '🤖 ran src/ghes-releases/scripts/update-enterprise-dates.js'
           title: 🤖 src/ghes-releases/lib/enterprise-dates.json update
           body:
@@ -84,14 +84,10 @@ jobs:
         name: Approve
         uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
         with:
-          github-token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
 
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-        if: ${{ failure() && env.FREEZE != 'true' }}
+      - uses: ./.github/actions/slack-alert
         with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: The last enterprise-dates run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/enterprise-dates.yml
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

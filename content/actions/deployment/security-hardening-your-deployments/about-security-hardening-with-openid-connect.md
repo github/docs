@@ -103,17 +103,20 @@ The token includes the standard audience, issuer, and subject claims.
 | `iss`| Issuer | The issuer of the OIDC token: {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %} |
 | `sub`| Subject | Defines the subject claim that is to be validated by the cloud provider. This setting is essential for making sure that access tokens are only allocated in a predictable way. |
 
-The OIDC token also includes additional standard claims.
+The OIDC token also includes additional standard JOSE header parameters and claims.
+
+|    Header Parameter    | Parameter type | Description            |
+| ----------- | -----| ---------------------- |
+| `alg`| Algorithm | The algorithm used by the OIDC provider. |
+| `kid`| Key identifier | Unique key for the OIDC token. |
+| `typ`| Type | Describes the type of token. This is a JSON Web Token (JWT). |
 
 |    Claim    | Claim type | Description            |
 | ----------- | -----| ---------------------- |
-| `alg`| Algorithm | The algorithm used by the OIDC provider. |
 | `exp`| Expires at | Identifies the expiry time of the JWT. |
 | `iat`| Issued at | The time when the JWT was issued. |
 | `jti`| JWT token identifier | Unique identifier for the OIDC token. |
-| `kid`| Key identifier | Unique key for the OIDC token. |
 | `nbf`| Not before | JWT is not valid for use before this time. |
-| `typ`| Type | Describes the type of token. This is a JSON Web Token (JWT). |
 
 The token also includes custom claims provided by {% data variables.product.prodname_dotcom %}.
 
@@ -130,7 +133,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
 | `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  |
 {%- ifversion actions-oidc-custom-claims %}
-| `job_workflow_sha`| {% data reusables.actions.job-workflow-sha-description %}                  |
+| `job_workflow_sha`| For jobs using a reusable workflow, the commit SHA for the reusable workflow file.                   |
 {%- endif %}
 | `ref`| _(Reference)_ The git ref that triggered the workflow run.                   |
 | `ref_type`| The type of `ref`, for example: "branch".                  |

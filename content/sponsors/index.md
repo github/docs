@@ -20,7 +20,7 @@ featuredLinks:
     - /sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization
     - /sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account
   popular:
-    - /sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor
+    - /sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github
     - /sponsors/getting-started-with-github-sponsors/about-github-sponsors
     - /sponsors/receiving-sponsorships-through-github-sponsors/tax-information-for-github-sponsors
     - /sponsors/sponsoring-open-source-contributors

@@ -214,7 +214,7 @@ sections:
       - `log_message`, `msg`, or `message` is now `Body`.
       - `now` is now `Timestamp`.
       - Custom field names such as `gh.repo.id` or `graphql.operation.name` use semantic names.
-      - Log statements that the instance would previously write to `auth.log`, `ldap.log`, or `ldap-sync.log` now appear in containerized logs for `github-unicorn` if the statement originated from a web request, or in logs for `github-resqued` if the statement originated from a background job.
+      - Log statements that the instance would previously write to `auth.log`, `ldap.log`, or `ldap-sync.log` now appear in containerized logs for `github-unicorn` if the statement originated from a web request, or in logs for `github-resqued` if the statement originated from a background job. For more information about containerized logs, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#system-logs-in-the-systemd-journal)."
 
       For a full list of field mappings, download the [OpenTelemetry attribute mapping CSV for GitHub Enterprise Server 3.9](/assets/ghes-3.9-opentelemetry-attribute-mappings.csv) and the [OpenTelemetry attribute mapping CSV for GitHub Enterprise Server 3.10](/assets/ghes-3.10-opentelemetry-attribute-mappings.csv). This change is part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/), and additional field names will change in upcoming releases.
 
@@ -289,6 +289,8 @@ sections:
       {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %} [Updated: 2023-09-21]
     - |
       {% data reusables.release-notes.cache-replica-servers-known-issue %} [Updated: 2023-09-26]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
 
 
   deprecations:
