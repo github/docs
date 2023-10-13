@@ -17,7 +17,6 @@ runs:
       if: >-
         ${{
           failure() &&
-          env.FREEZE != 'true' &&
           github.repository == 'github/docs-internal' &&
           github.event_name != 'pull_request' &&
           github.event_name != 'pull_request_target'
