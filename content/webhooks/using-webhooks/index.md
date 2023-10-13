@@ -16,5 +16,6 @@ children:
   - /handling-failed-webhook-deliveries
   - /disabling-webhooks
   - /best-practices-for-using-webhooks
+  - /delivering-webhooks-to-private-systems
 ---
 
