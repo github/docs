@@ -79,6 +79,20 @@ GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-a
 
 - **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/site-policy/github-terms/github-terms-of-service) we will have to close your account.  
 
+### _Reasonable use of AI generated content_
+
+We love experimenting with new technologies, and we are especially fond of [GitHub Copilot](https://github.com/features/copilot). But as with all new technology, many of us are still getting accustomed to using generative AI tools the most effectively. Here are important guidelines to follow when using generative AI to answer questions in the community:
+
+  - Take personal responsibility for everything you post.
+  - Read and revise the content before you post it; use your own authentic voice.
+  - Use your expertise as a developer to verify that the answer works and makes sense.
+  - Do not just post AI-generated content verbatim to inflate your reputation or give a false impression of product expertise.
+  - AI tools will often answer in an authoritative tone that sounds like a tech support professional. Be careful not to [mislead other users](/site-policy/acceptable-use-policies/github-impersonation) into thinking that this authoritative tone means they are receiving an official response from GitHub.
+
+Additionally, all of the guidelines listed in the previous section ([Best Practices for Maintaining a Strong Community](/site-policy/github-terms/github-community-code-of-conduct#best-practices-for-maintaining-a-strong-community)) also apply here.
+
+The community is here for users to build trust through authentic reputations. Not adhering to these guidelines may, in some cases, constitute a Code of Conduct violation. Refer to [the enforcement section](#enforcement) below for more information.
+
 ## Enforcement
 
 ### _What GitHub Community Participants Can Do_

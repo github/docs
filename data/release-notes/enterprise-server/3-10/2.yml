@@ -1,4 +1,10 @@
 date: '2023-09-22'
+intro: |
+  {% warning %}
+
+  **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.2-known-issues)" section of these release notes.
+
+  {% endwarning %}
 sections:
   bugs:
     - On an instance in a high-availability, geo-replication, or repository cache configuration, prolonged replication issues could occur on replica nodes due to failure of `SpokesRepairRepoReplicaJob` and `SpokesSyncCacheReplicaJob` jobs.
@@ -29,3 +35,5 @@ sections:
       {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %}
     - |
       After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser.
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]

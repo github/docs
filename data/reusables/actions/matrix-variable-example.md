@@ -9,10 +9,10 @@ jobs:
     strategy:
       matrix:
        include:
-         - node-version: 14.x
+         - node-version: '14.x'
            site: "prod"
            datacenter: "site-a"
-         - node-version: 16.x
+         - node-version: '16.x'
            site: "dev"
            datacenter: "site-b"
     steps:

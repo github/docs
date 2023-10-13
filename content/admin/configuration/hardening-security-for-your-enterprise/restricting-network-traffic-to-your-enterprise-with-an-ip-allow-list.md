@@ -200,3 +200,11 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}
+
+{% ifversion not ghae %}
+
+## Using {% data variables.product.prodname_pages %} with an IP allow list
+
+{% data reusables.pages.ip-allow-list-pages %}
+
+{% endif %}

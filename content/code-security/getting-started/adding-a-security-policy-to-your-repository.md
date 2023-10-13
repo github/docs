@@ -30,7 +30,7 @@ You can create a default security policy for your organization or personal accou
 
 {% tip %}
 
-**Tip:** To help people find your security policy, you can link to your `SECURITY.md` file from other places in your repository, such as your README file. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+**Tip:** To help people find your security policy, you can link to your `SECURITY.md` file from other places in your repository, such as your `README` file. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
 {% endtip %}
 
@@ -43,6 +43,8 @@ After someone reports a security vulnerability in your project, you can use {% d
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
 {% endif %}
+
+For an example of a real `SECURITY.md` file, see [https://github.com/electron/electron/blob/main/SECURITY.md](https://github.com/electron/electron/blob/main/SECURITY.md).
 
 ## Adding a security policy to your repository
 

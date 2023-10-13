@@ -22,7 +22,7 @@ featuredLinks:
     - /issues/tracking-your-work-with-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/tracking-your-work-with-issues/about-tasklists
+    - /issues/managing-your-tasks-with-tasklists/creating-a-tasklist
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
@@ -69,3 +69,4 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
+

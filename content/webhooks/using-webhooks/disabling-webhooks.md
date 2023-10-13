@@ -1,5 +1,6 @@
 ---
 title: Disabling webhooks
+shortTitle: Disable webhooks
 intro: 'You can disable a webhook to unsubscribe from events that occur on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
@@ -49,7 +50,18 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 ## Disabling a global webhook for a {% data variables.product.prodname_enterprise %}
 
-Enterprise owners can disable a global webhook in an {% data variables.product.prodname_enterprise %}. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks)."
+Enterprise owners can disable a global webhook in an {% data variables.product.prodname_enterprise %}.
+
+{% ifversion ghes or ghae %}
+
+You can use the {% data variables.product.company_short %} web interface or the REST API to disable a global webhook. For more information about using the REST API to disable a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
+
+{% endif %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
+{% data reusables.webhooks.disable_webhook %}
 
 {% endif %}
 
@@ -67,10 +79,22 @@ You can deactivate a webhook that was previously enabled for events relating to 
 
 ## Disabling a {% data variables.product.prodname_sponsors %} webhook
 
-You can disable webhooks that were previously enabled for events relating to {% data variables.product.prodname_sponsors %}. Only the owner of the sponsored account can disable sponsorship webhooks for that account. For more information, see "[AUTOTITLE](/sponsors/integrating-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)."
+You can disable webhooks that were previously enabled for events relating to {% data variables.product.prodname_sponsors %}. Only the owner of the sponsored account can disable sponsorship webhooks for that account.
+
+1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. Next to the account you want to edit a webhook for, click **Dashboard**.
+1. In the left sidebar, click **Webhooks**.
+{% data reusables.webhooks.disable_webhook %}
 
 {% endif %}
 
 ## Disabling webhooks for a {% data variables.product.prodname_github_app %}
 
-You can disable webhook deliveries to your {% data variables.product.prodname_github_app %}, or change the events it subscribes to. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#activating-or-deactivating-the-github-app-webhook)."
+Each {% data variables.product.prodname_github_app %} has one webhook. You cannot delete the webhook, but you can deactivate the webhook. The owner of a {% data variables.product.prodname_github_app %} can deactivate the webhook the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also deactivate the webhook for the app.
+
+{% data reusables.apps.settings-step %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
+1. Next to the {% data variables.product.prodname_github_app %} that you want to deactivate the webhook for, click **Edit**.
+1. Under "Webhook," deselect **Active** to disable the webhook.
+1. Click **Save changes**.

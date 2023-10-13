@@ -116,6 +116,14 @@ export async function getBodyParams(schema, topLevel = false) {
         if (arrayType === 'object') {
           childParamsGroups.push(...(await getBodyParams(param.items, false)))
         }
+        // If the type is an enumerated list of strings
+        if (arrayType === 'string' && param.items.enum) {
+          param.description += `${
+            param.description ? '\n' : ''
+          }Supported values are: ${param.items.enum
+            .map((lang) => `<code>${lang}</code>`)
+            .join(', ')}`
+        }
       }
     } else if (paramType && paramType.includes('object')) {
       if (param && param.oneOf) {
@@ -187,7 +195,6 @@ export async function getBodyParams(schema, topLevel = false) {
       childParamsGroups,
       topLevel,
     })
-
     bodyParametersParsed.push(paramDecorated)
   }
   return bodyParametersParsed

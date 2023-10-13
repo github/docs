@@ -11,6 +11,7 @@ import { RestBanner } from 'src/rest/components/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+import { useLanguages } from 'src/languages/components/LanguagesContext'
 
 const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
 
@@ -30,6 +31,7 @@ export const DefaultLayout = (props: Props) => {
   const { t } = useTranslation(['errors', 'meta', 'scroll_button'])
   const router = useRouter()
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
+  const { languages } = useLanguages()
 
   // This is only true when we do search indexing which renders every page
   // just to be able to `cheerio` load the main body (and the meta
@@ -66,16 +68,20 @@ export const DefaultLayout = (props: Props) => {
         {/* For Google and Bots */}
         <meta name="description" content={metaDescription} />
         {page.hidden && <meta name="robots" content="noindex" />}
-        {page.languageVariants.map((languageVariant) => {
-          return (
-            <link
-              key={languageVariant.href}
-              rel="alternate"
-              hrefLang={languageVariant.hreflang}
-              href={`https://docs.github.com${languageVariant.href}`}
-            />
-          )
-        })}
+        {Object.values(languages)
+          .filter((lang) => lang.code !== router.locale)
+          .map((variant) => {
+            return (
+              <link
+                key={variant.code}
+                rel="alternate"
+                hrefLang={variant.hreflang || variant.code}
+                href={`https://docs.github.com/${variant.code}${
+                  router.asPath === '/' ? '' : router.asPath
+                }`}
+              />
+            )
+          })}
 
         {/* For local site search indexing */}
         {page.topics.length > 0 && <meta name="keywords" content={page.topics.join(',')} />}

@@ -1,6 +1,7 @@
 ---
 title: Redelivering webhooks
-intro: 'To help recover from failed deliveries, you can redeliver webhook deliveries from the past 30 days.'
+shortTitle: Redeliver webhooks
+intro: 'To help recover from failed deliveries, you can redeliver webhook deliveries from the past {% data variables.webhooks.retention %} days.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +13,7 @@ topics:
 
 ## About redelivering webhooks
 
-You may want to redeliver a webhook to help you test your application or to recover from server downtime. You can redeliver webhook deliveries that occurred in the past 30 days. {% data variables.product.company_short %} does not automatically redeliver failed deliveries.
+You may want to redeliver a webhook to help you test your application or to recover from server downtime. You can redeliver webhook deliveries that occurred in the past {% data variables.webhooks.retention %} days. {% data variables.product.company_short %} does not automatically redeliver failed deliveries.
 
 ## Redelivering repository webhooks
 

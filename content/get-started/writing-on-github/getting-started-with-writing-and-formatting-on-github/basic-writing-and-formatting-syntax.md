@@ -346,11 +346,30 @@ Footnotes are not supported in wikis.
 
 {% note %}
 
-**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
+**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the current syntax as described in this section.
+
+The deprecated syntax is as follows:
+
+```markdown
+> **Note**
+> This is a note
+```
 
 {% endnote %}
 
-Alerts are an extension of the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
+Alerts are an extension of the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content. Alert syntax is supported in:
+- Discussions
+- Gists
+- Issues
+- Markdown files
+- Pull requests
+- Releases
+
+{% note %}
+
+**Note:** When you edit an existing Markdown file to include an alert, the preview may display the raw alert syntax, but the file will display the alert correctly once you commit your changes.
+
+{% endnote %}
 
 We recommend restricting the use of alerts to one or two per article to avoid overloading the reader. Consecutive notes should be avoided.
 

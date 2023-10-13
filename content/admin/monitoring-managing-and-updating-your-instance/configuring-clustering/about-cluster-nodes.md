@@ -25,7 +25,7 @@ Each node in a {% data variables.product.product_name %} cluster is a virtual ma
 
 Each node must have a root volume, as well as a separate data volume. These are minimum recommendations. More resources may be required depending on your usage, such as user activity and selected integrations.
 
-| Services | Minimum memory required    | Minimum data volume free space Required |
+| Services | Minimum memory required | Minimum data volume free space required |
 | :- | :- | :- |
 | `job-server`,<br/>`memcache-server`,<br/>`web-server` | 14 GB | 1 GB |
 | `consul-server`,<br/>`mysql-server`,<br/>`redis-server` | 14 GB | 10 GB |
@@ -44,13 +44,16 @@ For adequate redundancy, use these minimum nodes operating each service.
 
 {% endtip %}
 
-| Services | Minimum nodes required |
-| :- | :- |
-| `job-server`,<br/>`memcache-server`,<br/>`metrics-server`,<br/>`web-server` | 2 |
-| `mysql-server`,<br/>`redis-server` | 2 |
-| `consul-server` | 3 |
-| `git-server`,<br/>`pages-server`,<br/>`storage-server` | 3 |
-| `elasticsearch-server` | 3 |
+## Example cluster configuration
+
+The following example demonstrates a minimal cluster configuration, which includes 11 nodes that run the necessary services.
+
+| Tiers | Services | Minimum nodes required |
+| :- | :- | :- |
+| Front end | `job-server`,<br/>`memcache-server`,<br/>`web-server` | 2 |
+| Database | `consul-server`,<br/>`mysql-server`,<br/>`redis-server` | 3 |
+| Storage | `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` | 3 |
+| Search | `elasticsearch-server` | 3 |
 
 ## Cluster design recommendations
 
@@ -58,19 +61,3 @@ Clustering allows services that make up {% data variables.product.prodname_ghe_s
 
 - Spread redundant nodes across independent hardware. If you share CPU, memory, or storage devices, you'll reduce performance and introduce single points of failure. Shared networking components can also reduce throughput and increase risk of loss of connectivity in the event of an outage.
 - Use fast storage. Storage area networks (SAN) are often optimized for maximum space utilization, availability and fault tolerance, not absolute throughput. {% data variables.product.prodname_ghe_server %} clustering provides redundancy and availability, and will perform best on the fastest storage available. Local SSD storage is recommended.
-- Establish tiers of nodes that make sense for your organization. An example configuration:
-  - Front-end tier with two nodes and the following services:
-    - `web-server`
-    - `job-server`
-    - `memcache-server`
-  - Database tier with three nodes and the following services:
-    - `consul-server`
-    - `mysql-server`
-    - `redis-server`
-  - Search tier with three nodes and the following service:
-    - `elasticsearch-server`
-  - Storage tier with three nodes and the following services:
-    - `git-server`
-    - `pages-server`
-    - `storage-server`
-    - `metrics-server`

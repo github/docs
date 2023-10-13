@@ -22,11 +22,19 @@ After analyzing a {% data variables.product.prodname_codeql %} database using th
 
 If you used a method other than the {% data variables.product.prodname_codeql_cli %} to generate results, you can use other upload methods. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
 
+{% data reusables.code-scanning.upload-sarif-ghas %}
+
+## Generating a token for authentication with {% data variables.product.product_name %}
+
+Before you can upload your results to {% data variables.product.product_name %}, you will first need to generate a {% data variables.product.pat_generic %} with the `security_events` write permission. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+If you have installed the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, you can use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to upload results to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system#generating-a-token-for-authentication-with-github)."
+
 ## Uploading results to {% data variables.product.product_name %}
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
 
-Before you can upload results to {% data variables.product.product_name %}, you must determine the best way to pass the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} you created earlier to the {% data variables.product.prodname_codeql_cli %} (see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#generating-a-token-for-authentication-with-github)"). We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
+Before you can upload results to {% data variables.product.product_name %}, you must determine the best way to pass the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} you created in the previous section to the {% data variables.product.prodname_codeql_cli %}. We recommend that you review your CI system's guidance on the secure use of a secret store. The {% data variables.product.prodname_codeql_cli %} supports:
 
 - Interfacing with a secret store using the `--github-auth-stdin` option (recommended).
 - Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
@@ -52,14 +60,20 @@ codeql github upload-results \
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| <nobr>`--repository`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the _OWNER/NAME_ of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
-| <nobr>`--ref`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the name of the `ref` you checked out and analyzed so that the results can be matched to the correct code. For a branch use: `refs/heads/BRANCH-NAME`, for the head commit of a pull request use `refs/pull/NUMBER/head`, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use `refs/pull/NUMBER/merge`.
-| <nobr>`--commit`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the full SHA of the commit you analyzed.
-| <nobr>`--sarif`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the SARIF file to load.{% ifversion ghes or ghae %}
-| <nobr>`--github-url`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the URL for {% data variables.product.product_name %}.{% endif %}
-| <nobr>`--github-auth-stdin`</nobr> | {% octicon "x" aria-label="Optional" %}  | Pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API from your secret store via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
+| <code><span style="white-space: nowrap;">--repository</span></code> | {% octicon "check" aria-label="Required" %} | Specify the _OWNER/NAME_ of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+| <code><span style="white-space: nowrap;">--ref</span></code> | {% octicon "check" aria-label="Required" %} | Specify the name of the `ref` you checked out and analyzed so that the results can be matched to the correct code. For a branch use: `refs/heads/BRANCH-NAME`, for the head commit of a pull request use `refs/pull/NUMBER/head`, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use `refs/pull/NUMBER/merge`.
+| <code><span style="white-space: nowrap;">--commit</span></code> | {% octicon "check" aria-label="Required" %} | Specify the full SHA of the commit you analyzed.
+| <code><span style="white-space: nowrap;">--sarif</span></code> | {% octicon "check" aria-label="Required" %} | Specify the SARIF file to load.{% ifversion ghes or ghae %}
+| <code><span style="white-space: nowrap;">--github-url</span></code> | {% octicon "check" aria-label="Required" %} | Specify the URL for {% data variables.product.product_name %}.{% endif %}
+| <code><span style="white-space: nowrap;">--github-auth-stdin</span></code> | {% octicon "x" aria-label="Optional" %}  | Pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API from your secret store via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
 For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results)."
+
+{% note %}
+
+**Note:** If you analyzed more than one {% data variables.product.prodname_codeql %} database for a single commit, you must have specified a SARIF category for each set of results generated by this command. When you upload the results to {% data variables.product.product_name %}, {% data variables.product.prodname_code_scanning %} uses this category to store the results for each language separately. If you forget to do this, each upload overwrites the previous results. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries#running-codeql-database-analyze)."
+
+{% endnote %}
 
 ### Basic example of uploading results to {% data variables.product.product_name %}
 
@@ -91,7 +105,7 @@ You can create a SARIF file for the failed analysis using "[AUTOTITLE](/code-sec
 
 ```shell
 $ codeql database export-diagnostics codeql-dbs/example-repo \
-    --sarif-category=javascript --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
+    --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
 

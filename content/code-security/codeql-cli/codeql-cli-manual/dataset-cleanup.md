@@ -39,7 +39,7 @@ will make it impossible to import further data into the dataset.
 
 ### Primary Options
 
-#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
+#### `<dataset>`
 
 \[Mandatory] Path to the raw QL dataset to clean up.
 

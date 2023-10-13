@@ -17,7 +17,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About workflow commands
@@ -104,10 +104,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: echo "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -118,10 +118,10 @@ You can use the `set-output` command in your workflow to set the same value:
 ```yaml copy
       - name: Set selected color
         run: Write-Output "::set-output name=SELECTED_COLOR::green"
-        id: random-color-generator
+        id: color-selector
       - name: Get color
 {% raw %}
-        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+        run: Write-Output "The selected color is ${{ steps.color-selector.outputs.SELECTED_COLOR }}"
 {% endraw %}
 ```
 
@@ -509,8 +509,8 @@ jobs:
         GENERATED_SECRET=$((RANDOM))
         echo "::add-mask::$GENERATED_SECRET"
         SECRET_HANDLE=$(secret-store store-secret "$GENERATED_SECRET"){% ifversion actions-save-state-set-output-envs %}
-        echo "handle=$secret_handle" >> "$GITHUB_OUTPUT"{% else %}
-        echo "::set-output name=handle::$secret_handle"{% endif %}
+        echo "handle=$SECRET_HANDLE" >> "$GITHUB_OUTPUT"{% else %}
+        echo "::set-output name=handle::$SECRET_HANDLE"{% endif %}
   secret-consumer:
     runs-on: macos-latest
     needs: secret-generator
@@ -799,6 +799,12 @@ You can make an environment variable available to any subsequent steps in a work
 
 {% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see "[AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables)."
 
+{% ifversion github-env-node-options %}{% note %}
+
+**Note:** Due to security restrictions, `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable.
+
+{% endnote %}{% endif %}
+
 ### Example of writing an environment variable to `GITHUB_ENV`
 
 {% bash %}
@@ -915,11 +921,11 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
         env:{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
         run: echo "The selected color is $SELECTED_COLOR"
 ```
 
@@ -931,12 +937,12 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 ```yaml copy
       - name: Set color
-        id: random-color-generator
+        id: color-selector
         run: |
             "SELECTED_COLOR=green" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get color
-        env:{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}{% endraw %}
         run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 

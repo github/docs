@@ -47,7 +47,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
 {% note %}
 
-**Note:** If you experience authentication issues after installing the extension, see "[Troubleshooting authentication issues with {% data variables.product.prodname_copilot_chat %}](/copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat)."
+**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor)."
 
 {% endnote %}
 
@@ -105,10 +105,10 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Further reading
 
-- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvscode %}
 
@@ -137,7 +137,7 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 
 {% note %}
 
-**Note:** If you experience authentication issues after installing the extension, see "[Troubleshooting authentication issues with {% data variables.product.prodname_copilot_chat %}](/copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat)."
+**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor)."
 
 {% endnote %}
 

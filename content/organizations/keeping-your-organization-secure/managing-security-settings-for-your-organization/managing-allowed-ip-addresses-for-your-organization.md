@@ -115,3 +115,11 @@ For more information about how to create an allow list for a {% data variables.p
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}
+
+{% ifversion not ghae %}
+
+## Using {% data variables.product.prodname_pages %} with an IP allow list
+
+{% data reusables.pages.ip-allow-list-pages %}
+
+{% endif %}

@@ -1,6 +1,7 @@
 ---
 title: Viewing webhook deliveries
-intro: 'You can view details about webhook deliveries from the past 30 days.'
+shortTitle: View deliveries
+intro: 'You can view details about webhook deliveries from the past {% data variables.webhooks.retention %} days.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +13,7 @@ topics:
 
 ## About webhook deliveries
 
-You can view details about webhook deliveries that occurred in the past 30 days. Viewing past deliveries can help you verify whether your webhooks are working as expected.
+You can view details about webhook deliveries that occurred in the past {% data variables.webhooks.retention %} days. Viewing past deliveries can help you verify whether your webhooks are working as expected.
 
 For each webhook delivery, you can view:
 

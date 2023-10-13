@@ -51,17 +51,25 @@ To search for an exact string, including whitespace, you can surround the string
 "sparse index"
 ```
 
-To search for a phrase containing a quotation mark, you can escape the quotation mark using a backslash. For example, to find the exact string `name = "tensorflow"`, you can search:
-
-```text
-"name = \"tensorflow\""
-```
-
 You can also use quoted strings in qualifiers, for example:
 
 ```text
 path:git language:"protocol buffers"
 ```
+
+## Searching for quotes and backslashes
+
+To search for code containing a quotation mark, you can escape the quotation mark using a backslash. For example, to find the exact string `name = "tensorflow"`, you can search:
+
+```text
+"name = \"tensorflow\""
+```
+
+To search for code containing a backslash, `\`, use a double backslash, `\\`.
+
+The two escape sequences `\\` and `\"` can be used outside of quotes as well. No other escape sequences are recognized, though. A backslash that isn't followed by either `"` or `\` is included in the search, unchanged.
+
+Additional escape sequences, such as `\n` to match a newline character, are supported in regular expressions. See "[Using regular expressions](#using-regular-expressions)."
 
 ## Using boolean operations
 
@@ -257,7 +265,14 @@ This query would only match files containing the term `README.md`, rather than m
 
 ### Is qualifier
 
-To filter based on repository properties, you can use the `is:` qualifier. At this time, `is:` supports two values: `archived`, which restricts the search to archived repositories, and `fork`, which restricts the search to forked repositories. For example:
+To filter based on repository properties, you can use the `is:` qualifier. `is:` supports the following values:
+
+- `archived`: restricts the search to archived repositories.
+- `fork`: restricts the search to forked repositories.
+- `vendored`: restricts the search to content detected as vendored.
+- `generated`: restricts the search to content detected as generated.
+
+For example:
 
 ```text
 path:/^MIT.txt$/ is:archived
@@ -290,3 +305,21 @@ Note that you'll have to escape any forward slashes within the regular expressio
 ```text
 /^App\/src\//
 ```
+
+Inside a regular expression, `\n` stands for a newline character, `\t` stands for a tab, and `\x{hhhh}` can be used to escape any Unicode character. This means you can use regular expressions to search for exact strings that contain characters that you can't type into the search bar.
+
+Most common regular expressions features work in code search. However, "look-around" assertions are not supported.
+
+## Separating search terms
+
+All parts of a search, such as search terms, exact strings, regular expressions, qualifiers, parentheses, and the boolean keywords `AND`, `OR`, and `NOT`, must be separated from one another with spaces. The one exception is that items inside parentheses, `(` `)`, don't need to be separated from the parentheses.
+
+If your search contains multiple components that aren't separated by spaces, or other text that does not follow the rules listed above, code search will try to guess what you mean. It often falls back on treating that component of your query as the exact text to search for. For example, the following query:
+
+```text
+printf("hello world\n");
+```
+
+Code search will give up on interpreting the parentheses and quotes as special characters and will instead search for files containing that exact code.
+
+If code search guesses wrong, you can always get the search you wanted by using quotes and spaces to make the meaning clear.

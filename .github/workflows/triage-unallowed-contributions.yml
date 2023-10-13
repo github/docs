@@ -8,7 +8,6 @@ on:
   pull_request_target:
     paths:
       - '.devcontainer/**'
-      - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
       - 'assets/fonts/**'
@@ -50,7 +49,6 @@ jobs:
               - 'src/rest/data/**'
             notAllowed:
               - '.devcontainer/**'
-              - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
               - 'assets/fonts/**'
@@ -71,7 +69,6 @@ jobs:
           script: |
             const badFilesArr = [
               '.devcontainer/**',
-              '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
               'assets/fonts/**',
@@ -103,3 +100,8 @@ jobs:
             }
 
             core.setFailed(workflowFailMessage)
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

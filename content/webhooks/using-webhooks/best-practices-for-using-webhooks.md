@@ -13,7 +13,7 @@ topics:
 
 ## Subscribe to the minimum number of events
 
-You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information, see "[AUTOTITLE](/webhooks/creating-webhooks)."
+You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information about subscribing to events, see "[AUTOTITLE](/webhooks/creating-webhooks)" and "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
 
 ## Use a webhook secret
 
@@ -50,6 +50,16 @@ There are multiple webhook event types, and many events can have multiple action
 ## Redeliver missed deliveries
 
 If your server goes down, you should redeliver missed webhooks once your server is back up. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+
+## Use the `X-GitHub-Delivery` header
+
+In a replay attack, a bad actor intercepts a webhook delivery and re-sends the delivery. To protect against replay attacks, you can use the `X-GitHub-Delivery` header to ensure that each delivery is unique.
+
+{% note %}
+
+**Note**: If you request a redelivery, the `X-GitHub-Delivery` header will be the same as in the original delivery.
+
+{% endnote %}
 
 ## Further reading
 

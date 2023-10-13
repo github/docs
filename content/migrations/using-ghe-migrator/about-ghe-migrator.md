@@ -26,7 +26,7 @@ There are three types of migrations you can perform:
 
 {% note %}
 
-**Note:** The use of ghe-migrator is **not recommended** for transferring a {% data variables.product.prodname_ghe_server %} instance between hypervisors. Instead, we suggest either backing up and restoring to the new location with {% data variables.product.prodname_enterprise_backup_utilities %}, or creating a replica in the new location and then failing over to the replica appliance. For more information, see "[AUTOTITLE](/{% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)", "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)" and "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance)."
+**Note:** The use of ghe-migrator is **not recommended** for transferring a {% data variables.product.prodname_ghe_server %} instance between hypervisors. Instead, we suggest either backing up and restoring to the new location with {% data variables.product.prodname_enterprise_backup_utilities %}, or creating a replica in the new location and then failing over to the replica appliance. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)", "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)" and "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance)."
 
 {% endnote %}
 
@@ -59,3 +59,9 @@ The items in the table below can be migrated with a repository. Any items not sh
 | Webhooks | Only active webhooks are migrated.
 | Repository deploy keys | Repository deploy keys are migrated.
 | Protected branches | Protected branch settings and associated data are migrated.
+
+## About migration of external authentication data
+
+If the source location for your migration is a {% data variables.product.company_short %} product that uses LDAP or SAML authentication, `ghe-migrator` does not migrate external authentication data linked to user accounts. For more information about authentication options, see {% data variables.product.prodname_ghe_server %}, see "About authentication for your enterprise" in the [{% data variables.product.prodname_ghe_server %} docs](/enterprise-server@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)" or the [{% data variables.product.prodname_ghe_cloud %} docs](/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise).
+
+If you migrate to a destination instance and then configure external authentication, users must sign in to the destination instance with a user account that has the same username or user ID as the account on the source instance. Administrators can review the external attribute that an instance uses to map user account names from the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console)."
