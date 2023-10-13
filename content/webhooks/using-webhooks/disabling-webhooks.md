@@ -51,12 +51,16 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 Enterprise owners can disable a global webhook in an {% data variables.product.prodname_enterprise %}.
 
+{% ifversion ghes or ghae %}
+
+You can use the {% data variables.product.company_short %} web interface or the REST API to disable a global webhook. For more information about using the REST API to disable a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
+
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 {% data reusables.webhooks.disable_webhook %}
-
-{% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
 {% endif %}
 
