@@ -1,6 +1,6 @@
 ---
 title: Handling failed webhook deliveries
-shortTitle: Handling failed deliveries
+shortTitle: Handle failed deliveries
 intro: '{% data variables.product.company_short %} does not automatically redeliver failed webhook deliveries, but you can handle failed deliveries manually or by writing code.'
 versions:
   fpt: '*'
@@ -216,7 +216,7 @@ async function fetchWebhookDeliveriesSince(lastWebhookRedeliveryTime) {
   );
 
   const deliveries = [];
-  
+
   for await (const { data } of iterator) {
     const oldestDeliveryTimestamp = new Date(
       data[data.length - 1].delivered_at

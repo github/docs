@@ -1,5 +1,6 @@
 ---
 title: Creating webhooks
+shortTitle: Create webhooks
 intro: 'You can create webhooks to subscribe to specific events that occur on {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /webhooks/creating

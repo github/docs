@@ -1,5 +1,6 @@
 ---
 title: Editing webhooks
+shortTitle: Edit webhooks
 intro: 'After creating a webhook, you can make changes to it.'
 versions:
   fpt: '*'

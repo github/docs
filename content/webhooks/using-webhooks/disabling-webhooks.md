@@ -1,5 +1,6 @@
 ---
 title: Disabling webhooks
+shortTitle: Disable webhooks
 intro: 'You can disable a webhook to unsubscribe from events that occur on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
