@@ -40,7 +40,9 @@ passed in as command line arguments.
 
 Available since `v2.13.3`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<pack>...`
 
@@ -90,7 +92,7 @@ value.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

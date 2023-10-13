@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // For testing the GitHub Action that executes
-// .github/actions-scripts/deleted-assets-pr-comment.js but doing it
+// src/assets/scripts/deleted-assets-pr-comment.js but doing it
 // locally.
 // This is more convenient and faster than relying on seeing that the
 // Action produces in a PR.

@@ -1,6 +1,6 @@
 ---
 title: dataset measure
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -40,7 +40,9 @@ after a change that affects the database schema and which therefore
 needs to have an accompanying change to the statistics used by the query
 optimizer.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dataset>`
 

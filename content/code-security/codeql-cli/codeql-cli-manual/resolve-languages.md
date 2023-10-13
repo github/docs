@@ -1,6 +1,6 @@
 ---
 title: resolve languages
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -38,7 +38,9 @@ the pack has conflicting locations within a single search element, so it
 cannot actually be resolved. The caller may use the actual locations to
 format an appropriate error message.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--search-path=<dir>[:<dir>...]`
 

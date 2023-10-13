@@ -3,7 +3,6 @@ import { get } from 'lodash-es'
 import FailBot from '#src/observability/lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
-import Page from '../lib/page.js'
 import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
 import statsd from '#src/observability/lib/statsd.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -87,9 +86,6 @@ export default async function renderPage(req, res) {
     // 500 error.
     res.setHeader('Last-Modified', new Date(page.effectiveDate).toUTCString())
   }
-
-  // collect URLs for variants of this page in all languages
-  page.languageVariants = Page.getLanguageVariants(path)
 
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return

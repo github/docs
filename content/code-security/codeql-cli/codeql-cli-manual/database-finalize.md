@@ -1,6 +1,6 @@
 ---
 title: database finalize
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -34,7 +34,9 @@ codeql database finalize [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] [--m
 
 Finalize a database that was created with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) and subsequently seeded with analysis data using [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command). This needs to happen before the new database can be queried.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 

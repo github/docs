@@ -59,7 +59,7 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 {% data reusables.enterprise_clustering.open-configuration-file %}
 1. Note the name of your cluster's primary datacenter. The `[cluster]` section at the top of the cluster configuration file defines the primary datacenter's name, using the `primary-datacenter` key-value pair.
 
-    ```shell
+    ```text
     [cluster]
       mysql-master = HOSTNAME
       redis-master = HOSTNAME
@@ -70,13 +70,13 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 
 1. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
 
-    ```shell
+    ```text
     datacenter = primary
     ```
 
     When you're done, the section for each node in the cluster configuration file should look like the following example. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
-    ```shell
+    ```text
     [cluster "HOSTNAME"]
       datacenter = default
       hostname = HOSTNAME
@@ -89,7 +89,7 @@ Before you define a secondary datacenter for your replica nodes, ensure that you
 
     **Note**: If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
 
-    ```
+    ```text
     consul-datacenter = primary
     ```
 
@@ -122,19 +122,19 @@ For an example configuration, see "[Example configuration](#example-configuratio
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 1. Back up your existing cluster configuration.
 
-    ```
+    ```shell
     cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
     ```
 
 1. Create a copy of your existing cluster configuration file in a temporary location, like `/home/admin/cluster-replica.conf`.
 
-    ```
+    ```shell
     grep -Ev "(?:|ipv|uuid)" /data/user/common/cluster.conf > ~/cluster-replica.conf
     ```
 
 1. Remove the `[cluster]` section from the temporary cluster configuration file that you copied in the previous step.
 
-    ```
+    ```shell
     git config -f ~/cluster-replica.conf --remove-section cluster
     ```
 
@@ -311,16 +311,14 @@ You can use `ghe-cluster-status` to review the overall health of your cluster. F
 
 ## Reconfiguring high availability replication after a failover
 
-After you fail over from the cluster's active nodes to the cluster's replica nodes, you can reconfigure high availability replication in two ways.
-
-### Provisioning and configuring new replica nodes
-
-After a failover, you can reconfigure high availability in two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
+After you fail over from the cluster's active nodes to the cluster's replica nodes, you can reconfigure high availability in one of two ways. The method you choose will depend on the reason that you failed over, and the state of the original active nodes.
 
 - Provision and configure a new set of replica nodes for each of the new active nodes in your secondary datacenter.
 - Use the original active nodes as the new replica nodes.
 
 The process for reconfiguring high availability is identical to the initial configuration of high availability. For more information, see "[Creating a high availability replica for a cluster](#creating-a-high-availability-replica-for-a-cluster)."
+
+If you use the original active nodes, after reconfiguring high availability, you will need to unset maintenance mode on the nodes. For more information, see "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster-via-the-cli)."
 
 ## Disabling high availability replication for a cluster
 

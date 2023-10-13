@@ -631,7 +631,7 @@
   },
   {
     "action": "org.add_outside_collaborator",
-    "description": "N/A",
+    "description": "An outside collaborator was added to a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -766,8 +766,8 @@
   },
   {
     "action": "personal_access_token.credential_revoked",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A fine-grained personal access token was revoked by GitHub Advanced Security.",
+    "docs_reference_links": "/code-security/getting-started/github-security-features#secret-scanning-alerts-for-users"
   },
   {
     "action": "personal_access_token.destroy",
@@ -791,8 +791,8 @@
   },
   {
     "action": "personal_access_token.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A fine-grained personal access token was updated.",
+    "docs_reference_links": "/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens"
   },
   {
     "action": "premium_runner.create",
@@ -1095,6 +1095,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repo.pages_soft_delete",
+    "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.pages_source",
     "description": "A GitHub Pages source was modified.",
     "docs_reference_links": "N/A"
@@ -1351,7 +1356,7 @@
   },
   {
     "action": "sponsors.sponsored_developer_update_newsletter_send",
-    "description": "Triggered when you send an email update to your sponsors (see \"Contacting your sponsors\")",
+    "description": "Triggered when you send an email update to your sponsors.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors"
   },
   {
@@ -1401,22 +1406,22 @@
   },
   {
     "action": "successor_invitation.accept",
-    "description": "Triggered when you accept a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you accept a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
     "action": "successor_invitation.cancel",
-    "description": "Triggered when you cancel a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you cancel a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
     "action": "successor_invitation.create",
-    "description": "Triggered when you create a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you create a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
     "action": "successor_invitation.decline",
-    "description": "Triggered when you decline a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you decline a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
@@ -1426,7 +1431,7 @@
   },
   {
     "action": "successor_invitation.revoke",
-    "description": "Triggered when you revoke a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you revoke a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {

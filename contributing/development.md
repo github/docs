@@ -12,7 +12,7 @@ You'll need Node.js to run the site. Check the version in `package.json`. To ins
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
 
-```sh
+```shell
 git clone https://github.com/github/docs
 cd docs
 npm ci
@@ -73,8 +73,6 @@ For more info about working with this site, check out these READMEs:
 - [includes/README.md](../includes/README.md)
 <!-- The following will be moved into src directory over time: -->
 - [components/README.md](../components/README.md)
-- [lib/liquid-tags/README.md](../lib/liquid-tags/README.md)
 - [middleware/README.md](../middleware/README.md)
 - [script/README.md](../script/README.md)
-- [stylesheets/README.md](../stylesheets/README.md)
 - [tests/README.md](../tests/README.md)

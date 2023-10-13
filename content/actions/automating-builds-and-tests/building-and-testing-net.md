@@ -113,14 +113,14 @@ jobs:
 
 ### Using a specific .NET version
 
-You can configure your job to use a specific version of .NET, such as `3.1.3`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 3.
+You can configure your job to use a specific version of .NET, such as `6.0.22`. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of .NET 6.
 
 ```yaml
-    - name: Setup .NET SDK
+    - name: Setup .NET 6.x
       uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         # Semantic version range syntax or exact version of a dotnet version
-        dotnet-version: '6.0.x'
+        dotnet-version: '6.x'
 ```
 
 ## Installing dependencies
@@ -157,7 +157,7 @@ steps:
   with:
     path: ~/.nuget/packages
     # Look to see if there is a cache hit for the corresponding requirements file
-    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
     restore-keys: |
       ${{ runner.os }}-nuget{% endraw %}
 - name: Install dependencies

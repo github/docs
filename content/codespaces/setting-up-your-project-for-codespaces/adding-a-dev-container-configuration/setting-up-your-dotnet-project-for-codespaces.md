@@ -51,7 +51,7 @@ The default development container, or "dev container," for {% data variables.pro
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
 
-```json
+```jsonc
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
@@ -99,7 +99,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.add-comma-after-features %}
 
-   ```json copy
+   ```jsonc copy
      "features": {
        "ghcr.io/devcontainers/features/dotnet:1": {}
      },
@@ -110,21 +110,21 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `forwardPorts` property and change its value to port `5000` only.
 
-   ```json copy
+   ```jsonc copy
    // Use 'forwardPorts' to make a list of ports inside the container available locally.
    "forwardPorts": [5000],
    ```
 
 1. Uncomment the `postCreateCommand` property.
 
-   ```json copy
+   ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "dotnet restore",
    ```
 
 {% data reusables.codespaces.add-extension-to-devcontainer %}
 
-   ```json
+   ```jsonc
    // For format details, see https://aka.ms/devcontainer.json. For config options, see the
    // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
    {

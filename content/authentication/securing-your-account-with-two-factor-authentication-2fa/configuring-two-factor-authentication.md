@@ -21,7 +21,7 @@ shortTitle: Configure 2FA
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-You can configure two-factor authentication (2FA) using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
+You can configure two-factor authentication (2FA) using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. After you have configured 2FA using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}, you can then also add security keys as alternate 2FA methods.
 
 We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA{% ifversion fpt or ghec %}, and security keys as backup methods instead of SMS. TOTP applications are more reliable than SMS, especially for locations outside the United States{% endif %}. Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
 
@@ -71,7 +71,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **setup key** to see a code, the TOTP secret, that you can manually enter in your TOTP app instead.
 
-   ![Screenshot of the "Setup authenticator app" section of the 2FA settings. A link, labeled "setup key", is highlighted in orange.](/assets/images/help/2fa/ghes_3.8_and_higher_2fa-wizard-app-click-code.png)
+   ![Screenshot of the "Setup authenticator app" section of the 2FA settings. A link, labeled "setup key", is highlighted in orange.](/assets/images/help/2fa/ghes-3.8-and-higher-2fa-wizard-app-click-code.png)
 1. The TOTP application saves your account on {% data variables.location.product_location %} and generates a new authentication code every few seconds. On {% data variables.product.product_name %}, type the code into the field under "Verify the code from the app".
 {%- else %}
 1. Under "Two-factor authentication", select **Set up using an app** and click **Continue**.

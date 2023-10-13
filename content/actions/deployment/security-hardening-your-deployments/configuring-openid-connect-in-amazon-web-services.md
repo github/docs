@@ -65,7 +65,7 @@ Edit the trust policy, adding the `sub` field to the validation conditions. For 
 
 If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:OWNER/REPOSITORY:environment:NAME`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
 
-```json{:copy}
+```json copy
 "Condition": {
   "StringEquals": {
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
@@ -128,8 +128,8 @@ env:
   AWS_REGION : "<example-aws-region>"
 # permission can be added at job level or workflow level    
 permissions:
-      id-token: write   # This is required for requesting the JWT
-      contents: read    # This is required for actions/checkout
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest

@@ -1,6 +1,6 @@
 ---
 title: resolve tests
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -36,7 +36,9 @@ This plumbing command is responsible for expanding the command-line
 parameters of subcommands that run QL unit tests, to an actual list of
 individual .ql and .qlref files to execute.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<test|dir>...`
 

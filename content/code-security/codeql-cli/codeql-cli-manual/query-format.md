@@ -1,6 +1,6 @@
 ---
 title: query format
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -32,7 +32,9 @@ codeql query format [--output=<file>] [--in-place] [--backup=<ext>] <options>...
 
 Autoformat QL source code.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>...`
 

@@ -3,7 +3,7 @@ title: database export-diagnostics
 intro: |-
   [Experimental] Export diagnostic information from a database for a
   failed analysis.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -37,7 +37,9 @@ failed analysis.
 
 Available since `v2.12.6`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 

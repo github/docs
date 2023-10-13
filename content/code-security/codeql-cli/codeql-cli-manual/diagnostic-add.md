@@ -1,7 +1,7 @@
 ---
 title: diagnostic add
 intro: '[Experimental] [Plumbing] Add a piece of diagnostic information.'
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -34,7 +34,9 @@ codeql diagnostic add (--diagnostic-dir=<diagnosticDir>) --source-id=<id> --sour
 
 Available since `v2.12.6`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--markdown-message=<markdownMessage>`
 

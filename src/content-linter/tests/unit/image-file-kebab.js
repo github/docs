@@ -1,9 +1,5 @@
-import { jest } from '@jest/globals'
-
 import { runRule } from '../../lib/init-test.js'
 import { imageFileKebab } from '../../lib/linting-rules/image-file-kebab'
-
-jest.setTimeout(20 * 1000)
 
 describe(imageFileKebab.names.join(' - '), () => {
   test('image file not using lowercase kebab case fails', async () => {

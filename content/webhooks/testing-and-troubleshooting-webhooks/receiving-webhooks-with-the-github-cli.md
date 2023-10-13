@@ -16,7 +16,7 @@ redirect_from:
 
 When you make changes to your integration code, running the code in a local environment lets you test and iterate quickly without deploying the code. You can use {% data variables.product.prodname_cli %} to forward webhooks to your local environment.
 
-Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test sponsorship, GitHub App, enterprise, or Marketplace webhooks locally, you'll need to do this manually. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks).
+Webhook forwarding in the {% data variables.product.prodname_cli %} only works with repository and organization webhooks. If you want to test other types of webhooks locally, you'll need to do this manually. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)."
 
 {% warning %}
 
@@ -30,13 +30,13 @@ Webhook forwarding in the {% data variables.product.prodname_cli %} only works w
 
 1. To install the {% data variables.product.prodname_cli %} extension to enable webhook forwarding, use the `extension install` subcommand.
 
-   ```sh
+   ```shell
    gh extension install cli/gh-webhook
    ```
 
 1. If you want to forward organization webhooks, add the `admin:org_hook` scope to your {% data variables.product.prodname_cli %} login so you have the required permissions.
 
-   ```sh
+   ```shell
    gh auth refresh --scopes admin:org_hook
    ```
 
@@ -44,7 +44,7 @@ Webhook forwarding in the {% data variables.product.prodname_cli %} only works w
 
 1. To set up webhooks to be delivered to your application, run the `webhook forward` subcommand. Replace `REPOSITORY` with the name of your repository. For example, `monalisa/octocat`. Replace `EVENTS` with a comma-separated list of the events that you want to receive. For example, `issues,pull_request`. Replace `URL` with the local URL where your application expects to receive webhooks. For example, `"http://localhost:3000/webhook"`.  To listen for organization webhooks instead of repository webhooks, replace the `--repo` flag with the `--org` flag. For example `--org="octo-org"`.
 
-   ```sh
+   ```shell
    gh webhook forward --repo=REPOSITORY --events=EVENTS --url=URL
    ```
 

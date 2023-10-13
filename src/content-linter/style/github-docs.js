@@ -1,4 +1,4 @@
-export const githubDocsConfig = {
+const githubDocsConfig = {
   'code-fence-line-length': {
     // GHD001
     severity: 'warning',
@@ -16,7 +16,7 @@ export const githubDocsConfig = {
   },
   'image-file-kebab': {
     // GHD004
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'internal-links-lang': {
@@ -34,9 +34,19 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-link-punctuation': {
+  'link-punctuation': {
     // GHD008
-    severity: 'warning',
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'yaml-scheduled-jobs': {
+    // GHD009
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'internal-links-old-version': {
+    // GHD010
+    severity: 'error',
     'partial-markdown-files': true,
   },
   'list-first-word-capitalization': {
@@ -45,11 +55,96 @@ export const githubDocsConfig = {
     'partial-markdown-files': true,
   },
   'early-access-references': {
+    // GH035
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-quoted-conditional-arg': {
+    // LQ111
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-data-references-defined': {
+    // LQ112
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-data-tag-format': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'hardcoded-data-variable': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'github-owned-action-references': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'annotate-frontmatter': {
+    // GH040
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'liquid-syntax': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-if-tags': {
+    // LQ114
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-ifversion-tags': {
+    // LQ113
     severity: 'error',
     'partial-markdown-files': true,
   },
 }
 
+export const githubDocsFrontmatterConfig = {
+  'frontmatter-hidden-docs': {
+    // GHD034
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-video-transcripts': {
+    // GH036
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-early-access-references': {
+    // GH060
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-format': {
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-liquid-syntax': {
+    // LQ115
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+}
+
+// Configures rules from the `github/markdownlint-github` repo
+// created by the accessibility team.
+const githubMarkdownlintConfig = {
+  'no-default-alt-text': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'no-generic-link-text': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+}
+
+// Configures rules from the open-source Markdownlint extension
+// search-replace:
+// https://www.npmjs.com/package/markdownlint-rule-search-replace
 export const searchReplaceConfig = {
   'search-replace': {
     rules: [
@@ -59,7 +154,7 @@ export const searchReplaceConfig = {
         searchPattern: '/todocs/gi',
         searchScope: 'all',
         severity: 'error',
-        'severity-local': 'warning',
+        precommitSeverity: 'warning',
         'partial-markdown-files': true,
       },
       {
@@ -67,7 +162,7 @@ export const searchReplaceConfig = {
         message: 'Catch occurrences of docs.gitub.com domain.',
         search: 'docs.github.com',
         searchScope: 'all',
-        severity: 'error',
+        severity: 'warning',
         'partial-markdown-files': true,
       },
       {
@@ -105,6 +200,8 @@ export const searchReplaceConfig = {
         message: 'Catch occurrences of deprecated liquid data syntax.',
         searchPattern: '/{{\\s*?site\\.data\\.([a-zA-Z0-9-_]+(?:\\.[a-zA-Z0-9-_]+)+)\\s*?}}/g',
         replace: '{% data $1 %}',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
       {
         // Catches usage of old octicon variable syntax. For example:
@@ -114,44 +211,16 @@ export const searchReplaceConfig = {
         message:
           'The octicon liquid syntax used is deprecated. Use this format instead {% octicon "<octicon-name>" aria-label="<Octicon aria label>" %}',
         searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
-      },
-      {
-        // Catches usage of string personal access token, which should
-        // be replaced with a reusable data variable.
-        name: 'personal access token reusable',
-        message:
-          'The string "personal access token" can be replaced with a variable. You should use one of the variables from data/variables/product.yml instead of the literal phrase(s):',
-        searchPattern: '/personal access tokens?/gi',
-      },
-      {
-        // Catches usage of GitHub-owned actions that don't use a
-        // resuable.
-        // GitHub-owned actions (e.g. actions/checkout@v2) should use a
-        // reusable in examples.
-        //
-        // - actions/checkout@v2
-        // - actions/delete-package-versions@v2
-        // - actions/download-artifact@v2
-        // - actions/upload-artifact@v2
-        // - actions/github-script@v2
-        // - actions/setup-dotnet@v2
-        // - actions/setup-go@v2
-        // - actions/setup-java@v2
-        // - actions/setup-node@v2
-        // - actions/setup-python@v2
-        // - actions/stale@v2
-        // - actions/cache@v2
-        // - github/codeql-action/init@v2
-        // - github/codeql-action/analyze@v2
-        // - github/codeql-action/autobuild@v2
-        // - github/codeql-action/upload-sarif@v2
-        //
-        name: 'GitHub-owned action references should use a reusable',
-        message:
-          'A GitHub-owned action is referenced, but should be replaced with a reusable from data/reusables/actions.',
-        searchPattern:
-          '/(actions\\/(checkout|delete-package-versions|download-artifact|upload-artifact|github-script|setup-dotnet|setup-go|setup-java|setup-node|setup-python|stale|cache)|github\\/codeql-action[/a-zA-Z-]*)/g',
+        severity: 'error',
+        'partial-markdown-files': true,
       },
     ],
   },
+}
+
+export const customConfig = {
+  ...searchReplaceConfig,
+  ...githubDocsConfig,
+  ...githubMarkdownlintConfig,
+  ...githubDocsFrontmatterConfig,
 }

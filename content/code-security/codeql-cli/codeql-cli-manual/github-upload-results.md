@@ -1,6 +1,6 @@
 ---
 title: github upload-results
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -42,7 +42,9 @@ Alternatively, the `GITHUB_TOKEN` environment variable can be set.
 
 This token must have the `security_events` scope.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `-s, --sarif=<file>`
 

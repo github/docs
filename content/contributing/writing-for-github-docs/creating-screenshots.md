@@ -101,7 +101,7 @@ To meet the needs of more users, screenshots must:
 
 - Be accompanied by complete instructions in the procedural step, with no information conveyed entirely in visual form.
 - Be full contrast, as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
-- Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text)."
+- Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text)."
 - Be clear and crisp, with text and UI elements as legible as possible.
 
 ### Visual style
@@ -195,7 +195,8 @@ Directory | Usage
 
 When there are differences between plans, you can use Liquid conditionals to version the two images.
 
-```{% raw %}
+```markdown
+{% raw %}
 {% ifversion fpt or ghec %}
 ![An image of foo bar for GitHub Free, GitHub Pro, GitHub Team, and GitHub Enterprise Cloud](/assets/images/foo/bar.png)
 {% else %}
@@ -209,7 +210,8 @@ If an image will change for {% data variables.product.prodname_ghe_server %} 3.1
 
 Your Liquid conditional would look like this:
 
-```{% raw %}
+```markdown
+{% raw %}
 {% ifversion fpt or ghec %}
 ![An image of foo bar](/assets/images/foo/bar.png)
 {% elsif ghes < 3.10 %}

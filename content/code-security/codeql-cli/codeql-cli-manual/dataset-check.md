@@ -1,6 +1,6 @@
 ---
 title: dataset check
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -37,7 +37,9 @@ as it validates the data produced by the extractor. It may also be
 useful if queries against a database are giving inconsistent results, to
 rule out issues in the underlying data as the cause.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dataset>`
 

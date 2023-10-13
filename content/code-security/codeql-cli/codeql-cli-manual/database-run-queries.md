@@ -43,7 +43,9 @@ source-code alerts, you may find [codeql database analyze](/code-security/codeql
 Alternatively, if you have only a single query to run, you might prefer
 [codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run), which can display human-readable output for quick inspection of results while you're debugging.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
@@ -164,7 +166,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate `<pred>`.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
@@ -338,7 +340,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

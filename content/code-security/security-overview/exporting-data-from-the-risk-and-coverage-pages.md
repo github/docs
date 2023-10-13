@@ -23,7 +23,7 @@ The CSV file you download will contain data corresponding to the filters you hav
 
 {% note %}
 
-**Note:** You can only export data for the first 20 teams in your organization. These 20 teams correspond with the first 20 teams visible in the **Teams** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu on security overview.
+**Note:** In the "Teams" column of the CSV file, each repository will list a maximum of 20 teams with write access to that repository. If more than 20 teams have write access to a repository, the data will be truncated.
 
 {% endnote %}
 

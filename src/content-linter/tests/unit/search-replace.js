@@ -14,7 +14,7 @@ describe(searchReplace.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
     expect(errors.length).toBe(7)
@@ -36,13 +36,14 @@ describe(searchReplace.names.join(' - '), () => {
       'developer.github.com/changes/',
       'developer.github.com/changes/changes',
       'developer.github.com/enterprise/1',
+      '<https://docs.github.com/en/rest/reference/code-scanning#upload-an-analysis-as-sarif-data>',
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
-    expect(errors.length).toBe(9)
+    expect(errors.length).toBe(10)
   })
 
   test('Deprecated Liquid syntax causes error', async () => {
@@ -54,40 +55,9 @@ describe(searchReplace.names.join(' - '), () => {
     ].join('\n')
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
+      ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
     expect(errors.length).toBe(4)
-  })
-
-  test('Using hardcoded personal access token string causes error', async () => {
-    const markdown = [
-      'Hello personal access token for apps.',
-      'A Personal access token for apps.',
-      'Lots of PERSONAL ACCESS TOKENS for apps.',
-      'access tokens for apps.',
-    ].join('\n')
-    const result = await runRule(searchReplace, {
-      strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
-    })
-    const errors = result.markdown
-    expect(errors.length).toBe(3)
-  })
-
-  test('Using hardcoded personal access token string causes error', async () => {
-    const markdown = [
-      'Hello actions/checkout@v2 apps.',
-      'A actions/delete-package-versions@v2 for apps.',
-      'Hello actions/download-artifact@v2.',
-      'actions/cache@432433423423',
-      'actions/cache@',
-    ].join('\n')
-    const result = await runRule(searchReplace, {
-      strings: { markdown },
-      testConfig: searchReplaceConfig['search-replace'],
-    })
-    const errors = result.markdown
-    expect(errors.length).toBe(5)
   })
 })

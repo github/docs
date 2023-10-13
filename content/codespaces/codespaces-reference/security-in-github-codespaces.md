@@ -94,7 +94,7 @@ When you create a codespace from a PR branch from a fork, the token in the codes
 - For a private repository, the codespace is granted access to both the fork and parent.
 - For a public repository, the codespace will only have access to the fork and opening PRs on the parent.
 
-We also further protect you in these scenarios by not injecting any of your [codespace secrets](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces) into the environment.
+We also further protect you in these scenarios by not injecting any of your codespace secrets into the environment. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
 
 {% note %}
 

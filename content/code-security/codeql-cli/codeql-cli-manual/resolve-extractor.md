@@ -1,6 +1,6 @@
 ---
 title: resolve extractor
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -35,7 +35,9 @@ codeql resolve extractor --language=<lang> <options>...
 \[Deep plumbing] Determine the extractor pack to use for a given
 language.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `-l, --language=<lang>`
 

@@ -1,6 +1,6 @@
 ---
 title: bqrs diff
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -32,7 +32,9 @@ codeql bqrs diff <options>... -- <file1> <file2>
 
 Compute the difference between two result sets.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file1>`
 

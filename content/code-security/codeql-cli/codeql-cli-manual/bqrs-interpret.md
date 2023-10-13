@@ -1,6 +1,6 @@
 ---
 title: bqrs interpret
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -35,7 +35,9 @@ codeql bqrs interpret --format=<format> --output=<output> -t=<String=String> [--
 A command that interprets a single BQRS file according to the provided
 metadata and generates output in the specified format.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<bqrs-file>`
 

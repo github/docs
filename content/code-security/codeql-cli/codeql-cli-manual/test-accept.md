@@ -1,6 +1,6 @@
 ---
 title: test accept
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -44,7 +44,9 @@ the `.actual` files from them. Any test that doesn't have an `.actual`
 file will be silently ignored, which makes it easy to accept just the
 results of _failing_ tests from a previous run.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<test|dir>...`
 

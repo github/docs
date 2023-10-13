@@ -1,6 +1,6 @@
 ---
 title: bqrs hash
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -32,7 +32,9 @@ codeql bqrs hash <options>... -- <file>
 
 \[Plumbing] Compute a stable hash of a BQRS file.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>`
 

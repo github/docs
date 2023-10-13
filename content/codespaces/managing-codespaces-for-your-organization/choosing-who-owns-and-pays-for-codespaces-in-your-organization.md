@@ -2,7 +2,7 @@
 title: Choosing who owns and pays for codespaces in your organization
 shortTitle: 'Billing and ownership'
 intro: 'You can choose whether codespaces are paid for and owned by your organization or by your members.'
-permissions: 'Organization owners can change an organization''s billing details and control who owns and pays for codespaces.'
+permissions: "Organization owners can change an organization's billing details and control who owns and pays for codespaces."
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,9 +16,9 @@ product: 'Organizations on {% data variables.product.prodname_team %} and {% dat
 
 ## Overview
 
-If you're the owner of an organization on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can pay for your members' and collaborators' usage of {% data variables.product.prodname_github_codespaces %}. Paying for usage will allow people to use {% data variables.product.prodname_github_codespaces %} to work in your repositories without having to do so at their own expense, and will give your organization more control over the codespaces created from your repositories.
+If you're the owner of an organization on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} plan, you can pay for your members' and collaborators' usage of {% data variables.product.prodname_github_codespaces %}. Paying for usage will allow people to use {% data variables.product.prodname_github_codespaces %} to work in your repositories without having to do so at their own expense and will give your organization more control over the codespaces created from your repositories.
 
-To pay for usage, you must do all of the following things.
+To pay for usage, you must do all of the following things:
 
 - Allow at least some of your members and collaborators to use {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#enabling-or-disabling-github-codespaces)."
 - Choose for codespaces created from your organization's repositories to be **organization-owned**. For more information, see "[Choosing who owns and pays for codespaces](#choosing-who-owns-and-pays-for-codespaces)."
@@ -34,7 +34,7 @@ For organizations on a {% data variables.product.prodname_team %} or {% data var
 
 If an organization chooses for codespaces to be **user-owned**, a user who creates a codespace from a repository in the organization always pays for the codespace. The user's access to create codespaces depends on the visibility of the repository and your organization's access settings.
 
-If an organization chooses for codespaces to be **organization-owned**, the organization will pay for a codespace if all the following things are true.
+If an organization chooses for codespaces to be **organization-owned**, the organization will pay for a codespace if all the following things are true:
 
 {% data reusables.codespaces.when-an-org-pays %}
 
@@ -43,7 +43,7 @@ For more information about enabling {% data variables.product.prodname_github_co
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If you own an {% data variables.enterprise.prodname_emu_org %}, and do not allow {% data variables.product.prodname_github_codespaces %} to be billed to your organization, members with {% data variables.enterprise.prodname_managed_users %} will not be able to use {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
+**Note:** If you own an {% data variables.enterprise.prodname_emu_org %} and do not allow {% data variables.product.prodname_github_codespaces %} to be billed to your organization, members with {% data variables.enterprise.prodname_managed_users %} will not be able to use {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts)."
 
 {% endnote %}
 {% endif %}

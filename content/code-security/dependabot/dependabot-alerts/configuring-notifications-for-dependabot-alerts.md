@@ -50,7 +50,7 @@ You can configure notification settings for yourself or your organization from t
 
 {% ifversion update-notification-settings-22 %}
 ![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}. A dropdown menu, showing notification frequency options, is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-notification-frequency.png){% endif %}{% ifversion ghes > 3.7 or ghae > 3.7 %}
-![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}.](/assets/images/help/enterprises/dependabot-alerts-options-no-UI.png){% endif %}
+![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}.](/assets/images/help/enterprises/dependabot-alerts-options-no-ui.png){% endif %}
 
 {% note %}
 

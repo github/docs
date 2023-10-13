@@ -36,7 +36,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
 
 ### Keyboard shortcuts for Windows
@@ -47,7 +47,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ### Keyboard shortcuts for Linux
@@ -58,7 +58,7 @@ You can use the default keyboard shortcuts for inline suggestions in your JetBra
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %}
@@ -208,7 +208,7 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |:---|:---|:---|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>.</kbd>|Tools.Nextsuggestion|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Tools.Previoussuggestion|
-|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
+|Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
 ### Rebinding keyboard shortcuts
 
@@ -266,7 +266,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\</kbd><br> |editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\\</kbd><br> |editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Return</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
@@ -278,7 +278,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 
@@ -290,7 +290,7 @@ You can search for each keyboard shortcut by command name in the Keyboard Shortc
 |Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
 |Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\</kbd>|editor.action.inlineSuggest.trigger|
+|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
 |Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
 |Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
 

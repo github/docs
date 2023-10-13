@@ -1,6 +1,6 @@
 ---
 title: pack init
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -37,7 +37,9 @@ directory.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<package-name>`
 

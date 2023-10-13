@@ -1,6 +1,6 @@
 ---
 title: bqrs decode
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -35,7 +35,9 @@ Convert result data from BQRS into other forms.
 The decoded output will be written to standard output, unless the
 `--output` option is specified.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>`
 

@@ -31,7 +31,7 @@ This example YAML configuration file defines an issue form using several inputs 
 
 All issue form configuration files must begin with `name`, `description`, and `body` key-value pairs.
 
-```YAML copy
+```yaml copy
 name:
 description:
 body:

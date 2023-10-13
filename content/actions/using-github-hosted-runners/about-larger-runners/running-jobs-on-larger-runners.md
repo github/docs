@@ -3,6 +3,7 @@ title: Running jobs on larger runners
 shortTitle: Run jobs on larger runners
 intro: 'You can speed up your workflows by configuring them to run on {% data variables.actions.hosted_runner %}s.'
 permissions: '{% data reusables.actions.larger-runner-permissions %}'
+defaultPlatform: linux
 versions:
   feature: actions-hosted-runners
 redirect_from:
@@ -11,15 +12,41 @@ redirect_from:
 
 ## Running jobs on your runner
 
-Once your runner type has been defined, you can update your workflow YAML files to send jobs to your newly created runner instances for processing. You can use runner groups or labels to define where your jobs run.
+{% linux %}
 
+{% data reusables.actions.run-jobs-larger-runners %}
+
+{% endlinux %}
+
+{% windows %}
+
+{% data reusables.actions.run-jobs-larger-runners %}
+
+{% endwindows %}
+
+{% mac %}
+
+Once your runner type has been defined, you can update your workflow YAML files to send jobs to runner instances for processing. To run jobs on macOS {% data variables.actions.hosted_runner %}s, update the `runs-on` key in your workflow YAML files to use one of the {% data variables.product.company_short %}-defined labels for macOS runners. For more information, see "[Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners)."
+
+{% endmac %}
+
+{% mac %}
+
+## Available macOS {% data variables.actions.hosted_runner %}s
+
+Use the labels in the table below to run your workflows on the corresponding macOS {% data variables.actions.hosted_runner %}.
+
+| Runner Size | Architecture| Processor (CPU)| Memory (RAM)  | Storage (SSD) | OS (YAML workflow label) |
+| --------------| --------------| -------------- | ------------- | ------------- | --------------------- |
+| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large </code>, <code>macos-13-large</code>[Beta] |
+| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>[Beta], <code>macos-13-xlarge</code>[Beta]   |
 {% note %}
 
-**Note:** When you add a {% data variables.actions.hosted_runner %}, it is automatically assigned default labels that correspond to the runner name and its operating system. You cannot add custom labels to {% data variables.actions.hosted_runner %}s, but you can use the default labels or the runner's group to send jobs to specific types of runners.
+**Note:** For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
 
 {% endnote %}
 
-Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization owner to find out which runners are enabled. Your organization owner can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#allowing-repositories-to-access-a-runner-group)."
+{% endmac %}
 
 {% ifversion repository-actions-runners %}
 
@@ -43,9 +70,23 @@ Only owner or administrator accounts can see the runner settings. Non-administra
 
 {% endif %}
 
+{% linux %}
+
 ## Using groups to control where jobs are run
 
 {% data reusables.actions.jobs.example-runs-on-groups %}
+
+{% endlinux %}
+
+{% windows %}
+
+## Using groups to control where jobs are run
+
+{% data reusables.actions.jobs.example-runs-on-groups %}
+
+{% endwindows %}
+
+{% linux %}
 
 ## Using labels to control where jobs are run
 
@@ -67,18 +108,109 @@ jobs:
       - run: bats -v
 ```
 
+{% endlinux %}
+
+{% windows %}
+
+## Using labels to control where jobs are run
+
+In this example, a runner group is populated with Windows 16-core runners, which have also been assigned the label `windows-2022-16core`. The `runs-on` key sends the job to any available runner with a matching label:
+
+```yaml
+name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on:
+      labels: windows-2022-16core
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+```
+
+{% endwindows %}
+
+{% mac %}
+
+## Targeting macOS {% data variables.actions.hosted_runner %}s in a workflow
+
+To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set the value of the `runs-on` key to a label associated with a macOS {% data variables.actions.hosted_runner %}. For a list of macOS {% data variables.actions.hosted_runner %} labels, see "[Available macOS {% data variables.actions.hosted_runner %}s](#available-macos-larger-runners)."
+
+In this example, the workflow uses a label that is associated with macOS XL runners, which is `macos-latest-xl -arm64`. The `runs-on` key sends the job to any available runner with a matching label:
+
+```yaml
+name: learn-github-actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on:
+      labels: macos-latest-xlarge -arm64
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
+        with:
+          node-version: '16'
+      - run: npm install -g bats
+      - run: bats -v
+```
+
+{% endmac %}
+
+{% linux %}
+
 ## Using labels and groups to control where jobs are run
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}
 
+{% endlinux %}
+
+{% windows %}
+
+## Using labels and groups to control where jobs are run
+
+{% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
+
+{% data reusables.actions.section-using-unique-names-for-runner-groups %}
+
+{% endwindows %}
+
 ## Troubleshooting {% data variables.actions.hosted_runner %}s
 
-If you notice the jobs that target your {% data variables.actions.hosted_runner %}s are delayed or not running, there are several factors that may be causing this.
+{% linux %}
 
-- **Concurrency settings**: You may have reached your maximum concurrency limit. If you would like to enable more jobs to run in parallel, you can update your autoscaling settings to a larger number. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#configuring-autoscaling-for-larger-runners)."
-- **Repository permissions**: Ensure you have the appropriate repository permissions enabled for your {% data variables.actions.hosted_runner %}s. By default, enterprise runners are not available at the repository level and must be manually enabled by an organization owner. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#allowing-repositories-to-access-larger-runners)."
-- **Billing information**: You must have a valid credit card on file in order to use {% data variables.actions.hosted_runner %}s. After adding a credit card to your account, it can take up to 10 minutes to enable the use of your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)."
-- **Spending limit**: Your {% data variables.product.prodname_actions %} spending limit must be set to a value greater than zero. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
-- **Fair use policy**: {% data variables.product.company_short %} has a fair use policy that begins to throttle jobs based on several factors, such as how many jobs you are running or how many jobs are running across the entirety of {% data variables.product.prodname_actions %}.
+{% data reusables.actions.larger-runners-troubleshooting-linux-windows %}
+
+{% endlinux %}
+
+{% windows %}
+
+{% data reusables.actions.larger-runners-troubleshooting-linux-windows %}
+
+{% endwindows %}
+
+{% mac %}
+
+Because macOS arm64 does not support Node 12, macOS {% data variables.actions.hosted_runner %}s automatically use Node 16 to execute any JavaScript action written for Node 12. Some community actions may not be compatible with Node 16. If you use an action that requires a different Node version, you may need to manually install a specific version at runtime.
+
+For example, the `setup-ruby` action must be modified before you can use it on macOS {% data variables.actions.hosted_runner %}s. The following example shows how to install a specific version of Ruby, if you replace `RUBY_VERSION` with the desired version of Ruby.
+
+```yaml copy
+- name: Setup Ruby
+  run: |
+    brew install ruby-build
+    ruby-build RUBY_VERSION /Users/runner/hostedtoolcache/Ruby/RUBY_VERSION/arm64
+    touch /Users/runner/hostedtoolcache/Ruby/RUBY_VERSION/arm64.complete
+- name: Setup Ruby (with Bundler cache)
+  uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+  with:
+    ruby-version: RUBY_VERSION
+    bundler-cache: true
+```
+
+{% endmac %}

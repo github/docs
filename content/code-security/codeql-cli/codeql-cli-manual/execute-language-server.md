@@ -1,6 +1,6 @@
 ---
 title: execute language-server
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -37,7 +37,9 @@ IDEs. It is started by the IDE extension in the background and
 communicates with it through a special protocol on its standard input
 and output streams.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--check-errors=<checkErrors>`
 

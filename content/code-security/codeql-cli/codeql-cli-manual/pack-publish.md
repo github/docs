@@ -37,7 +37,9 @@ the pack is first compiled (if necessary) and bundled.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dir>`
 
@@ -195,7 +197,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

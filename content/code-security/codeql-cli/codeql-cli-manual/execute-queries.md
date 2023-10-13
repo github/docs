@@ -35,7 +35,9 @@ codeql execute queries [--output=<dir|file.bqrs>] [--threads=<num>] <options>...
 This command should not normally be invoked directly. Instead use either
 [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries) or [codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run), which will start [codeql execute queries](/code-security/codeql-cli/codeql-cli-manual/execute-queries) with specific JVM options to tune the performance of the QL evaluator.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dataset>`
 
@@ -159,7 +161,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate `<pred>`.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
@@ -327,7 +329,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

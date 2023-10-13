@@ -1,6 +1,6 @@
 ---
 title: database cleanup
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -35,7 +35,9 @@ Compact a CodeQL database on disk.
 Delete temporary data, and generally make a database as small as
 possible on disk without degrading its future usefulness.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 

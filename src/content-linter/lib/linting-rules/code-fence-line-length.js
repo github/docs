@@ -1,4 +1,4 @@
-import { addError, ellipsify, filterTokens, newLineRe } from 'markdownlint-rule-helpers'
+import { addError, filterTokens, newLineRe } from 'markdownlint-rule-helpers'
 
 export const codeFenceLineLength = {
   names: ['GHD001', 'code-fence-line-length'],
@@ -19,7 +19,7 @@ export const codeFenceLineLength = {
             onError,
             lineNumber,
             `Code fence line exceeds ${MAX_LINE_LENGTH} characters.`,
-            ellipsify(line),
+            line,
             [1, line.length],
             null, // No fix possible
           )

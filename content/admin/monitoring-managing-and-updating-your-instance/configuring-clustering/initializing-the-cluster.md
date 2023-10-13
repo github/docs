@@ -63,7 +63,7 @@ The names of the nodes can be any valid hostname you choose. The names are set a
 
 Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.
 
-```ini
+```shell
 [cluster]
   mysql-master = ghes-database-node-1
   redis-master = ghes-database-node-1

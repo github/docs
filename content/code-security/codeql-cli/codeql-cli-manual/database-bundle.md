@@ -1,6 +1,6 @@
 ---
 title: database bundle
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -36,7 +36,9 @@ A command that zips up the useful parts of the database. This will only
 include the mandatory components, unless the user specifically requests
 that results, logs, TRAP, or similar should be included.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 

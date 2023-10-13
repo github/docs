@@ -43,7 +43,7 @@ If you're using `nodenv`, see the [`nodenv` docs](https://github.com/nodenv/node
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open your terminal and run the following commands.
 
-```sh
+```shell
 git clone https://github.com/github/docs
 cd docs
 npm ci
@@ -96,5 +96,4 @@ For more information about using a codespace for working on {% data variables.pr
 - [Data](https://github.com/github/docs/blob/main/data/README.md)
 - [Middleware](https://github.com/github/docs/blob/main/middleware/README.md)
 - [Scripts](https://github.com/github/docs/blob/main/script/README.md)
-- [Styles](https://github.com/github/docs/blob/main/stylesheets/README.md)
 - [Tests](https://github.com/github/docs/blob/main/tests/README.md)

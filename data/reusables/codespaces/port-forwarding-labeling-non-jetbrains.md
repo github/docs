@@ -23,7 +23,7 @@ You can label a port and write the change to a dev container configuration file 
 
    The dev container configuration file is updated to include the new label in the `portsAttributes` property. For example:
 
-   ```json
+   ```jsonc
    // Use 'forwardPorts' to make a list of ports inside the container available locally.
    "forwardPorts": [3333, 4444],
 

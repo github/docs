@@ -35,13 +35,15 @@ codeql resolve ml-models <options>... -- <query|dir|suite|pack>...
 \[Deprecated] \[Experimental] \[Deep plumbing] Determine accessible
 machine learning models.
 
-This plumbing command resolves the set of GitHub-created machine
-learning models that are available to the query specifiers passed in as
-command line arguments.
+This plumbing command is deprecated. Previously it resolved the set of
+GitHub-created machine learning models that were available to the query
+specifiers passed in as command line arguments.
 
-This command is deprecated. Use [codeql resolve extensions](/code-security/codeql-cli/codeql-cli-manual/resolve-extensions) instead.
+It now returns an empty list of machine learning models.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<querysuite|pack>...`
 
@@ -111,7 +113,7 @@ value.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

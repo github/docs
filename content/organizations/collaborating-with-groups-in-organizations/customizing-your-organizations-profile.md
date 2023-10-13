@@ -18,7 +18,7 @@ You can customize your organization's Overview page to show a README and pinned 
 
 Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
 
-![Screenshot of an organization's profile page. In the right sidebar, a dropdown menu, labeled "View as: Public", is outlined in dark orange.](/assets/images/help/organizations/profile_view_switcher_public.png)
+![Screenshot of an organization's profile page. In the right sidebar, a dropdown menu, labeled "View as: Public", is outlined in dark orange.](/assets/images/help/organizations/profile-view-switcher-public.png)
 
 The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
 
@@ -68,18 +68,37 @@ You can pin repositories that you want to feature, such as those that are freque
 1. Navigate to your organization's profile page.
 1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" %} View as** dropdown menu, then click **Public** or **Member**.
 
-   ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org_profile_view.png)
+   ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org-profile-view.png)
 1. Navigate to the settings for pinned repositories.
 
    - If you already have pinned repositories, in the "Pinned" section, click **Customize pins**.
 
-   ![Screenshot of an organization's profile page. In the top-right corner of the "Pinned" section, "Customize pins" is outlined in dark orange.](/assets/images/help/organizations/customize_pins_link.png)
+   ![Screenshot of an organization's profile page. In the top-right corner of the "Pinned" section, "Customize pins" is outlined in dark orange.](/assets/images/help/organizations/customize-pins-link.png)
 
    - If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
 
-   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin_repositories_link.png)
+   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-link.png)
 
 1. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
 1. Click **Save pins**.
 
 {% endif %}
+
+## Changing your organization's profile picture
+
+When you create an organization, {% data variables.product.product_name %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
+
+You can replace the identicon with an image that represents your organization. To replace the image, you can upload a new image or use a Gravatar image.
+
+### Uploading an image
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. Under your profile picture, click **Upload new picture**, then select an image.
+
+### Using a Gravatar image
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Gravatar email (Private)" field, enter the email address associated with your Gravatar image.
+1. Click **Update profile**.

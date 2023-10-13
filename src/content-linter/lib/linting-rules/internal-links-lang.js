@@ -7,7 +7,7 @@ export const internalLinksLang = {
   description: 'Internal links must not have a hardcoded language code',
   tags: ['links', 'url'],
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD006(params, onError) {
+  function: function GHD005(params, onError) {
     filterTokens(params, 'inline', (token) => {
       for (const child of token.children) {
         if (child.type !== 'link_open') continue

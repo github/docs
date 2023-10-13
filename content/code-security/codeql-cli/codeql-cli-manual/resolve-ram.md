@@ -1,6 +1,6 @@
 ---
 title: resolve ram
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -41,7 +41,9 @@ In particular, this should be used to find appropriate `-J-Xmx` and
 `--off-heap-ram` options before staring a query server based on a
 desired _total_ RAM amount.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--format=<fmt>`
 

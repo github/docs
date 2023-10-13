@@ -37,7 +37,9 @@ that the compiled version of the query is written to a _compilation
 cache_ where it will be found when the query is later executed. Other
 output options are mostly for debugging.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>...`
 
@@ -234,7 +236,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of `<registry_url>=<token>` pairs.
+a comma-separated list of \<registry\_url>=\<token> pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

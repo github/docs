@@ -1,6 +1,6 @@
 ---
 title: database import
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -48,7 +48,9 @@ build systems where special care has been taken in how the build was
 separated in order to ensure that the resulting final database is
 meaningful.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
