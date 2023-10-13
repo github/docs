@@ -1,7 +1,7 @@
 ---
 title: Scripting with the Octokit.rb SDK in Ruby
 shortTitle: Script with Octokit.rb
-intro: Learn how to write a script using the Octokit.rb SDK to interact with the GitHub REST API.
+intro: Learn how to write a script using the Octokit.rb SDK to interact with the REST API.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,11 +15,11 @@ type: tutorial
 
 ## About Octokit.rb
 
-If you want to write a script using Ruby to interact with the GitHub REST API, GitHub recommends that you use the Octokit.rb SDK. Octokit.rb is maintained by GitHub. The SDK implements best practices and makes it easier for you to interact with the REST API via Ruby. Octokit.rb works with all modern browsers, Node.rb, and Deno. For more information about Octokit.rb, see [the Octokit.rb README](https://github.com/octokit/octokit.rb/#readme).
+If you want to write a script using Ruby to interact with the {% data variables.product.company_short %} REST API, {% data variables.product.company_short %} recommends that you use the Octokit.rb SDK. Octokit.rb is maintained by {% data variables.product.company_short %}. The SDK implements best practices and makes it easier for you to interact with the REST API via Ruby. Octokit.rb works with all modern browsers, Node.rb, and Deno. For more information about Octokit.rb, see [the Octokit.rb README](https://github.com/octokit/octokit.rb/#readme).
 
 ## Prerequisites
 
-This guide assumes that you are familiar with Ruby and the GitHub REST API. For more information about the REST API, see "[Getting Started with the GitHub REST API](/rest/guides/getting-started-with-the-rest-api)."
+This guide assumes that you are familiar with Ruby and the {% data variables.product.company_short %} REST API. For more information about the REST API, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api)."
 
 You must install and import the `octokit` gem in order to use the Octokit.rb library. This guide uses import statements in accordance with Ruby's conventions. For more information about different installation methods, see [the Octokit.rb README's Installation section](https://github.com/octokit/octokit.rb/#installation).
 
@@ -29,17 +29,17 @@ You must install and import the `octokit` gem in order to use the Octokit.rb lib
 
 **Warning**: Treat your authentication credentials like a password.
 
-To keep your credentials secure, you can store your credentials as a secret and run your script through GitHub Actions. For more information, see "[Encrypted Secrets](/actions/security-guides/encrypted-secrets)."
+To keep your credentials secure, you can store your credentials as a secret and run your script through  {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-{% ifversion ghec or fpt %}You can also store your credentials as a GitHub Codespaces secret and run your script in GitHub Codespaces. For more information, see "[Managing Encrypted Secrets for Your Codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}You can also store your credentials as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
 If {% ifversion ghec or fpt %}these options are not possible{% else %}this is not possible{% endif %}, consider using another CLI service to store your credentials securely.
 
 {% endwarning %}
 
-### Authenticating with a Personal Access Token (PAT)
+### Authenticating with a {% data variables.product.pat_generic %}
 
-If you want to use the GitHub REST API for personal use, you can create a Personal Access Token (PAT). For more information about creating a PAT, see "[Creating a Personal Access Token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic_title_case %} (PAT). For more information about creating a PAT, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
 
 First, require the `octokit` library. Then, create an instance of `Octokit` by passing your PAT as the `access_token` option. In the following example, replace `YOUR-TOKEN` with your PAT.
 
@@ -51,9 +51,9 @@ octokit = Octokit::Client.new(access_token: 'YOUR-TOKEN')
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, GitHub recommends that you use a GitHub App. If an endpoint is available to GitHub Apps, the REST reference documentation for that endpoint will say "Works with GitHub Apps." For more information, see "Creating GitHub Apps," "Authenticating with a GitHub App," and "Identifying and Authorizing Users for GitHub Apps."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.github_app %}. If an endpoint is available to {% data variables.product.github_apps %}, the REST reference documentation for that endpoint will say "Works with {% data variables.product.github_app %}." "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)," "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)," and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
-Instead of requiring `octokit`, create an instance of `Octokit::Client` by passing your GitHub App's information as options. In the following example, replace `APP_ID` with your app's ID, `PRIVATE_KEY` with your app's private key, and `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "Managing Private Keys for GitHub Apps." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation endpoints`. For more information, see "GitHub REST API - Apps" in the REST reference documentation.
+Instead of requiring `octokit`, create an instance of `Octokit::Client` by passing your {% data variables.product.prodname_github_app %}'s information as options. In the following example, replace `APP_ID` with your app's ID, `PRIVATE_KEY` with your app's private key, and `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)" in the REST reference documentation.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```Ruby copy
 require 'octokit'
@@ -67,13 +67,13 @@ app = Octokit::Client.new(
 octokit = Octokit::Client.new(bearer_token: app.create_app_installation.access_token)
 ```
 
-### Authenticating in GitHub Actions
+### Authenticating in {% data variables.product.prodname_actions %}
 
-If you want to use the API in a GitHub Actions workflow, GitHub recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see "Permissions for the `GITHUB_TOKEN`."
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see "Permissions for the `GITHUB_TOKEN`."
 
 If your workflow needs to access resources outside of the workflow's repository, then you will not be able to use `GITHUB_TOKEN`. In that case, store your credentials as a secret and replace `GITHUB_TOKEN` in the examples below with the name of your secret. For more information about secrets, see "Encrypted Secrets."
 
-If you use the `run` keyword to execute your Ruby script in your GitHub Actions workflows, you can store the value of `GITHUB_TOKEN` as an environment variable. Your script can access the environment variable as `ENV['VARIABLE_NAME']`.
+If you use the `run` keyword to execute your Ruby script in your {% data variables.product.prodname_actions %} workflows, you can store the value of `GITHUB_TOKEN` as an environment variable. Your script can access the environment variable as `ENV['VARIABLE_NAME']`.
 
 For example, this workflow step stores `GITHUB_TOKEN` in an environment variable called `TOKEN`:
 
@@ -185,7 +185,7 @@ For more information about pagination, see "Using Pagination in the REST API."
 
 ### Catching all errors
 
-Sometimes, the GitHub REST API will return an error. For example, you will get an error if your access token is expired or if you omitted a required parameter. Octokit.rb automatically retries the request when it gets an error other than `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, and `422 Unprocessable Entity`. If an API error occurs even after retries, Octokit.rb throws an error that includes the HTTP status code of the response (`response.status`) and the response headers (`response.headers`). You should handle these errors in your code. For example, you can use a try/catch block to catch errors:
+Sometimes, the {% data variables.product.company_short %} REST API will return an error. For example, you will get an error if your access token is expired or if you omitted a required parameter. Octokit.rb automatically retries the request when it gets an error other than `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, and `422 Unprocessable Entity`. If an API error occurs even after retries, Octokit.rb throws an error that includes the HTTP status code of the response (`response.status`) and the response headers (`response.headers`). You should handle these errors in your code. For example, you can use a try/catch block to catch errors:
 
 ```Ruby copy
 begin
@@ -207,7 +207,7 @@ end
 
 ### Handling intended error codes
 
-Sometimes, GitHub uses a 4xx status code to indicate a non-error response. If the endpoint you are using does this, you can add additional handling for specific errors. For example, the `GET /user/starred/{owner}/{repo}` endpoint will return a `404` if the repository is not starred. The following example uses the `404` response to indicate that the repository was not starred; all other error codes are treated as errors.
+Sometimes, {% data variables.product.company_short %} uses a 4xx status code to indicate a non-error response. If the endpoint you are using does this, you can add additional handling for specific errors. For example, the `GET /user/starred/{owner}/{repo}` endpoint will return a `404` if the repository is not starred. The following example uses the `404` response to indicate that the repository was not starred; all other error codes are treated as errors.
 
 
 ```Ruby copy
@@ -223,7 +223,7 @@ end
 
 ### Handling rate limit errors
 
-If you receive a rate limit error, you may want to retry your request after waiting. When you are rate limited, GitHub responds with a `403 Forbidden` error, and the `x-ratelimit-remaining` response header value will be `"0"`. The response headers will include a `x-ratelimit-reset` header, which tells you the time at which the current rate limit window resets, in UTC epoch seconds. You can retry your request after the time specified by `x-ratelimit-reset`.
+If you receive a rate limit error, you may want to retry your request after waiting. When you are rate limited, {% data variables.product.company_short %} responds with a `403 Forbidden` error, and the `x-ratelimit-remaining` response header value will be `"0"`. The response headers will include a `x-ratelimit-reset` header, which tells you the time at which the current rate limit window resets, in UTC epoch seconds. You can retry your request after the time specified by `x-ratelimit-reset`.
 
 ```Ruby copy
 def request_retry(route, parameters)
@@ -267,9 +267,9 @@ puts "The title of the first issue is: #{response.data[0]['title']}"
 
 ## Example script
 
-Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a GitHub App instead of a personal access token (PAT), you would import and instantiate `App` instead of `Octokit`. For more information, see "Authenticating with a GitHub App" in this guide.
+Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[AUTOTITLE](#authenticating-with-a-github-app)" in this guide.
 
-The ``get_changed_files`` function gets all of the files changed for a pull request. The `comment_if_data_files_changed` function calls the `get_changed_files` function. If any of the files that the pull request changed include `/data/` in the file path, then the function will comment on the pull request.
+The `get_changed_files` function gets all of the files changed for a pull request. The `comment_if_data_files_changed` function calls the `get_changed_files` function. If any of the files that the pull request changed include `/data/` in the file path, then the function will comment on the pull request.
 
 
 ```Ruby copy
@@ -330,8 +330,8 @@ This is just a basic example. In practice, you may want to use error handling an
 
 ## Next steps
 
-To learn more about working with the GitHub REST API and Octokit.rb, explore the following resources:
+To learn more about working with the {% data variables.product.company_short %} REST API and Octokit.rb, explore the following resources:
 
-GitHub REST API Reference - Find detailed information about the available endpoints, including their request and response structures.
-Octokit.rb GitHub Repository - Check out the GitHub repository for the Octokit.rb library for more examples and information.
-GitHub Developer Documentation - Explore the comprehensive GitHub Developer Documentation to learn more about various GitHub APIs, authentication, and best practices.
+{% data variables.product.company_short %} REST API Reference - Find detailed information about the available endpoints, including their request and response structures.
+Octokit.rb {% data variables.product.company_short %} Repository - Check out the {% data variables.product.company_short %} repository for the Octokit.rb library for more examples and information.
+{% data variables.product.company_short %} Developer Documentation - Explore the comprehensive {% data variables.product.company_short %} Developer Documentation to learn more about various {% data variables.product.company_short %} APIs, authentication, and best practices.
