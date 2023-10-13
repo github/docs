@@ -1,6 +1,6 @@
 ---
-title: Scripting with the Octokit.rb SDK in Ruby
-shortTitle: Script with Octokit.rb
+title: Scripting with the REST API and Ruby
+shortTitle: Script with Ruby
 intro: Learn how to write a script using the Octokit.rb SDK to interact with the REST API.
 versions:
   fpt: '*'
@@ -37,9 +37,9 @@ If {% ifversion ghec or fpt %}these options are not possible{% else %}this is no
 
 {% endwarning %}
 
-### Authenticating with a {% data variables.product.pat_generic %}
+### Authenticating with a {% data variables.product.prodname_pat_generic %}
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic_title_case %} (PAT). For more information about creating a PAT, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.prodname_pat_generic_title_case %} (PAT). For more information about creating a PAT, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
 
 First, require the `octokit` library. Then, create an instance of `Octokit` by passing your PAT as the `access_token` option. In the following example, replace `YOUR-TOKEN` with your PAT.
 
@@ -51,11 +51,11 @@ octokit = Octokit::Client.new(access_token: 'YOUR-TOKEN')
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.github_app %}. If an endpoint is available to {% data variables.product.github_apps %}, the REST reference documentation for that endpoint will say "Works with {% data variables.product.github_app %}." "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)," "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)," and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an endpoint is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_app %}." "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)," "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)," and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 Instead of requiring `octokit`, create an instance of `Octokit::Client` by passing your {% data variables.product.prodname_github_app %}'s information as options. In the following example, replace `APP_ID` with your app's ID, `PRIVATE_KEY` with your app's private key, and `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)" in the REST reference documentation.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
-```Ruby copy
+```ruby copy
 require 'octokit'
 
 app = Octokit::Client.new(
@@ -87,7 +87,7 @@ For example, this workflow step stores `GITHUB_TOKEN` in an environment variable
 
 The script that the workflow runs uses `ENV['TOKEN']` to authenticate:
 
-```Ruby copy
+```ruby copy
 require 'octokit'
 
 octokit = Octokit::Client.new(access_token: ENV['TOKEN'])
@@ -97,7 +97,7 @@ octokit = Octokit::Client.new(access_token: ENV['TOKEN'])
 
 You can use the REST API without authentication, although you will have a lower rate limit and will not be able to use some endpoints. To create an instance of `Octokit` without authenticating, do not pass the `access_token` option.
 
-```Ruby copy
+```ruby copy
 require 'octokit'
 
 octokit = Octokit::Client.new
@@ -111,13 +111,13 @@ Octokit supports multiple ways of making requests. You can use the `request` met
 
 To use the `request` method to make requests, pass the HTTP method and path as the first argument. Pass any body, query, or path parameters in a hash as the second argument. For example, to make a `GET` request to `/repos/{owner}/{repo}/issues` and pass the `owner`, `repo`, and `per_page` parameters:
 
-```Ruby copy
+```ruby copy
 octokit.request("GET /repos/{owner}/{repo}/issues", owner: "github", repo: "docs", per_page: 2)
 ```
 
 The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` option to the hash passed as a second argument. The value of the `headers` option is a hash with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
 
-```Ruby copy
+```ruby copy
 octokit.request("POST /markdown/raw", text: "Hello **world**", headers: { "content-type" => "text/plain" })
 ```
 
@@ -125,7 +125,7 @@ octokit.request("POST /markdown/raw", text: "Hello **world**", headers: { "conte
 
 Every REST API endpoint has an associated `rest` endpoint method in Octokit. These methods generally autocomplete in your IDE for convenience. You can pass any parameters as a hash to the method.
 
-```Ruby copy
+```ruby copy
 octokit.rest.issues.list_for_repo(owner: "github", repo: "docs", per_page: 2)
 ```
 
@@ -137,13 +137,13 @@ If the endpoint is paginated and you want to fetch more than one page of results
 
 For example, the following example gets all of the issues from the `github/docs` repository. Although it requests 100 issues at a time, the function won't return until the last page of data is reached.
 
-```Ruby copy
+```ruby copy
 issue_data = octokit.paginate("GET /repos/{owner}/{repo}/issues", owner: "github", repo: "docs", per_page: 100)
 ```
 
 The `paginate` method accepts an optional block, which you can use to process each page of results. This allows you to collect only the data that you want from the response. For example, the following example continues to fetch results until an issue that includes "test" in the title is returned. For the pages of data that were returned, only the issue title and author are stored.
 
-```Ruby copy
+```ruby copy
 issue_data = octokit.paginate("GET /repos/{owner}/{repo}/issues", owner: "github", repo: "docs", per_page: 100) do |response, done|
   response.data.map do |issue|
     if issue.title.include?("test")
@@ -156,7 +156,7 @@ end
 
 Instead of fetching all of the results at once, you can use `octokit.paginate.iterator()` to iterate through a single page at a time. For example, the following example fetches one page of results at a time and processes each object from the page before fetching the next page. Once an issue that includes "test" in the title is reached, the script stops the iteration and returns the issue title and issue author of each object that was processed. The iterator is the most memory-efficient method for fetching paginated data.
 
-```Ruby copy
+```ruby copy
 iterator = octokit.paginate.iterator("GET /repos/{owner}/{repo}/issues", owner: "github", repo: "docs", per_page: 100)
 issue_data = []
 break_loop = false
@@ -175,7 +175,7 @@ end
 
 You can use the `paginate` method with the `rest` endpoint methods as well. Pass the `rest` endpoint method as the first argument and any parameters as the second argument.
 
-```Ruby copy
+```ruby copy
 iterator = octokit.paginate.iterator(octokit.rest.issues.list_for_repo, owner: "github", repo: "docs", per_page: 100)
 ```
 
@@ -187,7 +187,7 @@ For more information about pagination, see "Using Pagination in the REST API."
 
 Sometimes, the {% data variables.product.company_short %} REST API will return an error. For example, you will get an error if your access token is expired or if you omitted a required parameter. Octokit.rb automatically retries the request when it gets an error other than `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, and `422 Unprocessable Entity`. If an API error occurs even after retries, Octokit.rb throws an error that includes the HTTP status code of the response (`response.status`) and the response headers (`response.headers`). You should handle these errors in your code. For example, you can use a try/catch block to catch errors:
 
-```Ruby copy
+```ruby copy
 begin
 files_changed = []
 
@@ -210,7 +210,7 @@ end
 Sometimes, {% data variables.product.company_short %} uses a 4xx status code to indicate a non-error response. If the endpoint you are using does this, you can add additional handling for specific errors. For example, the `GET /user/starred/{owner}/{repo}` endpoint will return a `404` if the repository is not starred. The following example uses the `404` response to indicate that the repository was not starred; all other error codes are treated as errors.
 
 
-```Ruby copy
+```ruby copy
 begin
 octokit.request("GET /user/starred/{owner}/{repo}", owner: "github", repo: "docs")
 puts "The repository is starred by me"
@@ -225,7 +225,7 @@ end
 
 If you receive a rate limit error, you may want to retry your request after waiting. When you are rate limited, {% data variables.product.company_short %} responds with a `403 Forbidden` error, and the `x-ratelimit-remaining` response header value will be `"0"`. The response headers will include a `x-ratelimit-reset` header, which tells you the time at which the current rate limit window resets, in UTC epoch seconds. You can retry your request after the time specified by `x-ratelimit-reset`.
 
-```Ruby copy
+```ruby copy
 def request_retry(route, parameters)
  begin
  response = octokit.request(route, parameters)
@@ -249,7 +249,7 @@ def request_retry(route, parameters)
 
 The `request` method returns a response object if the request was successful. The response object contains `data` (the response body returned by the endpoint), `status` (the HTTP response code), `url` (the URL of the request), and `headers` (a hash containing the response headers). Unless otherwise specified, the response body is in JSON format. Some endpoints do not return a response body; in those cases, the `data` property is omitted.
 
-```Ruby copy
+```ruby copy
 response = octokit.request("GET /repos/{owner}/{repo}/issues/{issue_number}", owner: "github", repo: "docs", issue_number: 11901)
  puts "The status of the response is: #{response.status}"
  puts "The request URL was: #{response.url}"
@@ -259,7 +259,7 @@ response = octokit.request("GET /repos/{owner}/{repo}/issues/{issue_number}", ow
 
 Similarly, the `paginate` method returns a response object. If the `request` was successful, the `response` object contains data, status, url, and headers.
 
-```Ruby copy
+```ruby copy
 response = octokit.paginate("GET /repos/{owner}/{repo}/issues", owner: "github", repo: "docs", per_page: 100)
 puts "#{response.data.length} issues were returned"
 puts "The title of the first issue is: #{response.data[0]['title']}"
@@ -267,12 +267,12 @@ puts "The title of the first issue is: #{response.data[0]['title']}"
 
 ## Example script
 
-Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[AUTOTITLE](#authenticating-with-a-github-app)" in this guide.
+Here is a full example script that uses Octokit.rb. The script imports ``Octokit`` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.prodname_pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[AUTOTITLE](#authenticating-with-a-github-app)" in this guide.
 
 The `get_changed_files` function gets all of the files changed for a pull request. The `comment_if_data_files_changed` function calls the `get_changed_files` function. If any of the files that the pull request changed include `/data/` in the file path, then the function will comment on the pull request.
 
 
-```Ruby copy
+```ruby copy
 require "octokit"
 
  octokit = Octokit::Client.new(access_token: "YOUR-TOKEN")
