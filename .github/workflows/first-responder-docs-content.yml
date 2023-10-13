@@ -23,6 +23,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
       - name: Check if the event originated from a team member
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-result
@@ -72,6 +75,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
       - name: Remove card from project
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
