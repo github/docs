@@ -80,7 +80,7 @@ For example, this workflow step stores `GITHUB_TOKEN` in an environment variable
 ```yaml
 - name: Run script
   env:
-    TOKEN: ${{ secrets.`GITHUB_TOKEN` }}
+    TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
   run: |
     ruby .github/actions-scripts/use-the-api.rb
 ```
