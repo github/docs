@@ -17,8 +17,6 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/sarif-output
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About SARIF output
 
 SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are

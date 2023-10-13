@@ -13,8 +13,6 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About testing custom queries
 
 {% data variables.product.prodname_codeql %} provides a simple test framework for automated regression testing

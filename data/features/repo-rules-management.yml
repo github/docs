@@ -1,0 +1,5 @@
+# Reference: #11915
+# Ruleset management public beta
+versions:
+  ghec: '*'
+  ghes: '>=3.12'
