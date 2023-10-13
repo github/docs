@@ -1,5 +1,6 @@
 ---
 title: Validating webhook deliveries
+shortTitle: Validate deliveries
 intro: 'You can use a webhook secret to verify that a webhook delivery is from {% data variables.product.company_short %}.'
 redirect_from:
   - /webhooks/securing
