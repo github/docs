@@ -18,7 +18,7 @@ topics:
   - Legal
 ---
 
-Effective date: December 15, 2022
+Effective date: October 10, 2023
 
 Thanks for entrusting GitHub, Inc. or GitHub B.V. (“GitHub”, “we”, "us" or "our") with your source code, your projects, and your personal data. This Privacy Statement explains our practices regarding the collection, use, and disclosure of your data, including any personal data we collect and process in connection with our website and any applications, software, products, and services provided by GitHub, including any Beta Previews (collectively, the “Service(s)”).
 
@@ -142,7 +142,7 @@ We share personal data as described below, including with your consent or as nec
 
 ### Public information
 
-You may select options available through our Service to publicly display and share your name and/or username and certain other information, such as your profile, demographic data, content and files, or geolocation data. For example, if you would like your email address to remain private, even when you’re commenting on public repositories, [you can adjust your setting for your email address to be private in your user profile](https://github.com/settings/emails). You can also [update your local Git configuration to use your private email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address). For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
+You may select options available through our Service to publicly display and share your name and/or username and certain other information, such as your profile, demographic data, content and files, or geolocation data. For example, if you would like your email address to remain private, even when you’re commenting on public repositories, [you can adjust your setting for your email address to be private in your user profile](https://github.com/settings/emails). You can also [update your local Git configuration to use your private email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
 
 Please note that if you would like to compile GitHub data, you must comply with our [Terms of Service](/site-policy/github-terms/github-terms-of-service) regarding information usage and privacy, and you may only use any public-facing information you gather for the purpose for which our user authorized it. For example, where a GitHub user has made an email address public-facing for the purpose of identification and attribution, do not use that email address for the purposes of sending unsolicited emails to users or selling personal information, such as to recruiters, headhunters, and job boards, or for commercial advertising. We expect you to reasonably secure information you have gathered from GitHub, and to respond promptly to complaints, removal requests, and "do not contact" requests from GitHub or GitHub users.
 
@@ -165,6 +165,8 @@ Such processing by service providers and any related cross border data transfers
 ### Affiliates
 
 We enable access to personal data across our subsidiaries, affiliates, and related companies, for example, where we share common data systems, when affiliates provide services on our behalf, or where access is needed to operate and provide the Service.
+
+GitHub has the responsibility for the processing of personal information it receives under the Data Privacy Framework (DPF) Principles and subsequently transfers to a third party acting as an agent on GitHub’s behalf. GitHub shall remain liable under the DPF Principles if its agent processes such personal information in a manner inconsistent with the DPF Principles, unless the organization proves that it is not responsible for the event giving rise to the damage.
 
 ### For security purposes
 
@@ -295,9 +297,13 @@ GitHub will provide notice regarding private repository access where not prohibi
 
 ### Cross-border data transfers
 
+## Data Privacy Framework (DPF)
+
+GitHub complies with the EU-U.S. Data Privacy Framework (EU-U.S. DPF), the UK Extension to the EU-U.S. DPF, and the Swiss-U.S. Data Privacy Framework (Swiss-U.S. DPF) as set forth by the U.S. Department of Commerce. GitHub has certified to the U.S. Department of Commerce that it adheres to the EU-U.S. Data Privacy Framework Principles (EU-U.S. DPF Principles) with regard to the processing of personal data received from the European Union in reliance on the EU-U.S. DPF and from the United Kingdom (and Gibraltar) in reliance on the UK Extension to the EU-U.S. DPF. GitHub has certified to the U.S. Department of Commerce that it adheres to the Swiss-U.S. Data Privacy Framework Principles (Swiss-U.S. DPF Principles) with regard to the processing of personal data received from Switzerland in reliance on the Swiss-U.S. DPF.  If there is any conflict between the terms in this privacy policy and the EU-U.S. DPF Principles and/or the Swiss-U.S. DPF Principles, the Principles shall govern. To learn more about the Data Privacy Framework (DPF) program, and to view our certification, please visit https://www.dataprivacyframework.gov/.
+
 GitHub may store and process your personal data in your region, in the United States, and in any other country where GitHub or its affiliates, subsidiaries, or service providers operate facilities.
 
-We transfer personal data from the European Union, the United Kingdom, and Switzerland to other countries, some of which have not yet been determined by the European Commission to have an adequate level of data protection. For example, their laws may not guarantee you the same rights, or there may not be a privacy supervisory authority there that is capable of addressing your complaints. When we engage in such transfers, we use a variety of legal mechanisms, including contracts, such as the standard contractual clauses published by the European Commission under Commission Implementing Decision 2021/914, to help protect your rights and enable these protections to travel with your data. You may request a copy of the Standard Contractual Clauses using the contact details provided in the section entitled “Contacting GitHub” below.
+We transfer personal data from the European Union, the United Kingdom, and Switzerland to other countries, some of which have not yet been determined by the European Commission to have an adequate level of data protection. For example, their laws may not guarantee you the same rights, or there may not be a privacy supervisory authority there that is capable of addressing your complaints. When we engage in such transfers, we use a variety of legal mechanisms, including contracts, such as the standard contractual clauses published by the European Commission under Commission Implementing Decision 2021/914, to help protect your rights and enable these protections to travel with your data. To learn more about the European Commission’s decisions on the adequacy of the protection of personal data in the countries where Microsoft processes personal data, see this article on [the European Commission website](https://commission.europa.eu/index). You may view a copy of the Standard Contractual Clauses on the GitHub Customer Agreements website under the [GitHub Data Protection Agreement](https://github.com/customer-terms/github-data-protection-agreement).
 
 ### How to Contact Us
 
@@ -317,7 +323,16 @@ United States
 ### Dispute resolution process
 
 In the unlikely event that a dispute arises between you and GitHub regarding our handling of your personal data, please email us directly at (privacy [at] github [dot] com) with the subject line "Privacy Concerns". We will respond promptly and do our best to resolve the dispute.
+
 Additionally, you may have the right to file a complaint with your local data protection or privacy agency or supervisory authority.
+
+In compliance with the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF and the Swiss-U.S. DPF, GitHub commits to refer unresolved complaints concerning our handling of personal data received in reliance on the EU-U.S. DPF and the UK Extension to the EU-U.S. DPF and the Swiss-U.S. DPF to the International Centre for Dispute Resolution, an alternative dispute resolution provider based in the United States, the European Union, the United Kingdom, and/or Switzerland (as applicable). If you do not receive timely acknowledgment of your DPF Principles-related complaint from us, or if we have not addressed your DPF Principles-related complaint to your satisfaction, please visit https://go.adr.org/dpf_irm.html for more information or to file a complaint. The services of the International Centre for Dispute Resolution are provided at no cost to you.
+
+An individual has the possibility, under certain conditions, to invoke binding arbitration for complaints regarding DPF compliance not resolved by any of the other DPF mechanisms. For additional information visit the [Data Privacy Framework website](https://www.dataprivacyframework.gov/s/article/ANNEX-I-introduction-dpf?tabset-35584=2).
+
+## Government Enforcement
+
+GitHub is subject to the investigatory and enforcement powers of the Federal Trade Commission (FTC). Under Section 5 of the Federal Trade Commission Act (15 U.S.C. § 45), an organization's failure to abide by commitments to implement the DPF Principles may be challenged as deceptive by the FTC. The FTC has the power to prohibit such misrepresentations through administrative orders or by seeking court orders.
 
 ## Changes to our Privacy Statement
 
@@ -411,12 +426,10 @@ GitHub asks your consent to collect and process your sensitive data or does so a
 - To undertake activities to verify or maintain the quality or safety of, or improve, upgrade, or enhance a service or device owned or controlled by GitHub; and
 - To conduct any other activities in accordance with applicable law.
 
-The charts above contain the primary sources, purposes of processing, and recipients for each category of personal data. We use the categories of personal information described above for the purposes listed in the "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#how-github-uses-your-information)" section of our Privacy Statement, such as meeting our legal obligations, improving our internal operations, and doing research. We also disclose the categories of personal information listed above for business or compliance purposes. Please see the "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#how-we-share-the-information-we-collect)" section of our Privacy Statement for additional details.
+The charts above contain the primary sources, purposes of processing, and recipients for each category of personal data. We use the categories of personal information described above for the purposes listed in the "[How GitHub uses your information](https://docs.github.com/en/github/site-policy/github-privacy-statement#how-github-uses-your-information)" section of our Privacy Statement, such as meeting our legal obligations, improving our internal operations, and doing research. We also disclose the categories of personal information listed above for business or compliance purposes. Please see the "[How we share information we collect](https://docs.github.com/en/github/site-policy/github-privacy-statement#how-we-share-the-information-we-collect)" section of our Privacy Statement for additional details.
 
 **Not in a Position to Identify Data**. In some situations GitHub may process data in a state called Not in a Position to Identify Data (NPI) or de-identified data. Data is in this state when we are not able to link data to an individual to whom such data may relate without taking additional steps. In those instances, and unless allowed under applicable law, we will maintain such information in an NPI state, and will not try to re-identify the individual to whom NPI data relates.
 
-**Disclosures of personal data for business or commercial purposes**. As indicated in the How We share the information we collect section, we share personal data with third parties for various business and commercial purposes. The primary business and commercial purposes for which we share personal data are the purposes of processing listed in the table above. We also disclose the categories of personal information listed above for business purposes. Please see the "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#how-we-share-the-information-we-collect)" section of our Privacy Statement for additional details.
+**Disclosures of personal data for business or commercial purposes**. As indicated in the How We share the information we collect section, we share personal data with third parties for various business and commercial purposes. The primary business and commercial purposes for which we share personal data are the purposes of processing listed in the table above. We also disclose the categories of personal information listed above for business purposes. Please see the "[How we share the information we collect](https://docs.github.com/en/github/site-policy/github-privacy-statement#how-we-share-the-information-we-collect)" section of our Privacy Statement for additional details.
 
 **Parties that control collection of personal data**. In certain situations, we may allow a third party to control the collection of your personal data. For example, on our Enterprise Marketing Pages, advertisers may be the controllers of information they collect through their cookies.
-
-We use the categories of personal information described above for the purposes listed in the "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#how-github-uses-your-information)" section of our Privacy Statement. We also disclose the categories of personal information listed above for business purposes. Please see the "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement#how-we-share-the-information-we-collect)" section of our Privacy Statement for additional details.

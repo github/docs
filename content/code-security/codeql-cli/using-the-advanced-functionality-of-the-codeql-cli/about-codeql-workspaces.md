@@ -13,8 +13,6 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About {% data variables.product.prodname_codeql %} workspaces
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}

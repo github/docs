@@ -73,7 +73,7 @@ describe('front matter', () => {
       }
       if (trouble.find((t) => t.redirects)) {
         customErrorMessage += `\n\nNOTE! To automatically fix the redirects run this command:\n`
-        customErrorMessage += `\n\t./scripts/update-internal-links.js content/${page.relativePath}\n\n`
+        customErrorMessage += `\n\t./src/links/scripts/update-internal-links.js content/${page.relativePath}\n\n`
       }
     }
     return customErrorMessage
