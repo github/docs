@@ -18,7 +18,7 @@ on:
       - main
 
 permissions:
-  contents: none
+  contents: read
 
 env:
   FREEZE: ${{ secrets.FREEZE }}
