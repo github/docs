@@ -65,3 +65,8 @@ jobs:
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}
           AUTHOR_LOGIN: ${{ github.event.pull_request.user.login || github.event.issue.user.login }}
           REPO: ${{ github.repository }}
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

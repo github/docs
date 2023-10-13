@@ -157,3 +157,8 @@ jobs:
       - name: 'Swap deployment slot to production'
         run: |
           az webapp deployment slot swap --slot ${{ env.SLOT_NAME }} --target-slot production -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
