@@ -16,8 +16,6 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/exit-codes
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About exit codes
 
 The {% data variables.product.prodname_codeql_cli %} reports the status of each command it runs as an exit code.
