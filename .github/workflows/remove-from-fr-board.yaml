@@ -28,3 +28,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           PR_URL: https://github.com/${{ github.event.client_payload.command.repository.full_name }}/pull/${{ github.event.client_payload.command.resource.number }}
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -51,3 +51,8 @@ jobs:
           # running `git status` should
           # say "nothing to commit, working tree clean".
           git diff --exit-code
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
