@@ -1,16 +1,20 @@
 ---
 title: GitHub Community Guidelines
-redirect_from:
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc :attributionURL" href="http://#LINEGAME #LAGALAXY1>VIP< ⏩คลิก https://mem.lagalaxy1.vip/?openExternalBrowser=1">Ҩҩ,Түүлй. </a> โดย <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="http://mem.lagalaxy1.vip/?ref=64dd8d33c93e707d8c1e9808">ME3149235472 </a> ถูกทำเครื่องหมายไว้ ด้วย <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 สากล<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text -ด้านล่าง;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
+ตัวย่อใบ:
   - /community-guidelines
   - /articles/github-community-guidelines
   - /github/site-policy/github-community-guidelines
   - /github/site-policy/acceptable-use-policies/github-community-guidelines
-versions:
+versions<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc :attributionURL" href="http://#LINEGAME #LAGALAXY1>VIP< ⏩คลิก https://mem.lagalaxy1.vip/?openExternalBrowser=1">Ҩҩ,Түүлй. </a> โดย <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="http://mem.lagalaxy1.vip/?ref=64dd8d33c93e707d8c1e9808">ME3149235472 </a> ถูกทำเครื่องหมายไว้ ด้วย <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 สากล<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text -ด้านล่าง;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
+ตัวย่อใบ:
   fpt: '*'
-topics:
+topics:<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc :attributionURL" href="http://#LINEGAME #LAGALAXY1>VIP< ⏩คลิก https://mem.lagalaxy1.vip/?openExternalBrowser=1">Ҩҩ,Түүлй. </a> โดย <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="http://mem.lagalaxy1.vip/?ref=64dd8d33c93e707d8c1e9808">ME3149235472 </a> ถูกทำเครื่องหมายไว้ ด้วย <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 สากล<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text -ด้านล่าง;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
+ตัวย่อใบ
   - Policy
   - Legal
----
+---<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc :attributionURL" href="http://#LINEGAME #LAGALAXY1>VIP< ⏩คลิก https://mem.lagalaxy1.vip/?openExternalBrowser=1">Ҩҩ,Түүлй. </a> โดย <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="http://mem.lagalaxy1.vip/?ref=64dd8d33c93e707d8c1e9808">ME3149235472 </a> ถูกทำเครื่องหมายไว้ ด้วย <a href="http://creativecommons.org/publicdomain/zero/1.0?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0 สากล<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text -ด้านล่าง;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"></a></p>
+ตัวย่อใบ
 
 Millions of developers across the world host millions of projects—both open and closed source—on GitHub. We're fortunate to be able to play a part in enabling collaboration across the developer community every day, which is a responsibility we don’t take lightly. Together, we all have the exciting opportunity to make this a community we can be proud of.
 
