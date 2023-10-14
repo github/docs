@@ -47743,6 +47743,11 @@ enum SocialAccountProvider {
   MASTODON
 
   """
+  JavaScript package registry.
+  """
+  NPM
+
+  """
   Social news aggregation and discussion website.
   """
   REDDIT

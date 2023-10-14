@@ -15,7 +15,8 @@ topics:
 children:
   - /configuring-the-ip-address-using-the-virtual-machine-console
   - /configuring-dns-nameservers
-  - /configuring-a-hostname
+  - /configuring-the-hostname-for-your-instance
+  - /changing-the-hostname-for-your-instance
   - /validating-your-domain-settings
   - /configuring-an-outbound-web-proxy-server
   - /configuring-built-in-firewall-rules

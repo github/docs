@@ -1,5 +1,6 @@
 ---
 title: Troubleshooting webhooks
+shortTitle: Troubleshoot webhooks
 intro: 'Learn how to diagnose and resolve common errors for webhooks.'
 versions:
   fpt: '*'

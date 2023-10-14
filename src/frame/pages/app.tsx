@@ -125,6 +125,10 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
         name: langObj.name,
         code: langObj.code,
       }
+      // The `hreflang` is used for the `<link rel="alternate">` tags.
+      if (langObj.hreflang && langObj.hreflang !== langObj.code) {
+        languagesContext.languages[langCode].hreflang = langObj.hreflang
+      }
       if (langObj.nativeName) {
         languagesContext.languages[langCode].nativeName = langObj.nativeName
       }

@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>NPM</code> was added to enum <code>SocialAccountProvider</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>WorkflowFileReference</code> was added</p>",
           "<p>Type <code>WorkflowFileReferenceInput</code> was added</p>",
           "<p>Type <code>WorkflowsParameters</code> was added</p>",
