@@ -72,7 +72,11 @@ When a repository admin transfers an action repository, {% data variables.produc
 
 Actions published on {% data variables.product.prodname_marketplace %} are linked to a repository by their unique `name` identifier, meaning you can publish new releases of an action from the transferred repository under the same {% data variables.product.prodname_marketplace %} listing. If an action repository is deleted, the {% data variables.product.prodname_marketplace %} listing is also deleted, and the unique `name` identifier becomes available.
 
+{% note %}
+
 **Note:** The "Verified" badge seen on an organization's {% data variables.product.prodname_dotcom %} profile is different from the verified creator badge on {% data variables.product.prodname_marketplace %}. If you transfer an action repository, the {% data variables.product.prodname_marketplace %} listing will lose the verified creator badge unless the new owner is also a verified creator.
+
+{% endnote %}
   
 ## About badges in {% data variables.product.prodname_marketplace %}
 
