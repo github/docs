@@ -74,5 +74,5 @@ For more info about working with this site, check out these READMEs:
 <!-- The following will be moved into src directory over time: -->
 - [components/README.md](../components/README.md)
 - [middleware/README.md](../middleware/README.md)
-- [script/README.md](../script/README.md)
+- [script/README.md](script/bookmarklets/README.md)
 - [tests/README.md](../tests/README.md)
