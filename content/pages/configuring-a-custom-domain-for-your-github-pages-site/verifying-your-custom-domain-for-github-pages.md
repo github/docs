@@ -22,7 +22,7 @@ When you verify a domain, any immediate subdomains are also included in the veri
 
 It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
 
-### Veryifying a domain that is already taken
+### Verifying a domain that is already taken
 
 If you are verifying a domain you own, which is currently in use by another user or organization, to make it available for your {% data variables.product.prodname_pages %} website; note that the process to release the domain from its current location will take 7 days to complete. If you are attempting to verify an already verified domain (verified by another user or organization), the release process will not be successful.
 
