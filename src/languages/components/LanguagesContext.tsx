@@ -5,6 +5,7 @@ export type LanguageItem = {
   name: string
   nativeName?: string
   code: string
+  hreflang?: string
 }
 
 export type LanguagesContextT = {

@@ -16,8 +16,6 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About creating {% data variables.product.prodname_codeql %} query suites
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}

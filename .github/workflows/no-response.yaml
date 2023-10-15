@@ -46,3 +46,8 @@ jobs:
             to our request for more information from the original author. Please reach out
             if you have the information we requested, or open a [new issue](https://github.com/github/docs/issues/new/choose)
             to describing your changes. Then we can begin the review process.
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

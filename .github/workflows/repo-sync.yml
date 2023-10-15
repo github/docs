@@ -136,11 +136,7 @@ jobs:
             // Error loud here, so no try/catch
             console.log('Merged the pull request successfully')
 
-      - name: Send Slack notification if workflow fails
-        if: failure()
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+      - uses: ./.github/actions/slack-alert
         with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/repo-sync.yml
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

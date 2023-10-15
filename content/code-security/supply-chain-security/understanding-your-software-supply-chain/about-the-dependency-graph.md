@@ -112,6 +112,8 @@ The recommended formats explicitly define which versions are used for all direct
 
 {% endif %}
 
+- {% data reusables.dependabot.dependabot-alert-actions-semver %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec or ghes %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates){% endif %}."
+
 {% endnote %}
 
 {% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above.{% endif %} {% data reusables.dependency-graph.dependency-submission-API-short %}
