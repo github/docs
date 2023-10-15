@@ -21,7 +21,7 @@ shortTitle: Configure 2FA
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-You can configure two-factor authentication (2FA) using a mobile app{% ifversion fpt or ghec %} or via text message{% endif %}. You can also add a security key.
+You can configure two-factor authentication (2FA) using a TOTP app on mobile or desktop{% ifversion fpt or ghec %} or via text message{% endif %}. After you have configured 2FA using a TOTP app{% ifversion fpt or ghec %} or via text message{% endif %}, you can then also add security keys as alternate 2FA methods.
 
 We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA{% ifversion fpt or ghec %}, and security keys as backup methods instead of SMS. TOTP applications are more reliable than SMS, especially for locations outside the United States{% endif %}. Many TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
 
@@ -52,7 +52,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% endnote %}
 {% endif %}
 
-## Configuring two-factor authentication using a TOTP mobile app
+## Configuring two-factor authentication using a TOTP app
 
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. These apps can be downloaded to your phone or desktop. We recommend using cloud-based TOTP apps. {% data variables.product.prodname_dotcom %} is app-agnostic when it comes to TOTP apps, so you have the freedom to choose any TOTP app you prefer. Just search for `TOTP app` in your browser to find various options. You can also refine your search by adding keywords like `free` or `open source` to match your preferences.
 

@@ -24,13 +24,15 @@ To use an Azure VNET for private networking, you must configure your Azure resou
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_actions %} for VNET-injection, you must use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) in the Azure documentation.
+To configure {% data variables.product.prodname_actions %} for VNET-injection, you must use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the `GitHub.Network` resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) in the Azure documentation.
 
 To correctly associate the subnets with the right user, Azure `NetworkSettings` resources must be created in the same subscriptions where virtual networks are created.
 
 To ensure resource availability/data residency, resources must be created in the same Azure region.
 
 After you configure your Azure subscription, share your Azure Subscription ID with your {% data variables.product.company_short %} contact to enroll in the beta.
+
+Obtain your enterprise `databaseId`. For more information, see "[Using GraphQL to obtain your `databaseId`](#using-graphql-to-obtain-your-databaseid)."
 
 Save the following `.bicep` file in the same directory location of the script. Name the file `actions-nsg-deployment.bicep`.
 
@@ -149,6 +151,24 @@ resource actions_NSG 'Microsoft.Network/networkSecurityGroups@2017-06-01' = {
 }
 ```
 
+## Using GraphQL to obtain your `databaseId`
+
+Use the following GraphQL query to retrieve your enterprise `databaseId`. You will use the enterprise `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
+
+```graphql
+query(
+  $slug: String!
+){
+  enterprise (slug: $slug)
+  {
+    slug
+    databaseId
+  }
+}
+```
+
+{% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
+
 ## Using a script to configure your Azure resources
 
 Use the following script to set up a subnet with VNET-injection in Azure. The script creates all resources in the same resource group.
@@ -210,4 +230,4 @@ echo az group delete --resource-group $RESOURCE_GROUP_NAME
 
 ```
 
-The script will return the full payload for the created resource. The `GitHubId` hash value returned in the payload for the created resource is the network settings resource ID you will use in the next steps while configuring VNET settings with {% data variables.product.company_short %}.
+The script will return the full payload for the created resource. The `GitHubId` hash value returned in the payload for the created resource is the network settings resource ID you will use in the next steps while configuring VNET settings with {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-your-github-settings-for-use-with-azure-virtual-network)."

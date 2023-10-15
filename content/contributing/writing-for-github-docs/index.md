@@ -15,6 +15,7 @@ children:
   - /using-videos-in-github-docs
   - /creating-reusable-content
   - /creating-screenshots
+  - /creating-diagrams-for-github-docs
   - /creating-tool-switchers-in-articles
   - /configuring-redirects
   - /changing-an-articles-title

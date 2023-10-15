@@ -36,7 +36,7 @@ codeql bqrs hash <options>... -- <file>
 
 ### Primary Options
 
-#### `<file>` <!-- markdownlint-disable-line heading-increment -->
+#### `<file>`
 
 \[Mandatory] BQRS file to hash.
 

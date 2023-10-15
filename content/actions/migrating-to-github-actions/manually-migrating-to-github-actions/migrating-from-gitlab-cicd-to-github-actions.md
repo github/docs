@@ -60,8 +60,6 @@ job1:
 
 ### {% data variables.product.prodname_actions %} syntax for jobs
 
-{% raw %}
-
 ```yaml
 jobs:
   job1:
@@ -69,8 +67,6 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: echo "Run your script here"
 ```
-
-{% endraw %}
 
 ## Runners
 
@@ -343,8 +339,6 @@ artifacts:
 
 ### {% data variables.product.prodname_actions %} syntax for artifacts
 
-{% raw %}
-
 ```yaml
 - name: Upload math result for job 1
   uses: {% data reusables.actions.action-upload-artifact %}
@@ -352,8 +346,6 @@ artifacts:
     name: homework
     path: math-homework.txt
 ```
-
-{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
@@ -396,8 +388,6 @@ container-job:
 
 ### {% data variables.product.prodname_actions %}  syntax for databases and service containers
 
-{% raw %}
-
 ```yaml
 jobs:
   container-job:
@@ -430,7 +420,5 @@ jobs:
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
-
-{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."

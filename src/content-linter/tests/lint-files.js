@@ -4,15 +4,10 @@ import slash from 'slash'
 import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
-import { fromMarkdown } from 'mdast-util-from-markdown'
-import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
-import { existsSync } from 'fs'
 import { jest } from '@jest/globals'
 
-import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
 import languages from '#src/languages/lib/languages.js'
-import { liquid } from '#src/content-render/index.js'
 import { getDiffFiles } from '../lib/diff-files.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
@@ -20,8 +15,6 @@ jest.useFakeTimers({ legacyFakeTimers: true })
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const rootDir = path.join(__dirname, '../../..')
-const contentDir = path.join(rootDir, 'content')
-const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')
 const glossariesDir = path.join(rootDir, 'data/glossaries')
 const fbvDir = path.join(rootDir, 'data/features')
@@ -166,13 +159,6 @@ const oldVariableErrorText =
 const oldOcticonErrorText =
   'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 
-const mdWalkOptions = {
-  globs: ['**/*.md'],
-  ignore: ['**/README.md'],
-  directories: false,
-  includeBasePath: true,
-}
-
 // Also test the "data/variables/" YAML files
 
 const yamlWalkOptions = {
@@ -182,67 +168,9 @@ const yamlWalkOptions = {
 }
 
 // different lint rules apply to different content types
-let mdToLint, ymlToLint
+let ymlToLint
 
 // compile lists of all the files we want to lint
-
-const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
-const contentMarkdownRelPaths = contentMarkdownAbsPaths.map((p) => slash(path.relative(rootDir, p)))
-
-// Get the list of config files for automated pipelines
-const automatedConfigFiles = walk(`src`, { includeBasePath: true, globs: ['**/lib/config.json'] })
-// Get a list of Markdown files to ignore during Markdown linting
-const automatedIgnorePaths = (
-  await Promise.all(
-    automatedConfigFiles.map(async (p) => {
-      return JSON.parse(await fs.readFile(p, 'utf8')).linterIgnore || []
-    }),
-  )
-)
-  .flat()
-  .filter(Boolean)
-
-// For each linterIgnore directory, walk the files in the directory and add
-// to the ignore list.
-const ignoreMarkdownFilesAbsPath = new Set(
-  automatedIgnorePaths
-    .filter((p) => {
-      const exists = existsSync(p)
-      if (!exists) {
-        console.warn(
-          `WARNING: Ignored path ${p} defined in an automation pipeline does not exist. This may be expected, but if not, remove the defined path from the pipeline config.`,
-        )
-      }
-      return exists
-    })
-    .map((p) =>
-      walk(p, {
-        includeBasePath: true,
-        globs: ['**/*.md'],
-      }),
-    )
-    .flat(),
-)
-
-// Difference between contentMarkdownAbsPaths & automatedIgnorePaths
-const contentMarkdownNoAutomated = [...contentMarkdownRelPaths].filter(
-  (p) => !ignoreMarkdownFilesAbsPath.has(p),
-)
-// We also need to go back and get the difference between the
-// absolute paths list
-const contentMarkdownAbsPathNoAutomated = [...contentMarkdownAbsPaths].filter(
-  (p) => !ignoreMarkdownFilesAbsPath.has(slash(path.relative(rootDir, p))),
-)
-
-const contentMarkdownTuples = zip(contentMarkdownNoAutomated, contentMarkdownAbsPathNoAutomated)
-
-const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
-const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p)),
-)
-const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
-
-mdToLint = [...contentMarkdownTuples, ...reusableMarkdownTuples]
 
 // data/variables
 const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
@@ -300,11 +228,10 @@ if (diffFiles.length > 0) {
     tuples.filter(
       ([relativePath, absolutePath]) => only.has(relativePath) || only.has(absolutePath),
     )
-  mdToLint = filterFiles(mdToLint)
   ymlToLint = filterFiles(ymlToLint)
 }
 
-if (mdToLint.length + ymlToLint.length < 1) {
+if (ymlToLint.length === 0) {
   // With this in place, at least one `test()` is called and you don't
   // get the `Your test suite must contain at least one test.` error
   // from `jest`.
@@ -312,107 +239,6 @@ if (mdToLint.length + ymlToLint.length < 1) {
     test('void', () => {})
   })
 }
-
-describe('lint markdown content', () => {
-  if (mdToLint.length < 1) return
-
-  describe.each(mdToLint)('%s', (markdownRelPath, markdownAbsPath) => {
-    let content,
-      ast,
-      links,
-      isHidden,
-      isEarlyAccess,
-      isSitePolicy,
-      isSearch,
-      isTranscript,
-      isTranscriptLanding,
-      hasExperimentalAlternative,
-      frontmatterData
-
-    beforeAll(async () => {
-      const fileContents = await fs.readFile(markdownAbsPath, 'utf8')
-      const { data, content: bodyContent } = frontmatter(fileContents)
-
-      content = bodyContent
-      frontmatterData = data
-      ast = fromMarkdown(content)
-      isHidden = data.hidden === true
-      const split = markdownRelPath.split('/')
-      isEarlyAccess = split.includes('early-access')
-      isSitePolicy = split.includes('site-policy-deprecated')
-      isSearch = split.includes('search') && !split.includes('reusables')
-      isTranscript = split.includes('video-transcripts')
-      isTranscriptLanding = isTranscript && split.includes('index.md')
-      hasExperimentalAlternative = data.hasExperimentalAlternative === true
-
-      links = []
-      visit(ast, ['link', 'definition'], (node) => {
-        links.push(node.url)
-      })
-    })
-
-    test('hidden docs must be Early Access, Site Policy, Search, Experimental, or Transcript', async () => {
-      // We need to support some non-Early Access hidden docs in Site Policy
-      if (isHidden) {
-        expect(
-          isEarlyAccess || isSitePolicy || isSearch || hasExperimentalAlternative || isTranscript,
-        ).toBe(true)
-      }
-    })
-
-    // see contributing/videos.md
-    test('transcripts must contain intro link to video being transcribed', async () => {
-      if (isTranscript && !isTranscriptLanding) {
-        expect(frontmatterData.product_video).toBeDefined()
-      }
-    })
-
-    // see contributing/videos.md
-    test('transcripts must be prepended with "Transcript - "', async () => {
-      if (isTranscript && !isTranscriptLanding) {
-        expect(frontmatterData.title.startsWith('Transcript - ')).toBe(true)
-      }
-    })
-
-    // see contributing/videos.md
-    test('videos on product landing pages must contain transcript', async () => {
-      if (frontmatterData.layout === 'product-landing' && frontmatterData.product_video) {
-        expect(frontmatterData.product_video_transcript).toMatch(/^\/video-transcripts\/.+/)
-      }
-    })
-
-    test('contains no deprecated frontmatter properties', async () => {
-      if (!isEarlyAccess) {
-        const usedDeprecateProps = deprecatedProperties.filter((prop) => {
-          return Object.keys(frontmatterData).includes(prop)
-        })
-        expect(
-          usedDeprecateProps,
-          `The following frontmatter properties are deprecated: ${usedDeprecateProps}. Please remove the property from your article's frontmatter.`,
-        ).toEqual([])
-      }
-    })
-
-    test('contains valid Liquid', async () => {
-      // If Liquid can't parse the file, it'll throw an error.
-      // For example, the following is invalid and will fail this test:
-      // {% if currentVersion ! "github-ae@latest" %}
-      expect(() => liquid.parse(content)).not.toThrow()
-    })
-
-    if (!markdownRelPath.includes('data/reusables')) {
-      test('frontmatter contains valid liquid', async () => {
-        const fmKeysWithLiquid = ['title', 'shortTitle', 'intro', 'product', 'permission'].filter(
-          (key) => Boolean(frontmatterData[key]),
-        )
-
-        for (const key of fmKeysWithLiquid) {
-          expect(() => liquid.parse(frontmatterData[key])).not.toThrow()
-        }
-      })
-    }
-  })
-})
 
 describe('lint yaml content', () => {
   if (ymlToLint.length < 1) return

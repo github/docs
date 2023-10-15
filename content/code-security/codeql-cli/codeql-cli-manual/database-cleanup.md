@@ -39,7 +39,7 @@ possible on disk without degrading its future usefulness.
 
 ### Primary Options
 
-#### `<database>` <!-- markdownlint-disable-line heading-increment -->
+#### `<database>`
 
 \[Mandatory] Path to the CodeQL database to clean up.
 

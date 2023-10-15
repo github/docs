@@ -16,6 +16,7 @@ let scrollPosition = 0
 let scrollDirection = 1
 let scrollFlipCount = 0
 let maxScrollY = 0
+let previousPath: string | undefined
 
 let hoveredUrls = new Set()
 
@@ -26,10 +27,12 @@ function resetPageParams() {
   scrollDirection = 1
   scrollFlipCount = 0
   maxScrollY = 0
+  // Don't reset previousPath
   hoveredUrls = new Set()
 }
 
 // Temporary polyfill for crypto.randomUUID()
+// Necessary for localhost development (doesn't have https://)
 function uuidv4(): string {
   try {
     return crypto.randomUUID()
@@ -144,7 +147,7 @@ export function sendEvent<T extends EventType>({
       // Content information
       path: location.pathname,
       hostname: location.hostname,
-      referrer: document.referrer,
+      referrer: getReferrer(document.referrer),
       search: location.search,
       href: location.href,
       path_language: getMetaContent('path-language'),
@@ -186,6 +189,20 @@ export function sendEvent<T extends EventType>({
   }
 
   return body
+}
+
+// Sometimes using the back button means the internal referrer path is not there,
+// So this fills it in with a JavaScript variable
+function getReferrer(documentReferrer: string) {
+  if (!previousPath) return documentReferrer
+  try {
+    // new URL() throws an error if not a valid URL
+    const referrerUrl = new URL(documentReferrer)
+    if (!referrerUrl.pathname || referrerUrl.pathname === '/') {
+      return referrerUrl.origin + previousPath
+    }
+  } catch (e) {}
+  return documentReferrer
 }
 
 function getColorModePreference() {
@@ -282,7 +299,8 @@ function initPageAndExitEvent() {
   history.pushState = function (state, title, url) {
     // Don't trigger page events on query string or hash changes
     const newPath = url?.toString().replace(location.origin, '').split('?')[0]
-    const shouldSendEvents = newPath !== location.pathname
+    previousPath = location.pathname
+    const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
       sendExit()
     }

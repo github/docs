@@ -26,7 +26,7 @@ You can set up a trial to evaluate the additional features that come with {% dat
 
 You can set up a {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_ghe_cloud %}. Your trial includes an enterprise account, which allows you to manage multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts)."
 
-During the trial, you can add any number of new and existing organizations to your enterprise. For existing organizations, billing is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_enterprise_sales %}. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
+During the trial, you can add up to three new organizations to your enterprise. There are no limitations on the number of existing organizations you can transfer to your enterprise. For existing organizations, billing is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_enterprise_sales %}. Organizations created during the trial cannot be removed from the enterprise account until after you purchase {% data variables.product.prodname_enterprise %}.
 
 Your trial also includes 50 seats. If you need more seats to evaluate {% data variables.product.prodname_ghe_cloud %}, contact {% data variables.contact.contact_enterprise_sales %}. At the end of the trial, you can choose a different number of seats, up to 1,000.
 
@@ -41,7 +41,6 @@ You do not need to provide a payment method during the trial.
 The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
 
 - {% data variables.product.prodname_emus %}: If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
-- {% data variables.product.prodname_GH_advanced_security %}
 - {% data variables.product.prodname_github_codespaces %}
 - {% data variables.product.prodname_copilot_for_business %}
 - {% data variables.product.prodname_sponsors %}
@@ -71,6 +70,8 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 
 {% data reusables.enterprise.best-practices %}
+
+During your trial, you can evaluate the extra security features that {% data variables.product.company_short %} offers to customers on {% data variables.product.prodname_enterprise %} by setting up a free trial of {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_GH_advanced_security %} is a separate license that gives you access to extra security features in private repositories in your enterprise, such as automatically scanning code for vulnerabilities and detecting leaked secrets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
 
 {% data reusables.products.product-roadmap %}
 

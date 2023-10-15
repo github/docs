@@ -64,6 +64,15 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'liquid-data-references-defined': {
+    // LQ112
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-data-tag-format': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
   'hardcoded-data-variable': {
     severity: 'error',
     'partial-markdown-files': true,
@@ -72,8 +81,56 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'annotate-frontmatter': {
+    // GH040
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'liquid-syntax': {
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-if-tags': {
+    // LQ114
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'liquid-ifversion-tags': {
+    // LQ113
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
 }
 
+export const githubDocsFrontmatterConfig = {
+  'frontmatter-hidden-docs': {
+    // GHD034
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-video-transcripts': {
+    // GH036
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-early-access-references': {
+    // GH060
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-format': {
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-liquid-syntax': {
+    // LQ115
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+}
+
+// Configures rules from the `github/markdownlint-github` repo
+// created by the accessibility team.
 const githubMarkdownlintConfig = {
   'no-default-alt-text': {
     severity: 'error',
@@ -85,6 +142,9 @@ const githubMarkdownlintConfig = {
   },
 }
 
+// Configures rules from the open-source Markdownlint extension
+// search-replace:
+// https://www.npmjs.com/package/markdownlint-rule-search-replace
 export const searchReplaceConfig = {
   'search-replace': {
     rules: [
@@ -94,7 +154,7 @@ export const searchReplaceConfig = {
         searchPattern: '/todocs/gi',
         searchScope: 'all',
         severity: 'error',
-        'severity-local': 'warning',
+        precommitSeverity: 'warning',
         'partial-markdown-files': true,
       },
       {
@@ -162,4 +222,5 @@ export const customConfig = {
   ...searchReplaceConfig,
   ...githubDocsConfig,
   ...githubMarkdownlintConfig,
+  ...githubDocsFrontmatterConfig,
 }

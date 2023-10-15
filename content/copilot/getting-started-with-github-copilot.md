@@ -145,11 +145,6 @@ You can enable or disable {% data variables.product.prodname_copilot %} for all 
 
    ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language.](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
-## Further reading
-
-- [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)
-
 {% endjetbrains %}
 
 {% visualstudio %}
@@ -168,9 +163,9 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 
 {% data reusables.copilot.vs-for-mac-note %}
 
-## Installing the {% data variables.product.prodname_vs %} extension
+## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
 
-To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vs %} extension.
+To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
 
 {% data reusables.copilot.vs-extensions %}
 1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
@@ -181,10 +176,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
    ![Screenshot of a list of installed extensions in {% data variables.product.prodname_vs %}. The "{% data variables.product.prodname_copilot %}" extension is highlighted with an orange outline.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}.
-1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
-1. After you approve the permissions, {% data variables.product.prodname_vs %} will show a confirmation.
+1. To enable {% data variables.product.prodname_copilot %}, ensure you have added your {% data variables.product.prodname_dotcom %} account to {% data variables.product.prodname_vs %}. For more information, see [Work with {% data variables.product.prodname_dotcom %} accounts in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts) in the Microsoft documentation.
 
 ## Seeing your first suggestion
 
@@ -249,9 +241,9 @@ If you use {% data variables.product.prodname_vscode %}, you can view and incorp
 
 - To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
 
-## Installing the {% data variables.product.prodname_vscode %} extension
+## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
 
-To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vscode %} extension.
+To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
 
 1. In the {% data variables.product.prodname_vscode_marketplace %}, go to the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) page and click **Install**.
 1. A popup will appear, asking to open {% data variables.product.prodname_vscode %}. Click **Open {% data variables.product.prodname_vscode %}**.
@@ -367,7 +359,7 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 
 - To use {% data variables.product.prodname_copilot %} in Vim/Neovim you must have Vim version 9.0.0185 / Neovim version 0.6 or above and Node.js version 17 or below installed. For more information, see the [Vim](https://vimhelp.org/) / [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
-## Installing the Vim/Neovim extension on macOS
+## Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim on macOS
 
 {% data reusables.copilot.install-copilot-in-vimneovim %}
    - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Terminal:
@@ -382,7 +374,7 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
-## Installing the Vim/Neovim extension on Windows
+## Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim on Windows
 
 {% data reusables.copilot.install-copilot-in-vimneovim %}
    - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Git Bash:
@@ -397,7 +389,7 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
-## Installing the Vim/Neovim extension on Linux
+## Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim on Linux
 
 {% data reusables.copilot.install-copilot-in-vimneovim %}
    - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command:
@@ -422,6 +414,91 @@ For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovi
 
 {% endvimneovim %}
 
+{% azure_data_studio %}
+
+## About {% data variables.product.prodname_copilot %} and Azure Data Studio
+
+{% data reusables.copilot.procedural-intro %}
+
+If you use Azure Data Studio, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor. This guide demonstrates how to use {% data variables.product.prodname_copilot %} within Azure Data Studio for macOS, Windows, or Linux.
+
+## Prerequisites
+
+{% data reusables.copilot.subscription-prerequisite %}
+- To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must have Azure Data Studio version 1.44.0 or later installed. For more information, see the [Azure Data Studio download page](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) in the Azure Data Studio documentation.
+
+## Installing the {% data variables.product.prodname_copilot %} extension in Azure Data Studio
+
+To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
+
+1. In Azure Data Studio, click the **Extensions** icon in the left-side menu.
+   ![Screenshot of the Azure Data Studio left-side menu. The "Extensions" icon is highlighted with an orange outline.](/assets/images/help/copilot/azure-data-studio-extensions-icon.png)
+1. In the "Extensions" tab, search for **{% data variables.product.prodname_copilot %}** and then click **Install**.
+1. If a popup window in Azure Data Studio prompts you to sign in to use {% data variables.product.prodname_copilot %}, click **Sign in to {% data variables.product.prodname_dotcom %}** and follow the instructions on screen.
+
+   - If you have previously authorized Azure Data Studio for your account on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} will be automatically authorized.
+   - If you don't get the prompt to authorize, you can view notifications by clicking the bell icon in the bottom panel of the Azure Data Studio window.
+
+1. If you are following the authorization steps, in your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize Azure Data Studio**.
+
+## Seeing your first suggestion
+
+{% data reusables.copilot.code-examples-limitations %}
+
+{% data variables.product.prodname_copilot %} can provide you with inline suggestions as you create SQL databases in Azure Data Studio. For example, if you're writing a query that joins two tables, {% data variables.product.prodname_copilot_short %} may suggest the join condition from columns in the open editor, other files in the workspace, and common syntax patterns.
+
+{% data reusables.copilot.create-sql-file %}
+1. In the SQL file, type the following query. {% data variables.product.prodname_copilot %} will automatically suggest a join condition in grayed text. The exact suggestion may vary.
+
+   ```sql copy
+   SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
+   FROM [Tag].[Scoreboard]
+   INNER JOIN 
+   ```
+
+{% data reusables.copilot.accept-suggestion %}
+
+## Seeing alternative suggestions
+
+For some suggestions, {% data variables.product.prodname_copilot %} may provide multiple alternatives. You can select which suggestion you want to use, or reject all suggestions.
+
+{% data reusables.copilot.create-sql-file %}
+1. In the SQL file, type the following query. {% data variables.product.prodname_copilot %} will show you a suggestion.
+
+   ```sql copy
+   SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
+   FROM [Tag].[Scoreboard]
+   INNER JOIN 
+   ```
+
+1. Optionally, you can see alternative suggestions, if any are available.
+
+   | OS | See next suggestion | See previous suggestion |
+   | :- | :- | :- |
+   | Windows | <kbd>Alt</kbd>+<kbd>[</kbd> | <kbd>Alt</kbd>+<kbd>]</kbd> |
+   | Linux | <kbd>Alt</kbd>+<kbd>[</kbd> | <kbd>Alt</kbd>+<kbd>]</kbd> |
+   | macOS | <kbd>Option</kbd>+<kbd>[</kbd> | <kbd>Option</kbd>+<kbd>]</kbd> |
+
+## Generating code suggestions from comments
+
+{% data reusables.copilot.generating-suggestions-from-comments %}
+
+{% data reusables.copilot.create-sql-file %}
+1. In the SQL file, type the following query and comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the query.
+
+   ```sql copy
+   SELECT TokenColor, COUNT(UserID) AS UserCount
+   FROM Tag.Users
+   GROUP BY TokenColor
+   -- pivot that query on tokencolor for Purple, Blue, Green, Yellow, Orange, Red
+   -- and rename the columns to match the colors
+   SELECT [Purple], [Blue], [Green], [Yellow], [Orange], [Red]
+   ```
+
+{% data reusables.copilot.enabling-or-disabling-in-ads %}
+
+{% endazure_data_studio %}
+
 ## Next steps
 
 {% data reusables.copilot.next-steps %}
@@ -430,3 +507,8 @@ For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovi
 - [AUTOTITLE](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
 - [AUTOTITLE](/billing/managing-billing-for-github-copilot): Learn more about billing for {% data variables.product.prodname_copilot %}.
 - [AUTOTITLE](/copilot/troubleshooting-github-copilot): These guides provide information for troubleshooting {% data variables.product.prodname_copilot %}.
+
+## Further reading
+
+- [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
+- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

@@ -72,4 +72,8 @@ export default [
   'https://azure.microsoft.com/services/app-service/static/',
   'https://azure.microsoft.com/services/container-registry/',
   'https://azure.microsoft.com/products/functions/',
+  'https://support.patreon.com/hc/en-us/articles/203913709-Become-a-patron-of-a-creator',
+  'https://support.patreon.com/hc/en-us/articles/360005502572-How-do-I-cancel-',
+  'https://support.patreon.com/hc/en-us/articles/115002958403-Start-my-creator-page-on-Patreon',
+  'https://support.patreon.com/hc/en-us/articles/203913559-How-to-set-up-paid-tiers-and-benefits',
 ]

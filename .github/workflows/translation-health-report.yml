@@ -130,12 +130,7 @@ jobs:
         run: |
           az logout
 
-      # Emit a notification for the first responder to triage if the workflow failed.
-      - name: Send Slack notification if workflow failed
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-        if: failure()
+      - uses: ./.github/actions/slack-alert
         with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: 'The health report for ${{ matrix.language }} failed.'
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

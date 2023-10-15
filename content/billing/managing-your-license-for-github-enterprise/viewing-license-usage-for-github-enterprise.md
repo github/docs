@@ -40,6 +40,7 @@ You can view the license usage for your enterprise and download a file with lice
 1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
     - To download the consumed license report as a CSV file, to the right of "User licenses," click {% octicon "download" aria-hidden="true" %} **CSV report**. For more information about reviewing the data in this report, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)."
     - If you purchased {% data variables.product.prodname_GH_advanced_security %}, you can review your total {% ifversion ghas-billing-UI-update %}license{% else %}seat{% endif %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
+    - To view an overview of the consumed licenses without downloading a report, click **View details**, then look under "User licenses consumed". For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#user-licenses-consumed)."
 
 {% elsif ghes %}
 

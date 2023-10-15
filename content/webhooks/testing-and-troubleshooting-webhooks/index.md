@@ -13,6 +13,6 @@ children:
   - /redelivering-webhooks
   - /testing-webhooks
   - /troubleshooting-webhooks
-  - /receiving-webhooks-with-the-github-cli
+  - /using-the-github-cli-to-forward-webhooks-for-testing
 ---
 

@@ -2483,7 +2483,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -2541,7 +2541,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -17630,6 +17630,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "preventSelfReview",
+          "description": "<p>Whether deployments to this environment can be approved by the user who created the deployment.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "reviewers",
           "description": "<p>The teams or users that can review the deployment.</p>",
           "type": "DeploymentReviewerConnection!",
@@ -18214,7 +18222,7 @@
               "Mutation.createDeployment"
             ],
             "owning_teams": [
-              "@github/c2c-actions-service"
+              "@github/pages"
             ],
             "accept_header": "application/vnd.github.flash-preview+json",
             "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -74664,6 +74672,47 @@
       ]
     },
     {
+      "name": "WorkflowFileReference",
+      "kind": "objects",
+      "id": "workflowfilereference",
+      "href": "/graphql/reference/objects#workflowfilereference",
+      "description": "<p>A workflow that must run for this rule to pass.</p>",
+      "fields": [
+        {
+          "name": "path",
+          "description": "<p>The path to the workflow file.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ref",
+          "description": "<p>The ref (branch or tag) of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository where the workflow is defined.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sha",
+          "description": "<p>The commit SHA of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "WorkflowRun",
       "kind": "objects",
       "id": "workflowrun",
@@ -75012,6 +75061,23 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowsParameters",
+      "kind": "objects",
+      "id": "workflowsparameters",
+      "href": "/graphql/reference/objects#workflowsparameters",
+      "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
+      "fields": [
+        {
+          "name": "workflows",
+          "description": "<p>Workflows that must pass for this rule to pass.</p>",
+          "type": "[WorkflowFileReference!]!",
+          "id": "workflowfilereference",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowfilereference"
         }
       ]
     }
@@ -82727,6 +82793,10 @@
       "description": "<p>The rule types supported in rulesets.</p>",
       "values": [
         {
+          "name": "AUTHORIZATION",
+          "description": "<p>Authorization.</p>"
+        },
+        {
           "name": "BRANCH_NAME_PATTERN",
           "description": "<p>Branch name pattern.</p>"
         },
@@ -82751,6 +82821,26 @@
           "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
         },
         {
+          "name": "FILE_PATH_PATTERN",
+          "description": "<p>File path pattern.</p>"
+        },
+        {
+          "name": "LOCK_BRANCH",
+          "description": "<p>Branch is read-only. Users cannot push to the branch.</p>"
+        },
+        {
+          "name": "MAX_REF_UPDATES",
+          "description": "<p>Max ref updates.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE",
+          "description": "<p>Merges must be performed via a merge queue.</p>"
+        },
+        {
+          "name": "MERGE_QUEUE_LOCKED_REF",
+          "description": "<p>Merge queue locked ref.</p>"
+        },
+        {
           "name": "NON_FAST_FORWARD",
           "description": "<p>Prevent users with push access from force pushing to refs.</p>"
         },
@@ -82767,6 +82857,10 @@
           "description": "<p>Prevent merge commits from being pushed to matching refs.</p>"
         },
         {
+          "name": "REQUIRED_REVIEW_THREAD_RESOLUTION",
+          "description": "<p>When enabled, all conversations on code must be resolved before a pull request\ncan be merged into a branch that matches this rule.</p>"
+        },
+        {
           "name": "REQUIRED_SIGNATURES",
           "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
         },
@@ -82775,12 +82869,36 @@
           "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a ref that matches this rule\nafter status checks have passed.</p>"
         },
         {
+          "name": "REQUIRED_WORKFLOW_STATUS_CHECKS",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull\nrequest and required workflow checks to pass before they can be merged.</p>"
+        },
+        {
+          "name": "RULESET_REQUIRED_SIGNATURES",
+          "description": "<p>Commits pushed to matching refs must have verified signatures.</p>"
+        },
+        {
+          "name": "SECRET_SCANNING",
+          "description": "<p>Secret scanning.</p>"
+        },
+        {
+          "name": "TAG",
+          "description": "<p>Tag.</p>"
+        },
+        {
           "name": "TAG_NAME_PATTERN",
           "description": "<p>Tag name pattern.</p>"
         },
         {
           "name": "UPDATE",
           "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
+        },
+        {
+          "name": "WORKFLOWS",
+          "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>"
+        },
+        {
+          "name": "WORKFLOW_UPDATES",
+          "description": "<p>Workflow files cannot be modified.</p>"
         }
       ]
     },
@@ -83216,6 +83334,10 @@
         {
           "name": "MASTODON",
           "description": "<p>Open-source federated microblogging service.</p>"
+        },
+        {
+          "name": "NPM",
+          "description": "<p>JavaScript package registry.</p>"
         },
         {
           "name": "REDDIT",
@@ -84229,7 +84351,7 @@
         },
         {
           "name": "TR",
-          "description": "<p>Turkey.</p>"
+          "description": "<p>Türkiye.</p>"
         },
         {
           "name": "TT",
@@ -86721,6 +86843,11 @@
           "name": "UpdateParameters",
           "id": "updateparameters",
           "href": "/graphql/reference/objects#updateparameters"
+        },
+        {
+          "name": "WorkflowsParameters",
+          "id": "workflowsparameters",
+          "href": "/graphql/reference/objects#workflowsparameters"
         }
       ]
     },
@@ -89642,7 +89769,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -89741,7 +89868,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -95450,6 +95577,14 @@
           "id": "updateparametersinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#updateparametersinput"
+        },
+        {
+          "name": "workflows",
+          "description": "<p>Parameters used for the <code>workflows</code> rule type.</p>",
+          "type": "WorkflowsParametersInput",
+          "id": "workflowsparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#workflowsparametersinput"
         }
       ]
     },
@@ -98000,6 +98135,14 @@
           "isDeprecated": false
         },
         {
+          "name": "preventSelfReview",
+          "description": "<p>Whether deployments to this environment can be approved by the user who created the deployment.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "reviewers",
           "description": "<p>The ids of users or teams that can approve deployments to this environment.</p>",
           "type": "[ID!]",
@@ -99762,6 +99905,47 @@
       ]
     },
     {
+      "name": "WorkflowFileReferenceInput",
+      "kind": "inputObjects",
+      "id": "workflowfilereferenceinput",
+      "href": "/graphql/reference/input-objects#workflowfilereferenceinput",
+      "description": "<p>A workflow that must run for this rule to pass.</p>",
+      "inputFields": [
+        {
+          "name": "path",
+          "description": "<p>The path to the workflow file.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ref",
+          "description": "<p>The ref (branch or tag) of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository where the workflow is defined.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "sha",
+          "description": "<p>The commit SHA of the workflow file to use.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "WorkflowRunOrder",
       "kind": "inputObjects",
       "id": "workflowrunorder",
@@ -99783,6 +99967,23 @@
           "id": "workflowrunorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#workflowrunorderfield"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowsParametersInput",
+      "kind": "inputObjects",
+      "id": "workflowsparametersinput",
+      "href": "/graphql/reference/input-objects#workflowsparametersinput",
+      "description": "<p>Require all changes made to a targeted branch to pass the specified workflows before they can be merged.</p>",
+      "inputFields": [
+        {
+          "name": "workflows",
+          "description": "<p>Workflows that must pass for this rule to pass.</p>",
+          "type": "[WorkflowFileReferenceInput!]!",
+          "id": "workflowfilereferenceinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#workflowfilereferenceinput"
         }
       ]
     }

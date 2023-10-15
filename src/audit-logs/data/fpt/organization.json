@@ -321,13 +321,13 @@
   },
   {
     "action": "enterprise_installation.create",
-    "description": "The GitHub App associated with an GitHub Connect enterprise connection was created.",
-    "docs_reference_links": "N/A"
+    "description": "The GitHub App associated with a GitHub Connect connection was created.",
+    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
   },
   {
     "action": "enterprise_installation.destroy",
-    "description": "The GitHub App associated with an GitHub Connect enterprise connection was deleted.",
-    "docs_reference_links": "N/A"
+    "description": "The GitHub App associated with a GitHub Connect connection was deleted.",
+    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
   },
   {
     "action": "environment.add_protection_rule",
@@ -811,7 +811,7 @@
   },
   {
     "action": "org.add_outside_collaborator",
-    "description": "N/A",
+    "description": "An outside collaborator was added to a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -851,13 +851,13 @@
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Third-party application access for outside collaborators was disabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Third-party application access for outside collaborators was enabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
   },
   {
     "action": "org.archive",
@@ -871,8 +871,8 @@
   },
   {
     "action": "org.audit_log_git_event_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An export of the organization's Git events was created.",
+    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
   },
   {
     "action": "org.billing_signup_error",
@@ -901,13 +901,13 @@
   },
   {
     "action": "org.codeql_disabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization disables code scanning for repositories that use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.codeql_enabled",
-    "description": "Triggered when an organization owner or person with admin access to the organization enables code scanning for repositories that are eligible to use the default setup for CodeQL.",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for an organization.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
     "action": "org.codespaces_access_updated",
@@ -991,8 +991,8 @@
   },
   {
     "action": "org.connect_usage_metrics_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Server statistics were exported for the organization.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
   },
   {
     "action": "org.create",
@@ -1036,7 +1036,7 @@
   },
   {
     "action": "org.disable_source_ip_disclosure",
-    "description": "Triggered when an organization owner disables the display of IP addresses in the audit log for the organization.",
+    "description": "Display of IP addresses within audit log events for the organization was disabled.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization"
   },
   {
@@ -1076,7 +1076,7 @@
   },
   {
     "action": "org.enable_source_ip_disclosure",
-    "description": "Triggered when an organization owner enables the display of IP addresses in the audit log for the organization.",
+    "description": "Display of IP addresses within audit log events for the organization was enabled.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization"
   },
   {
@@ -1143,6 +1143,16 @@
     "action": "org.rate_limited_invites",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.recovery_code_failed",
+    "description": "An organization owner failed to sign into a organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
+  },
+  {
+    "action": "org.recovery_code_used",
+    "description": "An organization owner successfully signed into an organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
   },
   {
     "action": "org.register_self_hosted_runner",
@@ -1356,8 +1366,8 @@
   },
   {
     "action": "org.transfer_outgoing",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An organization was transferred between enterprise accounts.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts"
   },
   {
     "action": "org.unarchive",
@@ -1446,22 +1456,22 @@
   },
   {
     "action": "organization_domain.approve",
-    "description": "An enterprise domain was approved for an organization.",
+    "description": "A domain was approved for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#approving-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.create",
-    "description": "An enterprise domain was added to an organization.",
+    "description": "A domain was added to an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
     "action": "organization_domain.destroy",
-    "description": "An enterprise domain was removed from an organization.",
+    "description": "A domain was removed from an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#removing-an-approved-or-verified-domain"
   },
   {
     "action": "organization_domain.verify",
-    "description": "An enterprise domain was verified for an organization.",
+    "description": "A domain was verified for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
   },
   {
@@ -1553,6 +1563,16 @@
     "action": "org_secret_scanning_custom_pattern.update",
     "description": "Changes to a custom pattern were saved and a dry run was executed for secret scanning in an organization.",
     "docs_reference_links": "/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern"
+  },
+  {
+    "action": "org_secret_scanning_generic_secrets.disabled",
+    "description": "Generic secrets have been disabled at the organization level",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_generic_secrets.enabled",
+    "description": "Generic secrets have been enabled at the organization level",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "packages.package_deleted",
@@ -2061,13 +2081,13 @@
   },
   {
     "action": "repo.codeql_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was disabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.codeql_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Code scanning using the default setup was enabled for a repository.",
+    "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
     "action": "repo.codespaces_trusted_repo_access_granted",
@@ -2187,6 +2207,11 @@
   {
     "action": "repo.pages_public",
     "description": "A GitHub Pages site visibility was changed to public.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete",
+    "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
     "docs_reference_links": "N/A"
   },
   {

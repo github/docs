@@ -19,4 +19,3 @@ children:
   - /about-citation-files
 shortTitle: Customize your repository
 ---
-

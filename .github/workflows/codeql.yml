@@ -36,3 +36,8 @@ jobs:
           languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
       - uses: github/codeql-action/analyze@32dc499307d133bb5085bae78498c0ac2cf762d5
         continue-on-error: true
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

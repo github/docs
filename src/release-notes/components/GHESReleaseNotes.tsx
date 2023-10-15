@@ -1,6 +1,5 @@
 import cx from 'classnames'
 
-import { Link } from 'components/Link'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { GHESReleaseNotesContextT } from './types'
 import { GHESReleaseNotePatch } from './GHESReleaseNotePatch'
@@ -34,9 +33,9 @@ export function GHESReleaseNotes({ context }: Props) {
                 {currentRelease.patches.map((patch) => {
                   return (
                     <li key={patch.version} className="my-2 px-3 f4 d-inline-block d-md-block">
-                      <Link className="text-underline" href={`#${patch.version}`}>
+                      <a href={`#${patch.version}`} className="text-underline">
                         {patch.version}
-                      </Link>
+                      </a>
                     </li>
                   )
                 })}

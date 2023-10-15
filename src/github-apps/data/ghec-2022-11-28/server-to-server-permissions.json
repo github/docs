@@ -557,6 +557,50 @@
       },
       {
         "category": "orgs",
+        "slug": "create-or-update-custom-properties-for-an-organization",
+        "subcategory": "properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-a-custom-property-for-an-organization",
+        "subcategory": "properties",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-a-custom-property-for-an-organization",
+        "subcategory": "properties",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-organization-repositories",
+        "subcategory": "properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
         "slug": "get-all-organization-repository-rulesets",
         "subcategory": "rules",
         "verb": "get",
@@ -1141,6 +1185,39 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/outside_collaborators/{username}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-all-custom-properties-for-an-organization",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-a-custom-property-for-an-organization",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-custom-property-values-for-organization-repositories",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -4288,6 +4365,17 @@
       },
       {
         "category": "repos",
+        "slug": "get-all-custom-property-values-for-a-repository",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "post",
@@ -7377,32 +7465,6 @@
       },
       {
         "category": "codespaces",
-        "slug": "list-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
-        "slug": "set-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
         "slug": "add-a-selected-repository-to-a-user-secret",
         "subcategory": "secrets",
         "verb": "put",
@@ -9347,9 +9409,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",
@@ -9360,9 +9420,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",

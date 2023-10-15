@@ -1,14 +1,9 @@
-import fs from 'fs/promises'
 import path from 'path'
 import { isEqual, uniqWith } from 'lodash-es'
 import { jest } from '@jest/globals'
 
-import { loadPages } from '../../../lib/page-data.js'
 import patterns from '../../../lib/patterns.js'
-import frontmatter from '../../../lib/read-frontmatter.js'
 import { getDataByLanguage, getDeepDataByLanguage } from '../../../lib/get-data.js'
-
-const pages = await loadPages()
 
 // Given syntax like {% data foo.bar %} or {% indented_data_reference foo.bar spaces=3 %},
 // the following regex returns just the dotted path: foo.bar
@@ -36,75 +31,6 @@ const getDataReferences = (content) => {
 
 describe('data references', () => {
   jest.setTimeout(60 * 1000)
-
-  test('every data reference found in English content files is defined and has a value', () => {
-    let errors = []
-    expect(pages.length).toBeGreaterThan(0)
-
-    const checked = new Set()
-    pages.forEach((page) => {
-      const pageRefs = getDataReferences(page.markdown)
-      new Set(pageRefs).forEach((key) => {
-        if (checked.has(key)) return
-        const value = getDataByLanguage(key, 'en')
-        checked.add(key)
-        if (typeof value !== 'string') {
-          errors.push({ key, value, file: path.join('content', page.relativePath) })
-        }
-      })
-    })
-
-    errors = uniqWith(errors, isEqual) // remove duplicates
-    expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
-  })
-
-  test('every data reference found in metadata of English content files is defined and has a value', async () => {
-    let errors = []
-    expect(pages.length).toBeGreaterThan(0)
-
-    await Promise.all(
-      pages.map(async (page) => {
-        const metadataFile = path.join('content', page.relativePath)
-        const fileContents = await fs.readFile(page.fullPath)
-        const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
-        const metadataRefs = getDataReferences(JSON.stringify(metadata))
-        metadataRefs.forEach((key) => {
-          const value = getDataByLanguage(key, 'en')
-          if (typeof value !== 'string') errors.push({ key, value, metadataFile })
-        })
-      }),
-    )
-
-    errors = uniqWith(errors, isEqual) // remove duplicates
-    expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
-  })
-
-  test('every data reference found in English reusable files is defined and has a value', async () => {
-    let errors = []
-    const allReusables = getDeepDataByLanguage('reusables', 'en')
-    const reusables = Object.values(allReusables)
-    expect(reusables.length).toBeGreaterThan(0)
-
-    await Promise.all(
-      reusables.map(async (reusablesPerFile) => {
-        const reusableRefs = getDataReferences(JSON.stringify(reusablesPerFile))
-
-        reusableRefs.forEach((key) => {
-          const value = getDataByLanguage(key, 'en')
-          if (typeof value !== 'string') {
-            const reusableFile = path.join(
-              'data/reusables',
-              getFilenameByValue(allReusables, reusablesPerFile),
-            )
-            errors.push({ key, value, reusableFile })
-          }
-        })
-      }),
-    )
-
-    errors = uniqWith(errors, isEqual) // remove duplicates
-    expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
-  })
 
   test('every data reference found in English variable files is defined and has a value', async () => {
     let errors = []

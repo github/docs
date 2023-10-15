@@ -10,12 +10,22 @@ import { internalLinksSlash } from './internal-links-slash.js'
 import { imageAltTextExcludeStartWords } from './image-alt-text-exclude-start-words.js'
 import { listFirstWordCapitalization } from './list-first-word-capitalization.js'
 import { linkPunctuation } from './link-punctuation.js'
-import { earlyAccessReferences } from './early-access-references.js'
+import {
+  earlyAccessReferences,
+  frontmatterEarlyAccessReferences,
+} from './early-access-references.js'
+import { frontmatterHiddenDocs } from './frontmatter-hidden-docs.js'
+import { frontmatterVideoTranscripts } from './frontmatter-video-transcripts.js'
 import { yamlScheduledJobs } from './yaml-scheduled-jobs.js'
 import { internalLinksOldVersion } from './internal-links-old-version.js'
 import { hardcodedDataVariable } from './hardcoded-data-variable.js'
 import { githubOwnedActionReferences } from './github-owned-action-references.js'
 import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
+import { liquidDataReferencesDefined, liquidDataTagFormat } from './liquid-data-tags.js'
+import { frontmatterFormat } from './frontmatter-format.js'
+import { annotateFrontmatter } from './annotate-frontmatter.js'
+import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
+import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -44,5 +54,16 @@ export const gitHubDocsMarkdownlint = {
     hardcodedDataVariable,
     githubOwnedActionReferences,
     liquidQuotedConditionalArg,
+    liquidDataReferencesDefined,
+    liquidDataTagFormat,
+    frontmatterHiddenDocs,
+    frontmatterEarlyAccessReferences,
+    frontmatterVideoTranscripts,
+    frontmatterFormat,
+    annotateFrontmatter,
+    frontmatterLiquidSyntax,
+    liquidSyntax,
+    liquidIfTags,
+    liquidIfVersionTags,
   ],
 }
