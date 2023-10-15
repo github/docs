@@ -53,23 +53,28 @@ Replace USERNAME with your {% data variables.product.prodname_dotcom %} username
 plugins {
     id("maven-publish")
 }
+
+val registryUrl = if (version == "fpt" || version == "ghec") "maven.pkg.github.com" else "REGISTRY_URL"
+
 publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
+            url = uri("https://$registryUrl/OWNER/REPOSITORY")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
+                password = project.findProperty("gpr.key") ?: System.getenv("GPR_KEY")
             }
         }
     }
     publications {
         gpr(MavenPublication) {
             from(components.java)
+            version = "1.0.0" // Change this to your preferred version
         }
     }
 }
+
 ```
 
 #### Example using Gradle Groovy for multiple packages in the same repository
