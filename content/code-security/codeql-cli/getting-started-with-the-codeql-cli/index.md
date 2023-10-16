@@ -17,8 +17,8 @@ children:
   - /setting-up-the-codeql-cli
   - /preparing-your-code-for-codeql-analysis
   - /analyzing-your-code-with-codeql-queries
-  - /customizing-analysis-with-codeql-packs
   - /uploading-codeql-analysis-results-to-github
+  - /customizing-analysis-with-codeql-packs
 redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli
 ---

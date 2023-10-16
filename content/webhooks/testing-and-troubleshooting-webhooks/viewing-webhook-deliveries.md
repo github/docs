@@ -1,5 +1,6 @@
 ---
 title: Viewing webhook deliveries
+shortTitle: View deliveries
 intro: 'You can view details about webhook deliveries from the past {% data variables.webhooks.retention %} days.'
 versions:
   fpt: '*'

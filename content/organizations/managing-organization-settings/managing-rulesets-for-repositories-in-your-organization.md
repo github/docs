@@ -35,6 +35,30 @@ You can use the REST and GraphQL APIs to manage rulesets. For more information, 
 {% data reusables.organizations.access-ruleset-settings %}
 {% data reusables.repositories.delete-ruleset-steps %}
 
+{% ifversion repo-rules-management %}
+
+## Using ruleset history
+
+{% data reusables.repositories.ruleset-beta-note %}
+
+{% data reusables.repositories.ruleset-history-conceptual %}
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.access-ruleset-settings %}
+{% data reusables.repositories.ruleset-history %}
+
+### Importing a ruleset
+
+You can import a ruleset from another repository or organization using the exported JSON file from the previous section. This can be useful if you want to apply the same ruleset to multiple repositories or organizations.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.access-ruleset-settings %}
+{% data reusables.repositories.import-a-ruleset %}
+
+{% endif %}
+
 ## Viewing insights for rulesets
 
 You can view insights for rulesets to see how rulesets are affecting the repositories in your organization. {% data reusables.repositories.about-ruleset-insights %}
@@ -44,5 +68,6 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" %} Repository**, then click **Repository rule insights**.
 
    ![Screenshot of an organization's settings page. In the sidebar, a link labeled "Repository rule insights" is outlined in orange.](/assets/images/help/organizations/repository-rule-insights.png)
+
 1. On the "Rule Insights" page, use the dropdown menus at the top of the page to filter the actions by ruleset, repository, actor, and time period.
 {% data reusables.repositories.rulesets-view-rule-runs %}

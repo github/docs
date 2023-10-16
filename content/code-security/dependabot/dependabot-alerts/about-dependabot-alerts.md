@@ -68,6 +68,8 @@ As {% data variables.product.prodname_dependabot_alerts %} rely on the dependenc
 
 {% endnote %}
 
+{% data reusables.dependabot.dependabot-alert-actions-semver %}
+
 ## Configuration of {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.repositories.enable-security-alerts %}

@@ -1,5 +1,6 @@
 ---
 title: Testing webhooks
+shortTitle: Test webhooks
 intro: 'Learn how to test your webhooks and your code that handles webhook deliveries.'
 redirect_from:
   - /webhooks/testing
