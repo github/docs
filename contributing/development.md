@@ -71,8 +71,4 @@ For more info about working with this site, check out these READMEs:
 - [data/variables/README.md](../data/variables/README.md)
 - [includes/liquid-tags/README.md](../includes/liquid-tags/README.md)
 - [includes/README.md](../includes/README.md)
-<!-- The following will be moved into src directory over time: -->
-- [components/README.md](../components/README.md)
-- [middleware/README.md](../middleware/README.md)
-- [script/README.md](script/bookmarklets/README.md)
-- [tests/README.md](../tests/README.md)
+- [src/README.md](src/README.md)
