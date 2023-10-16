@@ -15,15 +15,38 @@ type VersionItem = {
   // free-pro-team@latest, enterprise-cloud@latest, enterprise-server@3.3 ...
   version: string
   versionTitle: string
-  currentRelease: string
-  latestVersion: string
-  shortName: string
-  // api.github.com, ghec, ghes-3.3, github.ae
-  openApiVersionName: string
-  // api.github.com, ghec, ghes-, github.ae
-  openApiBaseName: string
+  isGHES?: boolean
   apiVersions: string[]
   latestApiVersion: string
+}
+
+// This reflects what gets exported from `all-versions.js` in the
+// `allVersions` object.
+// It's necessary for TypeScript, but we don't need to write down
+// every possible key that might be present because we don't need it
+// for rendering.
+type FullVersionItem = VersionItem & {
+  shortName: string
+}
+
+function minimalAllVersions(
+  allVersions: Record<string, FullVersionItem>,
+): Record<string, VersionItem> {
+  const all: Record<string, VersionItem> = {}
+  for (const [plan, info] of Object.entries(allVersions)) {
+    all[plan] = {
+      version: info.version,
+      versionTitle: info.versionTitle,
+      apiVersions: info.apiVersions,
+      latestApiVersion: info.latestApiVersion,
+    }
+    // Deal with keys that are optional. It's preferred to omit
+    // booleans if they're false anyway.
+    if (info.shortName === 'ghes') {
+      all[plan].isGHES = true
+    }
+  }
+  return all
 }
 
 export type ProductTreeNode = {
@@ -171,7 +194,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    allVersions: req.context.allVersions,
+    allVersions: minimalAllVersions(req.context.allVersions),
     currentVersion: req.context.currentVersion,
     // This is a slimmed down version of `req.context.currentProductTree`
     // that only has the minimal titles stuff needed for sidebars and
