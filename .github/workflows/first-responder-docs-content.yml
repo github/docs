@@ -14,7 +14,7 @@ on:
       - unlabeled
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   first-responder-triage-pr:
