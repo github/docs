@@ -18,11 +18,13 @@ The {% data variables.product.prodname_docs %} content linter will run automatic
 
 ### Automatically run the linter on pre-commit
 
-The content linter rules that are marked with a severity of `error` run on a pre-commit Git hook. For a list of the rules that will run on the pre-commit hook, see "[Errors](#errors)."
+When you are writing content locally and committing files using the command line, those staged files will automatically be linted by the content linter. Both warnings and errors are reported, but only errors will prevent your commit from completing.
 
-When you are writing content locally and commit files using the command line, those staged files will automatically be linted by the content linter. If any errors are reported, your commit will not complete. Fix the reported errors, and then commit your changes again. Any errors that are reported must be fixed to prevent introducing errors in the content that are in violation of the {% data variables.product.prodname_docs %} style guide.
+If any errors are reported, your commit will not complete. You will need to fix the reported errors, re-add the changed files, and commit your changes again. Any errors that are reported must be fixed to prevent introducing errors in the content that are in violation of the {% data variables.product.prodname_docs %} style guide. If any warnings are reported, you can optionally choose to fix them or not.
 
-If you are editing a file in the {% data variables.product.prodname_dotcom %} UI, you will not be able to automatically run the linter on a commit.
+When you are writing content locally, there are several rules that you can fix automatically using the command line. If you want to automatically fix errors that can be fixed, see "[Automatically fix errors that can be fixed](#automatically-fix-errors-that-can-be-fixed)."
+
+If you are editing a file in the {% data variables.product.prodname_dotcom %} UI, you will not be able to automatically fix errors or run the linter on a commit, but you will get a CI failure if the content violates any rules with a severity of `error`.
 
 ### Manually run the linter
 
@@ -100,47 +102,38 @@ npm run lint-content -- --help
 
 Each rule is configured in a file in [`src/content-linter/style`](https://github.com/github/docs/tree/main/src/content-linter/style), which is where the severities of rules are defined.
 
-### Errors
+Errors must be addressed before merging your changes to the `main` branch. Warnings should be addressed but do not prevent a change from being merged into the `main` branch. Most rules will eventually be promoted to errors, once the content no longer has warning violations.
 
-These rules must be fixed before merging content into the `main` branch.
-
-| **Rule ID** | **Description** |
-|---|---|
-| [MD004](https://github.com/DavidAnson/markdownlint/blob/main/doc/md004.md) | Unordered list style must be a dash. |
-| [MD011](https://github.com/DavidAnson/markdownlint/blob/main/doc/md011.md) | Make sure that link syntax is not reversed. |
-| [MD012](https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md) | No unnecessary blank lines. |
-| [MD014](https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md) | Dollar signs should not be used before commands without showing output. |
-| [MD018](https://github.com/DavidAnson/markdownlint/blob/main/doc/md018.md) | Must have one space after a hash style heading. |
-| [MD019](https://github.com/DavidAnson/markdownlint/blob/main/doc/md019.md) | Must not have spaces after a hash style heading. |
-| [MD022](https://github.com/DavidAnson/markdownlint/blob/main/doc/md022.md) | Headings must be surrounded by a blank line. |
-| [MD023](https://github.com/DavidAnson/markdownlint/blob/main/doc/md023.md) | Headings must start at the beginning of the line. |
-| [MD027](https://github.com/DavidAnson/markdownlint/blob/main/doc/md027.md) | Catches multiple spaces after blockquote symbol. |
-| [MD029](https://github.com/DavidAnson/markdownlint/blob/main/doc/md029.md) | All ordered lists should be prefixed with `1.`. |
-| [MD030](https://github.com/DavidAnson/markdownlint/blob/main/doc/md030.md) | Only allow one space after list markers. |
-| [MD037](https://github.com/DavidAnson/markdownlint/blob/main/doc/md037.md) | Remove extra spacing inside emphasis markers. |
-| [MD039](https://github.com/DavidAnson/markdownlint/blob/main/doc/md039.md) | Remove spacing around image text. |
-| [MD042](https://github.com/DavidAnson/markdownlint/blob/main/doc/md042.md) | Do not allow empty links. |
-| [MD050](https://github.com/DavidAnson/markdownlint/blob/main/doc/md050.md) | All strong styling should use asterisks. |
-| [GHD002](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-alt-text-end-punctuation.js) | Images alternate text should end with a punctuation. |
-| [GHD005](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/internal-links-lang.js) | Internal links must not have a hardcoded language code. |
-| [GHD006](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-file-kebab.js) | Image file names should be lowercase kebab case. |
-
-### Warnings
-
-These rules should be fixed before merging content into the `main` branch, but they won't prevent committing changes to your local branch.
-
-| **Rule ID** | **Description** |
-|---|---|
-| [MD001](https://github.com/DavidAnson/markdownlint/blob/main/doc/md001.md) | Header levels can only increments by one level at a time. |
-| [MD002](https://github.com/DavidAnson/markdownlint/blob/main/doc/md002.md) | Ensure that headings start with an H2 heading. |
-| [MD009](https://github.com/DavidAnson/markdownlint/blob/main/doc/md009.md) | No unnecessary whitespace from the end of the line. |
-| [MD031](https://github.com/DavidAnson/markdownlint/blob/main/doc/md031.md) | Fenced code blocks must be surrounded by blank lines. |
-| [MD040](https://github.com/DavidAnson/markdownlint/blob/main/doc/md040.md) | Code fences must have a language specified. |
-| [MD047](https://github.com/DavidAnson/markdownlint/blob/main/doc/md047.md) | All files should end with a new line character. |
-| [MD049](https://github.com/DavidAnson/markdownlint/blob/main/doc/md049.md) | All emphasis styling should use underscores. |
-| [GHD001](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/code-fence-line-length.js) | Code fence content should be 60 lines or less in length. |
-| [GHD003](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. |
-| [GHD004](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/internal-links-slash.js) | Internal links must start with a `/`. |
+| **Rule ID** | **Description** | **Severity** |
+|---|---|---|
+| [MD004](https://github.com/DavidAnson/markdownlint/blob/main/doc/md004.md) | Unordered list style must be a dash. | Error |
+| [MD011](https://github.com/DavidAnson/markdownlint/blob/main/doc/md011.md) | Make sure that link syntax is not reversed. | Error |
+| [MD012](https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md) | No unnecessary blank lines. | Error |
+| [MD014](https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md) | Dollar signs should not be used before commands without showing output. | Error |
+| [MD018](https://github.com/DavidAnson/markdownlint/blob/main/doc/md018.md) | Must have one space after a hash style heading. | Error |
+| [MD019](https://github.com/DavidAnson/markdownlint/blob/main/doc/md019.md) | Must not have spaces after a hash style heading. | Error |
+| [MD022](https://github.com/DavidAnson/markdownlint/blob/main/doc/md022.md) | Headings must be surrounded by a blank line. | Error |
+| [MD023](https://github.com/DavidAnson/markdownlint/blob/main/doc/md023.md) | Headings must start at the beginning of the line. | Error |
+| [MD027](https://github.com/DavidAnson/markdownlint/blob/main/doc/md027.md) | Catches multiple spaces after blockquote symbol. | Error |
+| [MD029](https://github.com/DavidAnson/markdownlint/blob/main/doc/md029.md) | All ordered lists should be prefixed with `1.`. | Error |
+| [MD030](https://github.com/DavidAnson/markdownlint/blob/main/doc/md030.md) | Only allow one space after list markers. | Error |
+| [MD037](https://github.com/DavidAnson/markdownlint/blob/main/doc/md037.md) | Remove extra spacing inside emphasis markers. | Error |
+| [MD039](https://github.com/DavidAnson/markdownlint/blob/main/doc/md039.md) | Remove spacing around image text. | Error |
+| [MD042](https://github.com/DavidAnson/markdownlint/blob/main/doc/md042.md) | Do not allow empty links. | Error |
+| [MD050](https://github.com/DavidAnson/markdownlint/blob/main/doc/md050.md) | All strong styling should use asterisks. | Error |
+| [GHD002](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-alt-text-end-punctuation.js) | Images alternate text should end with a punctuation. | Error |
+| [GHD005](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/internal-links-lang.js) | Internal links must not have a hardcoded language code. | Error |
+| [GHD006](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-file-kebab.js) | Image file names should be lowercase kebab case. | Error |
+| [MD001](https://github.com/DavidAnson/markdownlint/blob/main/doc/md001.md) | Header levels can only increments by one level at a time. | Warning |
+| [MD002](https://github.com/DavidAnson/markdownlint/blob/main/doc/md002.md) | Ensure that headings start with an H2 heading. | Warning |
+| [MD009](https://github.com/DavidAnson/markdownlint/blob/main/doc/md009.md) | No unnecessary whitespace from the end of the line. | Warning |
+| [MD031](https://github.com/DavidAnson/markdownlint/blob/main/doc/md031.md) | Fenced code blocks must be surrounded by blank lines. | Warning |
+| [MD040](https://github.com/DavidAnson/markdownlint/blob/main/doc/md040.md) | Code fences must have a language specified. | Warning |
+| [MD047](https://github.com/DavidAnson/markdownlint/blob/main/doc/md047.md) | All files should end with a new line character. | Warning |
+| [MD049](https://github.com/DavidAnson/markdownlint/blob/main/doc/md049.md) | All emphasis styling should use underscores. | Warning |
+| [GHD001](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/code-fence-line-length.js) | Code fence content should be 60 lines or less in length. | Warning |
+| [GHD003](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. | Warning |
+| [GHD004](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/internal-links-slash.js) | Internal links must start with a `/`. | Warning |
 
 ## Suppressing linter rules
 
