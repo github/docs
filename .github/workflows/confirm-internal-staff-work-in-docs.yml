@@ -79,3 +79,8 @@ jobs:
           channel: ${{ secrets.DOCS_OPEN_SOURCE_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           text: <@${{github.actor}}> opened https://github.com/github/docs/issues/${{ github.event.number || github.event.issue.number }} publicly on the github/docs repo instead of a private repo. They have been notified via a new issue in the private repo to confirm this was intentional.
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

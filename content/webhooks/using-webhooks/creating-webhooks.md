@@ -1,5 +1,6 @@
 ---
 title: Creating webhooks
+shortTitle: Create webhooks
 intro: 'You can create webhooks to subscribe to specific events that occur on {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /webhooks/creating
@@ -19,13 +20,11 @@ topics:
 
 ## About creating webhooks
 
-{% ifversion fpt %}You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, {% data variables.product.prodname_marketplace %} account, or {% data variables.product.prodname_sponsors %} account. You can also set up a {% data variables.product.prodname_github_app %} to recieve webhooks when specific events occur on {% data variables.product.prodname_dotcom %}.{% endif %}
+You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}.
 
-{% ifversion ghec %}You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, {% data variables.product.prodname_enterprise %}, {% data variables.product.prodname_marketplace %} account, or {% data variables.product.prodname_sponsors %} account. You can also set up your {% data variables.product.prodname_github_app %} to recieve webhooks when specific events occur on {% data variables.product.prodname_dotcom %}.{% endif %}
+For more information about the different types of webhooks, see "[AUTOTITLE](/webhooks/types-of-webhooks)."
 
-{% ifversion ghes or ghae %}You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, or {% data variables.product.prodname_enterprise %}. You can also set up your {% data variables.product.prodname_github_app %} to recieve webhooks when specific events occur on {% data variables.product.prodname_dotcom %}.{% endif %}
-
-For more information about the different types of webhooks, see "[AUTOTITLE](/webhooks/about-webhooks)." For a complete list of webhook events, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
+For a complete list of webhook events, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
 
 ## Creating a repository webhook
 
@@ -72,6 +71,12 @@ After you create a new webhook, {% data variables.product.prodname_dotcom %} wil
 
 Enterprise owners can create a global webhook to subscribe to events that occur within their enterprise.
 
+{% ifversion ghes or ghae %}
+
+You can use the {% data variables.product.company_short %} web interface or the REST API to create a global webhook. For more information about using the REST API to create a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
+
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
@@ -91,15 +96,13 @@ Enterprise owners can create a global webhook to subscribe to events that occur 
 1. To make the webhook active immediately after adding the configuration, select **Active**.
 {% data reusables.webhooks.add_webhook_button %}
 
-{% data reusables.enterprise_user_management.manage-global-webhooks-api %}
-
 {% endif %}
 
 {% ifversion fpt or ghec %}
 
 ## Creating a {% data variables.product.prodname_marketplace %} webhook
 
-You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the organization that owns the app, can create a {% data variables.product.prodname_marketplace %} webhook. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)."
+You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the organization that owns the app, can create a {% data variables.product.prodname_marketplace %} webhook.
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.
@@ -155,4 +158,5 @@ You can also use the REST API to create a webhook for a {% data variables.produc
 
 ## Further reading
 
+- "[AUTOTITLE](/webhooks/about-webhooks)"
 - "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"

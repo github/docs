@@ -48,6 +48,8 @@ New organizations you create within your enterprise account settings are include
 
 Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
+During a trial of {% data variables.product.prodname_ghe_cloud %}, you can create up to three new organizations in your enterprise.
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. On the **Organizations** tab, above the list of organizations, click **New organization**.
 1. Under "Organization name", type a name for your organization.
@@ -59,11 +61,7 @@ Enterprise owners who create an organization owned by the enterprise account aut
 
 Enterprise owners can invite existing organizations to join their enterprise account.
 
-{% note %}
-
-**Note:** If you're taking part in a trial of {% data variables.product.prodname_ghe_cloud %}, adding an organization to the trial enterprise may disable certain features in the organization. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)."
-
-{% endnote %}
+During a trial of {% data variables.product.prodname_ghe_cloud %}, adding an organization to the trial enterprise may disable certain features in the organization. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)."
 
 If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts. If you're not, you can ask an owner of the enterprise account that currently owns the organization to transfer the organization to your enterprise account instead. For more information, see "[Transferring an organization between enterprise accounts](#transferring-an-organization-between-enterprise-accounts)."
 

@@ -20,7 +20,7 @@ featuredLinks:
     - '{% ifversion ghes < 3.9 or ghae < 3.9 %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning{% endif %}'
     - '{% ifversion ghae %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github{% endif %}'
-    - '{% ifversion ghae %}/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system{% endif %}'
+    - '{% ifversion ghae %}/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system{% endif %}'
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'

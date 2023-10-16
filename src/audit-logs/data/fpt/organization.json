@@ -851,13 +851,13 @@
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_disabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Third-party application access for outside collaborators was disabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
   },
   {
     "action": "org.allow_third_party_access_requests_from_outside_collaborators_enabled",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Third-party application access for outside collaborators was enabled for the organization.",
+    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests#enabling-or-disabling-integration-access-requests"
   },
   {
     "action": "org.archive",
@@ -871,8 +871,8 @@
   },
   {
     "action": "org.audit_log_git_event_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An export of the organization's Git events was created.",
+    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
   },
   {
     "action": "org.billing_signup_error",
@@ -1036,7 +1036,7 @@
   },
   {
     "action": "org.disable_source_ip_disclosure",
-    "description": "Triggered when an organization owner disables the display of IP addresses in the audit log for the organization.",
+    "description": "Display of IP addresses within audit log events for the organization was disabled.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization"
   },
   {
@@ -1076,7 +1076,7 @@
   },
   {
     "action": "org.enable_source_ip_disclosure",
-    "description": "Triggered when an organization owner enables the display of IP addresses in the audit log for the organization.",
+    "description": "Display of IP addresses within audit log events for the organization was enabled.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/displaying-ip-addresses-in-the-audit-log-for-your-organization"
   },
   {
@@ -1563,6 +1563,16 @@
     "action": "org_secret_scanning_custom_pattern.update",
     "description": "Changes to a custom pattern were saved and a dry run was executed for secret scanning in an organization.",
     "docs_reference_links": "/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern"
+  },
+  {
+    "action": "org_secret_scanning_generic_secrets.disabled",
+    "description": "Generic secrets have been disabled at the organization level",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_generic_secrets.enabled",
+    "description": "Generic secrets have been enabled at the organization level",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "packages.package_deleted",

@@ -104,9 +104,19 @@ Required status checks ensure that all required CI tests are passing before coll
 
 You can use the commit status API to allow external services to mark commits with an appropriate status. For more information, see "[AUTOTITLE](/rest/commits/statuses)" in the REST API documentation.
 
-After enabling required status checks, all required status checks must pass before collaborators can merge changes into the branch or tag. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the branch or tag.
+After enabling required status checks, all required status checks must pass before collaborators can merge changes into the branch or tag.
 
-Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check, you can select an app as the expected source of status updates. The app must be installed in the repository with the `statuses:write` permission, must have recently submitted a check run, and must be associated with a pre-existing required status check in the ruleset. If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check rule, you can select an app as the expected source of status updates. The app must be installed in the repository with the `statuses:write` permission, must have recently submitted a check run, and must be associated with a pre-existing required status check in the ruleset. If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+
+{% ifversion repo-rules-enterprise %}
+
+{% note %}
+
+**Note:** For organization-level status checks, the app must be installed with the `statuses:write` permission. Only apps with this permission are displayed when configuring rulesets at the organization-level.
+
+{% endnote %}
+
+{% endif %}
 
 You can think of required status checks as being either "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
 
@@ -136,10 +146,7 @@ If a site administrator has blocked force pushes to the default branch only, you
 
 {% note %}
 
-**Notes:**
-
-- This rule is in public beta and subject to change.
-- This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
+**Note:** This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
 
 {% endnote %}
 

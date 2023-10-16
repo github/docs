@@ -69,7 +69,7 @@ all the file's tests as a tree and for each test there's a Play button.
 You can either play a specific single test or you can make it run all
 tests.
 
-Note, that failiure is often the result of the Playwright test waiting
+Note, that failure is often the result of the Playwright test waiting
 very patiently for something to be present but it can't be found. I.e.
 failures are often the same thing as Playwright reaching a waiting timeout.
 This can make it feel like nothing's happening.

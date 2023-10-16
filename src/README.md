@@ -8,8 +8,6 @@ We used to organize our code more by role. Client, stylesheets, server middlewar
 
 ## How to create and use subject folders
 
-Run `script/create-subject.js --name x` to create a new subject folder.
-
 Subjects do not need every element below. Not every element needs to be a folder. A subject folder looks like:
 
 ```

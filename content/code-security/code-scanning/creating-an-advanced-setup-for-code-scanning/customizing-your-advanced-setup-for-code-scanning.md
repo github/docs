@@ -37,7 +37,7 @@ make sure that you also update the MS short link: https://aka.ms/code-scanning-d
 
 ## About {% data variables.product.prodname_code_scanning %} configuration
 
-You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[AUTOTITLE](/actions/learn-github-actions)" or "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[AUTOTITLE](/actions/learn-github-actions)" or "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)."
 
 {% ifversion code-scanning-without-workflow %}With advanced setup for {% data variables.product.prodname_code_scanning %}, you can customize a {% data variables.product.prodname_code_scanning %} workflow for granular control over your configuration. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."{% else %}This article is about running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.{% endif %}
 

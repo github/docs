@@ -846,8 +846,8 @@
   },
   {
     "action": "org.audit_log_git_event_export",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An export of the organization's Git events was created.",
+    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
   },
   {
     "action": "org.billing_signup_error",
@@ -1493,6 +1493,16 @@
     "action": "org_secret_scanning_custom_pattern.update",
     "description": "Changes to a custom pattern were saved and a dry run was executed for secret scanning in an organization.",
     "docs_reference_links": "/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern"
+  },
+  {
+    "action": "org_secret_scanning_generic_secrets.disabled",
+    "description": "Generic secrets have been disabled at the organization level",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_generic_secrets.enabled",
+    "description": "Generic secrets have been enabled at the organization level",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "packages.package_deleted",

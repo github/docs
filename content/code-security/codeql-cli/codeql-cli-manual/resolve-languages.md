@@ -42,7 +42,7 @@ format an appropriate error message.
 
 ### Primary Options
 
-#### `--search-path=<dir>[:<dir>...]` <!-- markdownlint-disable-line heading-increment -->
+#### `--search-path=<dir>[:<dir>...]`
 
 A list of directories under which extractor packs may be found. The
 directories can either be the extractor packs themselves or directories

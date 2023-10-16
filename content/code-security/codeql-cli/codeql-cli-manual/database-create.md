@@ -39,7 +39,7 @@ one of the CodeQL products.
 
 ### Primary Options
 
-#### `<database>` <!-- markdownlint-disable-line heading-increment -->
+#### `<database>`
 
 \[Mandatory] Path to the CodeQL database to create. This directory will
 be created, and _must not_ already exist (but its parent must).

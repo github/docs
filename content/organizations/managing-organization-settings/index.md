@@ -48,6 +48,7 @@ children:
   - /allowing-project-visibility-changes-in-your-organization
   - /creating-rulesets-for-repositories-in-your-organization
   - /managing-rulesets-for-repositories-in-your-organization
+  - /managing-custom-properties-for-repositories-in-your-organization
 shortTitle: Manage organization settings
 ---
 {% ifversion fpt or ghec %}

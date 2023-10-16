@@ -53,3 +53,8 @@ jobs:
           CHANGED_FILES: ${{ steps.changed-files.outputs.modified_files }}
           DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
         run: npm test -- src/content-render/tests/render-changed-and-deleted-files.js
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

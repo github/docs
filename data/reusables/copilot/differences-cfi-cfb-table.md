@@ -2,7 +2,7 @@
 
 | | {% data variables.product.prodname_copilot_individuals_short %} | {% data variables.product.prodname_copilot_business_short %} |
 |--- | --- | --- |
-| Pricing | $10 per month/$100 per year | $19 per user per month |
+| Pricing | {% data variables.copilot.cfi_price_per_month %} per month<br>{% data variables.copilot.cfi_price_per_year %} per year | {% data variables.copilot.cfb_price_per_month %} per user per month |
 | Types of {% data variables.product.prodname_dotcom %} accounts | Personal accounts | Organization or enterprise accounts |
 | Telemetry | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | Blocks suggestions matching public code | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
