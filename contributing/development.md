@@ -69,6 +69,6 @@ For more info about working with this site, check out these READMEs:
 - [data/README.md](../data/README.md)
 - [data/reusables/README.md](../data/reusables/README.md)
 - [data/variables/README.md](../data/variables/README.md)
-- [includes/liquid-tags/README.md](../includes/liquid-tags/README.md)
+- [src/content-render/README.md](src/content-render/README.md)
 - [includes/README.md](../includes/README.md)
 - [src/README.md](src/README.md)
