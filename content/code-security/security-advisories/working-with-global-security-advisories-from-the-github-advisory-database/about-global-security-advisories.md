@@ -22,7 +22,7 @@ redirect_from:
 
 Global security advisories are grouped into two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
 - {% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support.
-- Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
+- Unreviewed advisories are security vulnerabilities that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
 
 For more information about the {% data variables.product.prodname_advisory_database %}, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database)."
 
