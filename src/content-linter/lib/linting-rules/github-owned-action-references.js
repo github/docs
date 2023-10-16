@@ -11,7 +11,6 @@ export const githubOwnedActionReferences = {
   description:
     'Strings that have a data reusable should use the reusable instead of the hardcoded string.',
   tags: ['actions'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD013(params, onError) {
     const filepath = params.name
     if (filepath.startsWith('data/reusables/actions/action-')) return

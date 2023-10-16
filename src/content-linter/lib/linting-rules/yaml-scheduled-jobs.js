@@ -12,7 +12,6 @@ export const yamlScheduledJobs = {
     'YAML snippets that include scheduled workflows must not run on the hour and must be unique',
   tags: ['actions'],
   asynchronous: true,
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD009(params, onError) {
     filterTokens(params, 'fence', async (token) => {
       const lang = token.info.trim().split(/\s+/u).shift().toLowerCase()

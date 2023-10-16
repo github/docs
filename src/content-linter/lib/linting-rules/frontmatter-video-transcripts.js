@@ -8,8 +8,6 @@ export const frontmatterVideoTranscripts = {
   description:
     'Video transcripts must be configured correctly. This rule checks the filepaths and metadata for files that are related to video transcripts.',
   tags: ['frontmatter'],
-  severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GH036(params, onError) {
     const filepath = params.name
 

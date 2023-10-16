@@ -10,7 +10,6 @@ export const frontmatterFormat = {
   names: ['GHD042', 'frontmatter-format'],
   description: 'Frontmatter must not contain deprecated properties.',
   tags: ['frontmatter', 'format'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD042(params, onError) {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
