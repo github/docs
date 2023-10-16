@@ -15,7 +15,7 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} job logs
 
-Whenever a {% data variables.product.prodname_dependabot %} job runs, the details of the job are captured in the job logs list, which is accessibile from the dependency graph.
+Whenever a {% data variables.product.prodname_dependabot %} job runs, the details of the job are captured in the job logs list, which is accessible from the dependency graph.
 
 For each manifest file, the job logs record the most recent runs of {% data variables.product.prodname_dependabot %}, with each log entry displaying the job type, job ID, timestamp, and, where necessary, a link to the pull request(s) associated with the job.
 
