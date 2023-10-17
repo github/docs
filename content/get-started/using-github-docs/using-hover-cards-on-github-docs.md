@@ -6,7 +6,9 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Hover cards on Docs
+shortTitle: Hover cards
+redirect_from:
+  - /get-started/learning-about-github/using-hover-cards-on-github-docs
 ---
 
 ## About hover cards

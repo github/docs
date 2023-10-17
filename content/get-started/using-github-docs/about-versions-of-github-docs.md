@@ -7,6 +7,8 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Docs versions
+redirect_from:
+  - /get-started/learning-about-github/about-versions-of-github-docs
 ---
 
 ## About versions of {% data variables.product.prodname_docs %}
