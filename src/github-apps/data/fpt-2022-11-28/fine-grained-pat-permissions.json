@@ -2873,15 +2873,6 @@
       },
       {
         "category": "repos",
-        "slug": "get-all-custom-property-values-for-a-repository",
-        "subcategory": "properties",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/properties/values",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "repos",
         "slug": "create-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "post",
@@ -5271,6 +5262,15 @@
         "subcategory": "licenses",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/license",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "get-all-custom-property-values-for-a-repository",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
         "additional-permissions": [],
         "access": "read"
       },
