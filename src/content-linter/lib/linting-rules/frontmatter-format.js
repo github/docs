@@ -7,10 +7,10 @@ import { frontmatter, deprecatedProperties } from '../../../../lib/frontmatter.j
 import readFrontmatter from '../../../../lib/read-frontmatter.js'
 
 export const frontmatterFormat = {
-  names: ['GHD042', 'frontmatter-format'],
-  description: 'Frontmatter must not contain deprecated properties.',
+  names: ['GHD012', 'frontmatter-format'],
+  description: 'Frontmatter must conform to the schema',
   tags: ['frontmatter', 'format'],
-  function: function GHD042(params, onError) {
+  function: function GHD012(params, onError) {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 
