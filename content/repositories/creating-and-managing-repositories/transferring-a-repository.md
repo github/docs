@@ -58,7 +58,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
   {% warning %}
 
-  **Warning**: If you create a new repository at the previous repository location, the redirects to the transferred repository will be deactivated. They can be reactivated by renaming or deleting the new repository.
+  **Warning**: If you create a new repository or fork at the previous repository location, the redirects to the transferred repository will be deactivated. They can be reactivated by renaming or deleting the new repository or fork.
 
   {% endwarning %}
 - When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
