@@ -119,7 +119,7 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g M
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-If you have any concerns about failed imports, contact {% data variables.contact.contact_ent_support %}.
+If you have any concerns about failed imports, you can contact us by visiting {% data variables.contact.contact_ent_support %}.
 
 ## Completing the import on {% data variables.product.prodname_ghe_server %}
 
