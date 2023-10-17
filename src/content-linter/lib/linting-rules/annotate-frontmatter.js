@@ -6,7 +6,6 @@ export const annotateFrontmatter = {
   description:
     'Annotations defined in Markdown must contain a specific layout frontmatter property.',
   tags: ['code', 'annotate'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD040(params, onError) {
     filterTokens(params, 'fence', (token) => {
       if (!token.info.includes('annotate')) return

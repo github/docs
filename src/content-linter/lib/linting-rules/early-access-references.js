@@ -23,7 +23,7 @@ export const earlyAccessReferences = {
     'Files that are not early access should not reference early-access or early-access files.',
   tags: ['early-access'],
   severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
+
   function: function GH035(params, onError) {
     if (isEarlyAccessFilepath(params.name)) return
 
@@ -50,8 +50,6 @@ export const frontmatterEarlyAccessReferences = {
   description:
     'Files that are not early access should not have frontmatter that references early-access.',
   tags: ['early-access', 'frontmatter'],
-  severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GH060(params, onError) {
     const filepath = params.name
     if (isEarlyAccessFilepath(filepath)) return
