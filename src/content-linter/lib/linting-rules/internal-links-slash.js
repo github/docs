@@ -6,7 +6,6 @@ export const internalLinksSlash = {
   names: ['GHD006', 'internal-links-slash'],
   description: 'Internal links must start with a /',
   tags: ['links', 'url'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD006(params, onError) {
     filterTokens(params, 'inline', (token) => {
       for (const child of token.children) {

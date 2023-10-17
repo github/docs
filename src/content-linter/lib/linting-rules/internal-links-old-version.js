@@ -5,7 +5,6 @@ export const internalLinksOldVersion = {
   names: ['GHD010', 'internal-links-old-version'],
   description: 'Internal links must not have a hardcoded version using old versioning patterns',
   tags: ['links', 'url'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD010(params, onError) {
     filterTokens(params, 'inline', (token) => {
       if (

@@ -7,8 +7,6 @@ export const frontmatterHiddenDocs = {
   description:
     'An article with the hidden frontmatter property can only be located in specific products.',
   tags: ['early-access', 'frontmatter'],
-  severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GH034(params, onError) {
     const fm = getFrontmatter(params.lines)
     if (!fm || !fm.hidden) return
