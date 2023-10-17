@@ -6,6 +6,8 @@ import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'
 
 const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
+const checkoutRegexp = /^[actions/checkout]+@[0-9a-f]{40}$/
+const permissionsRegexp = /(read|write)/
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const workflowsDir = path.join(__dirname, '../../../.github/workflows')
@@ -69,4 +71,26 @@ describe('GitHub Actions workflows', () => {
       }
     }
   })
+
+  test.each(workflows)(
+    'contains contents:read permissions when permissions are used $filename',
+    ({ data }) => {
+      if (data.permissions) {
+        expect(permissionsRegexp.test(data.permissions.contents)).toBe(true)
+      }
+    },
+  )
+
+  test.each(workflows)(
+    'performs a checkout before calling composite action $filename',
+    ({ filename, data }) => {
+      for (const [name, job] of Object.entries(data.jobs)) {
+        if (!job.steps.find((step) => checkoutRegexp.test(step.uses))) {
+          throw new Error(
+            `Job ${filename} # ${name} missing a checkout before calling the composite action`,
+          )
+        }
+      }
+    },
+  )
 })

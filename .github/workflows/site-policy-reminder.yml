@@ -10,7 +10,7 @@ on:
 
 permissions:
   pull-requests: write
-  contents: none
+  contents: read
 
 jobs:
   run:
@@ -29,6 +29,8 @@ jobs:
 
             <@github/site-policy-admins>, when these changes are ready to be synced to the site policy repo for the 24-hour or 30-day [review window](https://github.com/github/site-policy#whats-the-process), run the [site policy sync action](https://github.com/github/docs-internal/actions/workflows/site-policy-sync.yml) from this PR's branch. When these changes are ready to be merged in `docs-internal`, let the Docs team know on Slack in #docs-content and a writer will merge this PR.
 
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - uses: ./.github/actions/slack-alert
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

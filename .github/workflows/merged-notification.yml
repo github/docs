@@ -12,6 +12,7 @@ on:
 permissions:
   issues: write
   pull-requests: write
+  contents: read
 
 jobs:
   comment:
@@ -27,6 +28,8 @@ jobs:
               body: "Thanks very much for contributing! Your pull request has been merged 🎉 You should see your changes appear on the site in approximately 24 hours. If you're looking for your next contribution, check out our [help wanted issues](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) :zap:"
             })
 
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - uses: ./.github/actions/slack-alert
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
