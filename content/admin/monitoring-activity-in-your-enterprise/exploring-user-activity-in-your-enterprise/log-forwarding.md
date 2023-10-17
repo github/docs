@@ -51,5 +51,5 @@ When you enable log forwarding, you must upload a CA certificate to encrypt comm
 
 ## Troubleshooting
 
-If you run into issues with log forwarding, contact {% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email.
+If you run into issues with log forwarding, contact us by visiting {% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your message.
 {% endif %}

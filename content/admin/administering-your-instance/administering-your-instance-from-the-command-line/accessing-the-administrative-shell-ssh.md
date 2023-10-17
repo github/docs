@@ -70,4 +70,4 @@ In an emergency situation, for example if SSH is unavailable, you can access the
 
 ## Access limitations for the administrative shell
 
-Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.
+Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please visit {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.
