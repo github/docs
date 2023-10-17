@@ -64,4 +64,4 @@ You can access metrics and transactions for your listing. For more information, 
 
 ## Contacting Support
 
-If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %} directly.
+If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %}.

@@ -53,4 +53,4 @@ Since an email address can only be associated with a single {% data variables.pr
 
    {% endnote %}
 
-1. Optionally, if you have any form of payment set up on the locked account, contact [{% data variables.contact.github_support %}](https://support.github.com/contact) to cancel future payments. For example, you might have a paid subscription or sponsor developers through {% data variables.product.prodname_sponsors %}. If you are sponsored through {% data variables.product.prodname_sponsors %}, please mention this so that the team can help you migrate your sponsorships.
+1. Optionally, if you have any form of payment set up on the locked account, please contact us through the {% data variables.contact.contact_support_portal %} to cancel future payments. For example, you might have a paid subscription or sponsor developers through {% data variables.product.prodname_sponsors %}. If you are sponsored through {% data variables.product.prodname_sponsors %}, please mention this so that the team can help you migrate your sponsorships.

@@ -13,7 +13,6 @@ export const hardcodedDataVariable = {
   description:
     'Strings that have a data reusable should use the reusable instead of the hardcoded string.',
   tags: ['single-source'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD012(params, onError) {
     const frontmatterString = params.frontMatterLines.join('\n')
     const fm = frontmatter(frontmatterString).data
