@@ -37,11 +37,11 @@ function memoize(func) {
 }
 
 export const liquidIfTags = {
-  names: ['LQ114', 'liquid-if-tags'],
+  names: ['GHD019', 'liquid-if-tags'],
   description:
     'Liquid `if` conditional tags should not be used when the argument is a version. Use `ifversion` instead.',
   tags: ['liquid', 'versioning'],
-  function: function LQ114(params, onError) {
+  function: function GHD019(params, onError) {
     const content = params.lines.join('\n')
 
     const tokens = getLiquidTokens(content).filter(
@@ -68,11 +68,11 @@ export const liquidIfTags = {
 }
 
 export const liquidIfVersionTags = {
-  names: ['LQ113', 'liquid-ifversion-tags'],
+  names: ['GHD020', 'liquid-ifversion-tags'],
   description:
     'Liquid `ifversion` conditional tags should contain valid version names as arguments.',
   tags: ['liquid', 'versioning'],
-  function: function LQ113(params, onError) {
+  function: function GHD020(params, onError) {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
       .filter((token) => token.kind === TokenKind.Tag)
