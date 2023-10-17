@@ -30,7 +30,7 @@ W-8 BEN and W-8 BEN-E tax forms help {% data variables.product.prodname_dotcom %
 
 If you are a taxpayer in any other region besides the United States, you must submit a [W-8 BEN](https://www.irs.gov/pub/irs-pdf/fw8ben.pdf) (individual) or [W-8 BEN-E](https://www.irs.gov/forms-pubs/about-form-w-8-ben-e) (company) form before you can publish your {% data variables.product.prodname_sponsors %} profile. For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account#submitting-your-tax-information)" and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)." {% data variables.product.prodname_dotcom %} will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.
 
-If you have been assigned an incorrect tax form, [contact {% data variables.product.prodname_dotcom %} Support](https://support.github.com/contact?form%5Bsubject%5D=GitHub%20Sponsors:%20tax%20form&tags=sponsors) to get reassigned the correct one for your situation.
+If you have been assigned an incorrect tax form, contact us through the {% data variables.contact.contact_support_portal %} to get reassigned the correct one for your situation.
 
 ### Tax identification numbers
 
@@ -42,7 +42,7 @@ If your country of residence or billing country is India, then you can use your 
 
 {% note %}
 
-**Note:** If your country does not require citizens to have a tax number issued by the government, then you can instead write "not legally required".  
+**Note:** If your country does not require citizens to have a tax number issued by the government, then you can instead write "not legally required".
 
 Guidance from the IRS states that you should not write "not applicable." For more information, see "[Instructions for Form W-8BEN, Line 6](https://www.irs.gov/instructions/iw8ben#idm139867098922656)" on the IRS website.
 {% endnote %}

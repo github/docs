@@ -190,7 +190,7 @@ If {% data variables.location.product_location %} is behind a firewall or is bei
 ### Contact support
 
 {% ifversion ghes %}
-If you're still unable to resolve the problem, contact {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
+If you're still unable to resolve the problem, contact us by visiting {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
 {% elsif ghae %}
 You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 {% endif %}
