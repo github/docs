@@ -1,21 +1,21 @@
 ---
-title: Managing larger runners
-shortTitle: Manage larger runners
-intro: 'You can configure {% data variables.actions.hosted_runner %}s for your organization or enterprise.'
-permissions: '{% data reusables.actions.larger-runner-permissions %}'
+Titre: Gérer les plus grands coureurs
+shortTitre: Gérer les plus grands runners
+intro: 'Vous pouvez configurer {% data variables.actions.hosted_runner %s pour votre organisation ou votre entreprise.'
+permissions: '{% data reusables.actions.larger-runner-permissions %'
 versions:
-  feature: actions-hosted-runners
+               fonctionnalité: les runners hébergés d'actions                
 redirect_from:
-  - /actions/using-github-hosted-runners/managing-larger-runners
+  - /actions/using-github-hosted-runners/managing-plus grands runners
 ---
 
-{% data reusables.actions.windows-linux-larger-runners-note %}
+{% data reusables.actions.windows-linux-plus-runners-note %
 
-{% ifversion ghec %}
+{% ifversion ghec %
 
-## Adding a {% data variables.actions.hosted_runner %} to an enterprise
+##                 Ajout d'une variable de données {% .actions.hosted_runner % à une entreprise               
 
-Enterprise owners can add {% data variables.actions.hosted_runner %}s to an enterprise and assign them to organizations. By default, when a {% data variables.actions.hosted_runner %} is created for an enterprise, it is added to a default runner group that all organizations in the enterprise have access to. While all organizations are granted access to the runner, the repositories in each organization **are not** granted access. For each organization, an organization owner must configure the runner group to specify which repositories have access to the enterprise runner. For more information, see "[Allowing repositories to access a runner group](#allowing-repositories-to-access-a-runner-group)."
+Les propriétaires d'entreprise peuvent ajouter des variables de données {% .hosted_runner %s à une entreprise et les attribuer à des organisations. Par défaut, lorsqu'un {% data variables.actions.hosted_runner % est créé pour une entreprise, il est ajouté à un groupe de runners par défaut auquel toutes les organisations de l'entreprise ont accès. Alors que toutes les organisations ont accès au coureur, les référentiels de chaque organisation ation ation **ne sont pas**                  accordé l'accès. Pour chaque organisation, un propriétaire d'organisation doit configurer le groupe de runners pour:                  spécifier quels référentiels ont accès au runner d'entreprise. Pour plus d'informations, voir "[Permettre aux référentiels d'accéder à un groupe de runners](#allowing-repositories-to-access-a-runner-group)."
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
