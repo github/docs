@@ -4365,17 +4365,6 @@
       },
       {
         "category": "repos",
-        "slug": "get-all-custom-property-values-for-a-repository",
-        "subcategory": "properties",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/properties/values",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "repos",
         "slug": "create-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "post",
@@ -7293,6 +7282,17 @@
         "subcategory": "licenses",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/license",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "get-all-custom-property-values-for-a-repository",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
