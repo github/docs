@@ -20,6 +20,7 @@ on:
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
@@ -101,6 +102,8 @@ jobs:
 
             core.setFailed(workflowFailMessage)
 
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - uses: ./.github/actions/slack-alert
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
