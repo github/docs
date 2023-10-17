@@ -69,6 +69,7 @@ We support these files:
 - SVG (_.svg_)
 {%- endif %}
 - Log files (_.log_)
+- Markdown files (_.md_)
 - Microsoft Word (_.docx_), Powerpoint (_.pptx_), and Excel (_.xlsx_) documents
 - Text files (_.txt_)
 - PDFs (_.pdf_)
