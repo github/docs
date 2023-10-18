@@ -5,7 +5,7 @@ import { addFixErrorDetail } from '../helpers/utils.js'
 export const imageFileKebab = {
   names: ['GHD004', 'image-file-kebab'],
   description: 'Image file names should always be lowercase kebab case',
-  tags: ['accessibility', 'images'],
+  tags: ['images'],
   function: function GHD004(params, onError) {
     forEachInlineChild(params, 'image', async function forToken(token) {
       const imageFileName = token.attrs[0][1].split('/').pop().split('.')[0]
