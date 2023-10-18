@@ -23,7 +23,7 @@ This guide assumes that you are familiar with Ruby and the {% data variables.pro
 
 You must install and import the `octokit` gem in order to use the Octokit.rb library. This guide uses import statements in accordance with Ruby's conventions. For more information about different installation methods, see [the Octokit.rb README's Installation section](https://github.com/octokit/octokit.rb/#installation).
 
-## Instantiating and Authenticating
+## Instantiating and authenticating
 
 {% warning %}
 
@@ -43,7 +43,7 @@ If you want to use the {% data variables.product.company_short %} REST API for p
 
 First, require the `octokit` library. Then, create an instance of `Octokit` by passing your {% data variables.product.pat_generic %} as the `access_token` option. In the following example, replace `YOUR-TOKEN` with your {% data variables.product.pat_generic %}.
 
-```ruby
+```ruby copy
 require 'octokit'
 
 octokit = Octokit::Client.new(access_token: 'YOUR-TOKEN')
@@ -51,7 +51,7 @@ octokit = Octokit::Client.new(access_token: 'YOUR-TOKEN')
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an endpoint is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_app %}." "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)," "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)," and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an endpoint is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_app %}." For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)," "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)," and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
 Instead of requiring `octokit`, create an instance of `Octokit::Client` by passing your {% data variables.product.prodname_github_app %}'s information as options. In the following example, replace `APP_ID` with your app's ID, `PRIVATE_KEY` with your app's private key, and `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)" in the REST reference documentation.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
@@ -69,9 +69,9 @@ octokit = Octokit::Client.new(bearer_token: app.create_app_installation.access_t
 
 ### Authenticating in {% data variables.product.prodname_actions %}
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see "Permissions for the `GITHUB_TOKEN`."
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
 
-If your workflow needs to access resources outside of the workflow's repository, then you will not be able to use `GITHUB_TOKEN`. In that case, store your credentials as a secret and replace `GITHUB_TOKEN` in the examples below with the name of your secret. For more information about secrets, see "Encrypted Secrets."
+If your workflow needs to access resources outside of the workflow's repository, then you will not be able to use `GITHUB_TOKEN`. In that case, store your credentials as a secret and replace `GITHUB_TOKEN` in the examples below with the name of your secret. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 If you use the `run` keyword to execute your Ruby script in your {% data variables.product.prodname_actions %} workflows, you can store the value of `GITHUB_TOKEN` as an environment variable. Your script can access the environment variable as `ENV['VARIABLE_NAME']`.
 
@@ -115,7 +115,7 @@ To use the `request` method to make requests, pass the HTTP method and path as t
 octokit.request("GET /repos/{owner}/{repo}/issues", owner: "github", repo: "docs", per_page: 2)
 ```
 
-The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` option to the hash passed as a second argument. The value of the `headers` option is a hash with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
+The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` option to the hash that is passed as a second argument. The value of the `headers` option is a hash with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
 
 ```ruby copy
 octokit.request("POST /markdown/raw", text: "Hello **world**", headers: { "content-type" => "text/plain" })
@@ -128,8 +128,6 @@ Every REST API endpoint has an associated `rest` endpoint method in Octokit. The
 ```ruby copy
 octokit.rest.issues.list_for_repo(owner: "github", repo: "docs", per_page: 2)
 ```
-
-Additionally, if you are using a typed language such as TypeScript, you can import types to use with these methods. For more information, see the TypeScript section in the octokit/rest-endpoint-methods.rb README.
 
 ### Making paginated requests
 
@@ -179,7 +177,7 @@ You can use the `paginate` method with the `rest` endpoint methods as well. Pass
 iterator = octokit.paginate.iterator(octokit.rest.issues.list_for_repo, owner: "github", repo: "docs", per_page: 100)
 ```
 
-For more information about pagination, see "Using Pagination in the REST API."
+For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
 ## Catching errors
 
@@ -323,13 +321,12 @@ puts "A comment was added to the pull request: #{comment_url}"
 ```
 
 {% note %}
-This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
+**Note**: This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
 {% endnote %}
 
 ## Next steps
 
 To learn more about working with the {% data variables.product.company_short %} REST API and Octokit.rb, explore the following resources:
 
-{% data variables.product.company_short %} REST API Reference - Find detailed information about the available endpoints, including their request and response structures.
-Octokit.rb {% data variables.product.company_short %} Repository - Check out the {% data variables.product.company_short %} repository for the Octokit.rb library for more examples and information.
-{% data variables.product.company_short %} Developer Documentation - Explore the comprehensive {% data variables.product.company_short %} Developer Documentation to learn more about various {% data variables.product.company_short %} APIs, authentication, and best practices.
+- To learn more about Octokit.rb see [the Octokit.rb documentation](https://github.com/octokit/octokit.rb/#readme).
+- To find detailed information about {% data variables.product.company_short %}'s available REST API endpoints, including their request and response structures, see the [AUTOTITLE](/rest).
