@@ -531,7 +531,7 @@ This utility allows you to update an SSL certificate for {% data variables.locat
 For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
-ghe-ssl-certificate-setup
+/usr/local/share/enterprise/ghe-ssl-certificate-setup
 ```
 
 ### ghe-ssl-generate-csr
