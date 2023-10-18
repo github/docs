@@ -15,7 +15,7 @@ import { isStringQuoted } from '../helpers/utils.js'
 export const liquidQuotedConditionalArg = {
   names: ['GHD016', 'liquid-quoted-conditional-arg'],
   description: 'Liquid conditional tags should not quote the conditional argument.',
-  tags: ['liquid', 'formatting'],
+  tags: ['liquid', 'format'],
   function: function GHD016(params, onError) {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
@@ -41,7 +41,7 @@ export const liquidQuotedConditionalArg = {
       addError(
         onError,
         lineNumber,
-        "A conditional Liquid tag's argument is quoted, meaning it will always evaluate to true. Remove the quotes to allow Liquid to evaluate variable.",
+        "A conditional Liquid tag's argument is quoted, meaning it will always evaluate to true. Remove the quotes to allow Liquid to evaluate the variable.",
         token.content,
         [column, length],
         {

@@ -21,7 +21,7 @@ export const earlyAccessReferences = {
   names: ['GHD008', 'early-access-references'],
   description:
     'Files that are not early access should not reference early-access or early-access files.',
-  tags: ['early-access'],
+  tags: ['feature', 'early-access'],
   severity: 'error',
 
   function: function GHD008(params, onError) {
@@ -49,7 +49,7 @@ export const frontmatterEarlyAccessReferences = {
   names: ['GHD009', 'frontmatter-early-access-references'],
   description:
     'Files that are not early access should not have frontmatter that references early-access.',
-  tags: ['early-access', 'frontmatter'],
+  tags: ['frontmatter', 'feature', 'early-access'],
   function: function GHD009(params, onError) {
     const filepath = params.name
     if (isEarlyAccessFilepath(filepath)) return
