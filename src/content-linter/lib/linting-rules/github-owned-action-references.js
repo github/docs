@@ -10,7 +10,7 @@ export const githubOwnedActionReferences = {
   names: ['GHD013', 'github-owned-action-references'],
   description:
     'Strings that have a data reusable should use the reusable instead of the hardcoded string.',
-  tags: ['actions'],
+  tags: ['feature', 'actions'],
   function: function GHD013(params, onError) {
     const filepath = params.name
     if (filepath.startsWith('data/reusables/actions/action-')) return

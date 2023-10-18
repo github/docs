@@ -6,7 +6,7 @@ export const frontmatterHiddenDocs = {
   names: ['GHD010', 'frontmatter-hidden-docs'],
   description:
     'An article with the hidden frontmatter property can only be located in specific products.',
-  tags: ['early-access', 'frontmatter'],
+  tags: ['frontmatter', 'feature', 'early-access'],
   function: function GHD010(params, onError) {
     const fm = getFrontmatter(params.lines)
     if (!fm || !fm.hidden) return

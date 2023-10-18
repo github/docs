@@ -5,7 +5,7 @@ export const annotateFrontmatter = {
   names: ['GHD007', 'annotate-frontmatter'],
   description:
     'Annotations defined in Markdown must contain a specific layout frontmatter property.',
-  tags: ['code', 'annotate'],
+  tags: ['code', 'feature', 'annotate'],
   function: function GHD007(params, onError) {
     filterTokens(params, 'fence', (token) => {
       if (!token.info.includes('annotate')) return

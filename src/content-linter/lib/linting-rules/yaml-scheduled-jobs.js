@@ -10,7 +10,7 @@ export const yamlScheduledJobs = {
   names: ['GHD021', 'yaml-scheduled-jobs'],
   description:
     'YAML snippets that include scheduled workflows must not run on the hour and must be unique',
-  tags: ['actions'],
+  tags: ['feature', 'actions'],
   asynchronous: true,
   function: function GHD021(params, onError) {
     filterTokens(params, 'fence', async (token) => {
