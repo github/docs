@@ -42,7 +42,7 @@ There are some limitations when migrating from Bamboo to {% data variables.produ
 - Pattern match labeling is not transformed because there is no equivalent in {% data variables.product.prodname_actions %}.
 - All artifacts are transformed into an `actions/upload-artifact`, regardless of whether they are `shared` or not, so they can be downloaded from any job in the workflow.
 - Permissions are not transformed because there is no suitable equivalent in {% data variables.product.prodname_actions %}.
-- {% data variables.product.prodname_actions_importer %} supports Bamboo version between 7.1.1 and 8.1.1, however, project and plan variables will not be migrated.
+- If the Bamboo version is between 7.1.1 and 8.1.1, project and plan variables will not be migrated.
 
 #### Manual tasks
 
