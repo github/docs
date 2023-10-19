@@ -6,7 +6,7 @@ export const internalLinksSlash = {
   names: ['GHD003', 'internal-links-slash'],
   description: 'Internal links must start with a /',
   tags: ['links', 'url'],
-  function: function GHD003(params, onError) {
+  function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       for (const child of token.children) {
         if (child.type !== 'link_open') continue

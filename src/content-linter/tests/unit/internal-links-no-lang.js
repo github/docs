@@ -1,14 +1,14 @@
 import { runRule } from '../../lib/init-test.js'
-import { internalLinksLang } from '../../lib/linting-rules/internal-links-lang.js'
+import { internalLinksNoLang } from '../../lib/linting-rules/internal-links-no-lang.js'
 
-describe(internalLinksLang.names.join(' - '), () => {
+describe(internalLinksNoLang.names.join(' - '), () => {
   test('internal links with hardcoded language codes fail', async () => {
     const markdown = [
       '[English Docs](/en/docs)',
       '[Link to just a landing page in english](/en)',
       '[Korean Docs](/ko/actions)',
     ].join('\n')
-    const result = await runRule(internalLinksLang, { strings: { markdown } })
+    const result = await runRule(internalLinksNoLang, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(3)
     expect(errors.map((error) => error.lineNumber)).toEqual([1, 2, 3])
@@ -29,7 +29,7 @@ describe(internalLinksLang.names.join(' - '), () => {
       // A link that starts with a language code
       '[Enterprise](/enterprise/overview)',
     ].join('\n')
-    const result = await runRule(internalLinksLang, { strings: { markdown } })
+    const result = await runRule(internalLinksNoLang, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })

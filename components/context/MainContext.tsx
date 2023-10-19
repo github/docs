@@ -55,19 +55,23 @@ export type ProductTreeNode = {
   childPages: Array<ProductTreeNode>
 }
 
+export type EnterpriseDeprecation = {
+  version_was_deprecated: string
+  version_will_be_deprecated: string
+  deprecation_details: string
+  isOldestReleaseDeprecated?: boolean
+}
+
+type DataReusables = {
+  enterprise_deprecation?: EnterpriseDeprecation
+  policies?: {
+    translation: string
+  }
+}
+
 type DataT = {
   ui: Record<string, any>
-  reusables: {
-    enterprise_deprecation: {
-      version_was_deprecated: string
-      version_will_be_deprecated: string
-      deprecation_details: string
-      isOldestReleaseDeprecated?: boolean
-    }
-    policies: {
-      translation: string
-    }
-  }
+  reusables: DataReusables
   variables: {
     release_candidate: { version: string }
   }
@@ -134,12 +138,38 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     delete req.context.site.data.ui.ms
   }
 
+  if (!req.context.page) {
+    throw new Error(`No page context (${req.url})`)
+  }
   const { documentType } = req.context.page
 
   // Every product landing page has a listing of all articles.
   // It's used by the <ProductArticlesList> component.
   const includeFullProductTree = documentType === 'product'
   const includeSidebarTree = documentType !== 'homepage'
+
+  const reusables: DataReusables = {}
+
+  if (req.context.currentLanguage !== 'en' && req.path.split('/').includes('site-policy')) {
+    reusables.policies = {
+      translation: req.context.getDottedData('reusables.policies.translation'),
+    }
+  }
+  // To know whether we need this key, we need to match this
+  // with the business logic in `DeprecationBanner.tsx` which is as follows:
+  if (req.context.currentVersion.includes(req.context.enterpriseServerReleases.oldestSupported)) {
+    reusables.enterprise_deprecation = {
+      version_was_deprecated: req.context.getDottedData(
+        'reusables.enterprise_deprecation.version_was_deprecated',
+      ),
+      version_will_be_deprecated: req.context.getDottedData(
+        'reusables.enterprise_deprecation.version_will_be_deprecated',
+      ),
+      deprecation_details: req.context.getDottedData(
+        'reusables.enterprise_deprecation.deprecation_details',
+      ),
+    }
+  }
 
   return {
     breadcrumbs: req.context.breadcrumbs || {},
@@ -151,22 +181,8 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     data: {
       ui: req.context.site.data.ui,
 
-      reusables: {
-        enterprise_deprecation: {
-          version_was_deprecated: req.context.getDottedData(
-            'reusables.enterprise_deprecation.version_was_deprecated',
-          ),
-          version_will_be_deprecated: req.context.getDottedData(
-            'reusables.enterprise_deprecation.version_will_be_deprecated',
-          ),
-          deprecation_details: req.context.getDottedData(
-            'reusables.enterprise_deprecation.deprecation_details',
-          ),
-        },
-        policies: {
-          translation: req.context.getDottedData('reusables.policies.translation'),
-        },
-      },
+      reusables,
+
       variables: {
         release_candidate: {
           version: req.context.getDottedData('variables.release_candidate.version') || null,

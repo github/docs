@@ -45,9 +45,6 @@
     "sync-webhooks": "src/rest/scripts/update-files.js -o webhooks",
     "test": "cross-env NODE_OPTIONS='--max_old_space_size=4096 --experimental-vm-modules' jest --logHeapUsage",
     "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
-    "translation-check": "start-server-and-test translation-check-server 4002 translation-check-test",
-    "translation-check-server": "cross-env NODE_ENV=test PORT=4002 node server.js",
-    "translation-check-test": "node script/i18n/test-html-pages.js",
     "tsc": "tsc --noEmit"
   },
   "lint-staged": {
@@ -179,7 +176,7 @@
     "jest-slow-test-reporter": "^1.0.0",
     "json-schema-merge-allof": "^0.8.1",
     "kill-port": "2.0.1",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^15.0.1",
     "markdownlint": "^0.28.2",
     "markdownlint-rule-helpers": "^0.19.0",
     "markdownlint-rule-search-replace": "^1.2.0",

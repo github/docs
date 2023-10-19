@@ -6,11 +6,11 @@ import { formatAjvErrors } from '../helpers/schema-utils.js'
 import { frontmatter, deprecatedProperties } from '../../../../lib/frontmatter.js'
 import readFrontmatter from '../../../../lib/read-frontmatter.js'
 
-export const frontmatterFormat = {
-  names: ['GHD012', 'frontmatter-format'],
+export const frontmatterSchema = {
+  names: ['GHD012', 'frontmatter-schema'],
   description: 'Frontmatter must conform to the schema',
-  tags: ['frontmatter', 'format'],
-  function: function GHD012(params, onError) {
+  tags: ['frontmatter', 'schema'],
+  function: (params, onError) => {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 

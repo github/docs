@@ -48,8 +48,9 @@ npm run lint-content -- --errors
 
 Use the following command to run the linter locally on specific files or directories. Separate multiple paths with a space. You can include both files and directories in the same command.
 
-```shell
-npm run lint-content -- --paths content/FILENAME.md content/DIRECTORY
+```shell copy
+npm run lint-content -- \
+  --paths content/FILENAME.md content/DIRECTORY
 ```
 
 #### Automatically fix errors that can be fixed
@@ -65,7 +66,8 @@ npm run lint-content -- --fix
 Run this command to fix specific files or directories:
 
 ```shell
-npm run lint-content -- --fix --paths content/FILENAME.md content/DIRECTORY
+npm run lint-content -- \
+  --fix --paths content/FILENAME.md content/DIRECTORY
 ```
 
 #### Run a specific set of linter rules
@@ -75,13 +77,16 @@ Use the following command to run one or more specific linter rules. These exampl
 Run the specified linter rules on all staged and changed files:
 
 ```shell
-npm run lint-content -- --rules heading-increment code-fence-line-length
+npm run lint-content -- \
+  --rules heading-increment code-fence-line-length
 ```
 
 Run the specified linter rules on specific files or directories:
 
 ```shell
-npm run lint-content -- --rules heading-increment code-fence-line-length --path content/FILENAME.md content/DIRECTORY
+npm run lint-content -- \
+  --rules heading-increment code-fence-line-length \
+  --path content/FILENAME.md content/DIRECTORY
 ```
 
 #### Bypass the commit hook
@@ -104,47 +109,26 @@ Each rule is configured in a file in [`src/content-linter/style`](https://github
 
 Errors must be addressed before merging your changes to the `main` branch. Warnings should be addressed but do not prevent a change from being merged into the `main` branch. Most rules will eventually be promoted to errors, once the content no longer has warning violations.
 
-| **Rule ID** | **Description** | **Severity** |
-|---|---|---|
-| [MD004](https://github.com/DavidAnson/markdownlint/blob/main/doc/md004.md) | Unordered list style must be a dash. | Error |
-| [MD011](https://github.com/DavidAnson/markdownlint/blob/main/doc/md011.md) | Make sure that link syntax is not reversed. | Error |
-| [MD012](https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md) | No unnecessary blank lines. | Error |
-| [MD014](https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md) | Dollar signs should not be used before commands without showing output. | Error |
-| [MD018](https://github.com/DavidAnson/markdownlint/blob/main/doc/md018.md) | Must have one space after a hash style heading. | Error |
-| [MD019](https://github.com/DavidAnson/markdownlint/blob/main/doc/md019.md) | Must not have spaces after a hash style heading. | Error |
-| [MD022](https://github.com/DavidAnson/markdownlint/blob/main/doc/md022.md) | Headings must be surrounded by a blank line. | Error |
-| [MD023](https://github.com/DavidAnson/markdownlint/blob/main/doc/md023.md) | Headings must start at the beginning of the line. | Error |
-| [MD027](https://github.com/DavidAnson/markdownlint/blob/main/doc/md027.md) | Catches multiple spaces after blockquote symbol. | Error |
-| [MD029](https://github.com/DavidAnson/markdownlint/blob/main/doc/md029.md) | All ordered lists should be prefixed with `1.`. | Error |
-| [MD030](https://github.com/DavidAnson/markdownlint/blob/main/doc/md030.md) | Only allow one space after list markers. | Error |
-| [MD037](https://github.com/DavidAnson/markdownlint/blob/main/doc/md037.md) | Remove extra spacing inside emphasis markers. | Error |
-| [MD039](https://github.com/DavidAnson/markdownlint/blob/main/doc/md039.md) | Remove spacing around image text. | Error |
-| [MD042](https://github.com/DavidAnson/markdownlint/blob/main/doc/md042.md) | Do not allow empty links. | Error |
-| [MD050](https://github.com/DavidAnson/markdownlint/blob/main/doc/md050.md) | All strong styling should use asterisks. | Error |
-| [GHD002](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-alt-text-end-punctuation.js) | Images alternate text should end with a punctuation. | Error |
-| [GHD005](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/internal-links-lang.js) | Internal links must not have a hardcoded language code. | Error |
-| [GHD006](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-file-kebab.js) | Image file names should be lowercase kebab case. | Error |
-| [MD001](https://github.com/DavidAnson/markdownlint/blob/main/doc/md001.md) | Header levels can only increments by one level at a time. | Warning |
-| [MD002](https://github.com/DavidAnson/markdownlint/blob/main/doc/md002.md) | Ensure that headings start with an H2 heading. | Warning |
-| [MD009](https://github.com/DavidAnson/markdownlint/blob/main/doc/md009.md) | No unnecessary whitespace from the end of the line. | Warning |
-| [MD031](https://github.com/DavidAnson/markdownlint/blob/main/doc/md031.md) | Fenced code blocks must be surrounded by blank lines. | Warning |
-| [MD040](https://github.com/DavidAnson/markdownlint/blob/main/doc/md040.md) | Code fences must have a language specified. | Warning |
-| [MD047](https://github.com/DavidAnson/markdownlint/blob/main/doc/md047.md) | All files should end with a new line character. | Warning |
-| [MD049](https://github.com/DavidAnson/markdownlint/blob/main/doc/md049.md) | All emphasis styling should use underscores. | Warning |
-| [GHD001](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/code-fence-line-length.js) | Code fence content should be 60 lines or less in length. | Warning |
-| [GHD003](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. | Warning |
-| [GHD004](https://github.com/github/docs/blob/main/src/content-linter/lib/linting-rules/internal-links-slash.js) | Internal links must start with a `/`. | Warning |
+{% data reusables.contributing.content-linter-rules %}
 
 ## Suppressing linter rules
 
-Rarely, you may need to document something that violates one or more linter rules. In these cases, you can suppress rules by adding a comment to the Markdown file. You can disable all rules or specific rules. Always try to limit as few rules as possible.
+Rarely, you may need to document something that violates one or more linter rules. In these cases, you can suppress rules by adding a comment to the Markdown file. You can disable all rules or specific rules. Always try to limit as few rules as possible. You can disable a rule for an entire file, for a section of a Markdown file, a specific line, or the next line.
 
 <!-- markdownlint-disable MD011 -->
-For example, if you are writing an article that includes a regular expression such as <code>(^|/)[Cc]+odespace/</code>, you can suppress the `MD011` rule that checks for reversed link syntax by adding the following comment.
+For example, if you are writing an article that includes the regular expression `(^|/)[Cc]+odespace/` that checks for reversed link syntax, it will trigger the `MD011` rule that checks for reversed links. You can disable the rule `MD011` on that specific line by adding the following comment.
+
+<pre>
+(^|/)[Cc]+odespace/ &lt;!-- markdownlint-disable-line MD011 --&gt;
+</pre>
+
+If the line you're trying to ignore is in a code block, you can ignore the code block by surrounding it with the following comments.
 
 <pre>
 &lt;!-- markdownlint-disable MD011 --&gt;
+```
 (^|/)[Cc]+odespace/
+```
 &lt;!-- markdownlint-enable MD011 --&gt;
 </pre>
 

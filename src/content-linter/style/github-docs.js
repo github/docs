@@ -4,7 +4,7 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-links-lang': {
+  'internal-links-no-lang': {
     // GHD002
     severity: 'error',
     'partial-markdown-files': true,
@@ -14,7 +14,7 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'image-file-kebab': {
+  'image-file-kebab-case': {
     // GHD004
     severity: 'error',
     'partial-markdown-files': true,
@@ -29,7 +29,7 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'annotate-frontmatter': {
+  'code-annotations': {
     // GHD007
     severity: 'error',
     'partial-markdown-files': false,
@@ -122,7 +122,7 @@ export const githubDocsFrontmatterConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
-  'frontmatter-format': {
+  'frontmatter-schema': {
     // GHD012
     severity: 'error',
     'partial-markdown-files': false,
@@ -214,7 +214,7 @@ export const searchReplaceConfig = {
         // - {{ octicon-plus An example label }}
         name: 'deprecated liquid syntax: octicon-<icon-name>',
         message:
-          'The octicon liquid syntax used is deprecated. Use this format instead {% octicon "<octicon-name>" aria-label="<Octicon aria label>" %}',
+          'The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"`',
         searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
         severity: 'error',
         'partial-markdown-files': true,

@@ -11,9 +11,9 @@ import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
 export const liquidDataReferencesDefined = {
   names: ['GHD014', 'liquid-data-references-defined'],
   description:
-    'Liquid data or indented data references were found in content but do not exist in the data directory or have no value.',
+    'Liquid data or indented data references were found in content that have no value or do not exist in the data directory',
   tags: ['liquid'],
-  function: function GHD014(params, onError) {
+  function: (params, onError) => {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
       .filter((token) => token.kind === TokenKind.Tag)
@@ -46,9 +46,9 @@ export const liquidDataReferencesDefined = {
 export const liquidDataTagFormat = {
   names: ['GHD015', 'liquid-data-tag-format'],
   description:
-    'Liquid data or indented data references tags must have the correct number of arguments and spacing.',
-  tags: ['liquid'],
-  function: function GHD015(params, onError) {
+    'Liquid data or indented data references tags must have the correct number of arguments and spacing',
+  tags: ['liquid', 'format'],
+  function: (params, onError) => {
     const content = params.lines.join('\n')
     const tokenTags = getLiquidTokens(content).filter((token) => token.kind === TokenKind.Tag)
     const dataTags = tokenTags.filter((token) => token.name === 'data')

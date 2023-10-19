@@ -22,6 +22,8 @@ When you create a ruleset, you can allow certain users to bypass the rules in th
 
 Rulesets work alongside any branch protection rules and tag protection rules in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
 
+{% ifversion tag-protection-rules-import %}Additionally, you can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#about-importing-tag-protection-rules-to-repository-rulesets)."{% endif %}
+
 Rulesets have the following advantages over branch and tag protection rules.
 
 - Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch or tag in your repository will be evaluated when someone interacts with that branch or tag. For more information, see "[About rule layering](#about-rule-layering)."

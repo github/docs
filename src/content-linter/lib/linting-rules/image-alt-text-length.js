@@ -9,7 +9,7 @@ export const incorrectAltTextLength = {
   description: 'Images alternate text should be between 40-150 characters',
   tags: ['accessibility', 'images'],
   asynchronous: true,
-  function: function GHD033(params, onError) {
+  function: (params, onError) => {
     forEachInlineChild(params, 'image', async function forToken(token) {
       let renderedString = token.content
 
