@@ -36,7 +36,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 ## Organization webhooks
 
-You can create webhooks in an organization to subscribe to events that occur in that organization. Organization webhooks can subscribe to events that happen in all repositories owned by the organization. They are can also subscribe to events that happen at the organization level that are outside of any particular repository, like when a new member is added to the organization.
+You can create webhooks in an organization to subscribe to events that occur in that organization. Organization webhooks can subscribe to events that happen in all repositories owned by the organization. They can also subscribe to events that happen at the organization level that are outside of any particular repository, like when a new member is added to the organization.
 
 You must be an organization owner to create and manage webhooks in an organization.
 
