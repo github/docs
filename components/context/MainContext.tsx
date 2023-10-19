@@ -137,6 +137,9 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     delete req.context.site.data.ui.ms
   }
 
+  if (!req.context.page) {
+    throw new Error(`No page context (${req.url})`)
+  }
   const { documentType } = req.context.page
 
   // Every product landing page has a listing of all articles.
