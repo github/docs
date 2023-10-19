@@ -5,10 +5,9 @@ import { getFrontmatter } from '../helpers/utils.js'
 
 export const frontmatterVideoTranscripts = {
   names: ['GH011', 'frontmatter-video-transcripts'],
-  description:
-    'Video transcripts must be configured correctly. This rule checks the filepaths and metadata for files that are related to video transcripts.',
-  tags: ['frontmatter'],
-  function: function GH011(params, onError) {
+  description: 'Video transcript must be configured correctly',
+  tags: ['frontmatter', 'feature', 'video-transcripts'],
+  function: (params, onError) => {
     const filepath = params.name
 
     const fm = getFrontmatter(params.lines)

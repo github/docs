@@ -33,29 +33,29 @@
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [GH001](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH001-no-default-alt-text.md) | no-default-alt-text | Images should have meaningful alternative text (alt text) | error | accessibility, images |
 | [GH002](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH002-no-generic-link-text.md) | no-generic-link-text | Avoid using generic link text like `Learn more` or `Click here` | error | accessibility, links |
-| GHD030 | code-fence-line-length | Code fence lines should not exceed a maximum length | warning | code |
-| GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with a punctuation. | error | accessibility, images |
-| GHD004 | image-file-kebab | Image file names should always be lowercase kebab case | error | images |
+| GHD030 | code-fence-line-length | Code fence lines should not exceed a maximum length | warning | code, accessibility |
+| GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
+| GHD004 | image-file-kebab-case | Image file names must use kebab-case | error | images |
 | GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | warning | accessibility, images |
-| GHD002 | internal-links-lang | Internal links must not have a hardcoded language code | error | links, url |
+| GHD002 | internal-links-no-lang | Internal links must not have a hardcoded language code | error | links, url |
 | GHD003 | internal-links-slash | Internal links must start with a / | error | links, url |
-| GHD031 | image-alt-text-exclude-words | Alternate text for images should not begin with words like "image" or "graphic". | error | accessibility, images |
-| GHD034 | list-first-word-capitalization | First word of list item should be capitalized. | warning | ul, ol |
+| GHD031 | image-alt-text-exclude-words | Alternate text for images should not begin with words like "image" or "graphic" | error | accessibility, images |
+| GHD034 | list-first-word-capitalization | First word of list item should be capitalized | warning | ul, ol |
 | GHD001 | link-punctuation | Internal link titles must not contain punctuation | error | links, url |
-| GHD008 | early-access-references | Files that are not early access should not reference early-access or early-access files. | error | feature, early-access |
+| GHD008 | early-access-references | Files that are not early access should not reference early-access or early-access files | error | feature, early-access |
 | GHD021 | yaml-scheduled-jobs | YAML snippets that include scheduled workflows must not run on the hour and must be unique | error | feature, actions |
-| GHD006 | internal-links-old-version | Internal links must not have a hardcoded version using old versioning patterns | error | links, url |
-| GHD005 | hardcoded-data-variable | Strings that have a data reusable should use the reusable instead of the hardcoded string. | error | single-source |
-| GHD013 | github-owned-action-references | Strings that have a data reusable should use the reusable instead of the hardcoded string. | error | feature, actions |
-| GHD016 | liquid-quoted-conditional-arg | Liquid conditional tags should not quote the conditional argument. | error | liquid, format |
-| GHD014 | liquid-data-references-defined | Liquid data or indented data references were found in content but do not exist in the data directory or have no value. | error | liquid |
-| GHD015 | liquid-data-tag-format | Liquid data or indented data references tags must have the correct number of arguments and spacing. | error | liquid |
-| GHD010 | frontmatter-hidden-docs | An article with the hidden frontmatter property can only be located in specific products. | error | frontmatter, feature, early-access |
-| GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access. | error | frontmatter, feature, early-access |
-| GH011 | frontmatter-video-transcripts | Video transcripts must be configured correctly. This rule checks the filepaths and metadata for files that are related to video transcripts. | error | frontmatter |
+| GHD006 | internal-links-old-version | Internal links must not have a hardcoded version using old versioning syntax | error | links, url, versioning |
+| GHD005 | hardcoded-data-variable | Strings that contain "personal access token" should use the product variable instead | error | single-source |
+| GHD013 | github-owned-action-references | GitHub-owned action references should not be hardcoded | error | feature, actions |
+| GHD016 | liquid-quoted-conditional-arg | Liquid conditional tags should not quote the conditional argument | error | liquid, format |
+| GHD014 | liquid-data-references-defined | Liquid data or indented data references were found in content that have no value or do not exist in the data directory | error | liquid |
+| GHD015 | liquid-data-tag-format | Liquid data or indented data references tags must have the correct number of arguments and spacing | error | liquid, format |
+| GHD010 | frontmatter-hidden-docs | Articles with frontmatter property `hidden` can only be located in specific products | error | frontmatter, feature, early-access |
+| GHD009 | frontmatter-early-access-references | Files that are not early access should not have frontmatter that references early-access | error | frontmatter, feature, early-access |
+| GH011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
 | GHD012 | frontmatter-schema | Frontmatter must conform to the schema | error | frontmatter, schema |
-| GHD007 | annotate-frontmatter | Annotations defined in Markdown must contain a specific layout frontmatter property. | error | code, feature, annotate |
-| GHD017 | frontmatter-liquid-syntax | Frontmatter properties that contain Markdown (e.g., translatable strings) must use valid liquid. | error | liquid, frontmatter |
-| GHD018 | liquid-syntax | Markdown content must have valid liquid. | error | liquid |
-| GHD019 | liquid-if-tags | Liquid `if` conditional tags should not be used when the argument is a version. Use `ifversion` instead. | error | liquid, versioning |
-| GHD020 | liquid-ifversion-tags | Liquid `ifversion` conditional tags should contain valid version names as arguments. | error | liquid, versioning |
+| GHD007 | code-annotations | Code annotations defined in Markdown must contain a specific layout frontmatter property | error | code, feature, annotate, frontmatter |
+| GHD017 | frontmatter-liquid-syntax | Frontmatter properties must use valid Liquid | error | liquid, frontmatter |
+| GHD018 | liquid-syntax | Markdown content must use valid Liquid | error | liquid |
+| GHD019 | liquid-if-tags | Liquid `ifversion` tags should be used instead of `if` tags when the argument is a valid version | error | liquid, versioning |
+| GHD020 | liquid-ifversion-tags | Liquid `ifversion` tags should contain valid version names as arguments | error | liquid, versioning |
