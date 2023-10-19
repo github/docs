@@ -69,7 +69,7 @@ You can reorder tasks across different lists in the same comment, but you cannot
 
 You can turn tasks into issues. First, hover to one of the checkboxes in your issue until a circle with a dot in the middle appears. Then, click on Convert to Issue.
 
- {% ifversion fpt or ghec %}![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing two tasks. The first task has the issue symbol in green with its title "Convert text into issues" outlined in light blue.](/assets/images/help/writing/convert-task-lists-into-issues.png){% endif %}
+ {% ifversion fpt or ghec %} ![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing two tasks. The first task has the issue symbol in green with its title "Convert text into issues" outlined in light blue.](/assets/images/help/writing/convert-task-lists-into-issues.png){% endif %}
 
 {% ifversion fpt %}
 
