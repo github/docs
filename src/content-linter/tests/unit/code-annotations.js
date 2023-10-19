@@ -1,10 +1,10 @@
 import { runRule } from '../../lib/init-test.js'
-import { annotateFrontmatter } from '../../lib/linting-rules/annotate-frontmatter.js'
+import { codeAnnotations } from '../../lib/linting-rules/code-annotations.js'
 
-describe(annotateFrontmatter.names.join(' - '), () => {
+describe(codeAnnotations.names.join(' - '), () => {
   test('No layout property fails', async () => {
     const markdown = ['---', 'title: Title', '---', '```shell annotate', 'hello', '```'].join('\n')
-    const result = await runRule(annotateFrontmatter, { strings: { markdown } })
+    const result = await runRule(codeAnnotations, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(4)
@@ -15,7 +15,7 @@ describe(annotateFrontmatter.names.join(' - '), () => {
     const markdown = ['---', 'layout: default', '---', '```shell annotate', 'hello', '```'].join(
       '\n',
     )
-    const result = await runRule(annotateFrontmatter, { strings: { markdown } })
+    const result = await runRule(codeAnnotations, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(1)
   })
@@ -23,7 +23,7 @@ describe(annotateFrontmatter.names.join(' - '), () => {
     const markdown = ['---', 'layout: inline', '---', '```shell annotate', 'hello', '```'].join(
       '\n',
     )
-    const result = await runRule(annotateFrontmatter, { strings: { markdown } })
+    const result = await runRule(codeAnnotations, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })

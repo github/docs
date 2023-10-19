@@ -2,11 +2,11 @@ import { filterTokens } from 'markdownlint-rule-helpers'
 import { addFixErrorDetail, getRange } from '../helpers/utils.js'
 import { allLanguageKeys } from '#src/languages/lib/languages.js'
 
-export const internalLinksLang = {
-  names: ['GHD002', 'internal-links-lang'],
+export const internalLinksNoLang = {
+  names: ['GHD002', 'internal-links-no-lang'],
   description: 'Internal links must not have a hardcoded language code',
   tags: ['links', 'url'],
-  function: function GHD002(params, onError) {
+  function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       for (const child of token.children) {
         if (child.type !== 'link_open') continue

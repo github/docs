@@ -4,7 +4,7 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-links-lang': {
+  'internal-links-no-lang': {
     // GHD002
     severity: 'error',
     'partial-markdown-files': true,
@@ -14,7 +14,7 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'image-file-kebab': {
+  'image-file-kebab-case': {
     // GHD004
     severity: 'error',
     'partial-markdown-files': true,
@@ -29,7 +29,7 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'annotate-frontmatter': {
+  'code-annotations': {
     // GHD007
     severity: 'error',
     'partial-markdown-files': false,

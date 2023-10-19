@@ -2,11 +2,11 @@ import { forEachInlineChild } from 'markdownlint-rule-helpers'
 
 import { addFixErrorDetail } from '../helpers/utils.js'
 
-export const imageFileKebab = {
-  names: ['GHD004', 'image-file-kebab'],
-  description: 'Image file names should always be lowercase kebab case',
+export const imageFileKebabCase = {
+  names: ['GHD004', 'image-file-kebab-case'],
+  description: 'Image file names must use kebab-case',
   tags: ['images'],
-  function: function GHD004(params, onError) {
+  function: (params, onError) => {
     forEachInlineChild(params, 'image', async function forToken(token) {
       const imageFileName = token.attrs[0][1].split('/').pop().split('.')[0]
       const nonKebabRegex = /([A-Z]|_)/

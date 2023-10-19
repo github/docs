@@ -2,7 +2,7 @@ Once your runner type has been defined, you can update your workflow YAML files 
 
 {% note %}
 
-**Note:** {% data variables.actions.hosted_runner_caps %}s are automatically assigned default labels that correspond to the runner name and its operating system. You cannot add custom labels to {% data variables.actions.hosted_runner %}s, but you can use the default labels or the runner's group to send jobs to specific types of runners.
+**Note:** {% data variables.actions.hosted_runner_caps %}s are automatically assigned a default label that corresponds to the runner name. You cannot add custom labels to {% data variables.actions.hosted_runner %}s, but you can use the default labels or the runner's group to send jobs to specific types of runners.
 
 {% endnote %}
 
