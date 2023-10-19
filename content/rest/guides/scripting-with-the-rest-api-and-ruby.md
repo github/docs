@@ -321,7 +321,9 @@ puts "A comment was added to the pull request: #{comment_url}"
 ```
 
 {% note %}
-**Note**: This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
+
+**Note:** This is just a basic example. In practice, you may want to use error handling and conditional checks to handle various scenarios.
+
 {% endnote %}
 
 ## Next steps
