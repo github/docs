@@ -9,9 +9,9 @@ import {
 
 export const imageAltTextEndPunctuation = {
   names: ['GHD032', 'image-alt-text-end-punctuation'],
-  description: 'Alternate text for images should end with a punctuation.',
+  description: 'Alternate text for images should end with punctuation',
   tags: ['accessibility', 'images'],
-  function: function GHD032(params, onError) {
+  function: (params, onError) => {
     forEachInlineChild(params, 'image', function forToken(token) {
       const imageAltText = token.content.trim()
 

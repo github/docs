@@ -6,7 +6,7 @@ export const linkPunctuation = {
   names: ['GHD001', 'link-punctuation'],
   description: 'Internal link titles must not contain punctuation',
   tags: ['links', 'url'],
-  function: function GHD001(params, onError) {
+  function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       const { children, line } = token
       let inLink = false

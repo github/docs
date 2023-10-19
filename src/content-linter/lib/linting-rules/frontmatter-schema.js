@@ -10,7 +10,7 @@ export const frontmatterSchema = {
   names: ['GHD012', 'frontmatter-schema'],
   description: 'Frontmatter must conform to the schema',
   tags: ['frontmatter', 'schema'],
-  function: function GHD012(params, onError) {
+  function: (params, onError) => {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 

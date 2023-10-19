@@ -1,7 +1,7 @@
 import { runRule } from '../../lib/init-test.js'
-import { imageFileKebab } from '../../lib/linting-rules/image-file-kebab'
+import { imageFileKebabCase } from '../../lib/linting-rules/image-file-kebab-case.js'
 
-describe(imageFileKebab.names.join(' - '), () => {
+describe(imageFileKebabCase.names.join(' - '), () => {
   test('image file not using lowercase kebab case fails', async () => {
     const markdown = [
       '# Heading',
@@ -11,7 +11,7 @@ describe(imageFileKebab.names.join(' - '), () => {
       '![Image.](imageFile-Location.png)',
       '![Image.](image-file-Location.jpg)',
     ].join('\n')
-    const result = await runRule(imageFileKebab, { strings: { markdown } })
+    const result = await runRule(imageFileKebabCase, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(4)
     expect(errors.map((error) => error.lineNumber)).toEqual([3, 4, 5, 6])
@@ -20,7 +20,7 @@ describe(imageFileKebab.names.join(' - '), () => {
   })
   test('image file using lowercase kebab case passes', async () => {
     const markdown = ['![Image.](image-file.jpg)'].join('\n')
-    const result = await runRule(imageFileKebab, { strings: { markdown } })
+    const result = await runRule(imageFileKebabCase, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
