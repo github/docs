@@ -3,11 +3,10 @@ import { addFixErrorDetail, getRange } from '../helpers/utils.js'
 import { allLanguageKeys } from '#src/languages/lib/languages.js'
 
 export const internalLinksLang = {
-  names: ['GHD005', 'internal-links-lang'],
+  names: ['GHD002', 'internal-links-lang'],
   description: 'Internal links must not have a hardcoded language code',
   tags: ['links', 'url'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD005(params, onError) {
+  function: function GHD002(params, onError) {
     filterTokens(params, 'inline', (token) => {
       for (const child of token.children) {
         if (child.type !== 'link_open') continue

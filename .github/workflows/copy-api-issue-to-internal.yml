@@ -10,7 +10,7 @@ on:
       - labeled
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   transfer-issue:
@@ -71,6 +71,8 @@ jobs:
           NEW_ISSUE: ${{ env.NEW_ISSUE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - uses: ./.github/actions/slack-alert
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

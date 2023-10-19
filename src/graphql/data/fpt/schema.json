@@ -82677,6 +82677,10 @@
         {
           "name": "TRADE_RESTRICTION",
           "description": "<p>The repository is locked due to a trade controls related reason.</p>"
+        },
+        {
+          "name": "TRANSFERRING_OWNERSHIP",
+          "description": "<p>The repository is locked due to an ownership transfer.</p>"
         }
       ]
     },

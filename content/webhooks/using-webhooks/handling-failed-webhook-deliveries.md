@@ -24,7 +24,7 @@ You can manually redeliver failed deliveries. For more information, see "[AUTOTI
 
 You can also write a script that checks for failed deliveries and attempts to redeliver any that failed. Your script should run on a schedule and do the following:
 
-- Use the {% data variables.product.company_short %} REST API to fetch data about any webhook deliveries that were attempted since the last time that your script ran. For more information, see "[AUTOTITLE](/rest/webhooks/repo-deliveries#list-deliveries-for-a-repository-webhook)," "[AUTOTITLE](/rest/orgs/webhooks#list-deliveries-for-an-organization-webhook)," and "[AUTOTITLE](/rest/apps/webhooks#list-deliveries-for-an-app-webhook)."
+1. Use the {% data variables.product.company_short %} REST API to fetch data about any webhook deliveries that were attempted since the last time that your script ran. For more information, see "[AUTOTITLE](/rest/webhooks/repo-deliveries#list-deliveries-for-a-repository-webhook)," "[AUTOTITLE](/rest/orgs/webhooks#list-deliveries-for-an-organization-webhook)," and "[AUTOTITLE](/rest/apps/webhooks#list-deliveries-for-an-app-webhook)."
 
    {% ifversion fpt %}There are no API endpoints to get data about {% data variables.product.prodname_marketplace %} webhooks or {% data variables.product.prodname_sponsors %} webhooks.{% endif %}{% ifversion ghec %}There are no API endpoints to get data about {% data variables.product.prodname_marketplace %} webhooks, {% data variables.product.prodname_sponsors %} webhooks, or global webhooks.{% endif %}{% ifversion ghes or ghae %}There are no API endpoints to get data about global webhook deliveries.{% endif %}
 

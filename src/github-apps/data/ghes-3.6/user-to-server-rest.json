@@ -3085,6 +3085,78 @@
       "requestPath": "/repos/{owner}/{repo}/forks"
     },
     {
+      "slug": "list-repository-webhooks",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks"
+    },
+    {
+      "slug": "create-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks"
+    },
+    {
+      "slug": "get-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
+    },
+    {
+      "slug": "update-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
+    },
+    {
+      "slug": "delete-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
+    },
+    {
+      "slug": "get-a-webhook-configuration-for-a-repository",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
+    },
+    {
+      "slug": "update-a-webhook-configuration-for-a-repository",
+      "subcategory": "webhooks",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
+    },
+    {
+      "slug": "list-deliveries-for-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries"
+    },
+    {
+      "slug": "get-a-delivery-for-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}"
+    },
+    {
+      "slug": "redeliver-a-delivery-for-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts"
+    },
+    {
+      "slug": "ping-a-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/pings"
+    },
+    {
+      "slug": "test-the-push-repository-webhook",
+      "subcategory": "webhooks",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/tests"
+    },
+    {
       "slug": "list-repository-languages",
       "subcategory": "repos",
       "verb": "get",
@@ -3475,80 +3547,6 @@
       "subcategory": "keys",
       "verb": "get",
       "requestPath": "/users/{username}/keys"
-    }
-  ],
-  "webhooks": [
-    {
-      "slug": "list-repository-webhooks",
-      "subcategory": "repos",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks"
-    },
-    {
-      "slug": "create-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks"
-    },
-    {
-      "slug": "get-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
-    },
-    {
-      "slug": "update-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "patch",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
-    },
-    {
-      "slug": "delete-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "delete",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}"
-    },
-    {
-      "slug": "get-a-webhook-configuration-for-a-repository",
-      "subcategory": "repo-config",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
-    },
-    {
-      "slug": "update-a-webhook-configuration-for-a-repository",
-      "subcategory": "repo-config",
-      "verb": "patch",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config"
-    },
-    {
-      "slug": "list-deliveries-for-a-repository-webhook",
-      "subcategory": "repo-deliveries",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries"
-    },
-    {
-      "slug": "get-a-delivery-for-a-repository-webhook",
-      "subcategory": "repo-deliveries",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}"
-    },
-    {
-      "slug": "redeliver-a-delivery-for-a-repository-webhook",
-      "subcategory": "repo-deliveries",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts"
-    },
-    {
-      "slug": "ping-a-repository-webhook",
-      "subcategory": "repos",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/pings"
-    },
-    {
-      "slug": "test-the-push-repository-webhook",
-      "subcategory": "repos",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/tests"
     }
   ]
 }

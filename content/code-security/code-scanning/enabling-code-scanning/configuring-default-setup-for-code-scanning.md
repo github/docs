@@ -33,7 +33,7 @@ Default setup for {% data variables.product.prodname_code_scanning %} is the qui
 
 {% note %}
 
-**Note:** If no pushes and pull requests have occured in a repository for 60 days, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
+**Note:** If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
 
 {% endnote %}
 {% endif %}

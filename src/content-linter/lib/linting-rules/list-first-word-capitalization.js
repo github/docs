@@ -1,11 +1,10 @@
 import { addFixErrorDetail, getRange, filterTokensByOrder } from '../helpers/utils.js'
 
 export const listFirstWordCapitalization = {
-  names: ['GHD011', 'list-first-word-capitalization'],
+  names: ['GHD034', 'list-first-word-capitalization'],
   description: 'First word of list item should be capitalized.',
   tags: ['ul', 'ol'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD011(params, onError) {
+  function: function GHD034(params, onError) {
     // We're going to look for a sequence of 3 tokens. If the markdown
     // is a really small string, it might not even have that many tokens
     // in it. Can bail early.

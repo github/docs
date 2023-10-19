@@ -44,7 +44,7 @@ If you are billed yearly, and your renewal date was between October 1st, 2021 an
 
 If your billing cycle is due to renew after February 15th, we will attempt to take the recurring payment. If the payment attempt is declined, you will then be able to make a one-time payment through your account's billing page.
 
-In the meantime, we are actively working with our payment partners to restore recurring payments for impacted customers. For more information or questions, you can contact [GitHub Support](https://support.github.com/contact).
+In the meantime, we are actively working with our payment partners to restore recurring payments for impacted customers. For more information or questions, you can contact {% data variables.contact.contact_support %}.
 
 ### Impact to {% data variables.product.prodname_sponsors %}
 

@@ -3,13 +3,11 @@ import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '../helpers/utils.js'
 
 export const frontmatterHiddenDocs = {
-  names: ['GH034', 'frontmatter-hidden-docs'],
+  names: ['GHD010', 'frontmatter-hidden-docs'],
   description:
     'An article with the hidden frontmatter property can only be located in specific products.',
-  tags: ['early-access', 'frontmatter'],
-  severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GH034(params, onError) {
+  tags: ['frontmatter', 'feature', 'early-access'],
+  function: function GHD010(params, onError) {
     const fm = getFrontmatter(params.lines)
     if (!fm || !fm.hidden) return
 

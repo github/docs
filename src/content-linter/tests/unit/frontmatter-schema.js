@@ -1,10 +1,10 @@
 import { runRule } from '../../lib/init-test.js'
-import { frontmatterFormat } from '../../lib/linting-rules/frontmatter-format.js'
+import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema.js'
 
 // Configure the test figure to not split frontmatter and content
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
-describe(frontmatterFormat.names.join(' - '), () => {
+describe(frontmatterSchema.names.join(' - '), () => {
   test('Deprecated properties in frontmatter fails', async () => {
     const markdown = [
       '---',
@@ -14,7 +14,7 @@ describe(frontmatterFormat.names.join(' - '), () => {
       'miniTocMaxHeadingLevel: 2',
       '---',
     ].join('\n')
-    const result = await runRule(frontmatterFormat, { strings: { markdown }, ...fmOptions })
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(5)
@@ -22,7 +22,7 @@ describe(frontmatterFormat.names.join(' - '), () => {
   })
   test('Minimum required prpoperties pass', async () => {
     const markdown = ['---', 'title: Title', 'versions:', "  fpt: '*'", '---'].join('\n')
-    const result = await runRule(frontmatterFormat, { strings: { markdown }, ...fmOptions })
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -30,7 +30,7 @@ describe(frontmatterFormat.names.join(' - '), () => {
     const markdown = ['---', 'title: Title', 'versions:', "  ft: '*'", 'mona: lisa', '---'].join(
       '\n',
     )
-    const result = await runRule(frontmatterFormat, { strings: { markdown }, ...fmOptions })
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
     const errors = result.markdown
     expect(errors.length).toBe(2)
     expect(errors[0].lineNumber).toBe(4)
@@ -40,7 +40,7 @@ describe(frontmatterFormat.names.join(' - '), () => {
   })
   test('Missing required property fails', async () => {
     const markdown = ['---', 'title: Title', '---'].join('\n')
-    const result = await runRule(frontmatterFormat, { strings: { markdown }, ...fmOptions })
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(1)

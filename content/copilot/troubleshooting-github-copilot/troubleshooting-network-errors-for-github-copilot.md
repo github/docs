@@ -19,7 +19,7 @@ This article provides guidance for common issues related to HTTP proxies and cus
 
 ## Diagnosing network issues
 
-If you're troubleshooting network issues, it may help to make `curl` requests to test your connection. If you add the `--verbose` flag, these requests give you more information to diagnose the issue, or to share with your company's IT department or {% data variables.contact.contact_support %}.
+If you're troubleshooting network issues, it may help to make `curl` requests to test your connection. If you add the `--verbose` flag, these requests give you more information to diagnose the issue, or to share with your company's IT department or {% data variables.contact.github_support %}. You can contact {% data variables.contact.github_support %} through the {% data variables.contact.contact_support_portal %}.
 
 To check if you can access at least some of {% data variables.product.prodname_dotcom %}'s endpoints from your environment, you can run the following command from the command line.
 
@@ -37,7 +37,7 @@ curl --verbose -x http://YOUR-PROXY-URL:PORT -i -L https://copilot-proxy.githubu
 
 If you receive an error related to "revocation for the certificate," you can try the request again with the `--insecure` flag. If the request only succeeds when the `--insecure` flag is added, this may indicate that {% data variables.product.prodname_copilot %} will only connect successfully if you ignore certificate errors. For more information, see "[Troubleshooting certificate-related errors](#troubleshooting-certificate-related-errors)."
 
-If you're unable to connect and the `curl` requests don't help to identify the error, it may help to collect detailed diagnostic logs in your editor. If you're working with your company's IT department or {% data variables.contact.contact_support %}, sharing these diagnostics may help to resolve the error. Enabling debug logging in your editor will help you to share more specific information. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment)."
+If you're unable to connect and the `curl` requests don't help to identify the error, it may help to collect detailed diagnostic logs in your editor. If you're working with your company's IT department or {% data variables.contact.contact_support_page %}, sharing these diagnostics may help to resolve the error. Enabling debug logging in your editor will help you to share more specific information. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment)."
 
 ## Troubleshooting proxy errors
 

@@ -22,7 +22,7 @@ import { hardcodedDataVariable } from './hardcoded-data-variable.js'
 import { githubOwnedActionReferences } from './github-owned-action-references.js'
 import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
 import { liquidDataReferencesDefined, liquidDataTagFormat } from './liquid-data-tags.js'
-import { frontmatterFormat } from './frontmatter-format.js'
+import { frontmatterSchema } from './frontmatter-schema.js'
 import { annotateFrontmatter } from './annotate-frontmatter.js'
 import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
 import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
@@ -59,7 +59,7 @@ export const gitHubDocsMarkdownlint = {
     frontmatterHiddenDocs,
     frontmatterEarlyAccessReferences,
     frontmatterVideoTranscripts,
-    frontmatterFormat,
+    frontmatterSchema,
     annotateFrontmatter,
     frontmatterLiquidSyntax,
     liquidSyntax,

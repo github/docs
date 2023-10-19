@@ -138,7 +138,7 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-
 
 ## Disabling experimental alerts
 
-The simplest way to disable queries that use machine learning to generate experimental alerts is to stop running the `security-extended` or `security-and-quality` query suite. In the example above, you would comment out the `queries` line. If you need to continue to run the `security-extended` or `security-and-quality` suite and the machine learning queries are causing problems, then you can open a ticket with [{% data variables.product.company_short %} support](https://support.github.com/contact) with the following details.
+The simplest way to disable queries that use machine learning to generate experimental alerts is to stop running the `security-extended` or `security-and-quality` query suite. In the example above, you would comment out the `queries` line. If you need to continue to run the `security-extended` or `security-and-quality` suite and the machine learning queries are causing problems, then you can contact {% data variables.contact.contact_support %} and open a ticket with the following details.
 
 - Ticket title: "{% data variables.product.prodname_code_scanning %}: removal from experimental alerts beta"
 - Specify details of the repositories or organizations that are affected
