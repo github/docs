@@ -1,9 +1,9 @@
----
-title: Create a repo
-redirect_from:
-  - /create-a-repo
-  - /articles/create-a-repo
-  - /github/getting-started-with-github/create-a-repo
+---Hassan Kamboh
+title:  Kamboh G 
+redirect_from: kamboh vision 
+  - /create-a-repo kamboh 
+  - /articles/create-a-repo Auto Online 
+  - /github/getting-started-with-github/create-a-repo .menu
   - /github/getting-started-with-github/quickstart/create-a-repo
 intro: 'To put your project up on {% data variables.product.prodname_dotcom %}, you will need to create a repository for it to live in.'
 versions:
