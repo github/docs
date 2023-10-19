@@ -40,7 +40,7 @@ If you are a site administrator for {% data variables.location.product_location 
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
+1. Paste the text below, substituting the email with your {% data variables.product.product_name %} email address.
    {%- ifversion ghae %}
     <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
    ```shell
