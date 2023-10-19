@@ -63,7 +63,7 @@ as it may recursively delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#example-configuration-files). To run queries from
+to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
 this file in a later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
@@ -231,13 +231,13 @@ below this percentage.
 
 Select how aggressively to trim the cache. Choices include:
 
-`brutal`: Remove the entire cache, trimming down to the state of a
+`clear`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` _(default)_: Trim everything except explicitly "cached"
+`trim` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
-`light`: Simply make sure the defined size limits for the disk cache are
+`fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
 #### `--cleanup-upgrade-backups`
