@@ -76,13 +76,13 @@ below this percentage.
 
 Select how aggressively to trim the cache. Choices include:
 
-`clear`: Remove the entire cache, trimming down to the state of a
+`brutal`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`trim` _(default)_: Trim everything except explicitly "cached"
+`normal` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
-`fit`: Simply make sure the defined size limits for the disk cache are
+`light`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
 #### `--cleanup-upgrade-backups`
