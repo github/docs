@@ -69,7 +69,7 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
 
    ```bash copy
    kubectl create secret generic pre-defined-secret \
-      --namespace=arc-systems \
+      --namespace=arc-runners \
       --from-literal=github_token='YOUR-PAT'
    ```
 
