@@ -2865,6 +2865,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repo.pages_soft_delete_restore",
+    "description": "A GitHub Pages site that was previously soft-deleted was restored.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.pages_source",
     "description": "A GitHub Pages source was modified.",
     "docs_reference_links": "N/A"

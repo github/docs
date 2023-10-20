@@ -265,20 +265,24 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 
    {% note %}
 
-   **Note:** While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
+   **Notes:**
 
-   ```text
-   CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
-   ```
+   - While the resync is in progress `ghe-repl-status` may indicate that replication is behind. For example, you may see the following message.
+
+     ```text
+     CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
+     ```
+
+   - If {% data variables.product.prodname_actions %} is enabled on {% data variables.location.product_location %}, you may see a message like the following. This message is expected when replication is paused due to maintenance mode being set on the primary appliance. Once maintenance mode is unset, this message should be resolved.
+
+     ```text
+     CRITICAL: mssql replication is down, didn't find Token_Configuration!
+     ```
 
    {% endnote %}
 
-   {%- ifversion ghes = 3.6 %}
+   {% ifversion ghes = 3.6 %}If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}.{% endif %} {% ifversion ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, and the explanation isn't listed in the note above, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 
-   - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
-   {%- endif %}
-
-   - {% ifversion ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 {% data reusables.enterprise_installation.multiple-node-repeat-upgrade-process %}
 1. After you have upgraded the last replica node and the resync is complete, disable maintenance mode so users can use {% data variables.location.product_location %}.
 

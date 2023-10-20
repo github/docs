@@ -64,10 +64,11 @@ export type EnterpriseDeprecation = {
 
 type DataReusables = {
   enterprise_deprecation?: EnterpriseDeprecation
-  policies: {
+  policies?: {
     translation: string
   }
 }
+
 type DataT = {
   ui: Record<string, any>
   reusables: DataReusables
@@ -137,6 +138,9 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     delete req.context.site.data.ui.ms
   }
 
+  if (!req.context.page) {
+    throw new Error(`No page context (${req.url})`)
+  }
   const { documentType } = req.context.page
 
   // Every product landing page has a listing of all articles.
@@ -144,10 +148,12 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const includeFullProductTree = documentType === 'product'
   const includeSidebarTree = documentType !== 'homepage'
 
-  const reusables: DataReusables = {
-    policies: {
+  const reusables: DataReusables = {}
+
+  if (req.context.currentLanguage !== 'en' && req.path.split('/').includes('site-policy')) {
+    reusables.policies = {
       translation: req.context.getDottedData('reusables.policies.translation'),
-    },
+    }
   }
   // To know whether we need this key, we need to match this
   // with the business logic in `DeprecationBanner.tsx` which is as follows:
