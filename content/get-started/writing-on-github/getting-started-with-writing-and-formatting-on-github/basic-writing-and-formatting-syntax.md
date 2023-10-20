@@ -249,7 +249,7 @@ You can create multiple levels of nested lists using the same method. For exampl
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-2.png)
 
-For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+For more examples, see the "[GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265)."
 
 {% ifversion task-lists-v1 %}
 
@@ -308,7 +308,7 @@ You can add emoji to your writing by typing `:EMOJICODE:`, a colon followed by t
 
 Typing <kbd>:</kbd> will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
 
-For a full list of available emoji and codes, see [the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+For a full list of available emoji and codes, see "[the Emoji-Cheat-Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)."
 
 ## Paragraphs
 
@@ -422,7 +422,7 @@ For more information on backslashes, see Daring Fireball's "[Markdown Syntax](ht
 
 ## Further reading
 
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- "[{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)"
 - "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)"
 - "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting)"
 - "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)"
