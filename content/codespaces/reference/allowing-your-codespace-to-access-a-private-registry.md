@@ -8,6 +8,7 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry
+  - /codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-registry
 shortTitle: Access a private registry
 ---
 
