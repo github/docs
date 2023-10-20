@@ -189,11 +189,26 @@ Use italics to emphasize words or parts of a sentence. Use emphasis sparingly fo
 
 Avoid using footnotes where possible. Consider instead whether you could use a [callout](#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
 
-If you must use footnotes:
+If you must use footnotes, use [Markdown-native footnotes](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes) (`[^1]`). Footnote markers will be hyperlinked to the footnote reference, which will be listed at the bottom of the page with a backlink to the marker.
 
-- Use numbers. Do not use typographical symbols or special characters.
-- Place footnote markers in square brackets: `[1]`.
-- Do not use superscript.
+Note that regardless of the identifier you use (letters, words), footnotes will render as sequential numbers.
+
+| | Mona | Ursula | Paul | Davy Jones[^1] |
+|---|---|---|---|---|
+|Favorite pastime| Shipping code | Tricking mermaids[^2] | Predicting sports | Haunting seafarers |
+|Uses powers for good| Yes | No | Yes | No |
+
+[^1]: Not to be confused with Davy Jones of The Monkees
+[^2]: Also humans
+
+````markdown
+| | Mona | Ursula | Paul | Davy Jones[^1] |
+|---|---|---|---|---|
+|Favorite pastime| Shipping code | Tricking mermaids[^2] | Predicting sports | Haunting seafarers |
+|Uses powers for good| Yes | No | Yes | No |
+[^1]: Not to be confused with Davy Jones of The Monkees
+[^2]: Also humans
+````
 
 ## Headers
 

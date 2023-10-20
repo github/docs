@@ -1,12 +1,12 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '../helpers/utils.js'
 
-export const annotateFrontmatter = {
-  names: ['GHD007', 'annotate-frontmatter'],
+export const codeAnnotations = {
+  names: ['GHD007', 'code-annotations'],
   description:
-    'Annotations defined in Markdown must contain a specific layout frontmatter property.',
-  tags: ['code', 'annotate'],
-  function: function GHD007(params, onError) {
+    'Code annotations defined in Markdown must contain a specific layout frontmatter property',
+  tags: ['code', 'feature', 'annotate', 'frontmatter'],
+  function: (params, onError) => {
     filterTokens(params, 'fence', (token) => {
       if (!token.info.includes('annotate')) return
       const fm = getFrontmatter(params.frontMatterLines)

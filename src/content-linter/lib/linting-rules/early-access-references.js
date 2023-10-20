@@ -20,11 +20,10 @@ const EARLY_ACCESS_ARTICLE_REGEX = /-early-access-/
 export const earlyAccessReferences = {
   names: ['GHD008', 'early-access-references'],
   description:
-    'Files that are not early access should not reference early-access or early-access files.',
-  tags: ['early-access'],
+    'Files that are not early access should not reference early-access or early-access files',
+  tags: ['feature', 'early-access'],
   severity: 'error',
-
-  function: function GHD008(params, onError) {
+  function: (params, onError) => {
     if (isEarlyAccessFilepath(params.name)) return
 
     // Find errors in content
@@ -48,9 +47,9 @@ export const earlyAccessReferences = {
 export const frontmatterEarlyAccessReferences = {
   names: ['GHD009', 'frontmatter-early-access-references'],
   description:
-    'Files that are not early access should not have frontmatter that references early-access.',
-  tags: ['early-access', 'frontmatter'],
-  function: function GHD009(params, onError) {
+    'Files that are not early access should not have frontmatter that references early-access',
+  tags: ['frontmatter', 'feature', 'early-access'],
+  function: (params, onError) => {
     const filepath = params.name
     if (isEarlyAccessFilepath(filepath)) return
 
