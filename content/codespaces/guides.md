@@ -58,8 +58,8 @@ includeGuides:
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports
   - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces
   - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
-  - /codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces
-  - /codespaces/codespaces-reference/disaster-recovery-for-github-codespaces
-  - /codespaces/codespaces-reference/security-in-github-codespaces
+  - /codespaces/reference/using-the-vs-code-command-palette-in-codespaces
+  - /codespaces/reference/disaster-recovery-for-github-codespaces
+  - /codespaces/reference/security-in-github-codespaces
 ---
 

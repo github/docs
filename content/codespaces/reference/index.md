@@ -11,5 +11,7 @@ children:
   - /using-the-vs-code-command-palette-in-codespaces
   - /security-in-github-codespaces
   - /disaster-recovery-for-github-codespaces
+redirect_from:
+  - /codespaces/codespaces-reference
 ---
 

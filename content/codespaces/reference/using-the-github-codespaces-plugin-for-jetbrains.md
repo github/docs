@@ -8,6 +8,8 @@ versions:
 type: reference
 topics:
   - Codespaces
+redirect_from:
+  - /codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains
 ---
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
