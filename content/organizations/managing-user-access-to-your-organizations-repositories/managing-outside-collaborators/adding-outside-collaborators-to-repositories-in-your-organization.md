@@ -38,6 +38,12 @@ Before you can add someone as an outside collaborator on a repository, the perso
 If your organization requires two-factor authentication, all outside collaborators must enable two-factor authentication before accepting your invitation to collaborate on a repository. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 {% endif %}
 
+{% ifversion not ghae %}
+Outside collaborators bypasses SAML SSO requirements. For more information, see "[AUTOTITLE](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)"
+
+Outside collaborators cannot be added to Enterprise Managed Users. For more information, see "[AUTOTITLE](content/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users.md)."
+{% endif %}
+
 ## Adding outside collaborators to a repository
 
 You can give outside collaborators access to a repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)."
