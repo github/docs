@@ -86,7 +86,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghae < 3.5 %}2.7.6{% elsif ghae = 3.5 %}2.11.6{% elsif ghes < 3.10 or ghae < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% endif %}
+  {% ifversion ghes < 3.10 or ghae < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% endif %}
 
 # Projects v2
 prodname_projects_v2: '{% ifversion ghes = 3.8 or ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
