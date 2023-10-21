@@ -11,6 +11,7 @@ type: reference
 shortTitle: Security in Codespaces
 redirect_from:
   - /codespaces/codespaces-reference/security-in-codespaces
+  - /codespaces/codespaces-reference/security-in-github-codespaces
 ---
 
 ## Overview of codespace security

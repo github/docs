@@ -50,7 +50,7 @@ children:
   - /prebuilding-your-codespaces
   - /managing-your-codespaces
   - /managing-codespaces-for-your-organization
-  - /codespaces-reference
+  - /reference
   - /troubleshooting
   - /the-githubdev-web-based-editor
   - /guides
