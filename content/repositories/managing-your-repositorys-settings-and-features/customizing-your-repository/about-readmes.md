@@ -54,7 +54,7 @@ For the rendered view of any Markdown file in a repository, including README fil
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)."
+A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, check out "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)."
 
 ## Further reading
 
