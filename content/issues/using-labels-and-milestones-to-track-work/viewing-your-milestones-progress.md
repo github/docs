@@ -17,7 +17,7 @@ shortTitle: View progress to milestone
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-1. In the upper-left corner, click **Milestones**.
+1. In the upper-right corner, click **Milestones**.
 
    ![Screenshot of the list of issues for a repository. Above the list, a button, labeled with a signpost icon and "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues-milestone-button.png)
 1. Click the milestone you wish to see more information about.
