@@ -9,6 +9,8 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/connecting-to-a-private-network
 ---
 
 ## About codespace networking

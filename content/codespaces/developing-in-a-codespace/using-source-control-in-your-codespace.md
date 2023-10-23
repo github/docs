@@ -10,6 +10,8 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Source control
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
 ---
 
 {% jetbrains_beta %}

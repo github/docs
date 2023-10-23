@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /github/developing-online-with-codespaces/forwarding-ports-in-your-codespace
+  - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
 type: how_to
 topics:
   - Codespaces

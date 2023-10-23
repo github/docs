@@ -12,6 +12,7 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-with-github-cli
+  - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli
 ---
 
 ## About {% data variables.product.prodname_cli %}

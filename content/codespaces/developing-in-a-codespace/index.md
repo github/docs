@@ -25,4 +25,7 @@ children:
   - /using-github-codespaces-in-visual-studio-code
   - /using-github-codespaces-in-your-jetbrains-ide
   - /using-github-codespaces-with-github-cli
+redirect_from:
+  - /codespaces/developing-in-codespaces
 ---
+

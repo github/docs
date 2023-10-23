@@ -10,6 +10,8 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Persist variables and files
+redirect_from:
+  - /codespaces/developing-in-codespaces/persisting-environment-variables-and-temporary-files
 ---
 
 ## Setting persistent environment variables

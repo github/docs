@@ -12,6 +12,7 @@ topics:
   - Developer
 redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
+  - /codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests
 ---
 
 Using a codespace to work on a pull request gives you all the benefits of {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/overview#benefits-of-github-codespaces)."

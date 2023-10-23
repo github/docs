@@ -10,6 +10,8 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Open an existing codespace
+redirect_from:
+  - /codespaces/developing-in-codespaces/opening-an-existing-codespace
 ---
 
 {% jetbrains_beta %}

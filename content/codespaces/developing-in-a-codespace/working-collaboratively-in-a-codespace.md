@@ -9,6 +9,8 @@ type: how_to
 topics:
   - Codespaces
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/working-collaboratively-in-a-codespace
 ---
 
 {% data variables.product.prodname_vs %} Live Share lets you collaboratively edit and debug with others in real time, within a codespace. You can securely share your current codespace, or access a codespace created by someone else.
