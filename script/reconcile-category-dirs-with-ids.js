@@ -25,16 +25,24 @@ const slugger = new GithubSlugger()
 
 const contentDir = path.join(ROOT, 'content')
 
+const INCLUDE_MAP_TOPICS = Boolean(JSON.parse(process.env.INCLUDE_MAP_TOPICS || 'false'))
+
 main()
 
 async function main() {
-  const englishCategoryIndices = getEnglishCategoryIndices()
+  const englishCategoryIndices = getEnglishCategoryIndices().filter((name) => {
+    return INCLUDE_MAP_TOPICS || name.split(path.sep).length < 5
+  })
 
   const shouldRename = []
 
   for (const categoryIndex of englishCategoryIndices) {
     const contents = fs.readFileSync(categoryIndex, 'utf8')
     const { data } = frontmatter(contents)
+
+    if (data.allowTitleToDifferFromFilename) {
+      continue
+    }
 
     const categoryDirPath = path.dirname(categoryIndex)
     const categoryDirName = path.basename(categoryDirPath)
@@ -47,18 +55,20 @@ async function main() {
     }
     const title = await renderContent(data.title, context, { textOnly: true })
     slugger.reset()
-    const expectedSlug = slugger.slug(decode(title))
+    const expectedSlugs = [slugger.slug(decode(title))]
+    const shortTitle = data.shortTitle
+      ? await renderContent(data.shortTitle, context, { textOnly: true })
+      : ''
+    if (shortTitle && shortTitle !== title) {
+      expectedSlugs.push(slugger.slug(decode(shortTitle)))
+    }
 
     // If the directory name already matches the expected slug, bail out now
-    if (categoryDirName === expectedSlug) continue
-
-    if (data.allowTitleToDifferFromFilename) {
-      continue
-    }
+    if (expectedSlugs.includes(categoryDirName)) continue
 
     // Figure out the new path for the category
     const categoryDirParentDir = path.dirname(categoryDirPath)
-    const newPath = path.join(categoryDirParentDir, expectedSlug)
+    const newPath = path.join(categoryDirParentDir, expectedSlugs.at(-1))
 
     const oldRelativePath = path.relative(ROOT, categoryDirPath)
     const newRelativePath = path.relative(ROOT, newPath)
