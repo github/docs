@@ -5,6 +5,7 @@ redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
   - /github/developing-online-with-codespaces/creating-a-codespace
   - /codespaces/developing-in-codespaces/creating-a-codespace
+  - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
 versions:
   fpt: '*'
   ghec: '*'

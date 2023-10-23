@@ -10,6 +10,8 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Create a codespace from a template
+redirect_from:
+  - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
 ---
 
 ## About templates for {% data variables.product.prodname_github_codespaces %}

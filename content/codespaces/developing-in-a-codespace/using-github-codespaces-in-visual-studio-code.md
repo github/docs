@@ -7,6 +7,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code
   - /github/developing-online-with-codespaces/using-codespaces-in-visual-studio
   - /codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code
+  - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
 versions:
   fpt: '*'
   ghec: '*'

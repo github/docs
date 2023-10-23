@@ -10,6 +10,7 @@ topics:
 shortTitle: Rebuilding a container
 redirect_from:
   - /codespaces/codespaces-reference/performing-a-full-rebuild-of-a-container
+  - /codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace
 ---
 
 ## About rebuilding a container

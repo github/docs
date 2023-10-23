@@ -10,6 +10,8 @@ topics:
   - Fundamentals
   - Developer
 shortTitle: Stop a codespace
+redirect_from:
+  - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
 ---
 
 {% jetbrains_beta %}

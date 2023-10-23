@@ -9,6 +9,8 @@ type: how_to
 topics:
   - Codespaces
   - Developer
+redirect_from:
+  - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
 ---
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}

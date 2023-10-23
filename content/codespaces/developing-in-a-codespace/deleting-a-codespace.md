@@ -4,6 +4,7 @@ intro: You can delete a codespace you no longer need.
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
   - /github/developing-online-with-codespaces/deleting-a-codespace
+  - /codespaces/developing-in-codespaces/deleting-a-codespace
 versions:
   fpt: '*'
   ghec: '*'

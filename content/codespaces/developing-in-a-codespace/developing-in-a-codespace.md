@@ -4,6 +4,7 @@ intro: 'You can work in a codespace using your browser, {% data variables.produc
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
   - /github/developing-online-with-codespaces/developing-in-a-codespace
+  - /codespaces/developing-in-codespaces/developing-in-a-codespace
 versions:
   fpt: '*'
   ghec: '*'
