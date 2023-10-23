@@ -59,6 +59,8 @@ The following features are not included in the trial of {% data variables.produc
 
 Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
 
+If your company has a Microsoft Enterprise Agreement, contact {% data variables.contact.contact_enterprise_sales %} to begin your trial and ensure the trial is connected to your Enterprise Agreement.
+
 {% data reusables.enterprise.create-enterprise-account %}
 
 1. Follow the prompts to configure your trial.
