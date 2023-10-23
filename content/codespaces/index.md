@@ -14,12 +14,12 @@ featuredLinks:
     - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
   guideCards:
     - /codespaces/getting-started/deep-dive
-    - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
-    - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
-    - /codespaces/developing-in-codespaces/opening-an-existing-codespace
+    - /codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository
+    - /codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template
+    - /codespaces/developing-in-a-codespace/opening-an-existing-codespace
     - /codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account
-    - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
-    - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
+    - /codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code
+    - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
   popular:
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
@@ -44,7 +44,7 @@ versions:
 children:
   - /overview
   - /getting-started
-  - /developing-in-codespaces
+  - /developing-in-a-codespace
   - /customizing-your-codespace
   - /setting-up-your-project-for-codespaces
   - /prebuilding-your-codespaces

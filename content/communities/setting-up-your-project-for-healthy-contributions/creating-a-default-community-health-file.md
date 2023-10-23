@@ -16,16 +16,24 @@ shortTitle: Community health file
 
 ## About default community health files
 
-You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders.
+Default community health files are a set of predefined files that provide guidance and templates for maintaining a healthy and collaborative open source project.
+You can add default community health files to a public repository called `.github`, in the root of the repository or in the `docs` or `.github` folders. These files help you automate and standardize various aspects of your project's development and community interaction. They are essential for promoting transparency, good practices, and collaboration in open source projects.
 
 {% data variables.product.product_name %} will use and display default files for any repository owned by the account that does not have its own file of that type in any of the following places:
-- the root of the repository
-- the `.github` folder
-- the `docs` folder
+
+- The root of the repository
+- The `.github` folder
+- The `docs` folder
 
 For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder{% ifversion fpt or ghes or ghec %}, including issue templates or a _config.yml_ file,{% endif %} none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
 
 Default files won’t appear in the file browser or Git history and are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
+
+{% ifversion fpt or ghec %}
+
+As a repository maintainer, you can use the community standards checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
+
+{% endif %}
 
 ## Supported file types
 

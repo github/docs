@@ -23,19 +23,19 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces
   - /codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account
-  - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository
-  - /codespaces/developing-in-codespaces/creating-a-codespace-from-a-template
-  - /codespaces/developing-in-codespaces/developing-in-a-codespace
-  - /codespaces/developing-in-codespaces/deleting-a-codespace
-  - /codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace
-  - /codespaces/developing-in-codespaces/opening-an-existing-codespace
-  - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
-  - /codespaces/developing-in-codespaces/working-collaboratively-in-a-codespace
-  - /codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code
-  - /codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide
-  - /codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli
-  - /codespaces/developing-in-codespaces/using-source-control-in-your-codespace
-  - /codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests
+  - /codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository
+  - /codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template
+  - /codespaces/developing-in-a-codespace/developing-in-a-codespace
+  - /codespaces/developing-in-a-codespace/deleting-a-codespace
+  - /codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace
+  - /codespaces/developing-in-a-codespace/opening-an-existing-codespace
+  - /codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace
+  - /codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace
+  - /codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code
+  - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
+  - /codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli
+  - /codespaces/developing-in-a-codespace/using-source-control-in-your-codespace
+  - /codespaces/developing-in-a-codespace/using-github-codespaces-for-pull-requests
   - /codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace
   - /codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace
   - /codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces
