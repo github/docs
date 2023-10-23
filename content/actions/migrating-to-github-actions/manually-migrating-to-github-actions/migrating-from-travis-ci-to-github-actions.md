@@ -146,15 +146,11 @@ git:
 
 #### {% data variables.product.prodname_actions %} syntax for checking out submodules
 
-{% raw %}
-
 ```yaml
 - uses: {% data reusables.actions.action-checkout %}
   with:
     submodules: false
 ```
-
-{% endraw %}
 
 ### Using environment variables in a matrix
 
@@ -259,8 +255,6 @@ script:
 
 ### {% data variables.product.prodname_actions %} syntax for steps and actions
 
-{% raw %}
-
 ```yaml
 jobs:
   run_python:
@@ -272,8 +266,6 @@ jobs:
           architecture: 'x64'
       - run: python script.py
 ```
-
-{% endraw %}
 
 ## Caching dependencies
 
