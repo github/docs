@@ -1,2 +1,0 @@
-product_name: >-
-  {% ifversion ghec %}HubGit Enterprise Cloud{% elsif ghes %}HubGit Enterprise Server{% elsif ghae %}HubGit AE{% else %}HubGit{% endif %}
