@@ -43,7 +43,7 @@ If you require more than {% ifversion ghes or ghae %}250{% else %}20{% endif %} 
 
 You cannot use `localhost` or `127.0.0.1` as a webhook URL.
 
-If you want to deliver webhooks to your local server for testing, you can use a webhook forwarding service like smee.io. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)."
+To deliver webhooks to your local server for testing, you can use a webhook forwarding service. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)" or visit https://smee.io/.
 
 ## Failed to connect to host
 
