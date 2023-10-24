@@ -64,7 +64,7 @@ Enterprise owners, organization and repository administrators can add self-hoste
 
 You can use default setup if your repository includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql)."
 
-{% ifversion code-scanning-without-workflow-310 %}
+{% ifversion code-scanning-default-setup-recommended-languages and code-scanning-without-workflow-310 %}
 
 ### About adding {% ifversion code-scanning-default-setup-automatic-311 %}non-compiled and {% endif %}compiled languages to your default setup
 
@@ -77,6 +77,15 @@ Compiled languages are not automatically included in default setup configuration
 {% endif %}
 
 ## Configuring default setup for a repository
+
+{% ifversion code-scanning-default-setup-recommended-languages %}{% else %}
+When you initially configure default setup for {% data variables.product.prodname_code_scanning %} for a repository, all {% data variables.product.prodname_codeql %}-supported languages in the repository will be analyzed automatically. The languages that are analyzed successfully will be retained in the new default setup configuration. Languages that are not analyzed successfully will be automatically deselected from the default setup configuration.
+{% endif %}
+
+{% note %}
+
+**Note:** At least one {% data variables.product.prodname_codeql %}-supported language's analysis in a repository must succeed, or else default setup will not be successfully enabled in that repository.
+{% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 
@@ -94,15 +103,17 @@ Compiled languages are not automatically included in default setup configuration
 
    You will then see a "{% data variables.product.prodname_codeql %} default configuration" dialog summarizing the {% data variables.product.prodname_code_scanning %} configuration automatically created by default setup.
 
+   {% ifversion code-scanning-default-setup-recommended-languages %}
    {% ifversion code-scanning-without-workflow-310 %}
    {% note %}
 
    **Note:** If your repository contains _only_ compiled {% data variables.product.prodname_codeql %}-supported languages (for example, Java), you will be taken to the settings page to select the languages you want to add to your default setup configuration.
 
    {% endnote %}
+   {% endif %}
 
 1. Optionally, to customize your {% data variables.product.prodname_code_scanning %} setup, click {% octicon "pencil" aria-hidden="true" %} **Edit**.
-   - To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.
+   - To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. {% ifversion code-scanning-default-setup-recommended-languages %}If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.{% endif %}
    - To specify the {% data variables.product.prodname_codeql %} query suite you would like to use, select your preferred query suite in the "Query suites" section.
 
 {%- else -%}

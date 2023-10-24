@@ -82,7 +82,7 @@ export function Search() {
                 borderBottomRightRadius: 'unset',
                 borderTopRightRadius: 'unset',
                 borderRight: 'none',
-                minWidth: localQuery ? 'unset' : '15rem',
+                minWidth: '15rem',
               }}
             />
           </label>

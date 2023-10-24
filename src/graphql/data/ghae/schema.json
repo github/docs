@@ -35907,6 +35907,14 @@
           "href": "/graphql/reference/enums#defaultrepositorypermissionfield"
         },
         {
+          "name": "roleName",
+          "description": "<p>The name of the role this source has granted to the user.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "source",
           "description": "<p>The source of this permission.</p>",
           "type": "PermissionGranter!",
