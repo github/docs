@@ -80,6 +80,8 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
   request-checks: true"
   ```
 
+It is important to note that [Git's default commit behavior](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---cleanupltmodegt) removes consecutive newlines. As such, it is recommended including the `--cleanup=verbatim` option on your commit.
+
 {% ifversion status-check-retention %}
 
 ### Retention of status checks
