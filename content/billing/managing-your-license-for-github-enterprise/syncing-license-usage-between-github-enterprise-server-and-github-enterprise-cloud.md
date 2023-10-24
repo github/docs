@@ -38,7 +38,7 @@ After you enable {% data variables.product.prodname_github_connect %}, license d
 ### Triggering a license sync job
 
 1. Sign in to your {% data variables.product.prodname_ghe_server %} instance.
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-ghes %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 1. Under "License sync", click {% octicon "sync" aria-hidden="true" %} **Sync now**.
@@ -49,7 +49,8 @@ After you enable {% data variables.product.prodname_github_connect %}, license d
 
 You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+1. Sign in to your {% data variables.product.prodname_ghe_server %} instance.
+{% data reusables.enterprise-accounts.access-enterprise-ghes %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 1. In the "User licenses" section, under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**.
