@@ -82,7 +82,7 @@ For information on common image registries, see "[Common image registry servers]
 
 ![Screenshot of the "Codespaces secrets" settings for a repository. Three secrets for ACR Container Registry are set.](/assets/images/help/codespaces/codespaces-image-registry-secret-example.png)
 
-Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
+Once you've added the secrets, you may need to stop and then start the codespace you are in for the new environment variables to be passed into the container. For more information, see "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
 
 #### Accessing AWS Elastic Container Registry
 

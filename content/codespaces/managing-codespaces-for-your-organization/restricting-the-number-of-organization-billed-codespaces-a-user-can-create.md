@@ -1,7 +1,7 @@
 ---
 title: Restricting the number of organization-billed codespaces a user can create
 shortTitle: Restrict codespace creation
-intro: You can specify the maximum number of codespaces that any member of your organization, or collaborator, can create for the repositories in your organization.
+intro: 'You can specify the maximum number of codespaces that any member of your organization, or collaborator, can create for the repositories in your organization.'
 permissions: 'To manage this constraint for an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -22,7 +22,7 @@ To restrict the maximum number of organization-billed codespaces that users can 
 
 This setting does not restrict users from creating codespaces that are not billed to your organization. For example, they can create additional codespaces for public repositories, using their personal {% data variables.product.prodname_codespaces %} usage allowance. However, users who are permitted to create organization-billed codespaces, but have reached the limit for such codespaces, cannot choose to create a codespace for an organization-owned repository using their personal included allowance.
 
-For information about the free use of {% data variables.product.prodname_github_codespaces %} for personal accounts, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts)." For information on how to choose who can create codespaces that are billed to your organization, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)."
+For information about the free use of {% data variables.product.prodname_github_codespaces %} for personal accounts, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts)." For information on how to choose who can create codespaces that are billed to your organization, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)."
 
 Policies with the "Maximum codespaces per user" constraint are applied to every repository in your organization. You can't, therefore, add this constraint to an existing policy that is configured to apply only to selected repositories.
 

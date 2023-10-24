@@ -60,7 +60,7 @@ gh codespace stop
 
 {% jetbrains_beta %}
 
-You can stop a codespace from the "Your codespaces" page (see [the web browser instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) or by using {% data variables.product.prodname_cli %} (see [the CLI instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
+You can stop a codespace from the "Your codespaces" page (see [the web browser instructions](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) or by using {% data variables.product.prodname_cli %} (see [the CLI instructions](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
 
 {% endjetbrains_beta %}
 
@@ -109,4 +109,4 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"

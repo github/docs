@@ -23,7 +23,7 @@ After installing the JetBrains Gateway, you can set JetBrains as your default ed
 
 {% note %}
 
-**Note**: Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+**Note**: Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 
 {% endnote %}
 
@@ -75,7 +75,7 @@ For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 ### Codespace running an SSH server
 
-You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 
 {% data reusables.codespaces.ssh-server-installed %}
 
@@ -126,6 +126,6 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-codespaces/developing-in-a-codespace)"
-- "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
+- "[AUTOTITLE](/codespaces/developing-in-a-codespace/developing-in-a-codespace)"
+- "[AUTOTITLE](/codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains)"
 - "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients?tool=jetbrains)"

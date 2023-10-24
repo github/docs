@@ -82,7 +82,7 @@ Your updates will take effect in new codespaces. However, you can turn on Settin
 
 {% note %}
 
-**Note:** You should only turn on Settings Sync in codespaces created from repositories you trust. For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/security-in-github-codespaces#using-settings-sync)."
+**Note:** You should only turn on Settings Sync in codespaces created from repositories you trust. For more information, see "[AUTOTITLE](/codespaces/reference/security-in-github-codespaces#using-settings-sync)."
 
 {% endnote %}
 

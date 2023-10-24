@@ -74,7 +74,7 @@ If you want to set a personalized environment variable for all codespaces that y
 
 ## Preventing temporary files from being automatically deleted
 
-{% data reusables.codespaces.workspaces-directory %} For information about creating symlinks to preserve data outside the `/workspaces` directory, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
+{% data reusables.codespaces.workspaces-directory %} For information about creating symlinks to preserve data outside the `/workspaces` directory, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
 
 The `/tmp` directory is an exception because it is mounted into the container, but it is not persistent. Therefore, the contents of the `/tmp` directory are persisted over a rebuild, but are cleared each time the codespace stops. For example, the `/tmp` directory is cleared when a codespace session times out after a period of inactivity. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
