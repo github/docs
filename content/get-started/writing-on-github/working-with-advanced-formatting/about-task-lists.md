@@ -65,6 +65,12 @@ You can reorder tasks across different lists in the same comment, but you cannot
 
 {% ifversion fpt %}
 
+## Converting tasks into issues
+
+You can also convert tasks into issues. First, hover over one of the items in your task list and then click {% octicon "issue-opened" aria-label="Convert to issue" %}.
+
+ {% ifversion fpt or ghec %} ![Screenshot of a {% data variables.product.prodname_dotcom %} issue showing two tasks. The"Convert to issue" icon is highlighted with an orange outline.](/assets/images/help/writing/convert-task-lists-into-issues.png){% endif %}
+
 ## Navigating tracked issues
 
 Any issues that are referenced in a task list specify that they are tracked by the issue that contains the task list. To navigate to the tracking issue from the tracked issue, click on the tracking issue number in the **Tracked in** section next to the issue status.
