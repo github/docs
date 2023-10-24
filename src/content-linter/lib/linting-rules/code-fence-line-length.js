@@ -3,8 +3,8 @@ import { addError, filterTokens, newLineRe } from 'markdownlint-rule-helpers'
 export const codeFenceLineLength = {
   names: ['GHD030', 'code-fence-line-length'],
   description: 'Code fence lines should not exceed a maximum length',
-  tags: ['code'],
-  function: function GHD030(params, onError) {
+  tags: ['code', 'accessibility'],
+  function: (params, onError) => {
     const MAX_LINE_LENGTH = String(params.config.maxLength || 60)
     filterTokens(params, 'fence', (token) => {
       const lines = token.content.split(newLineRe)

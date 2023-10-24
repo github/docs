@@ -30047,6 +30047,11 @@ type PermissionSource {
   permission: DefaultRepositoryPermissionField!
 
   """
+  The name of the role this source has granted to the user.
+  """
+  roleName: String
+
+  """
   The source of this permission.
   """
   source: PermissionGranter!

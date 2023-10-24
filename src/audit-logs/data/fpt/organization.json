@@ -220,6 +220,36 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "custom_property_definition.create",
+    "description": "A new custom property definition was created.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_definition.destroy",
+    "description": "A custom property definition was deleted.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_definition.update",
+    "description": "A custom property definition was updated.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.create",
+    "description": "A repository's custom property value was manually set for the first time.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.destroy",
+    "description": "A repository's custom property value was deleted.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.update",
+    "description": "A repository's custom property value was updated.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
     "action": "dependabot_alerts.disable",
     "description": "Dependabot alerts were disabled for all existing repositories.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories"
@@ -1145,6 +1175,26 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.recovery_codes_downloaded",
+    "description": "An organization owner downloaded the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_generated",
+    "description": "An organization owner generated the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_printed",
+    "description": "An organization owner printed the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_viewed",
+    "description": "An organization owner viewed the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
     "action": "org.recovery_code_failed",
     "description": "An organization owner failed to sign into a organization with an external identity provider (IdP) using a recovery code.",
     "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
@@ -1801,8 +1851,8 @@
   },
   {
     "action": "protected_branch.authorized_users_teams",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The users, teams, or integrations allowed to bypass a branch protection were changed.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches"
   },
   {
     "action": "protected_branch.branch_allowances",
@@ -1856,8 +1906,8 @@
   },
   {
     "action": "protected_branch.update_ignore_approvals_from_contributors",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Ignoring of approvals from contributors to a pull request was enabled or disabled for a branch.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
     "action": "protected_branch.update_linear_history_requirement_enforcement_level",
@@ -1866,18 +1916,18 @@
   },
   {
     "action": "protected_branch.update_lock_allows_fetch_and_merge",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Fork syncing was enabled or disabled for a read-only branch",
+    "docs_reference_links": "repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#lock-branch"
   },
   {
     "action": "protected_branch.update_lock_branch_enforcement_level",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The enforcement of a branch lock was updated.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#lock-branch"
   },
   {
     "action": "protected_branch.update_merge_queue_enforcement_level",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Enforcement of the merge queue was modified for a branch.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-merge-queue"
   },
   {
     "action": "protected_branch.update_name",
@@ -1906,8 +1956,8 @@
   },
   {
     "action": "protected_branch.update_require_last_push_approval",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Someone other than the person who pushed the last code-modifying commit to the branch must approve pull requests for the branch.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging"
   },
   {
     "action": "protected_branch.update_signature_requirement_enforcement_level",
@@ -2215,6 +2265,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repo.pages_soft_delete_restore",
+    "description": "A GitHub Pages site that was previously soft-deleted was restored.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.pages_source",
     "description": "A GitHub Pages source was modified.",
     "docs_reference_links": "N/A"
@@ -2406,13 +2461,13 @@
   },
   {
     "action": "repository_branch_protection_evaluation.disable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Branch protections were disabled for the repository.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
     "action": "repository_branch_protection_evaluation.enable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Branch protections were enabled for this repository.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
     "action": "repository_content_analysis.disable",
@@ -2481,18 +2536,18 @@
   },
   {
     "action": "repository_ruleset.create",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was created.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
   },
   {
     "action": "repository_ruleset.destroy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was deleted.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#deleting-a-ruleset"
   },
   {
     "action": "repository_ruleset.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was edited.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#editing-a-ruleset"
   },
   {
     "action": "repository_secret_scanning.disable",
@@ -2736,8 +2791,8 @@
   },
   {
     "action": "sponsors.invoiced_agreement_sign",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An agreement for invoiced billing for GitHub Sponsors was signed.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-by-invoice"
   },
   {
     "action": "sponsors.repo_funding_links_file_action",

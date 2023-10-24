@@ -57,10 +57,13 @@ export const HeaderNotifications = () => {
     }
   } else {
     if (relativePath?.includes('/site-policy')) {
-      translationNotices.push({
-        type: NotificationType.TRANSLATION,
-        content: data.reusables.policies.translation,
-      })
+      const policies = data.reusables.policies
+      if (policies) {
+        translationNotices.push({
+          type: NotificationType.TRANSLATION,
+          content: policies.translation,
+        })
+      }
     }
   }
   const releaseNotices: Array<Notif> = []

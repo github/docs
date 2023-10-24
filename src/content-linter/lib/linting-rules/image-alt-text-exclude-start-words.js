@@ -10,9 +10,9 @@ const excludeStartWords = ['image', 'graphic']
  */
 export const imageAltTextExcludeStartWords = {
   names: ['GHD031', 'image-alt-text-exclude-words'],
-  description: 'Alternate text for images should not begin with words like "image" or "graphic".',
+  description: 'Alternate text for images should not begin with words like "image" or "graphic"',
   tags: ['accessibility', 'images'],
-  function: function GHD031(params, onError) {
+  function: (params, onError) => {
     forEachInlineChild(params, 'image', function forToken(token) {
       const imageAltText = token.content.trim()
 

@@ -3,9 +3,9 @@ import { getRange } from '../helpers/utils.js'
 
 export const internalLinksOldVersion = {
   names: ['GHD006', 'internal-links-old-version'],
-  description: 'Internal links must not have a hardcoded version using old versioning patterns',
-  tags: ['links', 'url'],
-  function: function GHD006(params, onError) {
+  description: 'Internal links must not have a hardcoded version using old versioning syntax',
+  tags: ['links', 'url', 'versioning'],
+  function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       if (
         params.name.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||

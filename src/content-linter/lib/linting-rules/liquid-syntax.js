@@ -10,10 +10,9 @@ import { isLiquidError } from '../../../../lib/render-with-fallback.js'
 */
 export const frontmatterLiquidSyntax = {
   names: ['GHD017', 'frontmatter-liquid-syntax'],
-  description:
-    'Frontmatter properties that contain Markdown (e.g., translatable strings) must use valid liquid.',
+  description: 'Frontmatter properties must use valid Liquid',
   tags: ['liquid', 'frontmatter'],
-  function: function GHD017(params, onError) {
+  function: (params, onError) => {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 
@@ -57,7 +56,7 @@ export const frontmatterLiquidSyntax = {
 */
 export const liquidSyntax = {
   names: ['GHD018', 'liquid-syntax'],
-  description: 'Markdown content must have valid liquid.',
+  description: 'Markdown content must use valid Liquid',
   tags: ['liquid'],
   function: function GHD018(params, onError) {
     try {

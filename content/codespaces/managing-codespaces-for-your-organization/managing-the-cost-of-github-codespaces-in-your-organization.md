@@ -58,7 +58,7 @@ Repository owners who set up prebuilds for their repository can reduce the stora
 
 Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
 
-As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)."
+As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace#deleting-codespaces-in-your-organization)."
 
 {% note %}
 

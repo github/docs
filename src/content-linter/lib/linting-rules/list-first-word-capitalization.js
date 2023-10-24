@@ -2,9 +2,9 @@ import { addFixErrorDetail, getRange, filterTokensByOrder } from '../helpers/uti
 
 export const listFirstWordCapitalization = {
   names: ['GHD034', 'list-first-word-capitalization'],
-  description: 'First word of list item should be capitalized.',
+  description: 'First word of list item should be capitalized',
   tags: ['ul', 'ol'],
-  function: function GHD034(params, onError) {
+  function: (params, onError) => {
     // We're going to look for a sequence of 3 tokens. If the markdown
     // is a really small string, it might not even have that many tokens
     // in it. Can bail early.
