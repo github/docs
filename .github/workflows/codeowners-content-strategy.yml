@@ -22,7 +22,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR: ${{ github.event.pull_request.html_url }}
-        run: gh pr edit $PR --add-reviewer github/docs-content-strategy
+        run: |
+          has_reviewer=$(
+            gh pr view $PR --json reviews |
+            jq 'any(.reviews[]; select(length > 0))'
+          )
+          if ! $has_reviewer
+          then
+            gh pr edit $PR --add-reviewer github/docs-content-strategy
+          fi
 
       - uses: ./.github/actions/slack-alert
         with:
