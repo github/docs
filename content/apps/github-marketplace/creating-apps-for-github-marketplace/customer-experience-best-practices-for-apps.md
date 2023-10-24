@@ -31,6 +31,6 @@ If you follow these best practices it will help you to provide a good customer e
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)"
+- "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
 - "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app)"
-- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
+- "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps-on-github-marketplace)"

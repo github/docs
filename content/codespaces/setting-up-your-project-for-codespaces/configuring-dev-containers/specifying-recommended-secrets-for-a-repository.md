@@ -1,7 +1,7 @@
 ---
 title: Specifying recommended secrets for a repository
 shortTitle: Specifying recommended secrets
-intro: 'You can add a setting to your dev container configuration that will prompt people to set specific secrets when they create a codespace.'
+intro: You can add a setting to your dev container configuration that will prompt people to set specific secrets when they create a codespace.
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
   fpt: '*'
@@ -67,4 +67,4 @@ Alternatively, for secrets that the owner of the repository or organization can 
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository)"
+- "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository)"

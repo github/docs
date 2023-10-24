@@ -16,9 +16,9 @@ type: how_to
 
 {% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.
 
-For information on choosing a machine type when you create a codespace, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+For information on choosing a machine type when you create a codespace, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
-{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
 
 ## Changing the machine type
 

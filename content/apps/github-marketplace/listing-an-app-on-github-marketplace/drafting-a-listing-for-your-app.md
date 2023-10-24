@@ -29,9 +29,9 @@ shortTitle: Draft an app listing
 
 You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
 
-- [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app)
-- [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)
-- [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes)
+- [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/apps/github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app)
+- [AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)
+- [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/apps/github-marketplace/listing-an-app-on-github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes)
 
 To create a {% data variables.product.prodname_marketplace %} listing:
 
@@ -61,7 +61,7 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 
 ## Editing your listing
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)."
+Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)."
 
 ## Submitting your app
 

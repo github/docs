@@ -20,14 +20,14 @@ redirect_from:
 
 {% endjetbrains_beta %}
 
-You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)."
+You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)."
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
 - Open, stop, or delete your codespaces.
 - See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 - See the machine type, size, and status of your codespaces.
-- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 - Prevent automatic deletion of a codespace. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 {% webui %}
@@ -87,7 +87,7 @@ You can bookmark the address of this page if you want to get back to it quickly 
 
 {% note %}
 
-**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
+**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)."
 
 {% endnote %}
 

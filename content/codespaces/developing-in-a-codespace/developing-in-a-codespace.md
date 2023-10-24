@@ -113,12 +113,12 @@ You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository to pe
 
 Once you've made changes to your codespace, either new code or configuration changes, you'll want to commit and push your changes. Pushing changes to a repository ensures that anyone else who creates a codespace from this repository has the same configuration. This also means that any customization you do, to modify the configuration of codespaces created for a repository, will be available to everybody who uses the repository.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#committing-your-changes)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#committing-your-changes)."
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
-- "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
+- "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)"
+- "[AUTOTITLE](/codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains)"
 - "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)"
 
 {% endjetbrains_beta %}
@@ -135,6 +135,6 @@ You can use {% data variables.product.prodname_cli %} to create a new codespace,
 
 After installing {% data variables.product.prodname_cli %} and authenticating with your {% data variables.product.prodname_dotcom %} account you can use the command `gh codespace [<SUBCOMMAND>...] --help` to browse the help information. Alternatively, you can view the same reference information at [https://cli.github.com/manual/gh_codespace](https://cli.github.com/manual/gh_codespace).
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)."
 
 {% endcli %}

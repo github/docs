@@ -35,11 +35,11 @@ Organizations can enable members and outside collaborators to create and use cod
 {% endnote %}
 {% endif %}
 
-{% data reusables.codespaces.starting-new-project-template %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.starting-new-project-template %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
 
 {% note %}
 
-**Note**: If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)."
+**Note**: If you use a JetBrains IDE, you can use {% data variables.product.prodname_cli %} to create a codespace. You can then use the JetBrains Gateway application to open the codespace in a JetBrains IDE. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)."
 
 {% endnote %}
 
@@ -58,7 +58,7 @@ When you create a codespace, a number of steps happen to create and connect you 
 
 For more information on what happens when you create a codespace, see "[AUTOTITLE](/codespaces/getting-started/deep-dive)."
 
-For more information on the lifecycle of a codespace, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)."
+For more information on the lifecycle of a codespace, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)."
 
 If you want to use Git hooks for your codespace, then you should set up hooks using the `devcontainer.json` lifecycle scripts, such as `postCreateCommand`. These get executed during step 4, above. For information about the lifecycle scripts, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created.
 
@@ -167,6 +167,6 @@ For full details of the options for this command, see [the {% data variables.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
+- "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
 - "[AUTOTITLE](/rest/codespaces)" (REST API reference)
