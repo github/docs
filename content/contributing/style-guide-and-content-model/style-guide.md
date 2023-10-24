@@ -212,7 +212,7 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 ## Headers
 
-Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
+Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Use sentence casing for headers. Each header on a page must be unique.
 
 Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
