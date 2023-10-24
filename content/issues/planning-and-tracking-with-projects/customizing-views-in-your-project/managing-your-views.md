@@ -11,7 +11,7 @@ topics:
 
 ## Creating a project view
 
-Project views allow you to quickly view specific aspects of your project. Each view is displayed on a separate tab in your project. 
+Project views allow you to quickly view specific aspects of your project. Each view is displayed on a separate tab in your project.
 
 For example, you can have:
 - A view that shows all items not yet started (filter on "Status").
@@ -36,9 +36,9 @@ You can duplicate an existing view and use it as a base to make further changes.
 
 ## Saving changes to a view
 
-When you make changes to a view - for example, sorting, reordering, filtering, or grouping the data in a view - a dot is displayed next to the view name to indicate that there are unsaved changes. 
+When you make changes to a view - for example, sorting, reordering, filtering, or grouping the data in a view - a dot is displayed next to the view name to indicate that there are unsaved changes.
 
-![Unsaved changes indicator](/assets/images/help/projects/unsaved-changes.png)
+![Screenshot of a tab for a view labeled "Issues by priority." Next to the view's name, a dropdown icon is marked by a blue dot.](/assets/images/help/projects/unsaved-changes.png)
 
 If you don't want to save the changes, you can ignore this indicator. No one else will see your changes.
 

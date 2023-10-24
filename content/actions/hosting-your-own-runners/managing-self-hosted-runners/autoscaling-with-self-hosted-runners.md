@@ -12,7 +12,6 @@ versions:
 type: overview
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About autoscaling
@@ -61,7 +60,11 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae %}
+{% ifversion actions-single-use-tokens %}
+
+Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
+
+{% endif %}
 
 ## Controlling runner software updates on self-hosted runners
 
@@ -85,14 +88,12 @@ For instructions on how to install the latest runner version, see the installati
 
 {% endnote %}
 
-{% endif %}
-
 ## Using webhooks for autoscaling
 
 You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
 
 - For more information about the `workflow_job` webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks)."
+- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks)."
 
 ## Authentication requirements
 

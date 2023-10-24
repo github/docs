@@ -21,9 +21,9 @@ You can set the date or iteration fields that your roadmap will use to position 
 
 1. In the top right of your roadmap, click {% octicon "calendar" aria-hidden="true" %} **Date fields**.
 
-  ![Screenshot showing the menu items for a roadmap layout. The "Date fields" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/roadmap-menu-dates.png)
+   ![Screenshot showing the menu items for a roadmap layout. The "Date fields" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/roadmap-menu-dates.png)
 
-1. Optionally, to create a new date or iteration field, click {% octicon "plus" aria-label="the plus icon" %} **New field**, type the name of your field, and click **Save**. You can then select the new field or create another.
+1. Optionally, to create a new date or iteration field, click {% octicon "plus" aria-hidden="true" %} **New field**, type the name of your field, and click **Save**. You can then select the new field or create another.
 1. Select a date or iteration field for "Start date" and "Target date."
 
 {% ifversion projects-v2-roadmap-markers %}
@@ -34,7 +34,7 @@ You can configure vertical markers on a roadmap to show your iterations, the dat
 
 1. In the top right of your roadmap, click {% octicon "location" aria-hidden="true" %} **Markers**.
 
-  ![Screenshot showing the menu bar in a roadmap layout. The "Markers" button is highlighted with an orange outline.](/assets/images/help/projects-v2/markers.png)
+   ![Screenshot showing the menu bar in a roadmap layout. The "Markers" button is highlighted with an orange outline.](/assets/images/help/projects-v2/markers.png)
 
 1. In the menu, select which markers you want to display on your roadmap.
 
@@ -46,9 +46,17 @@ You can choose the density of items on your roadmap. You can zoom in to show one
 
 1. In the top right of your roadmap, click {% octicon "search" aria-label="The zoom icon next to Month, Quarter, or Year" %}.
 
-  ![Screenshot showing the menu items for a roadmap layout. The "Zoom" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/roadmap-zoom-button.png)
+   ![Screenshot showing the menu items for a roadmap layout. The "Zoom" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/roadmap-zoom-button.png)
 
 1. Select either **Month**, **Quarter**, or **Year**.
+
+{% ifversion projects-v2-slice-panel %}
+
+## Slicing by field values
+
+{% data reusables.projects.customize.slice-panel %}
+
+{% endif %}
 
 {% ifversion projects-v2-consistent-sorting %}
 

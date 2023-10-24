@@ -1,0 +1,46 @@
+name: 'Content Lint Markdown'
+
+# **What it does**: Lints our content markdown to ensure the content matches the specified styleguide.
+# **Why we have it**: We want some level of consistency to our content markdown files.
+# **Who does it impact**: Docs content writers.
+
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-content:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          # Picking this number is a "best guess". If we make it too large,
+          # the checkout will take potentially unnecessariily long.
+          # This reduces the chance that tj-actions/changed-files has to
+          # fetch deeper history. But if it needs to, it will.
+          fetch-depth: 10
+
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
+
+      - name: Get changed content/data files
+        id: changed-files
+        uses: tj-actions/changed-files@246636f5fa148b5ad8e65ca4c57b18af3123e5f6 # v39.0.1
+        with:
+          files: |
+            content/**
+            data/**
+
+      - name: Run content linter if changed content/data files
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: npm run lint-content -- --errors-only --paths ${{ steps.changed-files.outputs.all_changed_files }}
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,6 +1,6 @@
 import { get, getDOM } from '../helpers/e2etest.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import { allVersions } from '../../lib/all-versions.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 describe('autotitle', () => {
   test('internal links with AUTOTITLE resolves', async () => {
@@ -46,18 +46,18 @@ describe('cross-version-links', () => {
 
       // Tests that the hardcoded prefix is always removed
       const firstLink = links.filter(
-        (i, element) => $(element).text() === 'Hello world always in free-pro-team'
+        (i, element) => $(element).text() === 'Hello world always in free-pro-team',
       )
       expect(firstLink.attr('href')).toBe('/en/get-started/quickstart/hello-world')
 
       // Tests that the second link always goes to enterprise-server@X.Y
       const secondLink = links.filter(
-        (i, element) => $(element).text() === 'Autotitling page always in enterprise-server latest'
+        (i, element) => $(element).text() === 'Autotitling page always in enterprise-server latest',
       )
       expect(secondLink.attr('href')).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/hello-world`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/hello-world`,
       )
-    }
+    },
   )
 })
 
@@ -106,7 +106,7 @@ describe('link-rewriting', () => {
 
     const link = links.filter((i, element) => $(element).text() === 'Cross Version Linking')
     expect(link.attr('href')).toMatch(
-      `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/`
+      `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/`,
     )
   })
 })

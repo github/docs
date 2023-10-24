@@ -1,7 +1,7 @@
 ---
 title: Changing the shell in a codespace
 shortTitle: Change your shell
-intro: 'You can change your shell in a codespace to keep the setup you''re used to.'
+intro: You can change your shell in a codespace to keep the setup you're used to.
 versions:
   fpt: '*'
   ghec: '*'
@@ -42,7 +42,7 @@ If the shell you install isn't detected automatically, you can add a new termina
 {% data reusables.codespaces.access-user-settings %}
 1. In the `settings.json` file, inside the JSON object, add a new property like the following. Replace `OPERATING-SYSTEM` with the relevant operating system (such as `linux`, `windows`, or `osx`) and `SHELL` with the shell you have installed.
 
-   ```json{:copy}
+   ```json copy
    "terminal.integrated.profiles.OPERATING-SYSTEM": {
      "SHELL": {
        "path": "SHELL"
@@ -66,7 +66,7 @@ If the shell you install isn't detected automatically, you can add a new termina
 
 ## Setting the default shell in {% data variables.product.prodname_vscode_shortname %}
 
-You can set a default terminal profile to choose the default shell used for all new terminal windows you open in {% data variables.product.prodname_vscode_shortname %}. The default terminal profile is dependent on your operating system, so you can set a default profile for Linux, if you're using the {% data variables.product.prodname_vscode_shortname %} web client, or for your local operating system, if you're using the desktop application. 
+You can set a default terminal profile to choose the default shell used for all new terminal windows you open in {% data variables.product.prodname_vscode_shortname %}. The default terminal profile is dependent on your operating system, so you can set a default profile for Linux, if you're using the {% data variables.product.prodname_vscode_shortname %} web client, or for your local operating system, if you're using the desktop application.
 
 {% note %}
 
@@ -83,13 +83,14 @@ You can set a default terminal profile to choose the default shell used for all 
 
    For example:
 
-   ```json{:copy}
+   ```json copy
    {
       "terminal.integrated.defaultProfile.osx": "zsh",
       "terminal.integrated.defaultProfile.linux": "bash",
       "terminal.integrated.defaultProfile.windows": "PowerShell"
    }
    ```
+
 1. Save the `settings.json` file.
 
 {% data reusables.codespaces.settings-sync-link %}
@@ -98,15 +99,15 @@ You can set a default terminal profile to choose the default shell used for all 
 
 When you connect to a codespace from the command line over SSH, you connect to a `bash` session in the codespace by default.
 
-If you have enabled a dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can change the default shell you connect to by adding a command to an installation script such as `install.sh` in your dotfiles. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)." For example, the following command changes the default shell to `zsh`.
+If you have enabled a dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can change the default shell you connect to by adding a command to an installation script such as `install.sh` in your dotfiles. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#ssh-into-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)." For example, the following command changes the default shell to `zsh`.
 
-```shell{:copy}
+```shell copy
 sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
 ```
 
 If you want to use a default shell that isn't installed in your codespace by default, or ensure you have the latest version of the shell, you can install the shell first.
 
-```shell{:copy}
+```shell copy
 sudo apt-get update -y
 sudo apt-get install -y csh
 sudo chsh "$(id -un)" --shell "/usr/bin/csh"
@@ -116,7 +117,7 @@ sudo chsh "$(id -un)" --shell "/usr/bin/csh"
 
 **Note**: If you create a new codespace (for example by using `gh codespace create`), you must wait sufficient time to ensure the script has finished running before you connect to the codespace over SSH. If the script hasn't finished running, you will connect to a default `bash` session.
 
-{% endnote %} 
+{% endnote %}
 
 When you have connected to the codespace, for most shells, you can use the command `readlink /proc/$$/exe` to check the correct shell is running.
 
@@ -132,7 +133,7 @@ Generally, you should use a dotfiles repository to configure shells with your pr
 
 The `fish` shell includes a web-based configuration interface. You can use the `fish_config` command to start a local web server and launch this interface, then do things like change the terminal prompt or view your environment variables.
 
-You can use the web-based interface for `fish` in a codespace. However, 
+You can use the web-based interface for `fish` in a codespace. However,
 the color settings in {% data variables.product.prodname_vscode_shortname %}'s integrated terminal depend on your chosen {% data variables.product.prodname_vscode_shortname %} theme, and you cannot override these settings by setting a new theme in the `fish_config` interface.
 
 When `fish` starts the local server, the default link that {% data variables.product.prodname_github_codespaces %} provides to the forwarded port does not work. For example, if you click **Open in Browser** on the popup message, you will be taken to an error page.

@@ -27,21 +27,17 @@ topics:
 
 The support options available to {% data variables.product.prodname_dotcom %} users depend on the products used by their personal accounts,  any organizations or enterprises they are members of, and any {% data variables.product.prodname_ghe_server %} instances they manage. Each product includes a default level of support and accounts that use {% data variables.product.prodname_enterprise %} can purchase {% data variables.contact.premium_support %}.
 
-{% ifversion fpt %}
-If you're a member of an organization that uses {% data variables.product.prodname_enterprise %}, you can use the drop-down menu in the upper-right corner of {% data variables.product.prodname_docs %} to view a version of these articles appropriate to your product. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
-{% endif %}
-
 {% ifversion not ghae %}
 
 {% rowheaders %}
 
-|  | {% data variables.product.prodname_gcf %} | Standard support | Premium support |
-|----|---------------|-------|---------------|
-| {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
-| {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} |
-| {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | {% octicon "x" aria-label="Not available" %} |
-| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | Available to purchase |
-| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Available" %}  | {% octicon "check" aria-label="Available" %}  | Available to purchase |
+|  | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
+|---|---|---|---|---|
+| {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_team %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
+| {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | Available to purchase |
+| {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | Available to purchase |
 
 {% endrowheaders %}
 
@@ -50,9 +46,9 @@ If you're a member of an organization that uses {% data variables.product.prodna
 {% ifversion ghes %}
 
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
- - Installing and using {% data variables.product.product_name %}
- - Identifying and verifying the causes of suspected errors
- - Installing and using {% data variables.product.prodname_advanced_security %}
+- Installing and using {% data variables.product.product_name %}
+- Identifying and verifying the causes of suspected errors
+- Installing and using {% data variables.product.prodname_advanced_security %}
 
 {% endif %}
 
@@ -78,11 +74,11 @@ Before contacting {% data variables.contact.github_support %}, check if there ar
 {% ifversion fpt %}
 {% data reusables.support.free-and-paid-support %}
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
+To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
 {% endif %}
 
 {% ifversion fpt %}
-If you have any paid product or are a member of an organization with a paid product, you can contact {% data variables.contact.github_support %} in English.
+You can contact {% data variables.contact.github_support %} in English.
 {% else %}
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}
@@ -93,7 +89,7 @@ With {% data variables.product.product_name %}, you have access to support in En
 
 {% ifversion ghes or ghec %}
 
-To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
+To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
 
 {% elsif ghae %}
 
@@ -110,6 +106,7 @@ Email communication from GitHub Support will always be sent from either a `githu
 {% data reusables.support.scope-of-support %}
 
 {% ifversion ghec or fpt or ghae %}
+
 ## About GitHub status
 
 You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
@@ -119,6 +116,7 @@ You can also subscribe and get alerted via email, text message, and webhook when
 {% endif %}
 
 {% ifversion ghec or ghes %}
+
 ## About support entitlement
 
 Enterprise owners and billing managers automatically have a support entitlement, which enables them to create, view, and comment on support tickets associated with their enterprise account.
@@ -128,14 +126,16 @@ Enterprise owners can also add support entitlements to members of organizations 
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Granting {% data variables.contact.github_support %} temporary access to a private repository
 
-If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access the repository for five days. During this window, {% data variables.contact.github_support %} staff with the required privileges can unlock the repository for up to two hours at a time, and will relock the repository if the work is completed early. All {% data variables.contact.github_support %} staff access generates audit log events, and the visibility of the repository is not affected at any time.
+If {% data variables.contact.github_support %} needs to access a private repository to address your support request, the owner of the repository will receive an email with a link to accept or decline temporary access. The owner will have 20 days to accept or decline the request before the request expires. If the owner accepts the request, {% data variables.contact.github_support %} will have access to the repository for five days. During this window, {% data variables.contact.github_support %} staff with the required privileges can unlock the repository for up to two hours at a time, and will relock the repository if the work is completed early. All {% data variables.contact.github_support %} staff access generates audit log events, and the visibility of the repository is not affected at any time.
 
 {% data variables.contact.github_support %} will never access your private repositories without your explicit consent. For more information, see the [Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service#3-access).
 {% endif %}
 
 {% ifversion ghec or ghes %}
+
 ## Contacting GitHub Sales and GitHub Training
 
 For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %}.
@@ -151,6 +151,7 @@ To learn more about training options, including customized trainings, see [{% da
 {% endif %}
 
 {% ifversion ghes or ghec %}
+
 ## Hours of operation
 
 ### Support in English

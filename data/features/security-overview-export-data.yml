@@ -1,0 +1,5 @@
+# Reference: #11417
+# Documentation for the ability to download CSV files of data from the risk and coverage pages of security overview.
+versions:
+  ghec: '*'
+  ghes: '>3.12'

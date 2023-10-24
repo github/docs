@@ -12,8 +12,6 @@ topics:
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## Introduction
@@ -47,7 +45,7 @@ In order to use ARC, ensure you have the following.
 
     The following example installs the latest version of the chart. To install a specific version, you can pass the `--version` argument along with the version of the chart you wish to install. You can find the list of releases in the [GitHub Container Registry](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set-controller).
 
-    ```bash{:copy}
+    ```bash copy
     NAMESPACE="arc-systems"
     helm install arc \
         --namespace "{% raw %}${NAMESPACE}{% endraw %}" \
@@ -78,7 +76,7 @@ In order to use ARC, ensure you have the following.
 
         {% endnote %}
 
-        ```bash{:copy}
+        ```bash copy
         INSTALLATION_NAME="arc-runner-set"
         NAMESPACE="arc-runners"
         GITHUB_CONFIG_URL="https://github.com/<your_enterprise/org/repo>"
@@ -93,9 +91,9 @@ In order to use ARC, ensure you have the following.
 
         For additional Helm configuration options, see [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) in the ARC documentation.
 
-2. From your terminal, run the following command to check your installation.
+1. From your terminal, run the following command to check your installation.
 
-    ```bash{:copy}
+    ```bash copy
     helm list -A
     ```
 
@@ -104,12 +102,12 @@ In order to use ARC, ensure you have the following.
     ```bash
     NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                                       APP VERSION
     arc             arc-systems     1               2023-04-12 11:45:59.152090536 +0000 UTC deployed        gha-runner-scale-set-controller-0.4.0       0.4.0
-    arc-runner-set  arc-systems     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
+    arc-runner-set  arc-runners     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
     ```
 
-3. To check the manager pod, run the following command in your terminal.
+1. To check the manager pod, run the following command in your terminal.
 
-    ```bash{:copy}
+    ```bash copy
     kubectl get pods -n arc-systems
     ```
 
@@ -131,7 +129,7 @@ Now you will create and run a simple test workflow that uses the runner scale se
 
     For more information on adding workflows to a repository, see "[AUTOTITLE](/actions/quickstart#creating-your-first-workflow)."
 
-    ```yaml{:copy}
+    ```yaml copy
     name: Actions Runner Controller Demo
     on:
       workflow_dispatch:
@@ -148,7 +146,7 @@ Now you will create and run a simple test workflow that uses the runner scale se
 
 1. To view the runner pods being created while the workflow is running, run the following command from your terminal.
 
-    ```bash{:copy}
+    ```bash copy
     kubectl get pods -n arc-runners
     ```
 

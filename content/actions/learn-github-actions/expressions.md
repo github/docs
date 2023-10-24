@@ -8,8 +8,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About expressions
@@ -18,31 +17,29 @@ You can use expressions to programmatically set environment variables in workflo
 
 Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
+{% data reusables.actions.expressions-syntax-evaluation %}
 
 {% raw %}
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
+{% note %}
+
+**Note**: The exception to this rule is when you are using expressions in an `if` clause, where, optionally, you can usually omit {% raw %}`${{`{% endraw %} and {% raw %}`}}`{% endraw %}. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
+
+{% endnote %}
 
 {% data reusables.actions.context-injection-warning %}
-
-### Example expression in an `if` conditional
-
-```yaml
-steps:
-  - uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
-    if: {% raw %}${{ <expression> }}{% endraw %}
-```
 
 ### Example setting an environment variable
 
 {% raw %}
+
 ```yaml
 env:
   MY_ENV_VAR: ${{ <expression> }}
 ```
+
 {% endraw %}
 
 ## Literals
@@ -79,7 +76,7 @@ env:
 | Operator    | Description |
 | ---         | ---         |
 | `( )`       | Logical grouping |
-| `[ ]`       | Index
+| `[ ]`       | Index |
 | `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
@@ -91,9 +88,18 @@ env:
 | `&&`        | And |
 |  <code>\|\|</code> | Or |
 
+  {% note %}
+
+  **Notes:**
+  - {% data variables.product.company_short %} ignores case when comparing strings.
+  - `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+  - For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
+
+  {% endnote %}
+
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
-* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+- If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
 
   | Type    | Result |
   | ---     | ---    |
@@ -102,9 +108,25 @@ env:
   | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-* A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-* Objects and arrays are only considered equal when they are the same instance.
+- A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
+- {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
+- Objects and arrays are only considered equal when they are the same instance.
+
+{% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
+
+### Example
+
+{% raw %}
+
+```yaml
+env:
+  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+```
+
+{% endraw %}
+
+In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
+It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned.
 
 ## Functions
 
@@ -169,9 +191,11 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 #### Example of `format`
 
 {% raw %}
-```js
+
+```javascript
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns 'Hello Mona the Octocat'.
@@ -179,9 +203,11 @@ Returns 'Hello Mona the Octocat'.
 #### Example escaping braces
 
 {% raw %}
-```js
+
+```javascript
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns '{Hello Mona the Octocat!}'.
@@ -217,6 +243,7 @@ Returns a JSON object or JSON data type for `value`. You can use this function t
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
 {% raw %}
+
 ```yaml
 name: build
 on: push
@@ -240,6 +267,7 @@ jobs:
     steps:
       - run: build
 ```
+
 {% endraw %}
 
 #### Example returning a JSON data type
@@ -247,6 +275,7 @@ jobs:
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
 {% raw %}
+
 ```yaml
 name: print
 on: push
@@ -261,6 +290,7 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.time) }}
         run: echo ...
 ```
+
 {% endraw %}
 
 ### hashFiles
@@ -269,7 +299,7 @@ jobs:
 
 Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+You can use pattern matching characters to match file names. Pattern matching for `hashFiles` follows glob pattern matching and is case-insensitive on Windows. For more information about supported pattern matching characters, see the [Patterns](https://www.npmjs.com/package/@actions/glob#patterns) section in the `@actions/glob` documentation.
 
 #### Example with a single pattern
 
@@ -289,7 +319,7 @@ You can use the following status check functions as expressions in `if` conditio
 
 ### success
 
-Returns `true` when none of the previous steps have failed or been canceled.
+Returns `true` when all previous steps have succeeded.
 
 #### Example of `success`
 
@@ -302,13 +332,13 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled. 
+Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled.
 
-{% note %}
+{% warning %}
 
-**Note:** Avoid using `always` for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative:`if: success() || failure()`
+**Warning:** Avoid using `always` for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative: `if: {% raw %}${{ !cancelled() }}{% endraw %}`
 
-{% endnote %}
+{% endwarning %}
 
 #### Example of `always`
 

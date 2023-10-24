@@ -18,7 +18,7 @@ allowTitleToDifferFromFilename: true
 
 ## Adding issues and pull requests to a project
 
-You can add issues and pull requests to your project individually{% ifversion projects-v2-auto-add %}, automatically, {% endif %} or in bulk. You can also add draft issues which can later be transformed into issues. For more information, see "[Creating draft issues](#creating-draft-issues)."
+You have several options for adding issues and pull requests to your project. You can add them individually{% ifversion projects-v2-auto-add %}, automatically, {% endif %} or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see "[Creating draft issues](#creating-draft-issues).
 
 {% ifversion projects-v2-timeline-events %}
 
@@ -57,16 +57,16 @@ You can copy the URL of an issue or pull request into your clipboard and paste t
 If you know the issue or pull request number or if you know part of the title, you can search for an issue or pull request directly from your project.
 
 {% data reusables.projects.add-item-bottom-row %}
-2. To open the list of repositories, type <kbd>#</kbd>.
-3. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
-4. Select the issue or pull request. You can type part of the title to narrow down your options.
+1. To open the list of repositories, type <kbd>#</kbd>.
+1. Select the repository where the pull request or issue is located. You can type part of the repository name to narrow down your options.
+1. Select the issue or pull request. You can type part of the title to narrow down your options.
 
 ### Bulk adding issues and pull requests
 
 You can add multiple issues and pull requests from your project and use filters, such as `label:bug`, to narrow down your search.
 
 1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" %}.
-  ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
+   ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
 1. Click **Add item from repository**.
 {% data reusables.projects.bulk-add %}
 
@@ -92,10 +92,10 @@ You can also add issues and pull requests to your project from a repository's is
 You can also add an issue or pull request to your project from within the issue or pull request itself.
 
 1. Navigate to the issue or pull request that you want to add to a project.
-2. In the side bar, click **Projects**.
-  ![Screenshot showing an issue's sidebar. "Projects" is highlighted with an orange outline.](/assets/images/help/projects-v2/issue-sidebar-projects.png)
-3. Select the project that you want to add the issue or pull request to.
-4. Optionally, populate the custom fields.
+1. In the side bar, click **Projects**.
+   ![Screenshot showing an issue's sidebar. "Projects" is highlighted with an orange outline.](/assets/images/help/projects-v2/issue-sidebar-projects.png)
+1. Select the project that you want to add the issue or pull request to.
+1. Optionally, populate the custom fields.
 
 ### Using the command palette to add an issue or pull request
 

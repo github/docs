@@ -10,13 +10,13 @@ There are currently 3 general automated tests:
 
 Just like with regular `jest` tests, if you haven't already done so...
 
-```sh
+```shell
 npm run build
 ```
 
 Now, to run all the tests:
 
-```sh
+```shell
 npm run playwright-test
 ```
 
@@ -69,7 +69,7 @@ all the file's tests as a tree and for each test there's a Play button.
 You can either play a specific single test or you can make it run all
 tests.
 
-Note, that failiure is often the result of the Playwright test waiting
+Note, that failure is often the result of the Playwright test waiting
 very patiently for something to be present but it can't be found. I.e.
 failures are often the same thing as Playwright reaching a waiting timeout.
 This can make it feel like nothing's happening.
@@ -82,36 +82,68 @@ browser window will appear when tests run.
 
 The most basic command is:
 
-```sh
+```shell
 npm run playwright-test -- --help
 ```
 
 This will guide you to all the options possible. For example,
 
-```sh
+```shell
 npm run playwright-test -- --headed
 ```
 
 ...will open a browser flickering through the tests.
 
-```sh
+```shell
 npm run playwright-test -- playwright-rendering.spec.ts
 ```
 
 ...will only run the tests in a file by that name.
 
-```sh
+```shell
 npm run playwright-test -- playwright-rendering.spec.ts:16
 ```
 
 ...will run that specific `test('description here', async ({ page }))` on
 line 16.
 
-```sh
+```shell
 npm run playwright-test -- -g "view home page"
 ```
 
 ...will only run tests whose description contains that text.
+
+## Updating browser binaries
+
+When we upgrade the `@playwright/test` version, if you haven't already
+done it yourself, you might get an error from within Playwright that the
+browsers aren't up-to-date.
+
+In VSCode you might get this error:
+
+```shell
+Browser was not installed. Invoke 'Install Playwright Browsers' action to install missing browsers.
+```
+
+On the CLI you might get this:
+
+```shell
+  Error: browserType.launch: Executable doesn't exist at /Users/peterbe/Library/Caches/ms-playwright/webkit-1848/pw_run.sh
+  ╔═════════════════════════════════════════════════════════════════════════╗
+  ║ Looks like Playwright Test or Playwright was just installed or updated. ║
+  ║ Please run the following command to download new browsers:              ║
+  ║                                                                         ║
+  ║     npx playwright install                                              ║
+  ║                                                                         ║
+  ║ <3 Playwright Team                                                      ║
+  ╚═════════════════════════════════════════════════════════════════════════╝
+```
+
+All you have to do is run:
+
+```shell
+npx playwright install
+```
 
 ## Debugging
 
@@ -124,7 +156,7 @@ The first thing to do is familiarize yourself with how to run the CLI
 that only opens the one specific test you're debugging. Then, you
 run the CLI with `--debug --headed`. For example:
 
-```sh
+```shell
 npm run playwright-test -- -g "view home page" --debug --headed
 ```
 
@@ -136,7 +168,7 @@ to understand what's in the DOM.
 Another thing that can help debugging is to open the browser just like
 the script does. Run:
 
-```sh
+```shell
 npm run start-for-playwright
 ```
 
@@ -151,13 +183,13 @@ debugger window it generates TypeScript code which you can copy-and-paste
 into your editor/IDE when you're done. To use codegen you need to
 first manually start the server. In the **first terminal**:
 
-```sh
+```shell
 npm run build && npm run start-for-playwright
 ```
 
 In a **second terminal**:
 
-```sh
+```shell
 npx playwright codegen
 ```
 

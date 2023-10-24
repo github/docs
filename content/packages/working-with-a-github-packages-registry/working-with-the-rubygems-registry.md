@@ -26,7 +26,7 @@ shortTitle: RubyGems registry
 - You must have RubyGems 2.4.1 or higher. To find your RubyGems version:
 
   ```shell
-  $ gem --version
+  gem --version
   ```
 
 - You must have bundler 1.6.4 or higher. To find your Bundler version:
@@ -56,9 +56,9 @@ This registry supports granular permissions. {% data reusables.package_registry.
 
 To publish and install gems, you can configure RubyGems or Bundler to authenticate to {% data variables.product.prodname_registry %} using your {% data variables.product.pat_generic %}.
 
-To publish new gems, you need to authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing your *~/.gem/credentials* file to include your {% data variables.product.pat_v1 %}. Create a new *~/.gem/credentials* file if this file doesn't exist.
+To publish new gems, you need to authenticate to {% data variables.product.prodname_registry %} with RubyGems by editing your _~/.gem/credentials_ file to include your {% data variables.product.pat_v1 %}. Create a new _~/.gem/credentials_ file if this file doesn't exist.
 
-For example, you would create or edit a *~/.gem/credentials* to include the following, replacing *TOKEN* with your {% data variables.product.pat_generic %}.
+For example, you would create or edit a _~/.gem/credentials_ to include the following, replacing TOKEN with your {% data variables.product.pat_generic %}.
 
 ```shell
 ---
@@ -66,23 +66,24 @@ For example, you would create or edit a *~/.gem/credentials* to include the foll
 ```
 
 To install gems, you need to authenticate to {% data variables.product.prodname_registry %} by updating your gem sources to include `https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE/`. You must replace:
-  - `USERNAME` with your {% data variables.product.prodname_dotcom %} username.
-  - `TOKEN` with your {% data variables.product.pat_v1 %}.
-  - `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %}
-  - `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.
+- `USERNAME` with your {% data variables.product.prodname_dotcom %} username.
+- `TOKEN` with your {% data variables.product.pat_v1 %}.
+- `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %}
+- `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace HOSTNAME with the hostname of your {% data variables.product.prodname_ghe_server %} instance.
 {% elsif ghae %}
-  - `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.
+- `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace HOSTNAME with the hostname of {% data variables.location.product_location %}.
 {% endif %}
 
 If you would like your package to be available globally, you can run the following command to add your registry as a source.
+
 ```shell
 gem sources --add https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE/
 ```
 
-To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your {% data variables.product.pat_generic %}, and *NAMESPACE* with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace *HOSTNAME* with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace *HOSTNAME* with the hostname of {% data variables.location.product_location %}.{% endif %}
+To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_generic %}, and NAMESPACE with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace HOSTNAME with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace HOSTNAME with the hostname of {% data variables.location.product_location %}.{% endif %}
 
 ```shell
-$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE USERNAME:TOKEN
+bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE USERNAME:TOKEN
 ```
 
 ## Publishing a package
@@ -92,10 +93,13 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
 {% data reusables.package_registry.authenticate-step %}
-1. Build the package from the *gemspec* to create the *.gem* package. Replace `GEM_NAME` with the name of your gem.
-  ```
-  gem build GEM_NAME.gemspec
-  ```
+
+1. Build the package from the _gemspec_ to create the _.gem_ package. Replace `GEM_NAME` with the name of your gem.
+
+   ```shell
+   gem build GEM_NAME.gemspec
+   ```
+
 1. Publish a package to {% data variables.product.prodname_registry %}, replacing `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the package will be scoped{% else %}that owns the repository containing your project{% endif %} and `GEM_NAME` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace `HOSTNAME` with the hostname of {% data variables.location.product_location %}.{% endif %}
 
    {% note %}
@@ -104,11 +108,11 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 
    {% endnote %}
 
-  ```
-  $ gem push --key github \
-  --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE \
-  GEM_NAME-0.0.1.gem
-  ```
+   ```shell
+   $ gem push --key github \
+   --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE \
+   GEM_NAME-0.0.1.gem
+   ```
 
 {% ifversion packages-rubygems-v2 %}
 
@@ -116,7 +120,7 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 
 The RubyGems registry stores packages within your organization or personal account, and allows you to associate packages with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
 
-You can ensure gems will be linked to a repository as soon as they are published by including the URL of the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. You can link multiple gems to the same repository. {% ifversion ghes %} In the following example, replace *HOSTNAME* with the host name of {% data variables.location.product_location %}.{% endif %}
+You can ensure gems will be linked to a repository as soon as they are published by including the URL of the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. You can link multiple gems to the same repository. {% ifversion ghes %} In the following example, replace HOSTNAME with the host name of {% data variables.location.product_location %}.{% endif %}
 
 ```ruby
 gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
@@ -128,7 +132,7 @@ For information on linking a published package with a repository, see "[AUTOTITL
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple gems to the same repository, you can include the URL to the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% ifversion ghes or ghae %} Replace *HOSTNAME* with the host name of {% data variables.location.product_location %}.{% endif %}
+To publish multiple gems to the same repository, you can include the URL to the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% ifversion ghes or ghae %} Replace HOSTNAME with the host name of {% data variables.location.product_location %}.{% endif %}
 
 ```ruby
 gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }
@@ -138,35 +142,36 @@ gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{%
 
 ## Installing a package
 
-You can use gems from {% data variables.product.prodname_registry %} much like you use gems from *rubygems.org*. You need to authenticate to {% data variables.product.prodname_registry %} by adding your {% data variables.product.prodname_dotcom %} user or organization as a source in the *~/.gemrc* file or by using Bundler and editing your *Gemfile*.
+You can use gems from {% data variables.product.prodname_registry %} much like you use gems from _rubygems.org_. You need to authenticate to {% data variables.product.prodname_registry %} by adding your {% data variables.product.prodname_dotcom %} user or organization as a source in the _~/.gemrc_ file or by using Bundler and editing your _Gemfile_.
 
 {% data reusables.package_registry.authenticate-step %}
-1. For Bundler, add your {% data variables.product.prodname_dotcom %} user or organization as a source in your *Gemfile* to fetch gems from this new source. For example, you can add a new `source` block to your *Gemfile* that uses {% data variables.product.prodname_registry %} only for the packages you specify, replacing `GEM_NAME` with the package you want to install from {% data variables.product.prodname_registry %} and `NAMESPACE` with the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem you want to install is scoped{% else %}that owns the repository containing the gem you want to install{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace `HOSTNAME` with the hostname of {% data variables.location.product_location %}.{% endif %}
+1. For Bundler, add your {% data variables.product.prodname_dotcom %} user or organization as a source in your _Gemfile_ to fetch gems from this new source. For example, you can add a new `source` block to your _Gemfile_ that uses {% data variables.product.prodname_registry %} only for the packages you specify, replacing `GEM_NAME` with the package you want to install from {% data variables.product.prodname_registry %} and `NAMESPACE` with the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem you want to install is scoped{% else %}that owns the repository containing the gem you want to install{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace `HOSTNAME` with the hostname of {% data variables.location.product_location %}.{% endif %}
 
-  ```ruby
-  source "https://rubygems.org"
+   ```ruby
+   source "https://rubygems.org"
 
-  gem "rails"
+   gem "rails"
 
-  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE" do
-    gem "GEM_NAME"
-  end
-  ```
+   source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE" do
+     gem "GEM_NAME"
+   end
+   ```
 
-3. For Bundler versions earlier than 1.7.0, you need to add a new global `source`. For more information on using Bundler, see the [bundler.io documentation](https://bundler.io/gemfile.html).
+1. For Bundler versions earlier than 1.7.0, you need to add a new global `source`. For more information on using Bundler, see the [bundler.io documentation](https://bundler.io/gemfile.html).
 
-  ```ruby
-  source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE"
-  source "https://rubygems.org"
+   ```ruby
+   source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE"
+   source "https://rubygems.org"
 
-  gem "rails"
-  gem "GEM_NAME"
-  ```
+   gem "rails"
+   gem "GEM_NAME"
+   ```
 
-4. Install the package:
-  ```
-  $ gem install GEM_NAME --version "0.1.1"
-  ```
+1. Install the package:
+
+   ```shell
+   gem install GEM_NAME --version "0.1.1"
+   ```
 
 ## Further reading
 

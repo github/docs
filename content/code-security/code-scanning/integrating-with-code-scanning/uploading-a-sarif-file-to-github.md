@@ -32,7 +32,7 @@ topics:
 
 ## About SARIF file uploads for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_dotcom %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF files can be uploaded to a repository using the API or {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF files can be uploaded to a repository using the API or {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)."
 
 You can generate SARIF files using many static analysis security testing tools, including {% data variables.product.prodname_codeql %}. The results must use SARIF version 2.1.0. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)."
 
@@ -40,10 +40,16 @@ You can upload the results using {% data variables.product.prodname_actions %}, 
 
 - {% data variables.product.prodname_actions %} to run the {% data variables.product.prodname_codeql %} action, there is no further action required. The {% data variables.product.prodname_codeql %} action uploads the SARIF file automatically when it completes analysis.
 - {% data variables.product.prodname_actions %} to run a SARIF-compatible analysis tool, you could update the workflow to include a final step that uploads the results (see below).
- - The {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} in your CI system, you can use the CLI to upload results to {% data variables.product.prodname_dotcom %} (for more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").
+- The {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} in your CI system, you can use the CLI to upload results to {% data variables.product.prodname_dotcom %} (for more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)").
 - A tool that generates results as an artifact outside of your repository, you can use the {% data variables.product.prodname_code_scanning %} API to upload the file (for more information, see "[AUTOTITLE](/rest/code-scanning#upload-an-analysis-as-sarif-data)").
 
-{% data reusables.code-scanning.not-available %}
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** For private and internal repositories, {% data variables.product.prodname_code_scanning %} is available when {% data variables.product.prodname_GH_advanced_security %} features are enabled for the repository. If you see the error `Advanced Security must be enabled for this repository to use code scanning`, check that {% data variables.product.prodname_GH_advanced_security %} is enabled. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+
+{% endnote %}
+{% endif %}
 
 ## Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}
 
@@ -54,7 +60,7 @@ Your workflow will need to use the `upload-sarif` action, which is part of the `
 - `sarif-file`, which configures the file or directory of SARIF files to be uploaded. The directory or file path is relative to the root of the repository.
 - `category` (optional), which assigns a category for results in the SARIF file. This enables you to analyze the same commit in multiple ways and review the results using the {% data variables.product.prodname_code_scanning %} views in {% data variables.product.prodname_dotcom %}. For example, you can analyze using multiple tools, and in mono-repos, you can analyze different slices of the repository based on the subset of changed files.
 
-For more information see the [`upload-sarif` action](https://github.com/github/codeql-action/tree/{% ifversion actions-node16-action %}v2{% else %}v1{% endif %}/upload-sarif).
+For more information see the [`upload-sarif` action](https://github.com/github/codeql-action/tree/v2/upload-sarif).
 
 The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %}  events, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
 
@@ -149,7 +155,8 @@ jobs:
 
 ## Further reading
 
+{% ifversion code-scanning-tool-status-page %}- "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)"{% endif %}
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)"
-- "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)"
+- "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)"
 - "[AUTOTITLE](/rest/code-scanning#upload-an-analysis-as-sarif-data)"

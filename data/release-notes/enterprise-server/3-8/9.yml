@@ -1,0 +1,40 @@
+date: '2023-08-24'
+sections:
+  security_fixes:
+    - Packages have been updated to the latest security versions. 
+    - |
+      An authorization/sensitive information disclosure vulnerability was identified in GitHub Enterprise Server that allowed a fork to retain read access to an upstream repository after the fork's visibility was changed to private. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and assigned [CVE-2023-23763](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23763). [Updated: 2023-09-01]
+  bugs:
+    - When an administrator tried to validate blob storage connection settings for GitHub Enterprise Importer in the Management Console using the **Test storage settings** button, the operation failed. 
+    - syslog-ng configurations for containerized services caused errors for log forwarding services. The configurations have been removed. 
+    - When an instance exhausted available memory, in some cases, the system's out-of-memory killer (OOMK) killed the process for `dockerd`, causing Nomad to fail to recover after systemd restarted Docker. 
+    - When running the ghe-migrator, certain error messages contained an invalid link to import documentation. 
+    - On an instance with GitHub Actions enabled, due to mismatched values, users could not easily associate workflow job run IDs from the GitHub Enterprise Server APIs or webhooks with a job in the UI. Workflow job runs now use a new URL pattern of `...actions/runs/job/{job_id}`, and `job_id` matches values from APIs and webhook payloads. 
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, custom patterns would erroneously show no results for a dry run. 
+    - |
+      Administrators could not use the "Migrations" section in an instance's Management Console to configure blob storage for GitHub Enterprise Importer. [Updated: 2023-08-31]
+  changes:
+    - Administrators with SSH access to an instance can view the version of GitHub Enterprise Server on the instance by using the `-v` flag with the `ghe-version` utility. 
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      {% data reusables.release-notes.mermaid-rendering-known-issue %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-09-04]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

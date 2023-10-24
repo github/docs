@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 
 import { getDOM } from '../helpers/e2etest.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 
 describe('footer', () => {
   jest.setTimeout(10 * 60 * 1000)
@@ -9,21 +9,23 @@ describe('footer', () => {
   describe('"contact us" link', () => {
     test('leads to support from articles', async () => {
       const $ = await getDOM(
-        `/en/${nonEnterpriseDefaultVersion}/get-started/quickstart/hello-world`
+        `/en/${nonEnterpriseDefaultVersion}/get-started/quickstart/hello-world`,
       )
-      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
+      expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
 
     test('leads to support on 404 pages', async () => {
-      const $ = await getDOM('/delicious-snacks/donuts.php', { allow404: true })
-      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
+      // Important to use the prefix /en/ on the failing URL or else
+      // it will render a very basic plain text 404 response.
+      const $ = await getDOM('/en/delicious-snacks/donuts.php', { allow404: true })
+      expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
   })
 
-  describe('"contact us" link with nextjs', () => {
+  describe('"support" link with nextjs', () => {
     test('leads to support from articles', async () => {
       const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/get-started?nextjs=`)
-      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
+      expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
   })
 
@@ -31,7 +33,7 @@ describe('footer', () => {
     test('codespaces product landing page leads to discussions page', async () => {
       const $ = await getDOM('/en/get-started')
       expect($('a#ask-community').attr('href')).toBe(
-        'https://hubgit.com/orgs/community/discussions/categories/get-started'
+        'https://hubgit.com/orgs/community/discussions/categories/get-started',
       )
     })
   })
@@ -40,7 +42,7 @@ describe('footer', () => {
     test('leads to https://github.community/ when clicking on the community link', async () => {
       const $ = await getDOM(`/en/get-started/quickstart/hello-world`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/orgs/community/discussions'
+        'https://github.com/orgs/community/discussions',
       )
     })
   })

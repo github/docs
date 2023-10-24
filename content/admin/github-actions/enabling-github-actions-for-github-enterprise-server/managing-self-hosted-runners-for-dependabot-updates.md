@@ -43,9 +43,7 @@ Any VM that you use for {% data variables.product.prodname_dependabot %} runners
 
 - Linux operating system
 - x64 architecture
-{%- ifversion ghes < 3.5 %}
-- Git installed
-{%- endif %}
+
 - Docker installed with access for the runner users:
   - We recommend installing Docker in rootless mode and configuring the runners to access Docker without `root` privileges.
   - Alternatively, install Docker and give the runner users raised privileges to run Docker.
@@ -54,7 +52,7 @@ The CPU and memory requirements will depend on the number of concurrent runners 
 
 If you specify more than 14 concurrent runners on a VM, you must also update the Docker `/etc/docker/daemon.json` configuration to increase the default number of networks Docker can create.
 
-```
+```json
 {
   "default-address-pools": [
     {"base":"10.10.0.0/16","size":24}
@@ -70,15 +68,13 @@ If you specify more than 14 concurrent runners on a VM, you must also update the
 
 1. Provision self-hosted runners, at the repository, organization, or enterprise account level. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
-2. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:{% ifversion ghes < 3.5 %}
-
-   - Verify that Git is installed: `command -v git`{% endif %}
+1. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:
    - Install Docker and ensure that the runner users have access to Docker. For more information, see the Docker documentation.
      - [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
      - Recommended approach: [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
      - Alternative approach: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user)
    - Verify that the runners have access to the public internet and can only access the internal networks that {% data variables.product.prodname_dependabot %} needs.
 
-3. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)."
+1. Assign a `dependabot` label to each runner you want {% data variables.product.prodname_dependabot %} to use. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner)."
 
-4. Optionally, enable workflows triggered by {% data variables.product.prodname_dependabot %} to use more than read-only permissions and to have access to any secrets that are normally available. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#enabling-workflows-triggered-by-dependabot-access-to-dependabot-secrets-and-increased-permissions)."
+1. Optionally, enable workflows triggered by {% data variables.product.prodname_dependabot %} to use more than read-only permissions and to have access to any secrets that are normally available. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise#enabling-workflows-triggered-by-dependabot-access-to-dependabot-secrets-and-increased-permissions)."

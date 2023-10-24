@@ -3,7 +3,7 @@ title: Management Console
 intro: >-
   Use the REST API to manage your {% data variables.product.product_name %}
   installation.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API
@@ -22,23 +22,34 @@ You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-
 
 {% endtip %}
 
-### Authentication
+### Authentication {% ifversion enterprise-management-console-multi-user-auth %}as the root site administrator{% endif %}
 
-You need to pass your [Management Console password](/admin/configuration/administering-your-instance-from-the-management-console) as an authentication token to every endpoint in this category except ["Create a license"](#create-a-github-enterprise-server-license).
+You need to pass your [{% ifversion enterprise-management-console-multi-user-auth %}root site administrator{% else %}{% data variables.enterprise.management_console %}{% endif %} password](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console) as an authentication token to every endpoint in this category except "[Create a GitHub license](#create-a-github-license)."
 
 Use the `api_key` parameter to send this token with each request. For example:
 
 ```shell
-$ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
+curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
 ```
 
 You can also use standard HTTP authentication to send this token. For example:
 
 ```shell
-$ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
+curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 ```
 
-{% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
+{% ifversion enterprise-management-console-multi-user-auth %}
 
+### Authentication as a {% data variables.enterprise.management_console %} user
+
+[Management Console user accounts](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user) can also authenticate to access this endpoint.
+
+To authenticate with the password for a {% data variables.enterprise.management_console %} user account, use standard HTTP authentication. In the following example, replace YOUR_USER_NAME and YOUR_PASSWORD with the account's user name and password.
+
+```shell
+curl -L -u "YOUR_USER_NAME:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
+```
+
+{% endif %}
 
 <!-- Content after this section is automatically generated -->

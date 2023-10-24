@@ -43,7 +43,7 @@ program
   .option('-v, --verbose', 'Verbose outputs')
   .option(
     '--no-git',
-    "DON'T use 'git mv' and 'git commit' to move the file. Just regular file moves."
+    "DON'T use 'git mv' and 'git commit' to move the file. Just regular file moves.",
   )
   .option('--undo', 'Reverse of moving. I.e. moving it back. Only applies to the last run.')
   .arguments('old', 'old file or folder name')
@@ -53,10 +53,10 @@ program
 main(program.opts(), program.args)
 
 async function main(opts, nameTuple) {
-  const { verbose, undo } = opts
+  const { verbose, undo, git } = opts
   if (nameTuple.length !== 2) {
     console.error(
-      chalk.red(`Must be exactly 2 file paths as arguments. Not ${nameTuple.length} arguments.`)
+      chalk.red(`Must be exactly 2 file paths as arguments. Not ${nameTuple.length} arguments.`),
     )
     process.exit(1)
   }
@@ -115,6 +115,14 @@ async function main(opts, nameTuple) {
     }
   }
 
+  const currentBranchName = getCurrentBranchName(verbose)
+  if (currentBranchName === 'main' && git) {
+    console.error(chalk.red("Cannot proceed because you're on the 'main' branch."))
+    console.error("This command will executed 'git mv ...' and 'git commit ...'")
+    console.error('Create a new dedicated branch instead, first, for this move.\n')
+    process.exit(2)
+  }
+
   // This will exit non-zero if anything is wrong with these inputs
   validateFileInputs(oldPath, newPath, isFolder)
 
@@ -162,8 +170,8 @@ async function main(opts, nameTuple) {
     if (verbose) {
       console.log(
         chalk.yellow(
-          'To undo (reverse) what you just did, run the same exact command but with --undo added to the end'
-        )
+          'To undo (reverse) what you just did, run the same exact command but with --undo added to the end',
+        ),
       )
     }
   }
@@ -172,14 +180,14 @@ async function main(opts, nameTuple) {
 function validateFileInputs(oldPath, newPath, isFolder) {
   if (isFolder) {
     // Make sure that only the last portion of the path is different
-    // and that all preceeding are equal.
+    // and that all preceding are equal.
     const [oldBase, oldName] = splitDirectory(oldPath)
     const [newBase] = splitDirectory(newPath)
     if (oldBase !== newBase && !existsAndIsDirectory(newBase)) {
       console.error(
         chalk.red(
-          `When moving a directory, both bases need to be the same. '${oldBase}' != '${newBase}'`
-        )
+          `When moving a directory, both bases need to be the same. '${oldBase}' != '${newBase}'`,
+        ),
       )
       console.warn(chalk.yellow(`Only the name (e.g. '${oldName}') can be different.`))
       process.exit(1)
@@ -198,13 +206,13 @@ function validateFileInputs(oldPath, newPath, isFolder) {
   }
   if (path.basename(oldPath) === 'index.md') {
     console.error(
-      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`)
+      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`),
     )
     process.exit(1)
   }
   if (path.basename(newPath) === 'index.md') {
     console.error(
-      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`)
+      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`),
     )
     process.exit(1)
   }
@@ -350,7 +358,7 @@ function removeFromChildren(oldPath, opts) {
   fs.writeFileSync(
     parentFilePath,
     readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-    'utf-8'
+    'utf-8',
   )
   if (verbose) {
     console.log(`Removed 'children' (${oldName}) key in ${parentFilePath}`)
@@ -397,7 +405,7 @@ function addToChildren(newPath, positions, opts) {
   fs.writeFileSync(
     parentFilePath,
     readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-    'utf-8'
+    'utf-8',
   )
   if (verbose) {
     console.log(`Added 'children' (${newName}) key in ${parentFilePath}`)
@@ -469,7 +477,7 @@ function editFiles(files, updateParent, opts) {
     fs.writeFileSync(
       newPath,
       readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-      'utf-8'
+      'utf-8',
     )
     if (verbose) {
       console.log(`Added ${oldHref} to 'redirects_from' in ${newPath}`)
@@ -513,7 +521,7 @@ function undoFiles(files, updateParent, opts) {
     fs.writeFileSync(
       newPath,
       readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-      'utf-8'
+      'utf-8',
     )
     if (updateParent) {
       addToChildren(newPath, removeFromChildren(oldPath, opts), opts)
@@ -565,4 +573,13 @@ function changeLearningTracks(filePath, oldHref, newHref) {
   const oldContent = fs.readFileSync(filePath, 'utf-8')
   const newContent = oldContent.replace(regex, `- ${newHref}`)
   fs.writeFileSync(filePath, newContent, 'utf-8')
+}
+
+function getCurrentBranchName(verbose = false) {
+  const cmd = 'git branch --show-current'
+  const o = execSync(cmd)
+  if (verbose) {
+    console.log(`git commit command: ${chalk.grey(cmd)}`)
+  }
+  return o.toString().trim()
 }

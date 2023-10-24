@@ -1,2 +1,2 @@
 1. Using your virtualization platform tools, open the virtual machine console.
-2. To start your network setup, press **S**.
+1. To start your network setup, press **S**.

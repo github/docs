@@ -48,4 +48,4 @@ Users will not be notified when you enable email restrictions. It is your respon
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.verified-domains %}
 {% data reusables.organizations.restrict-email-notifications %}
-6. Click **Save**.
+1. Click **Save**.

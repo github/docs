@@ -1,0 +1,40 @@
+date: '2023-05-30'
+sections:
+  security_fixes:
+    - |
+      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
+  bugs:
+    - On an instance in a cluster configuration, when upgrading the MySQL master node, the post-upgrade configuration run would take 600 seconds longer than required due to incorrect detection of unhealthy nodes. 
+    - In some situations on an instance with multiple nodes, Git replication failed to fully replicate repositories that had previously been deleted, which resulted in a warning in `ghe-repl-status` output. 
+    - If an instance had tens of thousands of deleted repositories, an upgrade to GitHub Enterprise Server 3.7 could take longer than expected.
+    - On an instance with the dependency graph enabled, the correct path appears for manifests that originate from build-time submission snapshots. 
+  changes:
+    - People with administrative SSH access to an instance can configure the maximum memory usage in gigabytes for Redis using `ghe-config redis.max-memory-gb VALUE`. 
+  known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      {% data reusables.release-notes.babeld-max-threads-performance-issue %}
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      When using an outbound web proxy server, the `ghe-btop` command may fail in some circumstances with the error "Error querying allocation: Unexpected response code: 401".
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue-updated %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

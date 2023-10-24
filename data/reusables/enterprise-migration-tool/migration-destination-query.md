@@ -1,4 +1,4 @@
-####  `GetOrgInfo` query
+#### `GetOrgInfo` query
 
 ```graphql
 query(
@@ -14,7 +14,7 @@ query(
 }
 ```
 
-| Query variable | Description | 
+| Query variable | Description |
 |----|----|
 | `login` | Your organization name.
 

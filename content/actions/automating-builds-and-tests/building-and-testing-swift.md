@@ -14,8 +14,7 @@ topics:
   - Swift
 shortTitle: Build & test Swift
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -31,43 +30,66 @@ You should already be familiar with YAML syntax and how it's used with {% data v
 
 We recommend that you have a basic understanding of Swift packages. For more information, see "[Swift Packages](https://developer.apple.com/documentation/swift_packages)" in the Apple developer documentation.
 
-## Using the Swift starter workflow
+## Using a Swift starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Swift starter workflow that should work for most Swift projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [Swift starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Swift that should work for most Swift projects. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml{:copy}
-name: Swift
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "swift".
+1. Filter the selection of workflows by clicking **Continuous integration**.
+1. On the "Swift" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-on: [push]
+{%- ifversion ghes or ghae %}
 
-jobs:
-  build:
+   If you don't find the "Swift" starter workflow, copy the following workflow code to a new file called `swift.yml` in the `.github/workflows` directory of your repository.
 
-    runs-on: macos-latest
+   ```yaml copy
+   name: Swift
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Build
-        run: swift build
-      - name: Run tests
-        run: swift test
-```
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
+
+   jobs:
+     build:
+       runs-on: macos-latest
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Build
+         run: swift build -v
+       - name: Run tests
+         run: swift test -v
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the branch on which the workflow will run.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `swift.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying a Swift version
 
-To use a specific preinstalled version of Swift on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `fwal/setup-swift` action. This action finds a specific version of Swift from the tools cache on the runner and adds the necessary binaries to `PATH`. These changes will persist for the remainder of a job. For more information, see the [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) action.
+To use a specific preinstalled version of Swift on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `swift-actions/setup-swift` action. This action finds a specific version of Swift from the tools cache on the runner and adds the necessary binaries to `PATH`. These changes will persist for the remainder of a job. For more information, see the [`swift-actions/setup-swift`](https://github.com/marketplace/actions/setup-swift) action.
 
 If you are using a self-hosted runner, you must install your desired Swift versions and add them to `PATH`.
 
-The examples below demonstrate using the `fwal/setup-swift` action.
+The examples below demonstrate using the `swift-actions/setup-swift` action.
 
 ### Using multiple Swift versions
 
 You can configure your job to use multiple versions of Swift in a matrix.
 
-```yaml{:copy}
+```yaml copy
 
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
@@ -87,7 +109,7 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@ffb5a44dd03d3d22fb26f48fa43e43fa4ce655a7
+      - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
       - uses: {% data reusables.actions.action-checkout %}
@@ -102,24 +124,26 @@ jobs:
 You can configure your job to use a single specific version of Swift, such as `5.3.3`.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 steps:
-  - uses: fwal/setup-swift@ffb5a44dd03d3d22fb26f48fa43e43fa4ce655a7
+  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
     with:
       swift-version: "5.3.3"
   - name: Get swift version
     run: swift --version # Swift 5.3.3
 ```
+
 {% endraw %}
 
 ## Building and testing your code
 
 You can use the same commands that you use locally to build and test your code using Swift. This example demonstrates how to use `swift build` and `swift test` in a job:
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
-  - uses: fwal/setup-swift@ffb5a44dd03d3d22fb26f48fa43e43fa4ce655a7
+  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
     with:
       swift-version: "5.3.3"
   - name: Build

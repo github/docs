@@ -1,0 +1,66 @@
+date: '2023-09-21'
+intro: |
+  {% warning %}
+
+  **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.9.5-known-issues)" section of these release notes.
+
+  {% endwarning %}
+sections:
+  security_fixes:
+    - HTTP Strict Transport Security (HSTS) is enabled within the Management Console.
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - On an instance with GitHub Actions enabled, scale sets configured at the enterprise level did not appear for use within the instance's organizations or repositories.
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, secret scanning alerts could fail to show an error message in the UI when a failure occurred closing or reopening the alert.
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, and when using Safari, changing additional match requirements for a custom pattern did not retrigger custom pattern evaluation against a user submitted test string.
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, when token location(s) included a commit that introduced a large change, the page for viewing the alert would load slowly.
+    - In some cases, users could reopen a pull request that should not have been able to be reopened.
+    - When running the `ghe-saml-mapping-csv` CLI command in dry run mode, the operation failed with errors.
+    - When uploading migration archives to blob storage, the GitHub Enterprise Server instance's outbound web proxy server was not used.
+    - On an enterprise with the policy setting that disallows repository admins from enabling/disabling secret scanning, transferring a repository to a new organization that automatically enabled secret scanning wouldn't result in the transferred repository being automatically enabled for secret scanning.
+    - When viewing fine-grained personal access tokens, the permissions text for pre-receive hooks was not visible for selection when filtering by permission.
+    - When migrating a repository from a GitHub Enterprise Server instance to another location, the `ghe-migrator target_url` command allows you to record the repository's new location. The new URL is displayed when you visit the main page of the repository in the web interface.
+    - On an instance with subdomain isolation disabled, a notebook could not be loaded due to incorrect asset paths.
+    - On an instance with subdomain isolation disabled, a notebook could not be loaded due to an extra `/` character in the URL path.
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, custom patterns would erroneously show no results for a dry run.
+    - On an instance with GitHub Actions enabled, the software on ephemeral runners would not automatically update to the latest version.
+  changes:
+    - When listing the node metadata for all nodes using the [Manage GitHub Enterprise Server REST API](https://docs.github.com/enterprise-server/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28#get-all-ghes-node-metadata-for-all-nodes), information about whether a given node is a replica is included.
+    - When GitHub Enterprise checks for a new upgrade or hotpatch package, if the check fails the failure details are output to the `ghe-update-check` log, and the Management Console UI provides a "Check Again" button to rerun the check.
+    - When providing data to GitHub Support, GitHub Enterprise Server displays a notice describing how support data is used before uploading the support files.
+    - When running async repository repairs, the output message about scheduling a repair job is more accurate.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.mermaid-rendering-known-issue %}
+    - |
+      When enabling CodeQL via default setup [at scale](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale), some checks related to GitHub Actions are omitted, potentially preventing the process from completing.
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %}
+    - |
+      {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %}
+    - |
+      {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-10]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

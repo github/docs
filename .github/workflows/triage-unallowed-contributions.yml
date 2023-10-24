@@ -8,7 +8,6 @@ on:
   pull_request_target:
     paths:
       - '.devcontainer/**'
-      - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
       - 'assets/fonts/**'
@@ -21,6 +20,7 @@ on:
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
     if: >-
       ${{
         github.repository == 'github/docs' &&
-        github.event.pull_request.user.login != 'Octomerger' &&
+        github.event.pull_request.user.login != 'docs-bot' &&
         github.event.pull_request.user.login != 'dependabot[bot]'
       }}
     runs-on: ubuntu-latest
@@ -50,7 +50,6 @@ jobs:
               - 'src/rest/data/**'
             notAllowed:
               - '.devcontainer/**'
-              - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
               - 'assets/fonts/**'
@@ -71,7 +70,6 @@ jobs:
           script: |
             const badFilesArr = [
               '.devcontainer/**',
-              '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
               'assets/fonts/**',
@@ -86,7 +84,7 @@ jobs:
 
             const badFiles = badFilesArr.join('\n')
 
-            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
+            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit-in-github-desktop) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
             let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
 
             try {
@@ -103,3 +101,10 @@ jobs:
             }
 
             core.setFailed(workflowFailMessage)
+
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

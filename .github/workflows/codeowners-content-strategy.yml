@@ -1,0 +1,30 @@
+name: Codeowners - Content Strategy
+
+# **What it does**: Automatically add reviewers based on paths, but only for the docs-internal repo.
+# **Why we have it**: So we can have reviewers automatically without getting open source notifications.
+# **Who does it impact**: Docs team.
+
+on:
+  pull_request:
+    paths:
+      - 'contributing/content-*.md'
+      - 'content/contributing/**.md'
+
+jobs:
+  codeowners-content-strategy:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - name: Add Content Strategy as a reviewer
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          PR: ${{ github.event.pull_request.html_url }}
+        run: gh pr edit $PR --add-reviewer github/docs-content-strategy
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

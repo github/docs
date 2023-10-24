@@ -15,4 +15,6 @@ children:
   - /cross-version-linking
   - /for-playwright
   - /html-short-title
+  - /page-with-callout
+  - /table-with-ifversions
 ---

@@ -27,13 +27,7 @@ This error indicates that you either do not have a {% data variables.product.pro
 
 To request another token from api.github.com, try signing in and out of {% data variables.product.prodname_copilot %} from your IDE. Once you've logged out, {% data variables.product.prodname_copilot %} will prompt you to sign back in.
 
-If you still cannot connect to the server, you can create a discussion in our [discussion forum](https://github.com/orgs/community/discussions/categories/copilot). You can include log files from your IDE to help us troubleshoot the issue. For more information on obtaining log files from your specific IDE, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-your-environment)."
-
-## Error: "{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed: "read ETIMEDOUT" or “read ECONNRESET""
-
-If you use a proxy server in your environment or are connected to a VPN, {% data variables.product.prodname_copilot %} may not be able to connect to the server.
-
-The latest release of {% data variables.product.prodname_copilot %} for {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_copilot %} for IntelliJ contains preliminary support for connecting through HTTP proxy servers. The current version supports basic HTTP proxy setups, with and without basic authentication. For more information, see this [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/29127).
+If you still cannot connect to the server, you can create a discussion in our [discussion forum](https://github.com/orgs/community/discussions/categories/copilot). You can include log files from your IDE to help us troubleshoot the issue. For more information on obtaining log files from your specific IDE, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment)."
 
 ## {% data variables.product.prodname_copilot %} not suggesting multiple lines of code
 
@@ -41,4 +35,4 @@ This is a known issue and our team is working towards a fix. For more informatio
 
 ## Further reading
 
-- [AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)"

@@ -25,10 +25,10 @@ To learn about pricing for {% data variables.product.prodname_github_codespaces 
 ## Spending limits
 
 You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your organization. This limit is applied to the total compute and storage cost for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
- 
-- **Compute usage:** This is the total time during which all {% data variables.product.prodname_github_codespaces %} instances ("codespaces") were active in a billing month. 
 
-- **Storage usage:** For {% data variables.product.prodname_github_codespaces %} billing purposes, this includes all files used by all codespaces and prebuilds in your account. This includes resources such as cloned repositories, configuration files, and extensions, among others. 
+- **Compute usage:** This is the total time during which all {% data variables.product.prodname_github_codespaces %} instances ("codespaces") were active in a billing month.
+
+- **Storage usage:** For {% data variables.product.prodname_github_codespaces %} billing purposes, this includes all files used by all codespaces and prebuilds in your account. This includes resources such as cloned repositories, configuration files, and extensions, among others.
 
 You can check the compute and storage usage for {% data variables.product.prodname_github_codespaces %} for the current billing month. For information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
@@ -38,11 +38,11 @@ You can check the compute and storage usage for {% data variables.product.prodna
 
 {% endnote %}
 
-## Disabling or limiting {% data variables.product.prodname_codespaces %}
+## Disabling or limiting billing for {% data variables.product.prodname_codespaces %}
 
-You can disable all use of {% data variables.product.prodname_github_codespaces %} that would be billed to your organization. Alternatively, you can specify which organization members or collaborators can use {% data variables.product.prodname_codespaces %} at your organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+You can choose for all usage of {% data variables.product.prodname_codespaces %} in your organization to be billed to the user who creates the codespace. Alternatively, you can specify which organization members or collaborators can use {% data variables.product.prodname_codespaces %} at your organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
 
-{% data reusables.codespaces.codespaces-disabling-org-billing %}
+You can limit the number of codespaces that people can create, where the organization will be billed for the codespace. This can help to reduce codespace storage charges for your organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)."
 
 You can configure which repositories can be accessed from codespaces created for a particular repository. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
@@ -56,9 +56,9 @@ Repository owners who set up prebuilds for their repository can reduce the stora
 
 ## Deleting unused codespaces
 
-Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}. 
+Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
 
-As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)."
+As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace#deleting-codespaces-in-your-organization)."
 
 {% note %}
 

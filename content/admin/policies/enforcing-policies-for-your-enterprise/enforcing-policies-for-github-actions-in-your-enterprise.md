@@ -25,7 +25,6 @@ topics:
 shortTitle: GitHub Actions policies
 ---
 
-{% data reusables.actions.enterprise-beta %}
 
 ## About policies for {% data variables.product.prodname_actions %} in your enterprise
 
@@ -42,7 +41,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under "Policies", select your options.
 
-   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+   {% data reusables.actions.actions-use-policy-settings %}
 
    {%- ifversion ghes or ghae %}
    {% note %}
@@ -59,6 +58,32 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+
+{% ifversion actions-disable-repo-runners %}
+
+## Disabling repository-level self-hosted runners
+
+{% data reusables.actions.disable-selfhosted-runners-overview %} For more information on creating self-hosted runners at the repository level, see "[AUTOTITLE](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
+
+By default anyone with admin access to a repository can add a self-hosted runner for the repository. The enterprise settings allow you to disable the use of repository-level self-hosted runners across all repositories in your enterprise. If you allow repository-level self-hosted runners for your enterprise, organization owners can choose to allow or prevent creation of repository-level self-hosted runners for some or all repositories in their organization. For more information see, "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+
+{% data reusables.actions.disable-selfhosted-runners-note %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. In the "Runners" section, select **Disable for all organizations**.{% ifversion ghec %}
+
+   {% note %}
+
+   **Note**: Owners of an {% data variables.enterprise.prodname_emu_enterprise %} can also choose to select **Disable in all Enterprise Managed User (EMU) repositories** to restrict runner creation for repositories that are owned by managed user accounts.
+
+   {% endnote %}
+
+   {% endif %}
+1. Click **Save** to apply the change.
+
+{% endif %}
 
 ## Enforcing a policy for artifact and log retention in your enterprise
 
@@ -122,10 +147,11 @@ By default, when you create a new enterprise, `GITHUB_TOKEN` only has read acces
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` {% ifversion actions-default-workflow-permissions-restrictive %}and `packages` scopes{% else %}scope{% endif %}.
+{% data reusables.actions.workflows.github-token-access %}
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+
 ### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
@@ -165,8 +191,8 @@ However, you can set an enterprise policy to customize both the default total ca
 
 The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 
-* To view the current enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
-* To change the enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+- To view the current enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+- To change the enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
 
 {% data reusables.actions.cache-no-org-policy %}
 

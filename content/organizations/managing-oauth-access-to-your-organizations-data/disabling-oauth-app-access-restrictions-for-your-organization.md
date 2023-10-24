@@ -1,5 +1,5 @@
 ---
-title: Disabling OAuth App access restrictions for your organization
+title: Disabling OAuth app access restrictions for your organization
 intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_apps %} that have access to the organization''s resources.'
 redirect_from:
   - /articles/disabling-third-party-application-restrictions-for-your-organization
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Disable OAuth App
+shortTitle: Unrestrict {% data variables.product.prodname_oauth_apps %}
 ---
 
 {% danger %}

@@ -12,11 +12,13 @@ versions:
 children:
   - /exploring-early-access-releases-with-feature-preview
   - /supported-browsers
+  - /connecting-to-github
   - /github-cli
   - /github-desktop
   - /github-mobile
   - /keyboard-shortcuts
   - /github-command-palette
+  - /allowing-access-to-githubs-services-from-a-restricted-network
   - /troubleshooting-connectivity-problems
 ---
 

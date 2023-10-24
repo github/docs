@@ -57,22 +57,22 @@ If your Bitbucket Server instance runs on Linux, you must use an SSH key that me
 
 - Does not have a passphrase
 - Uses one of the following ciphers
-   - `aes256-ctr`
-   - `3des-cbc`
-   - `aes128-cbc`
-   - `aes192-cbc`
-   - `aes256-cbc`
-   - `blowfish-cbc`
-   - `twofish-cbc`
-   - `twofish192-cbc`
-   - `twofish128-cbc`
-   - `twofish256-cbc`
-   - `arcfour`
-   - `arcfour128`
-   - `arcfour256`
-   - `cast128-cbc`
-   - `aes128-ctr`
-   - `aes192-ctr`
+  - `aes256-ctr`
+  - `3des-cbc`
+  - `aes128-cbc`
+  - `aes192-cbc`
+  - `aes256-cbc`
+  - `blowfish-cbc`
+  - `twofish-cbc`
+  - `twofish192-cbc`
+  - `twofish128-cbc`
+  - `twofish256-cbc`
+  - `arcfour`
+  - `arcfour128`
+  - `arcfour256`
+  - `cast128-cbc`
+  - `aes128-ctr`
+  - `aes192-ctr`
 
 If you receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about how to generate a compatible private key, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
 
@@ -88,7 +88,7 @@ The scopes that are required for your {% data variables.product.prodname_dotcom 
 
 {% note %}
 
-**Note**: {% data reusables.user-settings.generic-classic-pat-only %}
+**Note**: {% data reusables.user-settings.generic-classic-pat-only %} This means that you cannot use {% data variables.product.prodname_importer_proper_name %} if your organization uses the "Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations" policy. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise#restricting-access-by-personal-access-tokens-classic)."
 
 {% endnote %}
 
@@ -123,8 +123,8 @@ To configure IP allow lists correctly, please read the following sections carefu
 
 You need to configure IP allow lists on {% data variables.product.prodname_dotcom_the_website %} if **both** of the following apply to your migration:
 
-* The source or destination of your migration is {% data variables.product.prodname_dotcom_the_website %}
-* The source or destination uses an IP allow list, either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions (such as Azure CAP)
+- The source or destination of your migration is {% data variables.product.prodname_dotcom_the_website %}
+- The source or destination uses an IP allow list, either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions (such as Azure CAP)
 
 If you use {% data variables.product.company_short %}'s IP allow list feature, you must add the {% data variables.product.prodname_dotcom %} IP ranges below to the allow list for the source and/or destination organizations.
 
@@ -140,9 +140,22 @@ However, depending on the setup of your blob storage provider, you may need to u
 
 ### Identifying {% data variables.product.prodname_dotcom %}'s IP ranges
 
-You can get an up-to-date list of IP ranges used by {% data variables.product.prodname_importer_proper_name %} for outbound connections with the "Get {% data variables.product.prodname_dotcom %} meta information" endpoint of the REST API. For more information, see "[AUTOTITLE](/rest/meta#get-github-meta-information)" in the REST API documentation.
+You'll need to add the following IP ranges to your IP allowlist(s):
 
-The `hooks` key in the response contains a list of IP ranges used for migrations.
+- 192.30.252.0/22
+- 185.199.108.0/22
+- 140.82.112.0/20
+- 143.55.64.0/20
+- 40.71.233.224/28
+- 2a0a:a440::/29
+- 2606:50c0::/32
+- 20.125.12.8/29 _(active from 00:00 UTC on November 8, 2023)_
+
+You can get an up-to-date list of IP ranges used by {% data variables.product.prodname_importer_proper_name %} at any time with the "Get {% data variables.product.prodname_dotcom %} meta information" endpoint of the REST API.
+
+The `github_enterprise_importer` key in the response contains a list of IP ranges used for migrations.
+
+For more information, see "[AUTOTITLE](/rest/meta#get-github-meta-information)" in the REST API documentation.
 
 ## Further reading
 

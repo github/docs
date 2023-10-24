@@ -1,5 +1,5 @@
 ---
-title: About OAuth App access restrictions
+title: About OAuth app access restrictions
 intro: 'Organizations can choose which {% data variables.product.prodname_oauth_apps %} have access to their repositories and other resources by enabling {% data variables.product.prodname_oauth_app %} access restrictions.'
 redirect_from:
   - /articles/about-third-party-application-restrictions
@@ -12,15 +12,17 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: OAuth App access
+shortTitle: '{% data variables.product.prodname_oauth_app %} restrictions'
 ---
 
-## About OAuth App access restrictions
+## About {% data variables.product.prodname_oauth_app %} access restrictions
 
 {% data reusables.apps.oauth-app-access-restrictions %}
 
 {% ifversion limit-app-access-requests %}
 {% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+
+Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize internal {% data variables.product.prodname_oauth_apps %} apps and use them to access data from the organization. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps)."
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 

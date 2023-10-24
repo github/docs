@@ -33,7 +33,6 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 
 ## Signing up for {% data variables.product.prodname_copilot %} for your organization account
 
-
 Before you can start using {% data variables.product.prodname_copilot %} in your organization account, you will need to set up a subscription.
 
 {% data reusables.copilot.signup-procedure-org %}
@@ -65,7 +64,6 @@ For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/enabl
 
 {% endif %}
 
-
 ## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vscode %} extension.
@@ -92,15 +90,15 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text. The exact suggestion may vary.
 {% data reusables.copilot.accept-suggestion %}
 
-## Next Steps
+## Next steps
 
-You successfully installed {% data variables.product.prodname_copilot %} and received your first suggestion, but that's just the beginning! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_copilot %}.
+{% data reusables.copilot.next-steps %}
 
 - [AUTOTITLE](/copilot/getting-started-with-github-copilot): You've learned how to get your first suggestion in {% data variables.product.prodname_vscode %}. These guides show you how to set up and navigate the various functions of {% data variables.product.prodname_copilot %} across all of the supported environments.
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
-- [Configuring {% data variables.product.prodname_copilot %}](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
+- [AUTOTITLE](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
 
 ## Further reading
 
 - [AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)
-- [About {% data variables.product.prodname_copilot_for_business %}](/copilot/overview-of-github-copilot/about-github-copilot-for-business)
+- [AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)

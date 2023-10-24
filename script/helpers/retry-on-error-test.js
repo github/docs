@@ -25,7 +25,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 export async function retryOnErrorTest(
   errorTest,
   callback,
-  { attempts = 10, sleepTime = 1000, onError = () => {} } = {}
+  { attempts = 10, sleepTime = 1000, onError = () => {} } = {},
 ) {
   while (--attempts) {
     try {

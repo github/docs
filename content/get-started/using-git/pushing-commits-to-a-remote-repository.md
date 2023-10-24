@@ -15,10 +15,11 @@ versions:
 shortTitle: Push commits to a remote
 ---
 ## About `git push`
+
 The `git push` command takes two arguments:
 
-* A remote name, for example, `origin`
-* A branch name, for example, `main`
+- A remote name, for example, `origin`
+- A branch name, for example, `main`
 
 For example:
 
@@ -92,7 +93,7 @@ your local Git clone:
 git remote add upstream THEIR_REMOTE_URL
 ```
 
-Now, you can fetch updates and branches from *their* fork:
+Now, you can fetch updates and branches from _their_ fork:
 
 ```shell
 git fetch upstream
@@ -116,4 +117,5 @@ For more information on working with forks, see "[AUTOTITLE](/pull-requests/coll
 - [`git remote` main page](https://git-scm.com/docs/git-remote.html)
 - "[AUTOTITLE](/get-started/quickstart/git-cheatsheet)"
 - "[AUTOTITLE](/get-started/getting-started-with-git/git-workflows)"
-- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"{% endif %}

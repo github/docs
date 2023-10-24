@@ -14,6 +14,7 @@ children:
   - /create-a-group-assignment
   - /editing-an-assignment
   - /extending-an-assignments-deadline-for-an-individual-or-group
+  - /monitor-students-progress-with-the-assignment-overview-page
   - /reuse-an-assignment
   - /create-an-assignment-from-a-template-repository
   - /leave-feedback-with-pull-requests

@@ -20,7 +20,7 @@ To find the display name of a codespace:
 
 - On {% data variables.product.product_name %}, view your list of codespaces at https://github.com/codespaces.
 
-  ![Screenshot of a list of two codespaces on GitHub. The codespaces are named "Document codespace navigation" and "Furious snibble."](/assets/images/help/codespaces/click-name-codespace.png)
+   ![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 
 - In the {% data variables.product.prodname_vscode %} desktop application, or the {% data variables.product.prodname_vscode_shortname %} web client, click the Remote Explorer. The display name is the second item in the list. For example: `psychic chainsaw` in the screenshot below.
 
@@ -35,12 +35,12 @@ In addition to the display name, when you create a codespace, a permanent name i
 
 To find the permanent name of a codespace:
 
-* On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces.
+- On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces.
 
    ![Screenshot of the mouse pointer positioned over a display name, with the corresponding codespace name shown at the bottom of the browser page.](/assets/images/help/codespaces/find-codespace-name-github.png)
 
-* In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
-* In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+- In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
+- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
 
 ## Renaming a codespace
 
@@ -48,9 +48,9 @@ Changing the display name of a codespace can be useful if you have multiple code
 
 {% cli %}
 
-You can change the display name for your codespace by using the {% data variables.product.prodname_cli %}.
+{% data reusables.codespaces.using-github-cli %}
 
-To rename a codespace, use the `gh codespace edit` subcommand:
+To change the display name of a codespace, use the `gh codespace edit` subcommand:
 
 ```shell
 gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
@@ -58,7 +58,7 @@ gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
 
 In this example, replace `PERMANENT-CODESPACE-NAME` with the permanent name of the codespace whose display name you want to change. Replace `NEW-DISPLAY-NAME` with the display name you want to use for this codespace.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#rename-a-codespace)."
 
 {% endcli %}
 

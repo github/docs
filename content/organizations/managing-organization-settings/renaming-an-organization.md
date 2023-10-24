@@ -39,7 +39,8 @@ After changing your organization's name:
 - Links to your previous organization profile page, such as `https://{% data variables.command_line.backticks %}/previousorgname`, will return a 404 error. We recommend you update links to your organization from other sites{% ifversion fpt or ghec %}, such as your LinkedIn or Twitter profiles{% endif %}.
 - API requests that use the old organization's name will return a 404 error. We recommend you update the old organization name in your API requests.
 - There are no automatic [@mention](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) redirects for teams that use the old organization's name.{% ifversion ghec %}
-- If SAML single sign-on (SSO) is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."{% endif %}
+- If SAML single sign-on (SSO) and/or is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name on your IdP, members of the organization will no longer be able to authenticate with your IdP to access the organization's resources. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+- If SCIM is enabled for the organization, you must update the organization name in the application for {% data variables.product.prodname_ghe_cloud %} on your identity provider (IdP). If you don't update the organization name within the SCIM settings on your IdP, you will not be able to provision or deprovision users.{% endif %}
 
 ## Changing your organization's name
 
@@ -51,4 +52,4 @@ After changing your organization's name:
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"
+- "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/troubleshooting-commits/why-are-my-commits-linked-to-the-wrong-user)"

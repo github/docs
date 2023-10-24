@@ -15,7 +15,7 @@ You can customize which items appear in your views using filters for item metada
 
 To filter a view, click {% octicon "filter" aria-label="Filter by keyword or by field" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
 
-![Screenshot showing the location of the filter icon](/assets/images/help/projects-v2/filter-example.png)
+![Screenshot of "Mona's project". A field labeled "Filter by keyword or by field" is highlighted with an orange outline.](/assets/images/help/projects-v2/filter-example.png)
 
 In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 
@@ -130,7 +130,7 @@ You can filter closed items by their close reason.
 
 ## Filtering by the tracked-by field
 
-You can filter for issues that being tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can filter for issues that are tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 | Qualifier  | Example
 | ---------- | -------------
@@ -147,6 +147,8 @@ You can use the `{number}days` syntax to filter for when items were last updated
 | <code>last-updated:<em>NUMBER</em>days</code> | **last-updated:1day** will show items last updated one or more days ago.
 |                                               | **last-updated:7days** will show items last updated seven or more days ago.
 |                                               | **-last-updated:10days** will show items that have been updated in the last ten days.
+
+{% data reusables.projects.last-updated-explanation %}
 
 ## Filtering number, date, and iteration fields
 

@@ -22,25 +22,32 @@ shortTitle: Configure dependency graph
 For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
 {% ifversion fpt or ghec %}
+
 ## About configuring the dependency graph
-To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For more information on viewing the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)."
+
+To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private {% ifversion ghec %}and internal {% endif %}repositories. For more information on viewing the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)."
 
 {% data reusables.dependency-submission.dependency-submission-link %}
+
 {% endif %}
 
-{% ifversion ghes %} ## Enabling the dependency graph
-{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
-{% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
+{% ifversion ghes %}
 
-{% ifversion code-security-multi-repo-enablement %}
-You can use security overview to find a set of repositories and enable or disable the dependency graph for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
-{% endif %}
+## Enabling the dependency graph
+
+{% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}
+
+{% ifversion ghec %}
+
+### Enabling and disabling the dependency graph for a private or internal repository
+
+{% endif %}{% ifversion fpt %}
 
 ### Enabling and disabling the dependency graph for a private repository
 
+{% endif %}{% ifversion fpt or ghec %}
 {% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
 
-{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
 {% endif %}
 
 When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.

@@ -1,0 +1,1 @@
+Optionally, you can add a passkey to your account. Passkeys are similar to security keys. However, passkeys satisfy both password and 2FA requirements, so you can sign in to your account in one step. If you have already configured a security key for 2FA that is passkey eligible, you may be prompted to upgrade your security key into a passkey during passkey registration.

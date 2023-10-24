@@ -1,5 +1,5 @@
 ---
-title: Authorizing OAuth Apps
+title: Authorizing OAuth apps
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
@@ -16,15 +16,26 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 ---
+
+{% note %}
+
+**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
+
+Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
+
+{% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+
+{% endnote %}
+
 {% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
-To authorize your OAuth app, consider which authorization flow best fits your app.
+To authorize your {% data variables.product.prodname_oauth_app %}, consider which authorization flow best fits your app.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
+- [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
 - [device flow](#device-flow):  Used for headless apps, such as CLI tools.
 
 ## Web application flow
@@ -38,8 +49,8 @@ To authorize your OAuth app, consider which authorization flow best fits your ap
 The web application flow to authorize users for your app is:
 
 1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
-3. Your app accesses the API with the user's access token
+1. Users are redirected back to your site by GitHub
+1. Your app accesses the API with the user's access token
 
 ### 1. Request a user's GitHub identity
 
@@ -56,7 +67,7 @@ Parameter name | Type | Description
 `state` | `string` | {% data reusables.apps.state_description %}
 `allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
 
-The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time.
+The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time. CORS pre-flight requests (OPTIONS) are not supported at this time.
 
 ### 2. Users are redirected back to your site by GitHub
 
@@ -77,7 +88,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
@@ -133,8 +144,8 @@ Before you can use the device flow to authorize and identify users, you must fir
 ### Overview of the device flow
 
 1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
-2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
-3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
+1. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
+1. The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
 
 ### Step 1: App requests the device and user verification codes from GitHub
 
@@ -151,7 +162,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
@@ -211,7 +222,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
@@ -263,7 +274,7 @@ Non-web authentication is available for limited situations like testing. If you 
 ## Redirect URLs
 
 The `redirect_uri` parameter is optional. If left out, GitHub will
-redirect users to the callback URL configured in the OAuth Application
+redirect users to the callback URL configured in the {% data variables.product.prodname_oauth_app %}
 settings. If provided, the redirect URL's host (excluding sub-domains) and port must exactly
 match the callback URL. The redirect URL's path must reference a
 subdirectory of the callback URL.
@@ -284,19 +295,19 @@ subdirectory of the callback URL.
 
 The optional `redirect_uri` parameter can also be used for loopback URLs. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
 
-For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
+For the `http://127.0.0.1:1234/path` callback URL, you can use this `redirect_uri`:
 
-```
+```http
 http://127.0.0.1:1234/path
 ```
 
 Note that OAuth RFC [recommends not to use `localhost`](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), but instead to use loopback literal `127.0.0.1` or IPv6 `::1`.
 
-## Creating multiple tokens for OAuth Apps
+## Creating multiple tokens for {% data variables.product.prodname_oauth_apps %}
 
 You can create multiple tokens for a user/application/scope combination to create tokens for specific use cases.
 
-This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
+This is useful if your {% data variables.product.prodname_oauth_app %} supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your {% data variables.product.prodname_oauth_app %} can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your {% data variables.product.prodname_oauth_app %} access to their private repositories.
 
 {% data reusables.apps.oauth-token-limit %}
 
@@ -304,26 +315,26 @@ This is useful if your OAuth App supports one workflow that uses GitHub for sign
 
 ## Directing users to review their access
 
-You can link to authorization information for an OAuth App so that users can review and revoke their application authorizations.
+You can link to authorization information for an {% data variables.product.prodname_oauth_app %} so that users can review and revoke their application authorizations.
 
-To build this link, you'll need your OAuth Apps `client_id` that you received from GitHub when you registered the application.
+To build this link, you'll need your {% data variables.product.prodname_oauth_app %}'s `client_id` that you received from GitHub when you registered the application.
 
-```
+```http
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 
 {% tip %}
 
-**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
+**Tip:** To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
 
 {% endtip %}
 
 ## Troubleshooting
 
-* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Device flow errors](#error-codes-for-the-device-flow)"
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
+- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
+- "[Device flow errors](#error-codes-for-the-device-flow)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
 ## Further reading
 

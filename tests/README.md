@@ -13,16 +13,11 @@ custom reporters for different types of test output, etc.
 ### Install optional dependencies
 
 We typically rely on CI to run our tests, so some large test-only
-dependencies are considered **optional** (for example, puppeteer). To run the tests locally, you'll
+dependencies are considered **optional**. To run the tests locally, you'll
 need to make sure optional dependencies are installed by running:
 
-```sh
+```shell
 npm ci --include=optional
-```
-
-If you run into the error "Could not find expected browser (chrome) locally", you may need to install the expected chromium version manually with:
-```
-node node_modules/puppeteer/install.js
 ```
 
 ### Running all the tests
@@ -30,7 +25,7 @@ node node_modules/puppeteer/install.js
 Once you've followed the development instructions above, you can run the entire
 test suite locally:
 
-```sh
+```shell
 script/test # or `npm test`
 ```
 
@@ -41,7 +36,7 @@ re-runs the tests whenever a change is made. This command notifies you
 when tests change to and from a passing or failing state, and it prints
 out a test coverage report so you can see what files need testing.
 
-```sh
+```shell
 npm run test-watch
 ```
 
@@ -49,7 +44,7 @@ npm run test-watch
 
 You can run specific tests in two ways:
 
-```sh
+```shell
 # The TEST_NAME can be a filename, partial filename, or path to a file or directory
 npm test -- <TEST_NAME>
 
@@ -64,7 +59,7 @@ If the tests fail locally with an error like this:
 
 You may need to run this before every test run:
 
-```sh
+```shell
 npx next build
 ```
 
@@ -73,7 +68,7 @@ npx next build
 To validate all your JavaScript code (and auto-format some easily reparable mistakes),
 run the linter:
 
-```sh
+```shell
 npm run lint
 ```
 
@@ -88,13 +83,13 @@ since the server won't need to start and stop every time you run tests.
 
 In one terminal, type:
 
-```sh
+```shell
 NODE_ENV=test PORT=4000 node server.js
 ```
 
 In another terminal, type:
 
-```sh
+```shell
 START_JEST_SERVER=false jest tests/rendering/foo/bar.js
 ```
 
@@ -112,7 +107,7 @@ a page to throw a 500 Internal Server Error response.
 If you don't expect that and you might struggle to see exactly where the
 error is happening, set `$DEBUG_MIDDLEWARE_TESTS` to `true`. For example:
 
-```sh
+```shell
 export DEBUG_MIDDLEWARE_TESTS=true
 jest tests/rendering/ -b
 ```

@@ -133,8 +133,6 @@ Return the raw contents of a gist. This is the default if you do not pass any sp
 
 The gist contents are base64-encoded before being sent out. This can be useful if your gist contains any invalid UTF-8 sequences.
 
-[gfm]:http://github.github.com/github-flavored-markdown/
-[git-diff]: http://git-scm.com/docs/git-diff
-[git-patch]: http://git-scm.com/docs/git-format-patch
-[hypermedia]: /rest#hypermedia
-[versions]: /developers/overview/about-githubs-apis
+[gfm]: https://github.github.com/github-flavored-markdown/
+[git-diff]: https://git-scm.com/docs/git-diff
+[git-patch]: https://git-scm.com/docs/git-format-patch

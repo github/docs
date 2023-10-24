@@ -9,6 +9,7 @@ featuredLinks:
   startHere:
     - /issues/tracking-your-work-with-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+    - /issues/managing-your-tasks-with-tasklists/quickstart-for-tasklists
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
     - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
@@ -21,7 +22,7 @@ featuredLinks:
     - /issues/tracking-your-work-with-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/tracking-your-work-with-issues/about-tasklists
+    - /issues/managing-your-tasks-with-tasklists/creating-a-tasklist
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
@@ -36,9 +37,12 @@ versions:
 children:
   - /tracking-your-work-with-issues
   - /planning-and-tracking-with-projects
+  - /managing-your-tasks-with-tasklists
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
   - /guides
+product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y{% endif %}'
+product_video_transcript: /video-transcripts/transcript-using-projects-for-feature-planning
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests
   - /github/managing-your-work-on-github/managing-your-work-with-issues
@@ -65,3 +69,4 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
+

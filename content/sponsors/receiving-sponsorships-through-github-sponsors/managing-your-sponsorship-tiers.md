@@ -42,11 +42,12 @@ shortTitle: Manage payment tiers
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
-  {% note %}
+   {% note %}
 
-  **Note:** To see ideas of tier descriptions, scroll down.
+   **Note:** To see ideas of tier descriptions, scroll down.
 
-  {% endnote %}
+   {% endnote %}
+
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
@@ -81,6 +82,6 @@ If you transfer a repository that has been added to a sponsorship tier, sponsors
 1. Select **Grant sponsors access to a private repository**.
 1. Select the dropdown menu that appears and click the repository you want to add.
 
-  ![Screenshot of a sponsor tier editing screen. An expanded dropdown menu of repositories you can grant sponsors access to is outlined in dark orange.](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
+   ![Screenshot of a sponsor tier editing screen. An expanded dropdown menu of repositories you can grant sponsors access to is outlined in dark orange.](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
 
 {% data reusables.sponsors.tier-update %}

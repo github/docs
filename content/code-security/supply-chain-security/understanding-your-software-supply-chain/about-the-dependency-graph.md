@@ -39,8 +39,6 @@ Repository administrators can also set up the dependency graph for private repos
 
 {% endif %}
 
-{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
-
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 {% ifversion ghes %}
@@ -53,7 +51,7 @@ The dependency graph includes all the dependencies of a repository that are deta
 - Direct dependencies, that are explicitly defined in a manifest or lock file {% ifversion dependency-submission-api %} or have been submitted using the Dependency submission API (beta){% endif %}
 - Indirect dependencies of these direct dependencies, also known as transitive dependencies or sub-dependencies
 
-The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} either explicitly from a lock file or by checking the dependencies of your direct dependencies. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}.
+The dependency graph identifies indirect dependencies{% ifversion fpt or ghec %} only if they are defined in a lock file {% ifversion dependency-submission-api %}or have been submitted using the Dependency submission API (beta){% endif %}. For the most reliable graph, you should use lock files (or their equivalent) because they define exactly which versions of the direct and indirect dependencies you currently use. If you use lock files, you also ensure that all contributors to the repository are using the same versions, which will make it easier for you to test and debug code{% else %} from the lock files{% endif %}. {% ifversion dependency-submission-api %}If your ecosystem does not have lock files, you can use  pre-made actions that resolve transitive dependencies for many ecosystems. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api#using-pre-made-actions)."{% endif %}
 
 For more information on how {% data variables.product.product_name %} helps you understand the dependencies in your environment, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)."
 
@@ -90,36 +88,38 @@ The recommended formats explicitly define which versions are used for all direct
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py` |
+{%- ifversion dependabot-dependency-graph-pnpm %}
+| pnpm             | JavaScript                    | `pnpm-lock.yaml` | `package.json`, `pnpm-lock.yaml` |
+{%- endif %}
 {%- ifversion dependency-graph-dart-support %}
 | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
 {%- endif %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
+{%- ifversion supply-chain-features-swift-support %}
+| Swift Package Manager | Swift | `Package.resolved` | `Package.resolved` |
+{%- endif %}
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
-
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
-* If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+- If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
-{% ifversion ghes = 3.5 %}
-
-* Support for {% data variables.product.prodname_actions %} workflows is available from GitHub Enterprise Server 3.5.4 onward. The feature is not available in 3.5.0, 3.5.1, 3.5.2, and 3.5.3. For information about determining the version of {% data variables.product.product_name %} you're using, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
-
-{% endif %}{% ifversion github-actions-in-dependency-graph %}
-* {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
-
-* {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
+{% ifversion github-actions-in-dependency-graph %}
+- {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 {% endif %}
+
+- {% data reusables.dependabot.dependabot-alert-actions-semver %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec or ghes %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates){% endif %}."
 
 {% endnote %}
 
 {% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above.{% endif %} {% data reusables.dependency-graph.dependency-submission-API-short %}
 
 {% ifversion dependency-submission-api %}You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+
 ## Further reading
 
 - "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia

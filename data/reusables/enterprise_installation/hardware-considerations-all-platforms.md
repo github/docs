@@ -32,6 +32,8 @@ The available space on the root filesystem will be 50% of the total disk size. Y
 
 The CPU and memory resources that {% data variables.product.prodname_ghe_server %} requires depend on the levels of activity for users, automations, and integrations.
 
+Any VMs you provision for {% data variables.location.product_location %} must use the x86-64 CPU architecture. Other architectures are not supported, such as Aarch64 or arm64.
+
 {% ifversion ghes %}
 
 If you plan to enable {% data variables.product.prodname_actions %} for the users of your {% data variables.product.prodname_ghe_server %} instance, you may need to provision additional CPU and memory resources for your instance. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-considerations)."

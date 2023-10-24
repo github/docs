@@ -28,6 +28,6 @@ After you find a package, you can read the package's description and installatio
 You can install a package from {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
 1. Authenticate to {% data variables.product.prodname_registry %} using the instructions for your package client. For more information, see "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
-2. Install the package using the instructions for your package client.
+1. Install the package using the instructions for your package client.
 
 For instructions specific to your package client, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry)."

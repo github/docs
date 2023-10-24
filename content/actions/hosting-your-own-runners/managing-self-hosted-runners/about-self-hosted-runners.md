@@ -12,8 +12,7 @@ versions:
   ghec: '*'
 type: overview
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About self-hosted runners
@@ -54,7 +53,7 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
 **Self-hosted runners:**{% endif %}
-- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
+- Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)." You are responsible for updating the operating system and all other software.
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
 - Don't need to have a clean instance for every job execution.
@@ -65,10 +64,10 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
-* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
-* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
-* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
+- You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
+- The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
+- The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
+- If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
 ## Autoscaling your self-hosted runners
 
@@ -79,10 +78,11 @@ You can automatically increase or decrease the number of self-hosted runners in 
 There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
 
 {% data reusables.actions.usage-workflow-run-time %}
-- **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+- **Job queue time** - Each job for self-hosted runners that has been queued for at least 24 hours will be canceled. The actual time in queue can reach up to 48 hours before cancellation occurs. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-api-requests %}
 - **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
+- **Registering self-hosted runners** - You can have a maximum of 10,000 self-hosted runners in one runner group. If this limit is reached, adding a new runner will not be possible.
 
 ## Workflow continuity for self-hosted runners
 
@@ -116,7 +116,7 @@ The following operating systems are supported for the self-hosted runner applica
 
 ### macOS
 
-- macOS 10.13 (High Sierra) or later
+- macOS 11.0 (Big Sur) or later
 
 ### Architectures
 
@@ -146,9 +146,7 @@ The self-hosted runner connects to {% data variables.product.product_name %} to 
 Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
 {% elsif ghes or ghae %}
 Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
-{% ifversion ghes > 3.4%}
 For caching to work, the runner must be able to communicate with the blob storage and directly download content from it.
-{%- endif %}
 {%- endif %}
 
 {% ifversion ghes %}
@@ -175,48 +173,43 @@ You must ensure that the machine has the appropriate network access to communica
 
 **Needed for essential operations:**
 
-```
+```shell copy
 github.com
 api.github.com
+*.actions.githubusercontent.com
 ```
 
 **Needed for downloading actions:**
 
-```
+```shell copy
 codeload.github.com
 ```
 
-**Needed for uploading/downloading job summaries and logs**
+**Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
 
-```
+```shell copy
 actions-results-receiver-production.githubapp.com
-productionresultssa*.blob.core.windows.net
+*.blob.core.windows.net
 ```
 
 **Needed for runner version updates:**
 
-```
+```shell copy
 objects.githubusercontent.com
 objects-origin.githubusercontent.com
 github-releases.githubusercontent.com
 github-registry-files.githubusercontent.com
 ```
 
-**Needed for uploading/downloading caches and workflow artifacts:**
-
-```
-*.blob.core.windows.net
-```
-
 **Needed for retrieving OIDC tokens:**
 
-```
+```shell copy
 *.actions.githubusercontent.com
 ```
 
 **Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
 
-```
+```shell copy
 *.pkg.github.com
 ghcr.io
 ```
@@ -247,7 +240,7 @@ Self-hosted runners do not need to connect to {% data variables.product.prodname
 
 If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
-```
+```shell copy
 github.com
 api.github.com
 codeload.github.com
@@ -277,12 +270,20 @@ This is not an issue with {% data variables.product.prodname_dotcom %}-hosted ru
 
 Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
 
-* Malicious programs running on the machine.
-* Escaping the machine's runner sandbox.
-* Exposing access to the machine's network environment.
-* Persisting unwanted or dangerous data on the machine.
+- Malicious programs running on the machine.
+- Escaping the machine's runner sandbox.
+- Exposing access to the machine's network environment.
+- Persisting unwanted or dangerous data on the machine.
 
 For more information about security hardening for self-hosted runners, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+
+{% ifversion actions-disable-repo-runners %}
+
+### Restricting the use of self-hosted runners
+
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %}
+
+{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 

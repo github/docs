@@ -1,0 +1,86 @@
+name: Codeowners - Docs Engineering
+
+# **What it does**: Automatically add reviewers based on paths, but only for the docs-internal repo.
+# And sets the 'engineering' label on the PR. It also edits the PR body to add a template
+# for asking questions for the sake of being confident about the PRs rollout.
+# **Why we have it**: So we can have reviewers automatically without getting open source notifications.
+# **Who does it impact**: Docs team.
+
+on:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.tsx'
+      - '**.scss'
+      - 'src/**'
+      - '!src/**.json' # So that Docs Engineering isn't reviewing OpenAPI PRs
+      - '.github/**'
+      - '**Dockerfile'
+      - 'package*.json'
+
+jobs:
+  codeowners-docs-engineering:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'engineering') &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+      PR: ${{ github.event.pull_request.html_url }}
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - name: Label as engineering
+        run: gh pr edit $PR --add-label engineering
+
+      - name: Add Docs Engineering as a reviewer
+        run: |
+          has_reviewer=$(
+            gh pr view $PR --json reviews |
+            jq 'any(.reviews[]; select(length > 0))'
+          )
+          if ! $has_reviewer
+          then
+            gh pr edit $PR --add-reviewer github/docs-engineering
+          fi
+
+      - name: Additional information requested
+        run: |
+          id=9664BE8F1CA3
+          body=$(gh pr view $PR --json body | jq -r .body)
+          append=$(cat <<-EOM
+
+          <!-- $id -->
+          ### For engineers
+
+          - **How to test**: {Step by step.}
+          - **How to review**: {What to look for when reviewing.}
+          - **Potential risks**: {Any additional risks this change may introduce.}
+          - **How to monitor**: {Datadog link, etc.}
+          - **How to rollback**: {Any additional information beyond shipping a revert pull request.}
+          - **Accessibility impact**: {Any changes to React components.}
+
+          If this involves manual change, please create a [production change issue](https://github.com/github/docs-engineering/issues/new?labels=engineering&projects=&template=production-config-change.md).
+          EOM
+          )
+          if [[ ! $body =~ $id ]]
+          then
+            body+=$append
+            gh pr edit $PR --body "$body"
+          fi
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

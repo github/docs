@@ -21,19 +21,19 @@ GitHub is dedicated to providing a positive and harassment-free event experience
 
 Examples of encouraged behavior that contributes to a positive environment include:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for everyone at the event
-* Showing empathy towards other participants
+- Using welcoming and inclusive language
+- Being respectful of differing viewpoints and experiences
+- Gracefully accepting constructive criticism
+- Focusing on what is best for everyone at the event
+- Showing empathy towards other participants
 
 Unacceptable behavior includes:
 
-* The use of sexualized language or imagery, or inappropriate physical contact, sexual attention, or advances
-* Trolling, insulting or derogatory comments, personal or political attacks, or sustained disruption of talks or other events
-* Deliberate intimidation, stalking, following, or harassing photography or recording
-* Harassment of any kind, even in a joking or ironic manner
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+- The use of sexualized language or imagery, or inappropriate physical contact, sexual attention, or advances
+- Trolling, insulting or derogatory comments, personal or political attacks, or sustained disruption of talks or other events
+- Deliberate intimidation, stalking, following, or harassing photography or recording
+- Harassment of any kind, even in a joking or ironic manner
+- Other conduct which could reasonably be considered inappropriate in a professional setting
 
 Be kind to others. Do not insult or put down other attendees. Behave professionally. Remember that harassment and sexist, racist, or exclusionary jokes are not appropriate at this event.
 

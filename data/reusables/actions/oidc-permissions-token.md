@@ -7,7 +7,7 @@ The `id-token: write` setting allows the JWT to be requested from {% data variab
 
 If you need to fetch an OIDC token for a workflow, then the permission can be set at the workflow level. For example:
 
-```yaml{:copy}
+```yaml copy
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
@@ -15,11 +15,17 @@ permissions:
 
 If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
 
-```yaml{:copy}
+```yaml copy
 permissions:
   id-token: write # This is required for requesting the JWT
 ```
 
+{% ifversion restricted-permissions-oidc %}
 You may need to specify additional permissions here, depending on your workflow's requirements.
 
-For reusable workflows, the `permissions` setting for `id-token` should be set to `write` at the caller workflow level or in the specific job that calls the reusable workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+For reusable workflows that are owned by the same user, organization, or enterprise as the caller workflow, the OIDC token generated in the reusable workflow can be accessed from the caller's context.
+For reusable workflows outside your enterprise or organization, the `permissions` setting for `id-token` should be explicitly set to `write` at the caller workflow level or in the specific job that calls the reusable workflow.
+This ensures that the OIDC token generated in the reusable workflow is only allowed to be consumed in the caller workflows when intended.
+
+For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+{% endif %}

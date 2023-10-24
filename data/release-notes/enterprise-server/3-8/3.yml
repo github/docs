@@ -1,0 +1,61 @@
+date: '2023-05-09'
+sections:
+  security_fixes:
+    - |
+      **MEDIUM**: Updated Git to include fixes from 2.40.1. For more information, see [Git security vulnerabilities announced](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/) on the GitHub Blog. [Updated: 2023-07-24]
+  bugs:
+    - Users were unable to upload GIF files as attachments within a comment in an issue or pull request. 
+    - |
+      A site administrator could not bypass a proxy for a top-level domain (TLD) from the instance's exception list or IANAs registered top-level domains (TLDs).  
+    - |
+      On some platforms, after someone with administrative SSH access ran `ghe-diagnostics`, the command's output included a cosmetic `SG_IO` error. 
+    - When a site administrator used GitHub Enterprise Importer to import data from GitHub Enterprise Cloud, migrations failed during the import of file-level comments. This failure no longer prevents the import from proceeding. 
+    - On an instance with a GitHub Advanced Security license, users with the security manager role for an organization could not view GitHub Advanced Security settings for the organization. 
+    - On an instance with a large number of organizations, enterprise owners who navigated to the "Security and analysis" settings page for the enterprise could return a `500` error. 
+    - From GitHub Enterprise Server 3.8 onwards, using the GitHub Enterprise Importer CLI, the `startRepositoryMigration` GraphQL API, or the “Start an organization migration” REST API requires a blob storage provider to be configured in the Management Console. When using Azure Blob Storage, storage containers were incorrectly configured to be publicly accessible. Azure Blob Storage containers will now be configured to be private, and we have introduced a check that explicitly fails exports if the storage container is public. 
+    - When a site administrator used GitHub Enterprise Importer, import of a repository failed if a project column in the repository contained 2,500 or more archived cards. 
+    - In some situations on an instance with multiple nodes, Git replication failed to fully replicate repositories that had previously been deleted, which resulted in a warning in `ghe-repl-status` output. 
+    - On an instance with Dependabot alerts enabled, alerts were erroneously hidden when different vulnerabilities were detected by multiple build-time submission detectors. 
+    - GitHub Enterprise Server published distribution metrics that cannot be processed by collectd. The metrics included `pre_receive.lfsintegrity.dist.referenced_oids`, `pre_receive.lfsintegrity.dist.unknown_oids`, and `git.hooks.runtime`. 
+    - In some cases, on an instance with GitHub Actions enabled, deployment of GitHub Pages site using a GitHub Actions workflow failed with a status of `deployment_lost`. 
+    - On an instance with a GitHub Advanced Security license that was also configured for a timezone greater than UTC, the list of secret scanning alerts displayed a "Loading secrets failed" error if a user sorted secrets by date in descending order. 
+    - On an instance with a GitHub Advanced Security license where secret scanning is enabled, excessive logging in `/var/log` could cause user-facing errors and degrade system performance if logs consumed all free space on the volume. 
+  changes:
+    - On an instance with the dependency graph enabled, background services can handle more traffic. 
+    - |
+      People with administrative SSH access who generate a support bundle using the `ghe-support-bundle` or `ghe-cluster-support-bundle` utilities can specify the period of time to gather data with `-p` or `--period` without using spaces or quotes. For example, in addition to `'-p 5 days'` or `-p '4 days 10 hours'`,  `-p 5days` or `-p 4days10hours` are valid.
+    - After a site administrator exports a migration archive using GitHub Enterprise Importers `gh-migrator` utility, the link to the archive remains accessible for 48 hours instead of one hour. 
+  known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      {% data reusables.release-notes.ghe-cluster-config-apply-error %}
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      When using an outbound web proxy server, the `ghe-btop` command may fail in some circumstances with the error "Error querying allocation: Unexpected response code: 401".
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    # https://github.com/github/driftwood/issues/2746
+    - |
+      On an instance with audit log streaming enabled, the `driftwood` service does not start, preventing the normal operation of audit log streaming. [Updated: 2023-06-06]
+    - |
+      {% data reusables.release-notes.mermaid-rendering-known-issue %} [Updated: 2023-08-18]
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

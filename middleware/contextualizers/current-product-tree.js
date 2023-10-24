@@ -1,7 +1,7 @@
 import path from 'path'
-import liquid from '../../lib/render-content/liquid.js'
+import { liquid } from '#src/content-render/index.js'
 import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
-import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
+import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
 import { executeWithFallback } from '../../lib/render-with-fallback.js'
 
 // This module adds currentProductTree to the context object for use in layouts.
@@ -19,13 +19,13 @@ export default async function currentProductTree(req, res, next) {
       '/',
       req.context.currentLanguage,
       req.context.currentVersion,
-      req.context.currentProduct
-    )
+      req.context.currentProduct,
+    ),
   )
   req.context.currentProductTree = findPageInSiteTree(
     currentRootTree,
     req.context.currentEnglishTree,
-    currentProductPath
+    currentProductPath,
   )
 
   // First make a slim tree of just the 'href', 'title', 'shortTitle'
@@ -33,13 +33,20 @@ export default async function currentProductTree(req, res, next) {
   // This gets used for map topic and category pages.
   req.context.currentProductTreeTitles = await getCurrentProductTreeTitles(
     req.context.currentProductTree,
-    req.context
+    req.context,
   )
   // Now make an even slimmer version that excludes all hidden pages.
   // This is i used for sidebars.
   req.context.currentProductTreeTitlesExcludeHidden = excludeHidden(
-    req.context.currentProductTreeTitles
+    req.context.currentProductTreeTitles,
   )
+
+  // Some pages, like hidden pages, don't have a tree. For example,
+  // the search page. That one uses the same items as the homepage
+  // for its sidebar.
+  if (req.context.currentProductTreeTitlesExcludeHidden) {
+    req.context.sidebarTree = sidebarTree(req.context.currentProductTreeTitlesExcludeHidden)
+  }
 
   return next()
 }
@@ -49,7 +56,7 @@ export default async function currentProductTree(req, res, next) {
 async function getCurrentProductTreeTitles(input, context) {
   const { page, href } = input
   const childPages = await Promise.all(
-    (input.childPages || []).map((child) => getCurrentProductTreeTitles(child, context))
+    (input.childPages || []).map((child) => getCurrentProductTreeTitles(child, context)),
   )
 
   // If the current page is a translation we're going to need the English
@@ -81,14 +88,14 @@ async function getCurrentProductTreeTitles(input, context) {
   const renderedFullTitle = await executeWithFallback(
     context,
     () => liquid.parseAndRender(page.rawTitle, context),
-    (enContext) => liquid.parseAndRender(enPage.rawTitle, enContext)
+    (enContext) => liquid.parseAndRender(enPage.rawTitle, enContext),
   )
   let renderedShortTitle = ''
   if (rawShortTitle) {
     renderedShortTitle = await executeWithFallback(
       context,
       () => liquid.parseAndRender(page.rawShortTitle, context),
-      (enContext) => liquid.parseAndRender(enPage.rawShortTitle, enContext)
+      (enContext) => liquid.parseAndRender(enPage.rawShortTitle, enContext),
     )
   }
 
@@ -116,6 +123,17 @@ function excludeHidden(tree) {
     shortTitle: tree.shortTitle,
     documentType: tree.documentType,
     childPages: tree.childPages.map(excludeHidden).filter(Boolean),
+  }
+  return newTree
+}
+
+function sidebarTree(tree) {
+  const { href, title, shortTitle, childPages } = tree
+  const childChildPages = childPages.map(sidebarTree)
+  const newTree = {
+    href,
+    title: shortTitle || title,
+    childPages: childChildPages,
   }
   return newTree
 }

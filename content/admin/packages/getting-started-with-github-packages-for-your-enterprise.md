@@ -50,9 +50,9 @@ Supported external storage providers
 - MinIO
 
 To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-  - "[AUTOTITLE](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
-  - "[AUTOTITLE](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
-  - "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)"
+- "[AUTOTITLE](/admin/packages/enabling-github-packages-with-aws)"{% ifversion ghes %}
+- "[AUTOTITLE](/admin/packages/enabling-github-packages-with-azure-blob-storage)"{% endif %}
+- "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)"
 
 ## Step 4: Specify the package ecosystems to support on your instance
 

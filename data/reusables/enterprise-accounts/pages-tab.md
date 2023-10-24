@@ -1,1 +1,1 @@
-1. Under "{% octicon "law" aria-label="The law icon" %} Policies", click **Pages**.
+1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Pages**.

@@ -102,7 +102,6 @@ Optionally, you can automatically grade assignments and create a space for discu
 
 {% data reusables.classroom.assignments-guide-click-create-assignment-button %}
 
-
 ## Inviting students to an assignment
 
 {% data reusables.classroom.assignments-guide-invite-students-to-assignment %}
@@ -110,13 +109,8 @@ Optionally, you can automatically grade assignments and create a space for discu
 You can see whether a student has joined the classroom and accepted or submitted an assignment in the **Classroom roster** tab for the assignment. You can also link students' {% data variables.product.prodname_dotcom %} aliases to their associated roster identifier and vice versa in this tab. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 ## Monitoring students' progress
-The assignment overview page provides an overview of your assignment acceptances and student progress. You may have different summary information based on the configurations of your assignments.
 
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Added students**: The number of {% data variables.product.prodname_dotcom %} accounts that have accepted the assignment and are not associated with a roster identifier.
--  **Accepted students**: The number of accounts have accepted this assignment.
--  **Assignment submissions**: The number of students that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing students**: The number of students currently passing the autograding tests for this assignment.
+{% data reusables.classroom.link-to-assignment-overview-article %}
 
 ## Next steps
 

@@ -36,6 +36,7 @@ shortTitle: Security & analysis
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Enabling or disabling security and analysis features for public repositories
 
 You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and {% data variables.secret-scanning.partner_alerts %}.
@@ -43,7 +44,7 @@ You can manage a subset of security and analysis features for public repositorie
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
+1. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
 {% endif %}
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
@@ -62,14 +63,14 @@ You can manage the security and analysis features for your {% ifversion fpt or g
    {% ifversion not fpt %}
    {% note %}
 
-   **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.secret-scanning.user_alerts %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail.
+   **Note:** If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.secret-scanning.user_alerts %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail. If {% data variables.product.prodname_GH_advanced_security %} is re-enabled, {% data variables.product.prodname_code_scanning %} will return to its previous state.
    {% endnote %}{% endif %}
    {% endif %}{% ifversion ghae %}
 1. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**. Before you can enable "{% data variables.product.prodname_secret_scanning %}" for your repository, you may need to enable {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 
 ## Granting access to security alerts
 
-Security alerts for a repository are visible to people with admin access to the repository and, when the repository is owned by an organization, organization owners. You can give additional teams and people access to the alerts.
+Security alerts for a repository are visible to people with {% ifversion dependabot-alerts-permissions-write-maintain %}write, maintain, or {% endif %}admin access to the repository and, when the repository is owned by an organization, organization owners. You can give additional teams and people access to the alerts.
 
 {% note %}
 
@@ -92,6 +93,28 @@ Organization owners and repository administrators can only grant access to view 
 
      ![Screenshot of the list of users with access to alerts. To the right of @octocat, an x icon is outlined in dark orange.](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
 1. Click **Save changes**.
+
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
+## Allowing validity checks for partner patterns in a repository
+
+{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
+{% data reusables.gated-features.partner-pattern-validity-check-ghas %}
+
+You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret found in your repository by sending it to the relevant partner. Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise settings. For more information, see "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)" and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+
+{% note %}
+
+**Note:** When you enable automatic validity checks for a repository, you also allow on-demand validity checks to be performed for patterns detected in that repository.
+
+{% endnote %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% data reusables.secret-scanning.validity-check-auto-enable %}
+
+{% endif %}
 
 ## Further reading
 

@@ -35,12 +35,12 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
 | Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*This text is italicized*` | *This text is italicized* |
-| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
-| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
-| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
-| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `_This text is italicized_` | _This text is italicized_ |
+| Strikethrough | `~~ ~~` | None | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
+| Bold and nested italic | `** **` and `_ _` | None | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
+| All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** | <!-- markdownlint-disable-line emphasis-style -->
+| Subscript | `<sub> </sub>` | None | `This is a <sub>subscript</sub> text` | This is a <sub>subscript</sub> text |
+| Superscript | `<sup> </sup>` | None | `This is a <sup>superscript</sup> text` | This is a <sup>superscript</sup> text |
 
 ## Quoting text
 
@@ -51,15 +51,16 @@ Text that is not a quote
 
 > Text that is a quote
 ```
+
 Quoted text is indented, with a different type color.
 
 ![Screenshot of rendered GitHub Markdown showing sample quoted text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black.](/assets/images/help/writing/quoted-text-rendered.png)
 
-{% tip %}
+{% note %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
+**Note:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
 
-{% endtip %}
+{% endnote %}
 
 ## Quoting code
 
@@ -119,17 +120,17 @@ Here are the currently supported color models.
 
 You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link. When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.
 
-{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %} You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.{% endif %}
+You can also create a Markdown hyperlink by highlighting the text and using the keyboard shortcut <kbd>Command</kbd>+<kbd>V</kbd>. If you'd like to replace the text with the link, use the keyboard shortcut <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>.
 
 `This site was built using [GitHub Pages](https://pages.github.com/).`
 
 ![Screenshot of rendered GitHub Markdown showing how text within brackets, "GitHub Pages," appears as a blue hyperlink.](/assets/images/help/writing/link-rendered.png)
 
-{% tip %}
+{% note %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
+**Note:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
 
-{% endtip %}
+{% endnote %}
 
 ## Section links
 
@@ -149,11 +150,11 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 
 {% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
-{% tip %}
+{% note %}
 
-**Tip:** When you want to display an image that is in your repository, use relative links instead of absolute links.
+**Note:** When you want to display an image that is in your repository, use relative links instead of absolute links.
 
-{% endtip %}
+{% endnote %}
 
 Here are some examples for using relative links to display an image.
 
@@ -199,8 +200,8 @@ To order your list, precede each line with a number.
 
 ```markdown
 1. James Madison
-2. James Monroe
-3. John Quincy Adams
+1. James Monroe
+1. John Quincy Adams
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a numbered list of the names of the fourth, fifth, and sixth American presidents.](/assets/images/help/writing/ordered-list-rendered.png)
@@ -217,11 +218,11 @@ To create a nested list using the web editor on {% data variables.product.produc
      - Second nested list item
 ```
 
-{% tip %}
+{% note %}
 
 **Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
 
-{% endtip %}
+{% endnote %}
 
 ![Screenshot of Markdown in Visual Studio Code showing how indented bullets align vertically with the first letter of the text lines above them.](/assets/images/help/writing/nested-list-alignment.png)
 
@@ -229,26 +230,28 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
+In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100 .`) before `First list item`.
 
 ```markdown
-1.   First list item
+100. First list item
      - First nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right.](/assets/images/help/writing/nested-list-example-3.png)
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by at least two more characters (nine spaces minimum).
 
 ```markdown
-1.   First list item
-     - First nested list item
-       - Second nested list item
+100. First list item
+       - First nested list item
+         - Second nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-2.png)
 
 For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+
+{% ifversion task-lists-v1 %}
 
 ## Task lists
 
@@ -259,6 +262,7 @@ If a task list item description begins with a parenthesis, you'll need to escape
 `- [ ] \(Optional) Open a followup issue`
 
 For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+{% endif %}
 
 ## Mentioning people and teams
 
@@ -314,7 +318,7 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 You can add footnotes to your content by using this bracket syntax:
 
-```
+```text
 Here is a simple footnote[^1].
 
 A footnote can also have multiple lines[^2].
@@ -328,13 +332,65 @@ The footnote will render like this:
 
 ![Screenshot of rendered Markdown showing superscript numbers used to indicate footnotes, along with optional line breaks inside a note.](/assets/images/help/writing/footnote-rendered.png)
 
-{% tip %}
+{% note %}
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
 
 Footnotes are not supported in wikis.
 
-{% endtip %}
+{% endnote %}
+
+{% ifversion markdown-alerts %}
+
+## Alerts
+
+{% note %}
+
+**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the current syntax as described in this section.
+
+The deprecated syntax is as follows:
+
+```markdown
+> **Note**
+> This is a note
+```
+
+{% endnote %}
+
+Alerts are an extension of the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content. Alert syntax is supported in:
+- Discussions
+- Gists
+- Issues
+- Markdown files
+- Pull requests
+- Releases
+
+{% note %}
+
+**Note:** When you edit an existing Markdown file to include an alert, the preview may display the raw alert syntax, but the file will display the alert correctly once you commit your changes.
+
+{% endnote %}
+
+We recommend restricting the use of alerts to one or two per article to avoid overloading the reader. Consecutive notes should be avoided.
+
+Three types of alert are available. You can add an alert with a special blockquote line that specifies the alert type, and then add the alert information in a standard blockquote immediately after.
+
+```markdown
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+```
+
+Here are the rendered alerts.
+
+![Screenshot of rendered Markdown showing how alerts render as colored boxes with icons.](/assets/images/help/writing/alerts-rendered.png)
+
+{% endif %}
 
 ## Hiding content with comments
 
@@ -353,6 +409,12 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 ![Screenshot of rendered GitHub Markdown showing how backslashes prevent the conversion of asterisks to italics. The text reads, "Let's rename our-new-project to our-old-project."](/assets/images/help/writing/escaped-character-rendered.png)
 
 For more information on backslashes, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
+
+{% note %}
+
+**Note**: The Markdown formatting will not be ignored in the title of an issue or a pull request.
+
+{% endnote %}
 
 ## Disabling Markdown rendering
 

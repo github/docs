@@ -1,4 +1,4 @@
-Available scopes and access values:
+You can define the access that the `GITHUB_TOKEN` will permit by specifying `read`, `write`, or `none` as the value of the available scopes within the `permissions` key.
 
 ```yaml
 permissions:
@@ -19,10 +19,14 @@ permissions:
 
 If you specify the access for any of these scopes, all of those that are not specified are set to `none`.
 
-You can use the following syntax to define read or write access for all of the available scopes:
+You can use the following syntax to define one of `read-all` or `write-all` access for all of the available scopes:
 
 ```yaml
-permissions: read-all|write-all
+permissions: read-all
+```
+
+```yaml
+permissions: write-all
 ```
 
 You can use the following syntax to disable permissions for all of the available scopes:

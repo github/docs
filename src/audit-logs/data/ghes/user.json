@@ -1,0 +1,777 @@
+[
+  {
+    "action": "business.set_actions_private_fork_pr_approvals_policy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.set_actions_retention_limit",
+    "description": "The retention period for GitHub Actions artifacts and logs was changed for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise"
+  },
+  {
+    "action": "checks.auto_trigger_disabled",
+    "description": "Automatic creation of check suites was disabled on a repository in the organization or enterprise.",
+    "docs_reference_links": "/rest/checks#update-repository-preferences-for-check-suites"
+  },
+  {
+    "action": "checks.auto_trigger_enabled",
+    "description": "Automatic creation of check suites was enabled on a repository in the organization or enterprise.",
+    "docs_reference_links": "/rest/checks#update-repository-preferences-for-check-suites"
+  },
+  {
+    "action": "custom_hosted_runner.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "custom_hosted_runner.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "custom_hosted_runner.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "github_hosted_runner.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "github_hosted_runner.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "github_hosted_runner.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "hook.config_changed",
+    "description": "A hook's configuration was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "hook.create",
+    "description": "A new hook was added.",
+    "docs_reference_links": "/get-started/exploring-integrations/about-webhooks"
+  },
+  {
+    "action": "hook.destroy",
+    "description": "A hook was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "hook.events_changed",
+    "description": "A hook's configured events were changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.create",
+    "description": "An integration was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.destroy",
+    "description": "An integration was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_added",
+    "description": "A member of an enterprise or organization was added as an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_removed",
+    "description": "A member of an enterprise or organization was removed from being an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.transfer",
+    "description": "Ownership of an integration was transferred to another user or organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.create",
+    "description": "An integration was installed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.destroy",
+    "description": "An integration was uninstalled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.repositories_added",
+    "description": "Repositories were added to an integration.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.repositories_removed",
+    "description": "Repositories were removed from an integration.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.version_updated",
+    "description": "Permissions for an integration were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "oauth_application.create",
+    "description": "An OAuth application was created.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
+    "action": "oauth_application.destroy",
+    "description": "An OAuth application was deleted.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
+    "action": "oauth_application.reset_secret",
+    "description": "The secret key for an OAuth application was reset.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
+    "action": "oauth_application.revoke_tokens",
+    "description": "Token(s) for an OAuth application were revoked.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
+    "action": "oauth_application.transfer",
+    "description": "An OAuth application was transferred from one account to another.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
+    "action": "oauth_authorization.create",
+    "description": "An authorization for an OAuth application was created.",
+    "docs_reference_links": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
+  },
+  {
+    "action": "oauth_authorization.destroy",
+    "description": "An authorization for an OAuth application was deleted.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-your-authorized-integrations"
+  },
+  {
+    "action": "org.add_member",
+    "description": "A user joined an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_disabled_for_new_repos",
+    "description": "GitHub Advanced Security was disabled for new repositories in an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_disabled_on_all_repos",
+    "description": "GitHub Advanced Security was disabled for all repositories in an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_enabled_for_new_repos",
+    "description": "GitHub Advanced Security was enabled for new repositories in an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_enabled_on_all_repos",
+    "description": "GitHub Advanced Security was enabled for all repositories in an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.remove_member",
+    "description": "A member was removed from an organization, either manually or due to a two-factor authentication requirement.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.set_actions_private_fork_pr_approvals_policy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.set_actions_retention_limit",
+    "description": "The retention period for GitHub Actions artifacts and logs in an organization was changed.",
+    "docs_reference_links": "/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization"
+  },
+  {
+    "action": "org.update_member_repository_creation_permission",
+    "description": "The create repository permission for organization members was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.update_member_repository_invitation_permission",
+    "description": "An organization owner changed the policy setting for organization members inviting outside collaborators to repositories.",
+    "docs_reference_links": "/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators"
+  },
+  {
+    "action": "premium_runner.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "premium_runner.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "premium_runner.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.create",
+    "description": "An SSH key was added to a user account or a deploy key was added to a repository.",
+    "docs_reference_links": "/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"
+  },
+  {
+    "action": "public_key.delete",
+    "description": "An SSH key was removed from a user account or a deploy key was removed from a repository.",
+    "docs_reference_links": "/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys"
+  },
+  {
+    "action": "public_key.unverification_failure",
+    "description": "A user account's SSH key or a repository's deploy key was unable to be unverified.",
+    "docs_reference_links": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+  },
+  {
+    "action": "public_key.unverify",
+    "description": "A user account's SSH key or a repository's deploy key was unverified.",
+    "docs_reference_links": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+  },
+  {
+    "action": "public_key.update",
+    "description": "A user account's SSH key or a repository's deploy key was updated.",
+    "docs_reference_links": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+  },
+  {
+    "action": "public_key.verification_failure",
+    "description": "A user account's SSH key or a repository's deploy key was unable to be verified.",
+    "docs_reference_links": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+  },
+  {
+    "action": "public_key.verify",
+    "description": "A user account's SSH key or a repository's deploy key was verified.",
+    "docs_reference_links": "/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys"
+  },
+  {
+    "action": "repo.access",
+    "description": "The visibility of a repository changed.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility"
+  },
+  {
+    "action": "repo.add_member",
+    "description": "A collaborator was added to a repository.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository"
+  },
+  {
+    "action": "repo.add_topic",
+    "description": "A topic was added to a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics"
+  },
+  {
+    "action": "repo.advanced_security_disabled",
+    "description": "GitHub Advanced Security was disabled for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository"
+  },
+  {
+    "action": "repo.advanced_security_enabled",
+    "description": "GitHub Advanced Security was enabled for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository"
+  },
+  {
+    "action": "repo.archived",
+    "description": "A repository was archived.",
+    "docs_reference_links": "/repositories/archiving-a-github-repository"
+  },
+  {
+    "action": "repo.change_merge_setting",
+    "description": "Pull request merge options were changed for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_analysis_deleted",
+    "description": "Code scanning analysis for a repository was deleted.",
+    "docs_reference_links": "/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository"
+  },
+  {
+    "action": "repo.code_scanning_configuration_for_branch_deleted",
+    "description": "A code scanning configuration for a branch of a repository was deleted.",
+    "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
+  },
+  {
+    "action": "repo.config.disable_collaborators_only",
+    "description": "The interaction limit for collaborators only was disabled.",
+    "docs_reference_links": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+  },
+  {
+    "action": "repo.config.disable_contributors_only",
+    "description": "The interaction limit for prior contributors only was disabled in a repository.",
+    "docs_reference_links": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+  },
+  {
+    "action": "repo.config.disable_sockpuppet_disallowed",
+    "description": "The interaction limit for existing users only was disabled in a repository.",
+    "docs_reference_links": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+  },
+  {
+    "action": "repo.config.enable_collaborators_only",
+    "description": "The interaction limit for collaborators only was enabled in a repository  Users that are not collaborators or organization members were unable to interact with a repository for a set duration.",
+    "docs_reference_links": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+  },
+  {
+    "action": "repo.config.enable_contributors_only",
+    "description": "The interaction limit for prior contributors only was enabled in a repository  Users that are not prior contributors, collaborators or organization members were unable to interact with a repository for a set duration.",
+    "docs_reference_links": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+  },
+  {
+    "action": "repo.config.enable_sockpuppet_disallowed",
+    "description": "The interaction limit for existing users was enabled in a repository  New users aren't able to interact with a repository for a set duration  Existing users of the repository, contributors, collaborators or organization members are able to interact with a repository.",
+    "docs_reference_links": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository"
+  },
+  {
+    "action": "repo.configure_self_hosted_jit_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.create",
+    "description": "A repository was created.",
+    "docs_reference_links": "/repositories/creating-and-managing-repositories/creating-a-new-repository"
+  },
+  {
+    "action": "repo.destroy",
+    "description": "A repository was deleted.",
+    "docs_reference_links": "/repositories/creating-and-managing-repositories/deleting-a-repository"
+  },
+  {
+    "action": "repo.pages_cname",
+    "description": "A GitHub Pages custom domain was modified in a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_create",
+    "description": "A GitHub Pages site was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_destroy",
+    "description": "A GitHub Pages site was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_https_redirect_disabled",
+    "description": "HTTPS redirects were disabled for a GitHub Pages site.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_https_redirect_enabled",
+    "description": "HTTPS redirects were enabled for a GitHub Pages site.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_private",
+    "description": "A GitHub Pages site visibility was changed to private.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_public",
+    "description": "A GitHub Pages site visibility was changed to public.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_source",
+    "description": "A GitHub Pages source was modified.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.register_self_hosted_runner",
+    "description": "A new self-hosted runner was registered.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository"
+  },
+  {
+    "action": "repo.remove_member",
+    "description": "A collaborator was removed from a repository.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository"
+  },
+  {
+    "action": "repo.remove_self_hosted_runner",
+    "description": "A self-hosted runner was removed.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository"
+  },
+  {
+    "action": "repo.remove_topic",
+    "description": "A topic was removed from a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.rename",
+    "description": "A repository was renamed.",
+    "docs_reference_links": "/repositories/creating-and-managing-repositories/renaming-a-repository"
+  },
+  {
+    "action": "repo.restore",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.set_actions_private_fork_pr_approvals_policy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.set_actions_retention_limit",
+    "description": "The retention period for GitHub Actions artifacts and logs in a repository was changed.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository"
+  },
+  {
+    "action": "repo.staff_unlock",
+    "description": "An enterprise owner or GitHub staff (with permission from a repository administrator) temporarily unlocked the repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.transfer",
+    "description": "A user accepted a request to receive a transferred repository.",
+    "docs_reference_links": "/repositories/creating-and-managing-repositories/transferring-a-repository"
+  },
+  {
+    "action": "repo.transfer_outgoing",
+    "description": "A repository was transferred to another repository network.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.transfer_start",
+    "description": "A user sent a request to transfer a repository to another user or organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.unarchived",
+    "description": "A repository was unarchived.",
+    "docs_reference_links": "/repositories/archiving-a-github-repository"
+  },
+  {
+    "action": "repo.update_actions_access_settings",
+    "description": "The setting to control how a repository was used by GitHub Actions workflows in other repositories was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.update_actions_settings",
+    "description": "A repository administrator changed GitHub Actions policy settings for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.update_member",
+    "description": "A user's permission to a repository was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.accept",
+    "description": "An invitation to join a repository was accepted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.cancel",
+    "description": "An invitation to join a repository was canceled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.create",
+    "description": "An invitation to join a repository was sent.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.reject",
+    "description": "An invitation to join a repository was declined.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_ruleset.create",
+    "description": "A repository ruleset was created.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
+  },
+  {
+    "action": "repository_ruleset.destroy",
+    "description": "A repository ruleset was deleted.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#deleting-a-ruleset"
+  },
+  {
+    "action": "repository_ruleset.update",
+    "description": "A repository ruleset was edited.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#editing-a-ruleset"
+  },
+  {
+    "action": "security_key.register",
+    "description": "A security key was registered for an account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_key.remove",
+    "description": "A security key was removed from an account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.add_factor",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.disabled",
+    "description": "Two-factor authentication was disabled for a user account.",
+    "docs_reference_links": "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/disabling-two-factor-authentication-for-your-personal-account"
+  },
+  {
+    "action": "two_factor_authentication.enabled",
+    "description": "Two-factor authentication was enabled for a user account.",
+    "docs_reference_links": "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
+  },
+  {
+    "action": "two_factor_authentication.password_reset_fallback_sms",
+    "description": "A one-time password code was sent to a user account fallback phone number.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.recovery_codes_regenerated",
+    "description": "Two factor recovery codes were regenerated for a user account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.remove_factor",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.sign_in_fallback_sms",
+    "description": "A one-time password code was sent to a user account fallback phone number.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.update_fallback",
+    "description": "The two-factor authentication fallback for a user account was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.add_email",
+    "description": "An email address was added to a user account.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account"
+  },
+  {
+    "action": "user.async_delete",
+    "description": "An asynchronous job was started to destroy a user account, eventually triggering a user.delete event.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.audit_log_export",
+    "description": "Audit log entries were exported.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.block_user",
+    "description": "A user was blocked by another user.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.change_password",
+    "description": "A user changed their password.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.create",
+    "description": "A new user account was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.creation_rate_limit_exceeded",
+    "description": "The rate of creation of user accounts, applications, issues, pull requests or other resources exceeded the configured rate limits, or too many users were followed too quickly.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.delete",
+    "description": "A user account was destroyed by an asynchronous job.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.demote",
+    "description": "A site administrator was demoted to an ordinary user account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.destroy",
+    "description": "A user deleted his or her account, triggering user.async_delete.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.device_verification_failure",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.device_verification_requested",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.device_verification_success",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.failed_login",
+    "description": "A user tried to sign in with an incorrect username, password, or two-factor authentication code.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.forgot_password",
+    "description": "A user requested a password reset.",
+    "docs_reference_links": "/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials"
+  },
+  {
+    "action": "user.grant_github_developer",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.hide_private_contributions_count",
+    "description": "A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now hidden.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile"
+  },
+  {
+    "action": "user.login",
+    "description": "A user signed in.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.logout",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.promote",
+    "description": "An ordinary user account was promoted to a site administrator.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.recreate",
+    "description": "A user's account was restored.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.remove_email",
+    "description": "An email address was removed from a user account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.rename",
+    "description": "A username was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.reset_password",
+    "description": "A user reset their account password.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.show_private_contributions_count",
+    "description": "A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now shown.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile"
+  },
+  {
+    "action": "user.sign_in_from_unrecognized_device",
+    "description": "A user signed in from an unrecognized device.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.sign_in_from_unrecognized_device_and_location",
+    "description": "A user signed in from an unrecognized device and location.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.suspend",
+    "description": "A user account was suspended.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.toggle_warn_private_email",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_challenge_failure",
+    "description": "A 2FA challenge issued for a user account failed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_challenge_success",
+    "description": "A 2FA challenge issued for a user account succeeded.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recover",
+    "description": "A user used their 2FA recovery codes.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recovery_codes_downloaded",
+    "description": "A user downloaded 2FA recovery codes for their account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recovery_codes_printed",
+    "description": "A user printed 2FA recovery codes for their account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recovery_codes_viewed",
+    "description": "A user viewed 2FA recovery codes for their account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_requested",
+    "description": "A user was prompted for a two-factor authentication code.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication"
+  },
+  {
+    "action": "user.unblock_user",
+    "description": "A user was unblocked by another user.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.unsuspend",
+    "description": "A user account was unsuspended.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.approve_workflow_job",
+    "description": "A workflow job was approved.",
+    "docs_reference_links": "/actions/managing-workflow-runs/reviewing-deployments"
+  },
+  {
+    "action": "workflows.bypass_protection_rules",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.comment_workflow_job",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.delete_workflow_run",
+    "description": "A workflow run was deleted.",
+    "docs_reference_links": "/actions/managing-workflow-runs/deleting-a-workflow-run"
+  },
+  {
+    "action": "workflows.disable_workflow",
+    "description": "A workflow was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.enable_workflow",
+    "description": "A workflow was enabled, after previously being disabled by disable_workflow.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.reject_workflow_job",
+    "description": "A workflow job was rejected.",
+    "docs_reference_links": "/actions/managing-workflow-runs/reviewing-deployments"
+  }
+]

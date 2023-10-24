@@ -12,7 +12,7 @@
 // Max age should not be greater than 31536000 https://www.ietf.org/rfc/rfc2616.txt
 function cacheControlFactory(
   maxAge = 60 * 60,
-  { key = 'cache-control', public_ = true, immutable = false, maxAgeZero = false } = {}
+  { key = 'cache-control', public_ = true, immutable = false, maxAgeZero = false } = {},
 ) {
   const directives = [
     maxAge && public_ && 'public',
@@ -29,7 +29,7 @@ function cacheControlFactory(
   return (res) => {
     if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie')) {
       console.warn(
-        "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control."
+        "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control.",
       )
     }
     res.set(key, directives)
