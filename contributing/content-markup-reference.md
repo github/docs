@@ -40,7 +40,7 @@ For example, this is the correct way to write list items with multiple paragraph
 ```markdown
 1. Under your repository name, click **Actions**.
 
-   ![Screenshot of the tabs for the "github/docs" repository. The "Actions" tab is highlighted with an orange outline.](/assets/images/help/repository/actions-tab.png)
+   ![Screenshot of the tabs for the "github/docs" repository. The "Actions" tab is highlighted with an orange outline.](/assets/images/help/repository/actions-tab-global-nav-update.png)
 
    This is another paragraph in the list.
 1. This is the next item.

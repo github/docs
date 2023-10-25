@@ -71,4 +71,4 @@ Once a user loses access to a codespace, the codespace is retained for a period 
 {% data reusables.organizations.click-general %}
 1. On the {% data variables.product.prodname_codespaces %} settings page, under "Codespaces access," select your preferred setting for {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories.
 
-   You can disable {% data variables.product.prodname_codespaces %}, enable for specific members, enable for all members, or enable for all members and collaborators.
+   You can disable {% data variables.product.prodname_codespaces %}, enable for specific members or teams, enable for all members, or enable for all members and collaborators.

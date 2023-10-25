@@ -95,5 +95,4 @@ For more information about using a codespace for working on {% data variables.pr
 - [Components](https://github.com/github/docs/blob/main/components/README.md)
 - [Data](https://github.com/github/docs/blob/main/data/README.md)
 - [Middleware](https://github.com/github/docs/blob/main/middleware/README.md)
-- [Scripts](https://github.com/github/docs/blob/main/script/README.md)
 - [Tests](https://github.com/github/docs/blob/main/tests/README.md)
