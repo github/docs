@@ -60,3 +60,9 @@ jobs:
         run: |
           gh api octocat
 ```
+
+{% warning %}
+
+**Warning:** Automatic token protection prevents passing tokens generated with this method to subsequent jobs. By design, GitHub Runners are written to protect `GITHUB_TOKENS`.  As a consequence, they will set the values of GITHUB_OUTPUTS to the empty string if they contain tokens issued with this functionality.
+
+{% endwarning %}
