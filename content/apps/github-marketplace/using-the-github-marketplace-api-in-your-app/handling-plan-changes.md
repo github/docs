@@ -17,7 +17,7 @@ topics:
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}
 
-For more information about upgrading and downgrading as it relates to billing, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app)."
+For more information about upgrading and downgrading as it relates to billing, see "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
 ## Step 1. Pricing plan change event
 
@@ -26,9 +26,9 @@ GitHub send the `marketplace_purchase` webhook with the `changed` action to your
 - Adds or removes seats to their existing plan.
 - Changes the billing cycle.
 
-GitHub will send the webhook when the change takes effect. For example, when a customer downgrades a plan, GitHub sends the webhook at the end of the customer's billing cycle. GitHub sends a webhook to your app immediately when a customer upgrades their plan to allow them access to the new service right away. If a customer switches from a monthly to a yearly billing cycle, it's considered an upgrade. See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/selling-your-app-on-github-marketplace/billing-customers)" to learn more about what actions are considered an upgrade or downgrade.
+GitHub will send the webhook when the change takes effect. For example, when a customer downgrades a plan, GitHub sends the webhook at the end of the customer's billing cycle. GitHub sends a webhook to your app immediately when a customer upgrades their plan to allow them access to the new service right away. If a customer switches from a monthly to a yearly billing cycle, it's considered an upgrade. See "[AUTOTITLE](/apps/github-marketplace/selling-your-app-on-github-marketplace/billing-customers)" to learn more about what actions are considered an upgrade or downgrade.
 
-Read the `effective_date`, `marketplace_purchase`, and `previous_marketplace_purchase` from the `marketplace_purchase` webhook to update the plan's start date and make changes to the customer's billing cycle and pricing plan. See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)" for an example of the `marketplace_purchase` event payload.
+Read the `effective_date`, `marketplace_purchase`, and `previous_marketplace_purchase` from the `marketplace_purchase` webhook to update the plan's start date and make changes to the customer's billing cycle and pricing plan. See "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app/webhook-events-for-the-github-marketplace-api)" for an example of the `marketplace_purchase` event payload.
 
 If your app offers free trials, you'll receive the `marketplace_purchase` webhook with the `changed` action when the free trial expires. If the customer's free trial expires, upgrade the customer to the paid version of the free-trial plan.
 

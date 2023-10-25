@@ -1,7 +1,7 @@
 ---
 title: Changing the shell in a codespace
 shortTitle: Change your shell
-intro: 'You can change your shell in a codespace to keep the setup you''re used to.'
+intro: You can change your shell in a codespace to keep the setup you're used to.
 versions:
   fpt: '*'
   ghec: '*'
@@ -99,7 +99,7 @@ You can set a default terminal profile to choose the default shell used for all 
 
 When you connect to a codespace from the command line over SSH, you connect to a `bash` session in the codespace by default.
 
-If you have enabled a dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can change the default shell you connect to by adding a command to an installation script such as `install.sh` in your dotfiles. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)." For example, the following command changes the default shell to `zsh`.
+If you have enabled a dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can change the default shell you connect to by adding a command to an installation script such as `install.sh` in your dotfiles. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#ssh-into-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)." For example, the following command changes the default shell to `zsh`.
 
 ```shell copy
 sudo chsh "$(id -un)" --shell "/usr/bin/zsh"

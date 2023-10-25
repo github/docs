@@ -25,12 +25,12 @@ Certain apps on the {% data variables.product.prodname_marketplace %} have the {
 {% data variables.product.prodname_dotcom %} does not analyze the app. The marketplace badge {% octicon "verified" aria-label="The verified badge" %} only confirms that the publisher meets the requirements listed above.
 {% endnote %}
 
-To learn how you can add this badge to your app, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization)."
+To learn how you can add this badge to your app, see "[AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization)."
 
-Some apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "App meets the requirements for listing" instead of, "Publisher domain and email verified." This means that the app meets the listing requirements described in "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app)," but the publisher has not been verified, as described in "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization)". Apps with this badge cannot change their pricing plan until the publisher successfully applies for verification.
+Some apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "App meets the requirements for listing" instead of, "Publisher domain and email verified." This means that the app meets the listing requirements described in "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app)," but the publisher has not been verified, as described in "[AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization)". Apps with this badge cannot change their pricing plan until the publisher successfully applies for verification.
 
 ![Screenshot of a marketplace badge for a {% data variables.product.prodname_github_app %}. The mouse pointer is hovering over an icon displaying the tooltip "App meets the requirements for listing."](/assets/images/marketplace/apps-with-unverified-publisher-badge-tooltip.png)
 
-For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app)."
+For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app)."
 
 For information on finding apps to use, see "[AUTOTITLE](/search-github/searching-on-github/searching-github-marketplace)."

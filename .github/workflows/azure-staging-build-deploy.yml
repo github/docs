@@ -74,7 +74,7 @@ jobs:
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
       - name: Setup Node.js
-        uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
           node-version-file: 'package.json'
           cache: npm

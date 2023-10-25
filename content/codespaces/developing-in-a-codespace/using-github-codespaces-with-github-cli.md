@@ -85,7 +85,7 @@ An asterisk at the end of the branch name for a codespace indicates that there a
 gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 
 ### View details of a codespace
 
@@ -120,7 +120,7 @@ For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#clo
 gh codespace delete -c CODESPACE-NAME
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
 
 ### Rename a codespace
 
@@ -136,9 +136,9 @@ For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/re
 gh codespace rebuild
 ```
 
-To perform a full rebuild, add `--full` at the end of this command. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace)."
+To perform a full rebuild, add `--full` at the end of this command. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace)."
 
-When you use this command to rebuild a codespace, it uses the `devcontainer.json` file that is currently saved in the codespace's system. This happens regardless of whether or not the current state of the file has been saved in source control. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
+When you use this command to rebuild a codespace, it uses the `devcontainer.json` file that is currently saved in the codespace's system. This happens regardless of whether or not the current state of the file has been saved in source control. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
 ### SSH into a codespace
 
@@ -164,7 +164,7 @@ gh codespace ssh -c CODESPACE-NAME
 gh codespace code -c CODESPACE-NAME
 ```
 
-You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
+You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)."
 
 ### Open a codespace in JupyterLab
 
@@ -238,7 +238,7 @@ You can set the visibility for multiple ports with one command. For example:
 gh codespace ports visibility 80:private 3000:public 3306:org -c CODESPACE-NAME
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace)."
 
 ### Access codespace logs
 

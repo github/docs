@@ -58,7 +58,7 @@ gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
 
 In this example, replace `PERMANENT-CODESPACE-NAME` with the permanent name of the codespace whose display name you want to change. Replace `NEW-DISPLAY-NAME` with the display name you want to use for this codespace.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#rename-a-codespace)."
 
 {% endcli %}
 
