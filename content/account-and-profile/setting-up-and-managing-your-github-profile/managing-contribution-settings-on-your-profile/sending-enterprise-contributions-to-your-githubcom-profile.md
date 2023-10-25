@@ -45,7 +45,16 @@ Before you can connect your {% ifversion fpt or ghec %}{% data variables.product
 
 1. Sign in to {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_dotcom_the_website %}.
 1. On {% data variables.product.prodname_ghe_server %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Screenshot of {% data variables.product.prodname_dotcom %}'s account menu showing options for users to view and edit their profile, content, and settings. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings.png)
+
+{% ifversion global-nav-update %}
+
+   ![Screenshot of a user's account menu on {% data variables.product.prodname_dotcom %}. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings-global-nav-update.png)
+
+{% else %}
+
+   ![Screenshot of a user's account menu on {% data variables.product.prodname_dotcom %}. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings.png)
+
+{% endif %}
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
 1. Review the resources that {% data variables.product.prodname_ghe_server %} will access from your {% data variables.product.prodname_dotcom_the_website %} account, then click **Authorize**.
@@ -55,7 +64,7 @@ Before you can connect your {% ifversion fpt or ghec %}{% data variables.product
 
 1. Sign in to {% data variables.product.prodname_ghe_managed %} and {% data variables.product.prodname_dotcom_the_website %}.
 1. On {% data variables.product.prodname_ghe_managed %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Screenshot of {% data variables.product.prodname_dotcom %}'s account menu showing options for users to view and edit their profile, content, and settings. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings.png)
+   ![Screenshot of a user's account menu on {% data variables.product.prodname_dotcom %}. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings.png)
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
 {% data reusables.github-connect.authorize-connection %}
