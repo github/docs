@@ -19,10 +19,6 @@ topics:
 shortTitle: Your personal dashboard
 ---
 
-{% ifversion global-nav-update %}
-{% data reusables.navigation.global-nav-beta-note %}
-{% endif %}
-
 ## Accessing your personal dashboard
 
 Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
