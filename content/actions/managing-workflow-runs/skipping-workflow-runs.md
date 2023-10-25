@@ -29,7 +29,7 @@ Alternatively, you can add a `skip-checks` trailer to your commit message . The 
 - `skip-checks:true`
 - `skip-checks: true`
 
-It is important to note that [Git's default commit behavior](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---cleanupltmodegt) removes consecutive newlines. As such, it is recommended including the `--cleanup=verbatim` option on your commit.
+{% data reusables.commits.about-commit-cleanup %}
 
 You won't be able to merge the pull request if your repository is configured to require specific checks to pass first. To allow the pull request to be merged you can push a new commit to the pull request without the skip instruction in the commit message.
 

@@ -1,0 +1,1 @@
+It is important to note that [Git's default commit behavior](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---cleanupltmodegt) removes consecutive newlines. As such, it is recommended including the `--cleanup=verbatim` option on your commit.
