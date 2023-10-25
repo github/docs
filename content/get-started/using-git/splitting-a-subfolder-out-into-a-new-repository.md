@@ -14,15 +14,16 @@ versions:
   ghec: '*'
 shortTitle: Splitting a subfolder
 ---
-If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.  However, note that the new repository won't have the branches and tags of the original repository.
-
-{% data reusables.command_line.open_the_multi_os_terminal %}
-
+ 
  {% tip %}
 
    **Note:** Make sure your git >= 2.22.0 otherwise `git filter-repo` will not work.
 
  {% endtip %}
+ 
+If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.  However, note that the new repository won't have the branches and tags of the original repository.
+
+{% data reusables.command_line.open_the_multi_os_terminal %}
 
 1. Change the current working directory to the location where you want to create your new repository.
 
