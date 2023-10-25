@@ -24,7 +24,6 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
  {% endtip %}
 
-
 1. Change the current working directory to the location where you want to create your new repository.
 
 1. Clone the repository that contains the subfolder.
