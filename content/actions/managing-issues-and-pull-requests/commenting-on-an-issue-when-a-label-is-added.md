@@ -30,10 +30,6 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
 1. Copy the following YAML contents into your workflow file.
 
     ```yaml copy
-    {% data reusables.actions.actions-not-certified-by-github-comment %}
-
-    {% data reusables.actions.actions-use-sha-pinning-comment %}
-
     name: Add comment
     on:
       issues:
@@ -47,16 +43,20 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
           issues: write
         steps:
           - name: Add comment
-            uses: peter-evans/create-or-update-comment@5f728c3dae25f329afbe34ee4d08eef25569d79f
-            with:
-              issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
-              body: |
-                This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
+            # https://cli.github.com/manual/gh_issue_comment
+            run: gh issue comment -R "$REPOSITORY" "$NUMBER" --body "$BODY"
+            env:
+              GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              REPOSITORY: ${{ github.repository }}
+              NUMBER: ${{ github.event.issue.number }}
+              BODY: >
+                This issue is available for anyone to work on. **Make sure to reference this issue in
+                your pull request.** :sparkles: Thank you for your contribution! :sparkles:
     ```
 
 1. Customize the parameters in your workflow file:
    - Replace `help-wanted` in `if: github.event.label.name == 'help-wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
-   - Change the value for `body` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+   - Change the value for `BODY` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
 1. {% data reusables.actions.commit-workflow %}
 
 ## Testing the workflow
@@ -72,4 +72,4 @@ Test your workflow by applying your specified label to an issue.
 
 ## Next steps
 
-- To learn more about additional things you can do with the `peter-evans/create-or-update-comment` action, like adding reactions, visit the [`peter-evans/create-or-update-comment` action documentation](https://github.com/marketplace/actions/create-or-update-comment).
+- To learn more about additional things you can do with the GitHub CLI, like editing existing comments, visit the [GitHub CLI Manual](https://cli.github.com/manual/).
