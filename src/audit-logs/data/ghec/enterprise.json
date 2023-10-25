@@ -2175,6 +2175,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "organization_role.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "organization_role.update",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -3433,6 +3438,16 @@
     "action": "sponsors.sponsored_developer_tier_description_update",
     "description": "The description for a sponsorship tier was changed.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_create",
+    "description": "A Patreon account was linked to a user account for use with GitHub Sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_destroy",
+    "description": "A Patreon account for use with GitHub Sponsors was unlinked from a user account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account"
   },
   {
     "action": "sponsors.sponsor_sponsorship_cancel",

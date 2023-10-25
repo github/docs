@@ -1,0 +1,32 @@
+date: '2023-10-24'
+sections:
+  security_fixes:
+    - |
+       Packages have been updated to the latest security versions. 
+  bugs:
+    - |
+       `/var/log/lastlog` was not copied over as a sparse file during `ghe-upgrade`, which could cause issues by using additional disk space. 
+  changes:
+    - |
+       As a security measure, GitHub Pages does not build sites that contain symbolic links except when using custom GitHub Actions workflows. When the page builder encounters a symbolic link, the build will fail with an error indicating that the symbolic link should be dereferenced. Custom workflows for GitHub Pages are available in GitHub Enterprise Server 3.7 and later. 
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %}
