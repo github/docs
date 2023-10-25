@@ -79,8 +79,3 @@ jobs:
             body+=$append
             gh pr edit $PR --body "$body"
           fi
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -64,14 +64,6 @@ describe('GitHub Actions workflows', () => {
     },
   )
 
-  test.each(workflows)('workflows slack alert on fail $filename', ({ filename, data }) => {
-    for (const [name, job] of Object.entries(data.jobs)) {
-      if (!job.steps.find((step) => step.uses === './.github/actions/slack-alert')) {
-        throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
-      }
-    }
-  })
-
   test.each(workflows)(
     'contains contents:read permissions when permissions are used $filename',
     ({ data }) => {
@@ -81,7 +73,18 @@ describe('GitHub Actions workflows', () => {
     },
   )
 
-  test.each(workflows)(
+  test.each(scheduledWorkflows)(
+    'scheduled workflows slack alert on fail $filename',
+    ({ filename, data }) => {
+      for (const [name, job] of Object.entries(data.jobs)) {
+        if (!job.steps.find((step) => step.uses === './.github/actions/slack-alert')) {
+          throw new Error(`Job ${filename} # ${name} missing slack alert on fail`)
+        }
+      }
+    },
+  )
+
+  test.each(scheduledWorkflows)(
     'performs a checkout before calling composite action $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
