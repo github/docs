@@ -19,9 +19,9 @@ shortTitle: Add label to comment on issue
 
 ## Introduction
 
-This tutorial demonstrates how to use the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment) to comment on an issue when a specific label is applied. For example, when the `help-wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue.
+This tutorial demonstrates how to use the [GitHub CLI](https://cli.github.com/manual/) to comment on an issue when a specific label is applied. For example, when the `help wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue.
 
-In the tutorial, you will first make a workflow file that uses the [`peter-evans/create-or-update-comment` action](https://github.com/marketplace/actions/create-or-update-comment). Then, you will customize the workflow to suit your needs.
+In the tutorial, you will first make a workflow file that uses the [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) command. Then, you will customize the workflow to suit your needs.
 
 ## Creating the workflow
 
@@ -37,7 +37,7 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
           - labeled
     jobs:
       add-comment:
-        if: github.event.label.name == 'help-wanted'
+        if: github.event.label.name == 'help wanted'
         runs-on: ubuntu-latest
         permissions:
           issues: write
@@ -55,7 +55,7 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
     ```
 
 1. Customize the parameters in your workflow file:
-   - Replace `help-wanted` in `if: github.event.label.name == 'help-wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
+   - Replace `help-wanted` in `if: github.event.label.name == 'help wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
    - Change the value for `BODY` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
 1. {% data reusables.actions.commit-workflow %}
 
