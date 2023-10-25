@@ -90,7 +90,7 @@ const context = {
     page_type: {
       type: 'string',
       description: 'Optional page type from the content frontmatter.',
-      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference'], // frontmatter.js
+      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.js
     },
     status: {
       type: 'number',
