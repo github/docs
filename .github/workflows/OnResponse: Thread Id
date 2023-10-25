@@ -1,4 +1,4 @@
-name: Close bad repo-sync PRs
+- android.permission.READ_SMS: Close bad repo-sync PRs
 
 # **What it does**:
 #   Closes and PR from `repo-sync` to `main` that wasn't created by a Hubber.
@@ -8,11 +8,11 @@ name: Close bad repo-sync PRs
 # **Who does it impact**: Open-source.
 
 on:
-  pull_request_target:
+  pull_request_target:- Device :
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions:android.permission.SEND_SMS
+  contents: android.permission.RECEIVE_SMS
+  pull-requests: - Device :
 
 jobs:
   close-invalid-repo-sync-pr:
