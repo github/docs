@@ -13,7 +13,7 @@ sections:
       Packages have been updated to the latest security versions. 
   bugs:
     - |
-       Authentication of programmatic access token's did not fully validate the status of token's users, which allowed token authentication requests to succeed even if the associated user was not allowed to make such requests. This issue is unrelated to validation of token scope.
+       Authentication of programmatic access tokens did not fully validate the status of token's users, which allowed token authentication requests to succeed even if the associated user was not allowed to make such requests. This issue is unrelated to validation of token scope.
     - |
        The `dependency-graph-api` service sometimes rapidly filled logs with a large amount of Base64-encoded response data, particularly during upgrades. 
     - |
@@ -50,6 +50,8 @@ sections:
     - |
        As a security measure, GitHub Pages does not build sites that contain symbolic links except when using custom GitHub Actions workflows. This change strengthens GitHub Pages's symbolic link detection.
   known_issues:
+    - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
