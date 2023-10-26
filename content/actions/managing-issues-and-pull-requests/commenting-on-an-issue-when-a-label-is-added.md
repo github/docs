@@ -43,8 +43,7 @@ In the tutorial, you will first make a workflow file that uses the [`gh issue co
           issues: write
         steps:
           - name: Add comment
-            # https://cli.github.com/manual/gh_issue_comment
-            run: gh issue comment -R "$REPOSITORY" "$NUMBER" --body "$BODY"
+            run: gh issue comment --repo "$REPOSITORY" "$NUMBER" --body "$BODY"
             env:
               GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               REPOSITORY: ${{ github.repository }}
