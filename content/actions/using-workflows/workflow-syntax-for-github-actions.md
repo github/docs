@@ -510,6 +510,8 @@ jobs:
 
 `./path/to/dir`
 
+The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+
 {% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 
 ### Example: Using a Docker Hub action

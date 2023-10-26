@@ -69,7 +69,11 @@ An action's listing page includes the action's version and the workflow syntax r
 
 ### Adding an action from the same repository
 
+If an action is defined in the same repository where your workflow file uses the action, you can reference the action with either the ‌`{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file.
+
 {% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
+
+The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
 ### Adding an action from a different repository
 
