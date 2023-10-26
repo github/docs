@@ -107,7 +107,7 @@ jobs:
       # the whole job fast.
       # As of June 2023, it takes about 10+ minutes to index one whole
       # language and we have 8 non-English languages.
-      max-parallel: 2
+      max-parallel: 3
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
@@ -197,7 +197,8 @@ jobs:
         run: |
           ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language ${{ matrix.language }} \
-            --stagger-seconds 5
+            --stagger-seconds 5 \
+            --retries 5
 
       - name: Check created indexes and aliases
         run: |
