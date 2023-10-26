@@ -45,9 +45,9 @@ In the tutorial, you will first make a workflow file that uses the [`gh issue co
           - name: Add comment
             run: gh issue comment "$NUMBER" --repo "$REPO" --body "$BODY"
             env:
-              GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              NUMBER: ${{ github.event.issue.number }}
-              REPO: ${{ github.repository }}
+              GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              NUMBER: {% raw %}${{ github.event.issue.number }}{% endraw %}
+              REPO: {% raw %}${{ github.repository }}{% endraw %}
               BODY: >
                 This issue is available for anyone to work on. **Make sure to reference this issue in
                 your pull request.** :sparkles: Thank you for your contribution! :sparkles:
