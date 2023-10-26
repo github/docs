@@ -71,6 +71,7 @@ The _conflicts.csv_ file contains a _migration map_ of conflicts and recommended
 | `organization` | `https://example-gh.source/octo-org` | `https://example-gh.target/octo-org` | `map` |
 | `repository`   | `https://example-gh.source/octo-org/widgets` | `https://example-gh.target/octo-org/widgets` | `rename` |
 | `team`         | `https://example-gh.source/orgs/octo-org/teams/admins` | `https://example-gh.target/orgs/octo-org/teams/admins` | `merge` |
+| `project`         | `https://example-gh.source/octo-org/widgets/projects/1` | `https://example-gh.target/octo-org/projects/1` | `merge` |
 
 Each row in _conflicts.csv_ provides the following information:
 
@@ -88,10 +89,10 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `action`      | Description | Applicable models |
 |------------------------|-------------|-------------------|
 | `import`      | (default) Data from the source is imported to the target. | All record types
-| `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations
-| `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories
+| `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations, projects
+| `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories, projects
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
-| `merge`       | Data from the source is combined with existing data on the target. | Teams
+| `merge`       | Data from the source is combined with existing data on the target. | Teams, projects
 
 **We strongly suggest you review the _conflicts.csv_ file and use [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
 
