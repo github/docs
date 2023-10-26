@@ -9,6 +9,7 @@ Example repository file structure:
 |           |__ hello-world-action
 |               └── action.yml
 ```
+
 The path is relative (`./`) to the default working directory (`github.workspace`, `$GITHUB_WORKSPACE`), unless the repository is checked out to a different location in the checkout step.
 
 Example workflow file:
