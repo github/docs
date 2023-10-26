@@ -16,7 +16,7 @@ However, because {% data variables.product.prodname_github_codespaces %} incurs 
 
 {% note %}
 
-**Note**: Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+**Note**: Whether or not you have set a personal codespace retention period, it's a good idea to get into the habit of deleting codespaces that you no longer need. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
 
 {% endnote %}
 

@@ -109,6 +109,9 @@ To discover how a member was added to an organization, you can filter the member
   - Cannot create codespaces for their personal repositories, other than forks of repositories owned by their organization; for any other repositories outside their organization; or from {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
   - Cannot publish a codespace created from a template to a new repository.
 - {% data reusables.actions.entitlement-minutes-emus %}
+- {% data variables.enterprise.prodname_managed_users_caps %} can create {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
+
+  {% data reusables.emus.oauth-app-note %}
 
 ## Getting started with {% data variables.product.prodname_emus %}
 

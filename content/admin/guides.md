@@ -40,7 +40,8 @@ includeGuides:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam
   - /admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui
-  - /admin/configuration/configuring-network-settings/configuring-a-hostname
+  - /admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance
+  - /admin/configuration/configuring-network-settings/changing-the-hostname-for-your-instance
   - /admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance
   - /admin/configuration/configuring-network-settings/configuring-built-in-firewall-rules
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance

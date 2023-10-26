@@ -64,4 +64,4 @@ GitHub reserves the right at any time and from time to time to modify or discont
 
 1. License to GitHub Policies. These Application Terms are licensed under this [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). For details, see our [site-policy repository](https://github.com/github/site-policy#license).
 
-1. Contact Us. Questions about the Terms of Service? [Contact us](https://support.github.com/contact?tags=docs-policy).
+1. Contact Us. Questions about the Terms of Service? Contact us through the [GitHub Support portal](https://support.github.com/).

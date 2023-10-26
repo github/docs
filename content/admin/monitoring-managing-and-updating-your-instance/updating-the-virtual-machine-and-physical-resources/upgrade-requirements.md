@@ -18,7 +18,7 @@ topics:
 {% note %}
 
 **Notes:**
-- Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, contact {% data variables.contact.contact_ent_support %} for assistance.
+- Upgrade packages are available at [enterprise.github.com](https://enterprise.github.com/releases) for supported versions. Verify the availability of the upgrade packages you will need to complete the upgrade. If a package is not available, visit {% data variables.contact.contact_ent_support %} and contact us for assistance.
 - If you're using {% data variables.product.prodname_ghe_server %} Clustering, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/upgrading-a-cluster)" in the {% data variables.product.prodname_ghe_server %} Clustering Guide for specific instructions unique to clustering.
 - The release notes for {% data variables.product.prodname_ghe_server %} provide a comprehensive list of new features for every version of {% data variables.product.prodname_ghe_server %}. For more information, see the [releases page](https://enterprise.github.com/releases).
 

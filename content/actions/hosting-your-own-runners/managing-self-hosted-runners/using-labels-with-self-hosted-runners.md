@@ -26,6 +26,12 @@ You can create custom labels for runners at the repository{% ifversion ghec or g
 - [Creating a custom label for an organization runner](#creating-a-custom-label-for-an-organization-runner){% ifversion ghec or ghes or ghae %}
 - [Creating a custom label for an enterprise runner](#creating-a-custom-label-for-an-enterprise-runner){% endif %}
 
+{% note %}
+
+**Note:** Labels are case-insensitive.
+
+{% endnote %}
+
 ### Creating a custom label for a repository runner
 
 {% data reusables.actions.self-hosted-runner-navigate-to-repo %}

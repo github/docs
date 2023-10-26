@@ -15,15 +15,38 @@ type VersionItem = {
   // free-pro-team@latest, enterprise-cloud@latest, enterprise-server@3.3 ...
   version: string
   versionTitle: string
-  currentRelease: string
-  latestVersion: string
-  shortName: string
-  // api.github.com, ghec, ghes-3.3, github.ae
-  openApiVersionName: string
-  // api.github.com, ghec, ghes-, github.ae
-  openApiBaseName: string
+  isGHES?: boolean
   apiVersions: string[]
   latestApiVersion: string
+}
+
+// This reflects what gets exported from `all-versions.js` in the
+// `allVersions` object.
+// It's necessary for TypeScript, but we don't need to write down
+// every possible key that might be present because we don't need it
+// for rendering.
+type FullVersionItem = VersionItem & {
+  shortName: string
+}
+
+function minimalAllVersions(
+  allVersions: Record<string, FullVersionItem>,
+): Record<string, VersionItem> {
+  const all: Record<string, VersionItem> = {}
+  for (const [plan, info] of Object.entries(allVersions)) {
+    all[plan] = {
+      version: info.version,
+      versionTitle: info.versionTitle,
+      apiVersions: info.apiVersions,
+      latestApiVersion: info.latestApiVersion,
+    }
+    // Deal with keys that are optional. It's preferred to omit
+    // booleans if they're false anyway.
+    if (info.shortName === 'ghes') {
+      all[plan].isGHES = true
+    }
+  }
+  return all
 }
 
 export type ProductTreeNode = {
@@ -32,19 +55,23 @@ export type ProductTreeNode = {
   childPages: Array<ProductTreeNode>
 }
 
+export type EnterpriseDeprecation = {
+  version_was_deprecated: string
+  version_will_be_deprecated: string
+  deprecation_details: string
+  isOldestReleaseDeprecated?: boolean
+}
+
+type DataReusables = {
+  enterprise_deprecation?: EnterpriseDeprecation
+  policies?: {
+    translation: string
+  }
+}
+
 type DataT = {
   ui: Record<string, any>
-  reusables: {
-    enterprise_deprecation: {
-      version_was_deprecated: string
-      version_will_be_deprecated: string
-      deprecation_details: string
-      isOldestReleaseDeprecated?: boolean
-    }
-    policies: {
-      translation: string
-    }
-  }
+  reusables: DataReusables
   variables: {
     release_candidate: { version: string }
   }
@@ -55,6 +82,7 @@ type EnterpriseServerReleases = {
   nextDeprecationDate: string
   supported: Array<string>
 }
+
 export type MainContextT = {
   breadcrumbs: {
     product: BreadcrumbT
@@ -83,20 +111,13 @@ export type MainContextT = {
   page: {
     documentType: string
     type?: string
-    languageVariants: Array<{ name: string; code: string; hreflang: string; href: string }>
     topics: Array<string>
     title: string
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
     noEarlyAccessBanner: boolean
-    permalinks?: Array<{
-      languageCode: string
-      relativePath: string
-      title: string
-      pageVersion: string
-      href: string
-    }>
+    applicableVersions: string[]
   }
 
   enterpriseServerVersions: Array<string>
@@ -117,12 +138,38 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     delete req.context.site.data.ui.ms
   }
 
+  if (!req.context.page) {
+    throw new Error(`No page context (${req.url})`)
+  }
   const { documentType } = req.context.page
 
   // Every product landing page has a listing of all articles.
   // It's used by the <ProductArticlesList> component.
   const includeFullProductTree = documentType === 'product'
   const includeSidebarTree = documentType !== 'homepage'
+
+  const reusables: DataReusables = {}
+
+  if (req.context.currentLanguage !== 'en' && req.path.split('/').includes('site-policy')) {
+    reusables.policies = {
+      translation: req.context.getDottedData('reusables.policies.translation'),
+    }
+  }
+  // To know whether we need this key, we need to match this
+  // with the business logic in `DeprecationBanner.tsx` which is as follows:
+  if (req.context.currentVersion.includes(req.context.enterpriseServerReleases.oldestSupported)) {
+    reusables.enterprise_deprecation = {
+      version_was_deprecated: req.context.getDottedData(
+        'reusables.enterprise_deprecation.version_was_deprecated',
+      ),
+      version_will_be_deprecated: req.context.getDottedData(
+        'reusables.enterprise_deprecation.version_will_be_deprecated',
+      ),
+      deprecation_details: req.context.getDottedData(
+        'reusables.enterprise_deprecation.deprecation_details',
+      ),
+    }
+  }
 
   return {
     breadcrumbs: req.context.breadcrumbs || {},
@@ -134,22 +181,8 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     data: {
       ui: req.context.site.data.ui,
 
-      reusables: {
-        enterprise_deprecation: {
-          version_was_deprecated: req.context.getDottedData(
-            'reusables.enterprise_deprecation.version_was_deprecated',
-          ),
-          version_will_be_deprecated: req.context.getDottedData(
-            'reusables.enterprise_deprecation.version_will_be_deprecated',
-          ),
-          deprecation_details: req.context.getDottedData(
-            'reusables.enterprise_deprecation.deprecation_details',
-          ),
-        },
-        policies: {
-          translation: req.context.getDottedData('reusables.policies.translation'),
-        },
-      },
+      reusables,
+
       variables: {
         release_candidate: {
           version: req.context.getDottedData('variables.release_candidate.version') || null,
@@ -160,16 +193,13 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     relativePath: req.context.page?.relativePath,
     page: {
-      languageVariants: req.context.page.languageVariants,
       documentType,
       type: req.context.page.type || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
-      permalinks: req.context.page?.permalinks.map((obj: any) =>
-        pick(obj, ['title', 'pageVersion', 'href', 'relativePath', 'languageCode']),
-      ),
+      applicableVersions: req.context.page?.permalinks.map((obj: any) => obj.pageVersion) || [],
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
     },
@@ -180,7 +210,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       'supported',
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
-    allVersions: req.context.allVersions,
+    allVersions: minimalAllVersions(req.context.allVersions),
     currentVersion: req.context.currentVersion,
     // This is a slimmed down version of `req.context.currentProductTree`
     // that only has the minimal titles stuff needed for sidebars and

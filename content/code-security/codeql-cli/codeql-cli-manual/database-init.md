@@ -45,7 +45,7 @@ extractors in the middle of an extraction operation anyway.)
 
 ### Primary Options
 
-#### `<database>` <!-- markdownlint-disable-line heading-increment -->
+#### `<database>`
 
 \[Mandatory] Path to the CodeQL database to create. This directory will
 be created, and _must not_ already exist (but its parent must).
@@ -76,7 +76,7 @@ as it may recursively delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning). To run queries from
+to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
 this file in a later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
@@ -111,7 +111,7 @@ input using the `--github-auth-stdin` option.
 build tracing," which allows integration into existing build workflows
 when an explicit build command is not available. For information about
 when and how to use this feature, please refer to our documentation at
-[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases).
+[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis).
 
 ### Baseline calculation options
 

@@ -24,7 +24,7 @@ describe('junk paths', () => {
     expect(res.headers['cache-control']).toMatch('public')
   })
 
-  test.each(['/_nextanything', '/_next/data', '/_next/data/'])(
+  test.each(['/_nextanything', '/_next/data', '/_next/data/', '/_next/cgi/bin.foo'])(
     'invalid requests for _next prefix %s',
     async (path) => {
       const res = await get(path)

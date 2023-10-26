@@ -48,7 +48,7 @@ results of _failing_ tests from a previous run.
 
 ### Primary Options
 
-#### `<test|dir>...` <!-- markdownlint-disable-line heading-increment -->
+#### `<test|dir>...`
 
 Each argument is one of:
 

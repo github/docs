@@ -9,6 +9,7 @@ on:
     - cron: '20 16 * * 1-5' # Run every weekday at 16:20 UTC / 8:20 PST
 
 permissions:
+  contents: read
   issues: write
   pull-requests: write
 
@@ -30,6 +31,15 @@ jobs:
           days-before-pr-close: 3
           stale-pr-label: 'stale'
           exempt-pr-labels: 'waiting for review,never-stale,ready to merge'
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
   stale_staff:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
@@ -49,3 +59,12 @@ jobs:
           # we want
           stale-pr-label: 'waiting for review'
           exempt-pr-labels: 'never-stale'
+
+      - name: Check out repo
+        if: ${{ failure() }}
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

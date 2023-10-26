@@ -35,3 +35,7 @@ sections:
       {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %}
     - |
       After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser.
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

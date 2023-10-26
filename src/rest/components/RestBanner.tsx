@@ -50,13 +50,13 @@ export const RestBanner = () => {
     bannerText = t('rest.banner.api_versioned')
     versionWithApiVersion = currentVersion
   } else {
-    if (currentVersionObj.shortName === 'ghes') {
+    if (currentVersionObj.isGHES) {
       // If this is a GHES release with no REST versions,
       // find out if any GHES releases contain REST versioning yet.
       const firstGhesReleaseWithApiVersions = Object.values(allVersions)
         .reverse()
         .find((v) => {
-          return v.shortName === 'ghes' && v.apiVersions.length
+          return v.isGHES && v.apiVersions.length
         })
 
       if (firstGhesReleaseWithApiVersions) {

@@ -38,7 +38,7 @@ Finalize a database that was created with [codeql database init](/code-security/
 
 ### Primary Options
 
-#### `<database>` <!-- markdownlint-disable-line heading-increment -->
+#### `<database>`
 
 \[Mandatory] Path to the CodeQL database under construction. This must
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
@@ -135,13 +135,13 @@ below this percentage.
 
 Select how aggressively to trim the cache. Choices include:
 
-`brutal`: Remove the entire cache, trimming down to the state of a
+`clear`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` _(default)_: Trim everything except explicitly "cached"
+`trim` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
-`light`: Simply make sure the defined size limits for the disk cache are
+`fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
 #### `--cleanup-upgrade-backups`

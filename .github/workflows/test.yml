@@ -77,7 +77,7 @@ jobs:
           # - tools
           - versions
           - webhooks
-          # - workflows
+          - workflows
 
         # The languages suite only runs on docs-internal
         isPrivateRepo:

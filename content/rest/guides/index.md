@@ -14,6 +14,7 @@ topics:
 children:
   - /getting-started-with-the-rest-api
   - /scripting-with-the-rest-api-and-javascript
+  - /scripting-with-the-rest-api-and-ruby
   - /discovering-resources-for-a-user
   - /delivering-deployments
   - /rendering-data-as-graphs

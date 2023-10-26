@@ -9,7 +9,7 @@ on:
     types: [opened]
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   spammy-title-check:

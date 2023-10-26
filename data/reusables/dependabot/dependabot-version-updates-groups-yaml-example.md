@@ -1,3 +1,7 @@
+#### Example 1
+
+The `dependabot.yml` file configuration uses `patterns` and `dependency-type` options to include specific dependencies in the group, and `exclude-patterns` to exclude a dependency (or multiple dependencies) from the group.
+
 ```yaml
 # `dependabot.yml` file using the `dependency-type` option to group updates
 # in conjunction with `patterns` and `exclude-patterns`.
@@ -14,8 +18,12 @@ groups:
     - "rubocop*"
 ```
 
+#### Example 2
+
+A `dependabot.yml` file with a customized Bundler configuration, which has been modified to create a group of dependencies. The configuration specifies `patterns` (strings of characters) that match with the name of a dependency (or multiple dependencies) in order to include the dependencies in the group.
+
 ```yaml
-# `dependabot.yml` file with customized bundler configuration
+# `dependabot.yml` file with customized Bundler configuration
 # In this example, the name of the group is `dev-dependencies`, and
 # only the `patterns` and `exclude-patterns` options are used.
 version: 2
@@ -44,6 +52,10 @@ updates:
             - "gocardless-*"
 ```
 
+#### Example 3
+
+The `dependabot.yml` file is configured so that any packages matching the pattern `@angular*` where the highest resolvable version is `minor` or `patch` will be grouped together. {% data variables.product.prodname_dependabot %} will create a separate pull request for any package that doesn't match the pattern, or that doesn't update to a `minor` or `patch` version.
+
 ```yaml
 # `dependabot.yml` file using the `update-types` option to group updates.
 # Any packages matching the pattern @angular* where the highest resolvable
@@ -62,6 +74,10 @@ updates:
         - "minor"
         - "patch"
 ```
+
+#### Example 4
+
+The `dependabot.yml` file uses an `ignore` condition to exclude updates to `major` versions of `@angular*` packages.
 
 ```yaml
 # `dependabot.yml` file using the `update-types` option to group updates

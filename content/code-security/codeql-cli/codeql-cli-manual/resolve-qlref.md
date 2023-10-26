@@ -38,7 +38,7 @@ Accepts a .qlref file and returns the .ql file that it points to.
 
 ### Primary Options
 
-#### `<qlref>` <!-- markdownlint-disable-line heading-increment -->
+#### `<qlref>`
 
 \[Mandatory] .qlref file to dereference.
 

@@ -7,13 +7,12 @@ import { addError, filterTokens } from 'markdownlint-rule-helpers'
 const scheduledYamlJobs = []
 
 export const yamlScheduledJobs = {
-  names: ['GHD009', 'yaml-scheduled-jobs'],
+  names: ['GHD021', 'yaml-scheduled-jobs'],
   description:
     'YAML snippets that include scheduled workflows must not run on the hour and must be unique',
-  tags: ['actions'],
+  tags: ['feature', 'actions'],
   asynchronous: true,
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD009(params, onError) {
+  function: (params, onError) => {
     filterTokens(params, 'fence', async (token) => {
       const lang = token.info.trim().split(/\s+/u).shift().toLowerCase()
       if (lang !== 'yaml' && lang !== 'yml') return

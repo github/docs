@@ -42,3 +42,7 @@ sections:
       Organization owners cannot register a new SSH certificate authorities (CAs) due to an erroneous suggestion to start a trial. Organization SSH CAs configured before an upgrade to an affected version are still usable after the upgrade. Enterprise owners can can still register SSH CAs for all organizations.
     - |
       {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

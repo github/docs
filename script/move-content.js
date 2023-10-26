@@ -53,7 +53,7 @@ program
 main(program.opts(), program.args)
 
 async function main(opts, nameTuple) {
-  const { verbose, undo } = opts
+  const { verbose, undo, git } = opts
   if (nameTuple.length !== 2) {
     console.error(
       chalk.red(`Must be exactly 2 file paths as arguments. Not ${nameTuple.length} arguments.`),
@@ -115,6 +115,14 @@ async function main(opts, nameTuple) {
     }
   }
 
+  const currentBranchName = getCurrentBranchName(verbose)
+  if (currentBranchName === 'main' && git) {
+    console.error(chalk.red("Cannot proceed because you're on the 'main' branch."))
+    console.error("This command will executed 'git mv ...' and 'git commit ...'")
+    console.error('Create a new dedicated branch instead, first, for this move.\n')
+    process.exit(2)
+  }
+
   // This will exit non-zero if anything is wrong with these inputs
   validateFileInputs(oldPath, newPath, isFolder)
 
@@ -172,7 +180,7 @@ async function main(opts, nameTuple) {
 function validateFileInputs(oldPath, newPath, isFolder) {
   if (isFolder) {
     // Make sure that only the last portion of the path is different
-    // and that all preceeding are equal.
+    // and that all preceding are equal.
     const [oldBase, oldName] = splitDirectory(oldPath)
     const [newBase] = splitDirectory(newPath)
     if (oldBase !== newBase && !existsAndIsDirectory(newBase)) {
@@ -565,4 +573,13 @@ function changeLearningTracks(filePath, oldHref, newHref) {
   const oldContent = fs.readFileSync(filePath, 'utf-8')
   const newContent = oldContent.replace(regex, `- ${newHref}`)
   fs.writeFileSync(filePath, newContent, 'utf-8')
+}
+
+function getCurrentBranchName(verbose = false) {
+  const cmd = 'git branch --show-current'
+  const o = execSync(cmd)
+  if (verbose) {
+    console.log(`git commit command: ${chalk.grey(cmd)}`)
+  }
+  return o.toString().trim()
 }

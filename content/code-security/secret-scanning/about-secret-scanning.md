@@ -26,7 +26,7 @@ topics:
 
 If your project communicates with an external service, you might use a token or private key for authentication. Tokens and private keys are examples of secrets that a service provider can issue. If you check a secret into a repository, anyone who has read access to the repository can use the secret to access the external service with your privileges. We recommend that you store secrets in a dedicated, secure location outside of the repository for your project.
 
-{% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes or ghae %}, even if the repository is archived{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %}
+{% data variables.product.prodname_secret_scanning_caps %} will scan your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes or ghae %}, even if the repository is archived{% endif %}. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% else %}{% data variables.product.prodname_secret_scanning_caps %} does not scan issues.{% endif %}
 
 {% ifversion secret-scanning-backfills-historical-issues %}
 Additionally, {% data variables.product.prodname_secret_scanning %} scans the titles, descriptions, and comments, in open and closed historical issues, and reports leaked secrets as alerts on {% data variables.product.prodname_dotcom %}{% ifversion ghec %}. A notification is sent to the relevant partner when a historical partner pattern is detected{% endif %}.
@@ -86,7 +86,7 @@ If you're a repository administrator, you can enable {% data variables.secret-sc
 You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for a repository, organization, or enterprise. For more information, see "[AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% ifversion secret-scanning-store-tokens %}
-{% data variables.product.company_short %} stores detected secrets using symmetric encryption, both in transit and at rest.{% endif %}{% ifversion ghes > 3.7 %} To rotate the encryption keys used for storing the detected secrets, you can contact {% data variables.contact.contact_ent_support %}.{% endif %}
+{% data variables.product.company_short %} stores detected secrets using symmetric encryption, both in transit and at rest.{% endif %}{% ifversion ghes > 3.7 %} To rotate the encryption keys used for storing the detected secrets, you can contact us by visiting {% data variables.contact.contact_ent_support %}.{% endif %}
 
 ### Accessing {% data variables.secret-scanning.alerts %}
 

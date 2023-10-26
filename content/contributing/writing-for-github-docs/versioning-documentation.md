@@ -232,13 +232,18 @@ You can also use the feature in frontmatter in content files:
 
 ```yaml
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>3.1'
   feature: 'meow'
 ```
 
-You cannot use `feature:` to specify multiple concurrent versions, as this is not supported. Alternatively, you could create a new feature-based versioning file with the required versioning.
+You can only use one `feature` entry under `versions`, and the value of `feature` can only contain one feature name.
+
+You can combine feature-based versioning and standard versioning in frontmatter. When you do this the article will be included in the superset of all of the versions specified in the feature-based versioning file and directly in the Markdown file. For example, you might have a feature that is currently only available in GHEC, and this is specified in the feature-based versioning. However, you want the "About" article for this feature to also be visible in the FPT docs. In this case you could add `fpt` and `feature` to the `versions` block in the front matter:
+
+```yaml
+versions:
+  fpt: '*'
+  feature: 'some-new-feature'
+```
 
 ### Schema enforcement
 

@@ -152,3 +152,9 @@ sections:
       {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %} [Updated: 2023-09-21]
     - |
       {% data reusables.release-notes.2023-09-ephemeral-self-hosted-runners-not-auto-upgrading %} [Updated: 2023-09-29]
+    - |
+      {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-10]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

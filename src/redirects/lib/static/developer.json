@@ -3165,7 +3165,7 @@
   "/v3/repos/deployments": "/rest/deployments/deployments",
   "/v3/repos/downloads": "/rest/metrics/traffic",
   "/v3/repos/forks": "/rest/repos/forks",
-  "/v3/repos/hooks": "/rest/webhooks/repo-config",
+  "/v3/repos/hooks": "/rest/repos/webhooks",
   "/v3/repos/invitations": "/rest/collaborators/invitations",
   "/v3/repos/keys": "/rest/deploy-keys",
   "/v3/repos/merging": "/rest/branches/branches",

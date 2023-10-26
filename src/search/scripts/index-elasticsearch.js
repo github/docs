@@ -312,23 +312,21 @@ async function indexVersion(
 
   await client.indices.create({
     index: thisAlias,
-    body: {
-      mappings: {
-        properties: {
-          url: { type: 'keyword' },
-          title: { type: 'text', analyzer: 'text_analyzer', norms: false },
-          title_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
-          content: { type: 'text', analyzer: 'text_analyzer' },
-          content_explicit: { type: 'text', analyzer: 'text_analyzer_explicit' },
-          headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
-          headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
-          breadcrumbs: { type: 'text' },
-          popularity: { type: 'float' },
-          intro: { type: 'text' },
-        },
+    mappings: {
+      properties: {
+        url: { type: 'keyword' },
+        title: { type: 'text', analyzer: 'text_analyzer', norms: false },
+        title_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
+        content: { type: 'text', analyzer: 'text_analyzer' },
+        content_explicit: { type: 'text', analyzer: 'text_analyzer_explicit' },
+        headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
+        headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
+        breadcrumbs: { type: 'text' },
+        popularity: { type: 'float' },
+        intro: { type: 'text' },
       },
-      settings,
     },
+    settings,
   })
 
   // POPULATE
@@ -375,7 +373,7 @@ async function indexVersion(
     // by a bot on a schedeule (GitHub Actions).
     timeout: '5m',
   }
-  const bulkResponse = await timed({ body: operations, ...bulkOptions })
+  const bulkResponse = await timed({ operations, ...bulkOptions })
 
   if (bulkResponse.errors) {
     // Some day, when we're more confident how and why this might happen
@@ -387,9 +385,7 @@ async function indexVersion(
     throw new Error('Bulk errors happened.')
   }
 
-  const {
-    body: { count },
-  } = await client.count({ index: thisAlias })
+  const { count } = await client.count({ index: thisAlias })
   console.log(`Documents now in ${chalk.bold(thisAlias)}: ${chalk.bold(count.toLocaleString())}`)
 
   // To perform an atomic operation that creates the new alias and removes
@@ -409,7 +405,7 @@ async function indexVersion(
   console.log(`Alias ${indexName} -> ${thisAlias}`)
 
   // const indices = await client.cat.indices({ format: 'json' })
-  const { body: indices } = await retryOnErrorTest(
+  const indices = await retryOnErrorTest(
     (error) => {
       return error instanceof errors.ResponseError && error.statusCode === 404
     },

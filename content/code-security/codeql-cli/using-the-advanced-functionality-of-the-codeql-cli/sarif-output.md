@@ -17,8 +17,6 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/sarif-output
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About SARIF output
 
 SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are
@@ -65,7 +63,6 @@ This details each SARIF component that may be generated, along with any specific
 | JSON property name| Always generated?| Notes|
 |-------------------|------------------------|---------|
 | `tool`| {% octicon "check" aria-label="Always" %}| None |
-| `originalUriBaseIds`| {% octicon "check" aria-label="Always" %}| A dictionary of `uriBaseIds` to artifactLocations representing the original locations on the analysis machine. At a minimum, this will contain the `%SRCROOT%` `uriBaseId`, which represents the root location on the analysis machine of the source code for the analyzed project. Each `artifactLocation` will contain the `uri` and `description` properties.|
 | `artifacts`| {% octicon "check" aria-label="Always" %}| An array containing at least one artifact object for every file referenced in a result.|
 | `results`| {% octicon "check" aria-label="Always" %}| None |
 | `newLineSequences`| {% octicon "check" aria-label="Always" %}| None |

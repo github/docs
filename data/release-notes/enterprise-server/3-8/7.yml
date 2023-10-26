@@ -23,6 +23,10 @@ sections:
       {% data reusables.release-notes.migrations-missing-section-known-issue %} [Updated: 2023-08-18]
     - |
       {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
 
   changes:
     - |

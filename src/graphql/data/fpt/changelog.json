@@ -4,6 +4,76 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>roleName</code> was added to object type <code>PermissionSource</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'TRANSFERRING_OWNERSHIP<code>was added to enum</code>RepositoryLockReason'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>NPM</code> was added to enum <code>SocialAccountProvider</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>WorkflowFileReference</code> was added</p>",
+          "<p>Type <code>WorkflowFileReferenceInput</code> was added</p>",
+          "<p>Type <code>WorkflowsParameters</code> was added</p>",
+          "<p>Type <code>WorkflowsParametersInput</code> was added</p>",
+          "<p>Enum value <code>AUTHORIZATION</code> was added to enum <code>RepositoryRuleType</code></p>",
+          "<p>Enum value 'FILE_PATH_PATTERN<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'LOCK_BRANCH<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'MAX_REF_UPDATES<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'MERGE_QUEUE<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'MERGE_QUEUE_LOCKED_REF<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'REQUIRED_REVIEW_THREAD_RESOLUTION<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'REQUIRED_WORKFLOW_STATUS_CHECKS<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'RULESET_REQUIRED_SIGNATURES<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value 'SECRET_SCANNING<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Enum value <code>TAG</code> was added to enum <code>RepositoryRuleType</code></p>",
+          "<p>Enum value <code>WORKFLOWS</code> was added to enum <code>RepositoryRuleType</code></p>",
+          "<p>Enum value 'WORKFLOW_UPDATES<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Member <code>WorkflowsParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>workflows</code> of type <code>WorkflowsParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>preventSelfReview</code> was added to object type <code>DeploymentProtectionRule</code></p>",
           "<p>Input field <code>preventSelfReview</code> of type <code>Boolean</code> was added to input object type <code>UpdateEnvironmentInput</code></p>"
         ]

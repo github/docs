@@ -39,14 +39,15 @@ You'll find detailed guidance for the setup of the following package managers an
 - [Azure Artifacts](#azure-artifacts)
 - [{% data variables.product.prodname_registry %} registry](#data-variablesproductprodname_registry--registry)
 - [Nexus](#nexus)
+- [ProGet](#proget)
 
 ## Configuring package managers
 
 ### Bundler
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, and Nexus.
+Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-You can authenticate with either a username and password, or a token. For more infomation, see `ruby-gems` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
+You can authenticate with either a username and password, or a token. For more information, see `ruby-gems` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
 
 Snippet of a `dependabot.yml` file using a username and password.
 
@@ -83,7 +84,7 @@ registries:
 
 ### Docker
 
-Docker supports using a username and password for registries. For more infomation, see `docker-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)."
+Docker supports using a username and password for registries. For more information, see `docker-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)."
 
 Snippet of `dependabot.yml` file using a username and password.
 
@@ -303,7 +304,7 @@ Registries should be configured using the `https` protocol.
 
 ### Nuget
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, and Nexus.
+Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
 The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
 
@@ -351,7 +352,7 @@ registries:
 
 ### Python
 
-Supported by Artifactory, Azure Artifacts, and Nexus. The {% data variables.product.prodname_registry %} registry is not supported.
+Supported by Artifactory, Azure Artifacts, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
 
 The `python-index` type supports username and password, or token. For more information, see `python-index` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
 
@@ -561,7 +562,7 @@ registries:
 
 The Azure Artifacts password must be an unencoded token and should include a `:` after the token. In addition, the password cannot be base64-encoded.
 
-You can check whether the private registry is has been sucessfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
+You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
 
 ### {% data variables.product.prodname_registry %} registry
 
@@ -626,4 +627,56 @@ If you are restricting which IPs can reach your Nexus host, you need to add the 
       - "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private regstry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public regsitry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private regstry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
+
+### ProGet
+
+For information about ProGet and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with feeds in ProGet, see the [ProGet documentation](https://docs.inedo.com/docs/proget-overview).
+
+Example of ProGet registry configuration for a NuGet feed:
+
+{% raw %}
+
+```yaml
+registries:
+  proget-nuget-feed:
+    type: nuget-feed
+    url: https://proget.corp.local/nuget/MyNuGetFeed/v3/index.json
+    token: ${{secrets.PROGET_APK_KEY}}
+```
+
+{% endraw %}
+
+Example of ProGet registry configuration for Bundler (rubygems):
+
+{% raw %}
+
+```yaml
+registries:
+  proget-gems-feed:
+    type: rubygems-server
+    url: https://proget.corp.local/rubygems/MyRubygemsFeed
+    token: ${{secrets.PROGET_APK_KEY}}
+```
+
+{% endraw %}
+
+Example of ProGet registry configuration for Python (PyPI):
+
+{% raw %}
+
+```yaml
+registries:
+  proget-python-feed:
+    type: python-index
+    url: https://proget.corp.local/pypi/MyPythonFeed
+    token: ${{secrets.PROGET_APK_KEY}}
+```
+
+{% endraw %}
+
+#### Notes
+
+The `token` should be an API Key with access to view packages. For more information, see [API Access and API Keys](https://docs.inedo.com/docs/buildmaster-administration-security-api-keys) in the ProGet documentation.
+
+You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.

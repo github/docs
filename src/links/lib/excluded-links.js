@@ -11,21 +11,21 @@
 export default [
   // Skip GitHub search links.
   // E.g. https://github.com/search?foo=bar
-  new RegExp('https://github\\.com/search\\?'),
-  new RegExp('https://github\\.com/github/gitignore/search\\?'),
+  regex('https://github.com/search?'),
+  regex('https://github.com/github/gitignore/search?'),
 
   // https://github.com/contact always redirects to support.github.com that
   // is heavily protected by rate limiting.
-  new RegExp('https://github\\.com/contact'),
+  regex('https://github.com/contact'),
   // All support.github.com links are currently firewalled and you get a
   // "403 Forbidden" every time.
-  new RegExp('https://support\\.github\\.com'),
+  regex('https://support.github.com'),
 
   // These links require auth.
-  new RegExp('https://github\\.com/settings/profile'),
-  new RegExp('https://github\\.com/github/docs/edit'),
-  new RegExp('https://github\\.com/github/insights-releases/releases/latest'),
-  new RegExp('https://classroom\\.github.com/videos'),
+  regex('https://github.com/settings/profile'),
+  regex('https://github.com/github/docs/edit'),
+  regex('https://github.com/github/insights-releases/releases/latest'),
+  regex('https://classroom.github.com/videos'),
 
   // Oneoff links that link checkers think are broken but are not.
   'https://haveibeenpwned.com/',
@@ -61,15 +61,25 @@ export default [
   'https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_method',
   'https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector',
   'https://www.patreon.com/',
-  'https://packages.debian.org/search?keywords=netcat',
-  'https://packages.debian.org/bullseye/ca-certificates',
+  regex('https://packages.debian.org/'),
   'https://oidref.com/1.3.6.1.2.1.25.4',
   'https://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_574717/lang--en/index.htm',
   'https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf',
-  'https://www.lumendatabase.org/topics/5',
-  'https://www.lumendatabase.org/topics/14',
-  'https://azure.microsoft.com/support/',
-  'https://azure.microsoft.com/services/app-service/static/',
-  'https://azure.microsoft.com/services/container-registry/',
-  'https://azure.microsoft.com/products/functions/',
+  regex('https://www.lumendatabase.org/'),
+  regex('https://azure.microsoft.com/'),
+  regex('https://support.patreon.com/'),
+  'https://moodle.org',
 ]
+
+// Return a regular expression from a URL string that matches the URL
+// as a base. It's basically shorthand for "URL.startsWith(BASE_URL)"
+// but as a RegExp object.
+// For example:
+//
+//   > regex('https://github.com').test('https://github.com/page')
+//   true
+//   > regex('https://github.com').test('otherhttps://github.com/page')
+//   false
+function regex(url) {
+  return new RegExp('^' + url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+}

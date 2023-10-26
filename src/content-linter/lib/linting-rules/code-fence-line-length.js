@@ -1,11 +1,10 @@
-import { addError, ellipsify, filterTokens, newLineRe } from 'markdownlint-rule-helpers'
+import { addError, filterTokens, newLineRe } from 'markdownlint-rule-helpers'
 
 export const codeFenceLineLength = {
-  names: ['GHD001', 'code-fence-line-length'],
+  names: ['GHD030', 'code-fence-line-length'],
   description: 'Code fence lines should not exceed a maximum length',
-  tags: ['code'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD001(params, onError) {
+  tags: ['code', 'accessibility'],
+  function: (params, onError) => {
     const MAX_LINE_LENGTH = String(params.config.maxLength || 60)
     filterTokens(params, 'fence', (token) => {
       const lines = token.content.split(newLineRe)
@@ -19,7 +18,7 @@ export const codeFenceLineLength = {
             onError,
             lineNumber,
             `Code fence line exceeds ${MAX_LINE_LENGTH} characters.`,
-            ellipsify(line),
+            line,
             [1, line.length],
             null, // No fix possible
           )

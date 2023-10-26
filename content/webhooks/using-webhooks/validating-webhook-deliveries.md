@@ -1,5 +1,6 @@
 ---
 title: Validating webhook deliveries
+shortTitle: Validate deliveries
 intro: 'You can use a webhook secret to verify that a webhook delivery is from {% data variables.product.company_short %}.'
 redirect_from:
   - /webhooks/securing
@@ -18,15 +19,15 @@ topics:
   - Webhooks
 ---
 
-## About webhook deliveries
+## About validating webhook deliveries
 
-Once your server is configured to receive payloads, it will listen for any delivery that's sent to the endpoint you configured. For security reasons, you should only process deliveries from {% data variables.product.prodname_dotcom %}.
+Once your server is configured to receive payloads, it will listen for any delivery that's sent to the endpoint you configured. To ensure that your server only processes webhook deliveries that were sent by {% data variables.product.company_short %} and to ensure that the delivery was not tampered with, you should validate the webhook signature before processing the delivery further. This will help you avoid spending server time to process deliveries that are not from {% data variables.product.company_short %} and will help avoid man-in-the-middle attacks.
 
-To ensure your server only processes deliveries from {% data variables.product.prodname_dotcom %}, you need to:
+To do this, you need to:
 
 1. Create a secret token for a webhook.
 1. Store the token securely on your server.
-1. Validate incoming webhook payloads against the token, to verify they are coming from {% data variables.product.prodname_dotcom %}.
+1. Validate incoming webhook payloads against the token, to verify that they are coming from {% data variables.product.prodname_dotcom %} and were not tampered with.
 
 ## Creating a secret token
 
@@ -198,6 +199,10 @@ const handleWebhook = (req: Request, res: Response) => {
 
 [secure_compare]: https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare
 [timingSafeEqual]: https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b
+
+## Troubleshooting
+
+{% data reusables.webhooks.signature-troubleshooting %}
 
 ## Further reading
 

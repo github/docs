@@ -39,7 +39,7 @@ query source file.
 
 ### Primary Options
 
-#### `<file>` <!-- markdownlint-disable-line heading-increment -->
+#### `<file>`
 
 \[Mandatory] Query source file from which to extract metadata.
 

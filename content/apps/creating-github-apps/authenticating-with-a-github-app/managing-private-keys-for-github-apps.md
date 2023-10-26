@@ -17,6 +17,8 @@ After you create a {% data variables.product.prodname_github_app %}, you'll need
 
 You can create multiple private keys and rotate them to prevent downtime if a key is compromised or lost. To verify that a private key matches a public key, see "[Verifying private keys](#verifying-private-keys)".
 
+Private keys do not expire and instead need to be manually revoked. For more information about how to revoke a private key, see "[Deleting private keys](#deleting-private-keys)."
+
 You must keep private keys for {% data variables.product.prodname_github_apps %} secure. For more information, see "[Storing private keys](#storing-private-keys)".
 
 ## Generating private keys

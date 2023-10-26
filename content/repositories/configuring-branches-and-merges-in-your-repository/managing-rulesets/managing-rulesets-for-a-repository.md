@@ -62,6 +62,30 @@ Anyone with read access to a repository can view the rulesets targeting the repo
 {% data reusables.repositories.repo-rulesets-settings %}
 {% data reusables.repositories.delete-ruleset-steps %}
 
+{% ifversion repo-rules-management %}
+
+## Using ruleset history
+
+{% data reusables.repositories.ruleset-beta-note %}
+
+{% data reusables.repositories.ruleset-history-conceptual %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repo-rulesets-settings %}
+{% data reusables.repositories.ruleset-history %}
+
+### Importing a ruleset
+
+{% data reusables.repositories.import-a-ruleset-conceptual %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repo-rulesets-settings %}
+{% data reusables.repositories.import-a-ruleset %}
+
+{% endif %}
+
 {% ifversion repo-rules-enterprise %}
 
 ## Viewing insights for rulesets

@@ -66,6 +66,12 @@ Upgrading an organization does not affect your personal account or repositories 
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
+{% note %}
+
+**Note:** {% data reusables.actions.org-to-enterprise-actions-permissions %}
+
+{% endnote %}
+
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %}
