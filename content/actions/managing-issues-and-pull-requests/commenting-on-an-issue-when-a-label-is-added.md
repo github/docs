@@ -43,11 +43,11 @@ In the tutorial, you will first make a workflow file that uses the [`gh issue co
           issues: write
         steps:
           - name: Add comment
-            run: gh issue comment "$NUMBER" --repo "$REPOSITORY" --body "$BODY"
+            run: gh issue comment "$NUMBER" --repo "$REPO" --body "$BODY"
             env:
               GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              REPOSITORY: ${{ github.repository }}
               NUMBER: ${{ github.event.issue.number }}
+              REPO: ${{ github.repository }}
               BODY: >
                 This issue is available for anyone to work on. **Make sure to reference this issue in
                 your pull request.** :sparkles: Thank you for your contribution! :sparkles:
