@@ -17,7 +17,7 @@ shortTitle: Splitting a subfolder
  
 {% note %}
 
- **Note:** You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
+**Note:** You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
 
 {% endnote %}
   
