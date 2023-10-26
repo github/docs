@@ -1,7 +1,7 @@
 ---
 title: Using GitHub-curated alert rules to prioritize Dependabot alerts
 intro: 'You can use a {% data variables.product.company_short %}-curated alert rule to auto-dismiss low impact development alerts for npm dependencies.'
-permissions: 'People with write permissions can view {% data variables.product.prodname_dependabot %} alert rules for the repository. People with with admin permissions to a repository, or the security manager role for the repository, can enable or disable {% data variables.product.prodname_dependabot %} alert rules for the repository.'
+permissions: 'People with write permissions can view {% data variables.product.prodname_dependabot %} alert rules for the repository. People with admin permissions to a repository can enable or disable {% data variables.product.company_short %}-curated alert rules for the repository.{% ifversion dependabot-alerts-custom-rules-updates %} Organization owners and security managers can enable or disable {% data variables.product.company_short %}-curated alert rules at the organization-level and optionally choose to enforce rules for repositories in the organization.{% endif %}'
 versions:
   feature: dependabot-alert-rules-auto-dismissal-npm-dev-dependencies
 type: how_to
