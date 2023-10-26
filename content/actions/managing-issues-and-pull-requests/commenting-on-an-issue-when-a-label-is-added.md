@@ -49,8 +49,9 @@ In the tutorial, you will first make a workflow file that uses the [`gh issue co
               NUMBER: {% raw %}${{ github.event.issue.number }}{% endraw %}
               REPO: {% raw %}${{ github.repository }}{% endraw %}
               BODY: >
-                This issue is available for anyone to work on. **Make sure to reference this issue in
-                your pull request.** :sparkles: Thank you for your contribution! :sparkles:
+                This issue is available for anyone to work on.
+                **Make sure to reference this issue in your pull request.**
+                :sparkles: Thank you for your contribution! :sparkles:
     ```
 
 1. Customize the parameters in your workflow file:
