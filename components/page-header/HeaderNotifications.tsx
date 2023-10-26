@@ -55,16 +55,6 @@ export const HeaderNotifications = () => {
         },
       })
     }
-  } else {
-    if (relativePath?.includes('/site-policy')) {
-      const policies = data.reusables.policies
-      if (policies) {
-        translationNotices.push({
-          type: NotificationType.TRANSLATION,
-          content: policies.translation,
-        })
-      }
-    }
   }
   const releaseNotices: Array<Notif> = []
   if (currentVersion === 'github-ae@latest') {
