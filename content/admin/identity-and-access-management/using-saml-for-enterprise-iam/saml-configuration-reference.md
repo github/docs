@@ -132,9 +132,15 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 ## Session duration and timeout
 
-To prevent a person from authenticating with your IdP and staying authorized indefinitely, {% data variables.product.product_name %} periodically invalidates the session for each user account with access to {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. After invalidation, the person must authenticate with your IdP once again. By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}two weeks{% endif %} after successful authentication with your IdP.
+To prevent a person from authenticating with your IdP and staying authorized indefinitely, {% data variables.product.product_name %} periodically invalidates the session for each user account with access to {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. After invalidation, the person must authenticate with your IdP once again.
 
-To customize the session duration, you may be able to define the value of the `SessionNotOnOrAfter` attribute on your IdP. If you define a value less than 24 hours, {% data variables.product.product_name %} may prompt people to authenticate every time {% data variables.product.product_name %} initiates a redirect.
+By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}one week{% endif %} after successful authentication with your IdP.
+
+{% data variables.product.product_name %} will support a customized session duration if your IdP provides the option to configure a `SessionNotOnOrAfter` attribute and value{% ifversion ghes %}, and if this attribute is included in SAML responses. If your IdP does not allow a `SessionNotOnOrAfter` attribute, a site administrator can configure a custom SAML session timeout for all users on your instance by using the `ghe-config saml.default-session-expiration [seconds]` command in the administrative shell{% endif %}.
+
+If you define a customized session duration value less than 24 hours, {% data variables.product.product_name %} may prompt people to authenticate every time {% data variables.product.product_name %} initiates a redirect.
+
+{% data reusables.enterprise.ghes-user-inactivity-timeout %}
 
 {% ifversion ghec %}
 To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate)."
