@@ -1248,6 +1248,8 @@ Use clear, simple language that’s approachable for a wide range of readers. Be
 
 Write for your audience: some jargon and technical terms are necessary, but don't rely on the assumption that every reader has the same level of technical expertise.
 
+Use the active voice whenever possible. Passive voices is acceptable when you need to emphasize the object of an action.
+
 We are a global developer community. Avoid turns of phrase, idioms, and slang that are specific to a particular region or country.
 
 To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
@@ -1439,10 +1441,40 @@ See the “[Product names](#product-names)” section of this guide.
 | type (in the user interface) | enter (in the user interface) |
 | enter (in the command line) | type (in the command line) |
 
-## Word order
+## Word choice
+
+### Ambiguous verbs
+
+When a task is required, or one option is preferred to another, avoid using ambiguous modal auxiliary verbs such as "may," "might," "ought," "should," "could," "would," and "can." These verbs can be interpreted as either a command or a suggestion. Instead, use verbs that clearly indicate whether the action is required or optional. If something is an option or suggestion, you can use these verbs so long as you make it clear that the action is optional.
+
+- **Use:** You can decide which keyboard shortcuts to use.
+- **Use:** Use the `git clone` command to clone a repository.
+- **Avoid:** You can use the `git clone` command to clone a repository.
+- **Avoid:** You could delete the branch.
+
+### Invisible plurals
+
+Avoid invisible plurals, which are words that have ambiguous meaning because they can be interpreted as singular or plural. For example, "file retrieval" could refer to retrieving a single file or multiple files.
+
+- **Use:** After the file is retrieved, select where to save it.
+- **Avoid:** After file retrieval, select where to save it.
+
+### Nominalizations
+
+Avoid nominalizations, which are nouns created from verbs or adjectives. Nominalizations can make sentences longer, harder to understand, and harder to translate.
+
+- **Use:** After the workflow concludes, the package will be visible.
+- **Avoid:** After the workflow has reached its conclusion, the package will be visible.
 
 ### Strings of nouns
 
 Avoid stacked modifiers (strings of nouns), which can lead to incorrect translations because translations may not be able to tell which word is modifying the other. You can rephrase the string of nouns using a preposition. If using a stacked modifier is essential, make sure the background information and context are clear so that readers and the translator can understand what is being modified.
 - **Use:** Default source settings for public repositories
 - **Avoid:** Public repository default source settings
+
+### Vague nouns and pronouns
+
+If a pronoun seems to refer to more than one antecedent, either reword the sentence to make the antecedent clear or replace the pronoun with a noun to eliminate ambiguity.
+
+- **Use:** After you make your final commit to your branch and merge your pull request, you can delete your branch.
+- **Avoid:** After you make your final commit to your branch and merge your pull request, you can delete it.
