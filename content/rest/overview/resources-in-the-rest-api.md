@@ -390,6 +390,8 @@ If you exceed the rate limit, the response will have a `403` status and the `x-r
 > }
 ```
 
+For requests using the Git LFS API (that is, the one used by the Git LFS client), the response will instead have a `429` status.
+
 If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
 
 ### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
