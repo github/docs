@@ -35,6 +35,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "api.request",
+    "description": "An API request was made to a security-significant endpoint for the enterprise. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
+  },
+  {
     "action": "artifact.destroy",
     "description": "A workflow run artifact was manually deleted.",
     "docs_reference_links": "N/A"
@@ -397,6 +402,11 @@
   {
     "action": "business.set_workflow_permission_can_approve_pr",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.sso_response",
+    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your enterprise. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
     "docs_reference_links": "N/A"
   },
   {
@@ -918,6 +928,16 @@
     "action": "enterprise.runner_group_visiblity_updated",
     "description": "The visibility of a GitHub Actions self-hosted runner group was updated via the REST API.",
     "docs_reference_links": "/rest/actions#update-a-self-hosted-runner-group-for-an-organization"
+  },
+  {
+    "action": "enterprise.self_hosted_runner_offline",
+    "description": "The GitHub Actions runner application was stopped. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "enterprise.self_hosted_runner_online",
+    "description": "The GitHub Actions runner application was started. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
   },
   {
     "action": "enterprise.self_hosted_runner_updated",
@@ -1990,6 +2010,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.self_hosted_runner_offline",
+    "description": "The runner application was stopped. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "org.self_hosted_runner_online",
+    "description": "The runner application was started. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
     "action": "org.self_hosted_runner_updated",
     "description": "The runner application was updated. This event is not included in the JSON/CSV export.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
@@ -2027,6 +2057,11 @@
   {
     "action": "org.set_workflow_permission_can_approve_pr",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.sso_response",
+    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2930,6 +2965,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repo.self_hosted_runner_offline",
+    "description": "The runner application was stopped. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "repo.self_hosted_runner_online",
+    "description": "The runner application was started. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
     "action": "repo.self_hosted_runner_updated",
     "description": "The runner application was updated. This event is not included in the JSON/CSV export.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
@@ -3685,6 +3730,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "workflows.completed_workflow_run",
+    "description": "A workflow status changed to completed. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history"
+  },
+  {
+    "action": "workflows.created_workflow_run",
+    "description": "A workflow run was create. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow"
+  },
+  {
     "action": "workflows.delete_workflow_run",
     "description": "A workflow run was deleted.",
     "docs_reference_links": "/actions/managing-workflow-runs/deleting-a-workflow-run"
@@ -3698,6 +3753,11 @@
     "action": "workflows.enable_workflow",
     "description": "A workflow was enabled, after previously being disabled by disable_workflow.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.prepared_workflow_job",
+    "description": "A workflow job was started. Includes the list of secrets that were provided to the job. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "docs_reference_links": "/actions/using-workflows/events-that-trigger-workflows"
   },
   {
     "action": "workflows.reject_workflow_job",
