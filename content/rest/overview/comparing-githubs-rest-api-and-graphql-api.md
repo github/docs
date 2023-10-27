@@ -1,11 +1,13 @@
 ---
-title: About GitHub's APIs
+title: Comparing GitHub's REST API and GraphQL API
+shortTitle: Comparing GitHub's APIs
 intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to extend and customize your {% data variables.product.prodname_dotcom %} experience.'
 redirect_from:
   - /v3/versions
   - /articles/getting-started-with-the-api
   - /github/extending-github/getting-started-with-the-api
   - /developers/overview/about-githubs-apis
+  - /rest/overview/about-githubs-apis
 versions:
   fpt: '*'
   ghes: '*'
