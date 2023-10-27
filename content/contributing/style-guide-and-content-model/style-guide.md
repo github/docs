@@ -534,7 +534,15 @@ Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
 - If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).
 
-When introducing a list, avoid phrasing like “the following” or “these”, terms which are difficult to localize. Instead, be descriptive, yet general enough to allow a list to scale or change without having to update the description.
+When introducing a list, avoid short, nonspecific sentences using terms like “the following” or “these”, which are difficult to localize without context. Instead, create a descriptive sentence that clearly conveys the subject of the list, yet allows the list to scale or change without having to update the description.
+
+**Use:**
+- For an introduction to {% data variables.product.prodname_dotcom %}, see the following articles:
+- SMS authentication is supported in these countries:
+
+**Avoid:**
+- There are several articles that provide an introduction to {% data variables.product.prodname_dotcom %}. See the following:
+- SMS authentication is supported in 50 countries. These include:
 
 ## Placeholders
 

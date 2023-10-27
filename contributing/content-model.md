@@ -1,6 +1,6 @@
 # Content model for GitHub Docs
 
-**Note:** This version of the content model is no longer maintained and will be deprecated. See the [style guide](https://docs.github.com/en/contributing/writing-for-github-docs/style-guide) on docs.github.com for the most up to date version. Open any pull requests against the `contributing/writing-for-github-docs/style-guide.md` file.
+**Note:** This version of the content model is no longer maintained and will be deprecated. See the [content model](https://docs.github.com/contributing/style-guide-and-content-model/content-model) on docs.github.com for the most up-to-date version. Open any pull requests against the `contributing/style-guide-and-content-model/content-model.md` file.
 
 _Full TOC :arrow_upper_left:_
 
@@ -36,7 +36,7 @@ The homepage includes all top-level doc sets and some categories. Content on the
 
 The goal of the homepage is to help people find information about the GitHub feature or product that they want to learn about. Every item on the homepage dilutes the discoverability of every other item, so we limit the number of doc sets included on the homepage.
 
-If a new top-level doc set is created, it is added to the homepage. 
+If a new top-level doc set is created, it is added to the homepage.
 
 If a category serves as the starting point for using a GitHub product or feature, it can be added to the homepage.
 
@@ -71,7 +71,7 @@ Categories are usually organized around a feature or a discrete set of tasks wit
 - Examples
   - [Setting up and managing your GitHub user account](https://docs.github.com/en/github/setting-up-and-managing-your-github-user-account)
   - [Installing GitHub Enterprise](https://docs.github.com/en/enterprise-server@3.0/admin/installation)
-  
+
 #### Intros for categories
 All categories have intros. Keep the intros one sentence long, and general or high-level enough to scale with future product changes without having to remember to update the intro. If you significantly change a category’s structure, check its intro for needed updates.
 
@@ -106,12 +106,12 @@ We organize content predictably within categories, map topics, and articles, fro
 - Procedural content on using a feature
 - Procedural content on managing a feature or setting
 - Procedural content on disabling a feature or setting
-- Procedural content on destructive actions (e.g. deletion) 
+- Procedural content on destructive actions (e.g. deletion)
 - Troubleshooting information
 
 ### Titles
 
-Titles fully describe what a page is about, and what a user will know by reading it. 
+Titles fully describe what a page is about, and what a user will know by reading it.
 
 Titles are challenging! Use these general guidelines to help create clear, helpful, and descriptive titles. See below for specific guidelines for each content type.
 
@@ -121,7 +121,7 @@ Titles are challenging! Use these general guidelines to help create clear, helpf
   - Use: Example of configuring a codespace
   - Avoid: Using the workflow editor sidebar
   - Avoid: Example
-  - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
+  - Titles have hard limits for length to keep them easy to understand (and easier to render on the site):
      - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
      - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
      - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
@@ -195,7 +195,7 @@ Conceptual content helps people understand a feature or topic by providing a cle
 We create conceptual articles and conceptual sections within other articles. Most major products, features, or subjects have their own conceptual article.
 
 #### How to write conceptual content
-Use the [conceptual content template](https://github.com/github/docs/blob/main/contributing/content-templates.md#conceptual) to write a conceptual article. 
+Use the [conceptual content template](https://github.com/github/docs/blob/main/contributing/content-templates.md#conceptual) to write a conceptual article.
 
 - Describe in plain language what the feature, product, or topic is
 - Describe its purpose and why it’s useful to the reader
@@ -288,11 +288,11 @@ Use the [procedural content template](https://github.com/github/docs/blob/main/c
 
 ### Release notes
 
-Release notes enable readers to understand and prepare for the customer-facing changes in each release of GitHub's versioned enterprise products (e.g., GitHub Enterprise Server). Good release notes provide administrators the necessary information to plan system upgrades in environments that require change control, and support end users who want to understand and prepare to use new GitHub features and functionality. 
+Release notes enable readers to understand and prepare for the customer-facing changes in each release of GitHub's versioned enterprise products (e.g., GitHub Enterprise Server). Good release notes provide administrators the necessary information to plan system upgrades in environments that require change control, and support end users who want to understand and prepare to use new GitHub features and functionality.
 
 Writers source, edit, and publish release notes in collaboration with product DRIs, feature owners, and individual engineers at GitHub. For each individual release, we group release notes by predefined types.
 
-We publish the release notes for [GitHub Enterprise Server](https://docs.github.com/enterprise-server/admin/release-notes) (GHES) and [GitHub AE](https://docs.github.com/github-ae@latest/admin/release-notes) (GHAE) on GitHub Docs, in the "Enterprise administrators" documentation set. 
+We publish the release notes for [GitHub Enterprise Server](https://docs.github.com/enterprise-server/admin/release-notes) (GHES) and [GitHub AE](https://docs.github.com/github-ae@latest/admin/release-notes) (GHAE) on GitHub Docs, in the "Enterprise administrators" documentation set.
 
 #### Types of releases
 
@@ -321,7 +321,7 @@ Use known issues to explain the following situations.
 - Behavior that regularly prevents the use of the product or feature for a common purpose.
 - Rare or severe bugs that GitHub has not yet prioritized fixing, and that are not explained in the product or by existing content on GitHub Docs.
 
-#### How to write troubleshooting content 
+#### How to write troubleshooting content
 - Use any GitHub Docs content type to create troubleshooting sections.
 - Whenever possible, keep troubleshooting content contained within procedural content or guides.
 - You can create a troubleshooting article when it makes sense to keep it separate, such as when there’s a large amount of troubleshooting content on a particular topic.
@@ -405,7 +405,7 @@ Tutorials help people learn about products and solve real world problems by guid
 Tutorials are useful when someone has a basic understanding of the product and is interested in extending their understanding to solve a specific problem. Tutorials are for people who want expert advice and a detailed discussion of best practices related to their problem. Tutorials also help people who've implemented similar solutions in the past with other products use GitHub. Tutorials can also help people validate whether the solution is appropriate for their needs.
 
 #### How to write a tutorial
-Use the [tutorial template](https://github.com/github/docs/blob/main/contributing/content-templates.md#tutorial) to create a tutorial. 
+Use the [tutorial template](https://github.com/github/docs/blob/main/contributing/content-templates.md#tutorial) to create a tutorial.
 
 Contents of tutorials:
 - Introduction
@@ -481,7 +481,7 @@ Use the product callout when a feature is available in specific products only an
 All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
 
 #### How to write a product callout
-- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in. 
+- Product callouts follow a strict format, clearly identifying the feature and which products it’s available in.
 - Product callouts also include a link to "GitHub’s products” and occasionally to another relevant article.
 - Examples:
   - [Feature name] is available in [product(s)]. For more information, see "GitHub’s products.”
@@ -502,10 +502,10 @@ The top of every page has an intro that provides context and sets expectations, 
 - Map topic and category intros are one sentence long.
 - API reference intros are one sentence long.
   - The intro for an API page should define the feature so that a user knows whether the feature meets their needs without reading the entire article.
-- Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail. 
-  - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible. 
+- Intros contain a high-level summary of the page’s content, developing the idea presented in a title with more detail.
+  - Use approachable synonyms of words in the page’s title to help readers understand the article’s purpose differently. Avoid repeating words from the title when possible.
 - Intros are relatively evergreen and high-level, so they can scale with future changes to the content on the page without needing to be frequently updated.
-- For searchability, include keywords on the page's subject in the intro. 
+- For searchability, include keywords on the page's subject in the intro.
 - When a term in the intro has an acronym we’ll use elsewhere in the article, indicate the acronym.
 - Intros generally don't contain permissions for any tasks contained within the article.
 
@@ -516,8 +516,8 @@ Every procedure includes a permissions statement explaining the role required to
 Occasionally, it's relevant to mention required permissions in conceptual content, especially in standalone conceptual articles. Make sure to also include a permissions statement in related procedures (or write a longer article combining all of the content).
 
 #### How to write a permissions statement
-- When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions). 
-- When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure. 
+- When a single set of permissions applies to all procedures in an article, use the [permissions frontmatter](https://github.com/github/docs/tree/main/content#permissions).
+- When an article contains multiple procedures and different permissions apply, include a separate permissions statement under each relevant header, before each procedure.
 - Don't include permissions in an article’s intro.
 - Roles exist at different levels. Refer only to the role at the same level as the action. For example, you need admin access to a repository (repository-level role) to configure protected branches. You can get admin access to a repository by being an organization owner (organization-level role), but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned in the permissions statement.
 - Language to use in a permissions statement:
@@ -573,7 +573,7 @@ Troubleshooting content helps people avoid or work through errors. See "[Trouble
 Further reading sections highlight additional targeted articles that aren’t already included within the article’s content or sidebar. Use further reading sections sparingly when they provide real value.
 
 #### How to write a further reading section
-- Use a bulleted list. 
+- Use a bulleted list.
 - Use further reading sections sparingly and when they provide high value - see style guide for guidelines on linking.
 
 #### Title and format for further reading sections
