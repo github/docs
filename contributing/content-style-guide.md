@@ -1,6 +1,6 @@
 # Content style guide for GitHub Docs <!-- omit in toc -->
 
-**Note:** This version of the style guide is no longer maintained and will be deprecated. See the [content model](https://docs.github.com/en/contributing/writing-for-github-docs/content-model) on docs.github.com for the most up to date version. Open any pull requests against the `contributing/writing-for-github-docs/content-model.md` file.
+**Note:** This version of the style guide is no longer maintained and will be deprecated. See the [style guide](https://docs.github.com/contributing/style-guide-and-content-model/style-guide) on docs.github.com for the most up-to-date version. Open any pull requests against the `contributing/style-guide-and-content-model/style-guide.md` file.
 
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
