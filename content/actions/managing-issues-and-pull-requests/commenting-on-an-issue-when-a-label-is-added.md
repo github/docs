@@ -19,9 +19,9 @@ shortTitle: Add label to comment on issue
 
 ## Introduction
 
-This tutorial demonstrates how to use the [GitHub CLI](https://cli.github.com/manual/) to comment on an issue when a specific label is applied. For example, when the `help wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue.
+This tutorial demonstrates how to use the {% data variables.product.prodname_cli %} to comment on an issue when a specific label is applied. For example, when the `help wanted` label is added to an issue, you can add a comment to encourage contributors to work on the issue. For more information about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/actions/using-workflows/using-github-cli-in-workflows)."
 
-In the tutorial, you will first make a workflow file that uses the [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) command. Then, you will customize the workflow to suit your needs.
+In the tutorial, you will first make a workflow file that uses the `gh issue comment` command to comment on an issue. Then, you will customize the workflow to suit your needs.
 
 ## Creating the workflow
 
@@ -43,11 +43,10 @@ In the tutorial, you will first make a workflow file that uses the [`gh issue co
           issues: write
         steps:
           - name: Add comment
-            run: gh issue comment "$NUMBER" --repo "$REPO" --body "$BODY"
+            run: gh issue comment "$NUMBER" --body "$BODY"
             env:
-              GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
               NUMBER: {% raw %}${{ github.event.issue.number }}{% endraw %}
-              REPO: {% raw %}${{ github.repository }}{% endraw %}
               BODY: >
                 This issue is available for anyone to work on.
                 **Make sure to reference this issue in your pull request.**
