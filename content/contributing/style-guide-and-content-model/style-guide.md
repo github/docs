@@ -460,7 +460,7 @@ For example, the Free, Pro, & Team version of "[AUTOTITLE](/organizations/managi
 ```text
 You can choose to allow or disallow the publication of GitHub Pages sites.
 
-Organizations that use G{% data variables.product.prodname_ghe_cloud %} can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/{{ currentArticle }}).
+{% raw %}Organizations that use {% data variables.product.prodname_ghe_cloud %} can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/{{ currentArticle }}).{% endraw %}
 ```
 
 To link to a different article in a different version, use this format:
@@ -472,10 +472,10 @@ For more information, see "[ARTICLE TITLE](/)" in the VERSION documentation.
 To link to the same article in a different version, use this format:
 
 ```markdown
-For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
+{% raw %}For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).{% endraw %}
 ```
 
-To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
+To link to a specific version, you must include the version in the path (e.g., `{% raw %}/enterprise-cloud@latest/{{ currentArticle }}{% endraw %}`).
 
 ### Links to specific sections of articles
 
