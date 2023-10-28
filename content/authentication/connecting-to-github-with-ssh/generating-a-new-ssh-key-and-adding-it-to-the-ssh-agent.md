@@ -213,7 +213,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    ```shell
    ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
    ```
-  
+
    {% endmac %}
 
    {% windows %}
@@ -223,6 +223,15 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    ```
 
    {% endwindows %}
+
+   {% linux %}
+
+   ```shell
+   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
+   ```
+
+   {% endlinux %}
+
    {%- ifversion not ghae %}
    {% note %}
 
@@ -234,6 +243,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
    {% endnote %}
    {%- endif %}
+
 1. When you are prompted, touch the button on your hardware security key.
 1. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
 
