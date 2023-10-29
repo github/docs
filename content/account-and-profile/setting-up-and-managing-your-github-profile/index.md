@@ -11,8 +11,8 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - Profiles
-children:
+  - Profiles:
+  -  admin
   - /customizing-your-profile
   - /managing-contribution-settings-on-your-profile
 ---
