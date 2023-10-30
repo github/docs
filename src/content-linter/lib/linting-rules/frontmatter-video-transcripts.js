@@ -4,13 +4,10 @@ import path from 'path'
 import { getFrontmatter } from '../helpers/utils.js'
 
 export const frontmatterVideoTranscripts = {
-  names: ['GH036', 'frontmatter-video-transcripts'],
-  description:
-    'Video transcripts must be configured correctly. This rule checks the filepaths and metadata for files that are related to video transcripts.',
-  tags: ['frontmatter'],
-  severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GH036(params, onError) {
+  names: ['GH011', 'frontmatter-video-transcripts'],
+  description: 'Video transcript must be configured correctly',
+  tags: ['frontmatter', 'feature', 'video-transcripts'],
+  function: (params, onError) => {
     const filepath = params.name
 
     const fm = getFrontmatter(params.lines)

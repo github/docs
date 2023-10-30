@@ -8,10 +8,6 @@ redirect_from:
   - /discussions/guides/finding-discussions-across-multiple-repositories
 ---
 
-{% ifversion global-nav-update %}
-{% data reusables.navigation.global-nav-beta-note %}
-{% endif %}
-
 ## Finding discussions
 
 {% ifversion global-nav-update %}

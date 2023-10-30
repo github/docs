@@ -1,9 +1,9 @@
 ---
 title: Using GitHub-curated alert rules to prioritize Dependabot alerts
 intro: 'You can use a {% data variables.product.company_short %}-curated alert rule to auto-dismiss low impact development alerts for npm dependencies.'
-permissions: 'People with write permissions can view {% data variables.product.prodname_dependabot %} alert rules for the repository. People with with admin permissions to a repository, or the security manager role for the repository, can enable or disable {% data variables.product.prodname_dependabot %} alert rules for the repository.'
+permissions: 'People with write permissions can view {% data variables.product.prodname_dependabot %} alert rules for the repository. People with admin permissions to a repository can enable or disable {% data variables.product.company_short %}-curated alert rules for the repository. Organization owners and security managers can enable or disable {% data variables.product.company_short %}-curated alert rules at the organization-level and optionally choose to enforce rules for repositories in the organization.'
 versions:
-  feature: dependabot-alert-rules-auto-dismissal-npm-dev-dependencies
+  feature: dependabot-auto-triage-rules
 type: how_to
 topics:
   - Dependabot
@@ -44,19 +44,12 @@ By default, {% data variables.product.company_short %}-curated {% data variables
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% ifversion dependabot-alert-custom-rules-repo-level %}
 1. Under "{% data variables.product.prodname_dependabot_alerts %}", click {% octicon "gear" aria-label="The Gear icon" %} close to "{% data variables.product.prodname_dependabot %} rules".
 
    ![Screenshot of the "Code security and analysis" page for a repository. The gear icon is highlighted with an orange outline.](/assets/images/help/repository/dependabot-rules-page.png)
 
 1. Select **Dismiss low impact alerts**.
 1. Click **Save rules**.
-{% else %}
-1. Under "{% data variables.product.prodname_dependabot_alerts %}", click **Dismiss low impact alerts**.
-
-   ![Screenshot of the "Code security and analysis" page for a repository. The "Dismiss low impact alerts" option is highlighted with an orange outline.](/assets/images/help/repository/enable-autodismissal-low-impact-dependabot-alerts.png)
-
-{% endif %}
 
 ## Publicly disclosed CWEs used by the `Dismiss low impact alerts` rule
 

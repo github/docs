@@ -140,6 +140,11 @@ export const Header = () => {
     return width
   }
 
+  let homeURL = `/${router.locale}`
+  if (currentVersion !== DEFAULT_VERSION) {
+    homeURL += `/${currentVersion}`
+  }
+
   return (
     <>
       <div
@@ -168,7 +173,7 @@ export const Header = () => {
               id="github-logo"
             >
               <Link
-                href={`/${router.locale}`}
+                href={homeURL}
                 className="d-flex flex-items-center color-fg-default no-underline mr-3"
               >
                 <MarkGithubIcon size={32} />

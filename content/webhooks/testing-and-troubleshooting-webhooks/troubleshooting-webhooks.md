@@ -43,7 +43,7 @@ If you require more than {% ifversion ghes or ghae %}250{% else %}20{% endif %} 
 
 You cannot use `localhost` or `127.0.0.1` as a webhook URL.
 
-If you want to deliver webhooks to your local server for testing, you can use a webhook forwarding service like smee.io. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)."
+To deliver webhooks to your local server for testing, you can use a webhook forwarding service. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)" or visit https://smee.io/.
 
 ## Failed to connect to host
 
@@ -61,7 +61,7 @@ You should make sure that your server allows connections from {% data variables.
 
 The `timed out` error indicates that {% data variables.product.company_short %} did not receive a response from your server within {% ifversion fpt or ghec %}10{% else %}30{% endif %} seconds of delivering a webhook.
 
-Your server should respond with a 2XX response within {% ifversion fpt or ghec %}10{% else %}30{% endif %} seconds of receiving a webhook delivery. If your server takes longer than that to respond, then {% data variables.product.company_short %} terminates the connection and considers the delivery a failure.
+Your server should respond with a 2xx response within {% ifversion fpt or ghec %}10{% else %}30{% endif %} seconds of receiving a webhook delivery. If your server takes longer than that to respond, then {% data variables.product.company_short %} terminates the connection and considers the delivery a failure.
 
 In order to respond in a timely manner, you may want to set up a queue to process webhook payloads asynchronously. Your server can respond when it receives the webhook, and then process the payload in the background without blocking future webhook deliveries. For example, you can use services like [Hookdeck](https://hookdeck.com) or libraries like [Resque](https://github.com/resque/resque/) (Ruby), [RQ](http://python-rq.org/) (Python), or [RabbitMQ](http://www.rabbitmq.com/).
 

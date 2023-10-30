@@ -1031,7 +1031,13 @@ function getRetryAfterSleep(headerValue) {
 }
 
 function checkImageSrc(src, $) {
+  if (!src.startsWith('/') && !src.startsWith('http')) {
+    return { CRITICAL: 'Image path is not absolute. Should start with a /' }
+  }
   const pathname = new URL(src, 'http://example.com').pathname
+  if (pathname.startsWith('http://')) {
+    return { CRITICAL: "Don't use insecure HTTP:// for external images" }
+  }
   if (!pathname.startsWith('/')) {
     return { WARNING: "External images can't not be checked" }
   }

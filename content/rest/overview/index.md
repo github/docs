@@ -10,7 +10,7 @@ versions:
 topics:
   - API
 children:
-  - /about-githubs-apis
+  - /comparing-githubs-rest-api-and-graphql-api
   - /resources-in-the-rest-api
   - /api-versions
   - /media-types

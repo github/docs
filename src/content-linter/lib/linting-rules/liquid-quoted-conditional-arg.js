@@ -13,10 +13,10 @@ import { isStringQuoted } from '../helpers/utils.js'
   {% ifversion "bar" %}
 */
 export const liquidQuotedConditionalArg = {
-  names: ['LQ111', 'liquid-quoted-conditional-arg'],
-  description: 'Liquid conditional tags should not quote the conditional argument.',
-  tags: ['liquid', 'formatting'],
-  function: function LQ111(params, onError) {
+  names: ['GHD016', 'liquid-quoted-conditional-arg'],
+  description: 'Liquid conditional tags should not quote the conditional argument',
+  tags: ['liquid', 'format'],
+  function: (params, onError) => {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
       .filter((token) => token.kind === TokenKind.Tag)
@@ -41,7 +41,7 @@ export const liquidQuotedConditionalArg = {
       addError(
         onError,
         lineNumber,
-        "A conditional Liquid tag's argument is quoted, meaning it will always evaluate to true. Remove the quotes to allow Liquid to evaluate variable.",
+        "A conditional Liquid tag's argument is quoted, meaning it will always evaluate to true. Remove the quotes to allow Liquid to evaluate the variable.",
         token.content,
         [column, length],
         {

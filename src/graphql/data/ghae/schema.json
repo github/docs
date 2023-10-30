@@ -1822,7 +1822,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -1880,7 +1880,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -15879,7 +15879,7 @@
               "Mutation.createDeployment"
             ],
             "owning_teams": [
-              "@github/c2c-actions-service"
+              "@github/pages"
             ],
             "accept_header": "application/vnd.github.flash-preview+json",
             "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -35905,6 +35905,14 @@
           "id": "defaultrepositorypermissionfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#defaultrepositorypermissionfield"
+        },
+        {
+          "name": "roleName",
+          "description": "<p>The name of the role this source has granted to the user.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "source",
@@ -68476,6 +68484,10 @@
         {
           "name": "TRADE_RESTRICTION",
           "description": "<p>The repository is locked due to a trade controls related reason.</p>"
+        },
+        {
+          "name": "TRANSFERRING_OWNERSHIP",
+          "description": "<p>The repository is locked due to an ownership transfer.</p>"
         }
       ]
     },
@@ -73560,7 +73572,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"
@@ -73659,7 +73671,7 @@
           "Mutation.createDeployment"
         ],
         "owning_teams": [
-          "@github/c2c-actions-service"
+          "@github/pages"
         ],
         "accept_header": "application/vnd.github.flash-preview+json",
         "href": "/graphql/overview/schema-previews#deployments-preview"

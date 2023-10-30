@@ -189,15 +189,30 @@ Use italics to emphasize words or parts of a sentence. Use emphasis sparingly fo
 
 Avoid using footnotes where possible. Consider instead whether you could use a [callout](#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
 
-If you must use footnotes:
+If you must use footnotes, use [Markdown-native footnotes](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes) (`[^1]`). Footnote markers will be hyperlinked to the footnote reference, which will be listed at the bottom of the page with a backlink to the marker.
 
-- Use numbers. Do not use typographical symbols or special characters.
-- Place footnote markers in square brackets: `[1]`.
-- Do not use superscript.
+Note that regardless of the identifier you use (letters, words), footnotes will render as sequential numbers.
+
+| | Mona | Ursula | Paul | Davy Jones[^1] |
+|---|---|---|---|---|
+|Favorite pastime| Shipping code | Tricking mermaids[^2] | Predicting sports | Haunting seafarers |
+|Uses powers for good| Yes | No | Yes | No |
+
+[^1]: Not to be confused with Davy Jones of The Monkees
+[^2]: Also humans
+
+````markdown
+| | Mona | Ursula | Paul | Davy Jones[^1] |
+|---|---|---|---|---|
+|Favorite pastime| Shipping code | Tricking mermaids[^2] | Predicting sports | Haunting seafarers |
+|Uses powers for good| Yes | No | Yes | No |
+[^1]: Not to be confused with Davy Jones of The Monkees
+[^2]: Also humans
+````
 
 ## Headers
 
-Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
+Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Use sentence casing for headers. Each header on a page must be unique.
 
 Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
@@ -445,7 +460,7 @@ For example, the Free, Pro, & Team version of "[AUTOTITLE](/organizations/managi
 ```text
 You can choose to allow or disallow the publication of GitHub Pages sites.
 
-Organizations that use G{% data variables.product.prodname_ghe_cloud %} can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/{{ currentArticle }}).
+{% raw %}Organizations that use {% data variables.product.prodname_ghe_cloud %} can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/{{ currentArticle }}).{% endraw %}
 ```
 
 To link to a different article in a different version, use this format:
@@ -457,10 +472,10 @@ For more information, see "[ARTICLE TITLE](/)" in the VERSION documentation.
 To link to the same article in a different version, use this format:
 
 ```markdown
-For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
+{% raw %}For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).{% endraw %}
 ```
 
-To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
+To link to a specific version, you must include the version in the path (e.g., `{% raw %}/enterprise-cloud@latest/{{ currentArticle }}{% endraw %}`).
 
 ### Links to specific sections of articles
 
@@ -519,7 +534,15 @@ Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
 - If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).
 
-When introducing a list, avoid phrasing like “the following” or “these”, terms which are difficult to localize. Instead, be descriptive, yet general enough to allow a list to scale or change without having to update the description.
+When introducing a list, avoid short, nonspecific sentences using terms like “the following” or “these”, which are difficult to localize without context. Instead, create a descriptive sentence that clearly conveys the subject of the list, yet allows the list to scale or change without having to update the description.
+
+**Use:**
+- For an introduction to {% data variables.product.prodname_dotcom %}, see the following articles:
+- SMS authentication is supported in these countries:
+
+**Avoid:**
+- There are several articles that provide an introduction to {% data variables.product.prodname_dotcom %}. See the following:
+- SMS authentication is supported in 50 countries. These include:
 
 ## Placeholders
 
@@ -1225,6 +1248,8 @@ Use clear, simple language that’s approachable for a wide range of readers. Be
 
 Write for your audience: some jargon and technical terms are necessary, but don't rely on the assumption that every reader has the same level of technical expertise.
 
+Use the active voice whenever possible. Passive voices is acceptable when you need to emphasize the object of an action.
+
 We are a global developer community. Avoid turns of phrase, idioms, and slang that are specific to a particular region or country.
 
 To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
@@ -1416,10 +1441,40 @@ See the “[Product names](#product-names)” section of this guide.
 | type (in the user interface) | enter (in the user interface) |
 | enter (in the command line) | type (in the command line) |
 
-## Word order
+## Word choice
+
+### Ambiguous verbs
+
+When a task is required, or one option is preferred to another, avoid using ambiguous modal auxiliary verbs such as "may," "might," "ought," "should," "could," "would," and "can." These verbs can be interpreted as either a command or a suggestion. Instead, use verbs that clearly indicate whether the action is required or optional. If something is an option or suggestion, you can use these verbs so long as you make it clear that the action is optional.
+
+- **Use:** You can decide which keyboard shortcuts to use.
+- **Use:** Use the `git clone` command to clone a repository.
+- **Avoid:** You can use the `git clone` command to clone a repository.
+- **Avoid:** You could delete the branch.
+
+### Invisible plurals
+
+Avoid invisible plurals, which are words that have ambiguous meaning because they can be interpreted as singular or plural. For example, "file retrieval" could refer to retrieving a single file or multiple files.
+
+- **Use:** After the file is retrieved, select where to save it.
+- **Avoid:** After file retrieval, select where to save it.
+
+### Nominalizations
+
+Avoid nominalizations, which are nouns created from verbs or adjectives. Nominalizations can make sentences longer, harder to understand, and harder to translate.
+
+- **Use:** After the workflow concludes, the package will be visible.
+- **Avoid:** After the workflow has reached its conclusion, the package will be visible.
 
 ### Strings of nouns
 
 Avoid stacked modifiers (strings of nouns), which can lead to incorrect translations because translations may not be able to tell which word is modifying the other. You can rephrase the string of nouns using a preposition. If using a stacked modifier is essential, make sure the background information and context are clear so that readers and the translator can understand what is being modified.
 - **Use:** Default source settings for public repositories
 - **Avoid:** Public repository default source settings
+
+### Vague nouns and pronouns
+
+If a pronoun seems to refer to more than one antecedent, either reword the sentence to make the antecedent clear or replace the pronoun with a noun to eliminate ambiguity.
+
+- **Use:** After you make your final commit to your branch and merge your pull request, you can delete your branch.
+- **Avoid:** After you make your final commit to your branch and merge your pull request, you can delete it.

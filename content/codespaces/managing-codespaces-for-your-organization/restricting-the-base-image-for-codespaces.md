@@ -35,7 +35,7 @@ If the image specified in the dev container configuration does not match one of 
 {% note %}
 
 **Notes**:
-- The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)."
+- The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle#rebuilding-a-codespace)."
 - The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
 
 {% endnote %}
@@ -84,7 +84,7 @@ The policy is applied when anyone attempts to create a new codespace that is bil
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
 1. Click the name of the policy you want to edit.
 1. Beside the "Base images" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Add or remove image URLs.
@@ -92,5 +92,5 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 ## Deleting a policy
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
 {% data reusables.codespaces.delete-codespace-policy %}

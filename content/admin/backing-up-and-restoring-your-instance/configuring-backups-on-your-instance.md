@@ -274,7 +274,7 @@ Optionally, to validate the restore, configure an IP exception list to allow acc
 
 On an instance in a high-availability configuration, after you restore to new disks on an existing or empty instance, `ghe-repl-status` may report that Git or Alambic replication is out of sync due to stale server UUIDs. These stale UUIDs can be the result of a retired node in a high-availability configuration still being present in the application database, but not in the restored replication configuration.
 
-To remediate after the restoration completes and before starting replication, you can tear down stale UUIDs using `ghe-repl-teardown`. If you need further assistance, contact {% data variables.contact.contact_ent_support %}.
+To remediate after the restoration completes and before starting replication, you can tear down stale UUIDs using `ghe-repl-teardown`. If you need further assistance, visit {% data variables.contact.contact_ent_support %}.
 
 {% ifversion backup-utilities-progress %}
 

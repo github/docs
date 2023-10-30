@@ -18,13 +18,12 @@ const EARLY_ACCESS_REGEX = /early-access/gi
 const EARLY_ACCESS_ARTICLE_REGEX = /-early-access-/
 
 export const earlyAccessReferences = {
-  names: ['GH035', 'early-access-references'],
+  names: ['GHD008', 'early-access-references'],
   description:
-    'Files that are not early access should not reference early-access or early-access files.',
-  tags: ['early-access'],
+    'Files that are not early access should not reference early-access or early-access files',
+  tags: ['feature', 'early-access'],
   severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GH035(params, onError) {
+  function: (params, onError) => {
     if (isEarlyAccessFilepath(params.name)) return
 
     // Find errors in content
@@ -46,13 +45,11 @@ export const earlyAccessReferences = {
 }
 
 export const frontmatterEarlyAccessReferences = {
-  names: ['GH060', 'frontmatter-early-access-references'],
+  names: ['GHD009', 'frontmatter-early-access-references'],
   description:
-    'Files that are not early access should not have frontmatter that references early-access.',
-  tags: ['early-access', 'frontmatter'],
-  severity: 'error',
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GH060(params, onError) {
+    'Files that are not early access should not have frontmatter that references early-access',
+  tags: ['frontmatter', 'feature', 'early-access'],
+  function: (params, onError) => {
     const filepath = params.name
     if (isEarlyAccessFilepath(filepath)) return
 

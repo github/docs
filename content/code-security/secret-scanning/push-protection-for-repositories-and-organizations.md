@@ -103,7 +103,7 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
-{% ifversion secret-scanning-push-protection %}
+{% ifversion secret-scanning-push-protection-custom-patterns %}
 
 ## Enabling push protection for a custom pattern
 

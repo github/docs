@@ -38,10 +38,10 @@ If you're a Premium Plus customer and want to generate a Health Check for {% dat
 
 Before you can generate a Health Check, you must create a support bundle. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
 
-1. Navigate to the [{% data variables.contact.support_portal %}](https://support.github.com/).
+1. Navigate to the {% data variables.contact.contact_landing_page_portal %}.
 1. In the upper-right corner of the page, click **Premium**.
 1. To the right of **Health Checks**, click **Request Health Check**.
 1. Under "Select an enterprise account", use the drop-down menu to select an enterprise account.
 1. Under "Upload a support bundle", click **Chose File** and choose a file to upload. Then, click **Request Health Check**.
 
-After you request a Health Check, a job is scheduled to generate the Health Check. After several hours to one day, the generated Health Check will appear in the "Health Checks" section of the {% data variables.contact.support_portal %}.
+After you request a Health Check, a job is scheduled to generate the Health Check. After several hours to one day, the generated Health Check will appear in the "Health Checks" section of the {% data variables.contact.landing_page_portal %}.

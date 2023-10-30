@@ -2,11 +2,10 @@ import { filterTokens, addError } from 'markdownlint-rule-helpers'
 import { getRange } from '../helpers/utils.js'
 
 export const internalLinksOldVersion = {
-  names: ['GHD010', 'internal-links-old-version'],
-  description: 'Internal links must not have a hardcoded version using old versioning patterns',
-  tags: ['links', 'url'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD010(params, onError) {
+  names: ['GHD006', 'internal-links-old-version'],
+  description: 'Internal links must not have a hardcoded version using old versioning syntax',
+  tags: ['links', 'url', 'versioning'],
+  function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       if (
         params.name.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||

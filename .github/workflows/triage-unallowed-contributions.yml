@@ -20,6 +20,7 @@ on:
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:

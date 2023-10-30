@@ -1,9 +1,9 @@
 ---
 title: About Dependabot alert rules
-intro: 'You can use {% data variables.product.prodname_dependabot %} alert rules to auto-triage alerts, so you can reduce false positives and better prioritize the alerts that you''re interested in.'
-permissions: 'People with write permissions can view {% data variables.product.prodname_dependabot %} alert rules for the repository. People with with admin permissions to a repository, or the security manager role for the repository, can enable or disable {% data variables.product.prodname_dependabot %} alert rules for the repository{% ifversion dependabot-alert-custom-rules-repo-level %}, as well as create custom alert rules{% endif %}.'
+intro: 'Auto-triage rules are a powerful tool to help you better manage your security alerts at scale. {% data variables.product.prodname_dependabot %}''s default rulesets are curated for you and filter out a substantial amount of false positives. Custom auto-triage rules provide control over which alerts are ignored, snoozed, or trigger a {% data variables.product.prodname_dependabot %} security update to resolve the alert.'
+permissions: 'People with write permissions can view {% data variables.product.prodname_dependabot %} alert rules for the repository. People with admin permissions to a repository can enable or disable {% data variables.product.prodname_dependabot %} alert rules for the repository, as well as create custom alert rules. Additionally, organization owners and security managers can set alert rules at the organization-level and optionally choose to enforce rules for repositories in the organization.'
 versions:
-  feature: dependabot-alert-rules-auto-dismissal-npm-dev-dependencies
+  feature: dependabot-auto-triage-rules
 type: overview
 topics:
   - Dependabot
@@ -20,9 +20,8 @@ redirect_from:
 
 ## About {% data variables.product.prodname_dependabot %} alert rules
 
-{% data variables.product.prodname_dependabot %} alert rules allow you to instruct {% data variables.product.prodname_dependabot %} to automatically dismiss or reopen certain alerts, based on complex logic from a variety of contextual criteria.
+{% data variables.product.prodname_dependabot %} alert rules allow you to instruct {% data variables.product.prodname_dependabot %} to automatically triage {% data variables.product.prodname_dependabot_alerts %}. You can use alert rules to auto-dismiss or snooze certain alerts, or specify the alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
 
-{% ifversion dependabot-alert-custom-rules-repo-level %}
 There are two types of {% data variables.product.prodname_dependabot %} alert rules:
 
 - A {% data variables.product.company_short %}-curated rule, called `Dismiss low impact alerts`
@@ -30,7 +29,7 @@ There are two types of {% data variables.product.prodname_dependabot %} alert ru
 
 The {% data variables.product.company_short %}-curated rule, `Dismiss low impact alerts`, auto-dismisses certain types of vulnerabilities that are found in npm dependencies used in development. The rule has been curated to reduce false positives and reduce alert fatigue. The rule is enabled by default for public repositories and can be opted into for private repositories. However, you cannot modify {% data variables.product.company_short %}-curated rules. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alert-rules/using-github-curated-alert-rules-to-prioritize-dependabot-alerts)."
 
-With user-created custom rules, you can create your own rules to automatically dismiss or reopen alerts based on your own criteria, such as severity, package name, CWE, and more. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alert-rules/customizing-alert-rules-to-prioritize-dependabot-alerts)."{% endif %}
+With user-created custom rules, you can create your own rules to automatically dismiss or reopen alerts based on your own criteria, such as severity, package name, CWE, and more. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alert-rules/customizing-alert-rules-to-prioritize-dependabot-alerts)."
 
 Whilst you may find it useful to auto-dismiss alerts, you can still reopen auto-dismissed alerts and filter to see which alerts have been auto-dismissed. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alert-rules/managing-automatically-dismissed-alerts)."
 

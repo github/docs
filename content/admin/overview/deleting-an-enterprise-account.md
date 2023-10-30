@@ -14,7 +14,9 @@ shortTitle: Delete enterprise account
 
 ## About enterprise account deletion
 
-Deleting your enterprise account cancels the enterprise license and removes the enterprise account from {% data variables.product.prodname_dotcom %}. If there are any outstanding balances on your account, you will be charged a one-time payment when you initiate the deletion process.
+Deleting your enterprise account cancels the enterprise license and removes the enterprise account from {% data variables.product.prodname_dotcom %}.
+
+If there are any outstanding balances on your account, you will be charged a one-time payment when you initiate the deletion process. If you delete your enterprise account partway through a billing cycle, contact {% data variables.contact.contact_support %} to request a prorated refund for the remainder of the billing cycle.
 
 When you delete your enterprise account, you lose the policies, billing settings, and user roles you've configured. You do not lose data like repositories or packages, unless you choose to delete the organizations that contain that data.
 

@@ -93,3 +93,24 @@ If your {% data variables.product.prodname_ghe_server %} appliance interacts wit
 ## Updating a TLS certificate
 
 You can generate a new self-signed certificate or update an existing TLS certificate for {% data variables.location.product_location %} with the `ghe-ssl-certificate-setup` command line utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)."
+
+### Troubleshooting problems with server communications after updating a TLS certificate
+
+If you encounter issues with communication or other problems on your server after updating a certificate, there may be missing files or symlinks in the install. Check your web log output for the following message.
+
+```text
+ certificate verify failed (unable to get issuer certificate)
+```
+
+If you see this message, it is likely there are missing or misconfigured certificates. This may prevent the application's services from communicating with each other.
+
+To remediate this issue:
+
+1. Back up your current TLS certificates directory.
+1. To refresh certificates and content that may be missing in the`/etc/ssl/certs` directory, run the following command.
+
+   ```shell copy
+   sudo update-ca-certificates --verbose --fresh
+   ```
+
+If you are still having problems, please contact {% data variables.contact.contact_ent_support %}.

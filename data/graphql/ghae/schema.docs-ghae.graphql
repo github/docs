@@ -25659,6 +25659,11 @@ type PermissionSource {
   permission: DefaultRepositoryPermissionField!
 
   """
+  The name of the role this source has granted to the user.
+  """
+  roleName: String
+
+  """
   The source of this permission.
   """
   source: PermissionGranter!
@@ -36713,6 +36718,11 @@ enum RepositoryLockReason {
   The repository is locked due to a trade controls related reason.
   """
   TRADE_RESTRICTION
+
+  """
+  The repository is locked due to an ownership transfer.
+  """
+  TRANSFERRING_OWNERSHIP
 }
 
 """

@@ -26,7 +26,7 @@ There are a number of entry points to create a codespace.
 
 Your codespace can be ephemeral if you need to test something or you can return to the same codespace to work on long-running feature work.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)," "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)," and "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)," "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)," and "[AUTOTITLE](/codespaces/developing-in-a-codespace/opening-an-existing-codespace)."
 
 {% note %}
 
@@ -61,9 +61,9 @@ Since your repository is cloned onto the host VM before the container is created
 When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it by using:
 
 - Your web browser
-- [Visual Studio Code](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)
-- [A JetBrains IDE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)
-- [{% data variables.product.prodname_cli %}](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)
+- [Visual Studio Code](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+- [A JetBrains IDE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)
+- [{% data variables.product.prodname_cli %}](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)
 
 ### Step 4: Post-creation setup
 
@@ -94,9 +94,9 @@ If a codespace times out it will stop running, but you can restart it from the b
 To stop your codespace you can
 
 - In the browser: on your list of codespaces at [https://github.com/codespaces](https://github.com/codespaces), click the ellipsis (**...**) to the right of the codespace you want to stop and click **Stop codespace**.
-- In {% data variables.product.prodname_vscode_shortname %}: open the {% data variables.product.prodname_vscode_command_palette %} - for example, by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) - type `Codespaces: stop` then press <kbd>Enter</kbd>. For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
-- In the JetBrains client, click the stop button at the top of the {% data variables.product.prodname_github_codespaces %} tool window. For more information, see the "JetBrains IDEs" tab of "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
-- In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)."
+- In {% data variables.product.prodname_vscode_shortname %}: open the {% data variables.product.prodname_vscode_command_palette %} - for example, by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd> (Windows/Linux) or <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) - type `Codespaces: stop` then press <kbd>Enter</kbd>. For more information, see "[AUTOTITLE](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace)."
+- In the JetBrains client, click the stop button at the top of the {% data variables.product.prodname_github_codespaces %} tool window. For more information, see the "JetBrains IDEs" tab of "[AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace)."
+- In a terminal window: use the {% data variables.product.prodname_cli %} command `gh codespace stop`. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#gh-commands-for-github-codespaces)."
 
 If you exit your codespace without running the stop command (for example, by closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue for the duration of the inactivity timeout period.
 
@@ -110,9 +110,9 @@ Port forwarding determines which ports are made accessible to you from the remot
 
 ![Diagram showing connections, over the internet, between a code editor or a browser on your device and a codespace on the cloud.](/assets/images/help/codespaces/port-forwarding.png)
 
-When an application running inside {% data variables.product.prodname_github_codespaces %} outputs a port to the console, {% data variables.product.prodname_github_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal, or the link in the "toast" notification message that pops up at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, to open the port in a browser. By default, {% data variables.product.prodname_github_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[AUTOTITLE](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+When an application running inside {% data variables.product.prodname_github_codespaces %} outputs a port to the console, {% data variables.product.prodname_github_codespaces %} detects the localhost URL pattern and automatically forwards the port. You can click on the URL in the terminal, or the link in the "toast" notification message that pops up at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, to open the port in a browser. By default, {% data variables.product.prodname_github_codespaces %} forwards the port using HTTP. For more information on port forwarding, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace)."
 
-While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port)."
+While ports can be forwarded automatically, they are not publicly accessible to the internet. By default, all ports are private, but you can manually make a port available to your organization or public, and then share access through a URL. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace#sharing-a-port)."
 
 Running your application when you first land in your codespace can make for a fast inner dev loop. As you edit, your changes are automatically saved and available on your forwarded port. To view changes, go back to the running application tab in your browser and refresh it.
 
@@ -126,7 +126,7 @@ If you only have read access to a repository, then you can create a codespace fo
 
 If you're working in a codespace created from a template, Git is installed by default, but you will need to publish your codespace to a remote repository to persist your work and to share it with others. If you start from {% data variables.product.company_short %}'s blank template, you first need to initialize your workspace as a Git repository (for example by entering `git init`) to start using source control within the codespace.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)."
 
 {% note %}
 
@@ -158,7 +158,7 @@ If you work on your codespaces in a JetBrains IDE, you can add plugins from the 
 
 ## About the directory structure of a codespace
 
-{% data reusables.codespaces.workspaces-directory %} For more information on the `/tmp` directory, see "[AUTOTITLE](/codespaces/developing-in-codespaces/persisting-environment-variables-and-temporary-files#preventing-temporary-files-from-being-automatically-deleted)."
+{% data reusables.codespaces.workspaces-directory %} For more information on the `/tmp` directory, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/persisting-environment-variables-and-temporary-files#preventing-temporary-files-from-being-automatically-deleted)."
 
 Clearing the directories outside `/workspaces` helps to ensure the rebuilt container is in the same state as it would be in a newly created codespace. If you're rebuilding a container to apply configuration changes to the codespace you're working in, you can be confident that any configuration changes you have made will work the same for users creating new codespaces with the same configuration. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
@@ -166,11 +166,11 @@ If you want to make changes to your codespace that will be more robust over rebu
 
 - To install programs and tools in all codespaces created from a repository, in your dev container configuration, you can use lifecycle command properties such as `postCreateCommand` to run custom installation commands, or you can choose from pre-written installation commands called "features." For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website and "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file)."
 - To install tools or customize your setup in every codespace you create, such as configuring your `bash` profile, you can link {% data variables.product.prodname_github_codespaces %} with a dotfiles repository. The dotfiles repository is also cloned into the persistent `/workspaces` directory. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
-- If you want to preserve specific files over a rebuild, you can use a `devcontainer.json` file to create a symlink between the files and a persistent directory within `/workspaces`. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
+- If you want to preserve specific files over a rebuild, you can use a `devcontainer.json` file to create a symlink between the files and a persistent directory within `/workspaces`. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace#persisting-data-over-a-rebuild)."
 
 ## Further reading
 
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)"
-- "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"
+- "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"

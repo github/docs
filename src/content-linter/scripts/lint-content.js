@@ -207,7 +207,7 @@ async function main() {
       console.log('') // Just for some whitespace before the next message
       console.log(
         `Content linting found ${fixableFiles.length} ${pluralize(fixableFiles, 'file')} ` +
-          'that can be automatically fixed.\nTo apply the fixes run this command:\n',
+          'that can be automatically fixed.\nTo apply the fixes run this command and re-add the changed files:\n',
       )
       console.log(`  npm run lint-content -- --fix --paths ${fixableFiles.join(' ')}\n`)
     }

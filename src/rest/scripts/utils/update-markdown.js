@@ -10,7 +10,7 @@ import { getDocsVersion } from '#src/versions/lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
-const { frontmatterDefaults, targetDirectory } = JSON.parse(
+const { frontmatterDefaults, targetDirectory, indexOrder } = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf-8'),
 )
 
@@ -21,6 +21,7 @@ export async function updateRestFiles() {
     targetDirectory,
     sourceContent: restMarkdownContent,
     frontmatter: frontmatterDefaults,
+    indexOrder,
   })
 }
 
