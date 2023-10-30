@@ -59,7 +59,7 @@ The policy is applied when anyone attempts to create a new codespace that is bil
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the maximum codespaces per user](#adding-a-policy-to-define-the-maximum-codespaces-per-user)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to define the maximum codespaces per user](#adding-a-policy-to-define-the-maximum-codespaces-per-user)."
 1. Click the name of the policy you want to edit.
 1. Beside the "Maximum codespaces per user" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Edit the maximum number of codespaces.
@@ -67,5 +67,5 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 ## Deleting a policy
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the maximum codespaces per user](#adding-a-policy-to-define-the-maximum-codespaces-per-user)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to define the maximum codespaces per user](#adding-a-policy-to-define-the-maximum-codespaces-per-user)."
 1. Click {% octicon "trash" aria-label="The trash can icon" %} to the right of the policy you want to delete.
