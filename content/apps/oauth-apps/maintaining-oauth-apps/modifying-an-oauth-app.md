@@ -1,3 +1,4 @@
+![IMG_20231020_054719](https://github.com/github/docs/assets/142044318/e821f0cc-d3f0-41ba-84e9-f85ac0b472bb)
 ---
 title: Modifying an OAuth app
 intro: '{% data reusables.shortdesc.modifying_oauth_apps %}'
