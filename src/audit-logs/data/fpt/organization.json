@@ -3061,37 +3061,27 @@
   },
   {
     "action": "vulnerability_alert_rule.create",
-    "description": "A Dependabot rule was created.",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.delete",
-    "description": "A Dependabot rule was deleted.",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.disable",
-    "description": "A Dependabot rule was disabled for a single repository or disabled by default for an organization.",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.enable",
-    "description": "A Dependabot rule was enabled for a single repository or enabled by default for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "vulnerability_alert_rule.force_disable",
-    "description": "A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "vulnerability_alert_rule.force_enable",
-    "description": "A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.update",
-    "description": "A Dependabot rule's conditions, actions, or metadata changed.",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
