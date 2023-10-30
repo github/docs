@@ -46,7 +46,7 @@ jobs:
 
   filterContentDir:
     needs: PR-Preview-Links
-    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
+    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs') }}
     runs-on: ubuntu-latest
     env:
       PR_NUMBER: ${{ github.event.pull_request.number }}
