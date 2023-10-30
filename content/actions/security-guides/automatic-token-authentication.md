@@ -121,6 +121,12 @@ The two workflow examples earlier in this article show the `permissions` key bei
 
 For full details of the `permissions` key, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#permissions)."
 
+{% note %}
+
+**Note:** You may have the read-and-write permissions option disabled in your settings due to restrictions set by an organization owner or enterprise owner. These can be reconfigured by the organization owner [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md#setting-the-permissions-of-the-github_token-for-your-organization) or by the enterprise owner [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise.md#enforcing-a-policy-for-workflow-permissions-in-your-enterprise).
+
+{% endnote %}
+
 #### How the permissions are calculated for a workflow job
 
 The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
