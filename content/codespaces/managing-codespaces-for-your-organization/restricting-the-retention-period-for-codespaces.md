@@ -72,7 +72,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 The retention period constraint is only applied to codespaces when they are created. Editing a policy has no effect on existing codespaces.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
 1. Click the name of the policy you want to edit.
 1. Beside the "Retention period" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Make the required changes then click **Save**.
@@ -81,6 +81,6 @@ The retention period constraint is only applied to codespaces when they are crea
 
 You can delete a policy at any time. Deleting a policy has no effect on existing codespaces.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to set a maximum codespace retention period](#adding-a-policy-to-set-a-maximum-codespace-retention-period)."
 1. Click the delete button to the right of the policy you want to delete.
 {% data reusables.codespaces.delete-codespace-policy %}
