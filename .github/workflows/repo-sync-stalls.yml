@@ -15,10 +15,10 @@ permissions:
 
 jobs:
   repo-sync-stalls:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-        name: Check if repo sync is stalled
+      - name: Check if repo sync is stalled
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           script: |
