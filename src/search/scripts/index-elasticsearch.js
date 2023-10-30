@@ -339,9 +339,22 @@ async function indexVersion(client, indexName, version, language, sourceDirector
     mappings: {
       properties: {
         url: { type: 'keyword' },
-        title: { type: 'text', analyzer: 'text_analyzer', norms: false },
+        title: {
+          type: 'text',
+          analyzer: 'text_analyzer',
+          norms: false,
+          // This is used for fast highlighting. Uses more space but makes
+          // the searches faster.
+          term_vector: 'with_positions_offsets',
+        },
         title_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
-        content: { type: 'text', analyzer: 'text_analyzer' },
+        content: {
+          type: 'text',
+          analyzer: 'text_analyzer',
+          // This is used for fast highlighting. Uses more space but makes
+          // the searches faster.
+          term_vector: 'with_positions_offsets',
+        },
         content_explicit: { type: 'text', analyzer: 'text_analyzer_explicit' },
         headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
         headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
