@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   validate-asset-images:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo

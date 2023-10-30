@@ -69,12 +69,12 @@ The policy will be applied to all new codespaces that are billable to your organ
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 1. Click the name of the policy you want to edit.
 1. Beside the "Maximum idle timeout" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Make the required changes then click **Save**.
 
 ## Deleting a policy
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 {% data reusables.codespaces.delete-codespace-policy %}
