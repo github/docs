@@ -590,7 +590,7 @@ on:
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 - {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
 
 - Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
