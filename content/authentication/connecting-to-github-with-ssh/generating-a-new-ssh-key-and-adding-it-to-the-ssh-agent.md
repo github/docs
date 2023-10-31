@@ -227,7 +227,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    {% linux %}
 
    ```shell
-   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
+   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "your_email@example.com"
    ```
 
    {% endlinux %}
