@@ -123,7 +123,7 @@ For full details of the `permissions` key, see "[AUTOTITLE](/actions/using-workf
 
 {% note %}
 
-**Note:** You may have the read-and-write permissions option disabled in your settings due to restrictions set by an organization owner or enterprise owner. These can be reconfigured by the organization owner [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization) or by the enterprise owner [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise).
+**Note:** Organization{% ifversion not fpt %} and enterprise{% endif %} owners can prevent you from granting write access to the `GITHUB_TOKEN` at the repository level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization){% ifversion not fpt %} and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)."{% else %}."{% endif %}
 
 {% endnote %}
 
