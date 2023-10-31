@@ -1,9 +1,11 @@
 ---
-title: Libraries
-intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+title: Libraries for the REST API
+shortTitle: Libraries
+intro: 'You can use the official Octokit libraries and other third-party libraries to extend and simplify how you use the {% data variables.product.company_short %} API.'
 redirect_from:
   - /libraries
   - /v3/libraries
+  - /rest/overview/libraries
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,23 +15,34 @@ topics:
   - API
 ---
 
-## Official {% data variables.product.company_short %} Octokit libraries
+## About libraries
 
-{% note %}
+You can use libraries to extend and simplify the way your application interacts with {% data variables.product.company_short %}'s API. Each library provides pre-built code for a specific programming language. After integrating a library into your project, you can use the pre-built code modules to interact with {% data variables.product.company_short %}'s API via a specific programming language.
 
-**Note:** If you have a specific Octokit issue, please open an issue in the corresponding Octokit repository. Although the official Octokit repositories are maintained by {% data variables.product.company_short %}, they are open source and community contributions are welcome.
+{% data variables.product.company_short %} maintains official Octokit libraries for some languages. There are also third-party libraries that you can use with {% data variables.product.company_short %}'s API, which are not maintained by {% data variables.product.company_short %}.
 
-{% endnote %}
+## Official {% data variables.product.company_short %} libraries
 
-- JavaScript: [octokit.js](https://github.com/octokit/octokit.js). For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
+{% data variables.product.company_short %} maintains these official client libraries for the {% data variables.product.company_short %} API. These repositories are open source, and community contributions are welcome.
+
+For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)" and "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-ruby)."
+
+- JavaScript: [octokit.js](https://github.com/octokit/octokit.js)
 - Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)
 - .NET: [octokit.net](https://github.com/octokit/octokit.net)
+- Terraform: [terraform-provider-github](https://github.com/integrations/terraform-provider-github)
+
+<!-- markdownlint-disable GHD034 -->
 
 ## Third-party libraries
 
+The following are examples of third-party libraries that you can use to interact with the {% data variables.product.company_short %} API in various programming languages.
+
+These third-party libraries are not maintained by {% data variables.product.company_short %}. Libraries provided by third parties are governed by separate terms of service, privacy policy, and support documentation.
+
 ### Clojure
 
-- Tentacles: [Raynes/tentacles](https://github.com/clj-commons/tentacles)
+- Tentacles: [clj-commons/tentacles](https://github.com/clj-commons/tentacles)
 
 ### Dart
 
@@ -39,17 +52,13 @@ topics:
 
 - gh.el: [sigma/gh.el](https://github.com/sigma/gh.el)
 
-### Erlang
-
-- octo-erl: [sdepold/octo.erl](https://github.com/sdepold/octo.erl)
-
 ### Go
 
 - go-github: [google/go-github](https://github.com/google/go-github)
 
 ### Haskell
 
-- haskell-github: [fpco/Github](https://github.com/fpco/GitHub)
+- haskell-github: [haskell-github/github](https://github.com/fpco/github)
 
 ### Java
 
@@ -59,8 +68,7 @@ topics:
 ### JavaScript
 
 - NodeJS GitHub library: [pksunkara/octonode](https://github.com/pksunkara/octonode)
-- gh3 client-side API wrapper: [k33g/gh3](https://github.com/k33g/gh3)
-- Github.js wrapper around the GitHub API: [michael/github](https://github.com/michael/github)
+- Github.js wrapper around the GitHub API: [github-tools/github](https://github.com/github-tools/github)
 - Promise-Based CoffeeScript library for the Browser or NodeJS: [philschatz/github-client](https://github.com/philschatz/github-client)
 
 ### Julia
@@ -88,23 +96,19 @@ topics:
 
 ### Python
 
-- gidgethub: [brettcannon/gidgethub](https://github.com/brettcannon/gidgethub)
+- gidgethub: [gidgethub/gidgethub](https://github.com/gidgethub/gidgethub)
 - ghapi: [fastai/ghapi](https://github.com/fastai/ghapi)
 - PyGithub: [PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)
 - libsaas: [duckboard/libsaas](https://github.com/ducksboard/libsaas)
 - github3.py: [sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py)
-- sanction: [demianbrecht/sanction](https://github.com/demianbrecht/sanction)
-- agithub: [jpaugh/agithub](https://github.com/jpaugh/agithub)
-- octohub: [turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)
+- agithub: [mozilla/agithub](https://github.com/mozilla/agithub)
 - github-flask: [github-flask (Official Website)](http://github-flask.readthedocs.org)
-- torngithub: [jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 - githubkit: [yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)
 - octokit.py: [khornberg/octokit.py](https://github.com/khornberg/octokit.py)
 
 ### Ruby
 
-- GitHub API Gem: [peter-murach/github](https://github.com/peter-murach/github)
-- Ghee: [rauhryan/ghee](https://github.com/rauhryan/ghee)
+- GitHub API Gem: [piotrmurach/github](https://github.com/piotrmurach/github)
 
 ### Rust
 
@@ -113,7 +117,6 @@ topics:
 
 ### Scala
 
-- Hubcat: [softprops/hubcat](https://github.com/softprops/hubcat)
 - Github4s: [47deg/github4s](https://github.com/47deg/github4s)
 
 ### Shell

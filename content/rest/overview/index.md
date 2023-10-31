@@ -17,7 +17,7 @@ children:
   - /authenticating-to-the-rest-api
   - /keeping-your-api-credentials-secure
   - /troubleshooting
-  - /libraries
+  - /libraries-for-the-rest-api
   - /openapi-description
   - /issue-event-types
   - /github-event-types
