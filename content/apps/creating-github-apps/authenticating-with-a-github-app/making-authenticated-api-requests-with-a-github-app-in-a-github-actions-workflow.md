@@ -1,4 +1,4 @@
----
+b---
 title: Making authenticated API requests with a GitHub App in a GitHub Actions workflow
 shortTitle: Authenticate in Actions workflow
 intro: 'You can use an installation access token from a {% data variables.product.prodname_github_app %} to make authenticated API requests in a {% data variables.product.prodname_actions %} workflow. You can also pass the token to a custom action to enable the action to make authenticated API requests.'
@@ -22,6 +22,12 @@ If you need to make authenticated API requests in a {% data variables.product.pr
 ## Authenticating with a {% data variables.product.prodname_github_app %}
 
 In order to use a {% data variables.product.prodname_github_app %} to make authenticated API requests, you must register a {% data variables.product.prodname_github_app %}, store your app's credentials, and install your app. Once this is done, you can use your app to create an installation access token, which can be used to make authenticated API requests in a {% data variables.product.prodname_actions %} workflow. You can also pass the installation access token to a custom action that requires a token.
+
+{% note %}
+
+**Note:** Due to automatic token protection, you cannot pass tokens generated with this method to downstream jobs. By design, GitHub Runners are written to protect `GITHUB_TOKENS`. As a consequence, they will set the values of GITHUB_OUTPUTS to the empty string if they contain tokens issued with this functionality.
+
+{% endnote %}
 
 1. Register a {% data variables.product.prodname_github_app %}. Give your {% data variables.product.prodname_github_app %} registration the necessary permissions to access the desired resources. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 1. Store the app ID of your {% data variables.product.prodname_github_app %} as a {% data variables.product.prodname_actions %} secret. You can find the app ID on the settings page for your app. The app ID is different from the client ID. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)." For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
@@ -60,9 +66,3 @@ jobs:
         run: |
           gh api octocat
 ```
-
-{% note %}
-
-**Note:** Due to automatic token protection, you cannot pass tokens generated with this method to downstream jobs. By design, GitHub Runners are written to protect `GITHUB_TOKENS`. As a consequence, they will set the values of GITHUB_OUTPUTS to the empty string if they contain tokens issued with this functionality.
-
-{% note %}
