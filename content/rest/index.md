@@ -36,6 +36,9 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart
+  - /overview
+  - /guides
   - /actions
   - /activity
   - /announcement-banners
@@ -59,7 +62,6 @@ children:
   - /gists
   - /git
   - /gitignore
-  - /guides
   - /interactions
   - /issues
   - /licenses
@@ -69,12 +71,10 @@ children:
   - /migrations
   - /oauth-authorizations
   - /orgs
-  - /overview
   - /packages
   - /pages
   - /projects
   - /pulls
-  - /quickstart
   - /rate-limit
   - /reactions
   - /releases
