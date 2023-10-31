@@ -564,7 +564,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
@@ -575,7 +577,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
@@ -586,7 +590,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
@@ -597,7 +603,9 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
@@ -813,6 +821,103 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      }
+    ]
+  },
+  "organization_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Organization permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "get-all-custom-properties-for-an-organization",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "members"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-properties-for-an-organization",
+        "subcategory": "properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "get-a-custom-property-for-an-organization",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "members"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-a-custom-property-for-an-organization",
+        "subcategory": "properties",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-a-custom-property-for-an-organization",
+        "subcategory": "properties",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "list-custom-property-values-for-organization-repositories",
+        "subcategory": "properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "members"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-organization-repositories",
+        "subcategory": "properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
       }
     ]
   },
@@ -1198,7 +1303,9 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
@@ -1209,7 +1316,9 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
@@ -1220,7 +1329,9 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": []
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
