@@ -409,6 +409,10 @@ function getHighlightConfiguration(query, highlights) {
   const fields = {}
   if (highlights.includes('title')) {
     fields.title = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh',
       fragment_size: 200,
       number_of_fragments: 1,
     }
@@ -420,6 +424,10 @@ function getHighlightConfiguration(query, highlights) {
     // The 'no_match_size' is so we can display *something* for the
     // preview if there was no highlight match at all within the content.
     fields.content = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh', //
       fragment_size: 150,
       number_of_fragments: 1,
       no_match_size: 150,
