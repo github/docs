@@ -462,7 +462,7 @@
       {
         "category": "orgs",
         "slug": "create-or-update-custom-properties-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/schema",
         "additional-permissions": [
@@ -473,7 +473,7 @@
       {
         "category": "orgs",
         "slug": "create-or-update-a-custom-property-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "put",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": [
@@ -484,7 +484,7 @@
       {
         "category": "orgs",
         "slug": "remove-a-custom-property-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "delete",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": [
@@ -495,7 +495,7 @@
       {
         "category": "orgs",
         "slug": "create-or-update-custom-property-values-for-organization-repositories",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/values",
         "additional-permissions": [
@@ -689,7 +689,7 @@
       {
         "category": "orgs",
         "slug": "get-all-custom-properties-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema",
         "additional-permissions": [
@@ -700,7 +700,7 @@
       {
         "category": "orgs",
         "slug": "create-or-update-custom-properties-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/schema",
         "additional-permissions": [
@@ -711,7 +711,7 @@
       {
         "category": "orgs",
         "slug": "get-a-custom-property-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": [
@@ -722,7 +722,7 @@
       {
         "category": "orgs",
         "slug": "create-or-update-a-custom-property-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "put",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": [
@@ -733,7 +733,7 @@
       {
         "category": "orgs",
         "slug": "remove-a-custom-property-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "delete",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": [
@@ -744,7 +744,7 @@
       {
         "category": "orgs",
         "slug": "list-custom-property-values-for-organization-repositories",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/values",
         "additional-permissions": [
@@ -755,7 +755,7 @@
       {
         "category": "orgs",
         "slug": "create-or-update-custom-property-values-for-organization-repositories",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/values",
         "additional-permissions": [
@@ -1079,7 +1079,7 @@
       {
         "category": "orgs",
         "slug": "get-all-custom-properties-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema",
         "additional-permissions": [
@@ -1090,7 +1090,7 @@
       {
         "category": "orgs",
         "slug": "get-a-custom-property-for-an-organization",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": [
@@ -1101,7 +1101,7 @@
       {
         "category": "orgs",
         "slug": "list-custom-property-values-for-organization-repositories",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/values",
         "additional-permissions": [
@@ -6045,7 +6045,7 @@
       {
         "category": "repos",
         "slug": "get-all-custom-property-values-for-a-repository",
-        "subcategory": "properties",
+        "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/properties/values",
         "additional-permissions": [],
