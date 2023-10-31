@@ -1,4 +1,4 @@
-{% ifversion dependabot-alerts-custom-rules-updates %}
+{% ifversion dependabot-auto-triage-rules %}
 
 {% note %}
 
