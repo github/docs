@@ -1,4 +1,4 @@
-b---
+---
 title: Making authenticated API requests with a GitHub App in a GitHub Actions workflow
 shortTitle: Authenticate in Actions workflow
 intro: 'You can use an installation access token from a {% data variables.product.prodname_github_app %} to make authenticated API requests in a {% data variables.product.prodname_actions %} workflow. You can also pass the token to a custom action to enable the action to make authenticated API requests.'
