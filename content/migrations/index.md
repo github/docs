@@ -4,7 +4,7 @@ shortTitle: Migrations
 intro: "If you're moving to {% data variables.product.prodname_dotcom %} from another code hosting platform or moving between {% data variables.product.prodname_dotcom %} products, learn how to use our migration tooling to bring your work with you."
 introLinks:
   overview: /migrations/overview/about-githubs-migration-tooling
-  Plan your migration: /migrations/overview/planning-your-migration-to-github
+  plan_your_migration: /migrations/overview/planning-your-migration-to-github
 featuredLinks:
   startHere:
     - /migrations/importing-source-code/using-github-importer/about-github-importer

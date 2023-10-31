@@ -11,8 +11,8 @@ type Props = {
 
 export function Union({ item }: Props) {
   const { locale } = useRouter()
-  const { t } = useTranslation('products')
-  const heading = t('graphql.reference.possible_types').replace('{{ GraphQLItemTitle }}', item.name)
+  const { t } = useTranslation('graphql')
+  const heading = t('reference.possible_types').replace('{{ GraphQLItemTitle }}', item.name)
 
   return (
     <GraphqlItem item={item} heading={heading}>
