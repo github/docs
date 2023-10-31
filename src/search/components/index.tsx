@@ -16,7 +16,7 @@ type Props = {
 
 export function Search({ search }: Props) {
   const { formatInteger } = useNumberFormatter()
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('search_results')
   const { currentVersion } = useVersion()
 
   const { query } = search.search

@@ -30,7 +30,7 @@ export const ApiVersionPicker = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
-  const { t } = useTranslation(['products'])
+  const { t } = useTranslation('rest')
   const basePath = router.asPath.split('#')[0].split('?')[0]
   // Get current date from cookie, query path, or lastly set it to latest rest version date
   const isValidApiVersion =

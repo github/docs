@@ -1,6 +1,11 @@
 import type { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
+import {
+  MainContextT,
+  MainContext,
+  getMainContext,
+  addUINamespaces,
+} from 'components/context/MainContext'
 import { DefaultLayout } from 'components/DefaultLayout'
 import type { SearchT } from 'src/search/components/types'
 import { Search } from 'src/search/components/index'
@@ -37,6 +42,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
 
   const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['search_results'])
 
   if (!req.context.search) {
     // This should have been done by the middleware.
