@@ -34,7 +34,7 @@ const restRepoCategoryExceptionsTitles = {
 
 export const RestBanner = () => {
   const router = useRouter()
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('rest')
   // Having a productId === 'rest' and no router.query.category would mean a product landing page like http://docs.github.com/en/rest?apiVersion=2022-08-09
   const isRestPage = router.query.productId === 'rest' || router.query.category
   const restPage = router.query.category as string

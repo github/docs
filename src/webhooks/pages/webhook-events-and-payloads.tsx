@@ -2,7 +2,12 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
+import {
+  addUINamespaces,
+  getMainContext,
+  MainContext,
+  MainContextT,
+} from 'components/context/MainContext'
 import {
   getAutomatedPageContextFromRequest,
   AutomatedPageContext,
@@ -77,6 +82,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const res = context.res as object
   const currentVersion = context.query.versionId as string
   const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['parameter_table', 'webhooks'])
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
   // Get data for initial webhooks page (i.e. only 1 action type per webhook and

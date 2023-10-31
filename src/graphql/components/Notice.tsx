@@ -12,11 +12,9 @@ type Props = {
 export function Notice({ item, variant = 'preview' }: Props) {
   const { locale } = useRouter()
 
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('graphql')
   const previewTitle =
-    variant === 'preview'
-      ? t('graphql.reference.preview_notice')
-      : t('graphql.reference.deprecation_notice')
+    variant === 'preview' ? t('reference.preview_notice') : t('reference.deprecation_notice')
   const noticeStyle =
     variant === 'preview'
       ? 'ghd-spotlight-note color-border-accent-emphasis color-bg-accent'
@@ -32,7 +30,7 @@ export function Notice({ item, variant = 'preview' }: Props) {
           <Link href={item.preview.href} locale={locale}>
             {item.preview.title}
           </Link>
-          . {t('graphql.reference.preview_period')}
+          . {t('reference.preview_period')}
         </p>
       ) : item.deprecationReason ? (
         <div>
