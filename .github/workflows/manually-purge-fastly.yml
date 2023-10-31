@@ -14,6 +14,8 @@ jobs:
   purge:
     runs-on: ubuntu-latest
 
+    if: github.repository == 'github/docs-internal'
+
     steps:
       - name: Check out repo
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
