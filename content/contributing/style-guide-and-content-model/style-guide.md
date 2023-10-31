@@ -10,7 +10,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."
+**Note:** These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."<!-- markdownlint-disable-line -->
 
 {% endnote %}
 
@@ -92,8 +92,22 @@ Within code blocks:
 - Style any placeholders that people need to replace with their own values in all caps.
   - **Use:** `git checkout -b BRANCH-NAME`
   - **Avoid:** `git checkout -b <branch-name>`
-- Only use `$` before the command itself if you’re showing the command’s output in the same block.
-  - If you show a command and the command's output, do not make the code block copyable.
+- Do not use command prompts like `$` before the command itself. These prompts make it challenging for readers to copy and paste the command.
+  - If you show a command and the command's output, comment out the output in the example.
+  - **Use:**
+  
+    ```shell
+    command
+    # output
+    ```
+
+  - **Avoid:**
+
+    ```shell
+    $ command
+    output
+    ```
+
 - If your code example includes `{` or `}` that should render, wrap that section in <code>&#123;% raw %&#125;</code> <code>&#123;% endraw %&#125;</code> to disable Liquid processing for that section.
   - **Use**:
 
@@ -121,7 +135,25 @@ Use command blocks for longer or more complex commands.
   ghe-cluster-maintenance -s
   ```
 
-Avoid inline links in command names.
+Do not include command prompts such as `$`. Avoid inline links in command names.
+
+### Outputs
+
+If you show the output of a command, comment out the output in the example so that people can copy and paste the command and execute it without modification.
+
+- **Use:**
+
+  ```shell
+  git lfs install
+  # Git LFS initialized.
+  ```
+
+- **Avoid:**
+
+  ```shell
+  $ git lfs install
+  > Git LFS initialized.
+  ```
 
 ### Examples
 
@@ -173,8 +205,8 @@ To indent reusables, see [`data/reusables/README.md`](https://github.com/github/
 
 Workflow runs are delayed when too many workflows run at once. Since many users copy code from {% data variables.product.prodname_docs %}, we should use examples that guide users away from congested times.
 
-- Do not use examples that run on the hour. (The Actions team reports that times at the start of the hour, especially UTC midnight, are disproportionately overloaded.)
-- Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
+- Do not use examples that run on the hour as these are the most congested times.
+- Do not use examples that run more frequently than necessary. For example, instead of running every five minutes, consider if the example makes sense to run every 30 minutes instead.
 - Use a different time for each example.
 
 ## Emphasis
