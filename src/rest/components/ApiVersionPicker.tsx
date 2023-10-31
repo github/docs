@@ -7,6 +7,7 @@ import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Picker } from 'src/tools/components/Picker'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { API_VERSION_COOKIE_NAME } from 'src/rest/components/RestRedirect'
+import { apiVersionPath } from 'src/rest/lib/config.js'
 
 const API_VERSION_SUFFIX = ' (latest)'
 
@@ -69,7 +70,7 @@ export const ApiVersionPicker = () => {
     selected: false,
     href: `/${router.locale}${
       currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
-    }/rest/overview/api-versions`,
+    }${apiVersionPath}`,
     extra: {
       info: true,
       currentDate,
