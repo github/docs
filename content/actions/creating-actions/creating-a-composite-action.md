@@ -46,29 +46,27 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    ```
 
 1. From your terminal, make `goodbye.sh` executable.
-  {% mac %}
+{% linux %}
 
-  ```shell copy
+   ``shell copy
    chmod +x goodbye.sh
    ```
 
-  {% endmac %}
-  {% linux %}
+{% endlinux %}
+{% mac %}
 
-  ```shell copy
+   ```shell copy
    chmod +x goodbye.sh
    ```
-
-  {% endlinux %}  
+{% endmac %}
    
-  {% windows %}
+{% windows %}
 
    ```shell copy
    git add --chmod=+x -- goodbye.sh.
    ```
 
-  {% endwindows %}
-
+{% endwindows %}
 1. From your terminal, check in your `goodbye.sh` file.
 
    ```shell copy
