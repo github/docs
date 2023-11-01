@@ -59,7 +59,6 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    chmod +x goodbye.sh
    ```
 {% endmac %}
-   
 {% windows %}
 
    ```shell copy
