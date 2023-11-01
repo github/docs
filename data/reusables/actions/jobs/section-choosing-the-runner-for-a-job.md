@@ -44,7 +44,8 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 {% note %}
 
-**Note:** When passing strings as the value of `runs-on` they can be quoted but it is not needed, for example `self-hosted`. However expressions like `"${{ inputs.chosen-os }}"` need to be quoted.
+**Note:** When passing strings as the value of `runs-on` they can be quoted but it is not needed, for example `self-hosted`. However expressions like 
+{% raw %} `"${{ inputs.chosen-os }}"`{% endraw %} need to be quoted.
 
 {% endnote %}
 
