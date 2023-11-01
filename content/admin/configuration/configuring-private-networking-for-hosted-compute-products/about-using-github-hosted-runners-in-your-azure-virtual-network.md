@@ -1,6 +1,6 @@
 ---
 title: About using GitHub-hosted runners in your Azure Virtual Network
-shortTitle: About using a VNET
+shortTitle: About using Azure virtual network
 intro: 'You can create {% data variables.product.company_short %}-hosted runners in your Azure Virtual Network(s) (VNET).'
 versions:
   feature: actions-private-networking-azure-vnet
@@ -8,20 +8,17 @@ type: overview
 topics:
   - Actions
   - Developer
+redirect_from:
+  - /actions/using-github-hosted-runners/connecting-to-a-private-network/about-using-github-hosted-runners-in-your-azure-virtual-network
 ---
 
 ## About using {% data variables.product.company_short %}-hosted runners in your Azure Virtual Network (VNET)
 
-{% note %}
-
-**Notes:**
-
-- {% data reusables.actions.github-hosted-larger-runners-azure-vnet-beta %}
-- Only larger runners are supported with Azure VNET. For more information about larger runners, see "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-larger-runners)."
-
-{% endnote %}
+{% data reusables.actions.private-networking-actions-azure-vnet-beta-note %}
 
 {% data reusables.actions.azure-vnet-injected-runners-intro %}
+
+You can connect multiple VNET-subnet pairs to {% data variables.location.product_location %} and manage private resource access for your runners via runner groups. For more information about runner groups, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners)."
 
 Using {% data variables.product.company_short %}-hosted runners within Azure VNET allows you to perform the following actions.
 - Privately connect a runner to resources inside an Azure VNET without opening internet ports, including on-premises resources accessible from the Azure VNET.
@@ -30,7 +27,9 @@ Using {% data variables.product.company_short %}-hosted runners within Azure VNE
 
 ## About network communication
 
-To facilitate communication between {% data variables.product.company_short %} networks and your VNET, {% data variables.product.company_short %}-hosted runner's network interface card (NIC) deploys into your Azure VNET. This way, all communication is kept private within the network boundaries, and networking policies applied to the VNET also apply to the runner.
+To facilitate communication between {% data variables.product.company_short %} networks and your VNET, a {% data variables.product.company_short %}-hosted runner's network interface card (NIC) deploys into your Azure VNET.
+
+A NIC enables an Azure virtual machine (VM) to communicate with internet, Azure, and on-premises resources. This way, all communication is kept private within the network boundaries, and networking policies applied to the VNET also apply to the runner. For more information on how to manage a network interface, see [Change network interface settings](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?tabs=azure-portal#change-network-interface-settings) in the Azure documentation.
 
 ![Diagram of the network communication architecture between GitHub networks and your private networks. The diagram describes each step in connecting GitHub-hosted runners to an Azure VNET. Each step is numbered and the numbers correspond to the numbered descriptions of the step listed below the diagram.](/assets/images/help/actions/actions-vnet-injected-larger-runners-architecture.png)
 
@@ -51,8 +50,4 @@ If you have enabled any network logs monitoring for your VNET, you can also moni
 
 ## Using {% data variables.product.company_short %}-hosted runners with an Azure VNET
 
-To use {% data variables.product.company_short %}-hosted runners with Azure VNET, you must configure Azure and configure your {% data variables.product.company_short %} settings to use {% data variables.product.company_short %}-hosted runners with a VNET.
-
-For more information about configuring Azure, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-an-azure-virtual-network-for-your-enterprise)."
-
-For more information about configuring your {% data variables.product.company_short %} settings to use {% data variables.product.company_short %}-hosted runners with a VNET, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/configuring-your-github-settings-for-use-with-azure-virtual-network)."
+{% data reusables.actions.actions-azure-vnet-resources-config-link %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners)."

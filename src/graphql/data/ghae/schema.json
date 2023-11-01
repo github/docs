@@ -50933,7 +50933,7 @@
         },
         {
           "name": "totalDiskUsage",
-          "description": "<p>The total size in kilobytes of all repositories in the connection.</p>",
+          "description": "<p>The total size in kilobytes of all repositories in the connection. Value will\nnever be larger than max 32-bit signed integer.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -68630,10 +68630,6 @@
         {
           "name": "DELETION",
           "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
-        },
-        {
-          "name": "FILE_PATH_PATTERN",
-          "description": "<p>File path pattern.</p>"
         },
         {
           "name": "LOCK_BRANCH",
