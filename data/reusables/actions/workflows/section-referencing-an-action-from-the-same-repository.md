@@ -10,7 +10,7 @@ Example repository file structure:
 |               └── action.yml
 ```
 
-The path is relative (`./`) to the default working directory (`github.workspace`, `$GITHUB_WORKSPACE`), unless the repository is checked out to a different location in the checkout step.
+The path is relative (`./`) to the default working directory (`github.workspace`, `$GITHUB_WORKSPACE`). If the action checks out the repository to a location different than the workflow, the relative path used for local actions must be updated.
 
 Example workflow file:
 
