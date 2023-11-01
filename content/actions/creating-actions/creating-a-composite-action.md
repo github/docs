@@ -59,7 +59,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    {% windows %}
 
    ```shell copy
-   git add --chmod=+x -- goodbye.sh.
+   git add --chmod=+x -- goodbye.sh
    ```
 
    {% endwindows %}
