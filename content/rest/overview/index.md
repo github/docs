@@ -10,14 +10,14 @@ versions:
 topics:
   - API
 children:
-  - /about-githubs-apis
+  - /comparing-githubs-rest-api-and-graphql-api
   - /resources-in-the-rest-api
   - /api-versions
   - /media-types
   - /authenticating-to-the-rest-api
   - /keeping-your-api-credentials-secure
   - /troubleshooting
-  - /libraries
+  - /libraries-for-the-rest-api
   - /openapi-description
   - /issue-event-types
   - /github-event-types

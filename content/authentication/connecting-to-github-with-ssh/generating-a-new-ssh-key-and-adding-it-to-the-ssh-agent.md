@@ -206,23 +206,32 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 1. Insert your hardware security key into your computer.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-1. Paste the text below, substituting in the email address for your account on {% data variables.product.product_name %}.
+1. Paste the text below, replacing the email address in the example with the email address associated with your account on {% data variables.product.product_name %}.
 
    {% mac %}
 
    ```shell
-   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
+   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "your_email@example.com"
    ```
-  
+
    {% endmac %}
 
    {% windows %}
 
    ```powershell
-   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "YOUR_EMAIL"
+   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "your_email@example.com"
    ```
 
    {% endwindows %}
+
+   {% linux %}
+
+   ```shell
+   ssh-keygen -t {% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}-sk -C "your_email@example.com"
+   ```
+
+   {% endlinux %}
+
    {%- ifversion not ghae %}
    {% note %}
 
@@ -234,6 +243,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
 
    {% endnote %}
    {%- endif %}
+
 1. When you are prompted, touch the button on your hardware security key.
 1. When you are prompted to "Enter a file in which to save the key," press Enter to accept the default file location.
 

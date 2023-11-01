@@ -17,9 +17,9 @@ topics:
 children:
   - /autolinks
   - /contents
+  - /custom-properties
   - /forks
   - /lfs
-  - /properties
   - /repos
   - /rule-suites
   - /rules

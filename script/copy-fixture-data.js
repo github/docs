@@ -23,7 +23,6 @@ import { mkdirp } from 'mkdirp'
 // functionality yet live in data.
 const MANDATORY_FILES = [
   'data/ui.yml',
-  'data/reusables/policies/translation.md',
   'data/reusables/enterprise_deprecation/deprecation_details.md',
   'data/reusables/enterprise_deprecation/version_was_deprecated.md',
   'data/reusables/enterprise_deprecation/version_will_be_deprecated.md',

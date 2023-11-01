@@ -28,7 +28,7 @@ export const DefaultLayout = (props: Props) => {
     fullUrl,
     status,
   } = useMainContext()
-  const { t } = useTranslation(['errors', 'meta', 'scroll_button'])
+  const { t } = useTranslation(['meta', 'scroll_button'])
   const router = useRouter()
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
   const { languages } = useLanguages()

@@ -288,7 +288,7 @@ function reportSummaryByRule(results, config) {
     if (config.content[rule].severity === 'error') continue
     ruleCount[rule] = 0
   }
-  // the default property is not acutally a rule
+  // the default property is not actually a rule
   delete ruleCount.default
 
   Object.keys(results).forEach((key) => {

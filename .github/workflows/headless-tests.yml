@@ -58,8 +58,3 @@ jobs:
         # so that we can run them without blocking merges until we can be confident
         # results for a11y tests are meaningul and scenarios we're testing are correct.
         run: npm run playwright-test -- ${{ matrix.node }} --reporter list
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

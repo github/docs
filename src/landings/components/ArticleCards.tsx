@@ -6,8 +6,8 @@ import { ArticleCard } from './ArticleCard'
 import { ItemInput } from '@primer/react/lib/deprecated/ActionList/List'
 
 export const ArticleCards = () => {
-  const { t } = useTranslation('product_guides')
-  const guideTypes: Record<string, string> = t('guide_types')
+  const { t, tObject } = useTranslation('product_guides')
+  const guideTypes = tObject('guide_types')
   const { allTopics, includeGuides } = useProductGuidesContext()
   const articleCardRef = useRef<HTMLUListElement>(null)
 
@@ -33,7 +33,7 @@ export const ArticleCards = () => {
             ? t('guides_found.none')
             : guides.length === 1
             ? t('guides_found.one')
-            : t('guides_found.multiple').replace('{n}', guides.length)}
+            : t('guides_found.multiple').replace('{n}', `${guides.length}`)}
         </div>
       </div>
 
@@ -48,7 +48,7 @@ export const ArticleCards = () => {
               tabIndex={-1}
               key={card.href + i}
               card={card}
-              typeLabel={guideTypes[card.type]}
+              typeLabel={guideTypes[card.type] as string}
             />
           )
         })}
