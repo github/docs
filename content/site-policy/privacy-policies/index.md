@@ -8,7 +8,7 @@ topics:
 children:
   - /github-privacy-statement
   - /github-subprocessors
-  - /github-subprocessors-and-cookies
+  - /github-cookies
   - /github-codespaces-privacy-statement
   - /github-candidate-privacy-policy
   - /github-copilot-for-business-privacy-statement
