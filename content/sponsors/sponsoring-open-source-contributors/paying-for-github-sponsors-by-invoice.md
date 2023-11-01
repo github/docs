@@ -21,6 +21,8 @@ When an organization pays by invoice, they will not be charged the 3% credit car
 
 Organizations paying by invoice are invoiced separately for their {% data variables.product.prodname_sponsors %} payments and their other payments to {% data variables.product.company_short %}. Organizations can be invoiced for sponsorships and pay via credit card for other payments to {% data variables.product.company_short %}.
 
+When setting up a sponsorship, organizations paying by invoice have the option to pay at the start of the next billing cycle. This means they won't have to pay the prorated amount when setting up the sponsorship, and will be charged the full amount on the next billing date.
+
 ### Requirements
 
 - The organization needs to sign the sponsorship agreement which is a 3 year commitment. The {% data variables.product.company_short %} Invoiced Sponsor Agreement is separate from other services.
