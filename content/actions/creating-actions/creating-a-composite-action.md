@@ -42,7 +42,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
 
    ```shell copy
-   echo "Goodbye" > goodbye.sh
+   echo "echo Goodbye" > goodbye.sh
    ```
 
 1. From your terminal, make `goodbye.sh` executable.
