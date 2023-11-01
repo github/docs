@@ -61,6 +61,11 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
    The repository should now only contain the files that were in your subfolder(s).
 
+   If you want one specific subfolder to be the new root folder of the new repository, the following command can be used:
+   ```shell
+   $ git filter-repo --subdirectory-filter FOLDER-NAME
+   ```
+
 1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
 
 1. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
