@@ -48,7 +48,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 1. From your terminal, make `goodbye.sh` executable.
 {% linux %}
 
-   ``shell copy
+   ```shell copy
    chmod +x goodbye.sh
    ```
 
@@ -58,6 +58,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    ```shell copy
    chmod +x goodbye.sh
    ```
+
 {% endmac %}
 {% windows %}
 
