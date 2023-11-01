@@ -10,6 +10,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
+defaultPlatform: linux
 topics:
   - Action development
 ---
@@ -38,17 +39,28 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    cd hello-world-composite-action
    ```
 
-1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh` and add the following example code:
+1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
 
-   ```bash copy
+   ```shell copy
    echo "Goodbye" > goodbye.sh
    ```
 
 1. From your terminal, make `goodbye.sh` executable.
+  {% mac %}
 
-   ```shell copy
+  ```shell copy
    chmod +x goodbye.sh
    ```
+
+  {% endmac %}
+  {% linux %}
+
+  ```shell copy
+   chmod +x goodbye.sh
+   ```
+
+  {% endlinux %}  
+   
   {% windows %}
 
    ```shell copy
