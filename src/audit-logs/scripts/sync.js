@@ -176,8 +176,7 @@ async function main() {
         event._allowlists.includes('org_api_only') ||
         event._allowlists.includes('business_api_only')
       ) {
-        minimalEvent.description +=
-          ' Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.'
+        minimalEvent.description += ` ${configData.apiOnlyEventsAdditionalDescription}`
       }
     })
 
