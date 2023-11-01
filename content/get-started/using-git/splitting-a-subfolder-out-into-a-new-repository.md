@@ -64,6 +64,17 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    If you want one specific subfolder to be the new root folder of the new repository, the following command can be used:
    ```shell
    $ git filter-repo --subdirectory-filter FOLDER-NAME
+   > Parsed 82 commits
+   > New history written in 0.44 seconds; now repacking/cleaning...
+   > Repacking your repo and cleaning out old unneeded objects
+   > HEAD is now at 968d5a5 +: Print example / Notifier part 1
+   > Enumerating objects: 101, done.
+   > Counting objects: 100% (101/101), done.
+   > Delta compression using up to 6 threads
+   > Compressing objects: 100% (58/58), done.
+   > Writing objects: 100% (101/101), done.
+   > Total 101 (delta 44), reused 73 (delta 36), pack-reused 0
+   > Completely finished after 1.01 seconds.
    ```
 
 1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
