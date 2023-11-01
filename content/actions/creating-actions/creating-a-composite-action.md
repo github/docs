@@ -48,16 +48,12 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 1. From your terminal, make `goodbye.sh` executable.
 {% linux %}
 
-   ```shell copy
-   chmod +x goodbye.sh
-   ```
+{% data reusables.actions.composite-actions-executable-linux-mac %}
 
 {% endlinux %}
 {% mac %}
 
-   ```shell copy
-   chmod +x goodbye.sh
-   ```
+{% data reusables.actions.composite-actions-executable-linux-mac %}
 
 {% endmac %}
 {% windows %}
@@ -67,13 +63,26 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    ```
 
 {% endwindows %}
+
 1. From your terminal, check in your `goodbye.sh` file.
 
+{% linux %}
+
+{% data reusables.actions.composite-actions-commit-file-linux-mac %}
+
+{% endlinux %}
+{% mac %}
+
+{% data reusables.actions.composite-actions-commit-file-linux-mac %}
+{% endmac %}
+{% windows %}
+
    ```shell copy
-   git add goodbye.sh
    git commit -m "Add goodbye script"
    git push
    ```
+
+{% endwindows %}
 
 ## Creating an action metadata file
 
