@@ -12,6 +12,8 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+redirect_from:
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-your-enterprise-to-a-new-identity-provider-or-tenant
 ---
 
 ## About migrations between IdPs and tenants

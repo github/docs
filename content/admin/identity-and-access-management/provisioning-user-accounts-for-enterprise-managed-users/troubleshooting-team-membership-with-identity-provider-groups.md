@@ -11,6 +11,8 @@ topics:
   - Enterprise
   - Teams
   - Troubleshooting
+redirect_from:
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups
 ---
 
 ## About management of team membership with IdP groups

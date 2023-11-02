@@ -1,7 +1,7 @@
 ---
 title: Migrating from SAML to OIDC
 shortTitle: Migrate from SAML to OIDC
-intro: "If you're using SAML to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP's Conditional Access Policy."
+intro: 'If you''re using SAML to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to OpenID Connect (OIDC) and benefit from support for your IdP''s Conditional Access Policy.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -10,6 +10,8 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+redirect_from:
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-saml-to-oidc
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}

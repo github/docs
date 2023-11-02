@@ -1,7 +1,7 @@
 ---
 title: Migrating from OIDC to SAML
 shortTitle: Migrate from OIDC to SAML
-intro: "If you're using OpenID Connect (OIDC) to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to SAML SSO."
+intro: 'If you''re using OpenID Connect (OIDC) to authenticate members in your {% data variables.enterprise.prodname_emu_enterprise %}, you can migrate to SAML SSO.'
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: oidc-for-emu
@@ -10,6 +10,8 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+redirect_from:
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/migrating-from-oidc-to-saml
 ---
 
 ## About migration of an {% data variables.enterprise.prodname_emu_enterprise %} from OIDC to SAML

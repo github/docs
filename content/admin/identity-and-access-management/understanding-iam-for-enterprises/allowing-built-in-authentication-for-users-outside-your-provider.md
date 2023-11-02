@@ -7,6 +7,7 @@ redirect_from:
   - /admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider
+  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider
 versions:
   ghes: '*'
 type: how_to

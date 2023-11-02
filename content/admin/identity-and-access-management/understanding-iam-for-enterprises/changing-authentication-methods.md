@@ -7,6 +7,7 @@ redirect_from:
   - /admin/authentication/changing-authentication-methods
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/changing-authentication-methods
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/changing-authentication-methods
+  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/changing-authentication-methods
 versions:
   ghes: '*'
 type: overview

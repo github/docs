@@ -14,6 +14,8 @@ topics:
   - Security
   - SSO
   - Troubleshooting
+redirect_from:
+  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise
 ---
 
 ## Username conflicts

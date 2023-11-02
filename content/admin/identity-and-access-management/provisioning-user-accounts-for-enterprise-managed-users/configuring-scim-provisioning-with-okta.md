@@ -1,6 +1,6 @@
 ---
-title: Configuring SCIM provisioning for Enterprise Managed Users with Okta
-shortTitle: Configure SCIM with Okta
+title: Configuring SCIM provisioning with Okta
+shortTitle: Configure SCIM using Okta
 intro: You can provision new users and manage their membership of your enterprise and teams using Okta as your identity provider.
 product: '{% data reusables.gated-features.emus %}'
 versions:
@@ -11,6 +11,7 @@ redirect_from:
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /admin/identity-and-access-management/using-enterprise-managed-users-and-saml-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
 type: tutorial
 topics:
   - Accounts
