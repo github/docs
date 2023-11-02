@@ -25,7 +25,7 @@ The following steps assume you have {% data variables.product.prodname_github_co
    The "Setting up your codespace" page is displayed. After a short time the browser-based version of {% data variables.product.prodname_vscode %} is displayed.
 1. Use the Explorer to navigate to the markdown file you want to edit. If the file is an article, it will be located in the `content` directory. If the file is reusable content, it will be located in the `data` directory.
 
-   In most cases, the path to an article in the `content` directory matches the path in the URL, minus the `.md` file extension. For example, the source for the article `https://docs.github.com/en/codespaces/getting-started/quickstart` is the markdown file `content/codespaces/getting-started/quickstart.md`.
+   In most cases, the path to an article in the `content` directory matches the path in the URL, minus the `.md` file extension. For example, the source for the article `https://docs.github.com/en/codespaces/getting-started/quickstart` is the markdown file `content/codespaces/getting-started/quickstart.md`.<!-- markdownlint-disable-line search-replace -->
 1. Edit the markdown file as required.
 1. Save your changes.
 1. Commit and push your changes, either using the Source Control view, or using Git commands from the Terminal. For more information, see "[AUTOTITLE](/get-started/using-git/about-git)."

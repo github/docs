@@ -26,7 +26,7 @@ Docs are organized into multiple levels of hierarchy on our site.
 
 ## Homepage content
 
-The {% data variables.product.prodname_docs %} homepage, [docs.github.com](/), highlights the most important topics that people want to find. We limit the number of doc sets on the homepage so that people can find information and the homepage does not become overcrowded and difficult to search.
+The {% data variables.product.prodname_docs %} homepage, [docs.github.com](/), highlights the most important topics that people want to find. We limit the number of doc sets on the homepage so that people can find information and the homepage does not become overcrowded and difficult to search.<!-- markdownlint-disable-line search-replace -->
 
 The homepage includes all top-level doc sets and some categories. Content on the homepage is organized around {% data variables.product.prodname_dotcom %} concepts and practices. For example, the "CI/CD and DevOps" group includes top-level doc sets for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_pages %}.
 
@@ -71,7 +71,7 @@ Categories are organized around a feature or a discrete set of tasks within a to
 - Examples
   - [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github)
   - [AUTOTITLE](/pull-requests/committing-changes-to-your-project)
-  
+
 ### Intros for categories
 
 All categories have intros. Intros should be one sentence long and general or high-level enough to scale with future product changes. If you significantly change a category’s structure, check its intro for needed updates.
