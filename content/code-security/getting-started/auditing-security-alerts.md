@@ -46,6 +46,8 @@ You can access and search audit logs using the API or the audit log UI. The audi
 
 For a list of audit log events, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
+For information on how to access the audit log for your enterprise or organization, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+
 {% ifversion audit-log-streaming %}
 
 You can also stream audit data from {% data variables.product.prodname_dotcom %} to an external data management system, which enables you to analyze and collect data for internal charts. Enterprise owners can configure audit log streaming. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."

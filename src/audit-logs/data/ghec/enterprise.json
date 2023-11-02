@@ -735,6 +735,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.content_exclusion_changed",
+    "description": "The excluded paths for GitHub Copilot were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
