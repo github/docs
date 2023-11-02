@@ -358,7 +358,8 @@ export const Header = () => {
                     width: 'auto !important',
                     transform: 'none',
                     borderRadius: '0',
-                    borderRight: '1px solid var(--color-border-default)',
+                    borderRight:
+                      '1px solid var(--borderColor-default, var(--color-border-default))',
                   }}
                 >
                   <Dialog.Header
