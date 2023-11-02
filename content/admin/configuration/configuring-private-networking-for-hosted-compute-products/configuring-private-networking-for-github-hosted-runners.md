@@ -257,7 +257,7 @@ echo Create resource group $RESOURCE_GROUP_NAME at $AZURE_LOCATION
 
 echo
 echo Create NSG rules deployed with 'actions-nsg-deployment.bicep' file
-. az deployment group create --resource-group $RESOURCE_GROUP_NAME --template-file ./actions-nsg-deployment.bicep --parameters location $AZURE_LOCATION nsgName $NSG_NAME
+. az deployment group create --resource-group $RESOURCE_GROUP_NAME --template-file ./actions-nsg-deployment.bicep --parameters location=$AZURE_LOCATION nsgName=$NSG_NAME
 
 echo
 echo Create vnet $VNET_NAME and subnet $SUBNET_NAME
