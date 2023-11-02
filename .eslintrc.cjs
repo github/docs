@@ -20,7 +20,7 @@ module.exports = {
     "tmp/*",
     "!/.*",
     "/.next/",
-    "script/bookmarklets/*",
+    "src/bookmarklets/*",
     "src/open-source/scripts/add-pr-links.js",
     "src/open-source/scripts/pr-link-source.js",
     "rest-api-description/",

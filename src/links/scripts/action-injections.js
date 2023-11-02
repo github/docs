@@ -7,7 +7,7 @@ import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
 
-import github from './github.js'
+import github from '#src/workflows/github.js'
 
 // Directs core logging to console
 export function getCoreInject(debug) {

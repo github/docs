@@ -9,10 +9,10 @@ import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 import { liquid } from '#src/content-render/index.js'
 import contextualize from '../../middleware/context.js'
 
-const layoutFilename = path.posix.join(process.cwd(), 'script/dev-toc/layout.html')
+const layoutFilename = path.posix.join(process.cwd(), 'src/dev-toc/layout.html')
 const layout = fs.readFileSync(layoutFilename, 'utf8')
 
-const staticDirName = 'script/dev-toc/static'
+const staticDirName = 'src/dev-toc/static'
 const staticDir = path.posix.join(process.cwd(), staticDirName)
 if (!fs.existsSync(staticDir)) fs.mkdirSync(staticDir)
 
@@ -67,7 +67,7 @@ async function main() {
     // Add any defaultOpenSections to the context.
     req.context.defaultOpenSections = defaultOpenSections
 
-    // Parse the layout in script/dev-toc/layout.html with the context we created above.
+    // Parse the layout in src/dev-toc/layout.html with the context we created above.
     const outputHtml = await liquid.parseAndRender(layout, Object.assign({}, req.context))
 
     // Write a static file for each version.

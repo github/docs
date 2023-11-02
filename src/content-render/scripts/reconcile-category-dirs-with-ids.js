@@ -16,10 +16,10 @@ import chalk from 'chalk'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 
-import frontmatter from '../lib/read-frontmatter.js'
+import frontmatter from '../../../lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import { ROOT } from '../lib/constants.js'
+import { ROOT } from '../../../lib/constants.js'
 
 const slugger = new GithubSlugger()
 
@@ -86,7 +86,9 @@ async function main() {
     console.log(chalk.dim('Run the following commands to rename them:'))
 
     for (const { oldRelativePath, newRelativePath } of shouldRename) {
-      console.log(`./script/move-content.js ${oldRelativePath} ${newRelativePath}`)
+      console.log(
+        `./src/content-render/scripts/move-content.js ${oldRelativePath} ${newRelativePath}`,
+      )
     }
   } else {
     console.log(chalk.green('No categories need to be renamed! 🎉'))

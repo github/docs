@@ -15,25 +15,25 @@ Clicking the bookmark will then execute the JavaScript.
 
 ## "View in development" toggle
 
-[`script/bookmarklets/view-in-development.js`](./view-in-development.js)
+[`src/bookmarklets/view-in-development.js`](./view-in-development.js)
 
 When you're looking at a page on docs.github.com or a preview server at preview.ghdocs.com, clicking this bookmarklet will load the same path you're viewing but on your local server running at localhost:4000.
 
 ## "View in production" toggle
 
-[`script/bookmarklets/view-in-production.js`](./view-in-production.js)
+[`src/bookmarklets/view-in-production.js`](./view-in-production.js)
 
 When you're looking at a page on a preview server at preview.ghdocs.com or your local server running at localhost:4000, clicking this bookmarklet will load the same path you're viewing but on the live documentation site at docs.github.com.
 
 ## Open a docs article in VS Code
 
-[`script/bookmarklets/open-in-vscode.js`](./open-in-vscode.js)
+[`src/bookmarklets/open-in-vscode.js`](./open-in-vscode.js)
 
 When you're looking at a page on either docs.github.com, preview.ghdocs.com, or localhost:4000, clicking this bookmarklet will open the source Markdown file from your local checkout in VS Code.
 
 The installation requires a few steps:
 
-1. Copy the contents of [`script/bookmarklets/open-in-vscode.js`](./open-in-vscode.js).
+1. Copy the contents of [`src/bookmarklets/open-in-vscode.js`](./open-in-vscode.js).
 1. Browse to https://chriszarate.github.io/bookmarkleter/ and paste the code into the box.
 1. Find the path of **your local checkout** of the docs repo you want to open files from (for example, `/Users/<USERNAME>/repos/docs`).
 1. Paste the path in place of where it says `REPLACE_ME` in line 1 (make sure to leave the single quotes around it).
@@ -42,8 +42,8 @@ The installation requires a few steps:
 
 ## Add preview links to PRs
 
-[`script/bookmarklets/add-pr-links.js`](./add-pr-links.js)
+[`src/bookmarklets/add-pr-links.js`](./add-pr-links.js)
 
 This bookmarklet modifies the `Files changed` page of a GitHub pull request that has a current staging deployment. For each Markdown file in the diff view, it adds links to the preview deployment of the file for each version: `FPT / GHEC / GHES / AE`. (Some of these may redirect to another version or 404 if that version of the page doesn't exist.)
 
-Note: readable JavaScript source lives in `script/bookmarklets/pr-link-source.js`. The bookmarklet code was generated via https://chriszarate.github.io/bookmarkleter.
+Note: readable JavaScript source lives in `src/bookmarklets/pr-link-source.js`. The bookmarklet code was generated via https://chriszarate.github.io/bookmarkleter.

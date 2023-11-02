@@ -26,7 +26,7 @@ Once you've followed the development instructions above, you can run the entire
 test suite locally:
 
 ```shell
-script/test # or `npm test`
+npm test
 ```
 
 ### Watching all the tests

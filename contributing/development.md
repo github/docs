@@ -38,7 +38,7 @@ In a matter of minutes, you will be ready to edit, preview and test your changes
 
 ### Using browser shortcuts
 
-The [`script/bookmarklets`](../script/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`script/bookmarklets/README.md`](../script/bookmarklets/README.md) for details.
+The [`src/bookmarklets`](../src/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`src/bookmarklets/README.md`](../src/bookmarklets/README.md) for details.
 
 ### Enabling different languages
 

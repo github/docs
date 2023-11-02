@@ -34,7 +34,7 @@ git push
 
 ## Troubleshooting local server problems
 
-If you are running `script/server` and get a `Cannot find module` error, try the following command before restarting the server.
+If you are running `npm start` and get a `Cannot find module` error, try the following command before restarting the server.
 
 ```shell
 npm install
@@ -52,7 +52,7 @@ npm install
 If you are having trouble with the staging server, you should see more information about the error in your browser or on the command line if you run the site locally. Check out your branch locally and use the following command to launch the local server.
 
 ```shell
-script/server
+npm start
 ```
 
 When the server is running, navigate to the problematic article on `https://localhost:4000` in your browser. The staging server will just show an "Oops" error, but the local server should show a stack trace for debugging.
