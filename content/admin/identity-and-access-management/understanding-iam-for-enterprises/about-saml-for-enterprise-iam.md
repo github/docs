@@ -22,6 +22,8 @@ redirect_from:
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-identity-and-access-management-for-your-enterprise
+  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam
+  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-saml-for-enterprise-iam
 ---
 
 ## About SAML SSO for {% ifversion ghec or ghae %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
@@ -72,7 +74,7 @@ After you configure SAML, people who use {% data variables.location.product_loca
 
 {% endif %}
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghae or ghes %}user {% endif %}provisioning for {% data variables.location.product_location %} with your specific IdP, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
+For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghae or ghes %}user {% endif %}provisioning for {% data variables.location.product_location %}, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
 
 {% ifversion ghae or scim-for-ghes %}
 
@@ -131,6 +133,7 @@ If you use Okta as your IdP, you can map your Okta groups to teams on {% data va
 
 ## Further reading
 
+- "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 - [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
 {%- ifversion ghae or scim-for-ghes %}
 - [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website

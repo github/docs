@@ -10,6 +10,8 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+redirect_from:
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}

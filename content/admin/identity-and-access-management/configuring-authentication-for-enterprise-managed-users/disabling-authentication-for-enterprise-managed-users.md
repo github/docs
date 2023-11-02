@@ -10,7 +10,9 @@ topics:
   - Authentication
   - Enterprise
   - SSO
-permissions: The setup user can disable SAML SSO or OIDC for {% data variables.product.prodname_emus %}.
+permissions: 'The setup user can disable SAML SSO or OIDC for {% data variables.product.prodname_emus %}.'
+redirect_from:
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/disabling-authentication-for-enterprise-managed-users
 ---
 
 ## About disabled authentication for {% data variables.product.prodname_emus %}

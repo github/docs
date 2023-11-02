@@ -13,6 +13,9 @@ topics:
   - Enterprise
   - Identity
   - SSO
+redirect_from:
+  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication
+  - /admin/identity-and-access-management/understanding-iam-for-enterprises/username-considerations-for-external-authentication
 ---
 
 {% ifversion ghec %}

@@ -1,7 +1,7 @@
 ---
 title: Identifying the best authentication method for your enterprise
 shortTitle: Identify the best authentication method
-intro: "You can determine whether your enterprise would benefit more from SAML SSO or {% data variables.product.prodname_emus %} by asking yourself some questions about your enterprise's needs and workflows."
+intro: 'You can determine whether your enterprise would benefit more from SAML SSO or {% data variables.product.prodname_emus %} by asking yourself some questions about your enterprise''s needs and workflows.'
 versions:
   ghec: '*'
 type: overview
@@ -11,6 +11,8 @@ topics:
   - Enterprise
   - Identity
   - SSO
+redirect_from:
+  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise
 ---
 
 ## About authentication methods for your enterprise

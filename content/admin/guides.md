@@ -20,21 +20,21 @@ learningTracks:
   - '{% ifversion ghes %}configure_github_actions{% endif %}'
   - '{% ifversion ghes %}configure_github_advanced_security{% endif %}'
 includeGuides:
-  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider
-  - /admin/identity-and-access-management/managing-iam-for-your-enterprise/changing-authentication-methods
+  - /admin/identity-and-access-management/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
+  - /admin/identity-and-access-management/understanding-iam-for-enterprises/changing-authentication-methods
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam
+  - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
-  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users
-  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users
-  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users
-  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users-with-okta
-  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups
+  - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users
+  - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
+  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users
+  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-using-okta
+  - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups
   - /admin/identity-and-access-management/using-cas-for-enterprise-iam/using-cas
   - /admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam
@@ -143,3 +143,4 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
+

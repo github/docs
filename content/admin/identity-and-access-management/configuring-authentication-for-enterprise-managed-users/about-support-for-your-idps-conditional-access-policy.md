@@ -10,6 +10,8 @@ topics:
   - Authentication
   - Enterprise
   - SSO
+redirect_from:
+  - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy
 ---
 
 {% data reusables.enterprise-accounts.azure-emu-support-oidc %}

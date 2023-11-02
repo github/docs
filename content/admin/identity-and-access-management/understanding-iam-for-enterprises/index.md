@@ -1,5 +1,5 @@
 ---
-title: Managing IAM for your enterprise
+title: Understanding IAM for enterprises
 intro: |
   {%- ifversion ghec %}
   You can invite existing personal accounts on {% data variables.location.product_location %} to be members of your enterprise, and you can optionally enable SAML single sign-on (SSO) to centrally manage access. Alternatively, you can use {% data variables.product.prodname_emus %} with SAML SSO to create and control the accounts of your enterprise members.
@@ -16,6 +16,7 @@ redirect_from:
   - /enterprise/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance
+  - /admin/identity-and-access-management/managing-iam-for-your-enterprise
 versions:
   ghec: '*'
   ghes: '*'
@@ -26,11 +27,14 @@ topics:
   - Enterprise
   - Identity
 children:
-  - /about-authentication-for-your-enterprise
+  - /about-identity-and-access-management
+  - /about-saml-for-enterprise-iam
+  - /about-enterprise-managed-users
+  - /abilities-and-restrictions-of-managed-user-accounts
   - /identifying-the-best-authentication-method-for-your-enterprise
-  - /username-considerations-for-external-authentication
   - /changing-authentication-methods
   - /allowing-built-in-authentication-for-users-outside-your-provider
   - /troubleshooting-identity-and-access-management-for-your-enterprise
-shortTitle: Manage IAM for your enterprise
+shortTitle: Understand enterprise IAM
 ---
+
