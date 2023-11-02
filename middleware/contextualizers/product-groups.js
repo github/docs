@@ -1,5 +1,5 @@
-import { getProductGroups } from '../../lib/get-product-groups.js'
-import warmServer from '../../lib/warm-server.js'
+import { getProductGroups } from '#src/products/lib/get-product-groups.js'
+import warmServer from '#src/frame/lib/warm-server.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 

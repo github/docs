@@ -7,7 +7,7 @@ import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-defaul
 import readFileContents from './read-file-contents.js'
 import Page from './page.js'
 import frontmatterSchema from './frontmatter.js'
-import { correctTranslatedContentStrings } from './correct-translation-content.js'
+import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
 
 // If you run `export DEBUG_TRANSLATION_FALLBACKS=true` in your terminal,
 // every time a translation file fails to initialize we fall back to English

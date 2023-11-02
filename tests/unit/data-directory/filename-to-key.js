@@ -1,4 +1,4 @@
-import filenameToKey from '../../../lib/filename-to-key.js'
+import filenameToKey from '#src/data-directory/lib/filename-to-key.js'
 
 describe('filename-to-key', () => {
   test('converts filenames to object keys', () => {

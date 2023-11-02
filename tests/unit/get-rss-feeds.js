@@ -3,7 +3,7 @@ import path from 'path'
 
 import nock from 'nock'
 
-import { getChangelogItems } from '../../lib/changelog.js'
+import { getChangelogItems } from '#src/changelogs/lib/changelog.js'
 
 describe('getChangelogItems module', () => {
   let changelog

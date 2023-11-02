@@ -1,5 +1,5 @@
 import { renderContent } from '#src/content-render/index.js'
-import Page from './page.js'
+import Page from '#src/frame/lib/page.js'
 import { TitleFromAutotitleError } from '#src/content-render/unified/rewrite-local-links.js'
 
 class EmptyTitleError extends Error {}

@@ -1,4 +1,4 @@
-import { getDataByLanguage } from '../../lib/get-data.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
 import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 

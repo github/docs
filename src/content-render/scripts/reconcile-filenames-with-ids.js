@@ -14,7 +14,7 @@ import path from 'path'
 import walk from 'walk-sync'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import { execSync } from 'child_process'
 import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
 

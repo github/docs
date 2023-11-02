@@ -16,10 +16,10 @@ import chalk from 'chalk'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import { ROOT } from '../../../lib/constants.js'
+import { ROOT } from '#src/frame/lib/constants.js'
 
 const slugger = new GithubSlugger()
 

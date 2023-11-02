@@ -1,7 +1,7 @@
 import path from 'path'
 
 import { productMap, data } from './all-products.js'
-import { renderContentWithFallback } from './render-with-fallback.js'
+import { renderContentWithFallback } from '#src/languages/lib/render-with-fallback.js'
 import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
 
 async function getPage(id, lang, pageMap, context) {

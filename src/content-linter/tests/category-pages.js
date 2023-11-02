@@ -5,12 +5,12 @@ import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 
-import matter from '../../../lib/read-frontmatter.js'
+import matter from '#src/frame/lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import contextualize from '../../../middleware/context.js'
 import shortVersions from '#src/versions/middleware/short-versions.js'
-import { ROOT } from '../../../lib/constants.js'
+import { ROOT } from '#src/frame/lib/constants.js'
 
 const slugger = new GithubSlugger()
 
