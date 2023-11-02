@@ -24,6 +24,8 @@ If you want to restore an enterprise account that you have deleted, you must con
 
 You can only delete your enterprise account if your company pays by credit card or PayPal. If your company pays via invoice and you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, contact {% data variables.contact.contact_enterprise_sales %}.
 
+If you upgraded to an enterprise account from a single organization and then delete that enterprise account, the associated billing history will also be deleted. We recommend that you save any important billing information before deleting your enterprise account.
+
 ## Prerequisites
 
 You must remove, transfer, or delete all organizations in the enterprise before you can delete the enterprise account. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts)" and "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
