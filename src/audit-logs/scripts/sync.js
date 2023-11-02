@@ -14,7 +14,7 @@ import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
-import { getContents, getCommitSha } from '../../../script/helpers/git-utils.js'
+import { getContents, getCommitSha } from '#src/workflows/git-utils.js'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')

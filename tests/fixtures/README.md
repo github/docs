@@ -73,7 +73,7 @@ There's a script you can always run that makes sure all and any of these
 files are up to do:
 
 ```shell
-./script/copy-fixture-data.js
+./src/tests/scripts/copy-fixture-data.js
 ```
 
 It's safe to run any time. And it might be necessary to run so that

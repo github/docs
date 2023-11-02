@@ -11,7 +11,7 @@ import {
 } from '../lib/path-utils.js'
 import productNames from '../lib/product-names.js'
 import warmServer from '../lib/warm-server.js'
-import searchVersions from '../src/search/lib/versions.js'
+import searchVersions from '#src/search/lib/versions.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
 

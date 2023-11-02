@@ -16,6 +16,4 @@ Here's some information that might be helpful while working on a Docs PR:
 
 - [Liquid](/contributing/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
 
-- [Scripts](/script/README.md) - The scripts directory is the home for all of the scripts you can run locally.
-
 - [Tests](/tests/README.md) - We use tests to ensure content will render correctly on the site. Tests run automatically in your PR, and sometimes it's also helpful to run them locally.

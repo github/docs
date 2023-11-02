@@ -461,50 +461,6 @@
       },
       {
         "category": "orgs",
-        "slug": "create-or-update-custom-properties-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-a-custom-property-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "remove-a-custom-property-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
         "slug": "get-all-organization-repository-rulesets",
         "subcategory": "rules",
         "verb": "get",
@@ -692,9 +648,7 @@
         "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "members"
-        ],
+        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -703,9 +657,7 @@
         "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "admin"
       },
       {
@@ -714,9 +666,7 @@
         "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "members"
-        ],
+        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -725,9 +675,7 @@
         "subcategory": "custom-properties",
         "verb": "put",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "admin"
       },
       {
@@ -736,9 +684,7 @@
         "subcategory": "custom-properties",
         "verb": "delete",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "admin"
       },
       {
@@ -747,9 +693,7 @@
         "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "members"
-        ],
+        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -758,9 +702,7 @@
         "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "write"
       }
     ]
@@ -1075,39 +1017,6 @@
         "requestPath": "/orgs/{org}/outside_collaborators/{username}",
         "additional-permissions": [],
         "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "get-all-custom-properties-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "get-a-custom-property-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "list-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "read"
       },
       {
         "category": "orgs",

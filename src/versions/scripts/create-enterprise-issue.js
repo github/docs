@@ -38,7 +38,7 @@ async function run() {
   const milestone = process.argv[2]
   if (!acceptedMilestones.includes(milestone)) {
     console.log("Please specify either 'release' or 'deprecation'\n")
-    console.log('Example: script/open-enterprise-issue.js release')
+    console.log('Example: src/versions/scripts/create-enterprise-issue.js release')
     process.exit(1)
   }
 

@@ -223,7 +223,7 @@ describe('category pages', () => {
             indexShortTitle ? ` or shortTitle "${indexShortTitle}"` : ' (no shortTitle)'
           }`
           const newCategoryDirPath = path.join(path.dirname(categoryDirPath), expectedSlugs.at(-1))
-          customMessage += `\nTo resolve this consider running:\n  ./script/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
+          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
           // Check if the directory name matches the expected slug
           expect(expectedSlugs.includes(categoryDirName), customMessage).toBeTruthy()
         })

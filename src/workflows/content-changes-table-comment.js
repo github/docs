@@ -3,7 +3,7 @@
 import * as github from '@actions/github'
 import core from '@actions/core'
 
-import { getContents } from '../../script/helpers/git-utils.js'
+import { getContents } from './git-utils.js'
 import parse from '../../lib/read-frontmatter.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
