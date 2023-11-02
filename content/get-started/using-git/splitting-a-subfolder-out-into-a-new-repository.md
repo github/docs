@@ -55,11 +55,16 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    ```shell
    $ git filter-repo --path FOLDER-NAME/
    # Filter the specified branch in your directory and remove empty commits
-   > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
-   > Ref 'refs/heads/BRANCH-NAME' was rewritten
    ```
 
    The repository should now only contain the files that were in your subfolder(s).
+
+   If you want one specific subfolder to be the new root folder of the new repository, you can use the following command:
+
+   ```shell
+   $ git filter-repo --subdirectory-filter FOLDER-NAME
+   # Filter the specific branch by using a single sub-directory as the root for the new repository
+   ```
 
 1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
 
