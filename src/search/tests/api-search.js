@@ -68,7 +68,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe('api-search:en')
+    expect(res.headers['surrogate-key']).toBe('manual-purge')
   })
 
   test('debug search', async () => {

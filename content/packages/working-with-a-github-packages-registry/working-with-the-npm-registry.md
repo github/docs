@@ -201,7 +201,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Configure `package.json` in your project to use the package you are installing. To add your package dependencies to the `package.json` file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from _npmjs.com_, specify the full name, such as `@babel/core` or `@lodash`. Replace `ORGANIZATION_NAME/PACKAGE_NAME` with your package dependency.
+1. Configure `package.json` in your project to use the package you are installing. To add your package dependencies to the `package.json` file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from _npmjs.com_, specify the full name, such as `@babel/core` or `lodash`. Replace `ORGANIZATION_NAME/PACKAGE_NAME` with your package dependency.
 
    ```json
    {

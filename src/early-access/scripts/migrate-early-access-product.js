@@ -128,7 +128,7 @@ if (program.opts().newTitle) {
 
 // 7. Update internal links now that the files have been moved.
 console.log('\nRunning script to update internal links...')
-execFileSync('script/update-internal-links.js')
+execFileSync('src/links/scripts/update-internal-links.js')
 
 console.log(`
 Done! Did the following:
@@ -136,7 +136,7 @@ Done! Did the following:
 - Ran script/early-access/update-data-and-images-paths.js
 - Added redirects to the moved files
 - Updated children frontmatter entries in index.md files
-- Ran script/update-internal-links.js
+- Ran ./src/links/scripts/update-internal-links.js
 
 Please review all the changes in docs-internal and docs-early-access, especially to index.md files. You may need to do some manual cleanup.
 `)

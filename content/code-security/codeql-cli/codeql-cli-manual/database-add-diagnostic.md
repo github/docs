@@ -38,7 +38,7 @@ Available since `v2.12.6`.
 
 ### Primary Options
 
-#### `<database>` <!-- markdownlint-disable-line heading-increment -->
+#### `<database>`
 
 \[Mandatory] Path to the CodeQL database to bundle.
 

@@ -16,8 +16,6 @@ redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference/query-reference-files
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About query reference files
 
 A query reference file is text file that defines the location of one query to test.

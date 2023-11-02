@@ -631,7 +631,7 @@
   },
   {
     "action": "org.add_outside_collaborator",
-    "description": "N/A",
+    "description": "An outside collaborator was added to a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -766,8 +766,8 @@
   },
   {
     "action": "personal_access_token.credential_revoked",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A fine-grained personal access token was revoked by GitHub Advanced Security.",
+    "docs_reference_links": "/code-security/getting-started/github-security-features#secret-scanning-alerts-for-users"
   },
   {
     "action": "personal_access_token.destroy",
@@ -791,8 +791,8 @@
   },
   {
     "action": "personal_access_token.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A fine-grained personal access token was updated.",
+    "docs_reference_links": "/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens"
   },
   {
     "action": "premium_runner.create",
@@ -911,8 +911,8 @@
   },
   {
     "action": "protected_branch.update_merge_queue_enforcement_level",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Enforcement of the merge queue was modified for a branch.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-merge-queue"
   },
   {
     "action": "public_key.create",
@@ -956,7 +956,7 @@
   },
   {
     "action": "repo.actions_enabled",
-    "description": "GitHub Actions was enabled for a repository. Can be viewed using the UI, This event is not included when you access the audit log using the REST API.",
+    "description": "GitHub Actions was enabled for a repository.",
     "docs_reference_links": "organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api"
   },
   {
@@ -1092,6 +1092,16 @@
   {
     "action": "repo.pages_public",
     "description": "A GitHub Pages site visibility was changed to public.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete",
+    "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete_restore",
+    "description": "A GitHub Pages site that was previously soft-deleted was restored.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1271,18 +1281,18 @@
   },
   {
     "action": "repository_ruleset.create",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was created.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
   },
   {
     "action": "repository_ruleset.destroy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was deleted.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#deleting-a-ruleset"
   },
   {
     "action": "repository_ruleset.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was edited.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#editing-a-ruleset"
   },
   {
     "action": "security_key.register",
@@ -1351,8 +1361,18 @@
   },
   {
     "action": "sponsors.sponsored_developer_update_newsletter_send",
-    "description": "Triggered when you send an email update to your sponsors (see \"Contacting your sponsors\")",
+    "description": "Triggered when you send an email update to your sponsors.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_create",
+    "description": "A Patreon account was linked to a user account for use with GitHub Sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_destroy",
+    "description": "A Patreon account for use with GitHub Sponsors was unlinked from a user account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account"
   },
   {
     "action": "sponsors.sponsor_sponsorship_cancel",
@@ -1401,22 +1421,22 @@
   },
   {
     "action": "successor_invitation.accept",
-    "description": "Triggered when you accept a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you accept a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
     "action": "successor_invitation.cancel",
-    "description": "Triggered when you cancel a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you cancel a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
     "action": "successor_invitation.create",
-    "description": "Triggered when you create a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you create a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
     "action": "successor_invitation.decline",
-    "description": "Triggered when you decline a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you decline a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
@@ -1426,7 +1446,7 @@
   },
   {
     "action": "successor_invitation.revoke",
-    "description": "Triggered when you revoke a succession invitation (see \"Maintaining ownership continuity of your personal account's repositories\")",
+    "description": "Triggered when you revoke a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {

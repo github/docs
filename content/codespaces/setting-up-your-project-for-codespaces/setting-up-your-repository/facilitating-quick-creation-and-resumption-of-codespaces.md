@@ -1,7 +1,7 @@
 ---
 title: Facilitating quick creation and resumption of codespaces
 shortTitle: Facilitating codespace creation
-intro: You can add a link to take people straight to a page for creating a codespace, with your choice of options preconfigured. Alternatively you can link to the "Resume codespace" page.
+intro: 'You can add a link to take people straight to a page for creating a codespace, with your choice of options preconfigured. Alternatively you can link to the "Resume codespace" page.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -21,7 +21,7 @@ You can make it easy for people to work on your repository in a codespace by pro
 
 ![Screenshot of an "Open in {% data variables.product.prodname_github_codespaces %}" badge on a README page.](/assets/images/help/codespaces/codespaces-badge-on-readme.png)
 
-The link to the codespace creation page can include specific configuration options to help people create an appropriate codespace. People who use the link will be able to choose different options, if they want, before creating the codespace. For information about the available options, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+The link to the codespace creation page can include specific configuration options to help people create an appropriate codespace. People who use the link will be able to choose different options, if they want, before creating the codespace. For information about the available options, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
 Alternatively, you can link to the "Resume codespace" page, which provides a quick way for people to open a codespace they were working on recently.
 

@@ -47,7 +47,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
 {% note %}
 
-**Note:** If you experience authentication issues after installing the extension, see "[Troubleshooting authentication issues with {% data variables.product.prodname_copilot_chat %}](/copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat)."
+**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor)."
 
 {% endnote %}
 
@@ -137,7 +137,7 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 
 {% note %}
 
-**Note:** If you experience authentication issues after installing the extension, see "[Troubleshooting authentication issues with {% data variables.product.prodname_copilot_chat %}](/copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat)."
+**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor)."
 
 {% endnote %}
 

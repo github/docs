@@ -68,6 +68,8 @@ As {% data variables.product.prodname_dependabot_alerts %} rely on the dependenc
 
 {% endnote %}
 
+{% data reusables.dependabot.dependabot-alert-actions-semver %}
+
 ## Configuration of {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.repositories.enable-security-alerts %}
@@ -87,7 +89,7 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% data reusables.dependabot.dependabot-alert-create-PR %}
 
-{% ifversion dependabot-alert-custom-rules-repo-level %}
+{% ifversion dependabot-auto-triage-rules %}
 
 {% data reusables.dependabot.dependabot-alert-rules %}
 

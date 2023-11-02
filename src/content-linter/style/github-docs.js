@@ -1,84 +1,141 @@
 const githubDocsConfig = {
-  'code-fence-line-length': {
+  'link-punctuation': {
     // GHD001
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
-  'image-alt-text-end-punctuation': {
+  'internal-links-no-lang': {
     // GHD002
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'incorrect-alt-text-length': {
+  'internal-links-slash': {
     // GHD003
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
   },
-  'image-file-kebab': {
+  'image-file-kebab-case': {
     // GHD004
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-links-lang': {
+  'hardcoded-data-variable': {
     // GHD005
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-links-slash': {
+  'internal-links-old-version': {
     // GHD006
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'image-alt-text-exclude-words': {
+  'code-annotations': {
     // GHD007
     severity: 'error',
-    'partial-markdown-files': true,
+    'partial-markdown-files': false,
   },
-  'link-punctuation': {
+  'early-access-references': {
     // GHD008
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'yaml-scheduled-jobs': {
-    // GHD009
+  'github-owned-action-references': {
+    // GHD013
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'internal-links-old-version': {
-    // GHD010
+  'liquid-data-references-defined': {
+    // GHD014
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'list-first-word-capitalization': {
-    // GH011
-    severity: 'warning',
-    'partial-markdown-files': true,
-  },
-  'early-access-references': {
-    // GH035
+  'liquid-data-tag-format': {
+    // GHD015
     severity: 'error',
     'partial-markdown-files': true,
   },
   'liquid-quoted-conditional-arg': {
-    // LQ111
+    // GHD016
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'hardcoded-data-variable': {
+  'liquid-syntax': {
+    // GHD018
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'github-owned-action-references': {
+  'liquid-if-tags': {
+    // GHD019
     severity: 'error',
     'partial-markdown-files': true,
   },
-  'annotate-frontmatter': {
-    // GH040
+  'liquid-ifversion-tags': {
+    // GHD020
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'yaml-scheduled-jobs': {
+    // GHD021
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'code-fence-line-length': {
+    // GHD030
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
+  'image-alt-text-exclude-words': {
+    // GHD031
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'image-alt-text-end-punctuation': {
+    // GHD032
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'incorrect-alt-text-length': {
+    // GHD033
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
+  'list-first-word-capitalization': {
+    // GHD034
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
+}
+
+export const githubDocsFrontmatterConfig = {
+  'frontmatter-early-access-references': {
+    // GHD009
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-hidden-docs': {
+    // GHD010
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-video-transcripts': {
+    // GHD011
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-schema': {
+    // GHD012
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'frontmatter-liquid-syntax': {
+    // GHD017
     severity: 'error',
     'partial-markdown-files': false,
   },
 }
 
+// Configures rules from the `github/markdownlint-github` repo
+// created by the accessibility team.
 const githubMarkdownlintConfig = {
   'no-default-alt-text': {
     severity: 'error',
@@ -90,6 +147,9 @@ const githubMarkdownlintConfig = {
   },
 }
 
+// Configures rules from the open-source Markdownlint extension
+// search-replace:
+// https://www.npmjs.com/package/markdownlint-rule-search-replace
 export const searchReplaceConfig = {
   'search-replace': {
     rules: [
@@ -99,7 +159,7 @@ export const searchReplaceConfig = {
         searchPattern: '/todocs/gi',
         searchScope: 'all',
         severity: 'error',
-        'severity-local': 'warning',
+        precommitSeverity: 'warning',
         'partial-markdown-files': true,
       },
       {
@@ -132,7 +192,7 @@ export const searchReplaceConfig = {
         // Do not match developer.github.com/changes or
         // developer.github.com/enterprise/[0-9] or
         // developer.github.com/enterprise/{{something}} (e.g. liquid).
-        // There are occurences that will likely always remain in the content.
+        // There are occurrences that will likely always remain in the content.
         searchPattern: '/developer\\.github\\.com(?!\\/(changes|enterprise\\/([0-9]|{))).*/g',
         searchScope: 'all',
         severity: 'error',
@@ -154,7 +214,7 @@ export const searchReplaceConfig = {
         // - {{ octicon-plus An example label }}
         name: 'deprecated liquid syntax: octicon-<icon-name>',
         message:
-          'The octicon liquid syntax used is deprecated. Use this format instead {% octicon "<octicon-name>" aria-label="<Octicon aria label>" %}',
+          'The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"`',
         searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
         severity: 'error',
         'partial-markdown-files': true,
@@ -167,4 +227,5 @@ export const customConfig = {
   ...searchReplaceConfig,
   ...githubDocsConfig,
   ...githubMarkdownlintConfig,
+  ...githubDocsFrontmatterConfig,
 }

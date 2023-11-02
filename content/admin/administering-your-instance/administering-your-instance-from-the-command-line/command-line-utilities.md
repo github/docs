@@ -62,7 +62,7 @@ This utility can help identify whether the Aqueduct server is having problems pr
 - Webhooks are not being triggered.
 - The web interface is not updating after a Git push.
 
-If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+If you suspect Aqueduct is failing, visit {% data variables.contact.contact_ent_support %} for help.
 
 With this command, you can also pause or resume jobs in the queue.
 
@@ -531,7 +531,7 @@ This utility allows you to update an SSL certificate for {% data variables.locat
 For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
-ghe-ssl-certificate-setup
+/usr/local/share/enterprise/ghe-ssl-certificate-setup
 ```
 
 ### ghe-ssl-generate-csr

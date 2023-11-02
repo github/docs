@@ -8,7 +8,6 @@ on:
   pull_request_target:
     paths:
       - '.devcontainer/**'
-      - '.github/actions-scripts/**'
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
       - 'assets/fonts/**'
@@ -21,6 +20,7 @@ on:
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
@@ -50,7 +50,6 @@ jobs:
               - 'src/rest/data/**'
             notAllowed:
               - '.devcontainer/**'
-              - '.github/actions-scripts/**'
               - '.github/workflows/**'
               - '.github/CODEOWNERS'
               - 'assets/fonts/**'
@@ -71,7 +70,6 @@ jobs:
           script: |
             const badFilesArr = [
               '.devcontainer/**',
-              '.github/actions-scripts/**',
               '.github/workflows/**',
               '.github/CODEOWNERS',
               'assets/fonts/**',

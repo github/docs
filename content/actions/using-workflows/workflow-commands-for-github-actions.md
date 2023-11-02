@@ -17,7 +17,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About workflow commands
@@ -498,12 +498,15 @@ on: push
 jobs:
   secret-generator:
     runs-on: ubuntu-latest
+    outputs:
+      handle: {% raw %}${{ steps.generate-secret.outputs.handle }}{% endraw %}
     steps:
     - uses: some/secret-store@v1
       with:{% raw %}
         credentials: ${{ secrets.SECRET_STORE_CREDENTIALS }}
         instance: ${{ secrets.SECRET_STORE_INSTANCE }}{% endraw %}
     - name: generate secret
+      id: generate-secret
       shell: bash
       run: |
         GENERATED_SECRET=$((RANDOM))

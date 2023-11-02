@@ -1,3 +1,4 @@
+import type { EnterpriseDeprecation } from 'components/context/MainContext'
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'src/versions/components/useVersion'
 import { Flash } from '@primer/react'
@@ -13,9 +14,14 @@ export const DeprecationBanner = () => {
     return null
   }
 
+  // Have to "trick" TypeScript here because by default, this is an
+  // optional key. But because we're confident with the JS business
+  // logic in MainContext.tsx, we can safely assume that this key
+  // is present.
+  const enterpriseDeprecation = data.reusables.enterprise_deprecation as EnterpriseDeprecation
   const message = enterpriseServerReleases.isOldestReleaseDeprecated
-    ? data.reusables.enterprise_deprecation.version_was_deprecated
-    : data.reusables.enterprise_deprecation.version_will_be_deprecated
+    ? enterpriseDeprecation.version_was_deprecated
+    : enterpriseDeprecation.version_will_be_deprecated
 
   return (
     <div
@@ -33,7 +39,7 @@ export const DeprecationBanner = () => {
           </b>{' '}
           <span
             dangerouslySetInnerHTML={{
-              __html: data.reusables.enterprise_deprecation.deprecation_details,
+              __html: enterpriseDeprecation.deprecation_details,
             }}
           />
         </p>

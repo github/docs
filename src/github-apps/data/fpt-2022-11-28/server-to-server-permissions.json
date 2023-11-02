@@ -229,6 +229,58 @@
       },
       {
         "category": "orgs",
+        "slug": "create-or-update-custom-properties-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-a-custom-property-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-a-custom-property-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
+      },
+      {
+        "category": "orgs",
         "slug": "get-all-organization-repository-rulesets",
         "subcategory": "rules",
         "verb": "get",
@@ -430,6 +482,103 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      }
+    ]
+  },
+  "organization_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Organization permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "get-all-custom-properties-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "members"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-properties-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "get-a-custom-property-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "members"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-a-custom-property-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-a-custom-property-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "list-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "members"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_administration"
+        ]
       }
     ]
   },
@@ -646,6 +795,45 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-all-custom-properties-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "get-a-custom-property-for-an-organization",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
+      },
+      {
+        "category": "orgs",
+        "slug": "list-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/values",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_custom_properties"
+        ]
       },
       {
         "category": "orgs",
@@ -6392,6 +6580,17 @@
       },
       {
         "category": "repos",
+        "slug": "get-all-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
         "slug": "get-rules-for-a-branch",
         "subcategory": "rules",
         "verb": "get",
@@ -6554,32 +6753,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
-      },
-      {
-        "category": "codespaces",
-        "slug": "list-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
-      },
-      {
-        "category": "codespaces",
-        "slug": "set-selected-repositories-for-a-user-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/user/codespaces/secrets/{secret_name}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": [
-          "codespaces_user_secrets"
-        ]
       },
       {
         "category": "codespaces",
@@ -8244,9 +8417,9 @@
     "displayTitle": "Repository permissions for \"Webhooks\"",
     "permissions": [
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "list-repository-webhooks",
-        "subcategory": "repos",
+        "subcategory": "webhooks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hooks",
         "access": "read",
@@ -8255,9 +8428,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "create-a-repository-webhook",
-        "subcategory": "repos",
+        "subcategory": "webhooks",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/hooks",
         "access": "write",
@@ -8266,9 +8439,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "get-a-repository-webhook",
-        "subcategory": "repos",
+        "subcategory": "webhooks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}",
         "access": "read",
@@ -8277,9 +8450,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "update-a-repository-webhook",
-        "subcategory": "repos",
+        "subcategory": "webhooks",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}",
         "access": "write",
@@ -8288,9 +8461,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "delete-a-repository-webhook",
-        "subcategory": "repos",
+        "subcategory": "webhooks",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}",
         "access": "write",
@@ -8299,9 +8472,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "get-a-webhook-configuration-for-a-repository",
-        "subcategory": "repo-config",
+        "subcategory": "webhooks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config",
         "access": "read",
@@ -8310,9 +8483,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "update-a-webhook-configuration-for-a-repository",
-        "subcategory": "repo-config",
+        "subcategory": "webhooks",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/config",
         "access": "write",
@@ -8321,9 +8494,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "list-deliveries-for-a-repository-webhook",
-        "subcategory": "repo-deliveries",
+        "subcategory": "webhooks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries",
         "access": "read",
@@ -8332,9 +8505,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "get-a-delivery-for-a-repository-webhook",
-        "subcategory": "repo-deliveries",
+        "subcategory": "webhooks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}",
         "access": "read",
@@ -8343,9 +8516,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "redeliver-a-delivery-for-a-repository-webhook",
-        "subcategory": "repo-deliveries",
+        "subcategory": "webhooks",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts",
         "access": "write",
@@ -8354,9 +8527,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "ping-a-repository-webhook",
-        "subcategory": "repos",
+        "subcategory": "webhooks",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/pings",
         "access": "read",
@@ -8365,9 +8538,9 @@
         "additional-permissions": []
       },
       {
-        "category": "webhooks",
+        "category": "repos",
         "slug": "test-the-push-repository-webhook",
-        "subcategory": "repos",
+        "subcategory": "webhooks",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/tests",
         "access": "read",
@@ -8527,9 +8700,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",
@@ -8540,9 +8711,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": [
-          "metadata"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "codespaces",

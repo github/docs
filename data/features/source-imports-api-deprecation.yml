@@ -1,0 +1,5 @@
+# Reference: #12342
+# Alternatives to the Source imports REST API after deprecation
+versions:
+  fpt: '*'
+  ghec: '*'

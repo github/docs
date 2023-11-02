@@ -28,7 +28,7 @@ const DEFAULT_ACCEPT_HEADER = {
 
 export function RestOperation({ operation }: Props) {
   const titleSlug = slug(operation.title)
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('rest_reference')
   const router = useRouter()
 
   const headers = [DEFAULT_ACCEPT_HEADER]
@@ -48,10 +48,8 @@ export function RestOperation({ operation }: Props) {
             <CheckCircleFillIcon size={16} />
           </span>
           <span>
-            {t('rest.reference.works_with') + ' '}
-            <Link className="" href={`/${router.locale}/developers/apps`}>
-              GitHub Apps
-            </Link>
+            {t('works_with') + ' '}
+            <Link href={`/${router.locale}/developers/apps`}>GitHub Apps</Link>
           </span>
         </div>
       )}
@@ -66,10 +64,7 @@ export function RestOperation({ operation }: Props) {
             <ParameterTable
               slug={titleSlug}
               numPreviews={numPreviews}
-              heading={t('rest.reference.parameters').replace(
-                '{{ RESTOperationTitle }}',
-                operation.title,
-              )}
+              heading={t('parameters').replace('{{ RESTOperationTitle }}', operation.title)}
               headers={headers}
               parameters={operation.parameters}
               bodyParameters={operation.bodyParameters}
@@ -80,10 +75,7 @@ export function RestOperation({ operation }: Props) {
             <RestStatusCodes
               statusCodes={operation.statusCodes}
               slug={titleSlug}
-              heading={t('rest.reference.http_status_code').replace(
-                '{{ RESTOperationTitle }}',
-                operation.title,
-              )}
+              heading={t('http_status_code').replace('{{ RESTOperationTitle }}', operation.title)}
             />
           )}
         </div>
@@ -95,10 +87,7 @@ export function RestOperation({ operation }: Props) {
             <RestCodeSamples
               operation={operation}
               slug={titleSlug}
-              heading={t('rest.reference.code_samples').replace(
-                '{{ RESTOperationTitle }}',
-                operation.title,
-              )}
+              heading={t('code_samples').replace('{{ RESTOperationTitle }}', operation.title)}
             />
           )}
 
@@ -108,14 +97,8 @@ export function RestOperation({ operation }: Props) {
               previews={operation.previews}
               heading={
                 operation.previews.length > 1
-                  ? `${t('rest.reference.preview_notices').replace(
-                      '{{ RESTOperationTitle }}',
-                      operation.title,
-                    )}`
-                  : `${t('rest.reference.preview_notice').replace(
-                      '{{ RESTOperationTitle }}',
-                      operation.title,
-                    )}`
+                  ? `${t('preview_notices').replace('{{ RESTOperationTitle }}', operation.title)}`
+                  : `${t('preview_notice').replace('{{ RESTOperationTitle }}', operation.title)}`
               }
             />
           )}

@@ -10108,6 +10108,11 @@ type DeploymentProtectionRule {
   databaseId: Int
 
   """
+  Whether deployments to this environment can be approved by the user who created the deployment.
+  """
+  preventSelfReview: Boolean
+
+  """
   The teams or users that can review the deployment
   """
   reviewers(
@@ -30042,6 +30047,11 @@ type PermissionSource {
   permission: DefaultRepositoryPermissionField!
 
   """
+  The name of the role this source has granted to the user.
+  """
+  roleName: String
+
+  """
   The source of this permission.
   """
   source: PermissionGranter!
@@ -43789,7 +43799,8 @@ type RepositoryConnection {
   totalCount: Int!
 
   """
-  The total size in kilobytes of all repositories in the connection.
+  The total size in kilobytes of all repositories in the connection. Value will
+  never be larger than max 32-bit signed integer.
   """
   totalDiskUsage: Int!
 }
@@ -44359,6 +44370,11 @@ enum RepositoryLockReason {
   The repository is locked due to a trade controls related reason.
   """
   TRADE_RESTRICTION
+
+  """
+  The repository is locked due to an ownership transfer.
+  """
+  TRANSFERRING_OWNERSHIP
 }
 
 """
@@ -44883,6 +44899,11 @@ The rule types supported in rulesets
 """
 enum RepositoryRuleType {
   """
+  Authorization
+  """
+  AUTHORIZATION
+
+  """
   Branch name pattern
   """
   BRANCH_NAME_PATTERN
@@ -44913,6 +44934,26 @@ enum RepositoryRuleType {
   DELETION
 
   """
+  Branch is read-only. Users cannot push to the branch.
+  """
+  LOCK_BRANCH
+
+  """
+  Max ref updates
+  """
+  MAX_REF_UPDATES
+
+  """
+  Merges must be performed via a merge queue.
+  """
+  MERGE_QUEUE
+
+  """
+  Merge queue locked ref
+  """
+  MERGE_QUEUE_LOCKED_REF
+
+  """
   Prevent users with push access from force pushing to refs.
   """
   NON_FAST_FORWARD
@@ -44933,6 +44974,12 @@ enum RepositoryRuleType {
   REQUIRED_LINEAR_HISTORY
 
   """
+  When enabled, all conversations on code must be resolved before a pull request
+  can be merged into a branch that matches this rule.
+  """
+  REQUIRED_REVIEW_THREAD_RESOLUTION
+
+  """
   Commits pushed to matching refs must have verified signatures.
   """
   REQUIRED_SIGNATURES
@@ -44946,6 +44993,27 @@ enum RepositoryRuleType {
   REQUIRED_STATUS_CHECKS
 
   """
+  Require all commits be made to a non-target branch and submitted via a pull
+  request and required workflow checks to pass before they can be merged.
+  """
+  REQUIRED_WORKFLOW_STATUS_CHECKS
+
+  """
+  Commits pushed to matching refs must have verified signatures.
+  """
+  RULESET_REQUIRED_SIGNATURES
+
+  """
+  Secret scanning
+  """
+  SECRET_SCANNING
+
+  """
+  Tag
+  """
+  TAG
+
+  """
   Tag name pattern
   """
   TAG_NAME_PATTERN
@@ -44954,6 +45022,16 @@ enum RepositoryRuleType {
   Only allow users with bypass permission to update matching refs.
   """
   UPDATE
+
+  """
+  Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+  """
+  WORKFLOWS
+
+  """
+  Workflow files cannot be modified.
+  """
+  WORKFLOW_UPDATES
 }
 
 """
@@ -46523,6 +46601,7 @@ union RuleParameters =
   | RequiredStatusChecksParameters
   | TagNamePatternParameters
   | UpdateParameters
+  | WorkflowsParameters
 
 """
 Specifies the parameters for a `RepositoryRule` object. Only one of the fields should be specified.
@@ -46572,6 +46651,11 @@ input RuleParametersInput {
   Parameters used for the `update` rule type
   """
   update: UpdateParametersInput
+
+  """
+  Parameters used for the `workflows` rule type
+  """
+  workflows: WorkflowsParametersInput
 }
 
 """
@@ -47663,6 +47747,11 @@ enum SocialAccountProvider {
   Open-source federated microblogging service.
   """
   MASTODON
+
+  """
+  JavaScript package registry.
+  """
+  NPM
 
   """
   Social news aggregation and discussion website.
@@ -55796,6 +55885,11 @@ input UpdateEnvironmentInput {
   environmentId: ID! @possibleTypes(concreteTypes: ["Environment"])
 
   """
+  Whether deployments to this environment can be approved by the user who created the deployment.
+  """
+  preventSelfReview: Boolean
+
+  """
   The ids of users or teams that can approve deployments to this environment
   """
   reviewers: [ID!]
@@ -59564,6 +59658,56 @@ type Workflow implements Node & UniformResourceLocatable {
 }
 
 """
+A workflow that must run for this rule to pass
+"""
+type WorkflowFileReference {
+  """
+  The path to the workflow file
+  """
+  path: String!
+
+  """
+  The ref (branch or tag) of the workflow file to use
+  """
+  ref: String
+
+  """
+  The ID of the repository where the workflow is defined
+  """
+  repositoryId: Int!
+
+  """
+  The commit SHA of the workflow file to use
+  """
+  sha: String
+}
+
+"""
+A workflow that must run for this rule to pass
+"""
+input WorkflowFileReferenceInput {
+  """
+  The path to the workflow file
+  """
+  path: String!
+
+  """
+  The ref (branch or tag) of the workflow file to use
+  """
+  ref: String
+
+  """
+  The ID of the repository where the workflow is defined
+  """
+  repositoryId: Int!
+
+  """
+  The commit SHA of the workflow file to use
+  """
+  sha: String
+}
+
+"""
 A workflow run.
 """
 type WorkflowRun implements Node & UniformResourceLocatable {
@@ -59809,6 +59953,26 @@ enum WorkflowState {
   The workflow was disabled manually.
   """
   DISABLED_MANUALLY
+}
+
+"""
+Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+"""
+type WorkflowsParameters {
+  """
+  Workflows that must pass for this rule to pass.
+  """
+  workflows: [WorkflowFileReference!]!
+}
+
+"""
+Require all changes made to a targeted branch to pass the specified workflows before they can be merged.
+"""
+input WorkflowsParametersInput {
+  """
+  Workflows that must pass for this rule to pass.
+  """
+  workflows: [WorkflowFileReferenceInput!]!
 }
 
 """

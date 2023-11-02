@@ -46,8 +46,8 @@ export const errorCacheControl = cacheControlFactory(60) // 1 minute
 
 // This means we tell the browser to cache the XHR request for 1h
 const searchBrowserCacheControl = cacheControlFactory(60 * 60)
-// This tells the CDN to cache the response for 4 hours
-const searchCdnCacheControl = cacheControlFactory(60 * 60 * 4, {
+// This tells the CDN to cache the response for 24 hours
+const searchCdnCacheControl = cacheControlFactory(60 * 60 * 24, {
   key: 'surrogate-control',
 })
 export function searchCacheControl(res) {

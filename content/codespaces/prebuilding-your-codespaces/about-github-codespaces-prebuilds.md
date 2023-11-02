@@ -20,11 +20,11 @@ If it currently takes more than 2 minutes to create a codespace for a repository
 
 By default, whenever you push changes to your repository, {% data variables.product.prodname_github_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
 
-When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-hidden="true"  %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-hidden="true"  %} Prebuild in progress" label. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+When prebuilds are available for a particular branch of a repository, a particular dev container configuration file, and for your region, you'll see the "{% octicon "zap" aria-hidden="true"  %} Prebuild ready" label in the list of machine type options when you create a codespace. If a prebuild is still being created, you will see the "{% octicon "history" aria-hidden="true"  %} Prebuild in progress" label. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
 ![Screenshot of a list of available machine types: 2, 4, 8, 16, and 32 core, all labeled "Prebuild ready."](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-When you create a codespace from a template on the "Your codespaces" page, {% data variables.product.prodname_dotcom %} may automatically use a prebuild to speed up creation time. For more information on templates, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+When you create a codespace from a template on the "Your codespaces" page, {% data variables.product.prodname_dotcom %} may automatically use a prebuild to speed up creation time. For more information on templates, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
 
 {% note %}
 

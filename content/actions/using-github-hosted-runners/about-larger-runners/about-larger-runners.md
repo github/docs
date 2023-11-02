@@ -34,7 +34,7 @@ The following machines sizes are available for macOS {% data variables.actions.h
 
 #### Limitations for macOS {% data variables.actions.hosted_runner %}s
 
-- All actions provided by GitHub are compatible with arm64 Github-hosted runners. However, community actions may not be compatible with arm64 and need to be manually installed at runtime. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners?platform=mac#troubleshooting-larger-runners)."
+- All actions provided by {% data variables.product.prodname_dotcom %} are compatible with arm64 {% data variables.product.prodname_dotcom %}-hosted runners. However, community actions may not be compatible with arm64 and need to be manually installed at runtime. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners?platform=mac#troubleshooting-larger-runners)."
 - Due to a limitation of Apple's Virtualization Framework, which our hypervisor uses, nested-virtualization is not supported by arm64 runners.
 
 ### Additional features for {% data variables.actions.hosted_runner %}s

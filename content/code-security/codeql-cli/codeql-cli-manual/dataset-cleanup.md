@@ -39,7 +39,7 @@ will make it impossible to import further data into the dataset.
 
 ### Primary Options
 
-#### `<dataset>` <!-- markdownlint-disable-line heading-increment -->
+#### `<dataset>`
 
 \[Mandatory] Path to the raw QL dataset to clean up.
 
@@ -74,13 +74,13 @@ below this percentage.
 
 Select how aggressively to trim the cache. Choices include:
 
-`brutal`: Remove the entire cache, trimming down to the state of a
+`clear`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` _(default)_: Trim everything except explicitly "cached"
+`trim` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
-`light`: Simply make sure the defined size limits for the disk cache are
+`fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
 #### `--cleanup-upgrade-backups`

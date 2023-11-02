@@ -253,7 +253,7 @@ includeGuides:
 ### `type`
 
 - Purpose: Indicate the type of article.
-- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
+- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`, `rai`.
 - Optional.
 
 ### `topics`

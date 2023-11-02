@@ -20,7 +20,7 @@ topics:
 
 ## About team management with {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, you can manage team and organization membership within your enterprise through your IdP by connecting {% data variables.product.prodname_dotcom %} teams with IdP groups. When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts.
+{% data reusables.emus.about-team-management-with-idp %} When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts.
 
 When a change to an IdP group or a new team connection results in a {% data variables.enterprise.prodname_managed_user %} joining a team in an organization they were not already a member of, the {% data variables.enterprise.prodname_managed_user %} will automatically be added to the organization. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
 
@@ -87,8 +87,10 @@ Organization owners can manage the existing connection between an IdP group and 
 Enterprise owners can review a list of IdP groups, each group's memberships, and any teams connected to each group. The IdP groups and memberships listed in this view are based on information sent from the IdP to {% data variables.product.prodname_dotcom %} via SCIM. You must edit the membership for a group on your IdP.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-hidden="true" %} **Identity provider**.
+{% data reusables.enterprise-accounts.click-identity-provider %}
 
 1. To see the members and teams connected to an IdP group, click the group's name.
 
 1. To view the teams connected to the IdP group, click **Teams**.
+
+If a team cannot sync with the group on your IdP, the team will display an error. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/troubleshooting-team-membership-with-identity-provider-groups)."

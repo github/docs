@@ -42,11 +42,12 @@ shortTitle: Manage payment tiers
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
-  {% note %}
+   {% note %}
 
-  **Note:** To see ideas of tier descriptions, scroll down.
+   **Note:** To see ideas of tier descriptions, scroll down.
 
-  {% endnote %}
+   {% endnote %}
+
 {% data reusables.sponsors.tier-price-description %}
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}

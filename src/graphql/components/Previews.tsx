@@ -15,7 +15,7 @@ export function Previews({ schema }: Props) {
   const previews = schema.map((item) => {
     const slugger = new GithubSlugger()
     const slug = slugger.slug(item.title)
-    const { t } = useTranslation('products')
+    const { t } = useTranslation('graphql')
 
     return (
       <div className={cx(styles.markdownBody)} key={slug}>
@@ -23,11 +23,11 @@ export function Previews({ schema }: Props) {
           {item.title}
         </HeadingLink>
         <p>{item.description}</p>
-        <p>{t('graphql.overview.preview_header')}</p>
+        <p>{t('overview.preview_header')}</p>
         <pre>
           <code>{item.accept_header}</code>
         </pre>
-        <p>{t('graphql.overview.preview_schema_members')}:</p>
+        <p>{t('overview.preview_schema_members')}:</p>
         <ul>
           {item.toggled_on.map((change) => (
             <li key={change + slug}>

@@ -430,7 +430,7 @@ jobs:
 
 {% endraw %}
 
-For more information on using job outputs, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+For more information on using job outputs, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)." If you want to share something other than a variable (e.g. a build artifact) between workflows, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Monitoring which workflows are being used
 

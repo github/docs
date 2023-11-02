@@ -289,10 +289,6 @@ gem:
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
-## Pagination
-
-When a response from the REST API would include many results, {% data variables.product.company_short %} will paginate the results and return a subset of the results. You can use the link header from the response to request additional pages of data. If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
-
 ## Timeouts
 
 If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
@@ -393,6 +389,8 @@ If you exceed the rate limit, the response will have a `403` status and the `x-r
 >    "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#rate-limiting"
 > }
 ```
+
+For requests using the Git LFS API (that is, the one used by the Git LFS client), the response will instead have a `429` status.
 
 If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
 

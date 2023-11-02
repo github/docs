@@ -28,11 +28,11 @@ The primary purpose of the GitHub community is to collaborate on software projec
 
 - **Be respectful** - Working in a collaborative environment means disagreements may happen. But remember to criticize ideas, not people. Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to deescalate a tense situation.
 
-- **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.  
+- **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.
 
 ## What if something or someone offends you?
 
-While some disagreements can be resolved with direct, respectful communication between community members, we understand that is not always the case. We encourage our community to [let us know](https://support.github.com/contact/report-abuse?category=report-abuse&report=other&report_type=unspecified) when they believe content or activity they’ve encountered violates our policies. However, if you run into something or someone on the site that you find objectionable, here are some ways GitHub enables you to take action:
+While some disagreements can be resolved with direct, respectful communication between community members, we understand that is not always the case. We encourage our community to contact GitHub Support through the [GitHub Support portal](https://support.github.com/) when they believe content or activity they’ve encountered violates our policies. However, if you run into something or someone on the site that you find objectionable, here are some ways GitHub enables you to take action:
 
 - **Communicate expectations** - Maintainers can set community-specific guidelines to help users understand how to interact with their projects, for example, in a repository’s README, [CONTRIBUTING file](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors), or [dedicated code of conduct](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project). You can find additional information on building communities on the [Communities](/communities) page.
 
@@ -44,7 +44,7 @@ While some disagreements can be resolved with direct, respectful communication b
 
 - **Limit Interactions** - If your public project is getting unwanted attention, being trolled, spammed, or otherwise, you have the option of setting [temporary interaction limits](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository) to keep certain users from interacting with your repository. You can even set [code review limits](https://github.blog/2021-11-01-github-keeps-getting-better-for-open-source-maintainers/#preventing-drive-by-pull-request-approvals-and-requested-changes) to ensure quality contributions on your projects.
 
-While we are passionate about empowering maintainers to moderate their own projects, please reach out to us to {% data variables.contact.report_abuse %} if you need additional support in dealing with a situation.
+While we are passionate about empowering maintainers to moderate their own projects, please contact {% data variables.contact.contact_support %} if you need additional support in dealing with a situation.
 
 ## What happens if someone violates GitHub's policies?
 

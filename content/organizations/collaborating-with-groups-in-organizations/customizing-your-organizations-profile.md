@@ -77,9 +77,28 @@ You can pin repositories that you want to feature, such as those that are freque
 
    - If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
 
-   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-link.png)
+   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-org-link.png)
 
 1. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
 1. Click **Save pins**.
 
 {% endif %}
+
+## Changing your organization's profile picture
+
+When you create an organization, {% data variables.product.product_name %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
+
+You can replace the identicon with an image that represents your organization. To replace the image, you can upload a new image or use a Gravatar image.
+
+### Uploading an image
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. Under your profile picture, click **Upload new picture**, then select an image.
+
+### Using a Gravatar image
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Gravatar email (Private)" field, enter the email address associated with your Gravatar image.
+1. Click **Update profile**.
