@@ -10,7 +10,7 @@
 import fs from 'fs'
 import { program } from 'commander'
 
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import removeLiquidStatements from './remove-liquid-statements.js'
 import removeDeprecatedFrontmatter from './remove-deprecated-frontmatter.js'
 import { all, getNextReleaseNumber } from '#src/versions/lib/enterprise-server-releases.js'

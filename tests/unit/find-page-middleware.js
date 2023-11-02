@@ -4,7 +4,7 @@ import http from 'http'
 
 import { expect, describe, test } from '@jest/globals'
 
-import Page from '../../lib/page.js'
+import Page from '#src/frame/lib/page.js'
 import findPage from '../../middleware/find-page.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))

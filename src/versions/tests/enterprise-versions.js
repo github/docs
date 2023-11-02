@@ -1,4 +1,4 @@
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 const { supported, deprecated, all, latest, oldestSupported, nextDeprecationDate } =
   EnterpriseServerReleases

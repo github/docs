@@ -1,5 +1,5 @@
-import parse from '../../lib/read-frontmatter.js'
-import { schema as frontmatterSchema } from '../../lib/frontmatter.js'
+import parse from '#src/frame/lib/read-frontmatter.js'
+import { schema as frontmatterSchema } from '#src/frame/lib/frontmatter.js'
 
 const filepath = 'path/to/file.md'
 const fixture1 = `---

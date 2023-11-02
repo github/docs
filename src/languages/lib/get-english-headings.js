@@ -2,8 +2,8 @@ import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toString } from 'mdast-util-to-string'
 import { visit } from 'unist-util-visit'
 
-import findPage from './find-page.js'
-import { getDataByLanguage } from './get-data.js'
+import findPage from '#src/frame/lib/find-page.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 // for any translated page, first get corresponding English markdown
 // then get the headings on both the translated and English pageMap

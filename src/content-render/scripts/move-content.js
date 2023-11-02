@@ -28,8 +28,8 @@ import chalk from 'chalk'
 import walk from 'walk-sync'
 import yaml from 'js-yaml'
 
-import fm from '../../../lib/frontmatter.js'
-import readFrontmatter from '../../../lib/read-frontmatter.js'
+import fm from '#src/frame/lib/frontmatter.js'
+import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 
 const CONTENT_ROOT = path.resolve('content')
 const DATA_ROOT = path.resolve('data')

@@ -2,8 +2,8 @@ import path from 'path'
 
 import { jest } from '@jest/globals'
 
-import { loadPages } from '../../../../lib/page-data.js'
-import Permalink from '../../../../lib/permalink.js'
+import { loadPages } from '#src/frame/lib/page-data.js'
+import Permalink from '#src/frame/lib/permalink.js'
 
 describe('redirect orphans', () => {
   // Because calling `loadPages` will trigger a warmup, this can potentially

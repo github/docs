@@ -1,4 +1,4 @@
-import { getChangelogItems } from '../../lib/changelog.js'
+import { getChangelogItems } from '#src/changelogs/lib/changelog.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 
 export default async function whatsNewChangelog(req, res, next) {
