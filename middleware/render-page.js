@@ -70,6 +70,13 @@ export default async function renderPage(req, res) {
       `referer:${req.headers.referer || ''}`,
     ])
 
+    // This means, we allow the CDN to cache it, but to be purged at the
+    // next deploy. The length isn't very important as long as it gets
+    // a new chance after the next deploy + purge.
+    // This way, we only have to repond with this 404 once per deploy
+    // and the CDN can cache it.
+    defaultCacheControl(res)
+
     return nextApp.render404(req, res)
   }
 

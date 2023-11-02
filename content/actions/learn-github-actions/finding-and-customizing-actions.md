@@ -71,30 +71,7 @@ An action's listing page includes the action's version and the workflow syntax r
 
 If an action is defined in the same repository where your workflow file uses the action, you can reference the action with either the ‌`{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file.
 
-Example repository file structure:
-
-```shell
-|-- hello-world (repository)
-|   |__ .github
-|       └── workflows
-|           └── my-first-workflow.yml
-|       └── actions
-|           |__ hello-world-action
-|               └── action.yml
-```
-
-Example workflow file:
-
-```yaml
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # This step checks out a copy of your repository.
-      - uses: {% data reusables.actions.action-checkout %}
-      # This step references the directory that contains the action.
-      - uses: ./.github/actions/hello-world-action
-```
+{% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 
 The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
