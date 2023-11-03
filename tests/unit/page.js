@@ -3,7 +3,7 @@ import path from 'path'
 import cheerio from 'cheerio'
 import { describe, expect } from '@jest/globals'
 
-import Page, { FrontmatterErrorsError } from '../../lib/page.js'
+import Page, { FrontmatterErrorsError } from '#src/frame/lib/page.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import enterpriseServerReleases, { latest } from '#src/versions/lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'

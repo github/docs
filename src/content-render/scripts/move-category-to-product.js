@@ -11,7 +11,7 @@ import path from 'path'
 import { mkdirp } from 'mkdirp'
 import { program } from 'commander'
 import { execSync } from 'child_process'
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
 import walkFiles from '#src/workflows/walk-files.js'
 

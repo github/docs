@@ -1,9 +1,9 @@
 import fs from 'fs/promises'
 import path from 'path'
-import frontmatter from './read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
-import { ROOT } from './constants.js'
+import { ROOT } from '#src/frame/lib/constants.js'
 
 // Both internal and external products are specified in content/index.md
 const homepage = path.posix.join(ROOT, 'content/index.md')

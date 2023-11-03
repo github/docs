@@ -1,7 +1,7 @@
 import parse from './read-frontmatter.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { allTools } from '#src/tools/lib/all-tools.js'
-import { getDeepDataByLanguage } from './get-data.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 const layoutNames = [
   'default',

@@ -76,7 +76,7 @@ export default function WebhooksEventsAndPayloads({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { getInitialPageWebhooks } = await import('src/webhooks/lib')
-  const { getAutomatedPageMiniTocItems } = await import('lib/get-mini-toc-items')
+  const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items')
 
   const req = context.req as object
   const res = context.res as object

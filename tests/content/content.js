@@ -2,7 +2,7 @@ import path from 'path'
 
 import walk from 'walk-sync'
 
-import createTree from '../../lib/create-tree.js'
+import createTree from '#src/frame/lib/create-tree.js'
 
 describe('content files', () => {
   test.each(['content', 'tests/fixtures/content'])(

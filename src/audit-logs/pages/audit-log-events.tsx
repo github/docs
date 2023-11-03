@@ -46,7 +46,7 @@ export default function AuditLogEvents({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAutomatedPageMiniTocItems } = await import('lib/get-mini-toc-items')
+  const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items')
   const { getAuditLogEvents } = await import('src/audit-logs/lib')
 
   const req = context.req as object

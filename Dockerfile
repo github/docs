@@ -45,7 +45,6 @@ RUN npm prune --production
 FROM all_deps as builder
 
 COPY components ./components
-COPY lib ./lib
 COPY src ./src
 # The star is because it's an optional directory
 COPY .remotejson-cache* ./.remotejson-cache
@@ -88,7 +87,6 @@ ENV BUILD_SHA=$BUILD_SHA
 COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
-COPY --chown=node:node lib ./lib
 COPY --chown=node:node src ./src
 COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
 COPY --chown=node:node middleware ./middleware
@@ -107,7 +105,7 @@ CMD ["node", "server.js"]
 FROM preview as production
 
 # Override what was set for previews
-# Make this match the default of `Object.keys(languages)` in lib/languages.js
+# Make this match the default of `Object.keys(languages)` in src/languages/lib/languages.js
 ENV ENABLED_LANGUAGES "en,zh,es,pt,ru,ja,fr,de,ko"
 
 # Copy in all translations

@@ -1,8 +1,8 @@
 import { get } from 'lodash-es'
 
 import FailBot from '#src/observability/lib/failbot.js'
-import patterns from '../lib/patterns.js'
-import getMiniTocItems from '../lib/get-mini-toc-items.js'
+import patterns from '#src/frame/lib/patterns.js'
+import getMiniTocItems from '#src/frame/lib/get-mini-toc-items.js'
 import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
 import statsd from '#src/observability/lib/statsd.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'

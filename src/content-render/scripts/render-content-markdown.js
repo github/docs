@@ -6,7 +6,7 @@ import { execSync } from 'child_process'
 import { renderLiquid } from '#src/content-render/liquid/index.js'
 import shortVersionsMiddleware from '#src/versions/middleware/short-versions.js'
 
-const { loadPages } = await import('../../../lib/page-data.js')
+const { loadPages } = await import('#src/frame/lib/page-data.js')
 const { allVersions } = await import('#src/versions/lib/all-versions.js')
 
 const contentCopilotDir = path.join(process.cwd(), 'content-copilot')

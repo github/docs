@@ -1,4 +1,4 @@
-import { loadPages, loadPageMap } from '../../../lib/page-data.js'
+import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { checkURL } from '../../../tests/helpers/check-url.js'
 
