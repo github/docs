@@ -32,7 +32,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 
   ```
   src/ghes-releases/scripts/release-banner.js --action create --version <PLAN@RELEASE>
-  script/copy-fixture-data.js // This updates the fixtures to match the updated data/variables/release_candidate.yml file
+  src/tests/scripts/copy-fixture-data.js // This updates the fixtures to match the updated data/variables/release_candidate.yml file
   ```
 
 - [ ] Create a PR with the above changes. This PR is used to track all docs changes and smoke tests associated with the release. For example https://github.com/github/docs-internal/pull/22286.
@@ -74,7 +74,7 @@ This file should be automatically updated, but you can also run `src/ghes-releas
 - [ ] Add any required smoke tests to the opening post in the megabranch PR.
 
   Usually, we should smoke test any new GHES admin guides, any large features landing in this GHES version for the first time, and the REST and GraphQL API references.
-- [ ] A few days before shipping, check for broken links. Run `script/check-english-links.js` in a local copy of the megabranch.
+- [ ] A few days before shipping, check for broken links. Run `/src/links/scripts/rendered-content-link-checker-cli.js` in a local copy of the megabranch.
 - [ ] [Freeze the repos](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/freezing.md) at least 1-2 days before the release, and post an announcement in Slack so everybody knows. It's helpful to freeze the repos before doing the OpenAPI merges to avoid changes to the megabranch while preparing and deploying.
 - [ ] Alert the Neon Squad (formally docs-ecosystem team)  1-2 days before the release to deploy to `github/github`. A PR should already be open in `github/github` to change the OpenAPI schema config `published` to `true` in `app/api/description/config/releases/ghes-<NEXT RELEASE NUMBER>.yaml`. They will need to:
   - [ ] Get the required approval from `@github/ecosystem-api-reviewers` then deploy the PR to dotcom. This process generally takes 30-90 minutes.

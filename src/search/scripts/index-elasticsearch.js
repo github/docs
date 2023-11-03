@@ -15,7 +15,7 @@ import { program, Option, InvalidArgumentError } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
-import { retryOnErrorTest } from '../../../script/helpers/retry-on-error-test.js'
+import { retryOnErrorTest } from './retry-on-error-test.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 

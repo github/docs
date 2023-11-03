@@ -16,7 +16,7 @@ When you verify your custom domain for your personal account or organization, on
 
 Verifying your domain stops other GitHub users from taking over your custom domain and using it to publish their own {% data variables.product.prodname_pages %} site. Domain takeovers can happen when you delete your repository, when your billing plan is downgraded, or after any other change which unlinks the custom domain or disables {% data variables.product.prodname_pages %} while the domain remains configured for {% data variables.product.prodname_pages %} and is not verified.
 
-When you verify a domain, any immediate subdomains are also included in the verification. For example, if the `github.com` custom domain is verified, `docs.github.com`, `support.github.com`, and any other immediate subdomains will also be protected from takeovers.
+When you verify a domain, any immediate subdomains are also included in the verification. For example, if the `github.com` custom domain is verified, `docs.github.com`, `support.github.com`, and any other immediate subdomains will also be protected from takeovers.<!-- markdownlint-disable-line search-replace -->
 
 {% data reusables.pages.wildcard-dns-warning %}
 

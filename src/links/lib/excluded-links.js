@@ -1,6 +1,6 @@
 /**
  * This file exports a mix of strings and of regexes. Linkinator relies
- * on this in `script/check-english-links.js` when we encounter external
+ * on this in `src/links/scripts/rendered-content-link-checker-cli.js` when we encounter external
  * links that we *specifically ignore*. That means, that URLs or patterns
  * mentioned in this file might appear within our content but we don't
  * bother checking that they actually work.

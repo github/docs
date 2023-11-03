@@ -1,8 +1,8 @@
 import { jest } from '@jest/globals'
 import { fileURLToPath } from 'url'
 import path from 'path'
-import Page from '../../lib/page.js'
-import findPage from '../../lib/find-page.js'
+import Page from '#src/frame/lib/page.js'
+import findPage from '#src/frame/lib/find-page.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('find page', () => {

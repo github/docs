@@ -167,7 +167,7 @@ export const searchReplaceConfig = {
         message: 'Catch occurrences of docs.gitub.com domain.',
         search: 'docs.github.com',
         searchScope: 'all',
-        severity: 'warning',
+        severity: 'error',
         'partial-markdown-files': true,
       },
       {

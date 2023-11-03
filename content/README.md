@@ -196,7 +196,7 @@ featuredLinks:
 
 ### `allowTitleToDifferFromFilename`
 
-- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `script/reconcile-ids-with-filenames.js`. Use this value if a file's `title` frontmatter includes Liquid or punctuation that cannot be part of the filename. For example, the article "[About Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)" uses a Liquid reusable in its title, `'About {% data variables.product.prodname_emus %}'`, which cannot be in the filename, `about-enterprise-managed-users.md`, so the `allowTitleToDifferFromFilename` frontmatter is set to `true`.
+- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`. Use this value if a file's `title` frontmatter includes Liquid or punctuation that cannot be part of the filename. For example, the article "[About Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)" uses a Liquid reusable in its title, `'About {% data variables.product.prodname_emus %}'`, which cannot be in the filename, `about-enterprise-managed-users.md`, so the `allowTitleToDifferFromFilename` frontmatter is set to `true`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 

@@ -20,7 +20,7 @@ fi
 pushd .. > /dev/null
 
 if [ ! -d "docs-early-access" ]; then
-  echo "A 'docs-early-access' directory does not exist! Run script/early-access/clone-locally first."
+  echo "A 'docs-early-access' directory does not exist! Run src/early-access/scripts/clone-locally first."
   popd > /dev/null
   exit 0
 fi

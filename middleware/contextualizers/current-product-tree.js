@@ -1,8 +1,8 @@
 import path from 'path'
 import { liquid } from '#src/content-render/index.js'
-import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
+import findPageInSiteTree from '#src/frame/lib/find-page-in-site-tree.js'
 import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
-import { executeWithFallback } from '../../lib/render-with-fallback.js'
+import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
 
 // This module adds currentProductTree to the context object for use in layouts.
 export default async function currentProductTree(req, res, next) {

@@ -207,11 +207,12 @@ export default async function processSchemas(idl, previewsPerVersion) {
         if (def.fields.length) {
           await Promise.all(
             def.fields.map(async (field) => {
-              if (!field.description) return
               const objectField = {}
 
               objectField.name = field.name.value
-              objectField.description = await helpers.getDescription(field.description.value)
+              objectField.description = field.description
+                ? await helpers.getDescription(field.description.value)
+                : ''
               objectField.type = helpers.getType(field)
               objectField.id = helpers.getId(objectField.type)
               objectField.kind = helpers.getTypeKind(objectField.type, schema)
@@ -265,11 +266,12 @@ export default async function processSchemas(idl, previewsPerVersion) {
         if (def.fields.length) {
           await Promise.all(
             def.fields.map(async (field) => {
-              if (!field.description) return
               const interfaceField = {}
 
               interfaceField.name = field.name.value
-              interfaceField.description = await helpers.getDescription(field.description.value)
+              interfaceField.description = field.description
+                ? await helpers.getDescription(field.description.value)
+                : ''
               interfaceField.type = helpers.getType(field)
               interfaceField.id = helpers.getId(interfaceField.type)
               interfaceField.kind = helpers.getTypeKind(interfaceField.type, schema)

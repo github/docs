@@ -13,10 +13,11 @@ on:
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
-      - 'src/**'
+      - 'src/*/scripts/**'
+      - 'src/**.json'
+      - 'src/workflows/**'
       - 'lib/redirects/**'
       - 'package*.json'
-      - 'script/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
@@ -55,10 +56,11 @@ jobs:
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
-              - 'src/**'
+              - 'src/*/scripts/**'
+              - 'src/**.json'
+              - 'src/workflows/**'
               - 'lib/redirects/**'
               - 'package*.json'
-              - 'scripts/**'
               - 'content/actions/deployment/security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
@@ -75,10 +77,11 @@ jobs:
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
-              'src/**',
+              'src/*/scripts/**',
+              'src/**.json',
+              'src/workflows/**',
               'lib/redirects/**',
               'package*.json',
-              'scripts/**',
               'content/actions/deployment/security-hardening-your-deployments/**',
             ]
 

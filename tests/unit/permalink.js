@@ -1,4 +1,4 @@
-import Permalink from '../../lib/permalink.js'
+import Permalink from '#src/frame/lib/permalink.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'

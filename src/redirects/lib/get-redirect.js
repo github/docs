@@ -6,7 +6,7 @@ import {
   supported,
   deprecatedWithFunctionalRedirects,
 } from '#src/versions/lib/enterprise-server-releases.js'
-import { getPathWithLanguage } from '../../../lib/path-utils.js'
+import { getPathWithLanguage } from '#src/frame/lib/path-utils.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})/`)
 const nonEnterpriseDefaultVersionPrefix = `/${nonEnterpriseDefaultVersion}`

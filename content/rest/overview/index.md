@@ -12,6 +12,7 @@ topics:
 children:
   - /comparing-githubs-rest-api-and-graphql-api
   - /resources-in-the-rest-api
+  - /rate-limits-for-the-rest-api
   - /api-versions
   - /media-types
   - /authenticating-to-the-rest-api
@@ -30,4 +31,3 @@ children:
 redirect_from:
   - /developers/overview
 ---
-

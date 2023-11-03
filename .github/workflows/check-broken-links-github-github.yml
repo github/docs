@@ -66,7 +66,7 @@ jobs:
 
       - name: Run broken github/github link check
         run: |
-          script/check-github-github-links.js broken_github_github_links.md
+          src/links/scripts/check-github-github-links.js broken_github_github_links.md
 
       - name: Get title for issue
         # If the file 'broken_github_github_links.md' got created,

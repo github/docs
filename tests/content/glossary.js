@@ -1,4 +1,4 @@
-import { getDataByLanguage } from '../../lib/get-data'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data'
 
 describe('glossaries', () => {
   const glossaries = {

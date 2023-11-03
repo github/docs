@@ -1,4 +1,4 @@
-import { productMap } from '../lib/all-products.js'
+import { productMap } from '#src/products/lib/all-products.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 const pathRegExps = [

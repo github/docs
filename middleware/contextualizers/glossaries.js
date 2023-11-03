@@ -1,7 +1,7 @@
-import { getDataByLanguage } from '../../lib/get-data.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 import { liquid } from '#src/content-render/index.js'
-import { executeWithFallback } from '../../lib/render-with-fallback.js'
-import { correctTranslatedContentStrings } from '../../lib/correct-translation-content.js'
+import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
+import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
 
 export default async function glossaries(req, res, next) {
   if (!req.pagePath.endsWith('get-started/quickstart/github-glossary')) return next()

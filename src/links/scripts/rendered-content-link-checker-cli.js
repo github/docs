@@ -11,12 +11,9 @@ import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
 import renderedContentLinkChecker from '#src/links/scripts/rendered-content-link-checker.js'
-import {
-  getCoreInject,
-  getUploadArtifactInject,
-} from '../../../script/helpers/action-injections.js'
+import { getCoreInject, getUploadArtifactInject } from '#src/links/scripts/action-injections.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import github from '../../../script/helpers/github.js'
+import github from '#src/workflows/github.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),

@@ -1,4 +1,4 @@
-import productNames from '../../lib/product-names.js'
+import productNames from '#src/products/lib/product-names.js'
 
 describe('productNames module', () => {
   test('is an object with product codes as keys and human-friendly names as values', () => {
