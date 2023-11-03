@@ -22,8 +22,15 @@ shortTitle: Manage secret alerts
 
 {% data reusables.secret-scanning.beta %}
 
+{% ifversion secret-scanning-non-provider-patterns %}
+
+## Managing alerts from high confidence patterns
+
+{% else %}
+
 ## Managing {% data variables.secret-scanning.alerts %}
 
+{% endif %}
 {% ifversion fpt or ghec %}
 {% note %}
 
@@ -41,8 +48,14 @@ shortTitle: Manage secret alerts
 
    {% data reusables.secret-scanning.validity-check-partner-patterns-enabled %}
 {% endif %}
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view. {% ifversion secret-scanning-validity-check-partner-patterns %}
-1. Optionally, to perform a validity check on the token, on the top right-hand side of the alert, click {% octicon "sync" aria-hidden="true" %} **Verify secret**. For more information, see "[Validating partner patterns](#validating-partner-patterns)." <br><br>
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.{% ifversion secret-scanning-non-provider-patterns %}
+   {% note %}
+
+   **Note:** The **High confidence** view is the default view for the list of {% data variables.product.prodname_secret_scanning %} alerts. If the detection of non-provider patterns is enabled for your repository or organization, you'll need to use a different view to be able to see non-provider alerts. For more information, see "[Managing alerts from non-provider patterns](#managing-alerts-from-non-provider-patterns)" below.
+
+   {% endnote %}
+   {% endif %}{% ifversion secret-scanning-validity-check-partner-patterns %}
+1. Optionally, to perform a validity check on the token, on the top right-hand side of the alert, click {% octicon "sync" aria-hidden="true" %} **Verify secret**. For more information, see "[Validating partner patterns](#validating-partner-patterns)."
    {% note %}
 
    **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
@@ -70,6 +83,37 @@ shortTitle: Manage secret alerts
    {% endif %}{% ifversion secret-scanning-dismissal-comment %}
 1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline. You can also retrieve or set a comment by using the {% data variables.product.prodname_secret_scanning_caps %} API. The comment is contained in the `resolution_comment` field. For more information, see "[AUTOTITLE](/rest/secret-scanning#update-a-secret-scanning-alert)" in the REST API documentation.
 1. Click **Close alert**.
+{% endif %}
+
+{% ifversion secret-scanning-non-provider-patterns %}
+
+## Managing alerts from non-provider patterns
+
+{% data reusables.secret-scanning.non-provider-patterns-beta %}
+
+Non-provider patterns are patterns such as private keys, and have a higher rate of false positive than high confidence patterns.
+
+As an organization owner, or repository administrator, you need to enable the detection of non-provider patterns in your organization or repository for {% data variables.product.prodname_secret_scanning %} to scan for non-provider patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)."
+
+Non-provider alerts are different from high confidence alerts. Non-provider alerts:
+
+- Are not shown in security overview.
+- Are listed in a different view from high confidence alerts. That view is called "Other".
+- Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %}.
+- Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
+1. On the top right corner of the list of {% data variables.product.prodname_secret_scanning %} alerts, click **Other**.
+
+   ![Screenshot of the list of {% data variables.product.prodname_secret_scanning %} alerts. A button, titled "Other", is highlighted in a dark orange outline.](/assets/images/help/repository/secret-scanning-click-other-button.png)
+
+1. Click the alert you want to view.
+1. To dismiss an alert, select the "Close as" dropdown menu and click a reason for resolving an alert.
+1. Optionally, in the "Comment" field, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting. You can view the history of all dismissed alerts and dismissal comments in the alert timeline.
+1. Click **Close alert**.
+
 {% endif %}
 
 {% ifversion secret-scanning-validity-check-partner-patterns %}
