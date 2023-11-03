@@ -18,9 +18,7 @@ redirect_from:
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-saml
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml
 children:
-  - /about-saml-for-enterprise-iam
   - /deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations
-  - /saml-configuration-reference
   - /configuring-saml-single-sign-on-for-your-enterprise
   - /configuring-user-provisioning-with-scim-for-your-enterprise
   - /managing-team-synchronization-for-organizations-in-your-enterprise

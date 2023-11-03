@@ -16,6 +16,12 @@ In some cases, you may need to use multiple accounts on {% data variables.locati
 
 You cannot use your {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see "[About  {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
 
+{% ifversion account-switcher %}
+
+If you need to use multiple accounts on {% data variables.location.product_location %}, you can stay signed in to your accounts and switch between them. For example, switching between a personal account and a service account. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+
+{% endif %}
+
 If you want to use one workstation to contribute from both accounts, you can simplify contribution with Git by using a mixture of protocols to access repository data, or by using credentials on a per-repository basis.
 
 {% warning %}

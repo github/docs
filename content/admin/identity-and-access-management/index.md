@@ -14,12 +14,15 @@ topics:
   - Enterprise
   - SSO
 children:
-  - /managing-iam-for-your-enterprise
+  - /understanding-iam-for-enterprises
+  - /iam-configuration-reference
   - /using-built-in-authentication
   - /using-cas-for-enterprise-iam
   - /using-ldap-for-enterprise-iam
   - /using-saml-for-enterprise-iam
-  - /using-enterprise-managed-users-for-iam
+  - /configuring-authentication-for-enterprise-managed-users
+  - /provisioning-user-accounts-for-enterprise-managed-users
+  - /reconfiguring-iam-for-enterprise-managed-users
   - /managing-recovery-codes-for-your-enterprise
 ---
 

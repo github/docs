@@ -17,9 +17,9 @@
 import path from 'path'
 
 import languages, { languageKeys } from '#src/languages/lib/languages.js'
-import createTree from '../lib/create-tree.js'
-import warmServer from '../lib/warm-server.js'
-import { loadSiteTree, loadPages, loadPageMap } from '../lib/page-data.js'
+import createTree from '#src/frame/lib/create-tree.js'
+import warmServer from '#src/frame/lib/warm-server.js'
+import { loadSiteTree, loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)

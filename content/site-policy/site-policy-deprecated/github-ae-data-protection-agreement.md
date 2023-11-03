@@ -8,6 +8,7 @@ redirect_from:
   - /github/site-policy/github-ae-data-protection-agreement
   - /github/site-policy-deprecated/github-ae-data-protection-agreement
 ---
+<!-- markdownlint-disable search-replace -->
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 

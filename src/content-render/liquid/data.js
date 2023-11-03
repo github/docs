@@ -1,7 +1,7 @@
 import { TokenizationError } from 'liquidjs'
 
 import { THROW_ON_EMPTY, DataReferenceError } from './error-handling.js'
-import { getDataByLanguage } from '../../../lib/get-data.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 const Syntax = /([a-z0-9/\\_.\-[\]]+)/i
 const SyntaxHelp = "Syntax Error in 'data' - Valid syntax: data [path]"

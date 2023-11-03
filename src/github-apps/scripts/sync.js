@@ -7,7 +7,7 @@ import path from 'path'
 import { slug } from 'github-slugger'
 import yaml from 'js-yaml'
 
-import { getContents } from '../../../script/helpers/git-utils.js'
+import { getContents } from '#src/workflows/git-utils.js'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
 import { validateData } from '../../rest/scripts/utils/validate-data.js'

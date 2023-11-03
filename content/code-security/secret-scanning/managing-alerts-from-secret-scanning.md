@@ -35,9 +35,15 @@ shortTitle: Manage secret alerts
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+1. Optionally, to filter by alert validity status, under "{% data variables.product.prodname_secret_scanning_caps %}" select a status in the "Validity" dropdown menu and then click the filter that you would like to apply. Alternatively, filter using the `validity` key in the search field. You can filter alerts by specifying multiple validity statuses as a comma-separated string, for example `validity:active,unknown`. For more information about validity statuses, see "[Validating partner patterns](#validating-partner-patterns)" below.
+   {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
+
+   {% data reusables.secret-scanning.validity-check-partner-patterns-enabled %}
+{% endif %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}" click the alert you want to view. {% ifversion secret-scanning-validity-check-partner-patterns %}
 1. Optionally, to perform a validity check on the token, on the top right-hand side of the alert, click {% octicon "sync" aria-hidden="true" %} **Verify secret**. For more information, see "[Validating partner patterns](#validating-partner-patterns)." <br><br>
-  {% note %}
+   {% note %}
 
    **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
 
@@ -81,7 +87,7 @@ You can enable automatic validity checks for supported partner patterns in the c
 
 If your repository has validity checks enabled, you can also perform an on-demand validity check for a secret by clicking {% octicon "sync" aria-hidden="true" %} **Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
-You can use the validation status of a leaked secret to help prioritize the secrets needing remediation steps.
+You can filter alerts for supported partner patterns by their validation status, and use the status of a leaked secret to help prioritize the secrets needing remediation steps.
 
 {% data reusables.secret-scanning.validity-check-table %}
 

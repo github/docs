@@ -67,7 +67,7 @@ If you would like to read more about debugging and troubleshooting the {% data v
 
 ### Using browser shortcuts
 
-The [`script/bookmarklets`](https://github.com/github/docs/tree/main/script/bookmarklets) directory in the {% data variables.product.prodname_docs %} repository contains browser shortcuts that can help with reviewing {% data variables.product.company_short %} documentation. For more information, see the directory's [`README`](https://github.com/github/docs/tree/main/script/bookmarklets/README.md).
+The [`src/bookmarklets`](https://github.com/github/docs/tree/main/src/bookmarklets) directory in the {% data variables.product.prodname_docs %} repository contains browser shortcuts that can help with reviewing {% data variables.product.company_short %} documentation. For more information, see the directory's [`README`](https://github.com/github/docs/tree/main/src/bookmarklets/README.md).
 
 ### Enabling different languages
 

@@ -18,27 +18,13 @@ type: overview
 
 You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive with a particular label. For example, you can create automation that adds a new self-hosted runner each time you receive a [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook event with the  [`queued`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity, which notifies you that a new job is ready for processing. The webhook payload includes label data, so you can identify the type of runner the job is requesting. Once the job has finished, you can then create automation that removes the runner in response to the `workflow_job` [`completed`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) activity.
 
-## Recommended autoscaling solutions
+## Supported autoscaling solutions
 
-{% data variables.product.prodname_dotcom %} recommends and partners closely with two open source projects that you can use for autoscaling your runners. One or both solutions may be suitable, based on your needs.
+{% data variables.product.prodname_dotcom %} recommends using [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) for autoscaling your runners.
 
-The following repositories have detailed instructions for setting up these autoscalers:
-
-- [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) - A Kubernetes controller for {% data variables.product.prodname_actions %} self-hosted runners.
-- [philips-labs/terraform-aws-github-runner](https://github.com/philips-labs/terraform-aws-github-runner) - A Terraform module for scalable {% data variables.product.prodname_actions %} runners on Amazon Web Services.
-
-Each solution has certain specifics that may be important to consider.
-
-{% rowheaders %}
-
-| | actions-runner-controller | terraform-aws-github-runner |
-| :--- | :--- | :--- |
-| Runtime | Kubernetes | Linux and Windows VMs |
-| Supported Clouds | Azure, Amazon Web Services, Google Cloud Platform, on-premises | Amazon Web Services |
-| Where runners can be scaled | Enterprise, organization, and repository levels. By runner label and runner group. | Organization and repository levels. By runner label and runner group. |
-| How runners can be scaled | Webhook events, Scheduled, Pull-based | Webhook events, Scheduled (org-level runners only) |
-
-{% endrowheaders %}
+{%- ifversion fpt or ghec or ghes > 3.8 %}
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+{% endif %}
 
 ## Using ephemeral runners for autoscaling
 

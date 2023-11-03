@@ -18,7 +18,7 @@ topics:
   - CD
 shortTitle: Migrate from CircleCI
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -227,6 +227,8 @@ workflows:
 
 ### GitHub Actions syntax for using databases and service containers
 
+<!-- markdownlint-disable search-replace -->
+
 ```yaml
 name: Containers
 
@@ -271,6 +273,8 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
+
+<!-- markdownlint-enable search-replace -->
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
 

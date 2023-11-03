@@ -45,12 +45,12 @@ function SearchResultHits({ hits, search }: { hits: SearchResultHitT[]; search: 
 }
 
 function NoSearchResults() {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('search_results')
   return (
     <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
       <div className="d-flex flex-items-center flex-column p-4">
         <SearchIcon size={24} />
-        <Text className="f2 mt-3">{t('n_results').replace('{n}', 0)}</Text>
+        <Text className="f2 mt-3">{t('n_results').replace('{n}', '0')}</Text>
       </div>
     </div>
   )

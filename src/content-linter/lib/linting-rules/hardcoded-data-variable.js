@@ -1,7 +1,7 @@
 import { addError, ellipsify } from 'markdownlint-rule-helpers'
 
 import { getRange } from '../helpers/utils.js'
-import frontmatter from '../../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 
 /*
   This rule currently only checks for one hardcoded string but

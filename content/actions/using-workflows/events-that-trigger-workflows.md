@@ -590,15 +590,14 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
+**Notes**:
+- {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request)." By default, a workflow only runs when a `pull_request` event's activity type is `opened`, `synchronize`, or `reopened`. To trigger workflows by different activity types, use the `types` keyword. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onevent_nametypes)."
 
-{% endnote %}
+- Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
 
-{% note %}
+  Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
 
-**Note:** Workflows will not run on `pull_request` activity if the pull request has a merge conflict. The merge conflict must be resolved first.
-
-Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
+- The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
 
 {% endnote %}
 

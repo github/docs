@@ -1,4 +1,4 @@
-import { getDataByLanguage } from '../../lib/get-data.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 function getProductExampleData(product, key, language) {
   // Because getDataByLanguage() depends on reading data files from

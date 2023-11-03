@@ -13,7 +13,7 @@ export function getDiffFiles() {
   // string. If `DIFF_FILE` is set, it's expected to be a text file
   // which contains a space separated string.
   const diffFiles = []
-  // Setting an environment varible called `DIFF_FILES` is optional.
+  // Setting an environment variable called `DIFF_FILES` is optional.
   // But if and only if it's set, we will respect it.
   // And if it set, turn it into a cleaned up Set so it's made available
   // every time we use it.

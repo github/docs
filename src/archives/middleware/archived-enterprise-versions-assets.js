@@ -2,7 +2,7 @@ import path from 'path'
 
 import got from 'got'
 
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import isArchivedVersion from '#src/archives/lib/is-archived-version.js'
 import {
   setFastlySurrogateKey,

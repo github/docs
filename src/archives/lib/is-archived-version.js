@@ -1,4 +1,4 @@
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 export default function isArchivedVersion(req) {

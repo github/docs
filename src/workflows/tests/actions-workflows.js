@@ -36,6 +36,21 @@ const allUsedActions = chain(workflows)
 
 const scheduledWorkflows = workflows.filter(({ data }) => data.on.schedule)
 
+const alertWorkflows = workflows
+  // Only include jobs running on docs-internal
+  .filter(({ data }) =>
+    Object.values(data.jobs)
+      .map((job) => job.if)
+      .toString()
+      .includes('docs-internal'),
+  )
+  // Require slack alerts on workflows that aren't actively watched at time of run
+  .filter(({ data }) => data.on.schedule || data.on.push || data.on.issues || data.on.issue_comment)
+// Not including
+// - premerge workflows: pull_request, pull_request_target, pull_request_review, merge_group
+// - adhoc workflows: workflow_dispatch, workflow_run, workflow_call, repository_dispatch
+// to generate list, console.log(new Set(workflows.map(({ data }) => Object.keys(data.on)).flat()))
+
 const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
   data.on.schedule.find(({ cron }) => /^20 [^*]/.test(cron)),
 )
@@ -73,7 +88,13 @@ describe('GitHub Actions workflows', () => {
     },
   )
 
-  test.each(scheduledWorkflows)(
+  test.each(workflows)('limits repository scope $filename', ({ filename, data }) => {
+    for (const condition of Object.values(data.jobs).map((job) => job.if)) {
+      expect(condition).toContain('github.repository')
+    }
+  })
+
+  test.each(alertWorkflows)(
     'scheduled workflows slack alert on fail $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {
@@ -84,7 +105,7 @@ describe('GitHub Actions workflows', () => {
     },
   )
 
-  test.each(scheduledWorkflows)(
+  test.each(alertWorkflows)(
     'performs a checkout before calling composite action $filename',
     ({ filename, data }) => {
       for (const [name, job] of Object.entries(data.jobs)) {

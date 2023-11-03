@@ -68,7 +68,7 @@ If you are using {% data variables.product.company_short %}'s official Octokit.j
 
 Review the differences in rate limits between {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %} use sliding rules for rate limits, which can increase based on the number of repositories and number of users in the organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
 
-If possible, consider using conditional requests and subscribing to webhooks instead of polling to help you stay within rate limits. For more information about conditional requests, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#conditional-requests)." For more information about using webhooks with your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
+If possible, consider using conditional requests and subscribing to webhooks instead of polling to help you stay within rate limits. For more information about conditional requests, see "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)." For more information about using webhooks with your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
 #### Test your code
 

@@ -43,7 +43,7 @@ export function ParameterRow({
   bodyParamExpandCallback,
   clickedBodyParameterName,
 }: Props) {
-  const { t } = useTranslation(['parameter_table', 'products'])
+  const { t } = useTranslation(['parameter_table'])
 
   // This will be true if `rowParams` does not have a key called `default`
   // and it will be true if it does and its actual value is `undefined`.

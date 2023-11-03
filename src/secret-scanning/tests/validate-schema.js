@@ -2,7 +2,7 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import { jest } from '@jest/globals'
 
-import { ajvValidate } from '../../../lib/ajv-validate.js'
+import { ajvValidate } from '#src/tests/lib/ajv-validate.js'
 import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
 import secretScanningSchema from '../lib/secret-scanning-schema.js'
 

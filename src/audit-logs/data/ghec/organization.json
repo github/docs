@@ -205,6 +205,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.content_exclusion_changed",
+    "description": "The excluded paths for GitHub Copilot were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -1291,12 +1296,12 @@
   },
   {
     "action": "org.self_hosted_runner_offline",
-    "description": "The runner application was stopped. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
   },
   {
     "action": "org.self_hosted_runner_online",
-    "description": "The runner application was started. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "The runner application was started. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
   },
   {
@@ -1341,7 +1346,7 @@
   },
   {
     "action": "org.sso_response",
-    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2246,12 +2251,12 @@
   },
   {
     "action": "repo.self_hosted_runner_offline",
-    "description": "The runner application was stopped. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
   },
   {
     "action": "repo.self_hosted_runner_online",
-    "description": "The runner application was started. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "The runner application was started. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
   },
   {
@@ -2936,27 +2941,37 @@
   },
   {
     "action": "vulnerability_alert_rule.create",
-    "description": "N/A",
+    "description": "A Dependabot rule was created.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.delete",
-    "description": "N/A",
+    "description": "A Dependabot rule was deleted.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.disable",
-    "description": "N/A",
+    "description": "A Dependabot rule was disabled for a single repository or disabled by default for an organization.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.enable",
-    "description": "N/A",
+    "description": "A Dependabot rule was enabled for a single repository or enabled by default for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "vulnerability_alert_rule.force_disable",
+    "description": "A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "vulnerability_alert_rule.force_enable",
+    "description": "A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.update",
-    "description": "N/A",
+    "description": "A Dependabot rule's conditions, actions, or metadata changed.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2981,12 +2996,12 @@
   },
   {
     "action": "workflows.completed_workflow_run",
-    "description": "A workflow status changed to completed. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "A workflow status changed to completed. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history"
   },
   {
     "action": "workflows.created_workflow_run",
-    "description": "A workflow run was create. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "A workflow run was create. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow"
   },
   {
@@ -3006,7 +3021,7 @@
   },
   {
     "action": "workflows.prepared_workflow_job",
-    "description": "A workflow job was started. Includes the list of secrets that were provided to the job. Only visible through the REST API. Not visible in the web UI or CSV/JSON exports.",
+    "description": "A workflow job was started. Includes the list of secrets that were provided to the job. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/using-workflows/events-that-trigger-workflows"
   },
   {

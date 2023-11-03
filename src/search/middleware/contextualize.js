@@ -2,7 +2,7 @@ import got from 'got'
 import { errors } from '@elastic/elasticsearch'
 import statsd from '#src/observability/lib/statsd.js'
 
-import { getPathWithoutVersion, getPathWithoutLanguage } from '../../../lib/path-utils.js'
+import { getPathWithoutVersion, getPathWithoutLanguage } from '#src/frame/lib/path-utils.js'
 import { getSearchFromRequest } from './get-search-request.js'
 import { getSearchResults } from './es-search.js'
 

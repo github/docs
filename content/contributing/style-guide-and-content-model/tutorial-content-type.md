@@ -38,7 +38,7 @@ Contents of tutorials:
 - Next steps
   - Include 2-3 actionable next steps that someone can take after completing the tutorial. Link off to other related information like:
     - Projects on {% data variables.product.prodname_dotcom %} that illustrate the introduced concepts
-    - Relevant information on docs.github.com
+    - Relevant information on docs.github.com<!-- markdownlint-disable-line search-replace -->
     - Relevant {% data variables.product.prodname_learning %}
     - Relevant published talks, blog posts, or Community Forum series posts by Hubbers
 

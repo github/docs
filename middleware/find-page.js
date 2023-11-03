@@ -1,8 +1,8 @@
 import path from 'path'
 import { existsSync } from 'fs'
 
-import { ROOT } from '../lib/constants.js'
-import Page from '../lib/page.js'
+import { ROOT } from '#src/frame/lib/constants.js'
+import Page from '#src/frame/lib/page.js'
 import { languagePrefixPathRegex } from '#src/languages/lib/languages.js'
 
 const englishPrefixRegex = /^\/en(\/|$)/

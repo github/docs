@@ -4,6 +4,9 @@
 bash:
   name: Bash
   comment: number
+bicep:
+  name: Bicep
+  comment: slash
 csharp:
   name: C#
   comment: slash
