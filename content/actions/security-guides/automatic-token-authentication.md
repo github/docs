@@ -13,7 +13,7 @@ versions:
   ghec: '*'
 shortTitle: Automatic token authentication
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the `GITHUB_TOKEN` secret
@@ -137,4 +137,4 @@ If you need a token that requires permissions that aren't available in the `GITH
 
 ### Further reading
 
-- "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)"
+- "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)"

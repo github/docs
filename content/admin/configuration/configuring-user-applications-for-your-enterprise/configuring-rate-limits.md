@@ -26,7 +26,7 @@ You can also configure rate limits for authentication attempts to the {% data va
 
 ## Enabling rate limits for the {% data variables.product.prodname_enterprise_api %}
 
-Excessive numbers of requests to the {% data variables.product.prodname_enterprise_api %} can affect the availability and performance of your instance. For more information about how rate limits for the API affect your users, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Excessive numbers of requests to the {% data variables.product.prodname_enterprise_api %} can affect the availability and performance of your instance. For more information about how rate limits for the API affect your users, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
 {% ifversion ghes %}
 You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config)."
