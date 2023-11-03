@@ -128,36 +128,45 @@ These two examples show how to calculate the total nodes in a call.
 
                     = 22,060 total nodes</pre>
 
-## Rate limit
-
-The GraphQL API limit is different from the REST API's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
-
-Why are the API rate limits different? With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
-
-To accurately represent the server cost of a query, the GraphQL API calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
-
-- The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, Elasticsearch, and Git.
-- Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
+## Primary rate limit
 
 {% ifversion ghes %}
-Rate limiting is **disabled** by default for {% data variables.location.product_location %}. When rate limiting is disabled, there is no limit to how many GraphQL points you can use.
 
-However, a site administrator can enable rate limits for {% data variables.location.product_location %}. If enabled, the rate limit is configurable, with a default of 200 points per hour. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#enabling-rate-limits-for-the-github-enterprise-server-apis)."
+Rate limits are disabled by default for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for your instance.
+
+If you are a site administrator, you can set rate limits for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
+
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.prodname_dotcom_the_website %} rate limits apply. For more information, see "[AUTOTITLE](/free-pro-team@latest/graphql/overview/resource-limitations)" in the {% data variables.product.prodname_free_user %} documentation.
+
 {% else %}
-The GraphQL API rate limit is **5,000 points per hour**.
 
-{% note %}
+The GraphQL API assigns points to each query and limits the points that you can use within a specific amount of time. This limit helps prevent abuse and denial-of-service attacks, and ensures that the API remains available for all users.
 
-**Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API.
+The REST API also has a separate primary rate limit. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
-{% endnote %}
-{% endif %}
+In general, you can calculate your primary rate limit for the GraphQL API based on your method of authentication:
 
-### Returning a call's rate limit status
+- _For users_: 5,000 points per hour per user. This includes requests made with a {% data variables.product.pat_generic %} as well as requests made by a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} on behalf of a user that authorized the app. Requests made on a user's behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 10,000 points per hour. Similarly, requests made on your behalf by an {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 10,000 points per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.
+- _For {% data variables.product.prodname_github_app %} installations not on a {% data variables.product.prodname_ghe_cloud %} organization_: 5,000 points per hour per installation. Installations that have more than 20 repositories receive another 50 points per hour for each repository. Installations that are on an organization that have more than 20 users receive another 50 points per hour for each user. The rate limit cannot increase beyond 12,500 points per hour. The rate limit for user access tokens (as opposed to installation access tokens) are dictated by the primary rate limit for users.
+- _For {% data variables.product.prodname_github_app %} installations on a {% data variables.product.prodname_ghe_cloud %} organization_: 10,000 points per hour per installation. The rate limit for user access tokens (as opposed to installation access tokens) are dictated by the primary rate limit for users.
+- _For {% data variables.product.prodname_oauth_apps %}_: 5,000 points per hour, or 10,000 points per hour if the app is owned by a {% data variables.product.prodname_ghe_cloud %} organization. This only applies when the app uses their client ID and client secret to request public data. The rate limit for OAuth access tokens generated by a {% data variables.product.prodname_oauth_app %} are dictated by the primary rate limit for users.
+- _For `GITHUB_TOKEN` in {% data variables.product.prodname_actions %} workflows_: 1,000 points per hour per repository. For requests to resources that belong to an enterprise account on GitHub.com, the limit is 15,000 points per hour per repository.
 
-With the REST API, you can check the rate limit status by [inspecting](/rest/overview/resources-in-the-rest-api#rate-limiting) the returned HTTP headers.
+You can check the point value of a query or calculate the expected point value as described in the following sections. The formula for calculating points and the rate limit are subject to change.
 
-With the GraphQL API, you can check the rate limit status by querying fields on the `rateLimit` object:
+### Checking the status of your primary rate limit
+
+You can use the headers that are sent with each response to determine the current status of your primary rate limit.
+
+Header name | Description
+-----------|-----------|
+`x-ratelimit-limit` | The maximum number of points that you can use per hour
+`x-ratelimit-remaining` | The number of points remaining in the current rate limit window
+`x-ratelimit-used` | The number of points you have used in the current rate limit window
+`x-ratelimit-reset` | The time at which the current rate limit window resets, in UTC epoch seconds
+`x-ratelimit-resource` | The rate limit resource that the request counted against. For GraphQL requests, this will always be `graphql`.
+
+You can also query the `rateLimit` object to check your rate limit. When possible, you should use the rate limit response headers instead of querying the API to check your rate limit.
 
 ```graphql
 query {
@@ -166,31 +175,45 @@ query {
   }
   rateLimit {
     limit
-    cost
     remaining
+    used
     resetAt
   }
 }
 ```
 
-- The `limit` field returns the maximum number of points the client is permitted to consume in a 60-minute window.
+Field | Description
+-----------|-----------|
+`limit` | The maximum number of points that you can use per hour
+`remaining` | The number of points remaining in the current rate limit window
+`used` | The number of points you have used in the current rate limit window
+`resetAt` | The time at which the current rate limit window resets, in UTC epoch seconds
 
-- The `cost` field returns the point cost for the current call that counts against the rate limit.
+### Returning the point value of a query
 
-- The `remaining` field returns the number of points remaining in the current rate limit window.
+You can return the point value of a query by querying the `cost` field on the `rateLimit` object:
 
-- The `resetAt` field returns the time at which the current rate limit window resets in ISO 8601 format.
+```graphql
+query {
+  viewer {
+    login
+  }
+  rateLimit {
+    cost
+  }
+}
+```
 
-### Calculating a rate limit score before running the call
+### Predicting the point value of a query
 
-Querying the `rateLimit` object returns a call's score, but running the call counts against the limit. To avoid this dilemma, you can calculate the score of a call before you run it. The following calculation works out to roughly the same cost that `rateLimit { cost }` returns.
+You can also roughly calculate the point value of a query before you make the query.
 
 1. Add up the number of requests needed to fulfill each unique connection in the call. Assume every request will reach the `first` or `last` argument limits.
-1. Divide the number by **100** and round the result to get the final aggregate cost. This step normalizes large numbers.
+1. Divide the number by **100** and round the result to the nearest whole number to get the final aggregate point value. This step normalizes large numbers.
 
 {% note %}
 
-**Note**: The minimum cost of a call to the GraphQL API is **1**, representing a single request.
+**Note**: The minimum point value of a call to the GraphQL API is **1**.
 
 {% endnote %}
 
@@ -236,3 +259,29 @@ This query requires 5,101 requests to fulfill:
 - Total = **5,101**
 
 Dividing by 100 and rounding gives us the final score of the query: **51**
+
+## Secondary rate limits
+
+{% data reusables.rest-api.secondary-rate-limit-rest-graphql %}
+
+## Exceeding the rate limit
+
+If you exceed your primary rate limit, the response status will still be `200`, but you will receive an error message, and the value of the `x-ratelimit-remaining` header will be `0`. You should not retry your request until after the time specified by the `x-ratelimit-reset` header.
+
+If you exceed a secondary rate limit, the response status will be `200` or `403`, and you will receive an error message that indicates that you hit a secondary rate limit. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. If the `x-ratelimit-remaining` header is `0`, you should not retry your request until after the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header. Otherwise, wait for at least one minute before retrying. If your request continues to fail due to a secondary rate limit, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
+
+Continuing to make requests while you are rate limited may result in the banning of your integration.
+
+## Staying under the rate limit
+
+To avoid exceeding a rate limit, you should pause at least 1 second between mutative requests and avoid concurrent requests.
+
+You should also subscribe to webhook events instead of polling the API for data. For more information, see "[AUTOTITLE](/webhooks)."
+
+{% ifversion audit-log-streaming %}
+
+You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+
+{% endif %}
+
+{% endif %}
