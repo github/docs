@@ -13,6 +13,6 @@ children:
   - /breaking-changes
   - /changelog
   - /explorer
-  - /resource-limitations
+  - /rate-limits-and-node-limits-for-the-graphql-api
 ---
 
