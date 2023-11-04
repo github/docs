@@ -44,10 +44,6 @@ In the tutorial, you will first make a workflow file that uses the [GitHub CLI](
         steps:
           - name: Create team sync issue
             run: |
-              previous_issue_number=$(gh issue list \
-                --repo "$REPO" \
-                --label "$LABELS" \
-                | cut -f1 | head)
               new_issue_url=$(gh issue create \
                 --repo "$REPO" \
                 --title "$TITLE" \
@@ -58,6 +54,11 @@ In the tutorial, you will first make a workflow file that uses the [GitHub CLI](
                 gh issue pin "$new_issue_url" --repo "$REPO"
               fi
               if [[ $CLOSE_PREVIOUS == true ]]; then
+                previous_issue_number=$(gh issue list \
+                  --repo "$REPO" \
+                  --label "$LABELS" \
+                  --json number \
+                  --jq .[1].number)
                 gh issue close "$previous_issue_number" --repo "$REPO"
               fi
             env:
