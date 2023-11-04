@@ -1,8 +1,10 @@
 ---
-title: Resource limitations
+title: Rate limits and node limits for the GraphQL API
+shortTitle: Rate and node limits
 intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitations in place to protect against excessive or abusive calls to {% data variables.product.prodname_dotcom %}''s servers.'
 redirect_from:
   - /v4/guides/resource-limitations
+  - /graphql/overview/resource-limitations
 versions:
   fpt: '*'
   ghec: '*'

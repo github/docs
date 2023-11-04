@@ -97,9 +97,8 @@ describe('404 pages and their content-type', () => {
     const res = await get('/en/something-that-doesnt-existent')
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toMatch('text/html')
-    // Private the client, because it might soon be fixing in a
-    // new deployment.
-    expect(res.headers['cache-control']).toMatch('private')
+    expect(res.headers['cache-control']).toMatch('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d\d+/)
     const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
     // The default is that it'll be purged at the next deploy.
     expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
