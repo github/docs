@@ -69,15 +69,15 @@ In the tutorial, you will first make a workflow file that uses the [GitHub CLI](
               LABELS: weekly sync,docs-team
               BODY: |
                 ### Agenda
-    
+
                 - [ ] Start the recording
                 - [ ] Check-ins
                 - [ ] Discussion points
                 - [ ] Post the recording
-    
+
                 ### Discussion Points
                 Add things to discuss below
-    
+
                 - [Work this week](https://github.com/orgs/github/projects/3)
               PINNED: false
               CLOSE_PREVIOUS: false
