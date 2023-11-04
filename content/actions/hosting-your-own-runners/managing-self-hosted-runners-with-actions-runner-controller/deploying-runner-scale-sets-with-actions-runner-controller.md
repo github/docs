@@ -149,7 +149,7 @@ You can either create a Kubernetes secret, or specify values in your [`values.ya
 
 Once you have created your {% data variables.product.prodname_github_app %}, create a Kubernetes secret and pass the reference to that secret in your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file.
 
-{% data reusables.actions.arc-runners-secret-namespace %}
+{% data reusables.actions.arc-runners-namespace %}
 
 ```bash
 kubectl create secret generic pre-defined-secret \
@@ -218,7 +218,7 @@ proxy:
 
 ARC supports using anonymous or authenticated proxies. If you use authenticated proxies, you will need to set the `credentialSecretRef` value to reference a Kubernetes secret. You can create a secret with your proxy credentials with the following command.
 
-{% data reusables.actions.arc-runners-secret-namespace %}
+{% data reusables.actions.arc-runners-namespace %}
 
 ```bash copy
   kubectl create secret generic proxy-auth \
