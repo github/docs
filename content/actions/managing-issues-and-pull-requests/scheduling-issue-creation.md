@@ -62,8 +62,8 @@ In the tutorial, you will first make a workflow file that uses the [GitHub CLI](
                 gh issue close "$previous_issue_number" --repo "$REPO"
               fi
             env:
-              GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              REPO: ${{ github.repository }}
+              GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              REPO: {% raw %}${{ github.repository }}{% endraw %}
               TITLE: Team sync
               ASSIGNEES: monalisa,doctocat,hubot
               LABELS: weekly sync,docs-team
