@@ -23,10 +23,12 @@ import got from 'got'
 
 main()
 
-async function get(path) {
+async function get(path, options) {
   // By default, got() will use retries and follow redirects.
-  const response = await got(makeURL(path))
-  console.log(`GET ${path} => ${response.statusCode}`)
+  const t0 = new Date()
+  const response = await got(makeURL(path), options)
+  const took = new Date() - t0
+  console.log(`GET ${path} => ${response.statusCode} (${took}ms)`)
   return response
 }
 
@@ -44,6 +46,8 @@ async function main() {
   // In local development, it depends on proxying the search to prod
   // because if you haven't set up ELASTICSEARCH_URL.
   await testSiteSearch()
+
+  await testViewingPages()
 }
 
 async function testEditingPage() {
@@ -132,4 +136,15 @@ async function testSiteSearch() {
     assert(/0 Search results for "gobligook"/.test($('h1').text()))
     assert($('[data-testid="search-result"]').length === 0)
   }
+}
+
+async function testViewingPages() {
+  // Getting a 404 page with an /en/ prefix should be a 404 HTML page
+  const res = await get('/en/never/heard/of', {
+    throwHttpErrors: false,
+  })
+  assert(res.statusCode === 404)
+  // console.log(res.body)
+  const $ = cheerio.load(res.body)
+  assert(/It looks like this page doesn't exist./.test($('article').text()))
 }

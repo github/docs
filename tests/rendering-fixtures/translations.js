@@ -1,6 +1,6 @@
 import { expect } from '@jest/globals'
 
-import { TRANSLATIONS_FIXTURE_ROOT } from '../../lib/constants.js'
+import { TRANSLATIONS_FIXTURE_ROOT } from '#src/frame/lib/constants.js'
 import { getDOM } from '../helpers/e2etest.js'
 
 if (!TRANSLATIONS_FIXTURE_ROOT) {

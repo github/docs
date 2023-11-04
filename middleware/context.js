@@ -1,19 +1,19 @@
 import languages from '#src/languages/lib/languages.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import { productMap } from '../lib/all-products.js'
+import { productMap } from '#src/products/lib/all-products.js'
 import {
   getVersionStringFromPath,
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
   getPathWithoutVersion,
-} from '../lib/path-utils.js'
-import productNames from '../lib/product-names.js'
-import warmServer from '../lib/warm-server.js'
-import searchVersions from '../src/search/lib/versions.js'
+} from '#src/frame/lib/path-utils.js'
+import productNames from '#src/products/lib/product-names.js'
+import warmServer from '#src/frame/lib/warm-server.js'
+import searchVersions from '#src/search/lib/versions.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
+import { getDataByLanguage, getUIDataMerged } from '#src/data-directory/lib/get-data.js'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>

@@ -67,7 +67,7 @@ The following configuration options are available.
 | `allow-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of allowed licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that do not match the list.|{% endif %}
 {%- ifversion dependency-review-action-licenses %}
 | `deny-licenses` | {% octicon "x" aria-label="Optional" %} | Contains a list of prohibited licenses. You can find the possible values for this parameter in the [Licenses](/rest/licenses) page of the API documentation.</br>The action will fail on pull requests that introduce dependencies with licenses that match the list.|{% endif %}{% ifversion dependency-review-action-fail-on-scopes %}
-| `fail-on-scopes` | {% octicon "x" aria-label="Optional" %} | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilites in the scopes that match the list.|{% endif %}
+| `fail-on-scopes` | {% octicon "x" aria-label="Optional" %} | Contains a list of strings representing the build environments you want to support (`development`, `runtime`, `unknown`). </br>The action will fail on pull requests that introduce vulnerabilities in the scopes that match the list.|{% endif %}
 | `allow-ghsas` | {% octicon "x" aria-label="Optional" %} | Contains a list of {% data variables.product.prodname_advisory_database %} IDs that can be skipped during detection. You can find the possible values for this parameter in the [{% data variables.product.prodname_advisory_database %}](https://github.com/advisories). |
 | `config-file` | {% octicon "x" aria-label="Optional" %} | Specifies a path to a configuration file. The configuration file can be local to the repository or a file located in an external repository.|
 | `external-repo-token` | {% octicon "x" aria-label="Optional" %} | Specifies a token for fetching the configuration file, if the file resides in a private external repository. The token must have read access to the repository.|
@@ -116,6 +116,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    This {% data variables.dependency-review.action_name %} example file illustrates how you can use the available configuration options.
 
+   <!-- markdownlint-disable search-replace -->
+
    ```yaml copy
    name: 'Dependency Review'
    on: [pull_request]
@@ -133,7 +135,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - name: Dependency Review
          uses: actions/dependency-review-action@v3
          with:
-         # Possible values: "critical", "high", "moderate", "low" 
+         # Possible values: "critical", "high", "moderate", "low"
          fail-on-severity: critical
 
            {% ifversion dependency-review-action-licenses %}
@@ -154,6 +156,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
            fail-on-scopes: development, runtime
            {% endif %}
    ```
+
+   <!-- markdownlint-enable search-replace -->
 
 ### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
@@ -180,18 +184,20 @@ Notice that all of the examples use a short version number for the action (`v3`)
          with:
           # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
           # Possible values: An absolute path to a local file or an external file.
-          config-file: './.github/dependency-review-config.yml'   
+          config-file: './.github/dependency-review-config.yml'
           # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
           config-file: 'github/octorepo/dependency-review-config.yml@main'
 
           # ([Token]) Use if your configuration file resides in a private external repository.
-          # Possible values: Any GitHub token with read access to the private external repository.  
+          # Possible values: Any GitHub token with read access to the private external repository.
           external-repo-token: 'ghp_123456789abcde'
    ```
 
 1. Create the configuration file in the path you have specified.
 
    This YAML example file illustrates how you can use the available configuration options.
+
+   <!-- markdownlint-disable search-replace -->
 
    ```yaml copy
      # Possible values: "critical", "high", "moderate", "low"
@@ -223,6 +229,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - runtime
    {% endif %}
    ```
+
+   <!-- markdownlint-enable search-replace -->
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

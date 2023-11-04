@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function ValidationErrors({ errors }: Props) {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('search_results')
 
   return (
     <div>

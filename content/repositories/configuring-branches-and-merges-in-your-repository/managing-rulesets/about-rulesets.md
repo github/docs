@@ -18,9 +18,13 @@ For each ruleset you create, you specify which branches or tags in your reposito
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}.
 
+There is a limit of 75 rulesets per repository{% ifversion repo-rules-enterprise %}, and 75 organization-wide rulesets{% endif %}.
+
 ## About rulesets, protected branches, and protected tags
 
 Rulesets work alongside any branch protection rules and tag protection rules in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
+
+{% ifversion tag-protection-rules-import %}Additionally, you can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#about-importing-tag-protection-rules-to-repository-rulesets)."{% endif %}
 
 Rulesets have the following advantages over branch and tag protection rules.
 

@@ -31,6 +31,8 @@ sections:
     - When providing data to GitHub Support, GitHub Enterprise Server displays a notice describing how support data is used before uploading the support files.
   known_issues:
     - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
+    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
@@ -60,3 +62,9 @@ sections:
       {% data reusables.release-notes.cache-replica-servers-known-issue %} [Updated: 2023-09-26]
     - |
       {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
+    - |
+      {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-26]
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %} [Updated: 2023-10-31]

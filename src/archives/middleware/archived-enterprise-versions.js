@@ -7,7 +7,7 @@ import {
   deprecatedWithFunctionalRedirects,
   firstReleaseStoredInBlobStorage,
 } from '#src/versions/lib/enterprise-server-releases.js'
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
 import isArchivedVersion from '#src/archives/lib/is-archived-version.js'
 import {
@@ -15,7 +15,7 @@ import {
   SURROGATE_ENUMS,
 } from '../../../middleware/set-fastly-surrogate-key.js'
 import got from 'got'
-import { readCompressedJsonFileFallbackLazily } from '../../../lib/read-json-file.js'
+import { readCompressedJsonFileFallbackLazily } from '#src/frame/lib/read-json-file.js'
 import { archivedCacheControl, languageCacheControl } from '../../../middleware/cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '#src/languages/lib/languages.js'
 import getRedirect, { splitPathByLanguage } from '#src/redirects/lib/get-redirect.js'

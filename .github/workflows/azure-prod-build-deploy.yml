@@ -56,7 +56,7 @@ jobs:
           persist-credentials: 'false'
 
       - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
           node-version-file: 'package.json'
           cache: npm
@@ -147,6 +147,7 @@ jobs:
           az webapp deployment slot swap --slot canary --target-slot production -n ghdocs-prod -g docs-prod
 
       - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

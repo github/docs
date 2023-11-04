@@ -25,6 +25,36 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "custom_property_definition.create",
+    "description": "A new custom property definition was created.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_definition.destroy",
+    "description": "A custom property definition was deleted.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_definition.update",
+    "description": "A custom property definition was updated.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.create",
+    "description": "A repository's custom property value was manually set for the first time.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.destroy",
+    "description": "A repository's custom property value was deleted.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
+    "action": "custom_property_value.update",
+    "description": "A repository's custom property value was updated.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization"
+  },
+  {
     "action": "discussion_post.destroy",
     "description": "Triggered when a team discussion post is deleted.",
     "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
@@ -540,8 +570,18 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.self_hosted_runner_offline",
+    "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "org.self_hosted_runner_online",
+    "description": "The runner application was started. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
     "action": "org.self_hosted_runner_updated",
-    "description": "The runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export.",
+    "description": "The runner application was updated. This event is not included in the JSON/CSV export.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
   },
   {
@@ -557,6 +597,11 @@
   {
     "action": "org.set_custom_invitation_rate_limit",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.sso_response",
+    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A"
   },
   {
@@ -681,8 +726,8 @@
   },
   {
     "action": "protected_branch.authorized_users_teams",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The users, teams, or integrations allowed to bypass a branch protection were changed.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches"
   },
   {
     "action": "protected_branch.branch_allowances",
@@ -736,8 +781,8 @@
   },
   {
     "action": "protected_branch.update_ignore_approvals_from_contributors",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Ignoring of approvals from contributors to a pull request was enabled or disabled for a branch.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
     "action": "protected_branch.update_linear_history_requirement_enforcement_level",
@@ -746,13 +791,13 @@
   },
   {
     "action": "protected_branch.update_lock_allows_fetch_and_merge",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Fork syncing was enabled or disabled for a read-only branch",
+    "docs_reference_links": "repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#lock-branch"
   },
   {
     "action": "protected_branch.update_lock_branch_enforcement_level",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The enforcement of a branch lock was updated.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#lock-branch"
   },
   {
     "action": "protected_branch.update_name",
@@ -781,8 +826,8 @@
   },
   {
     "action": "protected_branch.update_require_last_push_approval",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Someone other than the person who pushed the last code-modifying commit to the branch must approve pull requests for the branch.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging"
   },
   {
     "action": "protected_branch.update_signature_requirement_enforcement_level",
@@ -1090,8 +1135,18 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repo.self_hosted_runner_offline",
+    "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "repo.self_hosted_runner_online",
+    "description": "The runner application was started. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
     "action": "repo.self_hosted_runner_updated",
-    "description": "The runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export.",
+    "description": "The runner application was updated. This event is not included in the JSON/CSV export.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
   },
   {
@@ -1146,13 +1201,13 @@
   },
   {
     "action": "repository_branch_protection_evaluation.disable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Branch protections were disabled for the repository.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
     "action": "repository_branch_protection_evaluation.enable",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Branch protections were enabled for this repository.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
     "action": "repository_invitation.accept",
@@ -1176,18 +1231,18 @@
   },
   {
     "action": "repository_ruleset.create",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was created.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
   },
   {
     "action": "repository_ruleset.destroy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was deleted.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#deleting-a-ruleset"
   },
   {
     "action": "repository_ruleset.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was edited.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#editing-a-ruleset"
   },
   {
     "action": "repository_secret_scanning.disable",
@@ -1445,6 +1500,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "workflows.completed_workflow_run",
+    "description": "A workflow status changed to completed. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history"
+  },
+  {
+    "action": "workflows.created_workflow_run",
+    "description": "A workflow run was create. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow"
+  },
+  {
     "action": "workflows.delete_workflow_run",
     "description": "A workflow run was deleted.",
     "docs_reference_links": "/actions/managing-workflow-runs/deleting-a-workflow-run"
@@ -1458,6 +1523,11 @@
     "action": "workflows.enable_workflow",
     "description": "A workflow was enabled, after previously being disabled by disable_workflow.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.prepared_workflow_job",
+    "description": "A workflow job was started. Includes the list of secrets that were provided to the job. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/using-workflows/events-that-trigger-workflows"
   },
   {
     "action": "workflows.reject_workflow_job",

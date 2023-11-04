@@ -22,7 +22,7 @@ describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
   test('image alt text with no start exclude words passes', async () => {
     const markdown = [
       '![This is ok image](/images/this-is-ok.png)',
-      '![This is ok grapic](/images/this-is-ok.png)',
+      '![This is ok graphic](/images/this-is-ok.png)',
     ].join('\n')
     const result = await runRule(imageAltTextExcludeStartWords, { strings: { markdown } })
     const errors = result.markdown

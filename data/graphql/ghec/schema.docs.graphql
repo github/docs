@@ -30047,6 +30047,11 @@ type PermissionSource {
   permission: DefaultRepositoryPermissionField!
 
   """
+  The name of the role this source has granted to the user.
+  """
+  roleName: String
+
+  """
   The source of this permission.
   """
   source: PermissionGranter!
@@ -43794,7 +43799,8 @@ type RepositoryConnection {
   totalCount: Int!
 
   """
-  The total size in kilobytes of all repositories in the connection.
+  The total size in kilobytes of all repositories in the connection. Value will
+  never be larger than max 32-bit signed integer.
   """
   totalDiskUsage: Int!
 }
@@ -44364,6 +44370,11 @@ enum RepositoryLockReason {
   The repository is locked due to a trade controls related reason.
   """
   TRADE_RESTRICTION
+
+  """
+  The repository is locked due to an ownership transfer.
+  """
+  TRANSFERRING_OWNERSHIP
 }
 
 """
@@ -44923,11 +44934,6 @@ enum RepositoryRuleType {
   DELETION
 
   """
-  File path pattern
-  """
-  FILE_PATH_PATTERN
-
-  """
   Branch is read-only. Users cannot push to the branch.
   """
   LOCK_BRANCH
@@ -44958,7 +44964,7 @@ enum RepositoryRuleType {
   PULL_REQUEST
 
   """
-  Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
+  Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.
   """
   REQUIRED_DEPLOYMENTS
 
@@ -44979,10 +44985,8 @@ enum RepositoryRuleType {
   REQUIRED_SIGNATURES
 
   """
-  Choose which status checks must pass before branches can be merged into a
-  branch that matches this rule. When enabled, commits must first be pushed to
-  another branch, then merged or pushed directly to a ref that matches this rule
-  after status checks have passed.
+  Choose which status checks must pass before the ref is updated. When enabled,
+  commits must first be pushed to another ref where the checks pass.
   """
   REQUIRED_STATUS_CHECKS
 
@@ -45917,7 +45921,7 @@ interface RequirableByPullRequest {
 }
 
 """
-Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
+Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.
 """
 type RequiredDeploymentsParameters {
   """
@@ -45927,7 +45931,7 @@ type RequiredDeploymentsParameters {
 }
 
 """
-Choose which environments must be successfully deployed to before refs can be merged into a branch that matches this rule.
+Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.
 """
 input RequiredDeploymentsParametersInput {
   """
@@ -45969,10 +45973,8 @@ input RequiredStatusCheckInput {
 }
 
 """
-Choose which status checks must pass before branches can be merged into a branch
-that matches this rule. When enabled, commits must first be pushed to another
-branch, then merged or pushed directly to a ref that matches this rule after
-status checks have passed.
+Choose which status checks must pass before the ref is updated. When enabled,
+commits must first be pushed to another ref where the checks pass.
 """
 type RequiredStatusChecksParameters {
   """
@@ -45989,10 +45991,8 @@ type RequiredStatusChecksParameters {
 }
 
 """
-Choose which status checks must pass before branches can be merged into a branch
-that matches this rule. When enabled, commits must first be pushed to another
-branch, then merged or pushed directly to a ref that matches this rule after
-status checks have passed.
+Choose which status checks must pass before the ref is updated. When enabled,
+commits must first be pushed to another ref where the checks pass.
 """
 input RequiredStatusChecksParametersInput {
   """

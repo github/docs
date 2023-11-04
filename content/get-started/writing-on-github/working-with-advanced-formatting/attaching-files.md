@@ -19,7 +19,7 @@ topics:
 {% ifversion ghes %}
 {% warning %}
 
-**Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.support_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
+**Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.landing_page_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
 
 {% endwarning %}
 {% endif %}
@@ -35,9 +35,17 @@ In the case of private and internal repositories, only people with access to the
 
 {% endif %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click {% ifversion attach-to-comment-icon %} {% octicon "paperclip" aria-label="Attach files" %} in the formatting bar above the comment box {% else %}the bar at the bottom of the comment box{% endif %} to browse, select, and add a file from your computer.
+
+{% ifversion attach-to-comment-icon %}
+
+![Screenshot of the comment box. The "Attach files" icon is outlined in orange.](/assets/images/help/issues/attach-file-icon.png)
+
+{% else %}
 
 ![Screenshot of the comment box. The bar to attach files by dragging and dropping, selecting, or pasting is outlined in dark orange.](/assets/images/help/pull_requests/select-bar.png)
+
+{% endif %}
 
 When you attach a file, it is uploaded immediately to {% data variables.product.product_name %} and the text field is updated to show the anonymized URL for the file. {% ifversion fpt or ghec %}For more information on anonymized URLs see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-anonymized-urls)".{% endif %}
 
@@ -69,6 +77,7 @@ We support these files:
 - SVG (_.svg_)
 {%- endif %}
 - Log files (_.log_)
+- Markdown files (_.md_)
 - Microsoft Word (_.docx_), Powerpoint (_.pptx_), and Excel (_.xlsx_) documents
 - Text files (_.txt_)
 - PDFs (_.pdf_)

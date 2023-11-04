@@ -4,7 +4,7 @@ shortTitle: Dependabot alert rules
 intro: 'You can use {% data variables.product.prodname_dependabot %} alert rules to auto-triage {% data variables.product.prodname_dependabot_alerts %}.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: dependabot-alert-rules-auto-dismissal-npm-dev-dependencies
+  feature: dependabot-auto-triage-rules
 topics:
   - Dependabot
   - Alerts

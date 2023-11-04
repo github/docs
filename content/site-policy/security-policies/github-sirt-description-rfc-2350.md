@@ -6,6 +6,7 @@ topics:
   - Policy
   - Legal
 ---
+<!-- markdownlint-disable search-replace -->
 
 ## 1. Document Information
 
@@ -39,9 +40,9 @@ Subteams:
 
 ### 2.2 Address
 
-GitHub SIRT  
-88 Colin P. Kelly Jr. St.  
-San Francisco, CA 94107  
+GitHub SIRT
+88 Colin P. Kelly Jr. St.
+San Francisco, CA 94107
 United States
 
 ### 2.3 Time Zone

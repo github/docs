@@ -104,6 +104,8 @@ sections:
     - |
       {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
+    - |
       The Management Console may get stuck in a loop showing "Checking requirements..." when attempting to download an update. It is safe to proceed the update process manually via the command line.
     - |
       When enabling CodeQL via default setup [at scale](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale), some checks related to GitHub Actions are omitted, potentially preventing the process from completing.
@@ -156,3 +158,5 @@ sections:
       {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-10]
     - |
       {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

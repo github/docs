@@ -12,7 +12,7 @@ import path from 'path'
 import { program } from 'commander'
 import walk from 'walk-sync'
 
-import walkFiles from '../../../script/helpers/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.js'
 import languages from '#src/languages/lib/languages.js'
 
 const EXCEPTIONS = new Set([

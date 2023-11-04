@@ -155,7 +155,7 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
           } else if (Array.isArray(codeSample.request.bodyParameters[key])) {
             let cliLine = ''
             for (const value of codeSample.request.bodyParameters[key]) {
-              cliLine += `-f "${key}[]=${value}" `
+              cliLine += `${typeof value === 'string' ? '-f' : '-F'} "${key}[]=${value}" `
             }
             return cliLine
           } else {

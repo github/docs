@@ -25,6 +25,6 @@ export default {
   testPathIgnorePatterns: ['node_modules/', 'vendor/', 'tests/fixtures/', 'tests/helpers/'],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
-  globalSetup: './script/start-server-for-jest.js',
-  globalTeardown: './script/kill-server-for-jest.js',
+  globalSetup: './src/tests/scripts/start-server-for-jest.js',
+  globalTeardown: './src/tests/scripts/kill-server-for-jest.js',
 }

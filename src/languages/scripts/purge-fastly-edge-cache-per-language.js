@@ -3,7 +3,7 @@
 import { languageKeys } from '#src/languages/lib/languages.js'
 
 import { makeLanguageSurrogateKey } from '../../../middleware/set-fastly-surrogate-key.js'
-import purgeEdgeCache from '../../../script/deployment/purge-edge-cache.js'
+import purgeEdgeCache from '#src/workflows/purge-edge-cache.js'
 
 /**
  * In simple terms, this script sends purge commands for...

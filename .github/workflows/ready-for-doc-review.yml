@@ -16,15 +16,17 @@ jobs:
   request_doc_review:
     name: Request a review from the docs-content team
     if: >-
-      github.repository == 'github/docs-internal' &&
+      github.repository_owner == 'github' && github.repository != 'github/docs' && 
       (github.event.label.name == 'ready-for-doc-review' || github.event.requested_team.name == 'docs-content')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          repository: github/docs-internal
 
       - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
           node-version-file: 'package.json'
           cache: npm
@@ -52,8 +54,3 @@ jobs:
           action-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           project-url: 'https://github.com/orgs/github/projects/1367'
           column-name: 'Docs-internal external contributor PRs'
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

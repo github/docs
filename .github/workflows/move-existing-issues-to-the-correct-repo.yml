@@ -8,11 +8,12 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: none
+  contents: read
 
 jobs:
   transfer_issues:
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal'
     steps:
       - id: move_to_correct_repo
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
@@ -24,7 +25,7 @@ jobs:
           script: |
             const owner = 'github'
             const originalRepo = 'docs-internal'
-            let correctRepo = process.env.TEAM_ENGINEERING_REPO 
+            let correctRepo = process.env.TEAM_ENGINEERING_REPO
 
             const correctRepoObject = await github.rest.repos.get({
               owner: owner,
@@ -58,15 +59,15 @@ jobs:
                     }
                   }
                 }`
-                
+
                 const variables = {
                   id: issueNodeId,
                   repositoryId: correctRepositoryNodeId
                 }
-                
+
                 const graph = await github.graphql(mutation, variables)
                 console.log('GraphQL mutation result:\n' + JSON.stringify(graph))
-                
+
                 // Add the same labels to the new issue
                 const newIssueNumber = graph.transferIssue.issue.number
                 await github.rest.issues.addLabels({
@@ -77,8 +78,3 @@ jobs:
                 })
               }
             }
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

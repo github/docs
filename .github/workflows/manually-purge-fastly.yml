@@ -14,6 +14,8 @@ jobs:
   purge:
     runs-on: ubuntu-latest
 
+    if: github.repository == 'github/docs-internal'
+
     steps:
       - name: Check out repo
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
@@ -26,8 +28,3 @@ jobs:
           FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
           FASTLY_SURROGATE_KEY: 'manual-purge'
         run: src/workflows/purge-fastly-edge-cache.js
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

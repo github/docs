@@ -52,8 +52,7 @@
 
     "portsAttributes": {
         "4000": {
-            "label": "Preview",
-            "onAutoForward": "openPreview"
+            "label": "Preview"
         }
     },
 

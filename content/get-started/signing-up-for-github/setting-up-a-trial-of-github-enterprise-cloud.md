@@ -49,15 +49,17 @@ The following features are not included in the trial of {% data variables.produc
 - For {% data variables.product.prodname_actions %}, increased minutes, job concurrency, and {% data variables.actions.hosted_runner %}s
 - If you set up your own trial, access to {% data variables.product.prodname_ghe_server %} is not included. If you would like to use {% data variables.product.prodname_ghe_server %}, contact {% data variables.contact.contact_enterprise_sales %}.
 
-{% note %}
-
-**Note:** If you invite an existing organization into your trial enterprise, all of these features will be disabled, but will be re-enabled if the organization is removed from the enterprise.
-
-{% endnote %}
+If you invite an existing organization into your trial enterprise, all of these features will be disabled. If you remove the organization from the enterprise, the features will be re-enabled.
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 
 Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+
+{% note %}
+
+**Note**: If your company has a Microsoft Enterprise Agreement, do not set up your trial manually. You must contact {% data variables.contact.contact_enterprise_sales %} to begin your trial and ensure the trial is connected to your Enterprise Agreement.
+
+{% endnote %}
 
 {% data reusables.enterprise.create-enterprise-account %}
 

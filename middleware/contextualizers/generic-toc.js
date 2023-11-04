@@ -1,4 +1,4 @@
-import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
+import findPageInSiteTree from '#src/frame/lib/find-page-in-site-tree.js'
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, categorie, and map topic TOCs that don't have other layouts specified.

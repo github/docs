@@ -6,7 +6,7 @@ import { jest } from '@jest/globals'
 import { liquid } from '#src/content-render/index.js'
 import learningTracksSchema from '../lib/learning-tracks-schema.js'
 import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
-import { ajvValidate } from '../../../lib/ajv-validate.js'
+import { ajvValidate } from '#src/tests/lib/ajv-validate.js'
 
 const learningTrackRootPath = 'data/learning-tracks'
 const jsonValidator = ajvValidate(learningTracksSchema)

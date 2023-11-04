@@ -74,7 +74,7 @@ jobs:
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
       - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
           node-version-file: 'package.json'
           cache: npm
@@ -157,8 +157,3 @@ jobs:
       - name: 'Swap deployment slot to production'
         run: |
           az webapp deployment slot swap --slot ${{ env.SLOT_NAME }} --target-slot production -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

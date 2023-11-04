@@ -10,7 +10,7 @@ import {
   deprecated,
 } from '#src/versions/lib/enterprise-server-releases.js'
 import allowedVersionOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
-import { getDeepDataByLanguage } from '../../../../lib/get-data.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
 
 const getAllPossibleVersionNames = memoize(() => {
@@ -37,11 +37,11 @@ function memoize(func) {
 }
 
 export const liquidIfTags = {
-  names: ['LQ114', 'liquid-if-tags'],
+  names: ['GHD019', 'liquid-if-tags'],
   description:
-    'Liquid `if` conditional tags should not be used when the argument is a version. Use `ifversion` instead.',
+    'Liquid `ifversion` tags should be used instead of `if` tags when the argument is a valid version',
   tags: ['liquid', 'versioning'],
-  function: function LQ114(params, onError) {
+  function: (params, onError) => {
     const content = params.lines.join('\n')
 
     const tokens = getLiquidTokens(content).filter(
@@ -68,11 +68,10 @@ export const liquidIfTags = {
 }
 
 export const liquidIfVersionTags = {
-  names: ['LQ113', 'liquid-ifversion-tags'],
-  description:
-    'Liquid `ifversion` conditional tags should contain valid version names as arguments.',
+  names: ['GHD020', 'liquid-ifversion-tags'],
+  description: 'Liquid `ifversion` tags should contain valid version names as arguments',
   tags: ['liquid', 'versioning'],
-  function: function LQ113(params, onError) {
+  function: (params, onError) => {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
       .filter((token) => token.kind === TokenKind.Tag)

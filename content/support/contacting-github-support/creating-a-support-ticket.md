@@ -1,6 +1,6 @@
 ---
 title: Creating a support ticket
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
+intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.landing_page_portal %}{% endif %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
 shortTitle: Creating a ticket
 versions:
   fpt: '*'
@@ -37,7 +37,7 @@ topics:
 {% endif %}
 
 {% ifversion ghes %}
-You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
+You can create your ticket using the {% data variables.contact.landing_page_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
 {% endif %}
 
 {% data reusables.support.zendesk-old-tickets %}
@@ -78,7 +78,8 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 ## Creating a support ticket{% ifversion ghes %} using the {% data variables.contact.enterprise_portal %}{% endif %}
 
-1. Navigate to the {% data variables.contact.contact_support_portal %}.
+1. Navigate to the {% data variables.contact.contact_landing_page_portal %}.
+1. In the bottom-left corner of the page, click **Contact us**.
 {% data reusables.support.submit-a-ticket %}
 
 {% ifversion ghes %}

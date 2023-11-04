@@ -2,18 +2,17 @@ import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils.js'
 import { liquid } from '#src/content-render/index.js'
-import { isLiquidError } from '../../../../lib/render-with-fallback.js'
+import { isLiquidError } from '#src/languages/lib/render-with-fallback.js'
 
 /*
   Attempts to parse all liquid in the frontmatter of a file
   to verify the syntax is correct.
 */
 export const frontmatterLiquidSyntax = {
-  names: ['LQ115', 'frontmatter-liquid-syntax'],
-  description:
-    'Frontmatter properties that contain Markdown (e.g., translatable strings) must use valid liquid.',
+  names: ['GHD017', 'frontmatter-liquid-syntax'],
+  description: 'Frontmatter properties must use valid Liquid',
   tags: ['liquid', 'frontmatter'],
-  function: function LQ115(params, onError) {
+  function: (params, onError) => {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 
@@ -56,10 +55,10 @@ export const frontmatterLiquidSyntax = {
   to verify the syntax is correct.
 */
 export const liquidSyntax = {
-  names: ['GHD90', 'liquid-syntax'],
-  description: 'Markdown content must have valid liquid.',
+  names: ['GHD018', 'liquid-syntax'],
+  description: 'Markdown content must use valid Liquid',
   tags: ['liquid'],
-  function: function GHD90(params, onError) {
+  function: function GHD018(params, onError) {
     try {
       liquid.parse(params.lines.join('\n'))
     } catch (error) {

@@ -15,10 +15,10 @@ import { program } from 'commander'
 import { rimraf } from 'rimraf'
 import http from 'http'
 
-import createApp from '../../../lib/app.js'
+import createApp from '#src/frame/lib/app.js'
 import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
-import { loadPageMap } from '../../../lib/page-data.js'
+import { loadPageMap } from '#src/frame/lib/page-data.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
 
 const port = '4001'

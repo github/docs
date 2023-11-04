@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals'
-import { loadPageMap, loadPages } from '../../lib/page-data.js'
+import { loadPageMap, loadPages } from '#src/frame/lib/page-data.js'
 import { renderContent } from '#src/content-render/index.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 

@@ -42,7 +42,7 @@ We recommend reviewing the following caveats before you change the visibility of
 
 - Wait for a period of reduced activity on {% data variables.location.product_location %}.
 
-- Contact your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} before proceeding. Your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} can contact {% data variables.contact.contact_ent_support %} for further guidance.
+- Contact your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} before proceeding. Your {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %} can contact us for further assistance by visiting {% data variables.contact.contact_ent_support %}.
 
 {% endwarning %}
 

@@ -51,17 +51,33 @@ You can also enable {% data variables.product.prodname_secret_scanning %} for mu
 
    ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section of the "Code security and analysis" page, with the "Enable" button highlighted in a dark orange outline.](/assets/images/help/repository/enable-secret-scanning-alerts.png){% endif %}
 
+{% ifversion secret-scanning-non-provider-patterns %}
+
+1. Optionally, if you want to enable the detection of non-provider patterns, click **Scan for non-provider patterns**. For more information about non-provider patterns, see "{% ifversion fpt or ghec %}[About user alerts](/code-security/secret-scanning/secret-scanning-patterns#about-user--alerts){% else %}[{% data variables.product.prodname_secret_scanning %} alerts](/code-security/secret-scanning/secret-scanning-patterns#about-secret-scanning-alerts){% endif %}."
+
+   {% data reusables.secret-scanning.non-provider-patterns-beta %}
+
+{% endif %}
+
 {% ifversion secret-scanning-push-protection %}
+
 1. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section. Next to an indented item marked "Push protection," the "Enable" button is highlighted in a dark orange outline.](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
+
+   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section. The "Enable" button is highlighted in a dark orange outline in the "Push protection" section.](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
+
 {% endif %}
 {% ifversion ghae %}
 1. Before you can enable {% data variables.product.prodname_secret_scanning %}, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+
    ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
+
 1. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
+
    ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
+
 1. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
    ![Enable {% data variables.product.prodname_secret_scanning %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
+
 {% endif %}
 
 {% ifversion fpt %}
@@ -105,7 +121,7 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
 
     {% endnote %}
 
-You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
+You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 {% ifversion not fpt %}
 

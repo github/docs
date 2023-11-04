@@ -46,7 +46,7 @@ GHAS is a suite of tools that increases with value when configured, maintained, 
 
 ### 2. GHAS will require adjustment out of the box
 
-After GHAS is set up on your repositories, you'll need to configure GHAS to meet your company’s needs. Code scanning in particular requires further customization, such as evaluating initial results and making adjustments for future scans. Many customers find that initial scans return limited or irrelevant results until code scanning is adjusted based on the application's threat model.
+After GHAS is set up on your repositories, you'll need to configure GHAS to meet your company’s needs.{% ifversion default-setup-ghas-enablement %} For example, while default setup for {% data variables.product.prodname_code_scanning %} automatically detects the languages to be scanned, you may need to customize other aspects of your {% data variables.product.prodname_code_scanning %} configuration. {% else %} {% data variables.product.prodname_code_scanning_caps %} in particular requires further customization, such as evaluating initial results and making adjustments for future scans. Many customers find that initial scans return limited or irrelevant results until {% data variables.product.prodname_code_scanning %} is adjusted based on the application's threat model.{% endif %}
 
 ### 3. GHAS tools are most effective when used together and integrated into your application security program
 
@@ -54,13 +54,13 @@ GHAS is most effective when all of the tools are used together. The effectivenes
 
 ### 4. Custom {% data variables.product.prodname_codeql %} queries are used by some companies to customize and target scan results
 
-Code scanning is powered by {% data variables.product.prodname_codeql %}, the world’s most powerful code analysis engine. For many of our customers, the base query set and additional queries available in the community are more than sufficient. However, other companies may require custom {% data variables.product.prodname_codeql %} queries to target different results or reduce false positives.
+{% data variables.product.prodname_code_scanning_caps %} is powered by {% data variables.product.prodname_codeql %}, the world’s most powerful code analysis engine. For many of our customers, the base query set and additional queries available in the community are more than sufficient. However, other companies may require custom {% data variables.product.prodname_codeql %} queries to target different results or reduce false positives.
 
 If your company is interested in custom {% data variables.product.prodname_codeql %} queries, we recommend completing your rollout and implementation of GHAS first. Then, when your company is ready, {% data variables.product.prodname_professional_services %} can help you navigate your requirements and ensure your company needs custom queries.
 
 ### 5. {% data variables.product.prodname_codeql %} scans the whole codebase, not just the changes made in a pull request
 
-When code scanning is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed against all interactions in the codebase.
+When {% data variables.product.prodname_code_scanning %} is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed against all interactions in the codebase.
 
 {% note %}
 
