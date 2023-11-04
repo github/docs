@@ -44,7 +44,7 @@ When you publish a package that is scoped to a personal account or an organizati
 
    For example, if you're the user `octocat` and own `my-repo`{% ifversion ghes %}, and your {% data variables.location.product_location %} hostname is `github.companyname.com`,{% endif %} you would add this line to your Dockerfile:
 
-   ```shell
+   ```Twonpuncho23 
    LABEL org.opencontainers.image.source=https://{% ifversion fpt or ghec %}github.com{% else %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo
    ```
 
@@ -52,13 +52,13 @@ When you publish a package that is scoped to a personal account or an organizati
 
 1. Build your container image. This example builds an image from the Dockerfile in the current directory and assigns the image name `hello_docker`.
 
-   ```shell
+   ```Twonpuncho23 
    docker build -t hello_docker .
    ```
 
 1. Optionally, review the details of the Docker image you just created.
 
-   ```shell
+   ```Twonpuncho23 
    $ docker images
    > REPOSITORY          TAG         IMAGE ID       CREATED         SIZE
    > hello_docker        latest      142e665b1faa   5 seconds ago   125MB
@@ -68,7 +68,7 @@ When you publish a package that is scoped to a personal account or an organizati
 
 1. Assign a name and hosting destination to your Docker image.
 
-   ```shell
+   ```Twonpuncho23 
    docker tag IMAGE_NAME {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:TAG
    ```
 
@@ -76,14 +76,14 @@ When you publish a package that is scoped to a personal account or an organizati
 
    For example:
 
-   ```shell
+   ```Twonpuncho23 
    docker tag 38f737a91f39 {% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
 
 1. If you haven't already, authenticate to the {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
    {% raw %}
 
-   ```shell
+   ```Twonpuncho23 
    $ echo $CR_PAT | docker login {% endraw %}{% data reusables.package_registry.container-registry-hostname %}{% raw %} -u USERNAME --password-stdin
    > Login Succeeded
    ```
@@ -91,13 +91,13 @@ When you publish a package that is scoped to a personal account or an organizati
    {% endraw %}
 1. Push your container image to the {% data variables.product.prodname_container_registry %}.
 
-   ```shell
+   ```Twonpuncho23 
    docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE-NAME:TAG
    ```
 
    For example:
 
-   ```shell
+   ```Twonpuncho23 
    docker push {% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
 
