@@ -47,12 +47,18 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
           issues: write
         steps:
           - name: Create team sync issue
-            uses: imjohnbo/issue-bot@3d96848fb5e9a4a473bb81ae62b4b4866a56e93a
-            with:
-              assignees: "monalisa, doctocat, hubot"
-              labels: "weekly sync, docs-team"
-              title: "Team sync"
-              body: |
+             run: |
+                gh issue create \
+                --repo "$REPO" \
+                --assignee "$ASSIGNEES" \
+                --label "$LABELS" \
+                --body "$BODY"
+            env:
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              REPO: ${{ github.repository }}
+              ASSIGNEES: monalisa,doctocat,hubot
+              LABELS: weekly sync,docs-team
+              BODY: |
                 ### Agenda
 
                 - [ ] Start the recording
@@ -64,10 +70,6 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
                 Add things to discuss below
 
                 - [Work this week](https://github.com/orgs/github/projects/3)
-              pinned: false
-              close-previous: false
-            env:
-              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
 1. Customize the parameters in your workflow file:
