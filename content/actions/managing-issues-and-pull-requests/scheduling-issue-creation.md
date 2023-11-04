@@ -47,7 +47,7 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
           issues: write
         steps:
           - name: Create team sync issue
-             run: |
+            run: |
                 gh issue create \
                 --repo "$REPO" \
                 --assignee "$ASSIGNEES" \
@@ -55,7 +55,7 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
                 --body "$BODY"
             env:
               GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-              REPO: ${{ github.repository }}
+              REPO: {% raw %}${{ github.repository }}{% endraw %}
               ASSIGNEES: monalisa,doctocat,hubot
               LABELS: weekly sync,docs-team
               BODY: |
