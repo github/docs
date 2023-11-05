@@ -1,83 +1,70 @@
----
-title: About GitHub Connect
-intro: '{% data variables.product.prodname_github_connect %} enhances {% data variables.product.product_name %} by giving you access to additional features and workflows that rely on the power of {% data variables.product.prodname_dotcom_the_website %}.'
-versions:
-  ghes: '*'
-  ghae: '*'
-type: overview
-topics:
-  - Enterprise
-  - GitHub Connect
----
+# GitHub Connect
 
-## About {% data variables.product.prodname_github_connect %}
+Welcome to the enlightening world of **GitHub Connect**, a pivotal feature that extends the capabilities of **GitHub** by granting you access to an array of additional functionalities and workflows that harness the power of **GitHub.com**.
 
-{% data variables.product.prodname_github_connect %} enhances {% data variables.product.product_name %} by allowing {% data variables.location.product_location %} to benefit from the power of {% data variables.product.prodname_dotcom_the_website %} in limited ways. After you enable {% data variables.product.prodname_github_connect %}, you can enable additional features and workflows that rely on {% data variables.product.prodname_dotcom_the_website %}, such as {% data variables.product.prodname_dependabot_alerts %} for security vulnerabilities that are tracked in the {% data variables.product.prodname_advisory_database %}.
+**GitHub Connect** is a remarkable bridge that enables **GitHub Enterprise Server (GHES)** and **GitHub Enterprise Cloud (GHE Cloud)** users to leverage the potent resources offered by **GitHub.com** in a carefully controlled manner. Once you've unlocked the potential of **GitHub Connect**, you'll be able to embrace advanced features and workflows. This includes harnessing **Dependabot Alerts** to safeguard your repositories against security vulnerabilities, effectively tracked within the **GitHub Advisory Database**.
 
-{% data variables.product.prodname_github_connect %} does not open {% data variables.location.product_location %} to the public internet. None of your enterprise's private data is exposed to {% data variables.product.prodname_dotcom_the_website %} users. Instead, {% data variables.product.prodname_github_connect %} transmits only the limited data needed for the individual features you choose to enable. Unless you enable license sync, no personal data is transmitted by {% data variables.product.prodname_github_connect %}. For more information about what data is transmitted by {% data variables.product.prodname_github_connect %}, see "[Data transmission for {% data variables.product.prodname_github_connect %}](#data-transmission-for-github-connect)."
+Embrace **GitHub Connect** with confidence, knowing that it never exposes your enterprise's private data to the open internet. Instead, it securely transmits only the essential data required for the specific features you choose to enable. Unless you opt for the license synchronization feature, personal data remains untouched by **GitHub Connect**. For detailed insights into the data transmission practices of **GitHub Connect**, please refer to "[Data Transmission for GitHub Connect](#data-transmission-for-github-connect)."
 
-Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_dotcom_the_website %} users to make changes to {% data variables.product.product_name %}.
+It's important to note that enabling **GitHub Connect** does not grant **GitHub.com** users the authority to make changes to your **GitHub Enterprise** environment.
 
-To enable {% data variables.product.prodname_github_connect %}, you configure a connection between {% data variables.location.product_location %} and enterprise account on {% data variables.product.prodname_dotcom_the_website %} that uses {% data variables.product.prodname_ghe_cloud %}. {% data reusables.github-connect.connection-port-protocol %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
+## Unlocking the Power of GitHub Connect
 
-After enabling {% data variables.product.prodname_github_connect %}, you will be able to enable features such as {% ifversion ghes %}automatic user license sync and {% endif %}{% data variables.product.prodname_dependabot_alerts %}. For more information about all of the features available, see "[{% data variables.product.prodname_github_connect %} features](#github-connect-features)."
+To set the wheels in motion with **GitHub Connect**, you'll need to establish a robust connection between your **GitHub Enterprise** environment (whether on GHES or GHE Cloud) and your enterprise account on **GitHub.com**. Our documentation on "[Managing GitHub Connect](/admin/configuration/configuring-github-connect/managing-github-connect)" offers comprehensive guidance on this seamless process.
 
-## {% data variables.product.prodname_github_connect %} features
+Once you've successfully integrated **GitHub Connect**, you'll gain access to an impressive array of features. Depending on your specific environment, you'll have the opportunity to enable features such as **Automatic User License Synchronization** and **Dependabot Alerts**, which significantly enhance your GitHub experience. Discover the full spectrum of features in our guide "[GitHub Connect Features](#github-connect-features)."
 
-After you configure the connection between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %}, you can enable individual features of {% data variables.product.prodname_github_connect %} for your enterprise.
+## GitHub Connect Features
 
-| Feature | Description | More information |
-| ----------- | ----------- | ----------- |{% ifversion ghes %}
-Automatic user license sync | Manage license usage across your {% data variables.product.prodname_enterprise %} deployments by automatically syncing user licenses from {% data variables.location.product_location %} to {% data variables.product.prodname_ghe_cloud %}. | "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise)"{% endif %}{% ifversion ghes or ghae %}
-{% data variables.product.prodname_dependabot %} | Allow users to find and fix vulnerabilities in code dependencies. | "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)"{% endif %}
-{% data variables.product.prodname_dotcom_the_website %} actions | Allow users to use actions from {% data variables.product.prodname_dotcom_the_website %} in workflow files. | "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"{% ifversion server-statistics %}
-{% data variables.product.prodname_server_statistics %} | Analyze your own aggregate data from GitHub Enterprise Server, and help us improve GitHub products. | "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)"{% endif %}
-Unified search | Allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.location.product_location %}. | "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)"
-Unified contributions | Allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_dotcom_the_website %}. | "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise)"
+Once you've forged the connection between your environment and **GitHub Enterprise Cloud**, you can choose from a selection of **GitHub Connect** features tailored to meet your enterprise's unique needs. Here's a glimpse of what's in store:
 
-## Data transmission for {% data variables.product.prodname_github_connect %}
+| Feature | Description | Learn More |
+| ----------- | ----------- | ----------- |
+Automatic User License Sync | Effectively manage license usage across your GitHub Enterprise deployments by automatically syncing user licenses from your environment to GitHub Enterprise Cloud. | "[Enabling Automatic User License Sync](/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise)" |
+Dependabot | Empower your users to identify and resolve vulnerabilities in code dependencies. | "[Enabling Dependabot](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)" |
+GitHub.com Actions | Access the full spectrum of actions available on **GitHub.com**, seamlessly integrating them into your workflow. | "[Enabling Automatic Access to GitHub.com Actions Using GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" |
+Server Statistics (For GHES) | Dive into detailed analytics by analyzing aggregate data from your GitHub Enterprise Server, all while contributing to the improvement of GitHub products. | "[Enabling Server Statistics for Your Enterprise](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)" |
+Unified Search | Extend your search capabilities by including **GitHub.com** repositories in your search results when searching from your GitHub Enterprise environment. | "[Enabling Unified Search for Your Enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" |
+Unified Contributions | Seamlessly incorporate anonymized contribution counts from your environment into your GitHub.com contribution graphs. | "[Enabling Unified Contributions for Your Enterprise](/admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise)" |
 
-When {% data variables.product.prodname_github_connect %} is enabled, a record on {% data variables.product.prodname_ghe_cloud %} stores information about the connection. If you enable individual features of {% data variables.product.prodname_github_connect %}, additional data is transmitted.
+## Data Transmission for GitHub Connect
 
-{% note %}
+As **GitHub Connect** springs into action, a record on **GitHub Enterprise Cloud (GHE Cloud)** meticulously documents the connection. The moment you enable specific **GitHub Connect** features, additional data transmission takes place.
 
-**Note:** No repositories, issues, or pull requests are ever transmitted from {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} by {% data variables.product.prodname_github_connect %}.
+**Note**: Rest assured that **GitHub Connect** never transmits repositories, issues, or pull requests from your GitHub Enterprise environment to **GitHub.com**.
 
-{% endnote %}
+### Data Transmitted When GitHub Connect is Enabled
 
-### Data transmitted when {% data variables.product.prodname_github_connect %} is enabled
+Upon enabling **GitHub Connect** or its individual features, the following data points are diligently transmitted and stored within **GitHub Enterprise Cloud**:
 
-When you enable {% data variables.product.prodname_github_connect %} or specific {% data variables.product.prodname_github_connect %} features, a record on {% data variables.product.prodname_ghe_cloud %} stores the following information about the connection.
-{% ifversion ghes %}
-- The public key portion of your {% data variables.product.prodname_ghe_server %} license
-- A hash of your {% data variables.product.prodname_ghe_server %} license
-- The customer name on your {% data variables.product.prodname_ghe_server %} license
-- The version of {% data variables.location.product_location_enterprise %}{% endif %}
-- The hostname of {% data variables.location.product_location %}
-- The enterprise account on {% data variables.product.prodname_ghe_cloud %} that's connected to {% data variables.location.product_location %}
-- The authentication token that's used by {% data variables.location.product_location %} to make requests to {% data variables.product.prodname_ghe_cloud %}
-- If Transport Layer Security (TLS) is enabled and configured on {% data variables.location.product_location %}{% ifversion ghes %}
-- The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement{% endif %}
+- The public key portion of your **GitHub Enterprise Server (GHES)** license
+- A hash of your GHES license
+- The customer name associated with your GHES license
+- The version of your enterprise environment
+- The hostname of your enterprise environment
+- The enterprise account on **GitHub Enterprise Cloud** connected to your environment
+- The authentication token utilized by your environment to request data from **GitHub Enterprise Cloud**
+- Details regarding the status of Transport Layer Security (TLS) in your environment (if enabled)
+- The list of **GitHub Connect** features activated in your environment, complete with the date and time of enablement (for GHES)
 - The dormancy threshold for your enterprise
-- The number of dormant users for your enterprise
-- A count of license-consuming seats, which does not include suspended users
+- The number of dormant users within your enterprise
+- An accurate count of license-consuming seats (excluding suspended users)
 
-{% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, starting from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
+The above connection data is securely synchronized between your GitHub Enterprise environment and **GitHub Enterprise Cloud** on a weekly basis, commencing from the day and approximate time of **GitHub Connect** activation.
 
-### Data transmitted by individual features of {% data variables.product.prodname_github_connect %}
+### Data Transmitted by Individual Features of GitHub Connect
 
-Additional data is transmitted if you enable individual features of {% data variables.product.prodname_github_connect %}.
+Each individual feature of **GitHub Connect** has its own unique data transmission requirements. Here's a breakdown of the data flow:
 
-| Feature | Data | Which way does the data flow? | Where is the data used? |
-| ------- | ---- | --------- | ------ |{% ifversion ghes %}
-Automatic user license sync | Each {% data variables.product.product_name %} user's user ID and email addresses | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |{% endif %}{% ifversion ghes or ghae %}
-{% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} |{% endif %}{% ifversion dependabot-updates-github-connect %}
-{% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} {% endif %}
-{% data variables.product.prodname_dotcom_the_website %} actions | Name of action, action (YAML file from {% data variables.product.prodname_marketplace %}) | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %}<br><br>From {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.product_name %}{% ifversion server-statistics %}
-{% data variables.product.prodname_server_statistics %} | Aggregate metrics about your usage of {% data variables.product.prodname_ghe_server %}. For the complete list of metrics, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected)." | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %}{% endif %}
-Unified search | Search terms, search results | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %}<br><br>From {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.product_name %} |
-Unified contributions | Contribution counts | From {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_dotcom_the_website %} |
+| Feature | Data | Data Flow | Data Usage |
+| ------- | ---- | --------- | ------ |
+Automatic User License Sync | User IDs and email addresses for each user of your GitHub Enterprise environment | From your environment to **GitHub Enterprise Cloud** | **GitHub Enterprise Cloud** |
+Dependabot Alerts | Vulnerability alerts | From **GitHub.com** to your GitHub Enterprise environment | Your GitHub Enterprise environment |
+GitHub.com Actions | Action names and the corresponding YAML files from the GitHub Marketplace | Bidirectional: From **GitHub.com** to your GitHub Enterprise environment and vice versa | Your GitHub Enterprise environment |
+Server Statistics (For GHES) | Aggregated metrics related to your GitHub Enterprise Server usage | From your environment to **GitHub Enterprise Cloud** | **GitHub Enterprise Cloud** |
+Unified Search | Search terms and results | Bidirectional: From **GitHub.com** to your GitHub Enterprise environment and vice versa | Your GitHub Enterprise environment |
+Unified Contributions | Anonymized contribution counts from your GitHub Enterprise environment | From your GitHub Enterprise environment to **GitHub.com** | **GitHub.com** |
 
-## Further reading
+## Further Reading
 
-- "[AUTOTITLE](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation
+For more advanced insights into the world of **GitHub Connect**, you can delve into the [GitHub GraphQL API documentation](/graphql/guides/managing-enterprise-accounts).
