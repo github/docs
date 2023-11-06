@@ -68,6 +68,12 @@ If you are setting the secrets at the user or organization level, make sure to a
 
 <img src="/assets/images/help/codespaces/secret-repository-access.png" alt='Screenshot of the "Repository access" dropdown menu with the options "All repositories," "Private repositories," and "Selected repositories."' style="width:400px;"/>
 
+### Pulling a Docker image into your codespace
+
+{% data variables.product.prodname_github_codespaces %} uses Docker, so to pull a private Docker image inside your codespace at runtime, you need to be able to use Docker-in-Docker. To make this possible, the secrets required for login to Docker are automatically added to the `~/.docker/config.json` file within your codespace. This happens after the `onCreateCommand` lifecycle hook but before `postCreateCommand`, `postStartCommand`, and `postAttachCommand`. As a result, `postCreateCommand` will be able to use Docker-in-Docker to pull a Docker image into the codespace, but `onCreateCommand` will not. For this reason, Docker-in-Docker is not available during prebuild creation.
+
+After the codespace is running you will be able to open a terminal in the codespace and run the command `docker pull PRIVATE-IMAGE-URL`.
+
 ### Example secrets
 
 For a private image registry in Azure, you could create the following secrets:
