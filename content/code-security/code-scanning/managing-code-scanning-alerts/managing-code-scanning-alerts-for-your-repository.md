@@ -202,6 +202,10 @@ If a project has multiple alerts that you want to dismiss for the same reason, y
 
 {% ifversion remove-code-scanning-configurations %}
 
+## Re-opening dismissed alerts
+
+If you dismiss an alert but later realized that it was done by mistake, you can access the list of closed alerts. Afterwards, you can find the alert, display it and reopen it if necessary.
+
 ## Removing stale configurations and alerts from a branch
 
 You may have multiple code scanning configurations on a single repository. When run, multiple configurations can generate the same alert. Additionally, if the configurations are run on different schedules, the alert statuses may become out-of-date for infrequent or stale configurations. For more information on alerts from multiple configurations, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alerts-from-multiple-configurations)."
