@@ -43,7 +43,7 @@ If you do not need to work with files locally, {% data variables.product.product
 
    {% note %}
 
-   **Note**: Most Chrome OS devices from 2020 onwards now have a built-in Linux environment, which includes Git. To enable it, go to the Launcher, search for Linux, and click Turn on.
+   **Note**: Most Chrome OS devices from 2020 onwards now have a built-in Linux environment, which includes Git. To enable it, go to the Launcher, search for Linux, and click **Turn on**.
 
    If you are using an older Chrome OS device, another method is required:
 
