@@ -56,4 +56,10 @@ For other information, such as authentication and rate limit details, check out 
 
 ## Requesting support
 
-{% data reusables.support.help_resources %}
+For questions, bug reports, and discussions about GitHub Apps, OAuth apps, and API development, [explore the APIs and Integrations discussions on GitHub Community](https://github.com/orgs/community/discussions/categories/api-and-webhooks). The discussions are moderated and maintained by GitHub staff and is a great place to ask questions and get feedabck from your peers in GitHub's Community. 
+
+Consider reaching out to [GitHub Support](https://support.github.com/) directly using the contact form for:
+- guaranteed response from GitHub staff
+- support requests involving sensitive data or private concerns
+- feature requests
+- feedback about GitHub products
