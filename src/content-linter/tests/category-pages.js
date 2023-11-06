@@ -8,7 +8,7 @@ import { decode } from 'html-entities'
 import matter from '#src/frame/lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import contextualize from '../../../middleware/context.js'
+import contextualize from '#src/frame/middleware/context/context.js'
 import shortVersions from '#src/versions/middleware/short-versions.js'
 import { ROOT } from '#src/frame/lib/constants.js'
 
