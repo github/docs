@@ -73,8 +73,9 @@ Check whether your repository meets the following requirements.
 
 ### Folder name
 
-Your folder names should not begin with underscore. Jekyll silently ignores such folders. Solution could be put `.nojekyll` empty file into root folder. 
+Your folder names should not begin with underscore. Jekyll silently ignores such folders. The solution could be put ".nojekyll" empty file into the root folder. 
 Another solution: add `_config.yml` with content
+
 ```
 include:
   - _next
