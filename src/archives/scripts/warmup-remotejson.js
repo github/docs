@@ -21,7 +21,7 @@
 import { program } from 'commander'
 import semver from 'semver'
 
-import getRemoteJSON from '../../../middleware/get-remote-json.js'
+import getRemoteJSON from '#src/frame/lib/get-remote-json.js'
 import {
   deprecated,
   firstReleaseStoredInBlobStorage,

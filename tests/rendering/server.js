@@ -6,7 +6,7 @@ import CspParse from 'csp-parse'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'

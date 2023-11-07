@@ -10,6 +10,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
+defaultPlatform: linux
 topics:
   - Action development
 ---
@@ -38,25 +39,50 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    cd hello-world-composite-action
    ```
 
-1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh` with example code:
 
-   ```bash copy
-   echo "Goodbye"
+   ```shell copy
+   echo "echo Goodbye" > goodbye.sh
    ```
 
 1. From your terminal, make `goodbye.sh` executable.
+   {% linux %}
+
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endmac %}
+   {% windows %}
 
    ```shell copy
-   chmod +x goodbye.sh
+   git add --chmod=+x -- goodbye.sh
    ```
+
+   {% endwindows %}
 
 1. From your terminal, check in your `goodbye.sh` file.
 
+   {% linux %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+   {% endmac %}
+   {% windows %}
+
    ```shell copy
-   git add goodbye.sh
    git commit -m "Add goodbye script"
    git push
    ```
+
+   {% endwindows %}
 
 ## Creating an action metadata file
 

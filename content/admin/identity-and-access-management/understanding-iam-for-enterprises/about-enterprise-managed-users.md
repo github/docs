@@ -150,3 +150,9 @@ The profile name and email address of a {% data variables.enterprise.prodname_ma
 People on your team may need to contribute to resources on {% data variables.location.product_location %} that are outside of your {% data variables.enterprise.prodname_emu_enterprise %}. For example, you may wish to maintain a separate enterprise for your company's open source projects. Because a {% data variables.enterprise.prodname_managed_user %} cannot contribute to public resources, users will need to maintain a separate, personal account for this work.
 
 People who must contribute from two user accounts on {% data variables.location.product_location %} using one workstation can configure Git to simplify the process. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts)."
+
+{% ifversion account-switcher %}
+
+If there are people on your team who do need to regularly switch between accounts on {% data variables.location.product_location %}, such as their personal accounts and one or more {% data variables.enterprise.prodname_managed_users %}, it's possible to sign in to multiple accounts and quickly switch between them without always needing to reauthenticate. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+
+{% endif %}
