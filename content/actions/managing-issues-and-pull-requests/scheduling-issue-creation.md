@@ -46,27 +46,25 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
             run: |
               if [[ $CLOSE_PREVIOUS == true ]]; then
                 previous_issue_number=$(gh issue list \
-                  --repo "$REPO" \
                   --label "$LABELS" \
                   --json number \
                   --jq '.[0].number')
                 if [[ -n $previous_issue_number ]]; then
-                  gh issue close "$previous_issue_number" --repo "$REPO"
-                  gh issue unpin "$previous_issue_number" --repo "$REPO"
+                  gh issue close "$previous_issue_number"
+                  gh issue unpin "$previous_issue_number"
                 fi
               fi
               new_issue_url=$(gh issue create \
-                --repo "$REPO" \
                 --title "$TITLE" \
                 --assignee "$ASSIGNEES" \
                 --label "$LABELS" \
                 --body "$BODY")
               if [[ $PINNED == true ]]; then
-                gh issue pin "$new_issue_url" --repo "$REPO"
+                gh issue pin "$new_issue_url"
               fi
             env:
               GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-              REPO: {% raw %}${{ github.repository }}{% endraw %}
+              GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
               TITLE: Team sync
               ASSIGNEES: monalisa,doctocat,hubot
               LABELS: weekly sync,docs-team
