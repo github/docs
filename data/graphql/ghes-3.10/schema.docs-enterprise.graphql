@@ -40322,6 +40322,11 @@ enum RepositoryLockReason {
   The repository is locked due to a trade controls related reason.
   """
   TRADE_RESTRICTION
+
+  """
+  The repository is locked due to an ownership transfer.
+  """
+  TRANSFERRING_OWNERSHIP
 }
 
 """

@@ -13,7 +13,7 @@ sections:
       Packages have been updated to the latest security versions. 
   bugs:
     - |
-       Authentication of programmatic access token's did not fully validate the status of token's users, which allowed token authentication requests to succeed even if the associated user was not allowed to make such requests. This issue is unrelated to validation of token scope.
+       Authentication of programmatic access tokens did not fully validate the status of token's users, which allowed token authentication requests to succeed even if the associated user was not allowed to make such requests. This issue is unrelated to validation of token scope.
     - |
        The `dependency-graph-api` service sometimes rapidly filled logs with a large amount of Base64-encoded response data, particularly during upgrades. 
     - |
@@ -51,6 +51,8 @@ sections:
        As a security measure, GitHub Pages does not build sites that contain symbolic links except when using custom GitHub Actions workflows. This change strengthens GitHub Pages's symbolic link detection.
   known_issues:
     - |
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
+    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
@@ -77,6 +79,8 @@ sections:
     - |
       After an administrator enables maintenance mode from the instance's Management Console UI using Firefox, the administrator is redirected to the Settings page, but maintenance mode is not enabled. To work around this issue, use a different browser.
     - |
-      When an administrator uses the `-p` flag with the `ghe-support-bundle` utility to collect data for a specific number of hours, the utility erroneously collects more logs than necessary.
-    - | 
       {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} 
+    - |
+      {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-26]
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %} [Updated: 2023-10-31]

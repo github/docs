@@ -89,7 +89,7 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% data reusables.dependabot.dependabot-alert-create-PR %}
 
-{% ifversion dependabot-alert-custom-rules-repo-level %}
+{% ifversion dependabot-auto-triage-rules %}
 
 {% data reusables.dependabot.dependabot-alert-rules %}
 

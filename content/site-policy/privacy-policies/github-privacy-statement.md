@@ -17,6 +17,7 @@ topics:
   - Policy
   - Legal
 ---
+<!-- markdownlint-disable search-replace -->
 
 Effective date: October 10, 2023
 

@@ -30,6 +30,9 @@ shortTitle: User into an organization
 - Any commits made with the converted personal account **will no longer be linked** to that account. The commits themselves **will** remain intact.
 - Any existing comments made by the converted personal account **will no longer be linked** to that account. The comments themselves **will** remain intact, but will be associated with the `ghost` user.
 - Any forks of private repositories made with the converted personal account will be deleted.
+- Since organizations cannot star repositories, you will no longer have access to your original list of starred repositories.
+- You will no longer have access to the list of users you were following from your user account.
+- Any followers of your user account will not automatically follow the new organization.
 {% endwarning %}
 
 {% ifversion fpt or ghec or ghes %}

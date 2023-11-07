@@ -23,7 +23,7 @@ When your {% data variables.product.prodname_github_app %} creates an installati
 
 Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
-Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#conditional-requests)."
+Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)."
 
 If possible, consider using consolidated GraphQL queries instead of REST API requests to help you stay within rate limits. For more information, see "[AUTOTITLE](/rest/overview/about-githubs-apis)" and "[AUTOTITLE](/graphql)."
 

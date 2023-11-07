@@ -4,7 +4,7 @@ import robotsParser from 'robots-parser'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '../helpers/e2etest.js'
 
 describe('robots.txt', () => {

@@ -16,7 +16,7 @@ shortTitle: Create enterprise account
 
 {% data variables.product.prodname_ghe_cloud %} allows you to create an enterprise account, which enables collaboration between multiple organizations and gives administrators a single point of visibility and management. When you purchase {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account. Creation of an enterprise account does not result in additional charges on your bill. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
 
-If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization and by invoice, you can create an enterprise account through your billing page. If you need Enterprise Managed Users, {% data variables.product.prodname_ghe_server %}, or invoicing support, please contact {% data variables.contact.contact_enterprise_sales %}.
+If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization and do not have any coupons or discounts applied, you can create an enterprise account through your billing page. If you need Enterprise Managed Users, {% data variables.product.prodname_ghe_server %}, or invoicing support, please contact {% data variables.contact.contact_enterprise_sales %}.
 
 You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)".
 

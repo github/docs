@@ -2,9 +2,9 @@
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import frontmatter from '../../../lib/read-frontmatter.js'
-import { loadPages, loadPageMap } from '../../../lib/page-data.js'
-import patterns from '../../../lib/patterns.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
+import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
+import patterns from '#src/frame/lib/patterns.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 

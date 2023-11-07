@@ -14,13 +14,6 @@ runs:
   steps:
     - name: Send Slack notification if workflow fails
       uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-      if: >-
-        ${{
-          failure() &&
-          github.repository == 'github/docs-internal' &&
-          github.event_name != 'pull_request' &&
-          github.event_name != 'pull_request_target'
-        }}
       with:
         channel: ${{ inputs.slack_channel_id }}
         bot-token: ${{ inputs.slack_token }}

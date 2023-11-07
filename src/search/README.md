@@ -85,7 +85,7 @@ Why do we need this? For our daily shipping needs, it's tolerable that search up
 - [components/lib/search.ts](components/lib/search.ts) - The browser-side code that enables search.
 - [lib/search/client.js](lib/search/client.js) - A thin wrapper around the Node.js module for interacting with the search API.
 - [lib/search/search-index.js](lib/search/search-index.js) - A class for generating structured search data from repository content and syncing it. This class has built-in validation to ensure that all records are valid before they're uploaded. This class also takes care of removing deprecated records, and compares existing remote records with the latest local records to avoid uploading records that haven't changed.
-- [script/sync-search-indices.js](script/sync-search-indices.js) - The script used by the Actions workflow to update search indices. This can also be [run in the development environment](#development).
+- [src/search/scripts/sync-search-indices.js](src/search/scripts/sync-search-indices.js) - The script used by the Actions workflow to update search indices. This can also be [run in the development environment](#development).
 - [tests/content/search.js](tests/content/search.js) - Tests!
 
 ## Indices

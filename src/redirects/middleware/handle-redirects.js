@@ -1,9 +1,9 @@
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import { URL } from 'url'
 import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
 import { deprecatedWithFunctionalRedirects } from '#src/versions/lib/enterprise-server-releases.js'
 import getRedirect from '../lib/get-redirect.js'
-import { defaultCacheControl, languageCacheControl } from '../../../middleware/cache-control.js'
+import { defaultCacheControl, languageCacheControl } from '#src/frame/middleware/cache-control.js'
 
 export default function handleRedirects(req, res, next) {
   // never redirect assets

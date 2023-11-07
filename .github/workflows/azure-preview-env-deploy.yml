@@ -193,8 +193,6 @@ jobs:
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
           rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
-          rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
-          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
           rsync -rptovR ./user-code/src/./**/*.tsx ./src
 
       - uses: ./.github/actions/warmup-remotejson-cache
@@ -254,8 +252,3 @@ jobs:
         # The `--fail --retry N` combination means that a 4xx response
         # code will exit immediately but a 5xx will exhaust the retries.
         run: curl --fail --retry-connrefused --retry 5 -I ${{ env.APP_URL }}
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

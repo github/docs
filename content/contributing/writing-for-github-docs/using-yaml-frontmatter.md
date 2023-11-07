@@ -18,7 +18,7 @@ It is a block of key-value content that lives at the top of every Markdown file 
 
 The following frontmatter values have special meanings and requirements for {% data variables.product.prodname_docs %}.
 There's also a schema that's used by the test suite to validate every page's frontmatter.
-For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/lib/frontmatter.js).
+For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 
 - [`versions`](#versions)
 - [`redirect_from`](#redirect_from)
@@ -47,7 +47,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 
 - Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
 For more information about the different types of versioning, see "[Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
-- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/lib/frontmatter.js).
+- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
 - The `*` is used to denote all releases for the version.
 
@@ -188,7 +188,7 @@ featuredLinks:
 
 ### `allowTitleToDifferFromFilename`
 
-- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `script/reconcile-ids-with-filenames.js`.
+- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
@@ -225,7 +225,7 @@ defaultTool: cli
 ### `learningTracks`
 
 - Purpose: Render a list of learning tracks on a product's sub-landing page.
-- type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
+- Type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
 - Optional
 
 {% note %}
@@ -253,7 +253,7 @@ includeGuides:
 ### `type`
 
 - Purpose: Indicate the type of article.
-- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`.
+- Type: `String`, one of the `overview`, `quick_start`, `tutorial`, `how_to`, `reference`, `rai`.
 - Optional.
 
 ### `topics`

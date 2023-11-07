@@ -364,34 +364,38 @@ template:
     containers:
     - name: runner
       image: ghcr.io/actions/actions-runner:latest
+      command: ["/home/runner/run.sh"]
       env:
         - name: DOCKER_HOST
-          value: tcp://localhost:2376
-        - name: DOCKER_TLS_VERIFY
-          value: "1"
-        - name: DOCKER_CERT_PATH
-          value: /certs/client
+          value: unix:///run/docker/docker.sock
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
-        - name: dind-cert
-          mountPath: /certs/client
+        - name: dind-sock
+          mountPath: /run/docker
           readOnly: true
     - name: dind
       image: docker:dind
+      args:
+        - dockerd
+        - --host=unix:///run/docker/docker.sock
+        - --group=$(DOCKER_GROUP_GID)
+      env:
+        - name: DOCKER_GROUP_GID
+          value: "123"
       securityContext:
         privileged: true
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
-        - name: dind-cert
-          mountPath: /certs/client
+        - name: dind-sock
+          mountPath: /run/docker
         - name: dind-externals
           mountPath: /home/runner/externals
     volumes:
     - name: work
       emptyDir: {}
-    - name: dind-cert
+    - name: dind-sock
       emptyDir: {}
     - name: dind-externals
       emptyDir: {}

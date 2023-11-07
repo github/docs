@@ -57,21 +57,23 @@ export function Search() {
             >{t`placeholder`}</span>
             <TextInput
               required
-              onInvalid={(e) =>
-                (e.target as HTMLInputElement).setCustomValidity('Please enter a search query.')
-              }
-              onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
+              onInvalid={(e) => {
+                e.currentTarget.setCustomValidity('Please enter a search query.')
+              }}
               data-testid="site-search-input"
               // This adds focus in particular for iOS to focus and bring up the keyboard when you touch the search input text area
               ref={(inputRef) => !atMediumViewport && inputRef && inputRef.focus()}
               type="search"
               placeholder={t`placeholder`}
-              autoComplete={localQuery ? 'on' : 'off'}
+              autoComplete="off"
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
               maxLength={512}
-              onChange={(e) => setLocalQuery(e.target.value)}
+              onChange={(e) => {
+                setLocalQuery(e.target.value)
+                e.currentTarget.setCustomValidity('')
+              }}
               value={localQuery}
               aria-label={t`label`}
               aria-describedby={t`description`}

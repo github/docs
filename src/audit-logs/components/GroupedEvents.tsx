@@ -14,7 +14,7 @@ type Props = {
 }
 
 export default function GroupedEvents({ auditLogEvents, category }: Props) {
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('audit_logs')
   const eventSlug = slug(category)
   return (
     <>
@@ -24,8 +24,8 @@ export default function GroupedEvents({ auditLogEvents, category }: Props) {
       <table>
         <thead>
           <tr>
-            <th scope="col">{t('audit_logs.action')}</th>
-            <th scope="col">{t('audit_logs.description')}</th>
+            <th scope="col">{t('action')}</th>
+            <th scope="col">{t('description')}</th>
           </tr>
         </thead>
         <tbody>

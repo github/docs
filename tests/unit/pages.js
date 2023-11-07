@@ -1,9 +1,9 @@
 import { jest } from '@jest/globals'
 import path from 'path'
-import { loadPages } from '../../lib/page-data.js'
+import { loadPages } from '#src/frame/lib/page-data.js'
 import libLanguages from '#src/languages/lib/languages.js'
 import { liquid } from '#src/content-render/index.js'
-import patterns from '../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import { chain, pick } from 'lodash-es'
@@ -103,7 +103,7 @@ describe('pages module', () => {
     nonMatches.length === 1 ? 'file' : 'files'
   } that do not match their slugified titles.\n
   ${nonMatches.join('\n')}\n
-  To fix, run script/reconcile-filenames-with-ids.js\n\n`
+  To fix, run src/content-render/scripts/reconcile-filenames-with-ids.js\n\n`
 
       expect(nonMatches.length, message).toBe(0)
     })

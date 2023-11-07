@@ -13,7 +13,7 @@ versions:
   ghec: '*'
 shortTitle: Automatic token authentication
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the `GITHUB_TOKEN` secret
@@ -121,6 +121,12 @@ The two workflow examples earlier in this article show the `permissions` key bei
 
 For full details of the `permissions` key, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#permissions)."
 
+{% note %}
+
+**Note:** Organization{% ifversion not fpt %} and enterprise{% endif %} owners can prevent you from granting write access to the `GITHUB_TOKEN` at the repository level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization){% ifversion not fpt %} and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)."{% else %}."{% endif %}
+
+{% endnote %}
+
 #### How the permissions are calculated for a workflow job
 
 The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
@@ -131,4 +137,4 @@ If you need a token that requires permissions that aren't available in the `GITH
 
 ### Further reading
 
-- "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)"
+- "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)"

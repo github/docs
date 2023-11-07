@@ -1,5 +1,10 @@
 [
   {
+    "action": "api.request",
+    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
+  },
+  {
     "action": "business.add_admin",
     "description": "An enterprise owner was added to an enterprise.",
     "docs_reference_links": "/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise"
@@ -108,6 +113,11 @@
     "action": "business.set_actions_retention_limit",
     "description": "The retention period for GitHub Actions artifacts and logs was changed for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise"
+  },
+  {
+    "action": "business.sso_response",
+    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your enterprise. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.update_actions_settings",
@@ -370,8 +380,18 @@
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group"
   },
   {
+    "action": "enterprise.self_hosted_runner_offline",
+    "description": "The GitHub Actions runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "enterprise.self_hosted_runner_online",
+    "description": "The GitHub Actions runner application was started. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
     "action": "enterprise.self_hosted_runner_updated",
-    "description": "The GitHub Actions runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export.",
+    "description": "The GitHub Actions runner application was updated. This event is not included in the JSON/CSV export.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
   },
   {
@@ -955,8 +975,18 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.self_hosted_runner_offline",
+    "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "org.self_hosted_runner_online",
+    "description": "The runner application was started. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
     "action": "org.self_hosted_runner_updated",
-    "description": "The runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export.",
+    "description": "The runner application was updated. This event is not included in the JSON/CSV export.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
   },
   {
@@ -976,7 +1006,7 @@
   },
   {
     "action": "org.sso_response",
-    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization.",
+    "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1550,8 +1580,18 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repo.self_hosted_runner_offline",
+    "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
+    "action": "repo.self_hosted_runner_online",
+    "description": "The runner application was started. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
+  },
+  {
     "action": "repo.self_hosted_runner_updated",
-    "description": "The runner application was updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export.",
+    "description": "The runner application was updated. This event is not included in the JSON/CSV export.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners"
   },
   {
@@ -1896,8 +1936,8 @@
   },
   {
     "action": "two_factor_authentication.add_factor",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A secondary authentication factor was added to a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
   },
   {
     "action": "two_factor_authentication.disabled",
@@ -1921,8 +1961,8 @@
   },
   {
     "action": "two_factor_authentication.remove_factor",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A secondary authentication factor was removed from a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
   },
   {
     "action": "two_factor_authentication.sign_in_fallback_sms",
@@ -2046,7 +2086,7 @@
   },
   {
     "action": "user.logout",
-    "description": "N/A",
+    "description": "A user signed out.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2200,6 +2240,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "workflows.completed_workflow_run",
+    "description": "A workflow status changed to completed. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history"
+  },
+  {
+    "action": "workflows.created_workflow_run",
+    "description": "A workflow run was create. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/learn-github-actions/understanding-github-actions#create-an-example-workflow"
+  },
+  {
     "action": "workflows.delete_workflow_run",
     "description": "A workflow run was deleted.",
     "docs_reference_links": "/actions/managing-workflow-runs/deleting-a-workflow-run"
@@ -2213,6 +2263,11 @@
     "action": "workflows.enable_workflow",
     "description": "A workflow was enabled, after previously being disabled by disable_workflow.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.prepared_workflow_job",
+    "description": "A workflow job was started. Includes the list of secrets that were provided to the job. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "docs_reference_links": "/actions/using-workflows/events-that-trigger-workflows"
   },
   {
     "action": "workflows.reject_workflow_job",

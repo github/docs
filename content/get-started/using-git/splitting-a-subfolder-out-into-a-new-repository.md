@@ -14,6 +14,13 @@ versions:
   ghec: '*'
 shortTitle: Splitting a subfolder
 ---
+ 
+{% note %}
+
+**Note:** You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
+
+{% endnote %}
+  
 If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.  However, note that the new repository won't have the branches and tags of the original repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -48,11 +55,16 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    ```shell
    $ git filter-repo --path FOLDER-NAME/
    # Filter the specified branch in your directory and remove empty commits
-   > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (89/89)
-   > Ref 'refs/heads/BRANCH-NAME' was rewritten
    ```
 
    The repository should now only contain the files that were in your subfolder(s).
+
+   If you want one specific subfolder to be the new root folder of the new repository, you can use the following command:
+
+   ```shell
+   $ git filter-repo --subdirectory-filter FOLDER-NAME
+   # Filter the specific branch by using a single sub-directory as the root for the new repository
+   ```
 
 1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
 

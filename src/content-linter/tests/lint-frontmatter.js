@@ -1,59 +1,12 @@
-import { loadPages, loadPageMap } from '../../../lib/page-data.js'
-import getRedirect from '#src/redirects/lib/get-redirect.js'
+import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
-import { getPathWithoutLanguage, getPathWithoutVersion } from '../../../lib/path-utils.js'
+import { checkURL } from '../../../tests/helpers/check-url.js'
 
 const pageList = await loadPages(undefined, ['en'])
 const pages = await loadPageMap(pageList)
 const redirects = await loadRedirects(pageList)
 
-const liquidStartRex = /^{%-?\s*ifversion .+?\s*%}/
-const liquidEndRex = /{%-?\s*endif\s*-?%}$/
-
-// Return
-//
-//    /foo/bar
-//
-// if the text input was
-//
-//   {% ifversion ghes%}/foo/bar{%endif %}
-//
-// And if no liquid, just return as is.
-function stripLiquid(text) {
-  if (liquidStartRex.test(text) && liquidEndRex.test(text)) {
-    return text.replace(liquidStartRex, '').replace(liquidEndRex, '').trim()
-  } else if (text.includes('{')) {
-    throw new Error(`Unsupported Liquid in frontmatter link list (${text})`)
-  }
-  return text
-}
-
 describe('front matter', () => {
-  // Given a URI that does not start with a specific language,
-  // return undefined if it can found as a known page.
-  // Otherwise, return an object with information that is used to
-  // print a useful jest error message in the assertion.
-  function checkURL(uri, index, redirectsContext) {
-    const url = `/en${stripLiquid(uri).split('#')[0]}`
-    if (!(url in pages)) {
-      // Some are written without a version, but don't work with the
-      // default version.
-      let redirects = getRedirect(url, redirectsContext)
-      // If it does indeed redirect to a different version,
-      // strip that and compare again.
-      if (redirects) {
-        const withoutVersion = getPathWithoutVersion(redirects)
-        if (withoutVersion === url) {
-          // That means, it's actually fine
-          return null
-        }
-        redirects = getPathWithoutLanguage(withoutVersion)
-      }
-      return { uri, index, redirects }
-    }
-    return null // Falsy value will be filtered out later
-  }
-
   function makeCustomErrorMessage(page, trouble, key) {
     let customErrorMessage = `In the front matter of ${page.relativePath} `
     if (trouble.length > 0) {
