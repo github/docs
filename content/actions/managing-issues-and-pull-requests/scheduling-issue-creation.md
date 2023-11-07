@@ -19,9 +19,9 @@ topics:
 
 ## Introduction
 
-This tutorial demonstrates how to use the [GitHub CLI](https://cli.github.com/) to create an issue on a regular basis. For example, you can create an issue each week to use as the agenda for a team meeting.
+This tutorial demonstrates how to use the {% data variables.product.prodname_cli %} to create an issue on a regular basis. For example, you can create an issue each week to use as the agenda for a team meeting. For more information about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/actions/using-workflows/using-github-cli-in-workflows)."
 
-In the tutorial, you will first make a workflow file that uses the [GitHub CLI](https://cli.github.com/). Then, you will customize the workflow to suit your needs.
+In the tutorial, you will first make a workflow file that uses the {% data variables.product.prodname_cli %}. Then, you will customize the workflow to suit your needs.
 
 ## Creating the workflow
 
@@ -58,11 +58,11 @@ In the tutorial, you will first make a workflow file that uses the [GitHub CLI](
                   --repo "$REPO" \
                   --label "$LABELS" \
                   --json number \
-                  --jq .[1].number)
+                  --jq '.[0].number')
                 gh issue close "$previous_issue_number" --repo "$REPO"
               fi
             env:
-              GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
               REPO: {% raw %}${{ github.repository }}{% endraw %}
               TITLE: Team sync
               ASSIGNEES: monalisa,doctocat,hubot
@@ -103,5 +103,5 @@ You can view the history of your workflow runs to see this workflow run periodic
 
 ## Next steps
 
-- To learn more about additional things you can do with the GitHub CLI, like using an issue template, see the [`gh issue create` documentation](https://cli.github.com/manual/gh_issue_create).
-- [Search GitHub](https://github.com/marketplace?category=&type=actions&verification=&query=schedule+issue) for GitHub actions that are tailored to your use case.
+- To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, like using an issue template, see the [`gh issue create` documentation](https://cli.github.com/manual/gh_issue_create).
+- [Search {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=&type=actions&verification=&query=schedule+issue) for actions related to scheduled issues.
