@@ -12,9 +12,9 @@ type Props = {
 
 export function Object({ item }: Props) {
   const { locale } = useRouter()
-  const { t } = useTranslation('products')
-  const heading1 = t('graphql.reference.implements').replace('{{ GraphQLItemTitle }}', item.name)
-  const heading2 = t('graphql.reference.fields').replace('{{ GraphQLItemTitle }}', item.name)
+  const { t } = useTranslation('graphql')
+  const heading1 = t('reference.implements').replace('{{ GraphQLItemTitle }}', item.name)
+  const heading2 = t('reference.fields').replace('{{ GraphQLItemTitle }}', item.name)
 
   return (
     <GraphqlItem item={item}>

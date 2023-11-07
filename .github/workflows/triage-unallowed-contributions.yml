@@ -13,10 +13,11 @@ on:
       - 'assets/fonts/**'
       - 'data/graphql/**'
       - 'Dockerfile*'
-      - 'src/**'
+      - 'src/*/scripts/**'
+      - 'src/**.json'
+      - 'src/workflows/**'
       - 'lib/redirects/**'
       - 'package*.json'
-      - 'script/**'
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
@@ -55,10 +56,11 @@ jobs:
               - 'assets/fonts/**'
               - 'data/graphql/**'
               - 'Dockerfile*'
-              - 'src/**'
+              - 'src/*/scripts/**'
+              - 'src/**.json'
+              - 'src/workflows/**'
               - 'lib/redirects/**'
               - 'package*.json'
-              - 'scripts/**'
               - 'content/actions/deployment/security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
@@ -75,10 +77,11 @@ jobs:
               'assets/fonts/**',
               'data/graphql/**',
               'Dockerfile*',
-              'src/**',
+              'src/*/scripts/**',
+              'src/**.json',
+              'src/workflows/**',
               'lib/redirects/**',
               'package*.json',
-              'scripts/**',
               'content/actions/deployment/security-hardening-your-deployments/**',
             ]
 
@@ -101,10 +104,3 @@ jobs:
             }
 
             core.setFailed(workflowFailMessage)
-
-      - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

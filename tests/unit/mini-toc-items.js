@@ -1,5 +1,5 @@
 import { expect } from '@jest/globals'
-import getMiniTocItems from '../../lib/get-mini-toc-items'
+import getMiniTocItems from '#src/frame/lib/get-mini-toc-items'
 
 function generateHeading(h) {
   return (slug) => `<${h} id="${slug}">

@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 import path from 'path'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get } from '../../../../tests/helpers/e2etest.js'
-import readJsonFile from '../../../../lib/read-json-file.js'
+import readJsonFile from '#src/frame/lib/read-json-file.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 

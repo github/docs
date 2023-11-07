@@ -14,7 +14,7 @@ featuredLinks:
     - /rest/guides/best-practices-for-using-the-rest-api
     - /rest/guides/using-pagination-in-the-rest-api
   popular:
-    - /rest/overview/resources-in-the-rest-api
+    - /rest/overview/rate-limits-for-the-rest-api
     - /rest/overview/api-versions
     - /rest/overview/authenticating-to-the-rest-api
     - /rest/overview/troubleshooting
@@ -36,6 +36,9 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /quickstart
+  - /overview
+  - /guides
   - /actions
   - /activity
   - /announcement-banners
@@ -59,7 +62,6 @@ children:
   - /gists
   - /git
   - /gitignore
-  - /guides
   - /interactions
   - /issues
   - /licenses
@@ -69,12 +71,10 @@ children:
   - /migrations
   - /oauth-authorizations
   - /orgs
-  - /overview
   - /packages
   - /pages
   - /projects
   - /pulls
-  - /quickstart
   - /rate-limit
   - /reactions
   - /releases

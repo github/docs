@@ -51,8 +51,8 @@ jobs:
         id: generate_token
         uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
         with:
-          app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
-          private_key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}
+          app-id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
+          private-key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}
 
       - name: Use the token
         env:

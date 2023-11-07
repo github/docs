@@ -23,17 +23,13 @@ picker:
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
-  need_help: Need help?
-  placeholder: Search GitHub Docs
-  search_results_for: Search results for
-  no_content: No content
-  matches_found: Results found
-  matches_displayed: Matches displayed
-  search_error: An error occurred trying to perform the search.
   description: Enter a search term to find it in the GitHub Docs.
+  placeholder: Search GitHub Docs
   label: Search GitHub Docs
+search_results:
+  search_results_for: Search results for
+  matches_displayed: Matches displayed
   n_results: '{n} results'
-  one_result: 1 result
   search_validation_error: Validation error with search query
 homepage:
   explore_by_product: Explore by product
@@ -53,11 +49,6 @@ pages:
   about_versions: About versions
   permissions_statement: Who can use this feature
   video_from_transcript: See video for this transcript
-errors:
-  oops: Ooops!
-  something_went_wrong: It looks like something went wrong.
-  we_track_errors: We track these errors automatically, but if the problem persists please feel free to contact us.
-  page_doesnt_exist: It looks like this page doesn't exist.
 support:
   still_need_help: Still need help?
   contact_support: Contact support
@@ -97,97 +88,96 @@ parameter_table:
   see_preview_notices: See preview notices
   type: Type
   single_enum_description: Value
-products:
-  audit_logs:
-    action: Action
+audit_logs:
+  action: Action
+  description: Description
+graphql:
+  reference:
+    implements: <code>{{ GraphQLItemTitle }}</code> Implements
+    fields: Fields for <code>{{ GraphQLItemTitle }}</code>
+    arguments: Arguments for <code>{{ GraphQLItemTitle }}</code>
+    name: Name
+    type: Type
     description: Description
+    input_fields: Input fields for <code>{{ GraphQLItemTitle }}</code>
+    return_fields: Return fields for <code>{{ GraphQLItemTitle }}</code>
+    implemented_by: |
+      <code>{{ GraphQLItemTitle }}</code> is implemented by
+    values: Values for <code>{{ GraphQLItemTitle }}</code>
+    possible_types: Possible types for <code>{{ GraphQLItemTitle }}</code>
+    preview_notice: Preview notice
+    deprecation_notice: Deprecation notice
+    preview_period: During the preview period, the API may change without notice.
+  overview:
+    preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
+    preview_schema_members: 'Previewed schema members'
+    announced: Announced
+    updates: Updates
+rest:
+  banner:
+    api_versioned: The REST API is now versioned.
+    api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>."
+    ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
+    redirect_notice: We've recently moved some of the REST API documentation.
+    redirect_repo: If you can't find what you're looking for, you might try the new {{ newRestPagesLinks }} REST API pages.
+    redirect_enterprise: If you can't find what you're looking for, you might try the {{ actionsPageLink }} REST API page.
+    actions_api_title: Actions
+  versioning:
+    about_versions: About REST API versions
+  overview:
+    permissions:
+      access: Access
+      endpoints: Endpoint
+      tokens: Token types
+      additionalPermissions: Additional permissions
+      uat: UAT
+      iat: IAT
+rest_reference:
+  in: In
+  description: Description
+  notes: Notes
+  parameters: Parameters for "{{ RESTOperationTitle }}"
+  response: Response
+  example_response: Example response
+  status_code: Status code
+  http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
+  code_sample: Code sample
+  code_samples: Code samples for "{{ RESTOperationTitle }}"
+  preview_notice: Preview notice for "{{ RESTOperationTitle }}"
+  preview_notices: Preview notices for "{{ RESTOperationTitle }}"
+  preview_header_is_required: This header is <strong>required</strong>
+  preview_notice_to_change: This API is under preview and subject to change
+  works_with: Works with
+  api_reference: REST API reference
+  enum_description_title: Can be one of
+  required: Required
+  headers: Headers
+  query: Query parameters
+  path: Path parameters
+  body: Body parameters
+  response_options:
+    example: Example response
+    schema: Response schema
+  code_sample_options:
+    ghcli: GitHub CLI
+    javascript: JavaScript
+    curl: cURL
   button_text:
     copy_to_clipboard: Copy to clipboard
     copied: Copied!
-  graphql:
-    reference:
-      implements: <code>{{ GraphQLItemTitle }}</code> Implements
-      fields: Fields for <code>{{ GraphQLItemTitle }}</code>
-      arguments: Arguments for <code>{{ GraphQLItemTitle }}</code>
-      name: Name
-      type: Type
-      description: Description
-      input_fields: Input fields for <code>{{ GraphQLItemTitle }}</code>
-      return_fields: Return fields for <code>{{ GraphQLItemTitle }}</code>
-      implemented_by: |
-        <code>{{ GraphQLItemTitle }}</code> is implemented by
-      values: Values for <code>{{ GraphQLItemTitle }}</code>
-      possible_types: Possible types for <code>{{ GraphQLItemTitle }}</code>
-      preview_notice: Preview notice
-      deprecation_notice: Deprecation notice
-      preview_period: During the preview period, the API may change without notice.
-    overview:
-      preview_header: 'To toggle this preview and access the following schema members, you must provide a custom media type in the `Accept` header:'
-      preview_schema_members: 'Previewed schema members'
-      announced: Announced
-      updates: Updates
-  rest:
-    banner:
-      api_versioned: The REST API is now versioned.
-      api_version_info: For more information, see "<a href="{{ versionWithApiVersion }}/rest/overview/api-versions">About API versioning</a>."
-      ghes_api_versioned: After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see "<a href="/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server">About versions of GitHub Docs</a>".
-      redirect_notice: We've recently moved some of the REST API documentation.
-      redirect_repo: If you can't find what you're looking for, you might try the new {{ newRestPagesLinks }} REST API pages.
-      redirect_enterprise: If you can't find what you're looking for, you might try the {{ actionsPageLink }} REST API page.
-      actions_api_title: Actions
-    versioning:
-      about_versions: About REST API versions
-    overview:
-      permissions:
-        access: Access
-        endpoints: Endpoint
-        tokens: Token types
-        additionalPermissions: Additional permissions
-        uat: UAT
-        iat: IAT
-    reference:
-      in: In
-      description: Description
-      notes: Notes
-      parameters: Parameters for "{{ RESTOperationTitle }}"
-      response: Response
-      example_response: Example response
-      status_code: Status code
-      http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
-      code_sample: Code sample
-      code_samples: Code samples for "{{ RESTOperationTitle }}"
-      preview_notice: Preview notice for "{{ RESTOperationTitle }}"
-      preview_notices: Preview notices for "{{ RESTOperationTitle }}"
-      preview_header_is_required: This header is <strong>required</strong>
-      preview_notice_to_change: This API is under preview and subject to change
-      works_with: Works with
-      api_reference: REST API reference
-      enum_description_title: Can be one of
-      required: Required
-      headers: Headers
-      query: Query parameters
-      path: Path parameters
-      body: Body parameters
-      response_options:
-        example: Example response
-        schema: Response schema
-      code_sample_options:
-        ghcli: GitHub CLI
-        javascript: JavaScript
-        curl: cURL
-  webhooks:
-    action_type_switch_error: There was an error switching webhook action types.
-    action_type: Action type
-    availability: Availability for <code>{{ WebhookName }}</code>
-    webhook_payload_object: Webhook payload object for <code>{{ WebhookName }}</code>
-    webhook_payload_example: Webhook payload example
-    rephrase_availability:
-      repository: Repositories
-      organization: Organizations
-      app: GitHub Apps
-      business: Enterprises
-      marketplace: GitHub Marketplace
-      sponsors_listing: Sponsored accounts
+webhooks:
+  action_type_switch_error: There was an error switching webhook action types.
+  action_type: Action type
+  availability: Availability for <code>{{ WebhookName }}</code>
+  webhook_payload_object: Webhook payload object for <code>{{ WebhookName }}</code>
+  webhook_payload_example: Webhook payload example
+  rephrase_availability:
+    repository: Repositories
+    organization: Organizations
+    app: GitHub Apps
+    business: Enterprises
+    marketplace: GitHub Marketplace
+    sponsors_listing: Sponsored accounts
 footer:
   support_heading: Help and support
   legal_heading: Legal
@@ -202,13 +192,11 @@ product_landing:
   quickstart: Quickstart
   reference: Reference
   overview: Overview
+  try_ghec_for_free: Try Enterprise Cloud for free
+  plan_your_migration: Plan your migration
+  releases: Releases
   guides: Guides
   explore_guides: Explore guides
-  code_examples: Code examples
-  search_code_examples: Search code examples
-  search_results_for: Search results for
-  matches_displayed: Matches displayed
-  show_more: Show more
   explore_people_and_projects: Explore people and projects
   sorry: Sorry, there is no result for
   no_example: It looks like we don't have an example that fits your filter.
@@ -228,9 +216,6 @@ product_landing:
   view: View all
   view_transcript: View video transcript
   all_docs: 'All {{ title }} docs'
-  code_example:
-    search_button: Search
-    search_examples: 'Search code examples:'
 product_guides:
   learning_paths_title: '{{ name }} learning paths'
   start_path: Start learning path
@@ -258,11 +243,6 @@ learning_track_nav:
   next_guide: Next
   more_guides: More guides →
   current_progress: '{i} of {n} in learning path'
-toggle_images:
-  off: Images are off, click to show
-  on: Images are on, click to hide
-  hide_single: Hide image
-  show_single: Show image
 scroll_button:
   scroll_to_top: Scroll to top
 popovers:

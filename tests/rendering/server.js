@@ -1,12 +1,12 @@
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get, getDOM, head, post } from '../helpers/e2etest.js'
 import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
-import { loadPages } from '../../lib/page-data.js'
+import { loadPages } from '#src/frame/lib/page-data.js'
 import CspParse from 'csp-parse'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'

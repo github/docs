@@ -1,5 +1,5 @@
 import Ajv from 'ajv'
-import { productMap } from '../../lib/all-products.js'
+import { productMap } from '#src/products/lib/all-products.js'
 import { formatAjvErrors } from '../helpers/schemas.js'
 import schema from '../helpers/schemas/products-schema.js'
 

@@ -54,7 +54,7 @@ export const LandingHero = () => {
                     href={link}
                     className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary')}
                   >
-                    {t(key) || key}
+                    {t(key)}
                   </FullLink>
                 )
               })}

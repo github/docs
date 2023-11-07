@@ -836,7 +836,7 @@
   },
   {
     "action": "repo.actions_enabled",
-    "description": "GitHub Actions was enabled for a repository. Can be viewed using the UI, This event is not included when you access the audit log using the REST API.",
+    "description": "GitHub Actions was enabled for a repository.",
     "docs_reference_links": "organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api"
   },
   {
@@ -1228,6 +1228,16 @@
     "action": "sponsors.sponsored_developer_tier_description_update",
     "description": "The description for a sponsorship tier was changed.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_create",
+    "description": "A Patreon account was linked to a user account for use with GitHub Sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_destroy",
+    "description": "A Patreon account for use with GitHub Sponsors was unlinked from a user account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account"
   },
   {
     "action": "sponsors.sponsor_sponsorship_cancel",

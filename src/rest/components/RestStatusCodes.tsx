@@ -8,7 +8,7 @@ type Props = {
 }
 
 export function RestStatusCodes({ statusCodes, slug, heading }: Props) {
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('rest_reference')
 
   return (
     <>
@@ -19,8 +19,8 @@ export function RestStatusCodes({ statusCodes, slug, heading }: Props) {
       <table>
         <thead>
           <tr className="text-left">
-            <th>{t('rest.reference.status_code')}</th>
-            <th>{t('rest.reference.description')}</th>
+            <th>{t('status_code')}</th>
+            <th>{t('description')}</th>
           </tr>
         </thead>
         <tbody>

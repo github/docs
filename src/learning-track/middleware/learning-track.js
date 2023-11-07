@@ -1,7 +1,7 @@
-import { getPathWithoutLanguage, getPathWithoutVersion } from '../../../lib/path-utils.js'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '#src/frame/lib/path-utils.js'
 import getLinkData from '../lib/get-link-data.js'
 import { renderContent } from '#src/content-render/index.js'
-import { getDeepDataByLanguage } from '../../../lib/get-data.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 export default async function learningTrack(req, res, next) {
   const noTrack = () => {

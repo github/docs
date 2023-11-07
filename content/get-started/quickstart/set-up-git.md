@@ -43,7 +43,9 @@ If you do not need to work with files locally, {% data variables.product.product
 
    {% note %}
 
-   **Note**: If you are using a Chrome OS device, additional setup is required:
+   **Note**: Most Chrome OS devices from 2020 onwards now have a built-in Linux environment, which includes Git. To enable it, go to the Launcher, search for Linux, and click **Turn on**.
+
+   If you are using an older Chrome OS device, another method is required:
 
    1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
    1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.

@@ -14,7 +14,7 @@ import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
-import { getContents, getCommitSha } from '../../../script/helpers/git-utils.js'
+import { getContents, getCommitSha } from '#src/workflows/git-utils.js'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')
@@ -126,7 +126,61 @@ async function main() {
           auditLogData.ghec.user.push(minimalEvent)
         }
       }
+
+      // API only events have either `business_api_only` or `org_api_only`
+      // allowlist values.
+      //
+      // * business_api_only: goes to the enterprise events page and is versioned
+      // for GHEC.  If the event has any `ghes` versions, also verisoned for GHES.
+      // * org_api_only: goes to the organzation events page and is versioned
+      // for fpt and GHEC.  If the event has any `ghes` versions, also versioned
+      // for GHES.
+      //
+      // There's currently one case (`org.sso_response`) where an event is an
+      // api only event but also has a non-api-only allowlist value so that's
+      // why we have the checks to prevent adding the event twice.
+      if (event._allowlists.includes('business_api_only')) {
+        if (!auditLogData.ghec.enterprise.find((e) => e.action === event.action)) {
+          auditLogData.ghec.enterprise.push(minimalEvent)
+        }
+
+        if (
+          Object.keys(event.ghes).length > 0 &&
+          !auditLogData.ghes.enterprise.find((e) => e.action === event.action)
+        ) {
+          auditLogData.ghes.enterprise.push(minimalEvent)
+        }
+      }
+
+      if (event._allowlists.includes('org_api_only')) {
+        if (!auditLogData.ghec.organization.find((e) => e.action === event.action)) {
+          auditLogData.fpt.organization.push(minimalEvent)
+          auditLogData.ghec.organization.push(minimalEvent)
+        }
+
+        if (
+          Object.keys(event.ghes).length > 0 &&
+          !auditLogData.ghes.organization.find((e) => e.action === event.action)
+        ) {
+          auditLogData.ghes.organization.push(minimalEvent)
+        }
+      }
+
+      // For the API only events we append an extra note to the description
+      // that explains the event is api only.  It's better to do it here instead
+      // of in the schema where it would have to be updated and maintained manually.
+      //
+      // Some events have both API only allowlist values so we make sure to append
+      // to the description only once.
+      if (
+        event._allowlists.includes('org_api_only') ||
+        event._allowlists.includes('business_api_only')
+      ) {
+        minimalEvent.description += ` ${configData.apiOnlyEventsAdditionalDescription}`
+      }
     })
+
+  console.log(`\n▶️  Generating audit log data files...\n`)
 
   // write out audit log event data to page event files per version e.g.:
   //
@@ -149,6 +203,7 @@ async function main() {
           auditLogSchemaFilePath,
           JSON.stringify(auditLogData[version][type], null, 2),
         )
+        console.log(`✅ Wrote ${auditLogSchemaFilePath}`)
       }
     })
   }

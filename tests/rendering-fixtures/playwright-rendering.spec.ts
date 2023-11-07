@@ -17,6 +17,15 @@ test('view home page', async ({ page }) => {
   await expect(page).toHaveTitle(/GitHub Docs/)
 })
 
+test('logo link keeps current version', async ({ page }) => {
+  await page.goto('/enterprise-cloud@latest')
+  // Basically clicking into any page that isn't the home page for this version.
+  await page.getByTestId('product').getByRole('link', { name: 'Get started' }).click()
+  await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest\/get-started/)
+  await page.getByRole('link', { name: 'GitHub Docs' }).click()
+  await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest/)
+})
+
 test('view the for-playwright article', async ({ page }) => {
   await page.goto('/get-started/foo/for-playwright')
   await expect(page).toHaveTitle(/For Playwright - GitHub Docs/)
