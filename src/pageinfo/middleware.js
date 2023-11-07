@@ -1,15 +1,15 @@
 import express from 'express'
 
 import statsd from '#src/observability/lib/statsd.js'
-import { defaultCacheControl } from '../../middleware/cache-control.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import {
   SURROGATE_ENUMS,
   setFastlySurrogateKey,
   makeLanguageSurrogateKey,
-} from '../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import shortVersions from '#src/versions/middleware/short-versions.js'
-import contextualize from '../../middleware/context.js'
+import contextualize from '#src/frame/middleware/context/context.js'
 import features from '#src/versions/middleware/features.js'
 import getRedirect from '#src/redirects/lib/get-redirect.js'
 import { isArchivedVersionByPath } from '#src/archives/lib/is-archived-version.js'

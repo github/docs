@@ -2,11 +2,11 @@ import fs from 'fs/promises'
 
 import sharp from 'sharp'
 
-import { assetCacheControl, defaultCacheControl } from '../../../middleware/cache-control.js'
+import { assetCacheControl, defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
-} from '../../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 /**
  * This is the indicator that is a virtual part of the URL.

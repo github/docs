@@ -22,7 +22,7 @@
 
 import fs from 'fs'
 
-import { errorCacheControl } from '../../../middleware/cache-control.js'
+import { errorCacheControl } from '#src/frame/middleware/cache-control.js'
 
 export default function handleOldNextDataPaths(req, res, next) {
   if (req.path.startsWith('/_next/data/') && !req.path.startsWith('/_next/data/development/')) {

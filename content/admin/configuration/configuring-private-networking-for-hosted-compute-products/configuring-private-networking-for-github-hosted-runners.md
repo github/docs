@@ -185,7 +185,7 @@ Variables
 Alternatively, you can use the following curl command to find your `databaseId`.
 
 ```shell copy
-curl -H "Authorization: BEARER_TOKEN" -X POST \
+curl -H "Authorization: Bearer BEARER_TOKEN" -X POST \
   -d '{ "query": "query($slug: String!) { enterprise (slug: $slug) { slug databaseId } }" ,
         "variables": {
           "slug": "ENTERPRISE_SLUG"
