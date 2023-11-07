@@ -71,4 +71,13 @@ Check whether your repository meets the following requirements.
 - The repository must have a commit pushed to it by someone with admin permissions for the repository, such as the repository owner.
 - Switching the repository's visibility from public to private or vice versa will change the URL of your {% data variables.product.prodname_pages %} site, which will result in broken links until the site is rebuilt.
 
+### Folder name
+
+Your folder names should not begin with underscore. Jekyll silently ignores such folders. Solution could be put `.nojekyll` empty file into root folder. 
+Another solution: add `_config.yml` with content
+```
+include:
+  - _next
+```
+
 If you are still receiving a 404 error, start a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/categories/pages) in the Pages category.
