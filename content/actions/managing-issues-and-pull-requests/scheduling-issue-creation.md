@@ -50,7 +50,9 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
                   --label "$LABELS" \
                   --json number \
                   --jq '.[0].number')
-                gh issue close "$previous_issue_number" --repo "$REPO"
+                if [[ -n $previous_issue_number ]]; then
+                  gh issue close "$previous_issue_number" --repo "$REPO"
+                fi
               fi
               new_issue_url=$(gh issue create \
                 --repo "$REPO" \
