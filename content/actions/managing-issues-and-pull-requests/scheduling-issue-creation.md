@@ -52,6 +52,7 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
                   --jq '.[0].number')
                 if [[ -n $previous_issue_number ]]; then
                   gh issue close "$previous_issue_number" --repo "$REPO"
+                  gh issue unpin "$previous_issue_number" --repo "$REPO"
                 fi
               fi
               new_issue_url=$(gh issue create \
