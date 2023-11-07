@@ -12,7 +12,7 @@ topics:
   - Billing
 shortTitle: Workflow billing & limits
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About billing for {% data variables.product.prodname_actions %}
@@ -66,7 +66,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
   {% note %}
 
-  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
+  **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
 
   {% endnote %}
 

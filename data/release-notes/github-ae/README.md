@@ -1,6 +1,6 @@
 # Release notes for GitHub AE
 
-Rendered here: https://docs.github.com/en/github-ae@latest/admin/release-notes
+Rendered here: https://docs.github.com/en/github-ae@latest/admin/release-notes <!-- markdownlint-disable-line search-replace -->
 
 ## How it works
 
@@ -20,7 +20,7 @@ Note that patch files can be deprecated individually (i.e., hidden on the docs s
 
 ### Middleware processing
 
-The YAML data is processed and sorted by `middleware/contextualizers/ghae-release-notes.js` and added to the `context` object.
+The YAML data is processed and sorted by `src/release-notes/middleware/ghae-release-notes.js` and added to the `context` object.
 
 ### Layouts
 

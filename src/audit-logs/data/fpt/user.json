@@ -336,13 +336,13 @@
   },
   {
     "action": "git_signing_ssh_public_key.create",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An SSH key was added to a user account as a Git commit signing key.",
+    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
   },
   {
     "action": "git_signing_ssh_public_key.delete",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An SSH key was removed from a user account as a Git commit signing key.",
+    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
   },
   {
     "action": "gpg_key.create",
@@ -911,8 +911,8 @@
   },
   {
     "action": "protected_branch.update_merge_queue_enforcement_level",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Enforcement of the merge queue was modified for a branch.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-merge-queue"
   },
   {
     "action": "public_key.create",
@@ -956,7 +956,7 @@
   },
   {
     "action": "repo.actions_enabled",
-    "description": "GitHub Actions was enabled for a repository. Can be viewed using the UI, This event is not included when you access the audit log using the REST API.",
+    "description": "GitHub Actions was enabled for a repository.",
     "docs_reference_links": "organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api"
   },
   {
@@ -1097,6 +1097,11 @@
   {
     "action": "repo.pages_soft_delete",
     "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_soft_delete_restore",
+    "description": "A GitHub Pages site that was previously soft-deleted was restored.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1276,18 +1281,18 @@
   },
   {
     "action": "repository_ruleset.create",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was created.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository"
   },
   {
     "action": "repository_ruleset.destroy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was deleted.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#deleting-a-ruleset"
   },
   {
     "action": "repository_ruleset.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A repository ruleset was edited.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/managing-rulesets-for-a-repository#editing-a-ruleset"
   },
   {
     "action": "security_key.register",
@@ -1358,6 +1363,16 @@
     "action": "sponsors.sponsored_developer_update_newsletter_send",
     "description": "Triggered when you send an email update to your sponsors.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_create",
+    "description": "A Patreon account was linked to a user account for use with GitHub Sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
+  },
+  {
+    "action": "sponsors.sponsors_patreon_user_destroy",
+    "description": "A Patreon account for use with GitHub Sponsors was unlinked from a user account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account"
   },
   {
     "action": "sponsors.sponsor_sponsorship_cancel",
@@ -1436,12 +1451,12 @@
   },
   {
     "action": "trusted_device.register",
-    "description": "N/A",
+    "description": "A new trusted device was added.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "trusted_device.remove",
-    "description": "N/A",
+    "description": "A trusted device was removed.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1481,8 +1496,8 @@
   },
   {
     "action": "two_factor_authentication.add_factor",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A secondary authentication factor was added to a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
   },
   {
     "action": "two_factor_authentication.disabled",
@@ -1506,8 +1521,8 @@
   },
   {
     "action": "two_factor_authentication.remove_factor",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A secondary authentication factor was removed from a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
   },
   {
     "action": "two_factor_authentication.sign_in_fallback_sms",
@@ -1656,12 +1671,12 @@
   },
   {
     "action": "user.logout",
-    "description": "N/A",
+    "description": "A user signed out.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "user.new_device_used",
-    "description": "N/A",
+    "description": "A user signed in from a new device.",
     "docs_reference_links": "N/A"
   },
   {

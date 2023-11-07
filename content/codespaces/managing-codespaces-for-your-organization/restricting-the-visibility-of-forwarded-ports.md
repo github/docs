@@ -14,7 +14,7 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 ## Overview
 
-Typically, within a codespace you are able to forward ports privately (only to yourself), to members of your organization, or publicly (to anyone with the URL). For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+Typically, within a codespace you are able to forward ports privately (only to yourself), to members of your organization, or publicly (to anyone with the URL). For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace)."
 
 As an organization owner, you may want to configure constraints on the visibility options users can set when forwarding ports. For example, for security reasons, you may want to disallow public port forwarding. You do this by defining one or more policies in the {% data variables.product.prodname_github_codespaces %} settings for your organization.
 
@@ -66,12 +66,12 @@ The policy will be applied to all new codespaces that are billable to your organ
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 1. Click the name of the policy you want to edit.
 1. Beside the "Port visibility" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Make the required changes then click **Save**.
 
 ## Deleting a policy
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 {% data reusables.codespaces.delete-codespace-policy %}

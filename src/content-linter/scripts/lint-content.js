@@ -9,7 +9,7 @@ import { applyFixes } from 'markdownlint-rule-helpers'
 import boxen from 'boxen'
 import ora from 'ora'
 
-import walkFiles from '../../../script/helpers/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.js'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
 import { defaultConfig } from '../lib/default-markdownlint-options.js'
@@ -207,7 +207,7 @@ async function main() {
       console.log('') // Just for some whitespace before the next message
       console.log(
         `Content linting found ${fixableFiles.length} ${pluralize(fixableFiles, 'file')} ` +
-          'that can be automatically fixed.\nTo apply the fixes run this command:\n',
+          'that can be automatically fixed.\nTo apply the fixes run this command and re-add the changed files:\n',
       )
       console.log(`  npm run lint-content -- --fix --paths ${fixableFiles.join(' ')}\n`)
     }
@@ -288,7 +288,7 @@ function reportSummaryByRule(results, config) {
     if (config.content[rule].severity === 'error') continue
     ruleCount[rule] = 0
   }
-  // the default property is not acutally a rule
+  // the default property is not actually a rule
   delete ruleCount.default
 
   Object.keys(results).forEach((key) => {

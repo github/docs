@@ -1,5 +1,5 @@
 import path from 'path'
-import findPage from '../../../lib/find-page.js'
+import findPage from '#src/frame/lib/find-page.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
 import { renderContent } from '#src/content-render/index.js'

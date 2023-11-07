@@ -21,6 +21,6 @@ Organization owners can temporarily restrict which type of user can comment, ope
 - {% data reusables.interactions.contributor-user-limit-definition %} in the organization.
 - {% data reusables.interactions.collaborator-user-limit-definition %} in the organization.
 
-Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization. To set different interaction limits for individual repositories owned by the organization, use the [Repository](#repository) interactions endpoints instead.
+Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization. To set different interaction limits for individual repositories owned by the organization, use the [Repository](/rest/interactions/repos) interactions endpoints instead.
 
 <!-- Content after this section is automatically generated -->

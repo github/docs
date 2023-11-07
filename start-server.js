@@ -1,9 +1,9 @@
 import dotenv from 'dotenv'
-import './lib/check-node-version.js'
+import '#src/frame/lib/check-node-version.js'
 import '#src/observability/lib/handle-exceptions.js'
 import portUsed from 'port-used'
-import createApp from './lib/app.js'
-import warmServer from './lib/warm-server.js'
+import createApp from '#src/frame/lib/app.js'
+import warmServer from '#src/frame/lib/warm-server.js'
 import http from 'http'
 dotenv.config()
 

@@ -16,8 +16,6 @@ redirect_from:
   - /code-security/codeql-cli/using-the-codeql-cli/testing-query-help-files
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
 ## About testing query help files
 
 Test query help files by rendering them as Markdown to ensure they are valid before uploading them to the {% data variables.product.prodname_codeql %} repository or using them in code scanning.

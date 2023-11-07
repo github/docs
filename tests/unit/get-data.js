@@ -4,7 +4,11 @@ import path from 'path'
 import { expect, test, describe, beforeAll, afterAll } from '@jest/globals'
 
 import languages from '#src/languages/lib/languages.js'
-import { getDataByLanguage, getDeepDataByLanguage, getUIDataMerged } from '../../lib/get-data.js'
+import {
+  getDataByLanguage,
+  getDeepDataByLanguage,
+  getUIDataMerged,
+} from '#src/data-directory/lib/get-data.js'
 import { DataDirectory } from '../helpers/data-directory.js'
 
 describe('get-data', () => {

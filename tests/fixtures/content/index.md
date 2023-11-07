@@ -18,7 +18,7 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
-  # The list of childen in the fixtures has to be the same names
+  # The list of children in the fixtures has to be the same names
   # as we use in the real content. It can have fewer but can't include
   # anything that the real `/content/index.md` doesn't contain for this.
   # The reason is that the `npm run build` compiles a list of rewrites

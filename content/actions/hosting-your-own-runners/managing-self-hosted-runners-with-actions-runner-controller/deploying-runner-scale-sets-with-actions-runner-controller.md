@@ -364,34 +364,38 @@ template:
     containers:
     - name: runner
       image: ghcr.io/actions/actions-runner:latest
+      command: ["/home/runner/run.sh"]
       env:
         - name: DOCKER_HOST
-          value: tcp://localhost:2376
-        - name: DOCKER_TLS_VERIFY
-          value: "1"
-        - name: DOCKER_CERT_PATH
-          value: /certs/client
+          value: unix:///run/docker/docker.sock
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
-        - name: dind-cert
-          mountPath: /certs/client
+        - name: dind-sock
+          mountPath: /run/docker
           readOnly: true
     - name: dind
       image: docker:dind
+      args:
+        - dockerd
+        - --host=unix:///run/docker/docker.sock
+        - --group=$(DOCKER_GROUP_GID)
+      env:
+        - name: DOCKER_GROUP_GID
+          value: "123"
       securityContext:
         privileged: true
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
-        - name: dind-cert
-          mountPath: /certs/client
+        - name: dind-sock
+          mountPath: /run/docker
         - name: dind-externals
           mountPath: /home/runner/externals
     volumes:
     - name: work
       emptyDir: {}
-    - name: dind-cert
+    - name: dind-sock
       emptyDir: {}
     - name: dind-externals
       emptyDir: {}
@@ -579,13 +583,15 @@ The following table shows the metrics emitted by the controller-manager and list
 
 {% ifversion ghes %}
 
-## Using ARC with Dependabot and Code Scanning
+## Using ARC with {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %}
 
-You can use {% data variables.product.prodname_actions_runner_controller %} to create dedicated runners for your GitHub Enterprise Server instance that {% data variables.product.prodname_dependabot %} can use to help secure and maintain the dependencies used in repositories on your enterprise. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)."
+You can use {% data variables.product.prodname_actions_runner_controller %} to create dedicated runners for your {% data variables.product.prodname_ghe_server %} instance that {% data variables.product.prodname_dependabot %} can use to help secure and maintain the dependencies used in repositories on your enterprise. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)."
 
-You can also use ARC with CodeQL to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
+You can also use ARC with {% data variables.product.prodname_codeql %} to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)." If you're already using {% data variables.product.prodname_code_scanning %} and want to configure a runner scale set to use default setup, set `INSTALLATION_NAME=code-scanning`. For more information about {% data variables.product.prodname_code_scanning %} default setup, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
 
-{% data variables.product.prodname_actions_runner_controller %} does not use labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning with CodeQL, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning jobs.
+{% data variables.product.prodname_actions_runner_controller %} does not use labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or {% data variables.product.prodname_code_scanning %} jobs.
+
+If you're using default setup for {% data variables.product.prodname_code_scanning %}, the analysis will automatically look for a runner scale set with the installation name `code-scanning`.
 
 {% note %}
 

@@ -4,6 +4,64 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AbortRepositoryMigrationInput</code> was added</p>",
+          "<p>Type <code>AbortRepositoryMigrationPayload</code> was added</p>",
+          "<p>Field <code>abortRepositoryMigration</code> was added to object type <code>Mutation</code></p>",
+          "<p><code>PullRequestReview</code> object implements <code>Minimizable</code> interface</p>",
+          "<p>Field <code>isMinimized</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>minimizedReason</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>viewerCanMinimize</code> was added to object type <code>PullRequestReview</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'FILE_PATH_PATTERN<code>was removed from enum</code>RepositoryRuleType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>roleName</code> was added to object type <code>PermissionSource</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'TRANSFERRING_OWNERSHIP<code>was added to enum</code>RepositoryLockReason'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>NPM</code> was added to enum <code>SocialAccountProvider</code></p>"
         ]
       }

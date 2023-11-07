@@ -122,7 +122,7 @@ You will be unable to authenticate using your OAuth2 key and secret while in pri
 
 {% ifversion fpt or ghec %}
 
-Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-apps).
+For more information about rate limits for {% data variables.product.prodname_oauth_apps %}, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
 {% endif %}
 
@@ -289,10 +289,6 @@ gem:
 [rfc]: https://datatracker.ietf.org/doc/html/rfc6570
 [uri]: https://github.com/hannesg/uri_template
 
-## Pagination
-
-When a response from the REST API would include many results, {% data variables.product.company_short %} will paginate the results and return a subset of the results. You can use the link header from the response to request additional pages of data. If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
-
 ## Timeouts
 
 If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
@@ -304,142 +300,6 @@ If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to pr
 ```
 
 {% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
-
-## Rate limiting
-
-The {% data variables.product.product_name %} REST API uses rate limiting to control API traffic. Different types of API requests have different rate limits. The response headers describe your current rate limit status.
-
-### Rate limits
-
-Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. Additionally, the Search endpoints have dedicated limits. For more information, see "[AUTOTITLE](/rest/search#rate-limit)" in the REST API documentation.
-
-{% data reusables.enterprise.rate_limit %}
-
-#### Rate limits for requests from personal accounts
-
-You can make direct API requests that you authenticate with a {% data variables.product.pat_generic %}. An {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} can also make a request on your behalf after you authorize the app. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)," and "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
-
-{% data variables.product.product_name %} associates all of these requests with the authenticated user. For {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}, this is the user who authorized the app. All of these requests count toward the authenticated user's rate limit.
-
-{% data reusables.apps.user-to-server-rate-limits %}
-
-{% ifversion fpt or ghec %}
-
-User access token requests are subject to a higher limit of 15,000 requests per hour and per authenticated user in the following scenarios:
-
-- The request is from a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization.
-- The request is from an {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization.
-
-{% ifversion fpt or ghec or ghes %}
-
-For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
-
-{% endif %}
-
-{% endif %}
-
-#### Rate limits for requests from {% data variables.product.prodname_github_apps %}
-
-Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)."
-
-#### Rate limits for requests from {% data variables.product.prodname_actions %}
-
-You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
-
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
-
-### Checking your rate limit status
-
-The response headers describe your current rate limit status. You can also use the REST API to find the current number of API calls available to you or your app at any given time.
-
-#### Rate limit headers
-
-The `x-ratelimit` response headers describe your current rate limit status following every request:
-
-```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/octocat
-> HTTP/2 200
-> x-ratelimit-limit: 60
-> x-ratelimit-remaining: 56
-> x-ratelimit-used: 4
-> x-ratelimit-reset: 1372700873
-```
-
-Header name | Description
------------|-----------|
-`x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
-`x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
-`x-ratelimit-used` | The number of requests you've made in the current rate limit window.
-`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
-
-#### Checking your rate limit status with the REST API
-
-You can use the REST API to check your rate limit status without incurring a hit to the current limit. For more information, see "[AUTOTITLE](/rest/rate-limit)." When possible, {% data variables.product.company_short %} recommends using the `x-ratelimit` response headers instead to decrease load on the API.
-
-### Exceeding the rate limit
-
-If you exceed the rate limit, the response will have a `403` status and the `x-ratelimit-remaining` header will be `0`:
-
-```shell
-> HTTP/2 403
-> Date: Tue, 20 Aug 2013 14:50:41 GMT
-> x-ratelimit-limit: 60
-> x-ratelimit-remaining: 0
-> x-ratelimit-used: 60
-> x-ratelimit-reset: 1377013266
-
-> {
->    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#rate-limiting"
-> }
-```
-
-If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
-
-### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
-
-If your {% data variables.product.prodname_oauth_app %} needs to make unauthenticated calls to public resources at a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
-
-```shell
-$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/meta
-> HTTP/2 200
-> Date: Mon, 01 Jul 2013 17:27:06 GMT
-> x-ratelimit-limit: 5000
-> x-ratelimit-remaining: 4966
-> x-ratelimit-used: 34
-> x-ratelimit-reset: 1372700873
-```
-
-{% note %}
-
-**Note:** Never share your client secret with anyone or include it in client-side browser code.
-
-{% endnote %}
-
-### Staying within the rate limit
-
-If you exceed your rate limit using Basic Authentication or OAuth, you can likely fix the issue by caching API responses and using [conditional requests](#conditional-requests).
-
-### Secondary rate limits
-
-The rate limits described above apply to the entire REST API and are per-user or per-app. In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in additional rate limiting.
-
-These additional rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/rest/guides/best-practices-for-integrators).
-
-If your application triggers an additional rate limit, you'll receive an informative response:
-
-```shell
-> HTTP/2 403
-> Content-Type: application/json; charset=utf-8
-> Connection: close
-
-> {
->   "message": "You have exceeded a secondary rate limit and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{% data variables.product.doc_url_pre %}/overview/resources-in-the-rest-api#secondary-rate-limits"
-> }
-```
-
-You should wait and try your request at a later time. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. If the `x-ratelimit-remaining` header is `0`, you should not retry your request until after the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header. Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 {% ifversion fpt or ghec %}
 
@@ -469,56 +329,6 @@ $ curl -IH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 ```
 
 {% endif %}
-
-## Conditional requests
-
-Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
-of these headers to make subsequent requests to those resources using the
-`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
-has not changed, the server will return a `304 Not Modified`.
-
-{% ifversion fpt or ghec %}
-
-{% tip %}
-
-**Note**: Making a conditional request and receiving a 304 response does not
-count against your [Rate Limit](#rate-limiting), so we encourage you to use it
-whenever possible.
-
-{% endtip %}
-
-{% endif %}
-
-```shell
-$ curl -I {% data variables.product.api_url_pre %}/user
-> HTTP/2 200
-> Cache-Control: private, max-age=60
-> ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
-> Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Vary: Accept, Authorization, Cookie
-> x-ratelimit-limit: 5000
-> x-ratelimit-remaining: 4996
-> x-ratelimit-reset: 1372700873
-
-$ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
-> HTTP/2 304
-> Cache-Control: private, max-age=60
-> ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
-> Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Vary: Accept, Authorization, Cookie
-> x-ratelimit-limit: 5000
-> x-ratelimit-remaining: 4996
-> x-ratelimit-reset: 1372700873
-
-$ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
-> HTTP/2 304
-> Cache-Control: private, max-age=60
-> Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-> Vary: Accept, Authorization, Cookie
-> x-ratelimit-limit: 5000
-> x-ratelimit-remaining: 4996
-> x-ratelimit-reset: 1372700873
-```
 
 ## Cross origin resource sharing
 

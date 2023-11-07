@@ -479,7 +479,7 @@
   "/v3/repos/deployments": "/en/rest/deployments/deployments",
   "/v3/repos/downloads": "/en/rest/metrics/traffic",
   "/v3/repos/forks": "/en/rest/repos/forks",
-  "/v3/repos/hooks": "/en/rest/webhooks/repo-config",
+  "/v3/repos/hooks": "/en/rest/repos/webhooks",
   "/v3/repos": "/en/rest/repos",
   "/v3/repos/invitations": "/en/rest/collaborators/invitations",
   "/v3/repos/keys": "/en/rest/deploy-keys",

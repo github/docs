@@ -8,11 +8,9 @@ import { getRange } from '../helpers/utils.js'
 */
 export const githubOwnedActionReferences = {
   names: ['GHD013', 'github-owned-action-references'],
-  description:
-    'Strings that have a data reusable should use the reusable instead of the hardcoded string.',
-  tags: ['actions'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
-  function: function GHD013(params, onError) {
+  description: 'GitHub-owned action references should not be hardcoded',
+  tags: ['feature', 'actions'],
+  function: (params, onError) => {
     const filepath = params.name
     if (filepath.startsWith('data/reusables/actions/action-')) return
 
@@ -30,7 +28,7 @@ export const githubOwnedActionReferences = {
         addError(
           onError,
           lineNumber,
-          `The string ${match} is using hardcoding a reference to a GitHub-owned action. You should use the reusables for the action. e.g {% data reusables.actions.action-checkout %}.`,
+          `The string ${match} is hardcoding a reference to a GitHub-owned action. You should use the reusables for the action. e.g {% data reusables.actions.action-checkout %}.`,
           ellipsify(line),
           range,
           null, // No fix possible

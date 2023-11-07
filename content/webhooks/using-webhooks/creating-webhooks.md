@@ -1,5 +1,6 @@
 ---
 title: Creating webhooks
+shortTitle: Create webhooks
 intro: 'You can create webhooks to subscribe to specific events that occur on {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /webhooks/creating
@@ -70,6 +71,12 @@ After you create a new webhook, {% data variables.product.prodname_dotcom %} wil
 
 Enterprise owners can create a global webhook to subscribe to events that occur within their enterprise.
 
+{% ifversion ghes or ghae %}
+
+You can use the {% data variables.product.company_short %} web interface or the REST API to create a global webhook. For more information about using the REST API to create a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
+
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
@@ -88,8 +95,6 @@ Enterprise owners can create a global webhook to subscribe to events that occur 
 1. If you chose **Let me select individual events**, select the events that will trigger the webhook.
 1. To make the webhook active immediately after adding the configuration, select **Active**.
 {% data reusables.webhooks.add_webhook_button %}
-
-{% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
 {% endif %}
 

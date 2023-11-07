@@ -12,10 +12,10 @@ import yaml from 'js-yaml'
 import { last } from 'lodash-es'
 import { program } from 'commander'
 import { execFileSync } from 'child_process'
-import frontmatter from '../../../lib/read-frontmatter.js'
-import patterns from '../../../lib/patterns.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
+import patterns from '#src/frame/lib/patterns.js'
 import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
-import walkFiles from '../../../script/helpers/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.js'
 
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
 const contentDir = path.posix.join(process.cwd(), 'content')
@@ -128,15 +128,15 @@ if (program.opts().newTitle) {
 
 // 7. Update internal links now that the files have been moved.
 console.log('\nRunning script to update internal links...')
-execFileSync('script/update-internal-links.js')
+execFileSync('src/links/scripts/update-internal-links.js')
 
 console.log(`
 Done! Did the following:
 - Moved content/${oldPathId} files to content/${newPathId}
-- Ran script/early-access/update-data-and-images-paths.js
+- Ran ./src/early-access/scripts/update-data-and-images-paths.js
 - Added redirects to the moved files
 - Updated children frontmatter entries in index.md files
-- Ran script/update-internal-links.js
+- Ran ./src/links/scripts/update-internal-links.js
 
 Please review all the changes in docs-internal and docs-early-access, especially to index.md files. You may need to do some manual cleanup.
 `)

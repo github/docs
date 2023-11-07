@@ -13,6 +13,7 @@ topics:
   - Code scanning
   - CodeQL
 children:
+  - /advanced-setup-of-the-codeql-cli
   - /about-codeql-workspaces
   - /using-custom-queries-with-the-codeql-cli
   - /creating-codeql-query-suites
@@ -23,6 +24,7 @@ children:
   - /specifying-command-options-in-a-codeql-configuration-file
   - /query-reference-files
   - /sarif-output
+  - /csv-output
   - /extractor-options
   - /exit-codes
 redirect_from:

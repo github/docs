@@ -9,7 +9,7 @@ versions:
 
 {% data variables.product.prodname_dotcom %} documentation is open source. Anyone can contribute to the docs in the public `docs` repository: https://github.com/github/docs. {% data variables.product.prodname_dotcom %} employees work on the documentation in a copy of this repository called `docs-internal`. The two repositories are automatically synced to keep them both up to date with changes merged into the `main` branch of either repository. For simplicity, we'll refer to "the documentation repository" in the articles about contributing to {% data variables.product.prodname_docs %}.
 
-The documentation repository is the place to discuss and collaborate on the documentation that is published here on [docs.github.com](/).
+The documentation repository is the place to discuss and collaborate on the documentation that is published here on [docs.github.com](/).<!-- markdownlint-disable-line search-replace -->
 
 {% ifversion discussions %}
 
@@ -31,7 +31,7 @@ If you'd like help troubleshooting a documentation issue or pull request you're 
 
 [Issues](/github/managing-your-work-on-github/about-issues) are used to track tasks that contributors can help with. If an issue has a `triage` label, we haven't reviewed it yet, and you shouldn't begin work on it.
 
-If you've found something in the documentation content, or something about the docs.github.com website, that should be updated, search the open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you'd like to be fixed.
+If you've found something in the documentation content, or something about the docs.github.com website, that should be updated, search the open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you'd like to be fixed.<!-- markdownlint-disable-line search-replace -->
 
 {% note %}
 
@@ -75,6 +75,6 @@ We do not currently accept pull requests for translated content.
 
 ## Site policy
 
-{% data variables.product.prodname_dotcom %}'s site policies are also published on docs.github.com.
+{% data variables.product.prodname_dotcom %}'s site policies are also published on docs.github.com.<!-- markdownlint-disable-line search-replace -->
 
 If you find a typo in the site policy section, you can open a pull request to fix it. For anything else, see "[Contributing](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md)" in the `site-policy` repository.

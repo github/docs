@@ -1,6 +1,6 @@
 name: Validate asset images
 
-# **What it does**: Run ./script/validate-asset-images.js on all images in assets/
+# **What it does**: Run ./src/assets/scripts/validate-asset-images.js on all images in assets/
 # **Why we have it**: To protect from innocent and potentially malicious bad image assets
 # **Who does it impact**: Docs content.
 
@@ -15,6 +15,7 @@ permissions:
 
 jobs:
   validate-asset-images:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo

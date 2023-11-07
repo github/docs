@@ -77,7 +77,7 @@ jobs:
           # - tools
           - versions
           - webhooks
-          # - workflows
+          - workflows
 
         # The languages suite only runs on docs-internal
         isPrivateRepo:
@@ -104,7 +104,7 @@ jobs:
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'rendering-fixtures' }}
-        run: ./script/copy-fixture-data.js --check
+        run: ./src/tests/scripts/copy-fixture-data.js --check
 
       # This keeps our fixture content/data in check
       - name: Check the test fixture content (if applicable)

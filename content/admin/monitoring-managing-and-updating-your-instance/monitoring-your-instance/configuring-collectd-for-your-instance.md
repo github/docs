@@ -61,7 +61,7 @@ By default, `collectd` forwarding is disabled on {% data variables.product.prodn
 
 The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (`.tgz`).
 
-Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
+Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact us through {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
 
 ### Usage
 
@@ -75,4 +75,4 @@ ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname
 
 {% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. Your central `collectd` server needs to be at least version 5.x to accept data sent from {% data variables.location.product_location %}.
 
-For help with further questions or issues, contact {% data variables.contact.contact_ent_support %}.
+For help with further questions or issues, visit {% data variables.contact.contact_ent_support %}.

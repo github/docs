@@ -62,7 +62,7 @@ This utility can help identify whether the Aqueduct server is having problems pr
 - Webhooks are not being triggered.
 - The web interface is not updating after a Git push.
 
-If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
+If you suspect Aqueduct is failing, visit {% data variables.contact.contact_ent_support %} for help.
 
 With this command, you can also pause or resume jobs in the queue.
 
@@ -126,7 +126,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   ghe-config HOSTNAME.uuid
 ```
 
-Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
@@ -531,7 +531,7 @@ This utility allows you to update an SSL certificate for {% data variables.locat
 For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
-ghe-ssl-certificate-setup
+/usr/local/share/enterprise/ghe-ssl-certificate-setup
 ```
 
 ### ghe-ssl-generate-csr

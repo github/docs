@@ -7,4 +7,4 @@
 - Labeled
 - Assignees are updated
 - Milestones are updated
-- Transfered to another repository
+- Transferred to another repository

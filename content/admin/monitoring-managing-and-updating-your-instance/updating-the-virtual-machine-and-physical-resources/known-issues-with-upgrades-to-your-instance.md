@@ -21,7 +21,7 @@ redirect_from:
 
 {% ifversion mysql-8-upgrade %}
 
-## Increased I/O utilization from MySQL 8 upgrade
+## Increased I/O utilization from MySQL 8 upgrade in {% data variables.product.prodname_ghe_server %} 3.10
 
 If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9 or later, an upgrade to the database software on your instance will increase I/O utilization. In some cases, this may affect your instance's performance.
 

@@ -1,7 +1,7 @@
 import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getDataByLanguage } from '../../../../lib/get-data.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
 
 /*
@@ -9,11 +9,11 @@ import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
   tag is used but is not defined.
 */
 export const liquidDataReferencesDefined = {
-  names: ['LQ112', 'liquid-data-references-defined'],
+  names: ['GHD014', 'liquid-data-references-defined'],
   description:
-    'Liquid data or indented data references were found in content but do not exist in the data directory or have no value.',
+    'Liquid data or indented data references were found in content that have no value or do not exist in the data directory',
   tags: ['liquid'],
-  function: function LQ112(params, onError) {
+  function: (params, onError) => {
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
       .filter((token) => token.kind === TokenKind.Tag)
@@ -44,11 +44,11 @@ export const liquidDataReferencesDefined = {
 }
 
 export const liquidDataTagFormat = {
-  names: ['LQ115', 'liquid-data-tag-format'],
+  names: ['GHD015', 'liquid-data-tag-format'],
   description:
-    'Liquid data or indented data references tags must have the correct number of arguments and spacing.',
-  tags: ['liquid'],
-  function: function LQ115(params, onError) {
+    'Liquid data or indented data references tags must have the correct number of arguments and spacing',
+  tags: ['liquid', 'format'],
+  function: (params, onError) => {
     const content = params.lines.join('\n')
     const tokenTags = getLiquidTokens(content).filter((token) => token.kind === TokenKind.Tag)
     const dataTags = tokenTags.filter((token) => token.name === 'data')

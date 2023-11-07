@@ -50,6 +50,8 @@ Third-party systems can be observability systems, change management systems, cod
 
 Use required reviewers to require a specific person or team to approve workflow jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 
+{% ifversion deployments-prevent-self-approval %}You also have the option to prevent self-reviews for deployments to protected environments. If you enable this setting, users who initiate a deployment cannot approve the deployment job, even if they are a required reviewer. This ensures that deployments to protected environments are always reviewed by more than one person.{% endif %}
+
 For more information on reviewing jobs that reference an environment with required reviewers, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
 
 {% ifversion fpt %}{% note %}
@@ -190,6 +192,7 @@ Variables stored in an environment are only available to workflow jobs that refe
 1. Optionally, specify people or teams that must approve workflow jobs that use this environment. For more information, see "[Required reviewers](#required-reviewers)."
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
+   {% ifversion deployments-prevent-self-approval %}1. Optionally, to prevent users from approving workflows runs that they triggered, select **Prevent self-review**.{% endif %}
    1. Click **Save protection rules**.
 1. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed. For more information, see "[Wait timer](#wait-timer)."
    1. Select **Wait timer**.

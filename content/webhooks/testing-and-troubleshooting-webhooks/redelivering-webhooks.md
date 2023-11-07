@@ -1,5 +1,6 @@
 ---
 title: Redelivering webhooks
+shortTitle: Redeliver webhooks
 intro: 'To help recover from failed deliveries, you can redeliver webhook deliveries from the past {% data variables.webhooks.retention %} days.'
 versions:
   fpt: '*'

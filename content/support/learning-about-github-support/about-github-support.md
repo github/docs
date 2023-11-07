@@ -74,7 +74,7 @@ Before contacting {% data variables.contact.github_support %}, check if there ar
 {% ifversion fpt %}
 {% data reusables.support.free-and-paid-support %}
 
-To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
+To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
 {% endif %}
 
 {% ifversion fpt %}
@@ -89,7 +89,7 @@ With {% data variables.product.product_name %}, you have access to support in En
 
 {% ifversion ghes or ghec %}
 
-To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_support_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
+To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
 
 {% elsif ghae %}
 

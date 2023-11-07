@@ -126,7 +126,7 @@ You can change your {% data variables.product.prodname_dotcom %} subscription at
 
 You can add more licensed seats to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more seats than are being used, you can also reduce the number of seats.{% ifversion fpt %} For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)" and "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan)."
 
-If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
+If you have questions about your subscription, you can contact {% data variables.contact.contact_support %}.
 
 To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like SAML single sign-on and advanced auditing. {% data reusables.enterprise.link-to-ghec-trial %}
 
@@ -139,7 +139,7 @@ If you use an enterprise account on {% data variables.product.prodname_dotcom_th
 {% endif %}
 {% ifversion ghec %}
 
-If you use an individual organization on {% data variables.product.prodname_ghe_cloud %}, you can upgrade or downgrade your subscription. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)" or "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan)." If you have questions about your subscription, contact {% data variables.contact.contact_support %}.
+If you use an individual organization on {% data variables.product.prodname_ghe_cloud %}, you can upgrade or downgrade your subscription. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)" or "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan)." If you have questions about your subscription, you can contact {% data variables.contact.contact_support %}.
 
 {% endif %}
 
