@@ -1,5 +1,6 @@
 ### Debugging the docs application
 
+
 This repo has configuration for debugging the codebase with VS Code's built-in Node Debugger.
 
 **Note**: These steps will only help with debugging issues in the Node.js codebase, not in the content files.

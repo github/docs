@@ -47,7 +47,7 @@ In the {% data variables.code-scanning.tool_status_page %}, you'll see a summary
 
 ![Screenshot showing the tool status page, with the CodeQL tool selected.](/assets/images/help/repository/code-scanning-tool-status-page.png)
 
-For integrated tools such as {% data variables.product.prodname_codeql %}, you can see a percentage total of all the files most recently scanned in your repository, organized by programming language. For information about what files are considered to have been scanned by {% data variables.product.prodname_codeql %}, see "[How {% data variables.product.prodname_codeql %} defines scanned files](#how-codeql-defines-scanned-files)." You can also download detailed language reports in CSV format. For more information, see "[Downloading details of the files analyzed](#downloading-details-of-the-files-analyzed)."
+For integrated tools such as {% data variables.product.prodname_codeql %}, you can see a percentage total of all the files most recently scanned in your repository, organized by programming language. For information about what files are considered to have been scanned by {% data variables.product.prodname_codeql %}, see "[How {% data variables.product.prodname_codeql %} defines scanned files](#how-product-prodname-codeql-defines-scanned-files)." You can also download detailed language reports in CSV format. For more information, see "[Downloading details of the files analyzed](#downloading-details-of-the-files-analyzed)."
 
 The three possible tool statuses are: all configurations are working, some configurations need attention, and some configurations are not working.
 
@@ -59,7 +59,8 @@ Under "Configurations" on the left of the screen, you can see information for ea
 
 ![Screenshot showing detailed information about CodeQL in the tool status page.](/assets/images/help/repository/code-scanning-tool-status-page-detailed.png)
 
-This view will also show error messages. For more information, see "[Debugging using the tool status page](#debugging-using-the-tool-status-page)."
+This view will also show error messages. For more information, see "[Debugging using the tool status page](#debugging-using-the-tool-status-page)".
+
 
 ### How {% data variables.product.prodname_codeql %} defines scanned files
 
