@@ -2,3 +2,4 @@
 
    ```bash
    $ git config --global user.signingkey /PATH/TO/.SSH/KEY.PUB
+   ```
