@@ -31,6 +31,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
   - Create or comment on discussions within the repository
   - Comment on issues or pull requests, or add reactions to comments
   - Star, watch, or fork the repository
+
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 - {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
@@ -41,7 +42,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 - If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 - {% data reusables.enterprise-accounts.emu-forks %}
 - Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
-- Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
+- Outside collaborators are not supported by {% data variables.product.prodname_emus %}, but guest collaborators are. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
 - {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
 - {% data variables.enterprise.prodname_managed_users_caps %} can only create and use codespaces that are owned and paid for by their organization or enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
   - Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization can pay for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
