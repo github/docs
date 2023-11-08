@@ -76,7 +76,7 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 
 {% note %}
 
-**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)."
+**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
 
 {% endnote %}
 
@@ -135,7 +135,7 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 
 {% note %}
 
-**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)."
+**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
 
 {% endnote %}
 

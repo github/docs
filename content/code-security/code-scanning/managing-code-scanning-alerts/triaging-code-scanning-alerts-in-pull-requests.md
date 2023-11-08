@@ -113,6 +113,47 @@ You can choose to require all conversations in a pull request, including those o
 
 Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
 
+{% ifversion code-scanning-autofix-js-ts %}
+
+## Working with autofix suggestions for alerts
+
+{% data reusables.rai.code-scanning.beta-autofix-js-ts %}
+
+Autofix is an AI-powered expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts in pull requests. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase, the pull request, and from {% data variables.product.prodname_codeql %} analysis.
+
+![Screenshot of the check failure for a {% data variables.product.prodname_code_scanning %} alert in a pull request. The first paragraph of the "autofix" suggestion for the alert is highlighted in dark orange.](/assets/images/help/code-scanning/alert+autofix.png)
+
+### Generating autofix suggestions and publishing to a pull request
+
+When autofix is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_codeql %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+
+{% note %}
+
+**Note:** Autofix supports a subset of {% data variables.product.prodname_codeql %} queries. When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an autofix suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
+
+{% endnote %}
+
+Usually, when you suggest changes to a pull request, your comment contains changes for a single file that is changed in the pull request. The following screenshot shows an autofix comment that suggests changes to the `index.js` file where the alert is displayed. Since the potential fix requires a new dependency on `escape-html`, the comment also suggests adding this dependency to the `package.json` file, even though the original pull request makes no changes to this file.
+
+![Screenshot of the autofix suggestion for an alert showing the explanation and suggested fix to the current file. Suggested changes to an additional file, "package.json", are outlined in dark orange.](/assets/images/help/code-scanning/autofix-example.png)
+
+### Assessing and committing an autofix suggestion
+
+Each autofix suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of autofix suggestions, see "[Limitations of autofix suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning/#limitations-of-autofix-suggestions)" and "[Mitigating the limitations of autofix suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#mitigating-the-limitations-of-autofix-suggestions)" in "About autofix for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}."
+
+1. Click **Edit** to display the editing options and select your preferred method.
+   - Select **Edit with codespaces** to open a codespace showing your branch with the suggested fix applied.
+   - Select **Edit locally with {% data variables.product.prodname_cli %}** to display instructions for applying the suggested fix to any local repository or branch.
+1. Test and modify the suggested fix as needed.
+1. When you have finished testing your changes, commit the changes, and push them to your branch.
+1. Pushing the changes to your branch will trigger all the usual tests for your pull request. Confirm that your unit tests still pass and that the {% data variables.product.prodname_code_scanning %} alert is now fixed.
+
+### Dismissing an autofix suggestion
+
+If you decide to reject an autofix suggestion, click **Dismiss suggestion** in the comment to dismiss the suggested fix.
+
+{% endif %}
+
 ## Dismissing an alert on your pull request
 
 An alternative way of closing an alert is to dismiss it. You can dismiss an alert if you don't think it needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} If you have write permission for the repository, a **Dismiss alert** button is available in code annotations and in the alerts summary. When you click **Dismiss alert** you will be prompted to choose a reason for closing the alert.
