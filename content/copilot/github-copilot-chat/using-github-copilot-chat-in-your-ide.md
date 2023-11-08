@@ -4,8 +4,6 @@ intro: 'You can start using {% data variables.product.prodname_copilot_chat %} b
 product: '{% data reusables.gated-features.copilot-chat %}'
 topics:
   - Copilot
-redirect_from:
-  - /copilot/github-copilot-chat/using-github-copilot-chat
 defaultTool: vscode
 versions:
   feature: copilot
