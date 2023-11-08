@@ -1,0 +1,1 @@
+Autofix for {% data variables.product.prodname_code_scanning %} is available only to {% data variables.product.prodname_ghe_cloud %} users who have {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.more-info-ghas %}

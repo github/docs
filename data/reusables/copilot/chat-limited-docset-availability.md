@@ -1,0 +1,1 @@
+The ability to set a docset as the context of a conversation will only be available to a limited number of customers during the beta of {% data variables.product.prodname_copilot_enterprise_short %}. Docset creation will be available to all beta customers soon.
