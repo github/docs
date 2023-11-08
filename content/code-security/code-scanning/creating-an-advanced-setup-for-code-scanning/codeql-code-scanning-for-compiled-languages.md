@@ -70,7 +70,19 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 - [`autobuild` for C#](#autobuild-for-c){% ifversion codeql-go-autobuild %}
 - [`autobuild` for Go](#autobuild-for-go){% endif %}{% ifversion codeql-kotlin-beta %}
 - [`autobuild` for Java and Kotlin](#autobuild-for-java--and-kotlin){% else %}
-- [`autobuild` for Java](#autobuild-for-java){% endif %}{% ifversion codeql-swift-beta %}
+
+## Autobuild for Java
+
+
+... content ...
+
+[`autobuild` for Java](#autobuild-for-java)
+
+... content ...
+
+[`autobuild` for Java](#autobuild-for-java){% endif %}{% ifversion codeql-swift-beta -%}
+- [`autobuild` for Swift](#autobuild-for-swift)
+{%- endif %}
 - [`autobuild` for Swift](#autobuild-for-swift){% endif %}
 
 {% note %}
@@ -83,12 +95,13 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 
 {% endnote %}
 
-### `autobuild` for C/C++
+## `autobuild` for C/C++
 
 | Supported system type | System name |
 |----|----|
 | Operating system | Windows, macOS, and Linux |
-| Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
+| Build system | Windows: MSbuild and build scripts  
+Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
 
 The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
 

@@ -30,7 +30,9 @@ Rolling {% data variables.product.prodname_code_scanning %} out across hundreds 
 First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout.{% ifversion default-setup-ghas-enablement %}
 
 For an introduction to {% data variables.product.prodname_code_scanning %}, see:
+
 - "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)"
+
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
 - "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)"
 {% else %} During this phase, you should focus on leveraging APIs and running internal enablement events.{% endif %}
@@ -99,13 +101,27 @@ Then, convert the data from the GraphQL query into a readable format, such as a 
 
 | Language                | Number of Repos | Name of Repos                           |
 |-------------------------|-----------------|-----------------------------------------|
-| JavaScript (TypeScript) | 4212            | org/repo<br /> org/repo |
-| Python                  | 2012            | org/repo<br /> org/repo |
-| Go                      | 983             | org/repo<br /> org/repo |
-| Java                    | 412             | org/repo<br /> org/repo |
-| Swift                   | 111             | org/repo<br /> org/repo |
-| Kotlin                  | 82              | org/repo<br /> org/repo |
-| C                       | 12              | org/repo<br /> org/repo |
+| JavaScript (TypeScript) | 4212            | org/repo <b| Language                | Number of Repos | Name of Repos                           |
+|-------------------------|-----------------|-----------------------------------------|
+| JavaScript (TypeScript) | 4212            | org/repo  
+org/repo |
+
+| Python                  | 2012            | org/repo  
+org/repo |
+| Go                      | 983             | org/repo |r> org/repo |
+
+| Python                  | 2012            | org/repo
+            org/repo |
+| Go                      | 983             | org/repo
+                      org/repo |
+| Java                    | 412             | org/repo
+            org/repo |
+| Swift                   | 111             | org/repo
+                      org/repo |
+| Kotlin                  | 82              | org/repo
+                      org/repo |
+| C                       | 12              | org/repo  
+org/repo |
 
 You can filter out the languages that are currently not supported by {% data variables.product.prodname_GH_advanced_security %} from this table.
 
@@ -113,8 +129,10 @@ If you have repositories with multiple languages, you can format the GraphQL res
 
 | Language(s)            | Number of Repos | Name of Repos                            |
 |------------------------|-----------------|------------------------------------------|
-| JavaScript/Python/Go   | 16              | org/repo <br /> org/repo |
-| Rust/TypeScript/Python | 12              | org/repo <br /> org/repo |
+| JavaScript/Python/Go   | 16              | org/repo
+org/repo |
+| Rust/TypeScript/Python | 12              | org/repo
+org/repo |
 
 An understanding of which repositories are using which languages will help you identify candidate repositories for pilot programs in phase 3, and prepares you to enable {% data variables.product.prodname_code_scanning %} across all repositories, one language at a time, in phase 5.
 

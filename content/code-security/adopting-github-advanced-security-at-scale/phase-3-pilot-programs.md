@@ -51,7 +51,9 @@ You can also choose to enable {% data variables.product.prodname_code_scanning %
 {% data reusables.advanced-security.enable-default-setup-first %}
 {% else %}
 You can run {% data variables.product.prodname_code_scanning %} on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [{% data variables.product.prodname_codeql %} action](https://github.com/github/codeql-action/). For more information about {% data variables.product.prodname_actions %}, see:
+
 - "[AUTOTITLE](/actions/learn-github-actions)"
+
 - "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
 - "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"

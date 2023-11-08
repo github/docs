@@ -50,7 +50,9 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
+
 1. To the right of "Git LFS", click **Purchase more data packs**.
+
 1. Select the "Choose an organization" dropdown menu and click the organization you want to purchase a data pack for.
 {% data reusables.large_files.pack_selection %}
 {% data reusables.large_files.pack_confirm %}

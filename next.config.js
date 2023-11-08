@@ -2,8 +2,9 @@ import fs from 'fs'
 import path from 'path'
 
 import frontmatter from 'gray-matter'
-import { languageKeys } from '#src/languages/lib/languages.js'
-import { ROOT } from '#src/frame/lib/constants.js'
+// @ts-ignore
+import { languageKeys } from '../../src/languages/lib/languages.js'
+import { ROOT } from './src/frame/lib/constants.js'
 
 const homepage = path.posix.join(ROOT, 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
