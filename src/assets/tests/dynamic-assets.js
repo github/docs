@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 import sharp from 'sharp'
 import { fileTypeFromBuffer } from 'file-type'
 
-import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get, head } from '../../../tests/helpers/e2etest.js'
 
 describe('dynamic assets', () => {
