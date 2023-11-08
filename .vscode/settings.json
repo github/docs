@@ -56,7 +56,7 @@
   "python.terminal.executeInFileDir": true,
   "python.terminal.focusAfterLaunch": true,
   "python.testing.pytestEnabled": true,
-  "python.testing.unittestEnabled": true,
+  "python.testing.unittestEnabled": false,
   "rainbow_csv.csv_lint_detect_trailing_spaces": true,
   "rainbow_csv.rbql_with_headers_by_default": true,
   "rainbow_csv.enable_context_menu_head": true,
@@ -77,5 +77,8 @@
   "javascript.inlayHints.variableTypes.enabled": true,
   "javascript.referencesCodeLens.showOnAllFunctions": true,
   "javascript.suggest.completeFunctionCalls": true,
-  "js/ts.implicitProjectConfig.checkJs": true
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "python.testing.pytestArgs": [
+    "contributing"
+  ]
 }
