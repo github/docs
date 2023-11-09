@@ -62,8 +62,8 @@
   "rainbow_csv.enable_context_menu_head": true,
   "rainbow_csv.enable_context_menu_tail": true,
   "rainbow_csv.align_in_scratch_file": true,
-  "remote.SSH.remoteServerListenOnSocket": false,
-  "svg.preview.autoOpen": false,
+  "remote.SSH.remoteServerListenOnSocket": true,
+  "svg.preview.autoOpen": true,
   "svg.preview.boundingBox": true,
   "svg.preview.transparencyGrid": true,
   "javascript.format.insertSpaceAfterConstructor": true,
@@ -94,6 +94,36 @@
     "accessibility": true
   },
   "markdownlint.ignore": [
-    
-  ]
+
+  ],
+  "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "js/ts.implicitProjectConfig.experimentalDecorators": false,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.format.insertSpaceAfterConstructor": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "remote.SSH.defaultForwardedPorts": [
+
+    {
+  }
+    }
+
+  ],
+  "python.autoComplete.extraPaths":
+    {
+      .1ESPipelineTemplatesSchemaFile{
+  // ...
+  "python.autoComplete.extraPaths": [
+    ".1ESPipelineTemplatesSchemaFile"
+    // Add your paths here
+  ],
+  "remote.SSH.defaultForwardedPorts": []
+  // ...
 }
+      // Add your settings here
+      "remote.SSH.defaultForwardedPorts": []
+    }
+    }
+
