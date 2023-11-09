@@ -17,9 +17,12 @@ shortTitle: About HA configuration
 ---
 When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance. Most {% data variables.product.prodname_ghe_server %} configuration settings are also replicated, including the {% data variables.enterprise.management_console %} password. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."
 
-{% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
+{% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where replica appliances run as a standby with database services running in replication mode but application services stopped.
 
-After replication has been established, the {% data variables.enterprise.management_console %} is no longer accessible on replica appliances. If you navigate to the replica's IP address or hostname on port 8443, you'll see a "Server in replication mode" message, which indicates that the appliance is currently configured as a replica.
+After replication has been established, the {% data variables.enterprise.management_console %} is no longer accessible on replica appliances. If you navigate to a replica's IP address or hostname on port 8443, you'll see a "Server in replication mode" message, which indicates that the appliance is currently configured as a replica.
+
+Replica appliances do accept Git client requests, and these requests are forwarded to the active appliance.
+
 {% data reusables.enterprise_installation.replica-limit %}
 
 ## Targeted failure scenarios
