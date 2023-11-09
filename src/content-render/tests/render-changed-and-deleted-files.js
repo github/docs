@@ -34,7 +34,7 @@ import path from 'path'
 import { jest } from '@jest/globals'
 
 import { head, get } from '../../../tests/helpers/e2etest.js'
-import { loadPages } from '../../../lib/page-data.js'
+import { loadPages } from '#src/frame/lib/page-data.js'
 
 const EMPTY = Symbol('EMPTY')
 

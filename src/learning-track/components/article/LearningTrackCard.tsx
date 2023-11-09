@@ -25,8 +25,8 @@ export function LearningTrackCard({ track }: Props) {
         </h2>
         <span className="f5 color-fg-muted">
           {t('current_progress')
-            .replace('{n}', numberOfGuides)
-            .replace('{i}', currentGuideIndex + 1)}
+            .replace('{n}', `${numberOfGuides}`)
+            .replace('{i}', `${currentGuideIndex + 1}`)}
         </span>
         <hr />
         <span className="h5 color-fg-default">

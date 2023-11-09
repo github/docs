@@ -67,7 +67,7 @@ curl --request POST \
 --url "{% data variables.product.api_url_code %}/applications/YOUR_CLIENT_ID/token" \
 --user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET"{% ifversion api-date-versioning %} \
 --header "Accept: application/vnd.github+json" \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}" \{% endif %}
 --data '{
   "access_token": "ACCESS_TOKEN_TO_CHECK"
 }'

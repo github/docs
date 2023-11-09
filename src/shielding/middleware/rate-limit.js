@@ -1,7 +1,7 @@
 import rateLimit from 'express-rate-limit'
 
 import statsd from '#src/observability/lib/statsd.js'
-import { noCacheControl } from '../../../middleware/cache-control.js'
+import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 
 const EXPIRES_IN_AS_SECONDS = 60
 

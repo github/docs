@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { loadPages } from '../../../lib/page-data.js'
+import { loadPages } from '#src/frame/lib/page-data.js'
 
 export default async function findIndexablePages(match = '') {
   const allPages = await loadPages()

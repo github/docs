@@ -12,7 +12,7 @@ type Props = {
 
 export function Query({ item }: Props) {
   const { locale } = useRouter()
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('graphql')
 
   return (
     <GraphqlItem item={item} headingLevel={3}>
@@ -30,10 +30,7 @@ export function Query({ item }: Props) {
           <>
             <h4
               dangerouslySetInnerHTML={{
-                __html: t('graphql.reference.arguments').replace(
-                  '{{ GraphQLItemTitle }}',
-                  item.name,
-                ),
+                __html: t('reference.arguments').replace('{{ GraphQLItemTitle }}', item.name),
               }}
             />
             <Table fields={item.args} />

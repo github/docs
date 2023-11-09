@@ -4,7 +4,7 @@ import got from 'got'
 import { isNil } from 'lodash-es'
 import statsd from '#src/observability/lib/statsd.js'
 import { report } from '#src/observability/lib/failbot.js'
-import { MAX_REQUEST_TIMEOUT } from '../../../lib/constants.js'
+import { MAX_REQUEST_TIMEOUT } from '#src/frame/lib/constants.js'
 
 const TIME_OUT_TEXT = 'ms has passed since batch creation'
 const SERVER_DISCONNECT_TEXT = 'The server disconnected before a response was received'

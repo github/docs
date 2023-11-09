@@ -1,7 +1,7 @@
 import languages, { languageKeys } from '#src/languages/lib/languages.js'
 import parser from 'accept-language-parser'
 
-import { USER_LANGUAGE_COOKIE_NAME } from '../../../lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '#src/frame/lib/constants.js'
 
 const chineseRegions = [
   'CN', // Mainland

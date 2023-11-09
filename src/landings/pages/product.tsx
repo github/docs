@@ -7,7 +7,12 @@ import copyCode from 'components/lib/copy-code'
 import toggleAnnotation from 'components/lib/toggle-annotations'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
+import {
+  MainContextT,
+  MainContext,
+  getMainContext,
+  addUINamespaces,
+} from 'components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
@@ -111,16 +116,31 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
   const { currentLayoutName, relativePath } = props.mainContext
 
+  const additionalUINamespaces: string[] = []
+
   // This looks a little funky, but it's so we only send one context's data to the client
   if (currentLayoutName === 'product-landing') {
     props.productLandingContext = await getProductLandingContextFromRequest(req)
+    additionalUINamespaces.push('product_landing')
   } else if (currentLayoutName === 'product-guides') {
     props.productGuidesContext = getProductGuidesContextFromRequest(req)
+    additionalUINamespaces.push('product_guides')
   } else if (relativePath?.endsWith('index.md')) {
     props.tocLandingContext = getTocLandingContextFromRequest(req)
+    if (props.tocLandingContext.currentLearningTrack?.trackName) {
+      additionalUINamespaces.push('learning_track_nav')
+    }
   } else {
+    // All articles that might have hover cards needs this
+    additionalUINamespaces.push('popovers')
+
     props.articleContext = getArticleContextFromRequest(req)
+    if (props.articleContext.currentLearningTrack?.trackName) {
+      additionalUINamespaces.push('learning_track_nav')
+    }
   }
+
+  addUINamespaces(req, props.mainContext.data.ui, additionalUINamespaces)
 
   return {
     props,

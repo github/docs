@@ -110,6 +110,7 @@ export const Survey = () => {
             )}
             htmlFor="survey-yes"
           >
+            <span className="visually-hidden">{t`yes`}</span>
             <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
           </label>
           <input
@@ -129,6 +130,7 @@ export const Survey = () => {
             )}
             htmlFor="survey-no"
           >
+            <span className="visually-hidden">{t`no`}</span>
             <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
           </label>
         </div>

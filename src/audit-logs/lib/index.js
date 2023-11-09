@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
 import { getOpenApiVersion } from '#src/versions/lib/all-versions.js'
 
 export const AUDIT_LOG_DATA_DIR = 'src/audit-logs/data'
