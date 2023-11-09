@@ -80,5 +80,8 @@
   "js/ts.implicitProjectConfig.checkJs": true,
   "python.testing.pytestArgs": [
     "contributing"
+  ],
+  "githubPullRequests.ignoredPullRequestBranches": [
+    "main"
   ]
 }
