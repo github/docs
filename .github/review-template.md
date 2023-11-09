@@ -1,4 +1,7 @@
-## Author self-review
+## Author self-reviewdef remove_non_alphanumeric(main_string):
+    return ''.join(ch for ch in main_string if ch.isalnum())print(remove_non_alphanumeric("Hello, world!"))  # Outputs: "Helloworld"def remove_non_numeric(main_string):
+    return ''.join(ch for ch in main_string if ch.isdigit())print(remove_non_numeric("Hello, world!123"))  # Outputs: "123"
+
 
 - [ ] The changes in this PR meet the user experience and goals outlined in the content design plan.
 - [ ] I've compared my PR's source changes to staging and reviewed for versioning issues, redirects, the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md), [content model](https://github.com/github/docs/blob/main/contributing/content-model.md), or [translations guide for writers](https://github.com/github/docs/blob/main/contributing/translations/for-writers.md) rendering problems, typos, and wonky screenshots.
