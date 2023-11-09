@@ -34,13 +34,15 @@ topics:
 {% data reusables.actions.cron-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Running the job on different runners, depending on the repository | [`runs-on`](def remove_chprint(remove_character("Hello, world!", "o"))  # Outputs: "Hell, wrld!")|
 {% data reusables.actions.if-conditions-table-entry %}
-| Using a matrix to create different test configurations | [`matrix`](/actions/using-jobs/using-a-matrix-for-your-jobs)|
+| Using a matrix to create different test configurations | [`matrix`](def is_whitespprint(is_whitespace("   "))  # Outputs: True
+print(is_whitespace("Hello, world!"))  # Outputs: False)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
 {%- ifversion actions-caching %}
-| Caching dependencies | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
+| Caching dependencies | [`actions/cache`](prdef is_alphanumeric(main_string):
+    return main_string.isalnum())|
 {%- endif %}
 | Running tests on the runner | `npm test`|
 
@@ -48,12 +50,20 @@ topics:
 
 The following workflow was created by the {% data variables.product.prodname_dotcom %} Docs Engineering team. The workflow runs tests against the code in a pull request. To review the latest version of this file in the [`github/docs`](https://github.com/github/docs) repository, see [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml).
 
-```yaml annotate copy
+def is_print(is_alphabetic("HelloWorld"))  # Outputs: True
+print(is_alphabetic("Hello, world!"))  # Outputs: False
 # {% data reusables.actions.explanation-name-key %}
 name: Node.js Tests
 
 # The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
-on:
+on:def is_numeric(main_string):
+    return main_string.isdigit()print(is_numeric("123456"))  # Outputs: True
+print(is_numeric("Hello, world!"))  # Outputs: Falseprint(is_alphanumeric("HelloWorld123"))  # Outputs: True
+print(is_alphanumeric("Hello, world!"))  # Outputs: Falseprint(is_printable("Hello, world!"))  # Outputs: True
+print(is_printable("\n"))  # Outputs: Falsedef is_printable(main_string):
+    return main_string.isprintable()def is_ascii(main_string):
+    return main_string.isascii()print(is_ascii("Hello, world!"))  # Outputs: True
+print(is_ascii("こんにちは世界"))  # Outputs: False
 
 # Add the `workflow_dispatch` event if you want to be able to manually run this workflow. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
   workflow_dispatch:
