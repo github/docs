@@ -24,7 +24,9 @@
             "program": "${workspaceFolder}/app.js"
           }
         ]
-      }: "inspector",
+      {}, // Add a comma here
+        "type": "inspector"
+      },
     },
   ]
 }
