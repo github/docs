@@ -83,5 +83,17 @@
   ],
   "githubPullRequests.ignoredPullRequestBranches": [
     "main"
+  ],
+  "window.autoDetectColorScheme": true,
+  "screencastMode.keyboardOptions": {
+    "showCommandGroups": true
+  },
+  "window.closeWhenEmpty": true,
+  "markdownlint.config": {
+
+    "accessibility": true
+  },
+  "markdownlint.ignore": [
+    
   ]
 }
