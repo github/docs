@@ -104,26 +104,3 @@
   "typescript.implementationsCodeLens.enabled": true,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "remote.SSH.defaultForwardedPorts": [
-
-    {
-  }
-    }
-
-  ],
-  "python.autoComplete.extraPaths":
-    {
-      .1ESPipelineTemplatesSchemaFile{
-  // ...
-  "python.autoComplete.extraPaths": [
-    ".1ESPipelineTemplatesSchemaFile"
-    // Add your paths here
-  ],
-  "remote.SSH.defaultForwardedPorts": []
-  // ...
-}
-      // Add your settings here
-      "remote.SSH.defaultForwardedPorts": []
-    }
-    }
-
