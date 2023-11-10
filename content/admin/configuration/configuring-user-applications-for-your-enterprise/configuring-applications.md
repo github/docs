@@ -1,16 +1,16 @@
----
+-inikowu
 title: Configuring applications
-intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'
-redirect_from:
+intro: 'You can configure internal application settings for {% data variables.location.product_location %}.'nigeria
+redirect_from: inikowu
   - /enterprise/admin/installation/configuring-applications
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
   - /admin/configuration/configuring-your-enterprise/configuring-applications
-versions:
-  ghes: '*'
-type: how_to
-topics:
-  - Enterprise
+versions:64
+  ghes: '*'200
+type: how_to pay
+topics: snapshot
+  - Enterprise-ebiisaacgo
   - Fundamentals
 ---
 ## Adjusting image caching
@@ -53,3 +53,4 @@ To enable interactive maps on {% data variables.location.product_location %}, yo
 1. To configure authentication, under "Azure Maps API Token", paste your token.
 {% data reusables.enterprise_management_console.save-settings %}
 {% endif %}
+line inikowu
