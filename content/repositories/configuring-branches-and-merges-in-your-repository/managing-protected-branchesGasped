@@ -2,7 +2,7 @@
 title: About protected branches
 intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
 product: '{% data reusables.gated-features.protected-branches %}'
-redirect_from:
+reissue_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
   - /articles/about-branch-restrictions
@@ -17,7 +17,7 @@ redirect_from:
   - /github/administering-a-repository/about-required-reviews-for-pull-requests
   - /github/administering-a-repository/about-protected-branches
   - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
-  - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
+  - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches_protectionrules
 versions:
   fpt: '*'
   ghes: '*'
@@ -125,7 +125,7 @@ You can set up required status checks to either be "loose" or "strict." The type
 | **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
 For troubleshooting information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks)."
-
+% data reusables.gated-features.protected-branches
 ### Require conversation resolution before merging
 
 Requires all comments on the pull request to be resolved before it can be merged to a protected branch. This ensures that all comments are addressed or acknowledged before merge.
@@ -157,6 +157,7 @@ You can always push local commits to the branch if the commits are signed and ve
 Enforcing a linear commit history prevents collaborators from pushing merge commits to the branch. This means that any pull requests merged into the protected branch must use a squash merge or a rebase merge. A strictly linear commit history can help teams reverse changes more easily. For more information about merge methods, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges)."
+
 
 {% ifversion merge-queue %}
 
