@@ -69,6 +69,6 @@ Test out your workflow by creating an issue in your repository.
 
 ## Next steps
 
-- To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} Manual](https://cli.github.com/manual/).
+- To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, see the [GitHub CLI manual](https://cli.github.com/manual/).
 - To learn more about different events that can trigger your workflow, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#issues)."
 - [Search GitHub](https://github.com/search?q=path%3A.github%2Fworkflows+gh+issue+edit&type=code) for examples of workflows using `gh issue edit`.
