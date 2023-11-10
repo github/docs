@@ -127,6 +127,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     additionalUINamespaces.push('product_guides')
   } else if (relativePath?.endsWith('index.md')) {
     props.tocLandingContext = getTocLandingContextFromRequest(req)
+    if (props.tocLandingContext.currentLearningTrack?.trackName) {
+      additionalUINamespaces.push('learning_track_nav')
+    }
   } else {
     // All articles that might have hover cards needs this
     additionalUINamespaces.push('popovers')

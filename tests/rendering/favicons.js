@@ -1,6 +1,6 @@
 import { expect, jest } from '@jest/globals'
 
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '../helpers/e2etest.js'
 
 describe('favicon assets', () => {
