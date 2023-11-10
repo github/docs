@@ -21,6 +21,22 @@ The {% data variables.product.prodname_copilot %} extension is frequently update
 
 For more information about configuring {% data variables.product.prodname_copilot %} in a supported IDE, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment)."
 
+## {% data variables.product.prodname_copilot %} not working in some files
+
+If you're using {% data variables.product.prodname_copilot_for_business %}, you may not see code completion suggestions in your editor for some files. This happens when a file is excluded from being used by {% data variables.product.prodname_copilot %}. Content exclusion can be configured by a repository administrator, or by an organization owner.
+
+When a file is affected by a content exclusion setting, {% data variables.product.prodname_copilot %} will not suggest code completion in that file, and the content of that file will not be used to inform code completion suggestions in other files.
+
+{% data reusables.copilot.content-exclusion-tooltip %}
+
+## {% data variables.product.prodname_copilot %} content exclusions are not being applied
+
+{% data reusables.copilot.content-exclusions-scope %}
+
+{% data reusables.copilot.content-exclusions-delay %} For more information, see "[AUTOTITLE](/copilot/managing-copilot-business/configuring-content-exclusions-for-github-copilot#checking-the-affect-of-a-settings-change)."
+
+{% data reusables.copilot.content-exclusion-note %}
+
 ## Error: "{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed"
 
 This error indicates that you either do not have a {% data variables.product.prodname_copilot %} subscription, or there was an error connecting to the {% data variables.product.prodname_dotcom %} API to request a token to use {% data variables.product.prodname_copilot %}.

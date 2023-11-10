@@ -14,6 +14,7 @@ topics:
   - Advanced Security
 children:
   - /about-security-overview
+  - /viewing-security-insights-for-your-organization
   - /assessing-adoption-code-security
   - /assessing-code-security-risk
   - /filtering-alerts-in-security-overview

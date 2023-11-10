@@ -12,6 +12,7 @@ topics:
 children:
   - /configuring-scim-provisioning-for-enterprise-managed-users
   - /configuring-scim-provisioning-with-okta
+  - /provisioning-users-with-scim-using-the-rest-api
   - /managing-team-memberships-with-identity-provider-groups
   - /troubleshooting-team-membership-with-identity-provider-groups
 ---
