@@ -62,7 +62,7 @@ People with write permissions for a repository can add a theme to a {% data vari
 
 {% data reusables.pages.theme-customization-help %}
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to your theme's source repository. For example, the source repository for Minima is https://github.com/jekyll/minima.
+1. On {% data variables.product.prodname_dotcom %}, navigate to your theme's source repository. For example, the source repository for Minimal is https://github.com/pages-themes/minimal.
 1. In the __layouts_ folder, navigate to your theme's _default.html_ file.
 1. Copy the contents of the file.
 {% data reusables.pages.navigate-site-repo %}
