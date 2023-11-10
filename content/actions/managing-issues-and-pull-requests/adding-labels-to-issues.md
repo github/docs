@@ -19,11 +19,11 @@ topics:
 
 ## Introduction
 
-This tutorial demonstrates how to use the GitHub CLI in a workflow to label newly opened or reopened issues. For example, you can add the `triage` label every time an issue is opened or reopened. Then, you can see all issues that need to be triaged by filtering for issues with the `triage` label.
+This tutorial demonstrates how to use the {% data variables.product.prodname_cli %} in a workflow to label newly opened or reopened issues. For example, you can add the `triage` label every time an issue is opened or reopened. Then, you can see all issues that need to be triaged by filtering for issues with the `triage` label.
 
-The GitHub CLI allows you to easily use the {% data variables.product.prodname_dotcom %} API in a workflow.
+The {% data variables.product.prodname_cli %} allows you to easily use the {% data variables.product.prodname_dotcom %} API in a workflow.
 
-In the tutorial, you will first make a workflow file that uses the GitHub CLI. Then, you will customize the workflow to suit your needs.
+In the tutorial, you will first make a workflow file that uses the {% data variables.product.prodname_cli %}. Then, you will customize the workflow to suit your needs.
 
 ## Creating the workflow
 
@@ -69,6 +69,6 @@ Test out your workflow by creating an issue in your repository.
 
 ## Next steps
 
-- To learn more about additional things you can do with the GitHub CLI, see the [GitHub CLI Manual](https://cli.github.com/manual/).
+- To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} Manual](https://cli.github.com/manual/).
 - To learn more about different events that can trigger your workflow, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#issues)."
 - [Search GitHub](https://github.com/search?q=path%3A.github%2Fworkflows+gh+issue+edit&type=code) for examples of workflows using `gh issue edit`.
