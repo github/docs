@@ -28,9 +28,7 @@ On {% data variables.product.product_name %}, you provision user accounts from a
 
 You can allow people to use a personal account on {% data variables.product.prodname_dotcom_the_website %} to access your enterprise's resources and optionally configure additional SAML access restriction, or you can provision and control the accounts for your enterprise using your identity provider (IdP) with {% data variables.product.prodname_emus %}.
 
-{% data reusables.enterprise.ghec-authentication-options %}
-
-After learning more about these options, to determine which method is best for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise)."
+After learning more about authentication and provisioning for each of these options, to determine which method is best for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise)."
 
 {% elsif scim-for-ghes %}
 
@@ -54,11 +52,11 @@ When you create an enterprise on {% data variables.product.product_name %}, you 
 
 ### Authentication through {% data variables.location.product_location %}
 
-By default, each member must create a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after signing into the account on {% data variables.location.product_location %}. The member manages the account, and can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %}.
+With authentication solely through {% data variables.location.product_location %}, each person you want to grant access to your enterprise must create and manage a personal account on {% data variables.location.product_location %}. After you grant access to your enterprise, the member can access your enterprise's resources after signing into the account on {% data variables.location.product_location %}. The member manages the account, and can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %}. For more information about personal accounts, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
 
 ### Authentication through {% data variables.location.product_location %} with additional SAML access restriction
 
-If you configure additional SAML access restriction, each member must create and manage a personal account on {% data variables.location.product_location %}. You grant access to your enterprise, and the member can access your enterprise's resources after both signing into the account on {% data variables.location.product_location %} and successfully authenticating with your SAML identity provider (IdP). The member can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %} using their personal account. For more information about requiring SAML authentication for all access your enterprise's resources, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+If you configure additional SAML access restriction, each person you want to grant access to your enterprise must create and manage a personal account on {% data variables.location.product_location %}. After you grant access to your enterprise, the member can access your enterprise's resources only after authenticating successfully for both the account on {% data variables.location.product_location %} and for an account on your SAML identity provider (IdP). The member can contribute to other enterprises, organizations, and repositories on {% data variables.location.product_location %} using their personal account. For more information about requiring SAML authentication for all access your enterprise's resources, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
 
 You can choose between configuring SAML at the enterprise level, which applies the same SAML configuration to all organizations within the enterprise, and configuring SAML separately for individual organizations. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations)."
 
@@ -107,13 +105,21 @@ To provision user accounts on {% data variables.product.product_name %}, you mus
 
 {% elsif ghec %}
 
-If you use authentication through {% data variables.location.product_location %}, people create personal accounts on {% data variables.product.prodname_dotcom_the_website %}, and you can grant those personal accounts access to resources in your enterprise. For more information about personal accounts, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+If you use [authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction), people create personal accounts on {% data variables.product.prodname_dotcom_the_website %}, and you can grant those personal accounts access to resources in your enterprise. You do not provision accounts.
 
-Alternatively, if you decide to create an {% data variables.enterprise.prodname_emu_enterprise %}, you must configure your IdP to provision user accounts within your enterprise using System for Cross-domain Identity Management (SCIM). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users)."
+Alternatively, if you use [{% data variables.product.prodname_emus %}](#authentication-with-enterprise-managed-users-and-federation), you must configure your IdP to provision user accounts within your enterprise on {% data variables.location.product_location %} using System for Cross-domain Identity Management (SCIM). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users)."
 
 {% elsif scim-for-ghes %}
 
 If you configure built-in authentication, CAS, LDAP, or SAML, {% data variables.product.product_name %} creates a user account when an authorized person signs into the instance, or "just in time" (JIT). Optionally, if you use SAML, you can provision user accounts from your identity provider (IdP) using SCIM. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
+
+{% endif %}
+
+{% ifversion emu-public-scim-schema %}
+
+## About supported IdPs
+
+{% data reusables.enterprise_user_management.ghec-supported-idps %}
 
 {% endif %}
 

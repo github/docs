@@ -70,5 +70,5 @@ Enterprise owners can choose whether to grant access to {% data variables.produc
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement)"
 - [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

@@ -1,4 +1,4 @@
-import { blockIndex } from '../../middleware/block-robots.js'
+import { blockIndex } from '#src/frame/middleware/block-robots.js'
 import { productMap } from '#src/products/lib/all-products.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 
