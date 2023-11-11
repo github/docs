@@ -1,4 +1,9 @@
 {
   "FEATURE_TEST_TRUE": true,
-  "FEATURE_TEST_FALSE": false
+  "FEATURE_TEST_PRINT": success,
+  "FEATURE_TEST_ACCESS": root,
+  "FEATURE_TEST_ALLOW": allowed,
+  "FEATURE_TEST_WRITE": write access
+  
+  
 }
