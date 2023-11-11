@@ -2,7 +2,7 @@ import path from 'path'
 import statsd from './statsd.js'
 
 export default function instrumentMiddleware(middleware, relativePath) {
-  // Requires the file as if it were being required from '../middleware/index.js'.
+  // Requires the file as if it were being required from '#src/frame/middleware/index.js'.
   // This is a little wonky, but let's us write `app.use(instrument(path))` and
   // maintain the name of the file, instead of hard-coding it for each middleware.
 

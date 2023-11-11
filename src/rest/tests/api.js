@@ -6,7 +6,7 @@ import { get } from '../../../tests/helpers/e2etest.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 describe('anchor-redirect api', () => {
   const clientSideRedirects = JSON.parse(

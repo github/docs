@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import purgeEdgeCache from './purge-edge-cache.js'
 
 // This will purge every response that *contains*

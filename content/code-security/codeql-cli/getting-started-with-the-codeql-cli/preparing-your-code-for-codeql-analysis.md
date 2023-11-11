@@ -253,7 +253,8 @@ The following examples are designed to give you an idea of some of the build com
 - Java project built using Gradle:
 
   ```shell
-  # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL:
+  # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL.
+  # To ensure isolated builds without caching, add `--no-build-cache` on persistent machines.  
   codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='gradle --no-daemon clean test'
   ```
 
