@@ -4,7 +4,7 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { schemas, hydroNames } from './lib/schema.js'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
-import { noCacheControl } from '../../middleware/cache-control.js'
+import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 import { formatErrors } from './lib/middleware-errors.js'
 import { publish as _publish } from './lib/hydro.js'
 

@@ -58,7 +58,7 @@ In the enterprise-level views, you can filter the data by organization.
 
 ## Filter by whether security features are enabled
 
-In the examples below, replace `:enabled` with `:not-enabled` to see repositories where security features are not enabled. These qualifiers are available in the main summary views.
+In the examples below, replace `:enabled` with `:not-enabled` to see repositories where security features are not enabled. These qualifiers are available in the "Security risk" and "Security coverage" views.
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -77,13 +77,13 @@ The organization-level "Security coverage" view includes extra filters.
 | -------- | -------- | {% ifversion ghec or ghes > 3.8 %}
 | `advanced-security:enabled` | Display repositories that have enabled {% data variables.product.prodname_GH_advanced_security %}. | {% endif %}
 | `code-scanning-pull-request-alerts:enabled`| Display repositories that have configured {% data variables.product.prodname_code_scanning %} to run on pull requests. |
-| `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot %} security updates.  |
+| `dependabot-security-updates:enabled` | Display repositories that have enabled {% data variables.product.prodname_dependabot_security_updates %}.  |
 | `secret-scanning-push-protection:enabled` | Display repositories that have enabled push protection for {% data variables.product.prodname_secret_scanning %}. |
 {% endif %}
 
 ## Filter by repository type
 
-These qualifiers are available in the main summary views.
+All of these qualifiers are available in the "Security risk" and "Security coverage" views. {% ifversion security-overview-dashboard %}For the "Overview" dashboard (beta) view, only the `archived:` filter is available.{% endif %}
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -148,6 +148,25 @@ These qualifiers are available in the main summary views{% ifversion security-ov
 | -------- | -------- |
 | `topic:TOPIC-NAME` | Displays repositories that are classified with TOPIC-NAME. For more information on repository topics, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)." |
 
+{% ifversion security-overview-dashboard %}
+
+## Additional filters for security overview dashboard (beta)
+
+{% data reusables.security-overview.beta %}
+
+You can filter the "Overview" dashboard (beta) to narrow the scope of the metrics shown, so that you can view trends for specific repository or alert types. For more information on the overview dashboard, see "[AUTOTITLE](/code-security/security-overview/viewing-security-insights-for-your-organization)."
+
+| Qualifier | Description |
+| -------- | -------- |
+|`visibility:public`|Displays metrics only for public repositories.|
+|`visibility:internal`|Displays metrics only for internal repositories.|
+|`visibility:private`|Displays metrics only for private repositories.|
+|`tool:codeql`|Displays metrics for {% data variables.product.prodname_code_scanning %} alerts generated using {% data variables.product.prodname_codeql %} analysis.|
+|`tool:dependabot`|Displays metrics for {% data variables.product.prodname_dependabot_alerts %}.|
+|`tool:secret-scanning`|Displays metrics for {% data variables.product.prodname_secret_scanning %} alerts.|
+
+{% endif %}
+
 {% ifversion security-overview-dependabot-acv %}
 
 ## Additional filters for {% data variables.product.prodname_dependabot %} alert views
@@ -157,8 +176,8 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 | Qualifier | Description |
 | -------- | -------- |
 {% ifversion dependabot-alerts-vulnerable-calls or ghes or ghae -%}
-|`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
-|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
+|`has:patch`|Displays {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where a secure version is already available.|
+|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot_alerts %} where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
 {% endif -%}
 |`ecosystem:ECOSYSTEM-NAME`|Displays {% data variables.product.prodname_dependabot_alerts %} detected in the specified ecosystem.|
 |`is:open`|Displays open {% data variables.product.prodname_dependabot_alerts %}.|
@@ -187,7 +206,7 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 
 ## Additional filters for {% data variables.product.prodname_code_scanning %} alert views
 
-All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant query and the line of code that triggered the alert.
+All {% data variables.product.prodname_code_scanning %} alerts have one of the categories shown below. You can click any result to see full details of the relevant query and the line of code that triggered the alert.
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -218,18 +237,18 @@ All code scanning alerts have one of the categories shown below. You can click a
 |`provider:PROVIDER-NAME` | Displays alerts for all secrets issues by the specified provider.  |
 | `secret-type:PROVIDER-PATTERN` | Displays alerts for the specified secret and provider. |
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern.  |
-|`is:open`|Displays open {% data variables.product.prodname_secret_scanning %} alerts.|
-|`is:closed`|Displays closed {% data variables.product.prodname_secret_scanning %} alerts.|
-|`resolution:false-positive`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "false positive."|
-|`resolution:pattern-deleted`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "pattern deleted."|
-|`resolution:pattern-edited`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "pattern edited."|
-|`resolution:revoked`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "revoked."|
-|`resolution:used-in-tests`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "used in tests."|
-|`resolution:wont-fix`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "won't fix."|
-|`sort:created-desc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from newest to oldest.|
-|`sort:created-asc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from oldest to newest.|
-|`sort:updated-desc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from most recently updated to least recently updated.|
-|`sort:updated-asc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from least recently updated to most recently updated.|
+|`is:open`|Displays open {% data variables.secret-scanning.alerts %}.|
+|`is:closed`|Displays closed {% data variables.secret-scanning.alerts %}.|
+|`resolution:false-positive`|Displays {% data variables.secret-scanning.alerts %} closed as "false positive."|
+|`resolution:pattern-deleted`|Displays {% data variables.secret-scanning.alerts %} closed as "pattern deleted."|
+|`resolution:pattern-edited`|Displays {% data variables.secret-scanning.alerts %} closed as "pattern edited."|
+|`resolution:revoked`|Displays {% data variables.secret-scanning.alerts %} closed as "revoked."|
+|`resolution:used-in-tests`|Displays {% data variables.secret-scanning.alerts %} closed as "used in tests."|
+|`resolution:wont-fix`|Displays {% data variables.secret-scanning.alerts %} closed as "won't fix."|
+|`sort:created-desc`|Displays {% data variables.secret-scanning.alerts %} from newest to oldest.|
+|`sort:created-asc`|Displays {% data variables.secret-scanning.alerts %} from oldest to newest.|
+|`sort:updated-desc`|Displays {% data variables.secret-scanning.alerts %} from most recently updated to least recently updated.|
+|`sort:updated-asc`|Displays {% data variables.secret-scanning.alerts %} from least recently updated to most recently updated.|
 
 For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}

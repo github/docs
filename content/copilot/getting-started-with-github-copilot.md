@@ -52,26 +52,9 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
 
-## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE
+## Installing the {% data variables.product.prodname_copilot %} plugin in your JetBrains IDE
 
-To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
-
-1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
-1. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
-1. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**.
-
-   ![Screenshot of the "Preferences" window. A tab labeled "Marketplace" is highlighted with an orange outline. In a list of search results, the installed "GitHub Copilot" plugin is marked by a selected checkbox.](/assets/images/help/copilot/jetbrains-marketplace.png)
-1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
-1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**.
-
-    ![Screenshot of the expanded "Tools" menu and "{% data variables.product.prodname_copilot %}" sub-menu. The "Login to {% data variables.product.prodname_dotcom %}" option is highlighted in blue.](/assets/images/help/copilot/jetbrains-tools-menu.png)
-
-1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
-
-    ![Screenshot of the "Sign in to {% data variables.product.prodname_dotcom %}" dialog. A device code is displayed above a button labeled "Copy and Open".](/assets/images/help/copilot/device-code-copy-and-open.png)
-1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
-1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
-1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
+{% data reusables.copilot.installing-copilot-in-jetbrains-ide %}
 
 ## Seeing your first suggestion
 
@@ -273,6 +256,14 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.accept-suggestion %}
 
+{% note %}
+
+**Note**: If you don't see a suggestion, make sure {% data variables.product.prodname_copilot %} is enabled. You should see the {% data variables.product.prodname_copilot_short %} icon at the bottom right of the {% data variables.product.prodname_vscode %} window.
+
+{% data reusables.copilot.content-exclusion-tooltip %}
+
+{% endnote %}
+
 ## Seeing alternative suggestions
 
 {% data reusables.copilot.alternative-suggestions %}
@@ -453,7 +444,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ```sql copy
    SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
    FROM [Tag].[Scoreboard]
-   INNER JOIN 
+   INNER JOIN
    ```
 
 {% data reusables.copilot.accept-suggestion %}
@@ -468,7 +459,7 @@ For some suggestions, {% data variables.product.prodname_copilot %} may provide 
    ```sql copy
    SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
    FROM [Tag].[Scoreboard]
-   INNER JOIN 
+   INNER JOIN
    ```
 
 1. Optionally, you can see alternative suggestions, if any are available.
@@ -511,4 +502,4 @@ For some suggestions, {% data variables.product.prodname_copilot %} may provide 
 ## Further reading
 
 - [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)
+- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-individual#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

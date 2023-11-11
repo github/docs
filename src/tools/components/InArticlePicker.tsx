@@ -141,7 +141,8 @@ export const InArticlePicker = ({
 
   return (
     <div data-testid={`${queryStringKey}-picker`}>
-      <UnderlineNav {...sharedContainerProps}>
+      {/* The key attribute is required for a bug in UnderlineNav that doesn't render the component when there are changes to the items. */}
+      <UnderlineNav key={router.asPath} {...sharedContainerProps}>
         {options.map((option) => {
           params.set(queryStringKey, option.value)
           const linkProps = {

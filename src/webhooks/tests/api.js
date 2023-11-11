@@ -2,7 +2,7 @@ import { get } from '../../../tests/helpers/e2etest.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { describe, expect } from '@jest/globals'
 
 describe('webhooks v1 middleware', () => {
