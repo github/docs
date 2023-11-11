@@ -2,7 +2,7 @@ import express from 'express'
 import path from 'path'
 
 import { readCompressedJsonFileFallbackLazily } from '#src/frame/lib/read-json-file.js'
-import { defaultCacheControl } from '../../../middleware/cache-control.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 import { REST_DATA_DIR } from '../lib/index.js'
 
 const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(

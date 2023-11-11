@@ -1,7 +1,7 @@
 import statsd from '#src/observability/lib/statsd.js'
 import { allTools } from '#src/tools/lib/all-tools.js'
 import { allPlatforms } from '#src/tools/lib/all-platforms.js'
-import { defaultCacheControl } from '../../../middleware/cache-control.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 
