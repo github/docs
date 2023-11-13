@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
 
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Picker } from 'src/tools/components/Picker'

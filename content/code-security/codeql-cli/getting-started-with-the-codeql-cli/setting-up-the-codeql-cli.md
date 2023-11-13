@@ -68,8 +68,8 @@ For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply
 
 {% note %}
 
-**Note:** If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for Visual Studio Code to compile and run queries.
- For more information about configuring VS Code to access the {% data variables.product.prodname_codeql_cli %}, see "[Setting up {% data variables.product.prodname_codeql %} in Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/#setting-up-codeql-in-visual-studio-code)."
+**Note:** If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries.
+ For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[Setting up {% data variables.product.prodname_codeql %} in {% data variables.product.prodname_vscode %}](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/#setting-up-codeql-in-visual-studio-code)."
 
  {% endnote %}
 

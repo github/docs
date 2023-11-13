@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { main } from '../../../start-server.js'
+import { main } from '#src/frame/start-server.js'
 
 import { PORT, START_JEST_SERVER, isServerHealthy, isPortRunning } from './server-for-jest.js'
 
