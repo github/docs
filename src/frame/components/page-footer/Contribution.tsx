@@ -1,6 +1,6 @@
 import { GitPullRequestIcon } from '@primer/octicons-react'
 
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const Contribution = () => {

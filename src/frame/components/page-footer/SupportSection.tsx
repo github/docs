@@ -1,9 +1,9 @@
 import cx from 'classnames'
 
 import { Survey } from 'src/events/components/Survey'
-import { Contribution } from 'components/page-footer/Contribution'
-import { Support } from 'components/page-footer/Support'
-import { useMainContext } from 'components/context/MainContext'
+import { Contribution } from 'src/frame/components/page-footer/Contribution'
+import { Support } from 'src/frame/components/page-footer/Support'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { useVersion } from 'src/versions/components/useVersion'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'src/languages/components/useTranslation'

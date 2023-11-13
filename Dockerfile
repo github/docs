@@ -44,7 +44,6 @@ RUN npm prune --production
 # ---------------
 FROM all_deps as builder
 
-COPY components ./components
 COPY src ./src
 # The star is because it's an optional directory
 COPY .remotejson-cache* ./.remotejson-cache
