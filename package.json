@@ -19,8 +19,8 @@
     "build": "next build",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.js",
     "dev": "cross-env npm start",
-    "fixture-dev": "cross-env ROOT=tests/fixtures npm start",
-    "fixture-test": "cross-env ROOT=tests/fixtures npm test -- tests/rendering-fixtures",
+    "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
+    "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
     "index-test-fixtures": "node src/search/scripts/index-elasticsearch.js -l en -l ja -V ghae -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-content": "node src/content-linter/scripts/lint-content.js",
@@ -37,7 +37,7 @@
     "prestart": "node src/workflows/cmp-files.js package-lock.json .installed.package-lock.json || npm install && cp package-lock.json .installed.package-lock.json",
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon src/frame/server.js",
     "start-all-languages": "cross-env NODE_ENV=development nodemon src/frame/server.js",
-    "start-for-playwright": "cross-env ROOT=tests/fixtures TRANSLATIONS_FIXTURE_ROOT=tests/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test node src/frame/server.js",
+    "start-for-playwright": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test node src/frame/server.js",
     "sync-rest": "node src/rest/scripts/update-files.js",
     "sync-search": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
@@ -200,8 +200,8 @@
     "testPathIgnorePatterns": [
       "node_modules/",
       "vendor/",
-      "tests/fixtures/",
-      "tests/helpers/"
+      "src/fixtures/fixtures/",
+      "src/tests/helpers/"
     ]
   },
   "dependencies": {

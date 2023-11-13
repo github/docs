@@ -1,7 +1,7 @@
 import { loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
-import { checkURL } from '../../../tests/helpers/check-url.js'
+import { checkURL } from '#src/tests/helpers/check-url.js'
 
 const pageList = await loadPages(undefined, ['en'])
 const pages = await loadPageMap(pageList)
