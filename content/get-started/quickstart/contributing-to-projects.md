@@ -129,7 +129,7 @@ For more information about how to create and manage branches in {% data variable
 
 ## Making and pushing changes
 
-Go ahead and make a few changes to the project using your favorite text editor, like [Visual Studio Code](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
+Go ahead and make a few changes to the project using your favorite text editor, like [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com). You could, for example, change the text in `index.html` to add your GitHub username.
 
 When you're ready to submit your changes, stage and commit your changes. `git add .` tells Git that you want to include all of your changes in the next commit. `git commit` takes a snapshot of those changes.
 

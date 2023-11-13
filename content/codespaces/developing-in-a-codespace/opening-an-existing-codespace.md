@@ -65,7 +65,7 @@ You can bookmark the address of this page if you want to get back to it quickly 
    1. Click **Open in**.
    1. Click **Open in APPLICATION**.
 
-   ![Screenshot of the "Open in" dialog, with "Open in Visual Studio Code" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+   ![Screenshot of the "Open in" dialog, with "Open in {% data variables.product.prodname_vscode %}" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
    - Your browser
@@ -124,7 +124,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 
      {% note %}
 
-     **Note**: You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[Setting up Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+     **Note**: You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[Setting up {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
      {% endnote %}
 

@@ -3,7 +3,7 @@ import Ajv from 'ajv'
 
 import readJsonFile from '#src/frame/lib/read-json-file.js'
 import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../lib/validator.js'
-import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
+import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { GRAPHQL_DATA_DIR } from '../lib/index.js'
 

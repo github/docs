@@ -29,7 +29,7 @@ const MANDATORY_FILES = [
   'data/variables/release_candidate.yml',
 ]
 
-const DESTINATION = path.resolve('tests/fixtures')
+const DESTINATION = path.resolve('src/fixtures/fixtures')
 
 program
   .description('Make sure the test fixtures have up-to-date data from the real content')

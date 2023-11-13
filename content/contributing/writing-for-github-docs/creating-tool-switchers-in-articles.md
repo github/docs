@@ -43,7 +43,7 @@ Only include a maximum of eight different tools in an article. Including more to
 
 ## Adding new tools
 
-{% data variables.product.prodname_docs %} documents and maintains tool tags for {% data variables.product.prodname_dotcom %} products, {% data variables.product.prodname_dotcom %}-developed tools, and select third-party extensions.
+{% data variables.product.prodname_docs %} documents and maintains tool tags for {% data variables.product.prodname_dotcom %} products, {% data variables.product.prodname_dotcom %}-developed tools, and select third-party extensions developed in collaboration with {% data variables.product.company_short %} .
 
 New tools are only added when they are the only way to accurately document something for a specific user need. If a writer determines that adding a new tool is the only way to accurately document something, they need to propose the new tool in a content design plan. Whoever reviews the content design plan should consider any alternative ways to address the documentation needs without adding a new tool. If a new tool is the only way to create accurate documentation, the new tool should be added. If there is an alternative content solution that does not add a new tool, that option should be used.
 

@@ -61,7 +61,7 @@ Since your repository is cloned onto the host VM before the container is created
 When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it by using:
 
 - Your web browser
-- [Visual Studio Code](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
+- [{% data variables.product.prodname_vscode %}](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)
 - [A JetBrains IDE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)
 - [{% data variables.product.prodname_cli %}](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)
 
