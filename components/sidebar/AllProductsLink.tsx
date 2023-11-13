@@ -15,7 +15,7 @@ export const AllProductsLink = () => {
         className="f6 pl-2 pr-5 ml-n1 pb-1 Link--primary color-fg-default"
       >
         <ArrowLeftIcon size="small" className="mr-1" />
-        All products
+        Home
       </Link>
     </div>
   )
