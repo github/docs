@@ -47,7 +47,6 @@ If {% ifversion ghec or fpt %}these options are not possible{% else %}this is no
 
 {% endwarning %}
 
-
 ### Authenticating with a {% data variables.product.pat_generic %}
 
 If you want to use the .NET REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see {% data variables.product.company_short %}'s documentation.
