@@ -9,7 +9,6 @@ versions:
   ghec: '*'
 topics:
   - API
-  - .NET
 type: tutorial
 ---
 
