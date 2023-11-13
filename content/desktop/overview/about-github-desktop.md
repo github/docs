@@ -6,6 +6,9 @@ versions:
   feature: desktop
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/overview/about-github-desktop
+  - /github/getting-started-with-github/github-desktop
+  - /github/getting-started-with-github/using-github/github-desktop
+  - /get-started/using-github/github-desktop
 ---
 
 {% data variables.product.prodname_desktop %} is a free, open source application that helps you to work with files hosted on {% data variables.product.prodname_dotcom %} or other Git hosting services.
