@@ -1,6 +1,6 @@
 ---
-title: 'Some languages were not analyzed with CodeQL advanced setup'
-shortTitle: 'Some languages not analyzed'
+title: Some languages were not analyzed with CodeQL advanced setup
+shortTitle: Some languages not analyzed
 allowTitleToDifferFromFilename: true
 intro: 'If some languages were not analyzed, you can modify your {% data variables.product.prodname_code_scanning %} workflow to add a matrix specifying the languages you want to analyze.'
 versions:
@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-code-scanning/some-languages-were-not-analyzed
 ---
 
 {% data reusables.code-scanning.beta %}

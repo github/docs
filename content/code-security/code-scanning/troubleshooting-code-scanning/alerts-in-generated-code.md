@@ -1,6 +1,6 @@
 ---
-title: 'Alerts found in generated code'
-shortTitle: 'Alerts in generated code'
+title: Alerts found in generated code
+shortTitle: Alerts in generated code
 intro: 'When analyzing your code with {% data variables.product.prodname_code_scanning %}, you may wish to build only the code which you wish to analyze.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-code-scanning/alerts-found-in-generated-code
 ---
 
 {% data reusables.code-scanning.beta %}
