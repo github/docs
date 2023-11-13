@@ -50,9 +50,9 @@ If {% ifversion ghec or fpt %}these options are not possible{% else %}this is no
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-If you want to use the .NET REST API for personal use, you can create a Personal Access Token (PAT). For more information about creating a PAT, see {% data variables.product.company_short %}'s documentation.
+If you want to use the .NET REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see {% data variables.product.company_short %}'s documentation.
 
-You can pass your PAT when you create an instance of the Octokit `GitHubClient`. In the following example, replace `YOUR-TOKEN` with your PAT.
+You can pass your {% data variables.product.pat_generic %} when you create an instance of the Octokit `GitHubClient`. In the following example, replace `YOUR-TOKEN` with your {% data variables.product.pat_generic %}.
 
 ```csharp
 using System;
@@ -115,7 +115,7 @@ using Octokit;
 
 var client = new GitHubClient(new ProductHeaderValue("YourAppName"))
 {
-    Credentials = new Credentials("YOUR-PAT")
+    Credentials = new Credentials("YOUR-TOKEN")
 };
 
 var repository = await client.Repository.Get("owner", "repo");
@@ -209,9 +209,9 @@ using System.Collections.Generic;
 try
 {
     var filesChanged = new List<string>();
-    
+
     var iterator = await github.Repository.PullRequest.Files("github", "docs", 22809);
-    
+
     await foreach (var fileData in iterator)
     {
         filesChanged.Add(fileData.Filename);
@@ -353,7 +353,7 @@ class Program
         try
         {
             var iterator = await github.Repository.PullRequest.Files(owner, repo, pullNumber);
-            
+
             await foreach (var fileData in iterator)
             {
                 filesChanged.Add(fileData.Filename);
@@ -397,4 +397,3 @@ class Program
 
 - To learn more about Octokit.net see [the .NET Octokit SDK documentation](https://github.com/octokit/octokit.net).
 - For some real life examples, look at how {% data variables.product.company_short %} Docs uses Octokit.net by [searching the {% data variables.product.company_short %} Docs repository](https://github.com/search?q=repo%3Agithub%2Fdocs%20path%3A.github%20octokit&type=code).
-
