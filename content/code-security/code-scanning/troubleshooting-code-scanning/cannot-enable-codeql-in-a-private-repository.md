@@ -1,7 +1,6 @@
 ---
-title: 'Error: "Advanced Security must be enabled for this repository to use code scanning"'
-shortTitle: 'Advanced Security must be enabled'
-intro: 'If you see this error, make sure that {% data variables.product.prodname_GH_advanced_security %} is enabled.'
+title: 'Cannot enable CodeQL in a private repository'
+intro: '{% data variables.product.prodname_GH_advanced_security %} must be enabled in order to use {% data variables.product.prodname_code_scanning %} on private repositories.'
 allowTitleToDifferFromFilename: true
 type: reference
 topics:
@@ -15,23 +14,12 @@ versions:
   ghec: '*'
 ---
 
-## About this error
-
-```text
-Advanced Security must be enabled for this repository to use code scanning
-403: GitHub Advanced Security is not enabled
-```
-
-This error is reported if you try to run {% data variables.product.prodname_code_scanning %} in a repository where {% data variables.product.prodname_GH_advanced_security %} is not enabled or where use of this feature is blocked by a policy.
-
-{% ifversion fpt or ghec %}You will only see this error for repositories with private or internal visibility. {% data variables.product.prodname_GH_advanced_security %} is enabled by default for all public repositories.{% endif %}
-
-## Confirming the cause of the error
-
 {% ifversion fpt %}
 If you are on a free, pro, or team plan, you can only use {% data variables.product.prodname_code_scanning %} on repositories that are publically available. To enable {% data variables.product.prodname_code_scanning %} for private or internal repositories, you must upgrade to GitHub Enterprise with {% data variables.product.prodname_GH_advanced_security %} and enable {% data variables.product.prodname_GH_advanced_security %} for the repository. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
 {% else %}
+
+## Confirm whether {% data variables.product.prodname_GH_advanced_security %} is enabled
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -40,11 +28,7 @@ If you are on a free, pro, or team plan, you can only use {% data variables.prod
 1. If there is an associated and active **Enable** button, {% data variables.product.prodname_GH_advanced_security %} is available for this repository but not yet enabled.
 1. If use of {% data variables.product.prodname_GH_advanced_security %} is blocked by a policy, the **Enable** button is inactive and the owner of the policy is listed.
 
-   ![Screenshot of the "{% data variables.product.prodname_GH_advanced_security %}" setting. The owner of the enterprise policy and the inactive "Enable" button are highlighted with a dark orange outline.](/assets/images/help/repository/ghas-enterprise-policy-block.png)
-
-## Fixing the problem
-
-If {% data variables.product.prodname_GH_advanced_security %} is available to your repository, you can enable it on the settings page. If {% data variables.product.prodname_GH_advanced_security %} is blocked by a policy, you first need to request access.
+   !["Screenshot of the {% data variables.product.prodname_GH_advanced_security %}" setting. The enterprise policy owner and the inactive "Enable" button are highlighted in dark orange.](/assets/images/help/repository/ghas-enterprise-policy-block.png)
 
 ### Requesting access to {% data variables.product.prodname_GH_advanced_security %}
 

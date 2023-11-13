@@ -1,10 +1,12 @@
 ---
-title: 'A particular language is causing default setup to fail'
-shortTitle: 'Default setup fails with a language'
+title: A particular language is causing default setup to fail
+shortTitle: Default setup fails with a language
 intro: 'When you enable default setup, all languages selected for analysis must be successfully analyzed, or the configuration of default setup will fail.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-scanning-without-workflow-310
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-code-scanning/a-particular-language-is-causing-default-setup-to-fail
 ---
 
 To enable default setup when a language previously failed, you must reconfigure default setup, deselecting all failing languages for analysis.
