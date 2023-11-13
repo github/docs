@@ -1,6 +1,6 @@
 ---
-title: 'Code scanning analysis takes too long'
-shortTitle: 'Analysis takes too long'
+title: Code scanning analysis takes too long
+shortTitle: Analysis takes too long
 intro: 'You can fine tune your {% data variables.product.prodname_code_scanning %} configuration to minimize analysis time.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-code-scanning/build-is-taking-too-long
 ---
 
 {% data reusables.code-scanning.beta %}

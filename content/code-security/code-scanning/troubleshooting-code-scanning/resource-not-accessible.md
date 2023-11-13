@@ -1,11 +1,13 @@
 ---
 title: 'Error: 403 "Resource not accessible by integration"'
-shortTitle: 'Resource not accessible'
+shortTitle: Resource not accessible
 intro: 'This error may be seen on pull requests created by {% data variables.product.prodname_dependabot %} and can be resolved in a couple of different ways.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-code-scanning/resource-not-accessible-by-integration
 ---
 
 {% data reusables.code-scanning.beta %}

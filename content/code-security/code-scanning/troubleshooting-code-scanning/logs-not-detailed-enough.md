@@ -1,6 +1,6 @@
 ---
-title: 'Logs are not detailed enough'
-shortTitle: 'Logs not detailed enough'
+title: Logs are not detailed enough
+shortTitle: Logs not detailed enough
 intro: 'If you''d like to increase the level of detail in your logs, try these steps.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-code-scanning/logs-are-not-detailed-enough
 ---
 
 {% data reusables.code-scanning.beta %}

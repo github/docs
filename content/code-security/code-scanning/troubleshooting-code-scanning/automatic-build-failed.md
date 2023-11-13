@@ -1,6 +1,6 @@
 ---
-title: 'Automatic build failed for a compiled language'
-shortTitle: 'Automatic build failed'
+title: Automatic build failed for a compiled language
+shortTitle: Automatic build failed
 allowTitleToDifferFromFilename: true
 intro: 'If automatic build fails, you can configure {% data variables.product.prodname_code_scanning %} to use specific build steps for compiled languages.'
 versions:
@@ -8,6 +8,8 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-code-scanning/automatic-build-failed-for-a-compiled-language
 ---
 
 {% data reusables.code-scanning.beta %}
