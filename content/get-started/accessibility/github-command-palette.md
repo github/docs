@@ -4,6 +4,8 @@ intro: 'Use the command palette in {% data variables.product.product_name %} to 
 versions:
   feature: command-palette
 shortTitle: GitHub Command Palette
+redirect_from:
+  - /get-started/using-github/github-command-palette
 ---
 
 {% data reusables.command-palette.beta-note %}
