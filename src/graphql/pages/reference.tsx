@@ -7,7 +7,7 @@ import {
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'components/context/MainContext'
+} from 'src/frame/components/context/MainContext'
 import type { ObjectT, GraphqlT } from 'src/graphql/components/types'
 import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
 import {

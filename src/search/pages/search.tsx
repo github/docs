@@ -5,8 +5,8 @@ import {
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+} from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import type { SearchT } from 'src/search/components/types'
 import { Search } from 'src/search/components/index'
 

@@ -43,7 +43,7 @@ If you encounter any issues or have any questions during your implementation, yo
 
 If you prefer to have guidance throughout the rollout process, {% data variables.product.prodname_professional_services %} can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GH_advanced_security %}. We offer a variety of options for guidance and support. We also have training and bootcamps available to help your company to optimize the value of {% data variables.product.prodname_GH_advanced_security %}.
 
-Speak with your sales representative for more information about all the Professional Services options available. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
+Speak with your sales representative for more information about all the {% data variables.product.prodname_professional_services_team %} options available. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
 {% note %}
 
