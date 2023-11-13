@@ -7,7 +7,9 @@ describe('sidebar', () => {
   describe('nav', () => {
     test('top level product mentioned at top of sidebar', async () => {
       const $ = await getDOM('/get-started')
-      expect($('[data-testid="sidebar-product-xl"]').text()).toBe('Get started')
+      const sidebarProduct = $('[data-testid="sidebar-product-xl"]')
+      expect(sidebarProduct.text()).toBe('Get started')
+      expect(sidebarProduct.attr('href')).toBe('/en/get-started')
     })
 
     test('REST pages get the REST sidebar', async () => {
