@@ -14,13 +14,13 @@
       "default": "./src/*"
     }
   },
-  "exports": "./server.js",
+  "exports": "./src/frame/server.js",
   "scripts": {
     "build": "next build",
-    "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect server.js",
+    "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.js",
     "dev": "cross-env npm start",
-    "fixture-dev": "cross-env ROOT=tests/fixtures npm start",
-    "fixture-test": "cross-env ROOT=tests/fixtures npm test -- tests/rendering-fixtures",
+    "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
+    "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
     "index-test-fixtures": "node src/search/scripts/index-elasticsearch.js -l en -l ja -V ghae -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-content": "node src/content-linter/scripts/lint-content.js",
@@ -35,14 +35,14 @@
     "rest-dev": "node src/rest/scripts/update-files.js",
     "show-action-deps": "echo 'Action Dependencies:' && rg '^[\\s|-]*(uses:.*)$' .github -I -N --no-heading -r '$1$2' | sort | uniq | cut -c 7-",
     "prestart": "node src/workflows/cmp-files.js package-lock.json .installed.package-lock.json || npm install && cp package-lock.json .installed.package-lock.json",
-    "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon server.js",
-    "start-all-languages": "cross-env NODE_ENV=development nodemon server.js",
-    "start-for-playwright": "cross-env ROOT=tests/fixtures TRANSLATIONS_FIXTURE_ROOT=tests/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test node server.js",
+    "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon src/frame/server.js",
+    "start-all-languages": "cross-env NODE_ENV=development nodemon src/frame/server.js",
+    "start-for-playwright": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test node src/frame/server.js",
     "sync-rest": "node src/rest/scripts/update-files.js",
     "sync-search": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-indices": "node src/search/scripts/sync-search-indices.js",
-    "sync-search-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true node server.js",
+    "sync-search-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true node src/frame/server.js",
     "sync-webhooks": "src/rest/scripts/update-files.js -o webhooks",
     "test": "cross-env NODE_OPTIONS='--max_old_space_size=4096 --experimental-vm-modules' jest --logHeapUsage",
     "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
@@ -52,6 +52,157 @@
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
     "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write",
     "{content,data}/**/*.md": "npm run lint-content -- --precommit --paths"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,yml,md,html,scss",
+    "ignore": [
+      "assets",
+      "script",
+      "tests",
+      "content",
+      "translations",
+      "data/reusables",
+      "data/variables",
+      "data/glossaries",
+      "data/product-examples",
+      "data/learning-tracks",
+      "rest-api-description",
+      "semmle-code"
+    ]
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.{yml,yaml}"
+        ],
+        "options": {
+          "singleQuote": true
+        }
+      },
+      {
+        "files": [
+          "**/*.{ts,tsx,js,mjs}"
+        ],
+        "options": {
+          "printWidth": 100,
+          "semi": false,
+          "singleQuote": true
+        }
+      }
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es2020": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "requireConfigFile": "false",
+      "sourceType": "module"
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": true,
+        "node": true
+      }
+    },
+    "extends": [
+      "eslint:recommended",
+      "standard",
+      "plugin:import/errors",
+      "prettier"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "packageDir": "."
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/tests/**/*.js"
+        ],
+        "env": {
+          "jest": true
+        }
+      },
+      {
+        "files": [
+          "**/*.tsx",
+          "**/*.ts"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+          "@typescript-eslint",
+          "primer-react",
+          "jsx-a11y"
+        ],
+        "extends": [
+          "plugin:primer-react/recommended",
+          "plugin:jsx-a11y/recommended"
+        ],
+        "rules": {
+          "camelcase": "off",
+          "no-undef": "off",
+          "no-unused-vars": "off",
+          "no-use-before-define": "off",
+          "@typescript-eslint/no-unused-vars": [
+            "error"
+          ],
+          "jsx-a11y/no-onchange": "off"
+        }
+      }
+    ],
+    "ignorePatterns": [
+      "tmp/*",
+      "!/.*",
+      "/.next/",
+      "src/bookmarklets/*",
+      "src/open-source/scripts/add-pr-links.js",
+      "src/open-source/scripts/pr-link-source.js",
+      "rest-api-description/"
+    ]
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statements": -5
+      }
+    },
+    "globalSetup": "./src/tests/scripts/start-server-for-jest.js",
+    "globalTeardown": "./src/tests/scripts/kill-server-for-jest.js",
+    "moduleNameMapper": {
+      "@primer/behaviors": "<rootDir>/node_modules/@primer/behaviors/dist/cjs/index.js"
+    },
+    "preset": "ts-jest",
+    "reporters": [
+      "default",
+      "github-actions"
+    ],
+    "setupFilesAfterEnv": [
+      "./src/tests/jest.setup.js",
+      "jest-expect-message"
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.js"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules/",
+      "vendor/",
+      "src/fixtures/fixtures/",
+      "src/tests/helpers/"
+    ]
   },
   "dependencies": {
     "@elastic/elasticsearch": "8.10.0",

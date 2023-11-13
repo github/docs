@@ -3,7 +3,7 @@ import sharp from 'sharp'
 import { fileTypeFromBuffer } from 'file-type'
 
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { get, head } from '../../../tests/helpers/e2etest.js'
+import { get, head } from '#src/tests/helpers/e2etest.js'
 
 describe('dynamic assets', () => {
   jest.setTimeout(3 * 60 * 1000)

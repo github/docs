@@ -16,6 +16,7 @@ coverage/
 /translations/
 .node-version
 .linkinator/full.log
+next-env.d.ts
 
 # blc: broken link checker
 blc_output.log

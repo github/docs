@@ -1,4 +1,4 @@
-import { getDOM } from '../../../tests/helpers/e2etest.js'
+import { getDOM } from '#src/tests/helpers/e2etest.js'
 import { jest } from '@jest/globals'
 
 describe('curated homepage links', () => {

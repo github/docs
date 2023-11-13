@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 
 const COOKIE_NAME = '_docs-events'

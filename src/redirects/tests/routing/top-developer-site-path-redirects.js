@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { head } from '../../../../tests/helpers/e2etest.js'
+import { head } from '#src/tests/helpers/e2etest.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 

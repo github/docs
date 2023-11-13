@@ -2,8 +2,8 @@ import cx from 'classnames'
 
 import { ActionList } from '@primer/react'
 
-import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
-import { Link } from 'components/Link'
+import { ProductTreeNode, useMainContext } from 'src/frame/components/context/MainContext'
+import { Link } from 'src/frame/components/Link'
 
 export const ProductArticlesList = () => {
   const { currentProductTree } = useMainContext()
