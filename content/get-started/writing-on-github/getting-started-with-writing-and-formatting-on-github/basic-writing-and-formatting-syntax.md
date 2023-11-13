@@ -224,7 +224,7 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 {% endnote %}
 
-![Screenshot of Markdown in Visual Studio Code showing how indented bullets align vertically with the first letter of the text lines above them.](/assets/images/help/writing/nested-list-alignment.png)
+![Screenshot of Markdown in {% data variables.product.prodname_vscode %} showing how indented bullets align vertically with the first letter of the text lines above them.](/assets/images/help/writing/nested-list-alignment.png)
 
 ![Screenshot of rendered GitHub Markdown showing a numbered item followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-1.png)
 
