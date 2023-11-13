@@ -150,7 +150,6 @@ jobs:
 
 {% endraw %}
 
-
 ## Further reading
 
 - "[AUTOTITLE](/actions/using-containerized-services/creating-redis-service-containers)"
