@@ -91,12 +91,10 @@ COPY --chown=node:node src ./src
 COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
-COPY --chown=node:node server.js ./server.js
-COPY --chown=node:node start-server.js ./start-server.js
 
 EXPOSE $PORT
 
-CMD ["node", "server.js"]
+CMD ["node", "src/frame/server.js"]
 
 # --------------------------------------------------------------------------------
 # PRODUCTION IMAGE - includes all translations
