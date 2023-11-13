@@ -126,6 +126,14 @@ Don't print a summary of the analyzed diagnostics to standard output.
 
 Don't print a summary of the analyzed metrics to standard output.
 
+#### `--[no-]analysis-summary-v2`
+
+\[GitHub.com and GitHub Enterprise Server v3.9.0+ only] Use an improved
+version of the analysis summary. This incorporates file coverage
+information and improves the way that diagnostic results are displayed.
+
+Available since `v2.15.2`.
+
 #### `--max-paths=<maxPaths>`
 
 The maximum number of paths to produce for each alert with paths.
@@ -175,6 +183,16 @@ line-column, offset-length. (Default: line-column)
 A format string defining the format in which to produce file location
 URLs in DOT output. The following place holders can be used {path}
 {start:line} {start:column} {end:line} {end:column}, {offset}, {length}
+
+#### `--[no-]sublanguage-file-coverage`
+
+\[GitHub.com and GitHub Enterprise Server v3.12.0+ only] Use
+sub-language file coverage information. This calculates, displays, and
+exports separate file coverage information for languages which share a
+CodeQL extractor like C and C++, Java and Kotlin, and JavaScript and
+TypeScript.
+
+Available since `v2.15.2`.
 
 #### `--sarif-category=<category>`
 
@@ -510,3 +528,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.
