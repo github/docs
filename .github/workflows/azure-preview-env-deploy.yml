@@ -228,7 +228,7 @@ jobs:
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
-          template: ./azure-preview-env-template.json
+          template: ./src/workflows/azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
             containerImage="${{ env.DOCKER_IMAGE }}"
