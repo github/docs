@@ -5,11 +5,9 @@ import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 describe('spotlight', () => {
   test('renders styled warnings', async () => {
     const $ = await getDOM('/get-started/liquid/warnings')
-    const nodes = $('.ghd-spotlight-warning')
+    const nodes = $('.ghd-spotlight-attention')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the warning.')).toBe(true)
-    expect(nodes.hasClass('color-border-danger-emphasis')).toBe(true)
-    expect(nodes.hasClass('color-bg-danger')).toBe(true)
   })
 
   test('renders styled danger', async () => {
@@ -17,26 +15,20 @@ describe('spotlight', () => {
     const nodes = $('.ghd-spotlight-danger')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
-    expect(nodes.hasClass('color-border-danger-emphasis')).toBe(true)
-    expect(nodes.hasClass('color-bg-danger')).toBe(true)
   })
 
   test('renders styled tips', async () => {
     const $ = await getDOM('/get-started/liquid/tips')
-    const nodes = $('.ghd-spotlight-tip')
+    const nodes = $('.ghd-spotlight-success')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the tip.')).toBe(true)
-    expect(nodes.hasClass('color-border-accent-emphasis')).toBe(true)
-    expect(nodes.hasClass('color-bg-accent')).toBe(true)
   })
 
   test('renders styled notes', async () => {
     const $ = await getDOM('/get-started/liquid/notes')
-    const nodes = $('.ghd-spotlight-note')
+    const nodes = $('.ghd-spotlight-accent')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the note.')).toBe(true)
-    expect(nodes.hasClass('color-border-accent-emphasis')).toBe(true)
-    expect(nodes.hasClass('color-bg-accent')).toBe(true)
   })
 })
 

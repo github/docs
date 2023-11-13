@@ -63,9 +63,7 @@ export const ArticlePage = () => {
       {includesPlatformSpecificContent && <PlatformPicker />}
       {includesToolSpecificContent && <ToolPicker />}
 
-      {product && (
-        <Callout variant="success" className="mb-4" dangerouslySetInnerHTML={{ __html: product }} />
-      )}
+      {product && <Callout className="mb-4" dangerouslySetInnerHTML={{ __html: product }} />}
     </>
   )
 

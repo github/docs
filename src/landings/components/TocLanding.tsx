@@ -46,9 +46,7 @@ export const TocLanding = () => {
 
           {intro && <Lead data-search="lead">{intro}</Lead>}
 
-          {productCallout && (
-            <Callout variant="success" dangerouslySetInnerHTML={{ __html: productCallout }} />
-          )}
+          {productCallout && <Callout dangerouslySetInnerHTML={{ __html: productCallout }} />}
 
           <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-2 mb-xl-2" />
 

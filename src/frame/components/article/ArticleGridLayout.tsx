@@ -36,7 +36,7 @@ export const ArticleGridLayout = ({
       )}
 
       {intro && (
-        <Box id="article-intro" gridArea="intro">
+        <Box id="article-intro" gridArea="intro" className="f4">
           {intro}
         </Box>
       )}

@@ -34,7 +34,7 @@ export const ArticleInlineLayout = ({
         {topper && <Box gridArea="topper">{topper}</Box>}
 
         {intro && (
-          <Box id="article-intro" gridArea="intro">
+          <Box id="article-intro" gridArea="intro" className="f4">
             {intro}
           </Box>
         )}

@@ -35,11 +35,7 @@ export const AutomatedPage = ({ children }: Props) => {
               {permissions && <PermissionsStatement permissions={permissions} />}
 
               {product && (
-                <Callout
-                  variant="success"
-                  className="mb-4"
-                  dangerouslySetInnerHTML={{ __html: product }}
-                />
+                <Callout className="mb-4" dangerouslySetInnerHTML={{ __html: product }} />
               )}
             </>
           }
