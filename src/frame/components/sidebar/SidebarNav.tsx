@@ -34,7 +34,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
               <div className="mt-3" id="allproducts-menu">
                 <Link
                   data-testid="sidebar-product-xl"
-                  href={currentProduct.href}
+                  href={`/${router.locale}${currentProduct.href}`}
                   // Note the `_product-title` is used by the popover preview cards
                   // when it needs this text for in-page links.
                   className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
