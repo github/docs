@@ -17,7 +17,6 @@ topics:
   - Accounts
 children:
   - /about-your-personal-dashboard
-  - /managing-your-theme-settings
   - /managing-your-tab-size-rendering-preference
   - /changing-your-github-username
   - /permission-levels-for-a-personal-account-repository

@@ -13,6 +13,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-your-theme-settings
 shortTitle: Manage theme settings
 ---
 
@@ -41,7 +42,7 @@ If you have low vision, you may benefit from a high contrast theme, with greater
 
 {% note %}
 
-**Note:** You can also change your theme settings with the command palette. For more information, see "[AUTOTITLE](/get-started/using-github/github-command-palette)".
+**Note:** You can also change your theme settings with the command palette. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)".
 
 {% endnote %}
 
