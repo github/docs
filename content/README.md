@@ -293,9 +293,9 @@ Do not add hardcoded "In this article" sections in the Markdown source or else t
 A content file can have **two** types of versioning:
 
 - [`versions`](#versions) frontmatter (**required**)
-    - Determines in which versions the page is available. See [contributing/permalinks](../contributing/permalinks.md) for more info.
+    - Determines in which versions the page is available. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation) for more info.
 - Liquid statements in content (**optional**)
-    - Conditionally render content depending on the current version being viewed. See [contributing/liquid-helpers](../contributing/liquid-helpers.md) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
+    - Conditionally render content depending on the current version being viewed. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators)" for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
 **Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
 
