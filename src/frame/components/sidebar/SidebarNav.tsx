@@ -1,11 +1,11 @@
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { SidebarProduct } from 'src/landings/components/SidebarProduct'
 import { AllProductsLink } from './AllProductsLink'
 import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 
 type Props = {
   variant?: 'full' | 'overlay'

@@ -1,7 +1,7 @@
 import cx from 'classnames'
 
 import { useMainContext } from '../context/MainContext'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 
 import styles from './Breadcrumbs.module.scss'
 

@@ -1,4 +1,4 @@
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 enum annotationMode {

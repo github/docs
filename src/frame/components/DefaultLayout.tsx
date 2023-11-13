@@ -1,16 +1,16 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { SidebarNav } from 'components/sidebar/SidebarNav'
-import { Header } from 'components/page-header/Header'
-import { LegalFooter } from 'components/page-footer/LegalFooter'
-import { ScrollButton } from 'components/ui/ScrollButton'
-import { SupportSection } from 'components/page-footer/SupportSection'
+import { SidebarNav } from 'src/frame/components/sidebar/SidebarNav'
+import { Header } from 'src/frame/components/page-header/Header'
+import { LegalFooter } from 'src/frame/components/page-footer/LegalFooter'
+import { ScrollButton } from 'src/frame/components/ui/ScrollButton'
+import { SupportSection } from 'src/frame/components/page-footer/SupportSection'
 import { DeprecationBanner } from 'src/versions/components/DeprecationBanner'
 import { RestBanner } from 'src/rest/components/RestBanner'
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 import { useLanguages } from 'src/languages/components/LanguagesContext'
 
 const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))

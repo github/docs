@@ -1,4 +1,4 @@
-import { SupportPortalVaIframeProps } from 'components/article/SupportPortalVaIframe'
+import { SupportPortalVaIframeProps } from 'src/frame/components/article/SupportPortalVaIframe'
 import { createContext, useContext } from 'react'
 
 export type LearningTrack = {
