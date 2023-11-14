@@ -202,7 +202,7 @@ If a project has multiple alerts that you want to dismiss for the same reason, y
 
 ## Re-opening dismissed alerts
 
-If you dismiss an alert but later realized that it was done by mistake, you can access the list of closed alerts. Afterwards, you can find the alert, display it and reopen it if necessary.
+If you dismiss an alert but later realize that you need to fix the alert, you can re-open it and fix the problem with the code. Display the list of closed alerts, find the alert, display it, and reopen it. You can then fix the alert in the same way as any other alert.
 
 {% ifversion remove-code-scanning-configurations %}
 
