@@ -4,7 +4,7 @@ shortTitle: Default setup fails with a language
 intro: 'When you enable default setup, all languages selected for analysis must be successfully analyzed, or the configuration of default setup will fail.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-scanning-without-workflow-310
+  feature: code-scanning-default-setup-recommended-languages
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/a-particular-language-is-causing-default-setup-to-fail
 ---
