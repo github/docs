@@ -66844,6 +66844,14 @@
           "deprecationReason": "<p><code>Sponsorship.maintainer</code> will be removed. Use <code>Sponsorship.sponsorable</code> instead. Removal on 2020-04-01 UTC.</p>"
         },
         {
+          "name": "paymentSource",
+          "description": "<p>The platform that was most recently used to pay for the sponsorship.</p>",
+          "type": "SponsorshipPaymentSource",
+          "id": "sponsorshippaymentsource",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshippaymentsource"
+        },
+        {
           "name": "privacyLevel",
           "description": "<p>The privacy level for this sponsorship.</p>",
           "type": "SponsorshipPrivacy!",
@@ -86676,6 +86684,23 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order sponsorship by creation time.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorshipPaymentSource",
+      "kind": "enums",
+      "id": "sponsorshippaymentsource",
+      "href": "/graphql/reference/enums#sponsorshippaymentsource",
+      "description": "<p>How payment was made for funding a GitHub Sponsors sponsorship.</p>",
+      "values": [
+        {
+          "name": "GITHUB",
+          "description": "<p>Payment was made through GitHub.</p>"
+        },
+        {
+          "name": "PATREON",
+          "description": "<p>Payment was made through Patreon.</p>"
         }
       ]
     },
