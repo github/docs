@@ -73,7 +73,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 1. In the "Repository Name" dropdown, type a name for your new repository, then select **Publish to {% data variables.product.prodname_dotcom %}  private repository** or **Publish to {% data variables.product.prodname_dotcom %}  public repository**.
 
-   ![Screenshot of the repository name dropdown in VS Code. Two options are shown, for publishing to a private or a public repository.](/assets/images/help/codespaces/choose-new-repository.png)
+   ![Screenshot of the repository name dropdown in {% data variables.product.prodname_vscode_shortname %}. Two options are shown, for publishing to a private or a public repository.](/assets/images/help/codespaces/choose-new-repository.png)
 
    The owner of the new repository will be the {% data variables.product.prodname_dotcom %} account with which you created the codespace.
 1. In the pop-up that appears in the lower right corner of the editor, click **Open on {% data variables.product.prodname_dotcom %}** to view the new repository on {% data variables.product.prodname_dotcom_the_website %}. In the new repository, view the `haikus.json` file and check that the change you made in your codespace has been successfully pushed to the repository.
@@ -82,7 +82,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 ## Personalizing with an extension
 
-When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the Visual Studio Code Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
+When you connect to a codespace using the browser, or the {% data variables.product.prodname_vscode %} desktop application, you can access the {% data variables.product.prodname_vscode %} Marketplace directly from the editor. For this example, you'll install a {% data variables.product.prodname_vscode_shortname %} extension that alters the theme, but you can install any extension that's useful for your workflow.
 
 1. In the Activity Bar, click the Extensions icon.
 

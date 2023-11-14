@@ -57,7 +57,7 @@ Depending on your proxy setup, you may encounter errors like "certificate signat
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_copilot %} only supports custom certificates if you use {% data variables.product.prodname_copilot_for_business %}. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)."
+**Note:** {% data variables.product.prodname_copilot %} only supports custom certificates if you use {% data variables.product.prodname_copilot_for_business %}. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
 
 {% endnote %}
 

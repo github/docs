@@ -149,6 +149,8 @@ If you selected an organization as the resource owner and the organization requi
 
 ## Deleting a {% data variables.product.pat_generic %}
 
+You should delete a {% data variables.product.pat_generic %} if it is no longer needed. If you delete a {% data variables.product.pat_generic %} that was used to create a deploy key, the deploy key will also be deleted.
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}

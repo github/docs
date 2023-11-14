@@ -7,7 +7,7 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-github-copilot-for-individuals
-  - /about-github-copilot-for-business
+  - /about-github-copilot-individual
+  - /about-github-copilot-business
 ---
 

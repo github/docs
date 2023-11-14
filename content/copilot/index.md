@@ -23,11 +23,12 @@ children:
   - /quickstart
   - /overview-of-github-copilot
   - /getting-started-with-github-copilot
-  - /managing-copilot-for-business
+  - /managing-copilot-business
+  - /github-copilot-enterprise
   - /github-copilot-chat
+  - /github-copilot-in-the-cli
   - /configuring-github-copilot
   - /troubleshooting-github-copilot
 topics:
   - Copilot
 ---
-

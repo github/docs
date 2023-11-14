@@ -3,7 +3,7 @@ import yaml from 'js-yaml'
 import { jest } from '@jest/globals'
 
 import { ajvValidate } from '#src/tests/lib/ajv-validate.js'
-import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
+import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
 import secretScanningSchema from '../lib/secret-scanning-schema.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
