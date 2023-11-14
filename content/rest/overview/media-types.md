@@ -41,7 +41,7 @@ put it after `github`:
 
 ## Comment body properties
 
-The body of a comment can be written in [{% data variables.product.prodname_dotcom %} Flavored Markdown][gfm]. The APIs to manage [issues](/rest/issues), [issue comments](/rest/issues#comments), [pull request comments](/rest/pulls#comments), and [gist comments](/rest/gists#comments) all accept these same media types:
+The body of a comment can be written in [{% data variables.product.prodname_dotcom %} Flavored Markdown](https://github.github.com/github-flavored-markdown/). The APIs to manage [issues](/rest/issues), [issue comments](/rest/issues#comments), [pull request comments](/rest/pulls#comments), and [gist comments](/rest/gists#comments) all accept these same media types:
 
 ### Raw media type for comment body properties
 
@@ -91,7 +91,7 @@ Return the raw blob data.
 
 ## Commits, commit comparison, and pull requests
 
-The REST API to manage [commits](/rest/repos#commits) and [pull requests](/rest/pulls) support [diff][git-diff] and [patch][git-patch] formats:
+The REST API to manage [commits](/rest/repos#commits) and [pull requests](/rest/pulls) support [diff](https://git-scm.com/docs/git-diff) and [patch](https://git-scm.com/docs/git-format-patch) formats:
 
 ### diff media type for commits, commit comparison, and pull requests
 
@@ -132,7 +132,3 @@ Return the raw contents of a gist. This is the default if you do not pass any sp
     application/vnd.github.base64
 
 The gist contents are base64-encoded before being sent out. This can be useful if your gist contains any invalid UTF-8 sequences.
-
-[gfm]: https://github.github.com/github-flavored-markdown/
-[git-diff]: https://git-scm.com/docs/git-diff
-[git-patch]: https://git-scm.com/docs/git-format-patch

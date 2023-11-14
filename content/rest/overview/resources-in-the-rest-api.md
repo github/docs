@@ -220,9 +220,9 @@ All resources may have one or more `*_url` properties linking to other
 resources.  These are meant to provide explicit URLs so that proper API clients
 don't need to construct URLs on their own.  It is highly recommended that API
 clients use these.  Doing so will make future upgrades of the API easier for
-developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
+developers.  All URLs are expected to be proper [RFC 6570](https://datatracker.ietf.org/doc/html/rfc6570) URI templates.
 
-You can then expand these templates using something like the [uri_template][uri]
+You can then expand these templates using something like the [uri_template](https://github.com/hannesg/uri_template)
 gem:
 
     >> tmpl = URITemplate.new('/notifications{?since,all,participating}')
@@ -234,9 +234,6 @@ gem:
 
     >> tmpl.expand all: 1, participating: 1
     => "/notifications?all=1&participating=1"
-
-[rfc]: https://datatracker.ietf.org/doc/html/rfc6570
-[uri]: https://github.com/hannesg/uri_template
 
 {% ifversion fpt or ghec %}
 
