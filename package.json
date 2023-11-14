@@ -28,7 +28,7 @@
     "move-content": "node src/content-render/scripts/move-content.js",
     "openapi-docs": "node src/rest/docs.js",
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
-    "prepare": "husky install",
+    "prepare": "husky install src/workflows/husky",
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prevent-pushes-to-main": "node src/workflows/prevent-pushes-to-main.js",
