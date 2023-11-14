@@ -1,9 +1,10 @@
 ---
-title: Troubleshooting
+title: Troubleshooting the REST API
 shortTitle: Troubleshooting
 intro: Learn how to diagnose and resolve common problems for the REST API.
 redirect_from:
   - /v3/troubleshooting
+  - /rest/overview/troubleshooting
 versions:
   fpt: '*'
   ghes: '*'
