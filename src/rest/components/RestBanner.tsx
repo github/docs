@@ -3,8 +3,8 @@ import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
 
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { Link } from 'components/Link'
-import { useMainContext } from 'components/context/MainContext'
+import { Link } from 'src/frame/components/Link'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
 
 const restRepoDisplayPages = [

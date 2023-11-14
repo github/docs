@@ -69,4 +69,4 @@ For more information on automation for {% data variables.product.prodname_projec
 - "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board)"{% endif %}
 - "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
 - "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
-- "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#project-boards)"
+- "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#project-boards)"
