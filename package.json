@@ -27,7 +27,7 @@
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src/content-linter/tests/lint-files.js",
     "move-content": "node src/content-render/scripts/move-content.js",
     "openapi-docs": "node src/rest/docs.js",
-    "playwright-test": "playwright test --project=\"Google Chrome\"",
+    "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
     "prepare": "husky install",
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
