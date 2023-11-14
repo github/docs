@@ -186,20 +186,6 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 See the guide on "[AUTOTITLE](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
-## HTTP redirects
-
-The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is _not_ an
-error and clients should follow that redirect. Redirect responses will have a
-`Location` header field which contains the URI of the resource to which the
-client should repeat the requests.
-
-A `301` status code indicates permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
-
-A `302` or `307` status code indicates temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
-
-Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
-
 ## HTTP verbs
 
 Where possible, the {% data variables.product.product_name %} REST API strives to use appropriate HTTP verbs for each
