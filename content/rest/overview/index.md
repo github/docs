@@ -17,7 +17,7 @@ children:
   - /media-types
   - /authenticating-to-the-rest-api
   - /keeping-your-api-credentials-secure
-  - /troubleshooting
+  - /troubleshooting-the-rest-api
   - /libraries-for-the-rest-api
   - /about-the-openapi-description-for-the-rest-api
   - /issue-event-types
