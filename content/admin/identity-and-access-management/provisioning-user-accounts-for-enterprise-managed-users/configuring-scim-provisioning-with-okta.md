@@ -1,7 +1,7 @@
 ---
 title: Configuring SCIM provisioning with Okta
-shortTitle: Configure SCIM using Okta
-intro: You can provision new users and manage their membership of your enterprise and teams using Okta as your identity provider.
+shortTitle: SCIM using Okta
+intro: "If you use Okta as an identity provider (IdP), you can manage the lifecycle of your enterprise's user accounts on {% data variables.location.product_location %} using System for Cross-domain Identity Management (SCIM)."
 product: '{% data reusables.gated-features.emus %}'
 versions:
   ghec: '*'
@@ -22,21 +22,19 @@ topics:
 
 ## About provisioning with Okta
 
-You can use {% data variables.product.prodname_emus %} with Okta as your identity provider to provision new accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. For more information about provisioning for {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+If you use Okta as an IdP, you can use Okta's application to provision user accounts, manage enterprise membership, and manage team memberships for organizations in your enterprise. Okta is a partner IdP, so you can simplify your authentication and provisioning configuration by using the Okta application for {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#about-authentication-and-user-provisioning)."
 
-{% note %}
+{% ifversion emu-public-scim-schema %}
 
-**Note:** SCIM is required for {% data variables.product.prodname_emus %}, so you must use a version of Okta that includes SCIM.
+Alternatively, if you only intend to use Okta for SAML authentication and you want to use a different IdP for provisioning, you can integrate with {% data variables.product.prodname_dotcom %}'s REST API for SCIM. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)."
 
-{% endnote %}
+{% endif %}
 
-Before you can configure provisioning with Okta, you must configure SAML single-sign on. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
-
-To configure provisioning with Okta, you must set your enterprise's name in the {% data variables.product.prodname_emu_idp_application %} application and enter your setup user's {% data variables.product.pat_generic %}. You can then start provisioning users in Okta.
+For more information about provisioning for {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
 
 ## Supported features
 
-{% data variables.product.prodname_emus %} supports many provisioning features in Okta.
+{% data variables.product.prodname_emus %} supports the following provisioning features for Okta.
 
 | Feature | Description |
 | --- | --- |
@@ -51,6 +49,23 @@ To configure provisioning with Okta, you must set your enterprise's name in the 
 **Note:** {% data variables.product.prodname_emus %} does not support modifications to usernames.
 
 {% endnote %}
+
+## Prerequisites
+
+{%- ifversion emu-public-scim-schema %}
+
+- You must use Okta's application for both authentication and provisioning.
+
+{%- endif %}
+- {% data reusables.scim.your-okta-product-must-support-scim %}
+
+- {% data reusables.scim.use-pat-from-setup-user %}
+
+{% ifversion emu-public-scim-schema %}
+
+- {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
+
+{% endif %}
 
 ## Setting your enterprise name
 
@@ -83,13 +98,13 @@ To configure provisioning, the setup user with the **@<em>SHORT-CODE</em>_admin*
 
 ## Assigning users and groups
 
-After you have configured SAML SSO and provisioning, you will be able to provision new users on {% data variables.product.prodname_dotcom_the_website %} by assigning users or groups to the {% data variables.product.prodname_emu_idp_application %} application.
+{% data reusables.enterprise-managed.assigning-users %}
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
 You can also automatically manage organization membership by adding groups to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 
-When assigning users, you can use the "Roles" attribute in the {% data variables.product.prodname_emu_idp_application %} application to set a user's role in your enterprise on {% data variables.product.product_name %}. For more information about the roles available to assign, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+{% data reusables.enterprise-managed.assigning-roles %}
 
 {% note %}
 

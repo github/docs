@@ -39,7 +39,7 @@ featuredLinks:
     - /get-started/quickstart/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
     - /get-started/quickstart/github-glossary
-    - /get-started/using-github/keyboard-shortcuts
+    - /get-started/accessibility/keyboard-shortcuts
   guideCards:
     - /get-started/learning-about-github/types-of-github-accounts
     - /get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
@@ -55,6 +55,7 @@ children:
   - /learning-about-github
   - /signing-up-for-github
   - /using-github
+  - /accessibility
   - /writing-on-github
   - /exploring-projects-on-github
   - /getting-started-with-git

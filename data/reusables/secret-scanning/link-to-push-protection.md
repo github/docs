@@ -1,0 +1,1 @@
+You can configure {% data variables.product.prodname_secret_scanning %} to check pushes for custom patterns before commits are merged into the default branch. For more information, see "[Enabling push protection for a custom pattern](/code-security/secret-scanning/push-protection-for-repositories-and-organizations#enabling-push-protection-for-a-custom-pattern)."

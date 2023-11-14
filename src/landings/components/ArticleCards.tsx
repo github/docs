@@ -32,8 +32,8 @@ export const ArticleCards = () => {
           {guides.length === 0
             ? t('guides_found.none')
             : guides.length === 1
-            ? t('guides_found.one')
-            : t('guides_found.multiple').replace('{n}', `${guides.length}`)}
+              ? t('guides_found.one')
+              : t('guides_found.multiple').replace('{n}', `${guides.length}`)}
         </div>
       </div>
 

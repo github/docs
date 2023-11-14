@@ -7,7 +7,7 @@ import {
   getMainContext,
   MainContext,
   MainContextT,
-} from 'components/context/MainContext'
+} from 'src/frame/components/context/MainContext'
 import {
   getAutomatedPageContextFromRequest,
   AutomatedPageContext,

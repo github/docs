@@ -105,5 +105,5 @@ To cancel your {% data variables.product.prodname_copilot_business_short %} subs
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)"
-- "[AUTOTITLE](/copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business)"
+- "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)"
+- "[AUTOTITLE](/copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-business)"
