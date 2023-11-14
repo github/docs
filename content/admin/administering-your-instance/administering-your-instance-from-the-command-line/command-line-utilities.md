@@ -126,7 +126,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   ghe-config HOSTNAME.uuid
 ```
 
-Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
@@ -919,6 +919,38 @@ If your storage system is configured correctly, you'll see the following output.
 
 ```text
 All Storage tests passed
+```
+
+### ghe-actions-stop
+
+This utility stops {% data variables.product.prodname_actions %} from running on {% data variables.location.product_location %}.
+
+{% note %}
+
+**Notes**:
+
+- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+- In high availability configurations, run this command from the primary.
+
+{% endnote %}
+
+### ghe-actions-start
+
+This utility starts {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} after it has been previously stopped.
+
+{% note %}
+
+**Notes**:
+
+- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+- In high availability configurations, run this command from the primary.
+
+{% endnote %}
+
+If your system is configured correctly, you'll see the following ouput:
+
+```shell
+Actions was enabled!
 ```
 
 ## High availability

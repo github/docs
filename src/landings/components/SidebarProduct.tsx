@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { NavList } from '@primer/react'
 
-import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
+import { ProductTreeNode, useMainContext } from 'src/frame/components/context/MainContext'
 import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '../../rest/lib/config.js'
 

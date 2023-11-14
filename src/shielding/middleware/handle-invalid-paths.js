@@ -1,4 +1,4 @@
-import { defaultCacheControl } from '../../../middleware/cache-control.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 
 // When a *whole* path is considerered junk.
 const JUNK_PATHS = new Set([

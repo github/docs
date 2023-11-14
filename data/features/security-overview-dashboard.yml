@@ -1,0 +1,5 @@
+# Reference: #11289
+# Documentation for the security overview dashboard, the default view on the "Security" tab in an organization.
+versions:
+  ghec: '*'
+  ghes: '>3.12'

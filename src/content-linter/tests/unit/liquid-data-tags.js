@@ -10,7 +10,7 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
 
   beforeAll(() => {
-    process.env.ROOT = path.join('tests', 'fixtures')
+    process.env.ROOT = path.join('src', 'fixtures', 'fixtures')
   })
 
   afterAll(() => {

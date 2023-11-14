@@ -102,7 +102,7 @@ jobs:
 
       - name: 'Update docker-compose.staging.yaml template file'
         run: |
-          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' src/workflows/docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
 
       - name: 'Apply updated docker-compose.staging.yaml config to deployment slot'
         run: |

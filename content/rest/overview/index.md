@@ -12,13 +12,14 @@ topics:
 children:
   - /comparing-githubs-rest-api-and-graphql-api
   - /resources-in-the-rest-api
+  - /rate-limits-for-the-rest-api
   - /api-versions
   - /media-types
   - /authenticating-to-the-rest-api
   - /keeping-your-api-credentials-secure
   - /troubleshooting
   - /libraries-for-the-rest-api
-  - /openapi-description
+  - /about-the-openapi-description-for-the-rest-api
   - /issue-event-types
   - /github-event-types
   - /endpoints-available-for-github-app-installation-access-tokens

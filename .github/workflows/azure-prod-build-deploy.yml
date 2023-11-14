@@ -93,7 +93,7 @@ jobs:
 
       - name: 'Update docker-compose.prod.yaml template file'
         run: |
-          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' src/workflows/docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
 
       - name: 'Apply updated docker-compose.prod.yaml config to canary slot'
         run: |
@@ -104,9 +104,27 @@ jobs:
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           CHECK_INTERVAL: 10000
+          EXPECTED_SHA: ${{ github.sha }}
+          CANARY_BUILD_URL: https://ghdocs-prod-canary.azurewebsites.net/_build
         with:
           script: |
             const { execSync } = require('child_process')
+
+            const getBuildSha = (timeoutSeconds = 5) => {
+              const url = process.env.CANARY_BUILD_URL;
+              console.log(`Fetching ${url}`);
+              const t0 = Date.now();
+              try {
+                const o = execSync(`curl --connect-timeout ${timeoutSeconds} ${url}`, {
+                  encoding: "utf8",
+                });
+                console.log(`Fetched ${url}. Took ${Date.now() - t0}ms`);
+                return o.toString().trim();
+              } catch (err) {
+                console.log(`Error fetching build sha from ${url}`);
+                return null;
+              }
+            };
 
             const getStatesForSlot = (slot) => {
               return JSON.parse(
@@ -117,22 +135,26 @@ jobs:
               )
             }
 
-            let hasStopped = false
             const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
+            let attempts = 0
             async function doCheck() {
-              const states = getStatesForSlot('canary')
-              console.log(`Instance states:`, states)
+              attempts++
+              console.log('Attempt:', attempts);
+              const buildSha = getBuildSha();
+              console.log("Canary build SHA:", buildSha || "*unknown/failed*", "Expected SHA:", process.env.EXPECTED_SHA)
 
-              // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
-              // That way we don't immediately succeed just because all the previous instances were READY
-              if (!hasStopped) {
-                hasStopped = states.some((s) => s === 'STOPPED')
-              }
+              const states = getStatesForSlot('canary')
+              console.log('Instance states:', states)
 
               const isAllReady = states.every((s) => s === 'READY')
 
-              if (hasStopped && isAllReady) {
+              if (buildSha === process.env.EXPECTED_SHA && isAllReady) {
                 process.exit(0) // success
+              }
+
+              if (attempts * waitDuration > 10 * 60 * 1000) {
+                console.log(`Giving up after a total of ${(attempts * waitDuration)/1000} seconds`)
+                process.exit(1) // failure
               }
 
               console.log(`checking again in ${waitDuration}ms`)
@@ -141,7 +163,6 @@ jobs:
 
             doCheck()
 
-      # TODO - make a request to verify the canary app version aligns with *this* github action workflow commit sha
       - name: 'Swap canary slot to production'
         run: |
           az webapp deployment slot swap --slot canary --target-slot production -n ghdocs-prod -g docs-prod
