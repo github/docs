@@ -3,8 +3,8 @@ import path from 'path'
 
 import { jest, expect } from '@jest/globals'
 
-import { get } from '../../../tests/helpers/e2etest.js'
-import { checkCachingHeaders } from '../../../tests/helpers/caching-headers.js'
+import { get } from '#src/tests/helpers/e2etest.js'
+import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
 
 function getNextStaticAsset(directory) {
   const root = path.join('.next', 'static', directory)

@@ -1,7 +1,7 @@
 import { jest, test, expect } from '@jest/globals'
 
-import { describeIfElasticsearchURL } from '../../../tests/helpers/conditional-runs.js'
-import { get } from '../../../tests/helpers/e2etest.js'
+import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware in non-English', () => {

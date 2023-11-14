@@ -2,11 +2,11 @@ import cx from 'classnames'
 import dayjs from 'dayjs'
 import { ActionList } from '@primer/react'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { FeaturedLink } from 'src/landings/components/ProductLandingContext'
-import { useMainContext } from 'components/context/MainContext'
-import { BumpLink } from 'components/ui/BumpLink'
+import { useMainContext } from 'src/frame/components/context/MainContext'
+import { BumpLink } from 'src/frame/components/ui/BumpLink'
 
 export type ArticleListPropsT = {
   title?: string
