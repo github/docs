@@ -1,4 +1,4 @@
-import { getDOM } from '../../../tests/helpers/e2etest.js'
+import { getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('server rendering certain GraphQL pages', () => {
   test('minitoc hrefs on breaking-changes match', async () => {

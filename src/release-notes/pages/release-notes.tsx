@@ -7,8 +7,8 @@ import {
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+} from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { GHAEReleaseNotes } from 'src/release-notes/components/GHAEReleaseNotes'
 import { GHESReleaseNotes } from 'src/release-notes/components/GHESReleaseNotes'
 import {

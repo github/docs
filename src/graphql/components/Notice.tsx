@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { GraphqlT } from './types'
 
@@ -15,12 +15,9 @@ export function Notice({ item, variant = 'preview' }: Props) {
   const { t } = useTranslation('graphql')
   const previewTitle =
     variant === 'preview' ? t('reference.preview_notice') : t('reference.deprecation_notice')
-  const noticeStyle =
-    variant === 'preview'
-      ? 'ghd-spotlight-note color-border-accent-emphasis color-bg-accent'
-      : 'ghd-spotlight-warning color-border-danger-emphasis color-bg-danger'
+  const noticeStyle = variant === 'preview' ? 'ghd-spotlight-accent' : 'ghd-spotlight-attention'
   return (
-    <div className={`ghd-spotlight ${noticeStyle} border rounded-1 my-3 p-3 f5`}>
+    <div className={`ghd-spotlight ${noticeStyle} my-4 pl-3 py-2`}>
       <p>
         <b>{previewTitle}</b>
       </p>

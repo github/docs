@@ -192,9 +192,7 @@ jobs:
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
-          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
-          rsync -rptovR ./user-code/src/./**/*.tsx ./src
+          rsync -rptovR ./user-code/src/./**/*.{scss,ts,tsx} ./src
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:
@@ -230,7 +228,7 @@ jobs:
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
-          template: ./azure-preview-env-template.json
+          template: ./src/workflows/azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
             containerImage="${{ env.DOCKER_IMAGE }}"

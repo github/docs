@@ -1,4 +1,4 @@
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('invalid query string values', () => {
   test.each(['platform', 'tool'])('%a key', async (key) => {
