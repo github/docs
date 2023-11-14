@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 
 type Props = {
   title?: string

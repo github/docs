@@ -21,7 +21,7 @@ If you don't want to use the default shell, you can open a new terminal session 
 1. If you cannot see the integrated terminal in {% data variables.product.prodname_vscode_shortname %}, press <kbd>Ctrl</kbd>+<kbd>`</kbd>.
 1. To the right of the {% octicon "plus" aria-label="plus" %} icon for opening a new terminal window, select the dropdown icon.
 
-   ![Screenshot of the integrated terminal in VS Code. Next to the plus icon, a downward-facing arrow is outlined in orange.](/assets/images/help/codespaces/new-shell-session.png)
+   ![Screenshot of the integrated terminal in {% data variables.product.prodname_vscode_shortname %}. Next to the plus icon, a downward-facing arrow is outlined in orange.](/assets/images/help/codespaces/new-shell-session.png)
 
 1. In the dropdown menu, click the name of the shell you want to use.
 

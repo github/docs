@@ -1,6 +1,6 @@
 import { beforeAll } from '@jest/globals'
 
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 

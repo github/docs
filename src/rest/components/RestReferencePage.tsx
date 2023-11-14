@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 
-import { DefaultLayout } from 'components/DefaultLayout'
-import { MarkdownContent } from 'components/ui/MarkdownContent'
-import { Lead } from 'components/ui/Lead'
-import { PermissionsStatement } from 'components/ui/PermissionsStatement'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
+import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
+import { Lead } from 'src/frame/components/ui/Lead'
+import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
 import { RestOperation } from './RestOperation'
 import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
 import { Operation } from './types'
