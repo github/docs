@@ -36,7 +36,7 @@ You can use the {% data variables.product.prodname_codeql_cli %} to:
 
 - Run {% data variables.product.prodname_codeql %} analyses using queries provided by {% data variables.product.prodname_dotcom %} engineers and the open source community
 - Generate code scanning alerts that you can upload to display in {% data variables.product.product_name %}
-- Create {% data variables.product.prodname_codeql %} databases to use in the {% data variables.product.prodname_codeql %} for Visual Studio Code extension.
+- Create {% data variables.product.prodname_codeql %} databases to use in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension.
 - Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 The {% data variables.product.prodname_codeql_cli %} can analyze:

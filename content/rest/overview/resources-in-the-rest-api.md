@@ -186,57 +186,6 @@ $ curl {% ifversion fpt or ghae or ghec %}
 
 See the guide on "[AUTOTITLE](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
-## Client errors
-
-There are three possible types of client errors on API calls that
-receive request bodies:
-
-1. Sending invalid JSON will result in a `400 Bad Request` response.
-
-        HTTP/2 400
-        Content-Length: 35
-
-        {"message":"Problems parsing JSON"}
-
-1. Sending the wrong type of JSON values will result in a `400 Bad
-   Request` response.
-
-        HTTP/2 400
-        Content-Length: 40
-
-        {"message":"Body should be a JSON object"}
-
-1. Sending invalid fields will result in a `422 Unprocessable Entity`
-   response.
-
-        HTTP/2 422
-        Content-Length: 149
-
-        {
-          "message": "Validation Failed",
-          "errors": [
-            {
-              "resource": "Issue",
-              "field": "title",
-              "code": "missing_field"
-            }
-          ]
-        }
-
-All error objects have resource and field properties so that your client
-can tell what the problem is.  There's also an error code to let you
-know what is wrong with the field.
-
-Error code | Description
------------|-----------|
-`missing` | A resource does not exist.
-`missing_field` | A required field on a resource has not been set.
-`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
-`already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
-`unprocessable` | The inputs provided were invalid.
-
-Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, and most errors will also include a `documentation_url` field pointing to some content that might help you resolve the error.
-
 ## HTTP redirects
 
 The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
@@ -271,9 +220,9 @@ All resources may have one or more `*_url` properties linking to other
 resources.  These are meant to provide explicit URLs so that proper API clients
 don't need to construct URLs on their own.  It is highly recommended that API
 clients use these.  Doing so will make future upgrades of the API easier for
-developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
+developers.  All URLs are expected to be proper [RFC 6570](https://datatracker.ietf.org/doc/html/rfc6570) URI templates.
 
-You can then expand these templates using something like the [uri_template][uri]
+You can then expand these templates using something like the [uri_template](https://github.com/hannesg/uri_template)
 gem:
 
     >> tmpl = URITemplate.new('/notifications{?since,all,participating}')
@@ -285,21 +234,6 @@ gem:
 
     >> tmpl.expand all: 1, participating: 1
     => "/notifications?all=1&participating=1"
-
-[rfc]: https://datatracker.ietf.org/doc/html/rfc6570
-[uri]: https://github.com/hannesg/uri_template
-
-## Timeouts
-
-If {% data variables.product.prodname_dotcom %} takes more than 10 seconds to process an API request, {% data variables.product.prodname_dotcom %} will terminate the request and you will receive a timeout response like this:
-
-```json
-{
-    "message": "Server Error"
-}
-```
-
-{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
 {% ifversion fpt or ghec %}
 

@@ -1,7 +1,7 @@
 ---
 title: Defining custom patterns for secret scanning
 shortTitle: Define custom patterns
-intro: 'You can extend {% data variables.product.prodname_secret_scanning %} to detect secrets beyond the default patterns.'
+intro: 'You can define your own custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %} by generating one or more regular expressions.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
@@ -23,9 +23,17 @@ You can define custom patterns for your enterprise, organization, or repository.
 
 {% ifversion secret-scanning-push-protection-custom-patterns %}You can also enable push protection for custom patterns. For more information about push protection, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% endif %}
 
-## Regular expression syntax for custom patterns
+## About using regular expressions for custom patterns
 
 You can specify custom patterns for {% data variables.product.prodname_secret_scanning %} as one or more regular expressions.
+
+{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
+
+{% ifversion secret-scanning-custom-pattern-ai-generated %}Regular expressions can be entered manually or generated using the regular expression generator.
+
+### Regular expression syntax for manually defining custom patterns {% endif %}
+
+The **More options {% octicon "chevron-down" aria-label="down" %}** section in the UI helps you write regular expressions manually.
 
 - **Secret format:** an expression that describes the format of the secret itself.
 - **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.
@@ -34,7 +42,13 @@ You can specify custom patterns for {% data variables.product.prodname_secret_sc
 
 For simple tokens you will usually only need to specify a secret format. The other fields provide flexibility so that you can specify more complex secrets without creating complex regular expressions.  For an example of a custom pattern, see "[Example of a custom pattern specified using additional requirements](#example-of-a-custom-pattern-specified-using-additional-requirements)" below.
 
-{% data variables.product.prodname_secret_scanning_caps %} uses the [Hyperscan library](https://github.com/intel/hyperscan) and only supports Hyperscan regex constructs, which are a subset of PCRE syntax. Hyperscan option modifiers are not supported.  For more information on Hyperscan pattern constructs, see "[Pattern support](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)" in the Hyperscan documentation.
+{% ifversion secret-scanning-custom-pattern-ai-generated %}
+
+### Using the regular expression generator
+
+{% data reusables.secret-scanning.regular-expression-generator-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns) and "[AUTOTITLE](/code-security/secret-scanning/generating-regular-expressions-for-custom-patterns-with-ai)."
+
+{% endif %}
 
 ## Defining a custom pattern for a repository
 
@@ -51,7 +65,7 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 {%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}{% ifversion secret-scanning-push-protection-custom-patterns %}
-1. Optionally, to enable push protection for your custom pattern, click **Enable**.  
+1. Optionally, to enable push protection for your custom pattern, click **Enable**.
    {% note %}
 
    **Note**: The "Enable" button isn't available until after the dry run succeeds and you publish the pattern.
