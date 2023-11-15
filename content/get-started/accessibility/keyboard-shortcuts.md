@@ -176,7 +176,7 @@ If you view a code file in a repository using the **Code** view and click on any
 |-----------|------------
 |<kbd>Enter</kbd> | Toggle edit mode for the focused cell
 |<kbd>Escape</kbd> | Cancel editing for the focused cell
-|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
+|<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\ </kbd>(Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\ </kbd>(Windows/Linux) | Open row actions menu
 |<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
 |<kbd>Shift</kbd>+<kbd>↓</kbd> | Add cell{% ifversion projects-v2-board-keyboard-shorts %} or card{% endif %} below to selection
 |<kbd>Shift</kbd>+<kbd>↑</kbd> | Add cell {% ifversion projects-v2-board-keyboard-shorts %}or card{% endif %} above to selection
