@@ -25,12 +25,12 @@ topics:
 ```yaml
 jobs:
   example-job:
-      steps:
-        - name: Connect to PostgreSQL
-          run: node client.js
-          env:
-            POSTGRES_HOST: postgres
-            POSTGRES_PORT: 5432
+    steps:
+      - name: Connect to PostgreSQL
+        run: node client.js
+        env:
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
 ```
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."

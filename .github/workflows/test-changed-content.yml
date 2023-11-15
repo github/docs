@@ -48,6 +48,9 @@ jobs:
         uses: tj-actions/changed-files@40526807ee1e208a1a8c1bbe6bd2d1b044ef6368 # v40.0.2
         with:
           files: 'content/**'
+          # Necessary so we can know what the old name was when a
+          # content file was renamed.
+          output_renamed_files_as_deleted_and_added: true
 
       - name: Run tests
         env:

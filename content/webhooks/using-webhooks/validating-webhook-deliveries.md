@@ -52,7 +52,7 @@ There are a few important things to keep in mind when validating webhook payload
 - The hash signature always starts with `sha256=`.
 - The hash signature is generated using your webhook's secret token and the payload contents.
 - If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.
-- Never use a plain `==` operator. Instead consider using a method like [`secure_compare`][secure_compare] or [`crypto.timingSafeEqual`][timingSafeEqual], which performs a "constant time" string comparison to help mitigate certain timing attacks against regular equality operators, or regular loops in JIT-optimized languages.
+- Never use a plain `==` operator. Instead consider using a method like [`secure_compare`](https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare) or [`crypto.timingSafeEqual`](https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b), which performs a "constant time" string comparison to help mitigate certain timing attacks against regular equality operators, or regular loops in JIT-optimized languages.
 
 ### Testing the webhook payload validation
 
@@ -196,9 +196,6 @@ const handleWebhook = (req: Request, res: Response) => {
   // The rest of your logic here
 };
 ```
-
-[secure_compare]: https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare
-[timingSafeEqual]: https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b
 
 ## Troubleshooting
 

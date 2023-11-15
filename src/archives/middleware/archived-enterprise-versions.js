@@ -112,7 +112,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     })
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
-    if (newRedirectTo) {
+    if (newRedirectTo && newRedirectTo !== withoutLanguage) {
       if (redirectCode === 302) {
         languageCacheControl(res) // call first to get `vary`
       }

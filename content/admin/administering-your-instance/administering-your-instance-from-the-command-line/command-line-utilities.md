@@ -42,7 +42,8 @@ $ ghe-announce -d -s MESSAGE
 > Announcement message set.
 # Removes a previously set message
 $ ghe-announce -u
-> Removed the announcement message, which was user dismissible: MESSAGE
+> Removed the announcement message, which was user 
+> dismissible: MESSAGE
 ```
 
 {% endif %}
@@ -68,9 +69,11 @@ With this command, you can also pause or resume jobs in the queue.
 
 ```shell
 $ ghe-aqueduct status
-# lists queues and the number of currently queued jobs for all queues
+# lists queues and the number of currently queued jobs
+# for all queues
 $ ghe-aqueduct queue_depth --queue QUEUE
-# lists the number of currently queued jobs for the specified queue
+# lists the number of currently queued jobs for the
+# specified queue
 $ ghe-aqueduct pause --queue QUEUE
 # pauses the specified queue
 $ ghe-aqueduct resume --queue QUEUE
@@ -115,7 +118,8 @@ With this utility, you can both retrieve and modify the configuration settings o
 $ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
 $ ghe-config core.github-hostname URL
-# Sets the configuration value of `core.github-hostname` to the specified URL
+# Sets the configuration value of `core.github-hostname` 
+# to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
 ```
@@ -130,7 +134,8 @@ Allows you to exempt a list of users from REST API rate limits. A hard limit of 
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
-# Exempts the users hubot and github-actions[bot] from rate limits. Usernames are case-sensitive.
+# Exempts the users hubot and github-actions[bot] from rate limits.
+# Usernames are case-sensitive.
 ```
 
 ### ghe-config-apply
@@ -631,6 +636,27 @@ ghe-cluster-balance help
 ```
 
 {% endif %}
+
+### ghe-cluster-maintenance
+
+With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
+
+```shell
+$ ghe-cluster-maintenance -h
+# Shows options
+$ ghe-cluster-maintenance -q
+# Queries the current mode
+$ ghe-cluster-maintenance -s
+# Sets maintenance mode
+{%- ifversion custom-maintenance-mode-message %}
+$ ghe-cluster-maintenance -s "MESSAGE"
+# Sets maintenance mode with a custom message
+$ ghe-cluster-maintenance -m "MESSAGE"
+# Updates the custom message
+{%- endif %}
+$ ghe-cluster-maintenance -u
+# Unsets maintenance mode
+```
 
 ### ghe-cluster-status
 
