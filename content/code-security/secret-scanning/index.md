@@ -20,8 +20,12 @@ children:
   - /secret-scanning-partner-program
   - /configuring-secret-scanning-for-your-repositories
   - /defining-custom-patterns-for-secret-scanning
+  - /about-the-regular-expression-generator-for-custom-patterns
+  - /generating-regular-expressions-for-custom-patterns-with-ai
   - /managing-alerts-from-secret-scanning
   - /secret-scanning-patterns
+  - /about-the-detection-of-generic-secrets-with-secret-scanning
+  - /enabling-ai-powered-generic-secret-detection
   - /push-protection-for-repositories-and-organizations
   - /push-protection-for-users
   - /pushing-a-branch-blocked-by-push-protection

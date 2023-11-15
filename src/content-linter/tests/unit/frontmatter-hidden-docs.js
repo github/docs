@@ -4,7 +4,7 @@ import { runRule } from '../../lib/init-test.js'
 import { frontmatterHiddenDocs } from '../../lib/linting-rules/frontmatter-hidden-docs.js'
 
 const ACTIONS_FIXTURE = 'src/content-linter/tests/fixtures/actions/hidden.md'
-const EARLY_ACCESS_FIXTURE = 'tests/fixtures/content/early-access/secrets/early-days.md'
+const EARLY_ACCESS_FIXTURE = 'src/fixtures/fixtures/content/early-access/secrets/early-days.md'
 const EXPERIMENTAL_FIXTURE = 'src/content-linter/tests/fixtures/actions/experimental.md'
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 

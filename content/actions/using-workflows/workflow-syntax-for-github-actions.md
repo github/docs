@@ -220,7 +220,7 @@ A boolean specifying whether the input must be supplied.
 
 ## `on.workflow_dispatch.inputs.<input_id>.type`
 
-The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `number`, or `string`.
+The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `number`, `environment` or `string`.
 
 ## `permissions`
 

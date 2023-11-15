@@ -1,0 +1,1 @@
+Before you configure provisioning, you must configure authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users)."

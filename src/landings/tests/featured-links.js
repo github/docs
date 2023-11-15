@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { getDOM } from '../../../tests/helpers/e2etest.js'
+import { getDOM } from '#src/tests/helpers/e2etest.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('featuredLinks', () => {
@@ -34,7 +34,7 @@ describe('featuredLinks', () => {
   })
 
   // This is an important test because one of the popular links,
-  // in the front matter of `tests/fixtures/content/index.md`, uses
+  // in the front matter of `src/fixtures/fixtures/content/index.md`, uses
   // Liquid to conditionally include with `{% ifversion ghec %}`.
   test.each(['', '/enterprise-cloud@latest'])(
     'never more than 4 links per category in %a',
