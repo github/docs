@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router'
-
 import { Link } from 'src/frame/components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Notice } from './Notice'
@@ -13,7 +11,6 @@ type Props = {
 }
 
 export function Mutation({ item }: Props) {
-  const { locale } = useRouter()
   const { t } = useTranslation('graphql')
   const heading = t('reference.input_fields').replace('{{ GraphQLItemTitle }}', item.name)
   const heading2 = t('reference.return_fields').replace('{{ GraphQLItemTitle }}', item.name)
@@ -26,7 +23,7 @@ export function Mutation({ item }: Props) {
             <li>
               <code>{input.name}</code> (
               <code>
-                <Link href={input.href} locale={locale}>
+                <Link href={input.href} makeAbsolute>
                   {input.type}
                 </Link>
               </code>
