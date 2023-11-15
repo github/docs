@@ -1,6 +1,6 @@
----
+How are you doing?---
 title: Hello World
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
+intro: 'My name is Pat and i have just gotten more inspired to check my Github profile after many months of inactivity {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +14,9 @@ topics:
 
 ## Introduction
 
-{% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+{% data variables.product.product_name %} It feels great to be a digital member of this prestigious code hosting platform to express my creative ideas and collaborate with others, so I can work with others on projects from anywhere. I have completed the BCS Certificate in IT course, from the British Computer Society, which was sponsored by CDDTECH Academy where I gained knowledge of topics and tools in Software development, Computer Networks and information systems. I explore my career and business sentiments around Arts, Media and Technology and will be happy to have conversations around these sectors as they impact our world of digital and social innovation.
+
+Below, you have a sample tutorial to guide you on how to make your first Repository and start coding as a beginner... Let's go! 
 
 This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
 
