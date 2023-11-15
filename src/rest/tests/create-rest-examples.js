@@ -7,7 +7,7 @@ import {
   noResponse,
   oneToOne,
   matchingTags,
-} from './fixtures/create-rest-examples.js'
+} from '../fixtures/create-rest-examples.js'
 
 describe('rest example requests and responses', () => {
   // If there is a request with no request body parameters and all of

@@ -178,11 +178,9 @@ updates:
 
 {% note %}
 
-**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, changes to your manifest file(s) after a failed update, or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, {% ifversion dependabot-updates-deprecate-rerun-failed-jobs %}{% else %}changes to your manifest file(s) after a failed update, {% endif %}or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 
-{% ifversion dependabot-updates-failure-skip-schedule %}
 {% data reusables.dependabot.version-updates-skip-scheduled-runs %}
-{% endif %}
 
 {% endnote %}
 

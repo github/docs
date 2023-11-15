@@ -194,7 +194,7 @@ You can define a default platform in an article's YAML frontmatter. For more inf
 
 ## Tool tags
 
-We occasionally need to write documentation that has different instructions for different tools. For example, the {% data variables.product.prodname_dotcom %} UI, {% data variables.product.prodname_cli %}, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_github_codespaces %}, and Visual Studio Code might be able to accomplish the same task using different steps. We use tool tags to control what information is displayed for each tool.
+We occasionally need to write documentation that has different instructions for different tools. For example, the {% data variables.product.prodname_dotcom %} UI, {% data variables.product.prodname_cli %}, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_github_codespaces %}, and {% data variables.product.prodname_vscode %} might be able to accomplish the same task using different steps. We use tool tags to control what information is displayed for each tool.
 
 {% data variables.product.prodname_docs %} maintains tool tags for {% data variables.product.prodname_dotcom %} products and selected third-party extensions. See the [`all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) object in the `github/docs` repository for a list of all supported tools.
 

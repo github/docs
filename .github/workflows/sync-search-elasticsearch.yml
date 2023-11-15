@@ -32,7 +32,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
   # Since we'll run in NODE_ENV=production, we need to be explicit that
   # we don't want Hydro configured.
@@ -111,11 +110,6 @@ jobs:
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Check out repo
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 

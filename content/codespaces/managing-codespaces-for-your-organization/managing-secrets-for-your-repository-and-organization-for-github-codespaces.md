@@ -18,7 +18,7 @@ product: 'Secrets are available in all public repositories, in private repositor
 
 ## About secrets
 
-Secrets are {% ifversion fpt or ghec %}encrypted {% endif %}environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. For information on creating user-specific secrets, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
+Development environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. For information on creating user-specific secrets, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
 
 The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
 
@@ -44,7 +44,7 @@ Your project may require specific user secrets. For example, to run the applicat
 
 ## Adding secrets for a repository
 
-To create secrets for an organization repository, you must have administrator access.
+To create development environment secrets for an organization repository, you must have administrator access.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -57,7 +57,7 @@ To create secrets for an organization repository, you must have administrator ac
 
 ## Adding secrets for an organization
 
-When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
+When creating a development environment secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
 {% data reusables.organizations.secrets-permissions-statement %}
 
@@ -65,7 +65,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 {% data reusables.organizations.org_settings %}
 {% data reusables.codespaces.sidebar-secret %}
 
-1. At the top of the page, click **New organization secret**.
+1. At the top of the page, click **New secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
 1. From the **Repository access** dropdown list, choose an access policy.
@@ -73,7 +73,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 ## Reviewing access to organization-level secrets
 
-You can check which access policies are applied to a secret in your organization.
+You can check which access policies are applied to a development environment secret in your organization.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}

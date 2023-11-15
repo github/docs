@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Notice } from './Notice'
 import { useTranslation } from 'src/languages/components/useTranslation'
