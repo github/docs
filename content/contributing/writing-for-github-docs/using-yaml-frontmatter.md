@@ -89,9 +89,9 @@ Example:
 ```yaml
 title: Getting started with GitHub Desktop
 redirect_from:
-  - /articles/first-launch/
-  - /articles/error-github-enterprise-version-is-too-old/
-  - /articles/getting-started-with-github-for-windows/
+  - /articles/first-launch
+  - /articles/error-github-enterprise-version-is-too-old
+  - /articles/getting-started-with-github-for-windows
 ```
 
 For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/configuring-redirects)."
