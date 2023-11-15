@@ -11,3 +11,4 @@ bar_foo:
   guides:
     - /code-security/getting-started/securing-your-organization
     - /code-security/getting-started/quickstart
+    - /rest/actions

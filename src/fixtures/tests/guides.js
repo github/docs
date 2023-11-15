@@ -1,4 +1,4 @@
-import { getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
+import { get, getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('guides', () => {
   test("page's title should be document title", async () => {
@@ -93,5 +93,12 @@ describe('learning tracks', () => {
       expect($('[data-testid=learning-track-card]').length).toBe(0)
       expect($('[data-testid=learning-track-nav]').length).toBe(0)
     }
+  })
+
+  test('REST category learning track article works', async () => {
+    const response = await get('/rest/actions?learnProduct=code-security&learn=bar_foo', {
+      followAllRedirects: true,
+    })
+    expect(response.statusCode).toBe(200)
   })
 })
