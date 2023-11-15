@@ -23,7 +23,7 @@ jobs:
     if: github.repository == 'github/docs' && github.actor != 'docs-bot'
     steps:
       - id: membership_check
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:

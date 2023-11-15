@@ -18,7 +18,7 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
           script: |
             const query = `
