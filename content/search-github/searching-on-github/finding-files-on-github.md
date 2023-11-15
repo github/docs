@@ -18,7 +18,7 @@ topics:
 **Tips:**
 
 - By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-code-view %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.{% ifversion file-finder-exclusion-controls %} Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).{% endif %}
-- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
+- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
 
 {% endtip %}
 

@@ -17,9 +17,9 @@ children:
   - /media-types
   - /authenticating-to-the-rest-api
   - /keeping-your-api-credentials-secure
-  - /troubleshooting
+  - /troubleshooting-the-rest-api
   - /libraries-for-the-rest-api
-  - /openapi-description
+  - /about-the-openapi-description-for-the-rest-api
   - /issue-event-types
   - /github-event-types
   - /endpoints-available-for-github-app-installation-access-tokens
@@ -31,3 +31,4 @@ children:
 redirect_from:
   - /developers/overview
 ---
+

@@ -2,6 +2,8 @@
 import crypto from 'crypto'
 import fs from 'fs/promises'
 
+import { RequestError } from '@octokit/request-error'
+
 import Github from './github.js'
 const github = Github()
 
@@ -20,18 +22,19 @@ export async function getCommitSha(owner, repo, ref) {
   }
 }
 
-// https://docs.github.com/rest/reference/git#list-matching-references
-export async function listMatchingRefs(owner, repo, ref) {
+// based on https://docs.github.com/rest/reference/git#get-a-reference
+export async function hasMatchingRef(owner, repo, ref) {
   try {
-    // if the ref is found, this returns an array of objects;
-    // if the ref is not found, this returns an empty array
-    const { data } = await github.git.listMatchingRefs({
+    await github.git.getRef({
       owner,
       repo,
       ref,
     })
-    return data
+    return true
   } catch (err) {
+    if (err instanceof RequestError && err.status === 404) {
+      return false
+    }
     console.log('error getting tree')
     throw err
   }

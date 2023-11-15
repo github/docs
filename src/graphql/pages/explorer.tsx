@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { useEffect, useRef } from 'react'
 
 type Props = {

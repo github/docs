@@ -260,11 +260,6 @@ The following procedures will guide you through installing or updating the {% da
 1. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
 1. At the top of the **Settings/Preferences** dialog box, click **Installed**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Update**.
 1. After {% data variables.product.prodname_copilot %} is updated, quit and relaunch your JetBrains IDE.
-1. After your JetBrains IDE has restarted, navigate back to the **Settings/Preferences** dialog box. Click **Languages & Frameworks**, then click **{% data variables.product.prodname_copilot %}**.
-1. Under "Plugin", in the "Update channel" dropdown menu, select **Nightly**.
-1. Click **Apply**.
-1. Click **OK**.
-1. Quit and relaunch your JetBrains IDE.
 
 ## Asking your first question
 
