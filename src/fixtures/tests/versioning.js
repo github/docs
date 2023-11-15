@@ -1,4 +1,3 @@
-import { expect } from '@jest/globals'
 import { getDOM, head } from '#src/tests/helpers/e2etest.js'
 import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 
@@ -44,6 +43,33 @@ describe('article versioning', () => {
     expect(res.headers.location).toBe(
       '/en/enterprise-cloud@latest/get-started/versioning/only-ghec',
     )
+  })
+})
+
+describe('category versioning', () => {
+  test('category page work in all children versions', async () => {
+    {
+      // Note that in the `versions:` of get-started/versioning/index.md
+      // it *lacks* fpt. It's a deliberate pretend omission/mistake.
+      // But clearly the page works.
+      const res = await head('/en/get-started/versioning')
+      expect(res.statusCode).toBe(200)
+    }
+    {
+      // The actual version number of get-started/versioning/index.md
+      // does not specify this version of ghes, it still works.
+      const res = await head('/en/enterprise-server@latest/get-started/versioning')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toMatch(
+        /\/en\/enterprise-server@[\d.]+\/get-started\/versioning/,
+      )
+    }
+    {
+      // The actual version number of get-started/versioning/index.md
+      // does not specify this version of ghec, it still works.
+      const res = await head('/en/enterprise-cloud@latest/get-started/versioning')
+      expect(res.statusCode).toBe(200)
+    }
   })
 })
 
