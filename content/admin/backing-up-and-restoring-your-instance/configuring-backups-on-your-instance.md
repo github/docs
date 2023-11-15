@@ -48,8 +48,8 @@ Physical storage requirements will vary based on Git repository disk usage and e
 
 | Hardware | Recommendation |
 | -------- | --------- |
-| **vCPUs**  | 2 |
-| **Memory** | 2 GB |
+| **vCPUs**  | 4 |
+| **Memory** | 8 GB |
 | **Storage** | Five times the primary instance's allocated storage |
 
 More resources may be required depending on your usage, such as user activity and selected integrations.
