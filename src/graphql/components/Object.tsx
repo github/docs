@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router'
-
 import { Link } from 'src/frame/components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
@@ -11,7 +9,6 @@ type Props = {
 }
 
 export function Object({ item }: Props) {
-  const { locale } = useRouter()
   const { t } = useTranslation('graphql')
   const heading1 = t('reference.implements').replace('{{ GraphQLItemTitle }}', item.name)
   const heading2 = t('reference.fields').replace('{{ GraphQLItemTitle }}', item.name)
@@ -25,7 +22,7 @@ export function Object({ item }: Props) {
             {item.implements.map((implement: ImplementsT) => (
               <li key={`${implement.id}-${implement.href}-${implement.name}`}>
                 <code>
-                  <Link href={implement.href} locale={locale}>
+                  <Link href={implement.href} makeAbsolute>
                     {implement.name}
                   </Link>
                 </code>
