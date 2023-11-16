@@ -11,7 +11,7 @@
   },
   {
     "action": "actions_cache.delete",
-    "description": "N/A",
+    "description": "A GitHub Actions cache was deleted using the REST API.",
     "docs_reference_links": "N/A"
   },
   {

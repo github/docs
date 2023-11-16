@@ -50,6 +50,7 @@ For more information about the different types of versioning, see "[Versioning d
 - Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
 - The `*` is used to denote all releases for the version.
+- Must be present for all `index.md` files, but actual value is computed at runtime based on the children.
 
 This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](#permalinks).
 
@@ -59,7 +60,7 @@ Example that applies to {% data variables.product.prodname_dotcom_the_website %}
 title: About your personal dashboard
 versions:
   fpt: '*'
-  ghes: '>=2.20'
+  ghes: '>=3.11'
 ```
 
 Example that applies to all supported versions of {% data variables.product.prodname_ghe_server %}, but not {% data variables.product.prodname_dotcom_the_website %}:
