@@ -1,7 +1,7 @@
 import { describe, jest } from '@jest/globals'
 
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 import Page from '#src/frame/lib/page.js'
 
 // The English content page's `versions:` frontmatter is the source

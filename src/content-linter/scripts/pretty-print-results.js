@@ -61,8 +61,8 @@ export function prettyPrintResults(results, { fixed = false } = {}) {
               result.severity === 'error'
                 ? chalk.bold(chalk.red('ERROR'))
                 : result.severity === 'warning'
-                ? chalk.yellow('WARNING')
-                : chalk.blue(result.severity)
+                  ? chalk.yellow('WARNING')
+                  : chalk.blue(result.severity)
             }`,
           )
         }

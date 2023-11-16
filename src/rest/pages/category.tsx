@@ -1,19 +1,24 @@
 import { GetServerSideProps } from 'next'
 import { Operation } from 'src/rest/components/types'
 import { RestReferencePage } from 'src/rest/components/RestReferencePage'
-import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
+import {
+  addUINamespaces,
+  getMainContext,
+  MainContext,
+  MainContextT,
+} from 'src/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
 } from 'src/automated-pipelines/components/AutomatedPageContext'
-import type { MiniTocItem } from 'components/context/ArticleContext'
+import type { MiniTocItem } from 'src/frame/components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
   TocItem,
   TocLandingContext,
   TocLandingContextT,
-} from 'components/context/TocLandingContext'
+} from 'src/frame/components/context/TocLandingContext'
 import { TocLanding } from 'src/landings/components/TocLanding'
 
 type MinitocItemsT = {
@@ -200,10 +205,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // created.
   tocLandingContext.tocItems = restCategoryTocItems
 
+  const mainContext = await getMainContext(req, res)
+  if (tocLandingContext.currentLearningTrack?.trackName) {
+    addUINamespaces(req, mainContext.data.ui, ['learning_track_nav'])
+  }
+
   return {
     props: {
       restOperations,
-      mainContext: await getMainContext(req, res),
+      mainContext,
       automatedPageContext: getAutomatedPageContextFromRequest(req),
       tocLandingContext,
     },

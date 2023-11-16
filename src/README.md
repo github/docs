@@ -36,9 +36,8 @@ A capability should have its own subject folder when it has its _own specific te
 
 A few things are harder to categorize, so there's some broad folders:
 
-- `content/`, for things that make the `content/` or `data/` directories work. And there's no more specific option.
-- `environments/`, for things that make local, testing, preview, staging, production work. And there's no more specific option.
 - `frame/`, for things that make the header, footer, global sidebar functional. And there's no more specific option.
+- `workflows/`, for things that are processes rather than the production application. And there's no more specific option.
 
 But don't hestitate to make a new subject folder if there's at least a few files related.
 

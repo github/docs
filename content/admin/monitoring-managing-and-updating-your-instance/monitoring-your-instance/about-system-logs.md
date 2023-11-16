@@ -131,14 +131,13 @@ The following log files contain events from services that provide search functio
 | :- | :- |
 | <pre>/var/log/elasticsearch/github-enterprise.log</pre> | Records events associated with the Elasticsearch service, which your instance uses to provide search services. |
 
-### Log files for webhooks
+### Journal logs for webhooks
 
-The following log files contain events from the service that delivers webhook payloads for your instance. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)."
+The following log files contain events related to webhooks that your instance sends.
 
-| Path | Description |
+| Service name | Description |
 | :- | :- |
-| <pre>/var/log/hookshot/resqued.log</pre> | Records webhook deliveries and failures from your instance. |
-| <pre>/var/log/hookshot/unicorn.log</pre> | Records webhook events that are triggered on your instance. |
+| `hookshot-go` | Records events for all webhook activity on the instance, including triggered webhooks, deliveries, and failures.|
 
 ### Log files for system services
 
