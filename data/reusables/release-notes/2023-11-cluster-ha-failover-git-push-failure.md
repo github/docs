@@ -1,0 +1,1 @@
+After failing over an instance in a cluster configuration, Git pushes to the instance will fail. This issue impacts pushes from the command line as well as the web interface. To resolve this issue, [contact GitHub Support](https://support.github.com/contact).

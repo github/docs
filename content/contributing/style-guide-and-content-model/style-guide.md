@@ -1192,6 +1192,12 @@ We use short titles to populate the sidebar navigation. Since short titles appea
 
 Writing short titles can be challenging. To help get short titles under the character count, consider the short title in context. Remove any repeated words if possible and any product or feature names that are in the map topic or category that the content belongs to.
 
+## Site policy content
+
+Do not use reusables or variables in site policy content. Site policy articles are legal documents and must have a human-readable source.
+
+Site policy content otherwise uses the same style and content models as the rest of {% data variables.product.prodname_docs %}.
+
 ## User interface elements
 
 ### Boldface

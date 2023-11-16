@@ -17,6 +17,7 @@ import languages from '#src/languages/lib/languages.js'
 
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',
+  'assets/images/site/favicon.svg',
   'assets/images/site/apple-touch-icon.png',
   'assets/images/site/apple-touch-icon-114x114.png',
   'assets/images/site/apple-touch-icon-120x120.png',
