@@ -19,7 +19,7 @@ sections:
     - |
       {% data reusables.release-notes.mermaid-rendering-known-issue %}
     - |
-      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %} [Updated: 2023-07-31]
     - |
       {% data reusables.release-notes.migrations-missing-section-known-issue %} [Updated: 2023-08-18]
     - |

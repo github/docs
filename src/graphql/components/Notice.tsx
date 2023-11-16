@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router'
-
 import { Link } from 'src/frame/components/Link'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { GraphqlT } from './types'
@@ -10,8 +8,6 @@ type Props = {
 }
 
 export function Notice({ item, variant = 'preview' }: Props) {
-  const { locale } = useRouter()
-
   const { t } = useTranslation('graphql')
   const previewTitle =
     variant === 'preview' ? t('reference.preview_notice') : t('reference.deprecation_notice')
@@ -24,7 +20,7 @@ export function Notice({ item, variant = 'preview' }: Props) {
       {variant === 'preview' && item.preview ? (
         <p>
           <code>{item.name}</code> is available under the{' '}
-          <Link href={item.preview.href} locale={locale}>
+          <Link href={item.preview.href} makeAbsolute>
             {item.preview.title}
           </Link>
           . {t('reference.preview_period')}
