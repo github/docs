@@ -5,6 +5,7 @@ name: Check unallowed file changes
 # **Who does it impact**: Open source contributors.
 
 on:
+  # Needed in lieu of `pull_request` so that PRs from a fork can be notified of unallowed changes.
   pull_request_target:
     paths:
       - '.devcontainer/**'

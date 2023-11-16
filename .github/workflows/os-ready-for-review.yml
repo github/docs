@@ -4,6 +4,7 @@ name: OS Ready for review
 # **Why we have it**: So that contributors in the OS repo can easily get reviews from the docs-content team, and so that writers can see when a PR is ready for review
 # **Who does it impact**: Writers working in the docs repository
 on:
+  # Needed in lieu of `pull_request` so that PRs from a fork can be triaged to the proper project board.
   pull_request_target:
     types: [labeled]
   issues:
