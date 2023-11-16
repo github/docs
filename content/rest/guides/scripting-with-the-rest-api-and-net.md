@@ -1,7 +1,7 @@
 ---
 title: Scripting with the REST API and .NET
 shortTitle: Script with .NET
-intro: Learn how to write a script using the Octokit.net SDK to interact with the REST API.
+intro: Learn how to write a script using the Octokit.NET SDK to interact with the REST API.
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,7 +21,7 @@ If you want to write a script using .NET to interact with a .NET product's REST 
 
 This guide assumes that you are familiar with .NET development and the REST API of {% data variables.product.company_short %}. For more information about the REST API, refer to {% data variables.product.company_short %}'s official API documentation.
 
-You must install the Octokit.net package and import relevant namespaces to use the Octokit.net SDK in your script. You can install Octokit.net via NuGet or your preferred package manager. For more information, see the official documentation for Octokit.NET.
+You must install the Octokit.NET package and import relevant namespaces to use the Octokit.NET SDK in your script. You can install Octokit.NET via NuGet or your preferred package manager. For more information, see the official documentation for Octokit.NET.
 
 ## Installation
 
@@ -199,7 +199,7 @@ var mappedIssuesData = await github.Repository.GetAllIssues("github", "docs", ne
 
 ### Catching all errors
 
-Sometimes, the {% data variables.product.company_short %} REST API will return an error. For example, you will get an error if your access token is expired or if you omitted a required parameter. Octokit.net automatically retries the request when it gets an error other than `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, and `422 Unprocessable Entity`. If an API error occurs even after retries, Octokit.net throws an error that includes the HTTP status code of the response (`response.status`) and the response headers (`response.headers`). You should handle these errors in your code. For example, you can use a try/catch block to catch errors:
+Sometimes, the {% data variables.product.company_short %} REST API will return an error. For example, you will get an error if your access token is expired or if you omitted a required parameter. Octokit.NET automatically retries the request when it gets an error other than `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, and `422 Unprocessable Entity`. If an API error occurs even after retries, Octokit.NET throws an error that includes the HTTP status code of the response (`response.status`) and the response headers (`response.headers`). You should handle these errors in your code. For example, you can use a try/catch block to catch errors:
 
 ```csharp
 using Octokit;
@@ -318,7 +318,7 @@ Console.WriteLine($"The title of the first issue is: {data[0].Title}");
 
 ## Example script
 
-Here is a full example script that uses Octokit.net. The script imports `Octokit` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app)" in this guide.
+Here is a full example script that uses Octokit.NET. The script imports `Octokit` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app)" in this guide.
 
 ```csharp
 using Octokit;
@@ -395,6 +395,6 @@ class Program
 
 ## Next steps
 
-- To learn more about Octokit.net see [the .NET Octokit SDK documentation](https://github.com/octokit/octokit.net).
-- For some real life examples, look at how {% data variables.product.company_short %} Docs uses Octokit.net by [searching the {% data variables.product.company_short %} Docs repository](https://github.com/search?q=repo%3Agithub%2Fdocs%20path%3A.github%20octokit&type=code).
+- To learn more about Octokit.NET see [the .NET Octokit SDK documentation](https://github.com/octokit/octokit.NET).
+- For some real life examples, look at how {% data variables.product.company_short %} Docs uses Octokit.NET by [searching the {% data variables.product.company_short %} Docs repository](https://github.com/search?q=repo%3Agithub%2Fdocs%20path%3A.github%20octokit&type=code).
 
