@@ -1,7 +1,7 @@
 ---
-title: organization-roles
-shortTitle: organization-roles
-intro: ''
+title: Organization roles
+shortTitle: Organization roles
+intro: 'Use the REST API to interact with organization roles.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
