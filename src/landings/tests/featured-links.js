@@ -25,7 +25,7 @@ describe('featuredLinks', () => {
     const $featuredLinks = $('[data-testid=article-list] a')
     expect($featuredLinks.length).toBeGreaterThan(0)
     expect($featuredLinks.eq(0).attr('href')).toBe(
-      `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/foo/bar`,
+      `/en/enterprise-server@${enterpriseServerReleases.latestStable}/get-started/foo/bar`,
     )
     expect($featuredLinks.eq(0).children('h3').text()).toMatch('Bar Usually Comes After Foo')
     expect($featuredLinks.eq(0).children('p').text()).toMatch(

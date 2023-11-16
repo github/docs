@@ -26,7 +26,6 @@ const MANDATORY_FILES = [
   'data/reusables/enterprise_deprecation/deprecation_details.md',
   'data/reusables/enterprise_deprecation/version_was_deprecated.md',
   'data/reusables/enterprise_deprecation/version_will_be_deprecated.md',
-  'data/variables/release_candidate.yml',
 ]
 
 const DESTINATION = path.resolve('src/fixtures/fixtures')

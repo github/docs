@@ -42,8 +42,8 @@ describe('redirects', () => {
     expect(pageRedirects['/about-issues']).toBe('/issues')
     expect(pageRedirects['/creating-an-issue']).toBe('/issues')
     expect(
-      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/about-issues`],
-    ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
+      pageRedirects[`/enterprise-server@${enterpriseServerReleases.latestStable}/about-issues`],
+    ).toBe(`/enterprise-server@${enterpriseServerReleases.latestStable}/issues`)
     expect(
       pageRedirects[`/enterprise-server@${enterpriseServerReleases.latest}/creating-an-issue`],
     ).toBe(`/enterprise-server@${enterpriseServerReleases.latest}/issues`)
@@ -170,6 +170,7 @@ describe('redirects', () => {
 
   describe('enterprise home page', () => {
     const enterpriseHome = `/en/enterprise-server@${enterpriseServerReleases.latest}`
+    const enterpriseStableHome = `/en/enterprise-server@${enterpriseServerReleases.latestStable}`
 
     test('/enterprise', async () => {
       const res = await get('/enterprise')
@@ -189,10 +190,10 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(enterpriseHome)
     })
 
-    test('hardcoded @latest redirects to latest version', async () => {
+    test('hardcoded @latest redirects to latest stable version', async () => {
       const res = await get('/en/enterprise-server@latest')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe(enterpriseHome)
+      expect(res.headers.location).toBe(enterpriseStableHome)
     })
   })
 
