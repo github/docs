@@ -67,9 +67,11 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
     {% endif %}
 1. To create a Kubernetes secret with the value of your {% data variables.product.pat_v1 %}, use the following command.
 
+   {% data reusables.actions.arc-runners-namespace %}
+
    ```bash copy
    kubectl create secret generic pre-defined-secret \
-      --namespace=my_namespace \
+      --namespace=arc-runners \
       --from-literal=github_token='YOUR-PAT'
    ```
 

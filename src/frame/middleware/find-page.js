@@ -23,7 +23,20 @@ export default async function findPage(
 
   let page = req.context.pages[req.pagePath]
   if (page && isDev && englishPrefixRegex.test(req.pagePath)) {
+    // The .applicableVersions and .permalinks properties are computed
+    // when the page is read in from disk. But when the initial tree
+    // was created at startup, the pages in the tree were mutated
+    // based on their context. For example, a category page's versions
+    // is based on looping through all its children's versions.
+    const reuseOldVersions = page.relativePath.endsWith('index.md')
+    const oldApplicableVersions = page.applicableVersions
+    const oldPermalinks = page.permalinks
+
     page = await rereadByPath(req.pagePath, contentRoot, req.context.currentVersion)
+    if (reuseOldVersions) {
+      page.applicableVersions = oldApplicableVersions
+      page.permalinks = oldPermalinks
+    }
 
     // This can happen if the page we just re-read has changed which
     // versions it's available in (the `versions` frontmatter) meaning

@@ -16,7 +16,7 @@ If the Simple Browser tab does not open automatically, you can open the Simple B
 1. In {% data variables.product.prodname_vscode_shortname %}, click the **Ports** tab.
 1. Right-click the port, then click **Preview in Editor**.
 
-   ![Screenshot of the pop-up menu in the VS Code Ports tab. The menu entry "Preview in Editor" is highlighted with a dark orange outline.](/assets/images/help/codespaces/preview-in-editor-vscode.png)
+   ![Screenshot of the pop-up menu in the {% data variables.product.prodname_vscode_shortname %} Ports tab. The menu entry "Preview in Editor" is highlighted with a dark orange outline.](/assets/images/help/codespaces/preview-in-editor-vscode.png)
 
 #### The simple browser tab does not open automatically
 

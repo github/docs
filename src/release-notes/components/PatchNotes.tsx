@@ -1,6 +1,6 @@
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 
 const SectionToLabelMap: Record<string, string> = {
   features: 'Features',
