@@ -56,6 +56,13 @@ describe('invalid query strings', () => {
       expect(res.statusCode).toBe(200)
     }
   })
+
+  test('query string keys with square brackets', async () => {
+    const url = `/?constructor[foo][bar]=buz`
+    const res = await get(url)
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/en')
+  })
 })
 
 function randomCharacters(length) {
