@@ -10,6 +10,8 @@ topics:
   - Fundamentals
 permissions: Organization owners can create an enterprise account.
 shortTitle: Create enterprise account
+redirect_from:
+  - /admin/overview/creating-an-enterprise-account
 ---
 
 ## About enterprise account creation

@@ -1,6 +1,6 @@
 ---
 title: Deleting an enterprise account
-intro: "You can delete an enterprise account to stop paying for {% data variables.product.prodname_enterprise %}."
+intro: 'You can delete an enterprise account to stop paying for {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
 type: how_to
@@ -10,6 +10,8 @@ topics:
   - Fundamentals
 permissions: Enterprise owners can delete an enterprise account if the company pays by credit card or PayPal.
 shortTitle: Delete enterprise account
+redirect_from:
+  - /admin/overview/deleting-an-enterprise-account
 ---
 
 ## About enterprise account deletion
