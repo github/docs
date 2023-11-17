@@ -7,6 +7,7 @@ name: Repo Freeze Check
 on:
   workflow_dispatch:
   merge_group:
+  # Needed in lieu of `pull_request` so that PRs from a fork can stopped from merging when there's a freeze.
   pull_request_target:
     types:
       - opened

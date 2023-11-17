@@ -5,6 +5,7 @@ name: Merged notification
 # **Who does it impact**: Open-source contributors.
 
 on:
+  # Needed in lieu of `pull_request` so that the notification comment is posted to a PR from a fork.
   pull_request_target:
     types:
       - 'closed'

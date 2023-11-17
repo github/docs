@@ -5,6 +5,7 @@ name: Notify When Maintainers Cannot Edit
 # **Who does it impact**: Open-source.
 
 on:
+  # Needed in lieu of `pull_request` so that PRs from a fork can be notified.
   pull_request_target:
     types:
       - opened

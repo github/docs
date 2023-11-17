@@ -6,6 +6,7 @@ name: Content Changes Table Comment
 
 on:
   workflow_dispatch:
+  # Required in lieu of `pull_request` so that the content changes tables can be posts to PRs opened from a fork.
   pull_request_target:
 
 permissions:
