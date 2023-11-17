@@ -31217,6 +31217,54 @@
       ]
     },
     {
+      "name": "MemberFeatureRequestNotification",
+      "kind": "objects",
+      "id": "memberfeaturerequestnotification",
+      "href": "/graphql/reference/objects#memberfeaturerequestnotification",
+      "description": "<p>Represents a member feature request notification.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>Represents member feature request body containing organization name and the number of feature requests.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MemberFeatureRequestNotification object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "title",
+          "description": "<p>Represents member feature request notification title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
       "name": "MembersCanDeleteReposClearAuditEntry",
       "kind": "objects",
       "id": "memberscandeletereposclearauditentry",
@@ -65984,6 +66032,14 @@
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "paymentSource",
+          "description": "<p>The platform that was used to pay for the sponsorship.</p>",
+          "type": "SponsorshipPaymentSource",
+          "id": "sponsorshippaymentsource",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshippaymentsource"
         },
         {
           "name": "previousSponsorsTier",
