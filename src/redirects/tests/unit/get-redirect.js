@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals'
 
 import getRedirect from '../../lib/get-redirect.js'
-import { latest, supported } from '#src/versions/lib/enterprise-server-releases.js'
+import { latest, latestStable, supported } from '#src/versions/lib/enterprise-server-releases.js'
 const previousEnterpriserServerVersion = supported[1]
 
 describe('getRedirect basics', () => {
@@ -41,8 +41,10 @@ describe('getRedirect basics', () => {
 
     expect(getRedirect('/enterprise-server@3.7', ctx)).toBe('/en/enterprise-server@3.7')
 
-    expect(getRedirect('/enterprise-server@latest', ctx)).toBe(`/en/enterprise-server@${latest}`)
-    expect(getRedirect('/enterprise-server', ctx)).toBe(`/en/enterprise-server@${latest}`)
+    expect(getRedirect('/enterprise-server@latest', ctx)).toBe(
+      `/en/enterprise-server@${latestStable}`,
+    )
+    expect(getRedirect('/enterprise-server', ctx)).toBe(`/en/enterprise-server@${latestStable}`)
   })
 
   it('should always "remove" the free-pro-team prefix', () => {
@@ -138,11 +140,14 @@ describe('getRedirect basics', () => {
       pages: {},
       redirects: {
         [`/enterprise-server@${latest}/foo`]: `/enterprise-server@${latest}/bar`,
+        [`/enterprise-server@${latestStable}/foo`]: `/enterprise-server@${latestStable}/bar`,
       },
     }
     // Nothing's needed here because it's not /admin/guides and
     // it already has the enterprise-server prefix.
-    expect(getRedirect('/enterprise-server/foo', ctx)).toBe(`/en/enterprise-server@${latest}/bar`)
+    expect(getRedirect('/enterprise-server/foo', ctx)).toBe(
+      `/en/enterprise-server@${latestStable}/bar`,
+    )
   })
 
   it('should work for some deprecated enterprise-server URLs too', () => {
