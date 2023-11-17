@@ -13,6 +13,8 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 
 {% data reusables.rest-api.permission-header %}
 
+These permissions are required to access private resources with the following endpoints. Some endpoints can also be used to access public resources without these permissions.
+
 Some endpoints require additional permissions. When this is the case, the "Additional permissions" column will indicate the other permissions that are required to use the endpoint.
 
 <!-- The content of this page is rendered as a NextJS page component. -->
