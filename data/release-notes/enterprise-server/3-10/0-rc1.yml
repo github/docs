@@ -253,7 +253,7 @@ sections:
     - |
       After an administrator upgrades from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9 or 3.10, I/O utilization will increase, and in some cases the instance's performance will be impacted. Reduced performance is due to the database server being upgraded from MySQL 5.7 to MySQL 8.0. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
     - |
-      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
     - |
       When enabling CodeQL via default setup [at scale](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale), some checks related to GitHub Actions are omitted, potentially preventing the process from completing.
     - |
@@ -266,8 +266,7 @@ sections:
       You can safely ignore this message.
     - |
       Custom firewall rules are removed during the upgrade process.
-    - |
-      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |
@@ -286,6 +285,8 @@ sections:
       {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
     - |
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %} [Updated: 2023-10-31]
 
   deprecations:
     # https://github.com/github/releases/issues/2605

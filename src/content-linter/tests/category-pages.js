@@ -5,12 +5,12 @@ import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 
-import matter from '../../../lib/read-frontmatter.js'
+import matter from '#src/frame/lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import contextualize from '../../../middleware/context.js'
+import contextualize from '#src/frame/middleware/context/context.js'
 import shortVersions from '#src/versions/middleware/short-versions.js'
-import { ROOT } from '../../../lib/constants.js'
+import { ROOT } from '#src/frame/lib/constants.js'
 
 const slugger = new GithubSlugger()
 
@@ -223,7 +223,7 @@ describe('category pages', () => {
             indexShortTitle ? ` or shortTitle "${indexShortTitle}"` : ' (no shortTitle)'
           }`
           const newCategoryDirPath = path.join(path.dirname(categoryDirPath), expectedSlugs.at(-1))
-          customMessage += `\nTo resolve this consider running:\n  ./script/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
+          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
           // Check if the directory name matches the expected slug
           expect(expectedSlugs.includes(categoryDirName), customMessage).toBeTruthy()
         })

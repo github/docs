@@ -41,7 +41,7 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 {% endif %}
 
-{% ifversion dependabot-alert-custom-rules-repo-level %}
+{% ifversion dependabot-auto-triage-rules %}
 
 {% data reusables.dependabot.dependabot-alert-rules %}
 
@@ -77,7 +77,7 @@ You can find the dependency graph on the **Insights** tab for your repository. F
 
 ### Security overview
 
-Security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
+Security overview allows you to review the overall security landscape of your organization, view trends and other insights, and manage security configurations, making it easy to monitor your organization's security status and identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
 {% else %}
 

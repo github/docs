@@ -3,10 +3,11 @@ import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-defaul
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import {
   latest,
+  latestStable,
   supported,
   deprecatedWithFunctionalRedirects,
 } from '#src/versions/lib/enterprise-server-releases.js'
-import { getPathWithLanguage } from '../../../lib/path-utils.js'
+import { getPathWithLanguage } from '#src/frame/lib/path-utils.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})/`)
 const nonEnterpriseDefaultVersionPrefix = `/${nonEnterpriseDefaultVersion}`
@@ -64,7 +65,8 @@ export default function getRedirect(uri, context) {
   ) {
     // E.g. '/enterprise-server' or '/enterprise-server/3.0/foo'
     basicCorrection =
-      `/${language}` + withoutLanguage.replace('/enterprise-server', `/enterprise-server@${latest}`)
+      `/${language}` +
+      withoutLanguage.replace('/enterprise-server', `/enterprise-server@${latestStable}`)
     // If it's now just the version, without anything after, exit here
     if (withoutLanguage === '/enterprise-server') {
       return basicCorrection
@@ -73,7 +75,7 @@ export default function getRedirect(uri, context) {
     // E.g. '/enterprise-server@latest' or '/enterprise-server@latest/3.3/foo'
     basicCorrection =
       `/${language}` +
-      withoutLanguage.replace('/enterprise-server@latest', `/enterprise-server@${latest}`)
+      withoutLanguage.replace('/enterprise-server@latest', `/enterprise-server@${latestStable}`)
     // If it was *just* '/enterprise-server@latest' all that's needed is
     // the language but with 'latest' replaced with the value of `latest`
     if (withoutLanguage === '/enterprise-server@latest') {

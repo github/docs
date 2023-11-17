@@ -13,9 +13,9 @@
 
 import { jest, test, expect } from '@jest/globals'
 
-import { describeIfElasticsearchURL } from '../../../tests/helpers/conditional-runs.js'
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
+import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(

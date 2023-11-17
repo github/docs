@@ -3,11 +3,11 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon, NoteIcon } from '@primer/octicons-react'
 
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { useVersion } from 'src/versions/components/useVersion'
-import { Lead } from 'components/ui/Lead'
+import { Lead } from 'src/frame/components/ui/Lead'
 
 export const LandingHero = () => {
   const {
@@ -54,7 +54,7 @@ export const LandingHero = () => {
                     href={link}
                     className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary')}
                   >
-                    {t(key) || key}
+                    {t(key)}
                   </FullLink>
                 )
               })}

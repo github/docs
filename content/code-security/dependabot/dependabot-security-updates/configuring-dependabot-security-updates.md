@@ -34,6 +34,8 @@ You can enable {% data variables.product.prodname_dependabot_security_updates %}
 
 You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository{% ifversion code-security-multi-repo-enablement %}, for a selection of repositories in an organization,{% endif %} or for all repositories owned by your personal account or organization. For more information about enabling security features in an organization, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
 
+{% data reusables.dependabot.dependabot-security-updates-disable-for-alert-rules %}
+
 {% ifversion fpt or ghec %}{% data reusables.dependabot.dependabot-tos %}{% endif %}
 
 ## Supported repositories

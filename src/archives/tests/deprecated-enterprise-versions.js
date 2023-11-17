@@ -1,8 +1,8 @@
 import { describe, jest, test } from '@jest/globals'
 
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 

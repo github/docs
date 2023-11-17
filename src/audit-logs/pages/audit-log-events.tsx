@@ -1,6 +1,11 @@
 import { GetServerSideProps } from 'next'
 
-import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
+import {
+  addUINamespaces,
+  getMainContext,
+  MainContext,
+  MainContextT,
+} from 'src/frame/components/context/MainContext'
 import {
   getAutomatedPageContextFromRequest,
   AutomatedPageContext,
@@ -41,7 +46,7 @@ export default function AuditLogEvents({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAutomatedPageMiniTocItems } = await import('lib/get-mini-toc-items')
+  const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items')
   const { getAuditLogEvents } = await import('src/audit-logs/lib')
 
   const req = context.req as object
@@ -50,6 +55,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const url = context.req.url
 
   const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['audit_logs'])
+
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
   let auditLogEvents = {} as Record<string, Array<AuditLogEventT>>

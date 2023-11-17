@@ -7,6 +7,7 @@ name: Comment on adding "needs SME" label
 on:
   issues:
     types: [labeled]
+  # Needed in lieu of `pull_request` so that PRs from a fork can be labeled.
   pull_request_target:
     types: [labeled]
 

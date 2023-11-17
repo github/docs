@@ -2,11 +2,11 @@ import fs from 'fs'
 
 import { describe, expect } from '@jest/globals'
 
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 describe('anchor-redirect api', () => {
   const clientSideRedirects = JSON.parse(

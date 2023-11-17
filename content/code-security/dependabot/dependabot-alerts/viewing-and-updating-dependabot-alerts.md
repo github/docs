@@ -47,8 +47,8 @@ You can also audit actions taken in response to {% data variables.product.prodna
 ## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
 
 {% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. {% ifversion dependabot-most-important-sort-option %} By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
-{% ifversion dependabot-alert-rules-auto-dismissal-npm-dev-dependencies %}
-You can also use alert rules to prioritize {% data variables.product.prodname_dependabot_alerts %}. For more information, see “[AUTOTITLE](/code-security/dependabot/dependabot-alert-rules/about-dependabot-alert-rules).”
+{% ifversion dependabot-auto-triage-rules %}
+You can also use {% data variables.dependabot.auto_triage_rules %} to prioritize {% data variables.product.prodname_dependabot_alerts %}. For more information, see “[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).”
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
@@ -111,6 +111,10 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 {% endif %}
 
 ## Viewing {% data variables.product.prodname_dependabot_alerts %}
+
+You can view all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %} in your repository's {% data variables.product.prodname_dependabot_alerts %} tab. You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by selecting a filter from the dropdown menu.
+
+{% ifversion ghec or ghes or ghae %}To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

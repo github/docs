@@ -1,7 +1,7 @@
 import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getDataByLanguage } from '../../../../lib/get-data.js'
+import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
 
 /*

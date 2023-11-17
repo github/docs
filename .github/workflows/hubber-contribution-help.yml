@@ -5,7 +5,7 @@ name: Hubber contribution help
 # **Who does it impact**: docs-internal contributors
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
     paths:
@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   check-team-membership:
-    if: github.repository == 'github/docs-internal' && github.actor != 'github-openapi-bot'
+    if: github.repository == 'github/docs-internal' && github.actor != 'github-openapi-bot' && github.actor != 'docs-bot'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo

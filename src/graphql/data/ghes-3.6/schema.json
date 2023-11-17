@@ -6608,6 +6608,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "project",
           "description": "<p>Project referenced by event.</p>",
           "type": "Project",
@@ -6745,6 +6753,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "ipAllowListEntries",
@@ -6915,6 +6931,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "user",
           "description": "<p>Identifies the user who was assigned.</p>",
           "type": "User",
@@ -6963,6 +6987,14 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pullRequest",
@@ -7027,6 +7059,14 @@
           "id": "user",
           "kind": "objects",
           "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pullRequest",
@@ -7142,6 +7182,14 @@
           "href": "/graphql/reference/objects#user"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest",
@@ -7190,6 +7238,14 @@
           "href": "/graphql/reference/objects#user"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest",
@@ -7228,6 +7284,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "newBase",
@@ -7284,6 +7348,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "newBase",
@@ -7358,6 +7430,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "previousRefName",
           "description": "<p>Identifies the name of the base ref for the pull request before it was changed.</p>",
           "type": "String!",
@@ -7414,6 +7494,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest",
@@ -7468,6 +7556,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pullRequest",
@@ -7597,6 +7693,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isBinary",
           "description": "<p>Indicates whether the Blob is binary or text. Returns null if unable to determine the encoding.</p>",
           "type": "Boolean",
@@ -7697,6 +7801,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "login",
@@ -7943,6 +8055,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isAdminEnforced",
@@ -8420,6 +8540,14 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -8518,6 +8646,14 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -8641,6 +8777,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "name",
@@ -9036,6 +9180,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isRequired",
@@ -9553,6 +9705,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "matchingPullRequests",
           "description": "<p>A list of open pull requests matching the check suite.</p>",
           "type": "PullRequestConnection",
@@ -9828,6 +9988,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this closed event.</p>",
           "type": "URI!",
@@ -9874,6 +10042,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "key",
@@ -9954,6 +10130,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -10503,6 +10687,14 @@
           ]
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "message",
           "description": "<p>The Git commit message.</p>",
           "type": "String!",
@@ -10900,6 +11092,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -11311,6 +11511,14 @@
           "href": "/graphql/reference/objects#commit"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "path",
           "description": "<p>The file the comments were made on.</p>",
           "type": "String",
@@ -11565,6 +11773,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isCrossRepository",
@@ -12573,6 +12789,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest!",
@@ -12635,6 +12859,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "project",
@@ -12774,6 +13006,14 @@
           "id": "discussion",
           "kind": "objects",
           "href": "/graphql/reference/objects#discussion"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -13487,6 +13727,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isCrossRepository",
           "description": "<p>Reference originated in a different repository.</p>",
           "type": "Boolean!",
@@ -13573,6 +13821,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "milestoneTitle",
@@ -13686,6 +13942,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "key",
@@ -13834,6 +14098,14 @@
           "href": "/graphql/reference/objects#deployment"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest!",
@@ -13920,6 +14192,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "latestEnvironment",
@@ -14148,6 +14428,14 @@
           "id": "deploymentstatus",
           "kind": "objects",
           "href": "/graphql/reference/objects#deploymentstatus"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pullRequest",
@@ -14546,6 +14834,14 @@
           ]
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "state",
           "description": "<p>The decision of the user.</p>",
           "type": "DeploymentReviewState!",
@@ -14774,6 +15070,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "logUrl",
           "description": "<p>Identifies the log URL of the deployment.</p>",
           "type": "URI",
@@ -14894,6 +15198,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isCrossRepository",
@@ -15141,6 +15453,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -15536,6 +15856,14 @@
           "href": "/graphql/reference/scalars#html"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isAnswerable",
           "description": "<p>Whether or not discussions in this category support choosing an answer with the markDiscussionCommentAsAnswer mutation.</p>",
           "type": "Boolean!",
@@ -15771,6 +16099,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -16275,6 +16611,14 @@
           "href": "/graphql/reference/objects#discussion"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "options",
           "description": "<p>The options for this poll.</p>",
           "type": "DiscussionPollOptionConnection",
@@ -16372,6 +16716,14 @@
         }
       ],
       "fields": [
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
         {
           "name": "option",
           "description": "<p>The text for this option.</p>",
@@ -16545,6 +16897,14 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "location",
@@ -16957,6 +17317,14 @@
           "href": "/graphql/reference/objects#enterprise"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "invitee",
           "description": "<p>The user who was invited to the enterprise.</p>",
           "type": "User",
@@ -17246,6 +17614,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "idpCertificate",
@@ -19435,6 +19811,14 @@
       ],
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isPrivate",
           "description": "<p>Identifies if the repository is private or internal.</p>",
           "type": "Boolean!",
@@ -19563,6 +19947,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isConnected",
@@ -19793,6 +20185,14 @@
           "href": "/graphql/reference/objects#enterpriseserverinstallation"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isSiteAdmin",
           "description": "<p>Whether the user account is a site administrator on the Enterprise Server installation.</p>",
           "type": "Boolean!",
@@ -19939,6 +20339,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isPrimary",
           "description": "<p>Indicates whether this is the primary email of the associated user account.</p>",
           "type": "Boolean!",
@@ -20067,6 +20475,14 @@
           "id": "enterpriseserverinstallation",
           "kind": "objects",
           "href": "/graphql/reference/objects#enterpriseserverinstallation"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "name",
@@ -20214,6 +20630,14 @@
           "id": "enterprise",
           "kind": "objects",
           "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "login",
@@ -20434,6 +20858,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "name",
           "description": "<p>The name of the environment.</p>",
           "type": "String!",
@@ -20580,6 +21012,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "organizationInvitation",
@@ -21124,6 +21564,14 @@
           ]
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isFork",
           "description": "<p>Identifies if the gist is a fork.</p>",
           "type": "Boolean!",
@@ -21383,6 +21831,14 @@
           "id": "gist",
           "kind": "objects",
           "href": "/graphql/reference/objects#gist"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -22028,6 +22484,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest!",
@@ -22084,6 +22548,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest!",
@@ -22130,6 +22602,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pullRequest",
@@ -22187,6 +22667,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isActive",
@@ -22599,6 +23087,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -23338,6 +23834,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -24106,6 +24610,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isDefault",
           "description": "<p>Indicates whether or not this is a default label.</p>",
           "type": "Boolean!",
@@ -24442,6 +24954,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "label",
           "description": "<p>Identifies the label associated with the<code>labeled</code>event.</p>",
           "type": "Label!",
@@ -24480,6 +25000,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "name",
@@ -24548,6 +25076,22 @@
       "description": "<p>Represents the language of a repository.</p>",
       "fields": [
         {
+          "name": "cursor",
+          "description": "",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "",
+          "type": "Language!",
+          "id": "language",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#language"
+        },
+        {
           "name": "size",
           "description": "<p>The number of bytes of code written in the language.</p>",
           "type": "Int!",
@@ -24610,6 +25154,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "implementation",
@@ -24749,6 +25301,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "lockReason",
           "description": "<p>Reason that the conversation was locked (optional).</p>",
           "type": "LockReason",
@@ -24843,6 +25403,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "login",
           "description": "<p>The username of the actor.</p>",
           "type": "String!",
@@ -24921,6 +25489,14 @@
           "id": "issueorpullrequest",
           "kind": "unions",
           "href": "/graphql/reference/unions#issueorpullrequest"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isCrossRepository",
@@ -25048,6 +25624,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -25241,6 +25825,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -25432,6 +26024,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -25542,6 +26142,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -25587,6 +26195,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "mergeRef",
@@ -25644,6 +26260,14 @@
         }
       ],
       "fields": [
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
         {
           "name": "name",
           "description": "<p>The Octoshift migration source name.</p>",
@@ -25741,6 +26365,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "issues",
@@ -26095,6 +26727,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "milestoneTitle",
           "description": "<p>Identifies the milestone title associated with the<code>milestoned</code>event.</p>",
           "type": "String!",
@@ -26149,6 +26789,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "previousProjectColumnName",
@@ -26394,6 +27042,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "oauthApplicationName",
           "description": "<p>The name of the OAuth Application.</p>",
           "type": "String",
@@ -26596,6 +27252,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "invitationEmail",
           "description": "<p>The email address used to invite a billing manager for the organization.</p>",
           "type": "String",
@@ -26764,6 +27428,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -26968,6 +27640,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -27130,6 +27810,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -27290,6 +27978,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -27462,6 +28158,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -27622,6 +28326,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -27792,6 +28504,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "issuerUrl",
@@ -27980,6 +28700,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -28140,6 +28868,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -28310,6 +29046,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "issuerUrl",
@@ -28498,6 +29242,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -28666,6 +29418,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -28867,6 +29627,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -29032,6 +29800,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "oauthApplicationName",
@@ -29225,6 +30001,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "oauthApplicationName",
           "description": "<p>The name of the OAuth Application.</p>",
           "type": "String",
@@ -29416,6 +30200,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "oauthApplicationName",
           "description": "<p>The name of the OAuth Application.</p>",
           "type": "String",
@@ -29602,6 +30394,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -29770,6 +30570,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "membershipTypes",
@@ -29950,6 +30758,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "membershipTypes",
           "description": "<p>The types of membership the outside collaborator has with the organization.</p>",
           "type": "[OrgRemoveOutsideCollaboratorAuditEntryMembershipType!]",
@@ -30126,6 +30942,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -30522,6 +31346,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -30682,6 +31514,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -30860,6 +31700,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -31048,6 +31896,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -31224,6 +32080,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -31667,6 +32531,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "ipAllowListEnabledSetting",
@@ -33270,6 +34142,14 @@
           ]
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "idpCertificate",
           "description": "<p>The x509 certificate used by the Identity Provider to sign assertions and responses.</p>",
           "type": "X509Certificate",
@@ -33340,6 +34220,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "invitationType",
@@ -33742,6 +34630,14 @@
       ],
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "latestVersion",
           "description": "<p>Find the latest version for the package.</p>",
           "type": "PackageVersion",
@@ -33944,6 +34840,14 @@
       ],
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "md5",
           "description": "<p>MD5 hash of the file.</p>",
           "type": "String",
@@ -34107,6 +35011,14 @@
       ],
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "name",
           "description": "<p>Identifies the tag name of the version.</p>",
           "type": "String!",
@@ -34197,6 +35109,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "package",
@@ -34539,6 +35459,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pattern",
           "description": "<p>Background texture pattern.</p>",
           "type": "PinnedDiscussionPattern!",
@@ -34677,6 +35605,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "issue",
           "description": "<p>Identifies the issue associated with the event.</p>",
           "type": "Issue!",
@@ -34707,6 +35643,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "issue",
@@ -34921,6 +35865,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -35149,6 +36101,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -35454,6 +36414,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "name",
           "description": "<p>The project's name.</p>",
           "type": "String!",
@@ -35640,6 +36608,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isArchived",
@@ -35854,6 +36830,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "name",
@@ -36139,6 +37123,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isReadOnly",
@@ -36841,6 +37833,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -38099,6 +39099,14 @@
           "href": "/graphql/reference/objects#commit"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>The pull request this commit belongs to.</p>",
           "type": "PullRequest!",
@@ -38200,6 +39208,14 @@
           "id": "commit",
           "kind": "objects",
           "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "path",
@@ -38625,6 +39641,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -39070,6 +40094,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -39685,6 +40717,14 @@
           "href": "/graphql/reference/enums#diffside"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isCollapsed",
           "description": "<p>Whether or not the thread has been collapsed (resolved).</p>",
           "type": "Boolean!",
@@ -40109,6 +41149,14 @@
       ],
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "nextSha",
           "description": "<p>The SHA after the push.</p>",
           "type": "GitObjectID",
@@ -40179,6 +41227,14 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -40362,6 +41418,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "node",
+          "description": "",
+          "type": "User!",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
           "name": "reactedAt",
           "description": "<p>The moment when the user made the reaction.</p>",
           "type": "DateTime!",
@@ -40408,6 +41472,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "reactable",
@@ -40754,6 +41826,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest!",
@@ -40900,6 +41980,14 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "name",
@@ -41161,6 +42249,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isCrossRepository",
           "description": "<p>Reference originated in a different repository.</p>",
           "type": "Boolean!",
@@ -41249,6 +42345,14 @@
           "id": "html",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#html"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isDraft",
@@ -41612,6 +42716,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "name",
           "description": "<p>Identifies the title of the release asset.</p>",
           "type": "String!",
@@ -41832,6 +42944,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "project",
           "description": "<p>Project referenced by event.</p>",
           "type": "Project",
@@ -41938,6 +43058,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "previousTitle",
           "description": "<p>Identifies the previous title of the issue or pull request.</p>",
           "type": "String!",
@@ -41992,6 +43120,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "stateReason",
@@ -42095,6 +43231,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -42302,6 +43446,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -42514,6 +43666,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -42731,6 +43891,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -42936,6 +44104,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isEnabled",
@@ -43153,6 +44329,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -43350,6 +44534,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -43551,6 +44743,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -43748,6 +44948,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -43949,6 +45157,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -44146,6 +45362,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -44347,6 +45571,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -44544,6 +45776,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -44745,6 +45985,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -44942,6 +46190,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -45159,6 +46415,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -45366,6 +46630,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -45571,6 +46843,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -45783,6 +47063,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "operationType",
@@ -46784,6 +48072,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isArchived",
@@ -48695,6 +49991,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "node",
+          "description": "",
+          "type": "User!",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
           "name": "permission",
           "description": "<p>The permission the user has on the repository.</p>",
           "type": "RepositoryPermission!",
@@ -48840,6 +50144,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "invitee",
@@ -48993,6 +50305,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "migrationLogUrl",
           "description": "<p>The URL for the migration log (expires 1 day after migration completes).</p>",
           "type": "URI",
@@ -49119,6 +50439,14 @@
         }
       ],
       "fields": [
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
         {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this repository-topic.</p>",
@@ -49329,6 +50657,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -49520,6 +50856,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "operationType",
           "description": "<p>The corresponding operation type for the action.</p>",
           "type": "OperationType",
@@ -49667,6 +51011,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "number",
@@ -49910,6 +51262,14 @@
           "id": "branchprotectionrule",
           "kind": "objects",
           "href": "/graphql/reference/objects#branchprotectionrule"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -50039,6 +51399,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "previousReviewState",
           "description": "<p>Identifies the previous state of the review with the<code>review_dismissed</code>event.</p>",
           "type": "PullRequestReviewState!",
@@ -50117,6 +51485,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pullRequest",
@@ -50233,6 +51609,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>PullRequest referenced by event.</p>",
           "type": "PullRequest!",
@@ -50279,6 +51663,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pullRequest",
@@ -50375,6 +51767,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "title",
@@ -50677,6 +52077,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "identifiers",
@@ -51252,6 +52660,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "node",
+          "description": "",
+          "type": "User!",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
           "name": "starredAt",
           "description": "<p>Identifies when the item was starred.</p>",
           "type": "DateTime!",
@@ -51324,6 +52740,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
         },
         {
           "name": "starredAt",
@@ -51436,6 +52860,14 @@
           "href": "/graphql/reference/objects#statuscontext"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "state",
           "description": "<p>The combined commit status.</p>",
           "type": "StatusState!",
@@ -51516,6 +52948,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "state",
@@ -51672,6 +53112,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isRequired",
@@ -51867,6 +53315,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "subscribable",
           "description": "<p>Object referenced by event.</p>",
           "type": "Subscribable!",
@@ -51951,6 +53407,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "message",
@@ -52331,6 +53795,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "invitations",
@@ -52959,6 +54431,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isLdapMapped",
           "description": "<p>Whether the team was mapped to an LDAP Group.</p>",
           "type": "Boolean",
@@ -53169,6 +54649,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isLdapMapped",
@@ -53408,6 +54896,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isLdapMapped",
@@ -53844,6 +55340,14 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "includesCreatedEdit",
           "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
           "type": "Boolean!",
@@ -54256,6 +55760,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "includesCreatedEdit",
@@ -54713,6 +56225,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "node",
+          "description": "",
+          "type": "User!",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
           "name": "role",
           "description": "<p>The role the member has on the team.</p>",
           "type": "TeamMemberRole!",
@@ -54814,6 +56334,14 @@
           "id": "precisedatetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isLdapMapped",
@@ -55028,6 +56556,14 @@
           "href": "/graphql/reference/scalars#precisedatetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isLdapMapped",
           "description": "<p>Whether the team was mapped to an LDAP Group.</p>",
           "type": "Boolean",
@@ -55230,6 +56766,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "node",
+          "description": "",
+          "type": "Repository!",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
           "name": "permission",
           "description": "<p>The permission level the team has on the repository.</p>",
           "type": "RepositoryPermission!",
@@ -55324,6 +56868,14 @@
         }
       ],
       "fields": [
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
         {
           "name": "name",
           "description": "<p>The topic's name.</p>",
@@ -55570,6 +57122,14 @@
           "href": "/graphql/reference/objects#repository"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "issue",
           "description": "<p>Identifies the issue associated with the event.</p>",
           "type": "Issue!",
@@ -55629,6 +57189,14 @@
           "id": "treeentry",
           "kind": "objects",
           "href": "/graphql/reference/objects#treeentry"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "oid",
@@ -55792,6 +57360,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "user",
           "description": "<p>Identifies the subject (user) who was unassigned.</p>",
           "type": "User",
@@ -55906,6 +57482,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "label",
           "description": "<p>Identifies the label associated with the<code>unlabeled</code>event.</p>",
           "type": "Label!",
@@ -55952,6 +57536,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "lockable",
@@ -56010,6 +57602,14 @@
           "href": "/graphql/reference/unions#issueorpullrequest"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "isCrossRepository",
           "description": "<p>Canonical and duplicate belong to different repositories.</p>",
           "type": "Boolean!",
@@ -56050,6 +57650,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "issue",
           "description": "<p>Identifies the issue associated with the event.</p>",
           "type": "Issue!",
@@ -56088,6 +57696,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "subscribable",
@@ -56618,6 +58234,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isBountyHunter",
@@ -58268,6 +59892,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "subject",
           "description": "<p>The user who was blocked.</p>",
           "type": "User",
@@ -58379,6 +60011,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "updatedAt",
@@ -58561,6 +60201,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "indicatesLimitedAvailability",
           "description": "<p>Whether this status indicates the user is not fully available on GitHub.</p>",
           "type": "Boolean!",
@@ -58729,6 +60377,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "isApproved",
@@ -58933,6 +60589,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "name",
           "description": "<p>The name of the workflow.</p>",
           "type": "String!",
@@ -59037,6 +60701,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "pendingDeploymentRequests",
@@ -59454,6 +61126,14 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "includesCreatedEdit",
           "description": "<p>Check if this comment was edited and includes an edit with the creation data.</p>",
           "type": "Boolean!",
@@ -59674,6 +61354,14 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "oid",
@@ -59978,6 +61666,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "migrationLogUrl",
           "description": "<p>The URL for the migration log (expires 1 day after migration completes).</p>",
           "type": "URI",
@@ -60151,6 +61847,14 @@
       "description": "<p>Represents an owner of a package.</p>",
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "packages",
           "description": "<p>A list of packages under the owner.</p>",
           "type": "PackageConnection!",
@@ -60276,6 +61980,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "itemShowcase",
@@ -60463,6 +62175,14 @@
       "description": "<p>Represents an owner of a Project.</p>",
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "project",
           "description": "<p>Find project by number.</p>",
           "type": "Project",
@@ -60602,6 +62322,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "reactionGroups",
@@ -61208,6 +62936,14 @@
           ]
         },
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "login",
           "description": "<p>The username used to login.</p>",
           "type": "String!",
@@ -61421,6 +63157,14 @@
       "description": "<p>Things that can be starred.</p>",
       "fields": [
         {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
           "name": "stargazerCount",
           "description": "<p>Returns a count of how many stargazers there are on this object.</p>",
           "type": "Int!",
@@ -61505,6 +63249,14 @@
       "href": "/graphql/reference/interfaces#subscribable",
       "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
       "fields": [
+        {
+          "name": "id",
+          "description": "",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
         {
           "name": "viewerCanSubscribe",
           "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",

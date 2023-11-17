@@ -59,7 +59,7 @@ When you click **New draft plan**, you'll see a form that allows you to customiz
 
   For detailed information, see "[AUTOTITLE](/apps/github-marketplace/selling-your-app-on-github-marketplace/pricing-plans-for-github-marketplace-apps)" and "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-- **Available for** - {% data variables.product.prodname_marketplace %} pricing plans can apply to **Personal and organization accounts**, **Personal accounts only**, or **Organization accounts only**. For example, if your pricing plan is per-unit and provides multiple seats, you would select **Organization accounts only** because there is no way to assign seats to people in an organization from a personal account.
+- **Available for** - {% data variables.product.prodname_marketplace %} pricing plans can apply to **Personal accounts and organizations**, **Personal accounts only**, or **Organizations only**. For example, if your pricing plan is per-unit and provides multiple seats, you would select **Organizations only** because there is no way to assign seats to people in an organization from a personal account.
 
 - **Short description** - Write a brief summary of the details of the pricing plan. The description might include the type of customer the plan is intended for or the resources the plan includes.
 

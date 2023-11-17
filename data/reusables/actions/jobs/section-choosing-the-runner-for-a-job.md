@@ -42,6 +42,12 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 - If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
+{% note %}
+
+**Note:** Quotation marks are not required around simple strings like `self-hosted`, but they are required for expressions like {% raw %} `"${{ inputs.chosen-os }}"`{% endraw %}.
+
+{% endnote %}
+
 {% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

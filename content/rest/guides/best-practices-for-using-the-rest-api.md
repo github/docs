@@ -15,61 +15,78 @@ topics:
 shortTitle: Best practices
 ---
 
+{% ifversion ghes %}
+
+{% note %}
+
+**Note**: Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
+
+{% endnote %}
+
+{% endif %}
+
 ## Avoid polling
 
 You should subscribe to webhook events instead of polling the API for data. This will help your integration stay within the API rate limit. For more information, see "[AUTOTITLE](/webhooks)."
 
-## Follow any redirects that the API sends you
+## Make authenticated requests
 
-GitHub is explicit in telling you when a resource has moved by providing a redirect status code. You should follow these redirections. Every redirect response sets the `Location` header with the new URI to go to. If you receive a redirect, it's best to update your code to follow the new URI, in case you're requesting a deprecated path that we might remove.
+Authenticated requests have a higher primary rate limit than unauthenticated requests. To avoid exceeding the rate limit, you should make authenticated requests. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
-We've provided [a list of HTTP status codes](/rest#http-redirects) to watch out for when designing your app to follow redirects.
+## Avoid concurrent requests
 
-## Don't manually parse URLs
+To avoid exceeding secondary rate limits, you should make requests serially instead of concurrently. To achieve this, you can implement a queue system for requests.
 
-Often, API responses contain data in the form of URLs. For example, when requesting a repository, we'll send a key called `clone_url` with a URL you can use to clone the repository.
+## Pause between mutative requests
 
-For the stability of your app, you shouldn't try to parse this data or try to guess and construct the format of future URLs. Your app is liable to break if we decide to change the URL.
+If you are making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests, wait at least one second between each request. This will help you avoid secondary rate limits.
 
-For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. For more information about dependably following paginated results, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
+## Handle rate limit errors appropriately
 
-{% ifversion fpt or ghec or ghae %}
+If you receive a rate limit error, you should stop making requests temporarily according to these guidelines:
 
-## Dealing with rate limits
+- If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed.
+- If the `x-ratelimit-remaining` header is `0`, you should not make another request until after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header is in UTC epoch seconds.
+- Otherwise, wait for at least one minute before retrying. If your request continues to fail due to a secondary rate limit, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
-The {% data variables.product.company_short %} API rate limit ensures that the API is fast and available for everyone.
+Continuing to make requests while you are rate limited may result in the banning of your integration.
 
-If you hit a rate limit, you should stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your integration. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+## Follow redirects
 
-### Dealing with secondary rate limits
+The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. You should assume that any
+request may result in a redirection. Receiving an HTTP redirection is not an error, and you should follow the redirect.
 
-{% data variables.product.company_short %} may also use secondary rate limits to ensure API availability. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
+A `301` status code indicates permanent redirection. You should repeat your request to the URL specified by the `location` header. Additionally, you should update your code to use this URL for future requests.
 
-To avoid hitting this limit, you should ensure your application follows the guidelines below.
+A `302` or `307` status code indicates temporary redirection. You should repeat your request to the URL specified by the `location` header. However, you should not update your code to use this URL for future requests.
 
-- Make authenticated requests, or use your application's client ID and secret. Unauthenticated
-  requests are subject to more aggressive secondary rate limiting.
-- Make requests for a single user or client ID serially. Do not make requests for a single user
-  or client ID concurrently.
-- If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
-  or client ID, wait at least one second between each request.
-- When you have been limited, wait before retrying your request.
-  - If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
-  `Retry-After` header will always be an integer, representing the number of seconds you should wait
-  before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
-  before sending more requests.
-  - If the `x-ratelimit-remaining` header is `0`, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
-  - Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
+Other redirection status codes may be used in accordance with HTTP specifications.
 
-{% data variables.product.company_short %} reserves the right to change these guidelines as needed to ensure availability.
+## Do not manually parse URLs
 
-{% endif %}
+Many API endpoints return URL values for fields in the response body. You should not try to parse these URLs or to predict the structure of future URLs. This can cause your integration to break if {% data variables.product.company_short %} changes the structure of the URL in the future. Instead, you should look for a field that contains the information that you need. For example, the endpoint to create an issue returns an `html_url` field with a value like `https://github.com/octocat/Hello-World/issues/1347` and a `number` field with a value like `1347`. If you need to know the number of the issue, use the `number` field instead of parsing the `html_url` field.
 
-## Dealing with API errors
+Similarly, you should not try to manually construct pagination queries. Instead, you should use the link headers to determine what pages of results you can request. For more information, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
-Although your code would never introduce a bug, you may find that you've encountered successive errors when trying to access the API.
+## Use conditional requests if appropriate
 
-Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that you're correctly interacting with the API. For example, if an endpoint requests a string and you're passing it a numeric value, you're going to receive a `5xx` validation error, and your call won't succeed. Similarly, attempting to access an unauthorized or nonexistent endpoint will result in a `4xx` error.
+Most endpoints return an `etag` header, and many endpoints return a `last-modified` header. You can use the values of these headers to make conditional requests. If the response has not changed, you will receive a `304 Not Modified` response. Making a conditional request does not count against your primary rate limit if a `304` response is returned.
+
+For example, if a previous request returned an `etag` header value of `644b5b0155e6404a9cc4bd9d8b1ae730`, you can use the `if-none-match` header in a future request:
+
+```shell
+curl {% data variables.product.api_url_pre %}/meta --include --header 'if-none-match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+```
+
+For example, if a previous request returned a `last-modified` header value of `Wed, 25 Oct 2023 19:17:59 GMT`, you can use the `if-modified-since` header in a future request:
+
+```shell
+curl {% data variables.product.api_url_pre %}/repos/github/docs --include --header 'if-modified-since: Wed, 25 Oct 2023 19:17:59 GMT'
+```
+
+## Do not ignore errors
+
+You should not ignore repeated `4xx` and `5xx` error codes. Instead, you should ensure that you are correctly interacting with the API. For example, if an endpoint requests a string and you are passing it a numeric value, you will receive a validation error. Similarly, attempting to access an unauthorized or nonexistent endpoint will result in a `4xx` error.
 
 Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
 

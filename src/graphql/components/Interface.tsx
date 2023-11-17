@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
-
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from 'src/languages/components/useTranslation'
@@ -12,10 +10,9 @@ type Props = {
 }
 
 export function Interface({ item, objects }: Props) {
-  const { locale } = useRouter()
-  const { t } = useTranslation('products')
-  const heading = t('graphql.reference.implemented_by').replace('{{ GraphQLItemTitle }}', item.name)
-  const heading2 = t('graphql.reference.fields').replace('{{ GraphQLItemTitle }}', item.name)
+  const { t } = useTranslation('graphql')
+  const heading = t('reference.implemented_by').replace('{{ GraphQLItemTitle }}', item.name)
+  const heading2 = t('reference.fields').replace('{{ GraphQLItemTitle }}', item.name)
 
   const implementedBy = objects.filter(
     (object) =>
@@ -29,7 +26,7 @@ export function Interface({ item, objects }: Props) {
         {implementedBy.map((object) => (
           <li key={`${item.id}-${item.name}-${object.href}-${object.name}`}>
             <code>
-              <Link href={object.href} locale={locale}>
+              <Link href={object.href} makeAbsolute>
                 {object.name}
               </Link>
             </code>

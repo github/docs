@@ -2,8 +2,13 @@ import { GetServerSideProps } from 'next'
 import { Liquid } from 'liquidjs'
 import pick from 'lodash/pick'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+import {
+  MainContextT,
+  MainContext,
+  getMainContext,
+  addUINamespaces,
+} from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { GHAEReleaseNotes } from 'src/release-notes/components/GHAEReleaseNotes'
 import { GHESReleaseNotes } from 'src/release-notes/components/GHESReleaseNotes'
 import {
@@ -45,9 +50,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   ])
 
   const { latestPatch = '', latestRelease = '' } = req.context
+
+  const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['release_notes'])
+
   return {
     props: {
-      mainContext: await getMainContext(req, res),
+      mainContext,
       ghesContext:
         currentVersion.plan === 'enterprise-server'
           ? {

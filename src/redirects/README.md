@@ -22,7 +22,7 @@ The results comprise the `page.redirects` object, whose keys are always only the
 Sometimes it contains the specific plan/version (e.g. `/enterprise-server@3.0/v3/integrations` to `enterprise-server@3.0/developers/apps`) and sometimes it's just the plain path
 (e.g. `/articles/viewing-your-repositorys-workflows` to `/actions/monitoring-and-troubleshooting-workflows`)
 
-All of the above are merged into a global redirects object. This object gets added to `req.context` via `middleware/context.js` and is made accessible on every request.
+All of the above are merged into a global redirects object. This object gets added to `req.context` via `src/frame/middleware/context/context.js` and is made accessible on every request.
 
 In the `handle-redirects.js` middleware, the language part of the URL is
 removed, looked up, and if matched to something, redirects with language
@@ -40,7 +40,7 @@ if (newPath) {
 
 Archived Enterprise redirects account for a much smaller percentage of redirects on the docs site.
 
-Some background on archival: a snapshot of the HTML files for each deprecated Enterprise Server version is archived in a separate repo and proxied to docs.github.com via `middleware/archived-enterprise-versions.js`.
+Some background on archival: a snapshot of the HTML files for each deprecated Enterprise Server version is archived in a separate repo and proxied to docs.github.com via `src/archives/middleware/archived-enterprise-versions.js`.
 
 Starting with Enterprise Server 2.18, we updated the archival process to start preserving frontmatter and permalink redirects. But these redirects for 2.13 to 2.17 are not recoverable.
 
@@ -62,11 +62,11 @@ As a workaround for these lost redirects, we have two files in `lib/redirects/st
   version range of 2.13 to 2.17. So every key in `archived-frontmatter-valid-urls.json`
   corresponds to a file that would work.
 
-Here's how the `middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for it in `archived-frontmatter-valid-urls.json` that contains the requested path. If it finds it, it will redirect to it to because that file knows exactly which URLs are valid in
+Here's how the `src/archives/middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for it in `archived-frontmatter-valid-urls.json` that contains the requested path. If it finds it, it will redirect to it to because that file knows exactly which URLs are valid in
 `help-docs-archived-enterprise-versions`.
 
 ## Tests
 
 Redirect tests are mainly found in `tests/routing/*`, with some additional tests in `tests/rendering/server.js`.
 
-The `tests/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.
+The `src/fixtures/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.

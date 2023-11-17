@@ -29,7 +29,7 @@ export function ParameterTable({
   clickedBodyParameterName = '',
   variant = 'rest',
 }: Props) {
-  const { t } = useTranslation(['parameter_table', 'products'])
+  const { t } = useTranslation(['parameter_table'])
   const queryParams = parameters.filter((param) => param.in === 'query')
   const pathParams = parameters.filter((param) => param.in === 'path')
 
