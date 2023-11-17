@@ -8,23 +8,44 @@ import {
 
 describe('getTheme basics', () => {
   test('always return an object with certain keys', () => {
-    const cookieValue = JSON.stringify({})
-    expect(getCssTheme(cookieValue)).toEqual(defaultCSSTheme)
-    expect(getComponentTheme(cookieValue)).toEqual(defaultComponentTheme)
+    const emptyCookieValue = JSON.stringify({})
+    expect(getCssTheme(emptyCookieValue)).toEqual(defaultCSSTheme)
+    expect(getComponentTheme(emptyCookieValue)).toEqual(defaultComponentTheme)
   })
 
   test('ignore "junk" cookie values', () => {
-    const cookieValue = '[This is not valid JSON}'
-    expect(getCssTheme(cookieValue)).toEqual(defaultCSSTheme)
-    expect(getComponentTheme(cookieValue)).toEqual(defaultComponentTheme)
+    const junkCookieValue = '[This is not valid JSON}'
+    expect(getCssTheme(junkCookieValue)).toEqual(defaultCSSTheme)
+    expect(getComponentTheme(junkCookieValue)).toEqual(defaultComponentTheme)
   })
+
+  test('handle missing color_mode key', () => {
+    const cookieValue = JSON.stringify({
+      light_theme: { name: 'light_colorblind', color_mode: 'light' },
+      dark_theme: { name: 'dark_tritanopia', color_mode: 'dark' },
+    });
+
+    // Ensure the function handles the missing color_mode key gracefully
+    expect(getCssTheme(cookieValue)).toEqual(defaultCSSTheme);
+    expect(getComponentTheme(cookieValue)).toEqual(defaultComponentTheme);
+  });
+
+  test('handle missing light_theme and dark_theme keys', () => {
+    const cookieValue = JSON.stringify({
+      color_mode: 'dark',
+    });
+
+    // Ensure the function handles the missing keys gracefully
+    expect(getCssTheme(cookieValue)).toEqual(defaultCSSTheme);
+    expect(getComponentTheme(cookieValue)).toEqual(defaultComponentTheme);
+  });
 
   test('respect the color_mode cookie value', () => {
     const cookieValue = JSON.stringify({
       color_mode: 'dark',
       light_theme: { name: 'light_colorblind', color_mode: 'light' },
       dark_theme: { name: 'dark_tritanopia', color_mode: 'dark' },
-    })
+    });
 
     const cssTheme = getCssTheme(cookieValue)
     expect(cssTheme.colorMode).toBe('dark')
