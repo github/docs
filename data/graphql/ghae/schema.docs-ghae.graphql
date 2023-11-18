@@ -17833,6 +17833,31 @@ type MarkedAsDuplicateEvent implements Node {
 }
 
 """
+Represents a member feature request notification
+"""
+type MemberFeatureRequestNotification implements Node {
+  """
+  Represents member feature request body containing organization name and the number of feature requests
+  """
+  body: String!
+
+  """
+  The Node ID of the MemberFeatureRequestNotification object
+  """
+  id: ID!
+
+  """
+  Represents member feature request notification title
+  """
+  title: String!
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
+}
+
+"""
 Entities that have members who can set status messages.
 """
 interface MemberStatusable {

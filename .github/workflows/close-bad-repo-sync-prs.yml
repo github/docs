@@ -8,6 +8,7 @@ name: Close bad repo-sync PRs
 # **Who does it impact**: Open-source.
 
 on:
+  # Necessary in lieu of `pull_request` so that PRs opened from forks can be closed if they try to push to a repo sync branch.
   pull_request_target:
 
 permissions:
