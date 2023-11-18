@@ -111,6 +111,7 @@ versions:
   ghae: '*'
 children:
   - /overview
+  - /managing-your-enterprise-account
   - /installation
   - /configuration
   - /administering-your-instance

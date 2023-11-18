@@ -97,8 +97,8 @@ As an organization owner, or repository administrator, you need to enable the de
 
 Non-provider alerts are different from high confidence alerts. Non-provider alerts:
 
-- Are not shown in security overview.
-- Are listed in a different view from high confidence alerts. That view is called "Other".
+- Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
+- Are listed in a different view from high-confidence alerts. That view is called "Other".
 - Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %}.
 - Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
 

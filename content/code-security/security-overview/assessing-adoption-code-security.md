@@ -47,13 +47,8 @@ In the list of repositories, the "Paused" label under "{% data variables.product
 {% ifversion code-security-multi-repo-enablement %}
 1. Optionally, select some or all of the repositories that match your current search and click **Security settings** in the table header to display a side panel where you can enable security features for the selected repositories. When you've finished, click **Apply changes** to confirm the changes. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 {% endif %}
-{% ifversion bulk-code-scanning-query-suite %}
-{% note %}
 
-**Note:** For {% ifversion code-security-multi-repo-enablement %}both the single and multiple {% else %}the single {% endif %}repository enablement settings, enabling {% data variables.product.prodname_code_scanning %} will override any existing {% data variables.product.prodname_code_scanning %} configurations for the selected repositories, including any previous query suite selections and workflows for advanced setups.
-
-{% endnote %}
-{% endif %}
+{% data reusables.security-overview.settings-limitations %}
 
 {% ifversion security-overview-org-risk-coverage-enterprise %}
 

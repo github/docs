@@ -136,7 +136,7 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/rebuilding-contributions-data
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users
-  - /admin/overview/creating-an-enterprise-account
+  - /admin/managing-your-enterprise-account/creating-an-enterprise-account
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/about-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console

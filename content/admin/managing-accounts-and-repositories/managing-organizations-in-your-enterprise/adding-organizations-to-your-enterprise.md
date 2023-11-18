@@ -24,7 +24,7 @@ Your enterprise account can own organizations. Members of your enterprise can co
 
 You can add new organizations to your enterprise account. If you do not use {% data variables.product.prodname_emus %}, you can add existing organizations on {% data variables.location.product_location %} to your enterprise. You cannot add an existing organization from an {% data variables.enterprise.prodname_emu_enterprise %} to a different enterprise.
 
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/admin/overview/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account)."
 
 After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
 

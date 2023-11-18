@@ -106,7 +106,7 @@ describe('link-rewriting', () => {
 
     const link = links.filter((i, element) => $(element).text() === 'Cross Version Linking')
     expect(link.attr('href')).toMatch(
-      `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/`,
+      `/en/enterprise-server@${enterpriseServerReleases.latestStable}/get-started/`,
     )
   })
 })
