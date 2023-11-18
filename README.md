@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc -->
+# IsabelSchoeps GitHub Doc
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
@@ -15,7 +15,7 @@ We accept different types of contributions, including some that don't require yo
 On the GitHub Docs site, you can contribute by clicking the
 You can also contribute by creating a local environment or opening a Codespace. For more information, see "[Setting up your environment to work on GitHub Docs](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs)."
 
-<img src="./contributing/images/contribution_cta.png" width="400">
+
 
 For more complex contributions, please open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 
