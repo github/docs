@@ -25,14 +25,14 @@ If you're looking for a way to contribute, you can scan through our [help wanted
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/I.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [src/README.md](src/README.md)
+- [content/IsabelSchoepd.md](content/IsabelSchoepd.md)
+- [content/graphql/IsabelSchoepd.md](content/graphql/IsabelSchoepd.md)
+- [content/rest/IsabelSchoepd.md](content/rest/IsabelSchoepd.md)
+- [contributing/IsabelSchoepd.md](contributing/IsabelSchoepd.md)
+- [data/IsabelSchoepd.md](data/IsabelSchoepd.md)
+- [data/reusables/IsabelSchoepd.md](data/reusables/IsabelSchoepd.md)
+- [data/variables/IsabelSchoepd.md](data/variables/IsabelSchoepd.md)
+- [src/IsabelSchoepd.md](src/IsabelSchoepd.md)
 
 ## License
 
