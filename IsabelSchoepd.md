@@ -25,7 +25,7 @@ If you're looking for a way to contribute, you can scan through our [help wanted
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/README.md](content/README.md)
+- [content/I.md](content/README.md)
 - [content/graphql/README.md](content/graphql/README.md)
 - [content/rest/README.md](content/rest/README.md)
 - [contributing/README.md](contributing/README.md)
