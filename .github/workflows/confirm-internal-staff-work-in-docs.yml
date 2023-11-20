@@ -9,7 +9,8 @@ on:
     types:
       - opened
       - transferred
-  pull_request:
+  # Required in lieu of `pull_request` so that this workflow can query users in org to determine membership.
+  pull_request_target:
     types:
       - opened
 
@@ -81,10 +82,10 @@ jobs:
           text: <@${{github.actor}}> opened https://github.com/github/docs/issues/${{ github.event.number || github.event.issue.number }} publicly on the github/docs repo instead of a private repo. They have been notified via a new issue in the private repo to confirm this was intentional.
 
       - name: Check out repo
-        if: ${{ failure() && github.event_name != 'pull_request' }}
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'pull_request' }}
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
