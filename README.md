@@ -56,3 +56,47 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+---
+title: Site policy documentation
+shortTitle: Site policy
+redirect_from:
+  - /categories/61/articles
+  - /categories/site-policy
+  - /github/site-policy
+versions:
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
+children:
+  - /github-terms
+  - /acceptable-use-policies
+  - /privacy-policies
+  - /other-site-policies
+  - /content-removal-policies
+  - /security-policies
+  - /github-company-policies
+  - /site-policy-deprecated
+---
+---
+title: Site policy documentation
+shortTitle: Site policy
+redirect_from:
+  - /categories/61/articles
+  - /categories/site-policy
+  - /github/site-policy
+versions:
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
+children:
+  - /github-terms
+  - /acceptable-use-policies
+  - /privacy-policies
+  - /other-site-policies
+  - /content-removal-policies
+  - /security-policies
+  - /github-company-policies
+  - /site-policy-deprecated
+---
