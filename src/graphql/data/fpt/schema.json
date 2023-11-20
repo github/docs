@@ -7451,7 +7451,7 @@
       "kind": "mutations",
       "id": "updateenterprisememberscanmakepurchasessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanmakepurchasessetting",
-      "description": "<p>Sets whether or not an organization admin can make purchases.</p>",
+      "description": "<p>Sets whether or not an organization owner can make purchases.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -8185,6 +8185,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#organization",
           "description": "<p>The organization with the updated web commit signoff setting.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updatePatreonSponsorability",
+      "kind": "mutations",
+      "id": "updatepatreonsponsorability",
+      "href": "/graphql/reference/mutations#updatepatreonsponsorability",
+      "description": "<p>Toggle the setting for your GitHub Sponsors profile that allows other GitHub\naccounts to sponsor you on GitHub while paying for the sponsorship on Patreon.\nOnly applicable when you have a GitHub Sponsors profile and have connected\nyour GitHub account with Patreon.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdatePatreonSponsorabilityInput!",
+          "id": "updatepatreonsponsorabilityinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updatepatreonsponsorabilityinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsListing",
+          "type": "SponsorsListing",
+          "id": "sponsorslisting",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslisting",
+          "description": "<p>The GitHub Sponsors profile.</p>"
         }
       ]
     },
@@ -31217,6 +31251,54 @@
       ]
     },
     {
+      "name": "MemberFeatureRequestNotification",
+      "kind": "objects",
+      "id": "memberfeaturerequestnotification",
+      "href": "/graphql/reference/objects#memberfeaturerequestnotification",
+      "description": "<p>Represents a member feature request notification.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>Represents member feature request body containing organization name and the number of feature requests.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MemberFeatureRequestNotification object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "title",
+          "description": "<p>Represents member feature request notification title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
       "name": "MembersCanDeleteReposClearAuditEntry",
       "kind": "objects",
       "id": "memberscandeletereposclearauditentry",
@@ -48101,7 +48183,7 @@
         },
         {
           "name": "enabled",
-          "description": "<p>The workflows' enabled state.</p>",
+          "description": "<p>Whether the workflow is enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -48117,7 +48199,7 @@
         },
         {
           "name": "name",
-          "description": "<p>The workflows' name.</p>",
+          "description": "<p>The name of the workflow.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -48125,7 +48207,7 @@
         },
         {
           "name": "number",
-          "description": "<p>The workflows' number.</p>",
+          "description": "<p>The number of the workflow.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -63235,7 +63317,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>This actor represents the ability for an organization admin to bypass.</p>",
+          "description": "<p>This actor represents the ability for an organization owner to bypass.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -65984,6 +66066,14 @@
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "paymentSource",
+          "description": "<p>The platform that was used to pay for the sponsorship.</p>",
+          "type": "SponsorshipPaymentSource",
+          "id": "sponsorshippaymentsource",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshippaymentsource"
         },
         {
           "name": "previousSponsorsTier",
@@ -70290,7 +70380,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Whether or not the discussion is only visible to team members and org admins.</p>",
+          "description": "<p>Whether or not the discussion is only visible to team members and organization owners.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -81743,7 +81833,7 @@
         },
         {
           "name": "NO_POLICY",
-          "description": "<p>Organization administrators choose whether to allow members to create repositories.</p>"
+          "description": "<p>Organization owners choose whether to allow members to create repositories.</p>"
         },
         {
           "name": "PRIVATE",
@@ -82945,7 +83035,7 @@
       "values": [
         {
           "name": "ADMIN",
-          "description": "<p>Organization administrators have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization admins can delete the organization\nand all of its repositories.</p>"
+          "description": "<p>Organization owners have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization owners can delete the organization\nand all of its repositories.</p>"
         },
         {
           "name": "BILLING_MANAGER",
@@ -83945,19 +84035,19 @@
       "values": [
         {
           "name": "CREATED_AT",
-          "description": "<p>The workflows' date and time of creation.</p>"
+          "description": "<p>The date and time of the workflow creation.</p>"
         },
         {
           "name": "NAME",
-          "description": "<p>The workflows' name.</p>"
+          "description": "<p>The name of the workflow.</p>"
         },
         {
           "name": "NUMBER",
-          "description": "<p>The workflows' number.</p>"
+          "description": "<p>The number of the workflow.</p>"
         },
         {
           "name": "UPDATED_AT",
-          "description": "<p>The workflows' date and time of update.</p>"
+          "description": "<p>The date and time of the workflow update.</p>"
         }
       ]
     },
@@ -93428,7 +93518,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization owners. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -97353,7 +97443,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>For org admin bupasses, true.</p>",
+          "description": "<p>For organization owner bypasses, true.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -100781,6 +100871,39 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "UpdatePatreonSponsorabilityInput",
+      "kind": "inputObjects",
+      "id": "updatepatreonsponsorabilityinput",
+      "href": "/graphql/reference/input-objects#updatepatreonsponsorabilityinput",
+      "description": "<p>Autogenerated input type of UpdatePatreonSponsorability.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enablePatreonSponsorships",
+          "description": "<p>Whether Patreon tiers should be shown on the GitHub Sponsors profile page,\nallowing potential sponsors to make their payment through Patreon instead of GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the organization with the GitHub Sponsors profile, if any.\nDefaults to the GitHub Sponsors profile for the authenticated user if omitted.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
