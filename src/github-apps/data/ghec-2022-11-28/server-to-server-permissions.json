@@ -1082,13 +1082,13 @@
     ]
   },
   "organization_copilot_seat_management": {
-    "title": "GitHub Copilot for Business",
-    "displayTitle": "Organization permissions for \"GitHub Copilot for Business\"",
+    "title": "GitHub Copilot Business",
+    "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing",
         "access": "write",
@@ -1098,8 +1098,8 @@
       },
       {
         "category": "copilot",
-        "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing/seats",
         "access": "write",
@@ -1109,8 +1109,8 @@
       },
       {
         "category": "copilot",
-        "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
         "access": "write",

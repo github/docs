@@ -653,7 +653,7 @@ For {% data variables.product.prodname_docs %} purposes, a first-party action is
 
 ```yaml
 steps:
-  - uses: actions/checkout@main
+  - uses: {% data reusables.actions.action-checkout %}
 ```
 
 #### Disclaimers for third-party actions
