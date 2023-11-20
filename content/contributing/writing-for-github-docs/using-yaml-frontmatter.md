@@ -71,12 +71,12 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 2.22 and 3.0 only:
+You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
   fpt: '*'
-  ghes: '>=2.22 <3.1'
+  ghes: '>=3.1 <3.3'
 ```
 
 ### `redirect_from`
@@ -303,7 +303,7 @@ When adding a new article, make sure the filename is a [kebab-cased](https://en.
 
 ## Index pages
 
-Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
+Index pages are the table of contents files for the Docs site. Every product, category, and map topic subdirectory has an `index.md` file that provides an overview of the content and links to every child article. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic. Index pages require a `versions` frontmatter property, and the actual value will be computed at runtime based on the versions of children articles.
 
 {% note %}
 
