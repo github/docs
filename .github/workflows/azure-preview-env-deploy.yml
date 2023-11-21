@@ -116,7 +116,7 @@ jobs:
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
@@ -157,7 +157,7 @@ jobs:
         run: src/early-access/scripts/merge-early-access.sh
 
       - name: Determine if we should include translations?
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: with-translations
         with:
           script: |

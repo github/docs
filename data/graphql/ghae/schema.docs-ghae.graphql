@@ -7445,7 +7445,7 @@ input CreateTeamDiscussionInput {
 
   """
   If true, restricts the visibility of this discussion to team members and
-  organization admins. If false or not specified, allows any organization member
+  organization owners. If false or not specified, allows any organization member
   to view this discussion.
 
   **Upcoming Change on 2024-07-01 UTC**
@@ -11636,7 +11636,7 @@ enum EnterpriseMembersCanCreateRepositoriesSettingValue {
   DISABLED
 
   """
-  Organization administrators choose whether to allow members to create repositories.
+  Organization owners choose whether to allow members to create repositories.
   """
   NO_POLICY
 
@@ -20520,7 +20520,7 @@ type Mutation {
   ): UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload
 
   """
-  Sets whether or not an organization admin can make purchases.
+  Sets whether or not an organization owner can make purchases.
   """
   updateEnterpriseMembersCanMakePurchasesSetting(
     """
@@ -23412,9 +23412,9 @@ The type of membership a user has with an Organization.
 """
 enum OrgRemoveMemberAuditEntryMembershipType {
   """
-  Organization administrators have full access and can change several settings,
+  Organization owners have full access and can change several settings,
   including the names of repositories that belong to the Organization and Owners
-  team membership. In addition, organization admins can delete the organization
+  team membership. In addition, organization owners can delete the organization
   and all of its repositories.
   """
   ADMIN
@@ -38269,7 +38269,7 @@ type RepositoryRulesetBypassActor implements Node {
   id: ID!
 
   """
-  This actor represents the ability for an organization admin to bypass
+  This actor represents the ability for an organization owner to bypass
   """
   organizationAdmin: Boolean!
 
@@ -38360,7 +38360,7 @@ input RepositoryRulesetBypassActorInput {
   bypassMode: RepositoryRulesetBypassActorBypassMode!
 
   """
-  For org admin bupasses, true
+  For organization owner bypasses, true
   """
   organizationAdmin: Boolean
 
@@ -42597,7 +42597,7 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
     )
 
   """
-  Whether or not the discussion is only visible to team members and org admins.
+  Whether or not the discussion is only visible to team members and organization owners.
   """
   isPrivate: Boolean!
     @deprecated(

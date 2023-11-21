@@ -1905,20 +1905,20 @@
   ],
   "copilot": [
     {
-      "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing"
     },
     {
-      "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing/seats"
     },
     {
-      "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "post",
       "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
     }
