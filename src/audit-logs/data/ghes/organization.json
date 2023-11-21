@@ -561,12 +561,12 @@
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_disable",
-    "description": "N/A",
+    "description": "Push protection for secret scanning was disabled for all new repositories in the organization.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_enable",
-    "description": "N/A",
+    "description": "Push protection for secret scanning was enabled for all new repositories in the organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1341,7 +1341,7 @@
   },
   {
     "action": "secret_scanning_alert.revoke",
-    "description": "N/A",
+    "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
   },
   {

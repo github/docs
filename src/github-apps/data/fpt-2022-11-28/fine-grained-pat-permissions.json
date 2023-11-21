@@ -189,50 +189,6 @@
       },
       {
         "category": "orgs",
-        "slug": "create-or-update-custom-properties-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-a-custom-property-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "remove-a-custom-property-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
         "slug": "get-all-organization-repository-rulesets",
         "subcategory": "rules",
         "verb": "get",
@@ -401,6 +357,66 @@
       }
     ]
   },
+  "organization_custom_org_roles": {
+    "title": "Custom organization roles",
+    "displayTitle": "Organization permissions for \"Custom organization roles\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "list-organization-fine-grained-permissions-for-an-organization",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-fine-grained-permissions",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "get-all-organization-roles-for-an-organization",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "create-a-custom-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/organization-roles",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "get-an-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "update-a-custom-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-a-custom-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
+        "additional-permissions": [],
+        "access": "write"
+      }
+    ]
+  },
   "organization_custom_properties": {
     "title": "Custom properties",
     "displayTitle": "Organization permissions for \"Custom properties\"",
@@ -411,9 +427,7 @@
         "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "members"
-        ],
+        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -422,9 +436,7 @@
         "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "admin"
       },
       {
@@ -433,9 +445,7 @@
         "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "members"
-        ],
+        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -444,9 +454,7 @@
         "subcategory": "custom-properties",
         "verb": "put",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "admin"
       },
       {
@@ -455,9 +463,7 @@
         "subcategory": "custom-properties",
         "verb": "delete",
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "admin"
       },
       {
@@ -466,9 +472,7 @@
         "subcategory": "custom-properties",
         "verb": "get",
         "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "members"
-        ],
+        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -477,9 +481,7 @@
         "subcategory": "custom-properties",
         "verb": "patch",
         "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "organization_administration"
-        ],
+        "additional-permissions": [],
         "access": "write"
       }
     ]
@@ -500,13 +502,13 @@
     ]
   },
   "organization_copilot_seat_management": {
-    "title": "GitHub Copilot for Business",
-    "displayTitle": "Organization permissions for \"GitHub Copilot for Business\"",
+    "title": "GitHub Copilot Business",
+    "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing",
         "additional-permissions": [],
@@ -514,8 +516,8 @@
       },
       {
         "category": "copilot",
-        "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing/seats",
         "additional-permissions": [],
@@ -523,8 +525,8 @@
       },
       {
         "category": "copilot",
-        "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
         "additional-permissions": [],
@@ -637,6 +639,78 @@
       },
       {
         "category": "orgs",
+        "slug": "remove-all-organization-roles-for-a-team",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "assign-an-organization-role-to-a-team",
+        "subcategory": "organization-roles",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-an-organization-role-from-a-team",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-all-organization-roles-for-a-user",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/users/{username}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "assign-an-organization-role-to-a-user",
+        "subcategory": "organization-roles",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-an-organization-role-from-a-user",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-teams-that-are-assigned-to-an-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}/teams",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-users-that-are-assigned-to-an-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}/users",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "orgs",
         "slug": "list-outside-collaborators-for-an-organization",
         "subcategory": "outside-collaborators",
         "verb": "get",
@@ -661,39 +735,6 @@
         "requestPath": "/orgs/{org}/outside_collaborators/{username}",
         "additional-permissions": [],
         "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "get-all-custom-properties-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/schema",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "get-a-custom-property-for-an-organization",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "list-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": [
-          "organization_custom_properties"
-        ],
-        "access": "read"
       },
       {
         "category": "orgs",
@@ -4181,7 +4222,9 @@
         "subcategory": "releases",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases",
-        "additional-permissions": [],
+        "additional-permissions": [
+          "workflows"
+        ],
         "access": "write"
       },
       {
@@ -4271,6 +4314,24 @@
         "subcategory": "assets",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/assets",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "download-a-repository-archive-tar",
+        "subcategory": "contents",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/tarball/{ref}",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "download-a-repository-archive-zip",
+        "subcategory": "contents",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/zipball/{ref}",
         "additional-permissions": [],
         "access": "read"
       }
@@ -7022,6 +7083,17 @@
         "subcategory": "refs",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/git/refs/{ref}",
+        "additional-permissions": [
+          "contents"
+        ],
+        "access": "write"
+      },
+      {
+        "category": "releases",
+        "slug": "create-a-release",
+        "subcategory": "releases",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/releases",
         "additional-permissions": [
           "contents"
         ],

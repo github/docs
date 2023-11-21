@@ -44,6 +44,12 @@ You will use a script to automate configuring your Azure resources.
 
 - Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
 
+  {% note %}
+
+  **Note:** Alternatively, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud)."
+
+  {% endnote %}
+
   ```bicep copy
   @description('NSG for outbound rules')
   param location string
@@ -185,7 +191,7 @@ Variables
 Alternatively, you can use the following curl command to find your `databaseId`.
 
 ```shell copy
-curl -H "Authorization: BEARER_TOKEN" -X POST \
+curl -H "Authorization: Bearer BEARER_TOKEN" -X POST \
   -d '{ "query": "query($slug: String!) { enterprise (slug: $slug) { slug databaseId } }" ,
         "variables": {
           "slug": "ENTERPRISE_SLUG"
@@ -257,7 +263,7 @@ echo Create resource group $RESOURCE_GROUP_NAME at $AZURE_LOCATION
 
 echo
 echo Create NSG rules deployed with 'actions-nsg-deployment.bicep' file
-. az deployment group create --resource-group $RESOURCE_GROUP_NAME --template-file ./actions-nsg-deployment.bicep --parameters location $AZURE_LOCATION nsgName $NSG_NAME
+. az deployment group create --resource-group $RESOURCE_GROUP_NAME --template-file ./actions-nsg-deployment.bicep --parameters location=$AZURE_LOCATION nsgName=$NSG_NAME
 
 echo
 echo Create vnet $VNET_NAME and subnet $SUBNET_NAME

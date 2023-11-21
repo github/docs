@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
-
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { UnionT } from './types'
@@ -10,7 +8,6 @@ type Props = {
 }
 
 export function Union({ item }: Props) {
-  const { locale } = useRouter()
   const { t } = useTranslation('graphql')
   const heading = t('reference.possible_types').replace('{{ GraphQLItemTitle }}', item.name)
 
@@ -19,7 +16,7 @@ export function Union({ item }: Props) {
       <ul>
         {item.possibleTypes.map((type) => (
           <li key={type.id}>
-            <Link href={type.href} locale={locale}>
+            <Link href={type.href} makeAbsolute>
               <code>{type.name}</code>
             </Link>
           </li>

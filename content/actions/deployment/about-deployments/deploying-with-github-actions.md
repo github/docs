@@ -14,7 +14,7 @@ topics:
   - Deployment
 shortTitle: Deploy with GitHub Actions
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -60,7 +60,7 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trig
 
 ## Using concurrency
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time.
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information about concurrency, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 
 {% note %}
 

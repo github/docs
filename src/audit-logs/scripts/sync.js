@@ -14,7 +14,7 @@ import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
-import { getContents, getCommitSha } from '../../../script/helpers/git-utils.js'
+import { getContents, getCommitSha } from '#src/workflows/git-utils.js'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('GITHUB_TOKEN environment variable must be set to run this script')
@@ -180,6 +180,8 @@ async function main() {
       }
     })
 
+  console.log(`\n▶️  Generating audit log data files...\n`)
+
   // write out audit log event data to page event files per version e.g.:
   //
   // fpt/
@@ -201,6 +203,7 @@ async function main() {
           auditLogSchemaFilePath,
           JSON.stringify(auditLogData[version][type], null, 2),
         )
+        console.log(`✅ Wrote ${auditLogSchemaFilePath}`)
       }
     })
   }

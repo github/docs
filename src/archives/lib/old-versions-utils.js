@@ -1,6 +1,6 @@
 import path from 'path'
 import { supported, latest } from '#src/versions/lib/enterprise-server-releases.js'
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 const latestNewVersion = `enterprise-server@${latest}`

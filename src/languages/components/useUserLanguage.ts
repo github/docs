@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import { useRouter } from 'next/router'
 
 import { useLanguages } from 'src/languages/components/LanguagesContext'
-import { USER_LANGUAGE_COOKIE_NAME } from '../../../lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from 'src/frame/lib/constants.js'
 
 export function useUserLanguage() {
   const { locale } = useRouter()

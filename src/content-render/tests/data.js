@@ -1,9 +1,9 @@
 import { afterAll, beforeAll, expect, describe, it } from '@jest/globals'
 
-import Page from '../../../lib/page.js'
+import Page from '#src/frame/lib/page.js'
 import languages from '#src/languages/lib/languages.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { DataDirectory } from '../../../tests/helpers/data-directory.js'
+import { DataDirectory } from '#src/tests/helpers/data-directory.js'
 
 describe('data tag', () => {
   let dd
@@ -30,7 +30,7 @@ describe('data tag', () => {
   it('should render fine if data is found', async () => {
     const page = await Page.init({
       relativePath: 'liquid-tags/good-data-variable.md',
-      basePath: './tests/fixtures',
+      basePath: './src/fixtures/fixtures',
       languageCode: 'en',
     })
     const context = {
@@ -47,7 +47,7 @@ describe('data tag', () => {
   it('should throw if the data tag is used with something unrecognized', async () => {
     const page = await Page.init({
       relativePath: 'liquid-tags/bad-data-variable.md',
-      basePath: './tests/fixtures',
+      basePath: './src/fixtures/fixtures',
       languageCode: 'en',
     })
     const context = {

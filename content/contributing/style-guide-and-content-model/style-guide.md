@@ -10,7 +10,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."<!-- markdownlint-disable-line -->
+**Note:** These guidelines are specific to {% data variables.product.company_short %}'s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)."<!-- markdownlint-disable-line search-replace -->
 
 {% endnote %}
 
@@ -95,7 +95,7 @@ Within code blocks:
 - Do not use command prompts like `$` before the command itself. These prompts make it challenging for readers to copy and paste the command.
   - If you show a command and the command's output, comment out the output in the example.
   - **Use:**
-  
+
     ```shell
     command
     # output
@@ -244,9 +244,9 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 ## Headers
 
-Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Use sentence casing for headers. Each header on a page must be unique.
+Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
 
-Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+Use H2 for headers and H3 for subheaders. If an article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be text content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
@@ -285,7 +285,7 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `{% data variables.product.company_short %}` as we do in running copy: `{% raw %}{% data variables.product.prodname_dotcom %}{% endraw %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}..." rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu...," to avoid multiple nouns in a row.
 
 ##### Examples
 
@@ -653,7 +653,7 @@ For {% data variables.product.prodname_docs %} purposes, a first-party action is
 
 ```yaml
 steps:
-  - uses: actions/checkout@main
+  - uses: {% data reusables.actions.action-checkout %}
 ```
 
 #### Disclaimers for third-party actions
@@ -718,7 +718,7 @@ Variables: `{% raw %}{% data variables.product.prodname_github_codespaces %}{% e
 
 When referring to instances of remote working environments created with this technology, refer to these as "codespaces" (lowercase c). For example, "to delete your codespace" or "to list your codespaces."
 
-Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
+Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the {% data variables.product.prodname_vscode %} documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
@@ -1191,6 +1191,12 @@ We use short titles to populate the sidebar navigation. Since short titles appea
   - **Avoid:** "Organizations and teams" and "Managing enterprise accounts"
 
 Writing short titles can be challenging. To help get short titles under the character count, consider the short title in context. Remove any repeated words if possible and any product or feature names that are in the map topic or category that the content belongs to.
+
+## Site policy content
+
+Do not use reusables or variables in site policy content. Site policy articles are legal documents and must have a human-readable source.
+
+Site policy content otherwise uses the same style and content models as the rest of {% data variables.product.prodname_docs %}.
 
 ## User interface elements
 

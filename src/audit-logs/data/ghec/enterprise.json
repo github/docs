@@ -11,7 +11,7 @@
   },
   {
     "action": "actions_cache.delete",
-    "description": "N/A",
+    "description": "A GitHub Actions cache was deleted using the REST API.",
     "docs_reference_links": "N/A"
   },
   {
@@ -471,22 +471,22 @@
   },
   {
     "action": "business_dependabot_alerts.disable",
-    "description": "N/A",
+    "description": "Dependabot alerts were disabled for your enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "business_dependabot_alerts.enable",
-    "description": "N/A",
+    "description": "Dependabot alerts were enabled for your enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "business_dependabot_alerts_new_repos.disable",
-    "description": "N/A",
+    "description": "Dependabot alerts were disabled for new repositories in your enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "business_dependabot_alerts_new_repos.enable",
-    "description": "N/A",
+    "description": "Dependabot alerts were enabled for new repositories in your enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -732,6 +732,11 @@
   {
     "action": "copilot.clickwrap_save_event",
     "description": "The GitHub Copilot Product Terms or Pre-Release Preview Terms were accepted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.content_exclusion_changed",
+    "description": "The excluded paths for GitHub Copilot were updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1855,6 +1860,36 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.recovery_codes_downloaded",
+    "description": "An organization owner downloaded the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_generated",
+    "description": "An organization owner generated the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_printed",
+    "description": "An organization owner printed the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_codes_viewed",
+    "description": "An organization owner viewed the organization's SSO recovery codes.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+  },
+  {
+    "action": "org.recovery_code_failed",
+    "description": "An organization owner failed to sign into a organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
+  },
+  {
+    "action": "org.recovery_code_used",
+    "description": "An organization owner successfully signed into an organization with an external identity provider (IdP) using a recovery code.",
+    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
+  },
+  {
     "action": "org.register_self_hosted_runner",
     "description": "A new self-hosted runner was registered.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization"
@@ -2001,12 +2036,12 @@
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_disable",
-    "description": "N/A",
+    "description": "Push protection for secret scanning was disabled for all new repositories in the organization.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "org.secret_scanning_push_protection_new_repos_enable",
-    "description": "N/A",
+    "description": "Push protection for secret scanning was enabled for all new repositories in the organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3291,32 +3326,32 @@
   },
   {
     "action": "repository_vulnerability_alert.auto_dismiss",
-    "description": "Triggered when a Dependabot alert is automatically dismissed due to its metadata matching an enabled Dependabot alert rule.",
+    "description": "A Dependabot alert was automatically dismissed because its metadata matches an enabled Dependabot rule.",
     "docs_reference_links": "/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts"
   },
   {
     "action": "repository_vulnerability_alert.auto_reopen",
-    "description": "Triggered when a previously auto-dismissed Dependabot alert is reopened because its metadata no longer matches an enabled Dependabot alert rule.",
+    "description": "A previously auto-dismissed Dependabot alert was automatically reopened because its metadata no longer matches an enabled Dependabot rule.",
     "docs_reference_links": "/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts"
   },
   {
     "action": "repository_vulnerability_alert.create",
-    "description": "GitHub created a Dependabot alert for a repository that uses an insecure dependency.",
+    "description": "GitHub created a Dependabot alert because the repository uses a vulnerable dependency.",
     "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
   },
   {
     "action": "repository_vulnerability_alert.dismiss",
-    "description": "A Dependabot alert about a vulnerable dependency was dismissed.",
+    "description": "A Dependabot alert was manually dismissed.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "repository_vulnerability_alert.reintroduce",
-    "description": "N/A",
+    "description": "A Dependabot alert was automatically reopened because the repository resumed use of a vulnerable dependency.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "repository_vulnerability_alert.reopen",
-    "description": "N/A",
+    "description": "A Dependabot alert was manually reopened.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3341,12 +3376,12 @@
   },
   {
     "action": "repository_vulnerability_alerts_auto_dismissal.disable",
-    "description": "N/A",
+    "description": "Automatic dismissal of low-impact Dependabot alerts was disabled for the repository.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "repository_vulnerability_alerts_auto_dismissal.enable",
-    "description": "N/A",
+    "description": "Automatic dismissal of low-impact Dependabot alerts was enabled for the repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3411,7 +3446,7 @@
   },
   {
     "action": "secret_scanning_alert.revoke",
-    "description": "N/A",
+    "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
   },
   {

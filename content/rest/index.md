@@ -14,10 +14,10 @@ featuredLinks:
     - /rest/guides/best-practices-for-using-the-rest-api
     - /rest/guides/using-pagination-in-the-rest-api
   popular:
-    - /rest/overview/resources-in-the-rest-api
+    - /rest/overview/rate-limits-for-the-rest-api
     - /rest/overview/api-versions
     - /rest/overview/authenticating-to-the-rest-api
-    - /rest/overview/troubleshooting
+    - /rest/overview/troubleshooting-the-rest-api
     - /rest/guides/scripting-with-the-rest-api-and-javascript
     - /rest/overview/keeping-your-api-credentials-secure
   guideCards:

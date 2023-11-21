@@ -4,8 +4,8 @@ import addErrors from 'ajv-errors'
 import semver from 'semver'
 
 import featureVersionsSchema from '../lib/feature-versions-schema.js'
-import { getDeepDataByLanguage } from '../../../lib/get-data.js'
-import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.

@@ -1,8 +1,8 @@
 import { jest } from '@jest/globals'
 import path from 'path'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get } from '../../../../tests/helpers/e2etest.js'
-import readJsonFile from '../../../../lib/read-json-file.js'
+import { get } from '#src/tests/helpers/e2etest.js'
+import readJsonFile from '#src/frame/lib/read-json-file.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -101,9 +101,9 @@ describe('developer redirects', () => {
   describe('fixtures', () => {
     test.each(['developer', 'rest', 'graphql'])('%s redirects', async (label) => {
       const FIXTURES = {
-        developer: './tests/fixtures/developer-redirects.json',
-        rest: './tests/fixtures/rest-redirects.json',
-        graphql: './tests/fixtures/graphql-redirects.json',
+        developer: './src/fixtures/fixtures/developer-redirects.json',
+        rest: './src/fixtures/fixtures/rest-redirects.json',
+        graphql: './src/fixtures/fixtures/graphql-redirects.json',
       }
       if (!(label in FIXTURES)) throw new Error('unrecognized label')
       const fixtures = readJsonFile(FIXTURES[label])

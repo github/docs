@@ -2,7 +2,7 @@ import { reduce, sortBy } from 'lodash-es'
 import { allVersions } from './all-versions.js'
 import versionSatisfiesRange from './version-satisfies-range.js'
 import { next, nextNext } from './enterprise-server-releases.js'
-import { getDeepDataByLanguage } from '../../../lib/get-data.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 let featureData = null
 

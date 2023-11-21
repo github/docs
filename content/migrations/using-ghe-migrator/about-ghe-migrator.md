@@ -42,11 +42,11 @@ The items in the table below can be migrated with a repository. Any items not sh
 |---------------------------------------------|--------|
 | Users | **@mentions** of users are rewritten to match the target.
 | Organizations | An organization's name and details are migrated.
-| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. The migrator follows a maximum of three repository redirects. Internal repositories are migrated as private repositories. Archive status is unset.
+| Repositories | Links to Git trees, blobs, commits, and lines are rewritten to match the target. Internal repositories are migrated as private repositories. Archive status is unset.
 | Wikis | All wiki data is migrated.
 | Teams | **@mentions** of teams are rewritten to match the target.
 | Milestones | Timestamps are preserved.
-| Project boards | Project boards associated with the repository and with the organization that owns the repository are migrated.
+| {% data variables.product.prodname_projects_v1_caps %} boards | Project boards associated with the repository and with the organization that owns the repository are migrated. {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is not supported.
 | Issues | Issue references and timestamps are preserved.
 | Issue comments | Cross-references to comments are rewritten for the target instance.
 | Pull requests | Cross-references to pull requests are rewritten to match the target. Timestamps are preserved.

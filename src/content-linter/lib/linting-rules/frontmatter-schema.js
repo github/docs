@@ -3,8 +3,8 @@ import { intersection } from 'lodash-es'
 
 import { getFrontmatter } from '../helpers/utils.js'
 import { formatAjvErrors } from '../helpers/schema-utils.js'
-import { frontmatter, deprecatedProperties } from '../../../../lib/frontmatter.js'
-import readFrontmatter from '../../../../lib/read-frontmatter.js'
+import { frontmatter, deprecatedProperties } from '#src/frame/lib/frontmatter.js'
+import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 
 export const frontmatterSchema = {
   names: ['GHD012', 'frontmatter-schema'],

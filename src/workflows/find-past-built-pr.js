@@ -3,7 +3,7 @@ import got from 'got'
 
 import { setOutput } from '@actions/core'
 
-import github from '../../script/helpers/github.js'
+import github from './github.js'
 import { getActionContext } from './action-context.js'
 
 async function main() {

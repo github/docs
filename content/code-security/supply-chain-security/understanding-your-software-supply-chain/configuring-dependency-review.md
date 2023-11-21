@@ -116,6 +116,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    This {% data variables.dependency-review.action_name %} example file illustrates how you can use the available configuration options.
 
+   <!-- markdownlint-disable search-replace -->
+
    ```yaml copy
    name: 'Dependency Review'
    on: [pull_request]
@@ -133,8 +135,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - name: Dependency Review
          uses: actions/dependency-review-action@v3
          with:
-         # Possible values: "critical", "high", "moderate", "low" 
-         fail-on-severity: critical
+           # Possible values: "critical", "high", "moderate", "low"
+           fail-on-severity: critical
 
            {% ifversion dependency-review-action-licenses %}
            # You can only include one of these two options: `allow-licenses` and `deny-licenses`
@@ -154,6 +156,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
            fail-on-scopes: development, runtime
            {% endif %}
    ```
+
+   <!-- markdownlint-enable search-replace -->
 
 ### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
@@ -180,18 +184,20 @@ Notice that all of the examples use a short version number for the action (`v3`)
          with:
           # ([String]). Representing a path to a configuration file local to the repository or in an external repository.
           # Possible values: An absolute path to a local file or an external file.
-          config-file: './.github/dependency-review-config.yml'   
+          config-file: './.github/dependency-review-config.yml'
           # Syntax for an external file: OWNER/REPOSITORY/FILENAME@BRANCH
           config-file: 'github/octorepo/dependency-review-config.yml@main'
 
           # ([Token]) Use if your configuration file resides in a private external repository.
-          # Possible values: Any GitHub token with read access to the private external repository.  
+          # Possible values: Any GitHub token with read access to the private external repository.
           external-repo-token: 'ghp_123456789abcde'
    ```
 
 1. Create the configuration file in the path you have specified.
 
    This YAML example file illustrates how you can use the available configuration options.
+
+   <!-- markdownlint-disable search-replace -->
 
    ```yaml copy
      # Possible values: "critical", "high", "moderate", "low"
@@ -223,6 +229,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - runtime
    {% endif %}
    ```
+
+   <!-- markdownlint-enable search-replace -->
 
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

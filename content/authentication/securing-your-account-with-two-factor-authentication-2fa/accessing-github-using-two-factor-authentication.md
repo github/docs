@@ -83,9 +83,7 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 ## Using two-factor authentication with the command line
 
-{% ifversion fpt or ghec %}
-Enabling 2FA may affect authentication to {% data variables.product.prodname_dotcom %} through the command line. To find out if your authentication method is affected, see the following sections.
-{% else %}
+{% ifversion ghes %}
 After you've enabled 2FA, you will no longer use your password to access {% data variables.product.product_name %} on the command line. Instead, use Git Credential Manager, a {% data variables.product.pat_generic %}, or an SSH key.
 {% endif %}
 
