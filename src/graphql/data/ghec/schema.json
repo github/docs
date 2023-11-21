@@ -2647,7 +2647,7 @@
       "kind": "mutations",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/mutations#createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "inputFields": [
         {
           "name": "input",
