@@ -13,7 +13,11 @@ You can use a template repository on {% data variables.product.product_name %} a
 
 To use the template repository for your assignment, the template repository must be owned by your organization, or the visibility of the template repository must be public.
 
-Note that all branches from the template repository will be copied into student repositories derived from the template repository (including any [solution branches](https://github.com/education/classroom/issues/2453)).
+{% note %}
+
+**Note:** All branches from the template repository are copied into student repositories derived from the template repository, even branches you use to store solutions.
+
+{% endnote %}
 
 You can reuse an existing assignment, even if it uses a template repository, in any other classroom that you have admin access to, including classrooms in a different organization. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
