@@ -54,6 +54,7 @@ The process of configuring backups is different for each TOTP app. For some exam
 - [1Password](https://support.1password.com/backups/)
 - [Google Authenticator](https://security.googleblog.com/2023/04/google-authenticator-now-supports.html)
 - [Microsoft Authenticator](https://support.microsoft.com/en-us/account-billing/back-up-and-recover-account-credentials-in-the-authenticator-app-bb939936-7a8d-4e88-bc43-49bc1a700a40)
+- [Authy](https://authy.com/features/backup/)
 
 ## Further reading
 
