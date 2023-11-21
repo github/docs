@@ -55,7 +55,7 @@ async function main(files, opts) {
         !(
           file.startsWith('content') ||
           file.startsWith('data') ||
-          file.startsWith('tests/fixtures')
+          file.startsWith('src/fixtures/fixtures')
         )
       ) {
         throw new Error(`${file} must be a content or data filepath`)

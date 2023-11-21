@@ -4,6 +4,49 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>UpdatePatreonSponsorabilityInput</code> was added</p>",
+          "<p>Type <code>UpdatePatreonSponsorabilityPayload</code> was added</p>",
+          "<p>Field <code>updatePatreonSponsorability</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>MemberFeatureRequestNotification</code> was added</p>",
+          "<p>Field <code>paymentSource</code> was added to object type <code>SponsorsActivity</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SponsorshipPaymentSource</code> was added</p>",
+          "<p>Field <code>paymentSource</code> was added to object type <code>Sponsorship</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AbortRepositoryMigrationInput</code> was added</p>",
           "<p>Type <code>AbortRepositoryMigrationPayload</code> was added</p>",
           "<p>Field <code>abortRepositoryMigration</code> was added to object type <code>Mutation</code></p>",

@@ -5,6 +5,7 @@ name: Azure - Destroy Preview Env
 # **Who does it impact**: All contributors.
 
 on:
+  # Required in lieu of `pull_request` so that PRs created from forks can destroy the preview environment.
   pull_request_target:
     types:
       - closed

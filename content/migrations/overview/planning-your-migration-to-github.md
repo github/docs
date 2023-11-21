@@ -103,7 +103,7 @@ Then, use the open-source tool, `git-sizer`, to get this data for your repositor
 1. To clone your repository from the migration origin, run `git clone --mirror`.
 1. Navigate to the directory where you cloned your repository.
 1. To get the size of the largest file in your repository in bytes, run `git-sizer --no-progress -j | jq ".max_blob_size"`.
-1. To get the total size of all files in your repository in bytes, run `git-sizer --no-progress -j | jq “.unique_blob_size”`.
+1. To get the total size of all files in your repository in bytes, run `git-sizer --no-progress -j | jq ".unique_blob_size"`.
 1. Add the values from the previous steps to your inventory.
 
 ## About migration types

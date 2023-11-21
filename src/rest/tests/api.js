@@ -2,7 +2,7 @@ import fs from 'fs'
 
 import { describe, expect } from '@jest/globals'
 
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,

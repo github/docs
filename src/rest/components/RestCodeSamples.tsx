@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'

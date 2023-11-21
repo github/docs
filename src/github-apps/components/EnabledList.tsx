@@ -2,9 +2,9 @@ import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { slug as githubSlug } from 'github-slugger'
 
-import { HeadingLink } from 'components/article/HeadingLink'
-import { Link } from 'components/Link'
-import { MainContext, MainContextT } from 'components/context/MainContext'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
+import { Link } from 'src/frame/components/Link'
+import { MainContext, MainContextT } from 'src/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
