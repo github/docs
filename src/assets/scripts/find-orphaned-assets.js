@@ -112,7 +112,7 @@ async function main(opts) {
     )
   }
   // Add exceptions
-  sourceFiles.push('CONTRIBUTING.md')
+  sourceFiles.push('.github/CONTRIBUTING.md')
   sourceFiles.push('README.md')
   verbose && console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
 
