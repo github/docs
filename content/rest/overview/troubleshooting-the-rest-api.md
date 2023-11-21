@@ -69,6 +69,8 @@ For more information about authentication, see "[AUTOTITLE](/rest/overview/authe
 
 You should also check for typos in your URL. For example, adding a trailing slash to the endpoint will result in a `404 Not Found`. You can refer to the reference documentation for the endpoint to confirm that you have the correct URL.
 
+Additionally, any path parameters must be URL encoded. For example, any slashes in the parameter value must be replaced with `%2F`. If you don't properly encode any slashes in the parameter name, the endpoint URL will be misinterpreted.
+
 ## Missing results
 
 Most endpoints that return a list of resources support pagination. For most of these endpoints, only the first 30 resources are returned by default. In order to see all of the resources, you need to paginate through the results. For more information, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
