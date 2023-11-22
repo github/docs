@@ -599,6 +599,8 @@ on:
 
 - The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
 
+- `GITHUB_REF` is different for a closed `pull_request` depending on whether the pull request has been merged or not. If a `pull_request` was closed but not merged, it will be `refs/pull/:prNumber/merge`. If a `pull_request` was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
+
 {% endnote %}
 
 Runs your workflow when activity on a pull request in the workflow's repository occurs. For example, if no activity types are specified, the workflow runs when a pull request is opened or reopened or when the head branch of the pull request is updated. For activity related to pull request reviews, pull request review comments, or pull request comments, use the [`pull_request_review`](#pull_request_review), [`pull_request_review_comment`](#pull_request_review_comment), or [`issue_comment`](#issue_comment) events instead. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/objects#pullrequest)" in the GraphQL API documentation or "[AUTOTITLE](/rest/pulls)" in the REST API documentation.
