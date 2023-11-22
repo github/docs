@@ -106,9 +106,29 @@ location.
 
 #### `--[no-]sarif-add-query-help`
 
-\[SARIF formats only] Include Markdown query help in the results. It
-loads query help for /path/to/query.ql from the /path/to/query.md file.
+\[SARIF formats only] \[Deprecated] Include Markdown query help for
+all queries. It loads query help for /path/to/query.ql from the
+/path/to/query.md file. If this flag is not supplied the default
+behavior is to include help only for custom queries i.e. those in query
+packs which are not of the form \`codeql/\<lang\&rt;-queries\`. This
+option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+
+#### `--sarif-include-query-help=<mode>`
+
+\[SARIF formats only] Specify whether to include query help in the
+SARIF output. One of:
+
+`always`: Include query help for all queries.
+
+`custom_queries_only` _(default)_: Include query help only for custom
+queries i.e. those in query packs which are not of the form
+\`codeql/\<lang\&rt;-queries\`.
+
+`never`: Do not include query help for any queries.
+
 This option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+
+Available since `v2.15.2`.
 
 #### `--[no-]sarif-group-rules-by-pack`
 
@@ -175,6 +195,13 @@ The number of threads used for computing paths.
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
 or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
+
+#### `--no-database-extension-packs`
+
+\[Advanced] Omit extension packs stored in the database during database
+creation, either from a Code Scanning configuration file or from
+extension files stored in the 'extensions' directory of the analyzed
+codebase.
 
 #### `--[no-]print-diagnostics-summary`
 
