@@ -19,6 +19,8 @@ topics:
   - CVEs
 ---
 
+{% data reusables.security-advisory.private-repository-non-ghas-deprecation-note %}
+
 {% data reusables.repositories.security-advisory-admin-permissions %}
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
