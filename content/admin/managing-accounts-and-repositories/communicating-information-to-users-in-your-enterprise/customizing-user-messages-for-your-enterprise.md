@@ -26,9 +26,11 @@ You can create global announcement banners, which appear at the top of every pag
 {% else %}
 
 There are several types of user messages.
-- Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page{% ifversion ghes or ghae %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes or ghae %}
-- Announcement banners, which appear at the top of every page{% endif %}{% endif %}
+- Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page
+- Mandatory messages, which appear once in a pop-up window that must be dismissed
+- Announcement banners, which appear at the top of every page
+
+{% endif %}
 
 {% ifversion ghes %}
 {% note %}
@@ -45,12 +47,12 @@ There are several types of user messages.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 1. To the right of "Sign in page", click **Add message** or **Edit message**.
-![Screenshot of the "Sign in page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message", is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/edit-message.png)
+
+   ![Screenshot of the "Sign in page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message", is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/edit-message.png)
 1. Under **Sign in message**, type the message you'd like users to see.
-{% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
-{% data reusables.enterprise_site_admin_settings.click-preview %}
-1. Review the rendered message.
-{% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
+{% data reusables.enterprise_site_admin_settings.message-preview-save %}
+
+{% endif %}
 
 {% ifversion ghes or ghae %}
 
@@ -60,7 +62,8 @@ There are several types of user messages.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 1. {% ifversion ghes or ghae %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
-![Screenshot of the "Sign out page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
+
+   ![Screenshot of the "Sign out page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
 1. Under **Sign out message**, type the message you'd like users to see.
 {% ifversion ghes or ghae %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
@@ -106,7 +109,7 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 
 ## Creating a global announcement banner
 
-You can set a global announcement banner to be displayed to all users at the top of every page{% ifversion ghec %} within your enterprise{% endif %}.
+You can set a global announcement banner to be displayed to all users at the top of every page{% ifversion ghec %} within your enterprise, including every page in every organization owned by the enterprise{% endif %}.
 
 {% ifversion custom-banner-messages %}
 You can also create announcement banners at the organization level. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-an-announcement-banner-for-your-organization)."{% endif %}
