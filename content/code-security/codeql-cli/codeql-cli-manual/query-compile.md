@@ -165,6 +165,11 @@ Don't check embedded query metadata in QLDoc comments for validity.
 \[Advanced] Override the default maximum size for a compilation cache
 directory.
 
+#### `--fail-on-ambiguous-relation-name`
+
+\[Advanced] Fail compilation if an ambiguous relation name is generated
+during compilation.
+
 ### Options to set up compilation environment
 
 #### `--search-path=<dir>[:<dir>...]`
