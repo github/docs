@@ -1,1 +1,0 @@
-The generator uses a generative AI model where you input a text description of the type of pattern you would like to detect, including optional example strings that should be detected. The model returns up to three regular expressions for you to review.

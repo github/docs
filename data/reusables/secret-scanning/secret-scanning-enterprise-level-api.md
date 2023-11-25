@@ -1,1 +1,0 @@
-You can also enable or disable {% data variables.product.prodname_advanced_security %} features via the API. For more information, see "[AUTOTITLE](/rest/secret-scanning#enable-or-disable-security-features-for-an-enterprise)" in the REST API documentation.

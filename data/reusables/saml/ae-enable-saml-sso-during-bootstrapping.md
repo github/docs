@@ -1,1 +1,0 @@
-You'll configure identity and access management for {% data variables.product.product_name %} by entering the details for your SAML IdP during initialization. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/initializing-github-ae#connecting-your-idp-to-your-enterprise)."

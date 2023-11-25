@@ -1,1 +1,0 @@
-To speed up codespace creation, repository administrators can enable {% data variables.product.prodname_github_codespaces %} prebuilds for a repository. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds)."

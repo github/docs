@@ -1,7 +1,0 @@
-# Reference: #9903
-# GitHub Advanced Security for Azure DevOps
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-  ghae: '*'

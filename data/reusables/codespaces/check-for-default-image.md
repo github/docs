@@ -1,1 +1,0 @@
-For information on how to check whether a codespace was built from the default image, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-included-usage#storage-usage-for-your-base-dev-container)."

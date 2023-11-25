@@ -1,4 +1,0 @@
-versions:
-  ghec: '*'
-  ghes: '>=3.5'
-  ghae: '>= 3.5'

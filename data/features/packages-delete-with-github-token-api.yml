@@ -1,6 +1,0 @@
-# Issue 8950
-# Support delete/restore fo GHPR Packages with REST API using GITHUB_TOKEN
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>3.8'

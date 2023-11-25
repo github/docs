@@ -1,1 +1,0 @@
-Additionally, you can enable push protection for yourself, so that no matter which public repository you push to, you will be protected. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."

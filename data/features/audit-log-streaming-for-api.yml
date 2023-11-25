@@ -1,5 +1,0 @@
-# Reference: #35678
-# Documentation for enabling audit log streaming for API requests:
-versions:
-  fpt: '*'
-  ghec: '*'

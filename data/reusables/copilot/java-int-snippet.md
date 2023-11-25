@@ -1,3 +1,0 @@
-```java copy
-int calculateDaysBetweenDates(
-```

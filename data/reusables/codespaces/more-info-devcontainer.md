@@ -1,1 +1,0 @@
-For information about the settings and properties that you can set in a `devcontainer.json` file, see the [Specification](https://containers.dev/implementors/spec) on the Development Containers website.

@@ -1,4 +1,0 @@
-# Reference: Issue #9109 - REST API and webhooks for repo-level advisories
-versions:
-  fpt: '*'
-  ghec: '*'
