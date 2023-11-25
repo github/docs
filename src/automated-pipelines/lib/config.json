@@ -1,9 +1,0 @@
-{
-  "automation-pipelines": [
-    "codeql-cli",
-    "github-apps",
-    "graphql",
-    "rest",
-    "webhooks"
-  ]
-}
