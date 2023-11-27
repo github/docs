@@ -3055,6 +3055,17 @@
         "access": "write"
       },
       {
+        "category": "security-advisories",
+        "slug": "create-a-temporary-private-fork",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks",
+        "additional-permissions": [
+          "repository_advisories"
+        ],
+        "access": "write"
+      },
+      {
         "category": "repos",
         "slug": "list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
@@ -6664,6 +6675,17 @@
         "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "security-advisories",
+        "slug": "create-a-temporary-private-fork",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks",
+        "additional-permissions": [
+          "administration"
+        ],
+        "access": "read"
       }
     ]
   },

@@ -4585,6 +4585,19 @@
         "additional-permissions": []
       },
       {
+        "category": "security-advisories",
+        "slug": "create-a-temporary-private-fork",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "repository_advisories"
+        ]
+      },
+      {
         "category": "repos",
         "slug": "list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
@@ -8973,6 +8986,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "security-advisories",
+        "slug": "create-a-temporary-private-fork",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "administration"
+        ]
       }
     ]
   },
