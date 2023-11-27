@@ -27,12 +27,15 @@ import { program } from 'commander'
 import chalk from 'chalk'
 import walk from 'walk-sync'
 import yaml from 'js-yaml'
+import escapeStringRegexp from 'escape-string-regexp'
 
 import fm from '#src/frame/lib/frontmatter.js'
 import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 
-const CONTENT_ROOT = path.resolve('content')
-const DATA_ROOT = path.resolve('data')
+// This is so you can optionally run it again the test fixtures root.
+const ROOT = process.env.ROOT || '.'
+const CONTENT_ROOT = path.resolve(path.join(ROOT, 'content'))
+const DATA_ROOT = path.resolve(path.join(ROOT, 'data'))
 
 const REDIRECT_FROM_KEY = 'redirect_from'
 const CHILDREN_KEY = 'children'
@@ -126,6 +129,9 @@ async function main(opts, nameTuple) {
   // This will exit non-zero if anything is wrong with these inputs
   validateFileInputs(oldPath, newPath, isFolder)
 
+  const oldHref = makeHref(CONTENT_ROOT, undo ? newPath : oldPath)
+  const newHref = makeHref(CONTENT_ROOT, undo ? oldPath : newPath)
+
   if (isFolder) {
     // The folder must have an index.md file
     const indexFilePath = path.join(oldPath, 'index.md')
@@ -152,8 +158,6 @@ async function main(opts, nameTuple) {
     }
   } else {
     // When it's just an individual file, it's easier.
-    const oldHref = makeHref(CONTENT_ROOT, undo ? newPath : oldPath)
-    const newHref = makeHref(CONTENT_ROOT, undo ? oldPath : newPath)
     const files = [[oldPath, newPath, oldHref, newHref]]
 
     // First take care of the `git mv` (or regular rename) part.
@@ -165,6 +169,10 @@ async function main(opts, nameTuple) {
       editFiles(files, true, opts)
     }
   }
+
+  // Updating featuredLinks front matter actually doesn't care if
+  // the file is a folder or not. It just needs to know the old and new hrefs.
+  changeFeaturedLinks(oldHref, newHref)
 
   if (!undo) {
     if (verbose) {
@@ -573,6 +581,42 @@ function changeLearningTracks(filePath, oldHref, newHref) {
   const oldContent = fs.readFileSync(filePath, 'utf-8')
   const newContent = oldContent.replace(regex, `- ${newHref}`)
   fs.writeFileSync(filePath, newContent, 'utf-8')
+}
+
+function changeFeaturedLinks(oldHref, newHref) {
+  const allFiles = walk(CONTENT_ROOT, {
+    globs: ['**/*.md'],
+    includeBasePath: true,
+    directories: false,
+  }).filter((file) => !file.includes('README.md'))
+
+  const regex = new RegExp(`(^|%})${escapeStringRegexp(oldHref)}($|{%)`)
+
+  for (const file of allFiles) {
+    let changed = false
+    const fileContent = fs.readFileSync(file, 'utf-8')
+    const { content, data } = readFrontmatter(fileContent)
+    const featuredLinks = data.featuredLinks || {}
+    for (const [key, entries] of Object.entries(featuredLinks)) {
+      if (key === 'popularHeading') {
+        continue
+      }
+      entries.forEach((entry, i) => {
+        if (regex.test(entry)) {
+          entries[i] = entry.replace(regex, `${newHref}$1`)
+          changed = true
+        }
+      })
+    }
+
+    if (changed) {
+      fs.writeFileSync(
+        file,
+        readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
+        'utf-8',
+      )
+    }
+  }
 }
 
 function getCurrentBranchName(verbose = false) {
