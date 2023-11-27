@@ -34,7 +34,7 @@ topics:
 {% note %}
 
 **Note:** Security overview shows information and metrics for the default branches of an organization's repositories.
-  
+
 {% endnote %}
 
 Security overview shows which security features are enabled for repositories and includes repository and alert-focused views so you can quickly investigate security issues and take action to remediate them.
@@ -76,6 +76,8 @@ Security overview has multiple views that provide different ways to explore enab
 - Use "Coverage" to assess the adoption of code security features across repositories in the organization.
 - Use "Risk" to assess the risk from security alerts of all types for one or more repositories in the organization.
 - Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.
+
+{% data reusables.security-overview.alert-differences %}
 
 For more information about these views, see {% ifversion security-overview-dashboard %}"[AUTOTITLE](/code-security/security-overview/viewing-security-insights-for-your-organization),"{% endif %}"[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)" and "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."
 

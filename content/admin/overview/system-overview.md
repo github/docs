@@ -80,9 +80,9 @@ For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-ent
 
 {% data variables.product.product_name %} runs a customized Linux operating system with only the necessary applications and services. {% data variables.product.company_short %} distributes patches for the instance's core operating system as part of its standard product release cycle. Patches address functionality, stability, and non-critical security issues for {% data variables.product.product_name %}. {% data variables.product.company_short %} also provides critical security patches as needed outside of the regular release cycle.
 
-{% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
+{% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual {% ifversion ghes > 3.10 %}Ubuntu{% else %}Debian{% endif %} distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-Currently, the base operating system for {% data variables.product.product_name %} is Debian 10 (Buster), which receives support under the Debian Long Term Support program.
+Currently, the base operating system for {% data variables.product.product_name %} is {% ifversion ghes > 3.10 %}Ubuntu 20 (Focal Fossa){% else %}Debian 10 (Buster), which receives support under the Debian Long Term Support program{% endif %}.
 
 Regular patch updates are released on the {% data variables.product.product_name %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.product_name %} patch release.
 
@@ -159,5 +159,5 @@ Tarballs are also available, with a full list of dependencies and metadata, at `
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)"
+- "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)"
 - "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)"

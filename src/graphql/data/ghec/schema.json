@@ -2647,7 +2647,7 @@
       "kind": "mutations",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/mutations#createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -6949,6 +6949,40 @@
       ]
     },
     {
+      "name": "unsubscribeFromNotifications",
+      "kind": "mutations",
+      "id": "unsubscribefromnotifications",
+      "href": "/graphql/reference/mutations#unsubscribefromnotifications",
+      "description": "<p>Unsubscribes from notifications.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnsubscribeFromNotificationsInput!",
+          "id": "unsubscribefromnotificationsinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateBranchProtectionRule",
       "kind": "mutations",
       "id": "updatebranchprotectionrule",
@@ -7451,7 +7485,7 @@
       "kind": "mutations",
       "id": "updateenterprisememberscanmakepurchasessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanmakepurchasessetting",
-      "description": "<p>Sets whether or not an organization admin can make purchases.</p>",
+      "description": "<p>Sets whether or not an organization owner can make purchases.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -8185,6 +8219,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#organization",
           "description": "<p>The organization with the updated web commit signoff setting.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updatePatreonSponsorability",
+      "kind": "mutations",
+      "id": "updatepatreonsponsorability",
+      "href": "/graphql/reference/mutations#updatepatreonsponsorability",
+      "description": "<p>Toggle the setting for your GitHub Sponsors profile that allows other GitHub\naccounts to sponsor you on GitHub while paying for the sponsorship on Patreon.\nOnly applicable when you have a GitHub Sponsors profile and have connected\nyour GitHub account with Patreon.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdatePatreonSponsorabilityInput!",
+          "id": "updatepatreonsponsorabilityinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updatepatreonsponsorabilityinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "sponsorsListing",
+          "type": "SponsorsListing",
+          "id": "sponsorslisting",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#sponsorslisting",
+          "description": "<p>The GitHub Sponsors profile.</p>"
         }
       ]
     },
@@ -9188,7 +9256,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AddedToMergeQueueEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9252,7 +9320,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AddedToProjectEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9399,7 +9467,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the App object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9575,7 +9643,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AssignedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9633,7 +9701,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoMergeDisabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9705,7 +9773,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoMergeEnabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9826,7 +9894,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoRebaseEnabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9882,7 +9950,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoSquashEnabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9930,7 +9998,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutomaticBaseChangeFailedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9994,7 +10062,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutomaticBaseChangeSucceededEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10074,7 +10142,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BaseRefChangedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10138,7 +10206,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BaseRefDeletedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10202,7 +10270,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BaseRefForcePushedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10337,7 +10405,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Blob object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10447,7 +10515,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Bot object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10742,7 +10810,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BranchProtectionRule object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -11267,7 +11335,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BypassForcePushAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -11373,7 +11441,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BypassPullRequestAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -11504,7 +11572,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CWE object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -11907,7 +11975,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CheckRun object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -12455,7 +12523,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CheckSuite object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -12738,7 +12806,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ClosedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -12794,7 +12862,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CodeOfConduct object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -12882,7 +12950,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CommentDeletedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -13447,7 +13515,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Commit object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -13897,7 +13965,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CommitComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -14314,7 +14382,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CommitCommentThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -14726,7 +14794,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Comparison object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -14823,7 +14891,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConnectedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -15870,7 +15938,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConvertToDraftEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -15942,7 +16010,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConvertedNoteToIssueEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -16089,7 +16157,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConvertedToDiscussionEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -16808,7 +16876,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CrossReferencedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -16904,7 +16972,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DemilestonedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17304,7 +17372,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DependencyGraphManifest object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17458,7 +17526,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeployKey object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17612,7 +17680,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeployedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17708,7 +17776,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Deployment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17944,7 +18012,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeploymentEnvironmentChangedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -18356,7 +18424,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeploymentReview object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -18592,7 +18660,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeploymentStatus object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -18722,7 +18790,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DisconnectedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -18998,7 +19066,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Discussion object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -19439,7 +19507,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DiscussionCategory object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -19692,7 +19760,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DiscussionComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -20202,7 +20270,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DiscussionPoll object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -20318,7 +20386,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DiscussionPollOption object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -20530,7 +20598,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DraftIssue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -20759,7 +20827,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Enterprise object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -21135,7 +21203,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseAdministratorInvitation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -21574,7 +21642,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseIdentityProvider object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -23996,7 +24064,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseRepositoryInfo object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -24134,7 +24202,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerInstallation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -24510,7 +24578,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerUserAccount object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -24664,7 +24732,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerUserAccountEmail object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -24802,7 +24870,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerUserAccountsUpload object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -25037,7 +25105,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseUserAccount object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -25197,7 +25265,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Environment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -25353,7 +25421,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ExternalIdentity object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -25928,7 +25996,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Gist object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26197,7 +26265,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the GistComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26888,7 +26956,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the HeadRefDeletedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26952,7 +27020,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the HeadRefForcePushedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27008,7 +27076,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the HeadRefRestoredEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27073,7 +27141,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the IpAllowListEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27516,7 +27584,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Issue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -28632,7 +28700,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the IssueComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29524,7 +29592,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Label object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29868,7 +29936,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the LabeledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29916,7 +29984,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Language object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30070,7 +30138,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the License object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30199,7 +30267,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the LinkedBranch object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30313,7 +30381,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the LockedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30415,7 +30483,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Mannequin object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30569,7 +30637,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MarkedAsDuplicateEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30617,7 +30685,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MarketplaceCategory object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30801,7 +30869,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MarketplaceListing object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31217,6 +31285,54 @@
       ]
     },
     {
+      "name": "MemberFeatureRequestNotification",
+      "kind": "objects",
+      "id": "memberfeaturerequestnotification",
+      "href": "/graphql/reference/objects#memberfeaturerequestnotification",
+      "description": "<p>Represents a member feature request notification.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>Represents member feature request body containing organization name and the number of feature requests.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MemberFeatureRequestNotification object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "title",
+          "description": "<p>Represents member feature request notification title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
       "name": "MembersCanDeleteReposClearAuditEntry",
       "kind": "objects",
       "id": "memberscandeletereposclearauditentry",
@@ -31335,7 +31451,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MembersCanDeleteReposClearAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31534,7 +31650,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MembersCanDeleteReposDisableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31733,7 +31849,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MembersCanDeleteReposEnableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31853,7 +31969,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MentionedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31935,7 +32051,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MergeQueue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32096,7 +32212,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MergeQueueEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32263,7 +32379,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MergedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32327,7 +32443,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MigrationSource object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32433,7 +32549,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Milestone object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32809,7 +32925,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MilestonedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32873,7 +32989,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MovedColumnsInProjectEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33117,7 +33233,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OIDCProvider object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33252,7 +33368,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OauthApplicationCreateAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33462,7 +33578,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgAddBillingManagerAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33640,7 +33756,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgAddMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33850,7 +33966,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgBlockUserAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34020,7 +34136,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgConfigDisableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34190,7 +34306,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgConfigEnableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34368,7 +34484,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgCreateAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34538,7 +34654,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgDisableOauthAppRestrictionsAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34716,7 +34832,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgDisableSamlAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34910,7 +35026,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgDisableTwoFactorRequirementAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -35080,7 +35196,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgEnableOauthAppRestrictionsAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -35258,7 +35374,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgEnableSamlAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -35452,7 +35568,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgEnableTwoFactorRequirementAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -35630,7 +35746,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgInviteMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -35837,7 +35953,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgInviteToBusinessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36012,7 +36128,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessApprovedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36211,7 +36327,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessBlockedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36410,7 +36526,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessDeniedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36609,7 +36725,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessRequestedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36808,7 +36924,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessUnblockedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37002,7 +37118,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRemoveBillingManagerAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37180,7 +37296,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRemoveMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37366,7 +37482,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRemoveOutsideCollaboratorAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37552,7 +37668,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRestoreMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37954,7 +38070,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUnblockUserAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -38124,7 +38240,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateDefaultRepositoryPermissionAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -38310,7 +38426,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -38504,7 +38620,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateMemberRepositoryCreationPermissionAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -38690,7 +38806,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateMemberRepositoryInvitationPermissionAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -39209,7 +39325,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Organization object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -41783,7 +41899,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrganizationIdentityProvider object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -41863,7 +41979,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrganizationInvitation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -42107,7 +42223,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrganizationMigration object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -42385,7 +42501,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Package object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -42595,7 +42711,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PackageFile object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -42766,7 +42882,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PackageTag object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -42866,7 +42982,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PackageVersion object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43222,7 +43338,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PinnedDiscussion object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43368,7 +43484,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PinnedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43416,7 +43532,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PinnedIssue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43638,7 +43754,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PrivateRepositoryForkingDisableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43874,7 +43990,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PrivateRepositoryForkingEnableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -44185,7 +44301,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Project object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -44397,7 +44513,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectCard object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -44619,7 +44735,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectColumn object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45018,7 +45134,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2 object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45647,7 +45763,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2Field object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45939,7 +46055,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2Item object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46106,7 +46222,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2ItemFieldDateValue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46191,7 +46307,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2ItemFieldIterationValue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46392,7 +46508,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2ItemFieldNumberValue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46670,7 +46786,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2ItemFieldSingleSelectValue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46771,7 +46887,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2ItemFieldTextValue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46989,7 +47105,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2IterationField object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -47156,7 +47272,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2SingleSelectField object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -47669,7 +47785,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2View object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -48101,7 +48217,7 @@
         },
         {
           "name": "enabled",
-          "description": "<p>The workflows' enabled state.</p>",
+          "description": "<p>Whether the workflow is enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -48109,7 +48225,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2Workflow object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -48117,7 +48233,7 @@
         },
         {
           "name": "name",
-          "description": "<p>The workflows' name.</p>",
+          "description": "<p>The name of the workflow.</p>",
           "type": "String!",
           "id": "string",
           "kind": "scalars",
@@ -48125,7 +48241,7 @@
         },
         {
           "name": "number",
-          "description": "<p>The workflows' number.</p>",
+          "description": "<p>The number of the workflow.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -48255,7 +48371,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PublicKey object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -48970,7 +49086,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequest object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -50433,7 +50549,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestCommit object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -50544,7 +50660,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestCommitCommentThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -51031,7 +51147,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestReview object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -51508,7 +51624,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestReviewComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -52173,7 +52289,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestReviewThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -52525,7 +52641,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -52817,7 +52933,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Push object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -52897,7 +53013,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PushAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53142,7 +53258,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Reaction object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53494,7 +53610,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReadyForReviewEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53670,7 +53786,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Ref object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53962,7 +54078,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReferencedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54060,7 +54176,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Release object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54429,7 +54545,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReleaseAsset object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54665,7 +54781,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RemovedFromMergeQueueEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54737,7 +54853,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RemovedFromProjectEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54851,7 +54967,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RenamedTitleEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54915,7 +55031,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReopenedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -55026,7 +55142,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -55241,7 +55357,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoAddMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -55461,7 +55577,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoAddTopicAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -55684,7 +55800,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoArchivedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -55899,7 +56015,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoChangeMergeSettingAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56122,7 +56238,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56329,7 +56445,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56536,7 +56652,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableContributorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56743,7 +56859,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableSockpuppetDisallowedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56950,7 +57066,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57157,7 +57273,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57364,7 +57480,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableContributorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57571,7 +57687,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableSockpuppetDisallowedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57778,7 +57894,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigLockAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57985,7 +58101,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigUnlockAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -58208,7 +58324,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoCreateAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -58423,7 +58539,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoDestroyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -58638,7 +58754,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoRemoveMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -58858,7 +58974,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoRemoveTopicAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60074,7 +60190,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Repository object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -62528,7 +62644,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryInvitation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -62695,7 +62811,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryMigration object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -62866,7 +62982,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryRule object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63095,7 +63211,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryRuleset object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63227,7 +63343,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryRulesetBypassActor object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63235,7 +63351,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>This actor represents the ability for an organization admin to bypass.</p>",
+          "description": "<p>This actor represents the ability for an organization owner to bypass.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -63420,7 +63536,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryTopic object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63637,7 +63753,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryVisibilityChangeDisableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63836,7 +63952,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryVisibilityChangeEnableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64009,7 +64125,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryVulnerabilityAlert object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64368,7 +64484,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewDismissalAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64503,7 +64619,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewDismissedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64591,7 +64707,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewRequest object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64713,7 +64829,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewRequestRemovedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64769,7 +64885,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewRequestedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64873,7 +64989,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SavedReply object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65183,7 +65299,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SecurityAdvisory object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65979,11 +66095,19 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SponsorsActivity object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "paymentSource",
+          "description": "<p>The platform that was used to pay for the sponsorship.</p>",
+          "type": "SponsorshipPaymentSource",
+          "id": "sponsorshippaymentsource",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshippaymentsource"
         },
         {
           "name": "previousSponsorsTier",
@@ -66266,7 +66390,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SponsorsListing object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66457,7 +66581,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SponsorsListingFeaturedItem object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66545,7 +66669,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SponsorsTier object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66803,7 +66927,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Sponsorship object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66842,6 +66966,14 @@
           "href": "/graphql/reference/objects#user",
           "isDeprecated": true,
           "deprecationReason": "<p><code>Sponsorship.maintainer</code> will be removed. Use <code>Sponsorship.sponsorable</code> instead. Removal on 2020-04-01 UTC.</p>"
+        },
+        {
+          "name": "paymentSource",
+          "description": "<p>The platform that was most recently used to pay for the sponsorship.</p>",
+          "type": "SponsorshipPaymentSource",
+          "id": "sponsorshippaymentsource",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#sponsorshippaymentsource"
         },
         {
           "name": "privacyLevel",
@@ -67017,7 +67149,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SponsorshipNewsletter object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -67461,7 +67593,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Status object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -67576,7 +67708,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the StatusCheckRollup object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -67772,7 +67904,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the StatusContext object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -68071,7 +68203,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SubscribedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -68165,7 +68297,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Tag object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -68594,7 +68726,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Team object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -69337,7 +69469,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamAddMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -69557,7 +69689,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamAddRepositoryAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -69804,7 +69936,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamChangeParentTeamAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -70256,7 +70388,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamDiscussion object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -70282,7 +70414,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Whether or not the discussion is only visible to team members and org admins.</p>",
+          "description": "<p>Whether or not the discussion is only visible to team members and organization owners.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -70700,7 +70832,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamDiscussionComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -71280,7 +71412,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamRemoveMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -71500,7 +71632,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamRemoveRepositoryAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -71813,7 +71945,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Topic object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72087,7 +72219,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TransferredEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72156,7 +72288,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Tree object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72357,7 +72489,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnassignedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72479,7 +72611,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnlabeledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72535,7 +72667,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnlockedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72599,7 +72731,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnmarkedAsDuplicateEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72647,7 +72779,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnpinnedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -72695,7 +72827,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnsubscribedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -73352,7 +73484,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the User object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -75884,7 +76016,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UserBlockedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -76005,7 +76137,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UserContentEdit object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -76193,7 +76325,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UserStatus object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -76371,7 +76503,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the VerifiableDomain object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -76586,7 +76718,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Workflow object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -76846,7 +76978,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the WorkflowRun object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -77031,7 +77163,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the WorkflowRunFile object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -77494,7 +77626,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Comment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -77724,7 +77856,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the GitObject object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78042,7 +78174,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Migration object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78231,7 +78363,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PackageOwner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78366,7 +78498,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProfileOwner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78559,7 +78691,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectOwner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78724,7 +78856,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2FieldCommon object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78797,7 +78929,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2ItemFieldValueCommon object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -78830,7 +78962,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectV2Owner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -79004,7 +79136,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Reactable object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -79634,7 +79766,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryOwner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -80518,7 +80650,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Starrable object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -80611,7 +80743,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Subscribable object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -80644,7 +80776,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SubscribableThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -81735,7 +81867,7 @@
         },
         {
           "name": "NO_POLICY",
-          "description": "<p>Organization administrators choose whether to allow members to create repositories.</p>"
+          "description": "<p>Organization owners choose whether to allow members to create repositories.</p>"
         },
         {
           "name": "PRIVATE",
@@ -82937,7 +83069,7 @@
       "values": [
         {
           "name": "ADMIN",
-          "description": "<p>Organization administrators have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization admins can delete the organization\nand all of its repositories.</p>"
+          "description": "<p>Organization owners have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization owners can delete the organization\nand all of its repositories.</p>"
         },
         {
           "name": "BILLING_MANAGER",
@@ -83937,19 +84069,19 @@
       "values": [
         {
           "name": "CREATED_AT",
-          "description": "<p>The workflows' date and time of creation.</p>"
+          "description": "<p>The date and time of the workflow creation.</p>"
         },
         {
           "name": "NAME",
-          "description": "<p>The workflows' name.</p>"
+          "description": "<p>The name of the workflow.</p>"
         },
         {
           "name": "NUMBER",
-          "description": "<p>The workflows' number.</p>"
+          "description": "<p>The number of the workflow.</p>"
         },
         {
           "name": "UPDATED_AT",
-          "description": "<p>The workflows' date and time of update.</p>"
+          "description": "<p>The date and time of the workflow update.</p>"
         }
       ]
     },
@@ -86676,6 +86808,23 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order sponsorship by creation time.</p>"
+        }
+      ]
+    },
+    {
+      "name": "SponsorshipPaymentSource",
+      "kind": "enums",
+      "id": "sponsorshippaymentsource",
+      "href": "/graphql/reference/enums#sponsorshippaymentsource",
+      "description": "<p>How payment was made for funding a GitHub Sponsors sponsorship.</p>",
+      "values": [
+        {
+          "name": "GITHUB",
+          "description": "<p>Payment was made through GitHub.</p>"
+        },
+        {
+          "name": "PATREON",
+          "description": "<p>Payment was made through Patreon.</p>"
         }
       ]
     },
@@ -93403,7 +93552,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization owners. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -97328,7 +97477,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>For org admin bupasses, true.</p>",
+          "description": "<p>For organization owner bypasses, true.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -99161,6 +99310,33 @@
       ]
     },
     {
+      "name": "UnsubscribeFromNotificationsInput",
+      "kind": "inputObjects",
+      "id": "unsubscribefromnotificationsinput",
+      "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput",
+      "description": "<p>Autogenerated input type of UnsubscribeFromNotifications.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ids",
+          "description": "<p>The NotificationThread IDs of the objects to unsubscribe from.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "UpdateBranchProtectionRuleInput",
       "kind": "inputObjects",
       "id": "updatebranchprotectionruleinput",
@@ -100756,6 +100932,39 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "UpdatePatreonSponsorabilityInput",
+      "kind": "inputObjects",
+      "id": "updatepatreonsponsorabilityinput",
+      "href": "/graphql/reference/input-objects#updatepatreonsponsorabilityinput",
+      "description": "<p>Autogenerated input type of UpdatePatreonSponsorability.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enablePatreonSponsorships",
+          "description": "<p>Whether Patreon tiers should be shown on the GitHub Sponsors profile page,\nallowing potential sponsors to make their payment through Patreon instead of GitHub.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "sponsorableLogin",
+          "description": "<p>The username of the organization with the GitHub Sponsors profile, if any.\nDefaults to the GitHub Sponsors profile for the authenticated user if omitted.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },

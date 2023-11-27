@@ -30,3 +30,5 @@ updates:
     schedule:
       interval: weekly
       day: thursday
+    ignore:
+      - dependency-name: 'node'

@@ -42,7 +42,7 @@ Your enterprise account allows you to manage and enforce policies for all the or
 
 {% ifversion ghec %}
 
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/admin/overview/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account)."
 
 {% endif %}
 

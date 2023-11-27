@@ -59,7 +59,7 @@ A README should contain only the necessary information for developers to get sta
 ## Further reading
 
 - "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)"
-- 18F's "[Making READMEs readable](https://github.com/18F/open-source-guide/blob/18f-pages/pages/making-readmes-readable.md)"
+- "[5 tips for making your {% data variables.product.company_short %} profile page accessible](https://github.blog/2023-10-26-5-tips-for-making-your-github-profile-page-accessible/)" in the {% data variables.product.company_short %} blog
 {%- ifversion fpt or ghec %}
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge)"
 {%- endif %}

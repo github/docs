@@ -77,7 +77,9 @@ Versioning for {% data variables.product.prodname_ghe_managed %} uses the `githu
 
 ## Versioning in the YAML frontmatter
 
-You can use the `versions` property within the file's frontmatter to define which products an entire page applies to. For example, the following YAML frontmatter will version an article for {% data variables.product.prodname_ghe_server %} 2.20 and above and Free, Pro, or Team.
+You can use the `versions` property within a file's frontmatter to define which products an article will appear for. Index files require a `versions` property, but they will be automatically versioned based on the versions of their children.
+
+For example, the following YAML frontmatter will version an article for {% data variables.product.prodname_ghe_server %} 2.20 and above and Free, Pro, or Team.
 
 ```yaml
 title: About your personal dashboard
@@ -94,13 +96,13 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. The following example will version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 2.22 and 3.0 only:
+You can also version a page for a range of releases. The following example will version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=2.22 <3.1'
+  ghes: '>=3.1 <3.3'
 ```
 
 ## Versioning with Liquid conditional operators
@@ -194,7 +196,7 @@ This row is for all versions | B3 | C3
 
 When you document any new change or feature, use feature-based versioning.
 
-A small minority of features and changes will only ever apply to one product. The majority of features come to {% data variables.product.prodname_dotcom_the_website %} and eventually reach all products. In general, changes "flow" from {% data variables.product.prodname_dotcom_the_website %} (including {% data variables.product.prodname_ghe_cloud %}) [to {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/overview/about-upgrades-to-new-releases), and then [to {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/overview/about-upgrades-to-new-releases).
+A small minority of features and changes will only ever apply to one product. The majority of features come to {% data variables.product.prodname_dotcom_the_website %} and eventually reach all products. In general, changes "flow" from {% data variables.product.prodname_dotcom_the_website %} (including {% data variables.product.prodname_ghe_cloud %}) [to {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/overview/about-upgrades-to-new-releases).
 
 Feature-based versioning provides named "feature flags" that simplify the maintenance and versioning of documentation. You can use a single feature name (or "flag") to group and version prose throughout content. When a feature comes to additional products, you only need to make a change to the YAML versioning in the file within `data/features/`.
 

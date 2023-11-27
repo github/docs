@@ -92,7 +92,7 @@ For more information about best practices, see "[AUTOTITLE](/rest/overview/keepi
 
 {% endnote %}
 
-{% ifversion fpt or ghec %}1. [Verify your email address](/get-started/signing-up-for-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
+{% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
@@ -133,7 +133,7 @@ If you selected an organization as the resource owner and the organization requi
 
 {% endif %}
 
-{% ifversion fpt or ghec %}1. [Verify your email address](/get-started/signing-up-for-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
+{% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
@@ -148,6 +148,8 @@ If you selected an organization as the resource owner and the organization requi
 1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 ## Deleting a {% data variables.product.pat_generic %}
+
+You should delete a {% data variables.product.pat_generic %} if it is no longer needed. If you delete a {% data variables.product.pat_generic %} that was used to create a deploy key, the deploy key will also be deleted.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

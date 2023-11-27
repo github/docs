@@ -4,4 +4,4 @@ During an upgrade to GitHub Enterprise Server 3.8.0 on a cluster, after you upgr
 Error response from daemon: conflict: unable to delete IMAGE_ID (cannot be forced) - image is being used by running container CONTAINER_ID
 ```
 
-You can safely ignore this message. [Updated: 2023-05-16]
+You can safely ignore this message.

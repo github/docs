@@ -1,17 +1,12 @@
 export const tags = {
   note: 'accent',
-  tip: 'accent',
-  warning: 'danger',
+  tip: 'success',
+  warning: 'attention',
   danger: 'danger',
 }
 
 const template =
-  '<div class="ghd-spotlight ghd-spotlight-{{ tagName }} {{ classes }}">{{ output }}</div>'
-
-function getClasses(tagName) {
-  const color = tags[tagName]
-  return `border rounded-1 my-3 p-3 f5 color-border-${color}-emphasis color-bg-${color}`
-}
+  '<div class="ghd-spotlight ghd-spotlight-{{ color }} my-4 pl-3 py-2">{{ output }}</div>'
 
 export const Spotlight = {
   type: 'block',
@@ -34,8 +29,7 @@ export const Spotlight = {
     const output = yield this.liquid.renderer.renderTemplates(this.templates, scope)
 
     return yield this.liquid.parseAndRender(template, {
-      tagName: this.tagName,
-      classes: getClasses(this.tagName),
+      color: tags[this.tagName],
       output,
     })
   },

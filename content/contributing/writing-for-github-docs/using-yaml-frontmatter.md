@@ -50,6 +50,7 @@ For more information about the different types of versioning, see "[Versioning d
 - Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
 - The `*` is used to denote all releases for the version.
+- Must be present for all `index.md` files, but actual value is computed at runtime based on the children.
 
 This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](#permalinks).
 
@@ -59,7 +60,7 @@ Example that applies to {% data variables.product.prodname_dotcom_the_website %}
 title: About your personal dashboard
 versions:
   fpt: '*'
-  ghes: '>=2.20'
+  ghes: '>=3.11'
 ```
 
 Example that applies to all supported versions of {% data variables.product.prodname_ghe_server %}, but not {% data variables.product.prodname_dotcom_the_website %}:
@@ -70,12 +71,12 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 2.22 and 3.0 only:
+You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
   fpt: '*'
-  ghes: '>=2.22 <3.1'
+  ghes: '>=3.1 <3.3'
 ```
 
 ### `redirect_from`
@@ -89,9 +90,9 @@ Example:
 ```yaml
 title: Getting started with GitHub Desktop
 redirect_from:
-  - /articles/first-launch/
-  - /articles/error-github-enterprise-version-is-too-old/
-  - /articles/getting-started-with-github-for-windows/
+  - /articles/first-launch
+  - /articles/error-github-enterprise-version-is-too-old
+  - /articles/getting-started-with-github-for-windows
 ```
 
 For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/configuring-redirects)."
@@ -302,7 +303,7 @@ When adding a new article, make sure the filename is a [kebab-cased](https://en.
 
 ## Index pages
 
-Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
+Index pages are the table of contents files for the Docs site. Every product, category, and map topic subdirectory has an `index.md` file that provides an overview of the content and links to every child article. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic. Index pages require a `versions` frontmatter property, and the actual value will be computed at runtime based on the versions of children articles.
 
 {% note %}
 
