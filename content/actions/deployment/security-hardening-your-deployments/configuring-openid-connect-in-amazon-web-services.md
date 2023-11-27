@@ -65,11 +65,7 @@ Edit the trust policy, adding the `sub` field to the validation conditions. For 
 
 If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:OWNER/REPOSITORY:environment:NAME`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
 
-{% note %}
-
-**Note**: When using an environment in a workflow it is strongly recommend to protect access by configuring deployment protection rules. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules)."
-
-{% endnote %}
+{% data reusables.actions.oidc-deployment-protection-rules %}
 
 ```json copy
 "Condition": {
