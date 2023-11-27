@@ -2241,18 +2241,18 @@
   },
   {
     "action": "organization_role.create",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A custom organization role was created in an organization.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
     "action": "organization_role.destroy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A custom organization role was deleted in an organization.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
     "action": "organization_role.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A custom organization role was edited in an organization.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
     "action": "org_credential_authorization.deauthorize",

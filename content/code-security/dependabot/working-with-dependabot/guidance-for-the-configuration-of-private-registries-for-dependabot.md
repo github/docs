@@ -221,7 +221,7 @@ The snippet of a `dependabot.yml` file below uses a token. {% data reusables.dep
 registries:
   npm-github:
     type: npm-registry
-    url: https://npm.pkg.github.com/<org-name>
+    url: https://npm.pkg.github.com
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 
@@ -234,7 +234,7 @@ Example of the content of a `.npmrc` file:
 {% raw %}
 
 ```text
-registry=https://<private-registry-url>/<org-name>
+registry=https://<private-registry-url>
 ```
 
 {% endraw %}
@@ -266,7 +266,7 @@ This would result in a '.npmrc' with the registry:
 {% raw %}
 
 ```text
-@<org-name>:registry=https://<private-registry-url>/<org-name>
+@<org-name>:registry=https://<private-registry-url>
 ```
 
 {% endraw %}
@@ -409,7 +409,7 @@ The Yarn registry uses a configuration similar to that of the npm registry. For 
 registries:
   yarn-github:
     type: npm-registry
-    url: https://npm.pkg.github.com/<org-name>
+    url: https://npm.pkg.github.com
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 
@@ -583,7 +583,7 @@ For information about {% data variables.product.prodname_registry %} registries,
 registries:
   github:
     type: npm-registry
-    url: https://npm.pkg.github.com/<org-name>
+    url: https://npm.pkg.github.com
     token: ${{ secrets.<token> }}
 ```
 

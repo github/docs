@@ -17,7 +17,9 @@ sections:
     - |
       On an instance in a high availability configuration, existing nodes with out-of-sync repositories prevented new nodes from replicating those repositories. 
     - |
-      GitHub Enterprise Server was queuing zip jobs unnecessarily. 
+      GitHub Enterprise Server was queuing zip jobs unnecessarily.
+    - |
+      On an instance configured to use an outbound web proxy server, an administrator could not exclude private domains in [this list](https://github.com/weppos/publicsuffix-ruby/blob/main/data/list.txt) from the proxy configuration. [Updated: 2023-11-27]
   changes:
     - |
       The secondary abuse rate limits of the GraphQL API are now configurable in the Management Console. 
