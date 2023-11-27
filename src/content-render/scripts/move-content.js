@@ -21,7 +21,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import { execSync } from 'child_process'
+import { execFileSync } from 'child_process'
 
 import { program } from 'commander'
 import chalk from 'chalk'
@@ -121,7 +121,7 @@ async function main(opts, nameTuple) {
   const currentBranchName = getCurrentBranchName(verbose)
   if (currentBranchName === 'main' && git) {
     console.error(chalk.red("Cannot proceed because you're on the 'main' branch."))
-    console.error("This command will executed 'git mv ...' and 'git commit ...'")
+    console.error("This command will execute 'git mv ...' and 'git commit ...'")
     console.error('Create a new dedicated branch instead, first, for this move.\n')
     process.exit(2)
   }
@@ -272,17 +272,17 @@ function makeHref(root, filePath) {
 function moveFolder(oldPath, newPath, files, opts) {
   const { verbose, git: useGit } = opts
   if (useGit) {
-    let cmd = `git mv ${oldPath} ${newPath}`
+    let cmd = ['mv', oldPath, newPath]
     if (verbose) {
-      console.log(`git mv command: ${chalk.grey(cmd)}`)
+      console.log(`git mv command: ${chalk.grey(cmd.join(' '))}`)
     }
-    execSync(cmd)
+    execFileSync('git', cmd)
 
-    cmd = `git commit -a -m "renamed ${files.length} files"`
+    cmd = ['commit', '-a', '-m', `renamed ${files.length} files`]
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
-    execSync(cmd)
+    execFileSync('git', cmd)
   } else {
     fs.renameSync(oldPath, newPath)
     if (verbose) {
@@ -295,16 +295,16 @@ function undoFolder(oldPath, newPath, files, opts) {
   const { verbose, git: useGit } = opts
 
   if (useGit) {
-    let cmd = `git mv ${oldPath} ${newPath}`
-    execSync(cmd)
+    let cmd = ['mv', oldPath, newPath]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git mv command: ${chalk.grey(cmd)}`)
+      console.log(`git mv command: ${chalk.grey(cmd.join(' '))}`)
     }
 
-    cmd = `git commit -a -m "renamed ${files.length} files"`
-    execSync(cmd)
+    cmd = ['commit', '-a', '-m', `renamed ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   } else {
     fs.renameSync(oldPath, newPath)
@@ -446,10 +446,10 @@ function moveFiles(files, opts) {
     }
 
     if (useGit) {
-      const cmd = `git mv ${oldPath} ${newPath}`
-      execSync(cmd)
+      const cmd = ['mv', oldPath, newPath]
+      execFileSync('git', cmd)
       if (verbose) {
-        console.log(`git mv command: ${chalk.grey(cmd)}`)
+        console.log(`git mv command: ${chalk.grey(cmd.join(' '))}`)
       }
     } else {
       fs.renameSync(oldPath, newPath)
@@ -460,10 +460,10 @@ function moveFiles(files, opts) {
   }
 
   if (useGit) {
-    const cmd = `git commit -a -m "renamed ${files.length} files"`
-    execSync(cmd)
+    const cmd = ['commit', '-a', '-m', `renamed ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
 }
@@ -505,10 +505,10 @@ function editFiles(files, updateParent, opts) {
   }
 
   if (useGit) {
-    const cmd = `git commit -a -m "set ${REDIRECT_FROM_KEY} on ${files.length} files"`
-    execSync(cmd)
+    const cmd = ['commit', '-a', '-m', `set ${REDIRECT_FROM_KEY} on ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
 }
@@ -544,10 +544,10 @@ function undoFiles(files, updateParent, opts) {
     }
   }
   if (useGit) {
-    const cmd = `git commit -a -m "unset ${REDIRECT_FROM_KEY} on ${files.length} files"`
-    execSync(cmd)
+    const cmd = ['commit', '-a', '-m', `unset ${REDIRECT_FROM_KEY} on ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
 }
@@ -620,10 +620,10 @@ function changeFeaturedLinks(oldHref, newHref) {
 }
 
 function getCurrentBranchName(verbose = false) {
-  const cmd = 'git branch --show-current'
-  const o = execSync(cmd)
+  const cmd = ['branch', '--show-current']
+  const o = execFileSync('git', cmd)
   if (verbose) {
-    console.log(`git commit command: ${chalk.grey(cmd)}`)
+    console.log(`git commit command: git ${chalk.grey(cmd.join(' '))}`)
   }
   return o.toString().trim()
 }
