@@ -152,7 +152,7 @@
   {
     "action": "business.cancel_trial",
     "description": "The trial of GitHub Enterprise Cloud was cancelled.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.clear_actions_settings",
@@ -177,7 +177,7 @@
   {
     "action": "business.convert_trial",
     "description": "The enterprise account on a trial of GitHub Enterprise Cloud was upgraded to a paid enterprise account.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.create",
@@ -187,7 +187,7 @@
   {
     "action": "business.create_trial",
     "description": "A trial of GitHub Enterprise Cloud began.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.delete",
@@ -247,7 +247,7 @@
   {
     "action": "business.expire_trial",
     "description": "The trial of GitHub Enterprise Cloud expired.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
+    "docs_reference_links": "/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud"
   },
   {
     "action": "business.import_license_usage",
