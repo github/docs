@@ -599,7 +599,7 @@ on:
 
 - The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
 
-- `GITHUB_REF` is different for a closed `pull_request` depending on whether the pull request has been merged or not. If a `pull_request` was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a `pull_request` was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
+- The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
 
 {% endnote %}
 
