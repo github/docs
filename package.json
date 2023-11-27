@@ -345,7 +345,7 @@
     "rimraf": "^5.0.0",
     "robots-parser": "^3.0.0",
     "sass": "^1.52.3",
-    "start-server-and-test": "^2.0.2",
+    "start-server-and-test": "^2.0.3",
     "ts-jest": "29.1.1",
     "typescript": "^5.2.2",
     "unist-util-remove": "^4.0.0",
