@@ -93,6 +93,8 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 1. Add permissions settings for the token.
 1. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
 
+{% data reusables.actions.oidc-deployment-protection-rules %}
+
 To add OIDC integration to your workflows that allow them to access secrets in Vault, you will need to add the following code changes:
 
 - Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
