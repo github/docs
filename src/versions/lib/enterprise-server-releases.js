@@ -9,10 +9,13 @@ export const dates = JSON.parse(await fs.readFile('src/ghes-releases/lib/enterpr
 // enterprise-releases/docs/supported-versions.md#release-lifecycle-dates
 
 // Some frontmatter may contain the upcoming GHES release number
-export const next = '3.11'
-export const nextNext = '3.12'
+export const next = '3.12'
+export const nextNext = '3.13'
 
-export const supported = ['3.10', '3.9', '3.8', '3.7', '3.6']
+export const supported = ['3.11', '3.10', '3.9', '3.8', '3.7', '3.6']
+
+// Edit this to `null` when it's no longer the release candidate
+export const releaseCandidate = '3.11'
 
 // Ensure that:
 // "next" is ahead of "latest" by one minor or major release.
@@ -75,6 +78,7 @@ export const firstReleaseStoredInBlobStorage = '3.2'
 
 export const all = supported.concat(deprecated)
 export const latest = supported[0]
+export const latestStable = releaseCandidate ? supported[1] : latest
 export const oldestSupported = supported[supported.length - 1]
 export const nextDeprecationDate = dates[oldestSupported].deprecationDate
 export const isOldestReleaseDeprecated = new Date() > new Date(nextDeprecationDate)
@@ -117,6 +121,8 @@ export default {
   legacyAssetVersions,
   all,
   latest,
+  latestStable,
+  releaseCandidate,
   oldestSupported,
   nextDeprecationDate,
   isOldestReleaseDeprecated,

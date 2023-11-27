@@ -52,23 +52,25 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
 
-## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE
+## Installing the {% data variables.product.prodname_copilot %} plugin in your JetBrains IDE
 
 To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
 
-1. In your JetBrains IDE, under the **File** menu for Windows or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings** for Windows or **Preferences** for Mac.
-1. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
-1. At the top of the **Settings/Preferences** dialog box, click **Marketplace**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Install**.
+1. In your JetBrains IDE, under the **File** menu for Windows, or under the name of your IDE for Mac (for example, **PyCharm** or **IntelliJ**), click **Settings**.
+1. In the left-side menu of the **Settings** dialog box, click **Plugins**.
+1. At the top of the **Settings** dialog box, click **Marketplace**. In the search bar, search for `copilot`, then click **Install**.
 
-   ![Screenshot of the "Preferences" window. A tab labeled "Marketplace" is highlighted with an orange outline. In a list of search results, the installed "GitHub Copilot" plugin is marked by a selected checkbox.](/assets/images/help/copilot/jetbrains-marketplace.png)
+   ![Screenshot of the "Settings" window. A tab labeled "Marketplace" is highlighted with an orange outline. In a list of search results, the installed "GitHub Copilot" plugin is marked by a selected checkbox.](/assets/images/help/copilot/jetbrains-marketplace.png)
+
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**.
 
-    ![Screenshot of the expanded "Tools" menu and "{% data variables.product.prodname_copilot %}" sub-menu. The "Login to {% data variables.product.prodname_dotcom %}" option is highlighted in blue.](/assets/images/help/copilot/jetbrains-tools-menu.png)
+   ![Screenshot of the expanded "Tools" menu and "{% data variables.product.prodname_copilot %}" sub-menu. The "Login to {% data variables.product.prodname_dotcom %}" option is highlighted in blue.](/assets/images/help/copilot/jetbrains-tools-menu.png)
 
 1. In the "Sign in to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy and Open**.
 
-    ![Screenshot of the "Sign in to {% data variables.product.prodname_dotcom %}" dialog. A device code is displayed above a button labeled "Copy and Open".](/assets/images/help/copilot/device-code-copy-and-open.png)
+   ![Screenshot of the "Sign in to {% data variables.product.prodname_dotcom %}" dialog. A device code is displayed above a button labeled "Copy and Open".](/assets/images/help/copilot/device-code-copy-and-open.png)
+
 1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
 1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 1. After the permissions have been approved, your JetBrains IDE will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
@@ -138,6 +140,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} for all 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the status icon in the bottom panel of the JetBrains window.
 
    ![Screenshot of the IntelliJ IDEA toolbar. The {% data variables.product.prodname_copilot %} logo is highlighted with an orange outline.](/assets/images/help/copilot/status-icon-jetbrains.png)
+
 1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing.
 
    - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Disable Completions**.
@@ -171,10 +174,12 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
 
    ![Screenshot of a list of search results. Next to the {% data variables.product.prodname_copilot %} extension, the "Download" button is highlighted with an orange outline.](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
+
 {% data reusables.copilot.vs-exit-and-relaunch %}
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
 
    ![Screenshot of a list of installed extensions in {% data variables.product.prodname_vs %}. The "{% data variables.product.prodname_copilot %}" extension is highlighted with an orange outline.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
+
 1. Open or create a new project in {% data variables.product.prodname_vs %}.
 1. To enable {% data variables.product.prodname_copilot %}, ensure you have added your {% data variables.product.prodname_dotcom %} account to {% data variables.product.prodname_vs %}. For more information, see [Work with {% data variables.product.prodname_dotcom %} accounts in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts) in the Microsoft documentation.
 
@@ -273,6 +278,14 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.accept-suggestion %}
 
+{% note %}
+
+**Note**: If you don't see a suggestion, make sure {% data variables.product.prodname_copilot %} is enabled. You should see the {% data variables.product.prodname_copilot_short %} icon at the bottom right of the {% data variables.product.prodname_vscode %} window.
+
+{% data reusables.copilot.content-exclusion-tooltip %}
+
+{% endnote %}
+
 ## Seeing alternative suggestions
 
 {% data reusables.copilot.alternative-suggestions %}
@@ -357,7 +370,7 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 
 {% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in Vim/Neovim you must have Vim version 9.0.0185 / Neovim version 0.6 or above and Node.js version 17 or below installed. For more information, see the [Vim](https://vimhelp.org/) / [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
+- To use {% data variables.product.prodname_copilot %} in Vim/Neovim you must have Vim version 9.0.0185 / Neovim version 0.6 or above and Node.js version 18 or above installed. For more information, see the [Vim](https://vimhelp.org/) / [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim on macOS
 
@@ -432,7 +445,9 @@ If you use Azure Data Studio, you can view and incorporate suggestions from {% d
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
 
 1. In Azure Data Studio, click the **Extensions** icon in the left-side menu.
+
    ![Screenshot of the Azure Data Studio left-side menu. The "Extensions" icon is highlighted with an orange outline.](/assets/images/help/copilot/azure-data-studio-extensions-icon.png)
+
 1. In the "Extensions" tab, search for **{% data variables.product.prodname_copilot %}** and then click **Install**.
 1. If a popup window in Azure Data Studio prompts you to sign in to use {% data variables.product.prodname_copilot %}, click **Sign in to {% data variables.product.prodname_dotcom %}** and follow the instructions on screen.
 
@@ -453,7 +468,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ```sql copy
    SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
    FROM [Tag].[Scoreboard]
-   INNER JOIN 
+   INNER JOIN
    ```
 
 {% data reusables.copilot.accept-suggestion %}
@@ -468,7 +483,7 @@ For some suggestions, {% data variables.product.prodname_copilot %} may provide 
    ```sql copy
    SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
    FROM [Tag].[Scoreboard]
-   INNER JOIN 
+   INNER JOIN
    ```
 
 1. Optionally, you can see alternative suggestions, if any are available.
@@ -511,4 +526,4 @@ For some suggestions, {% data variables.product.prodname_copilot %} may provide 
 ## Further reading
 
 - [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)
+- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-individual#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)

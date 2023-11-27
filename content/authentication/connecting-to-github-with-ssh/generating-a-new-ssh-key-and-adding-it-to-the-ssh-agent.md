@@ -178,7 +178,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
    ```powershell
-   ssh-add C:\Users\YOU/.ssh/id_ed25519
+   ssh-add /c/Users/YOU/.ssh/id_ed25519
    ```
 
 {% data reusables.ssh.add-public-key-to-github %}

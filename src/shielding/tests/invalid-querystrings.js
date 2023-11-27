@@ -1,4 +1,4 @@
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 import {
   MAX_UNFAMILIAR_KEYS_BAD_REQUEST,
@@ -55,6 +55,13 @@ describe('invalid query strings', () => {
       const res = await get(url)
       expect(res.statusCode).toBe(200)
     }
+  })
+
+  test('query string keys with square brackets', async () => {
+    const url = `/?constructor[foo][bar]=buz`
+    const res = await get(url)
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/en')
   })
 })
 

@@ -64,7 +64,7 @@ For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](
 
 ## Buttons
 
-Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
+Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
 
 If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in the `docs-strategy` repository to share your use case for approval by the Content Strategy team.
 
@@ -95,7 +95,7 @@ Within code blocks:
 - Do not use command prompts like `$` before the command itself. These prompts make it challenging for readers to copy and paste the command.
   - If you show a command and the command's output, comment out the output in the example.
   - **Use:**
-  
+
     ```shell
     command
     # output
@@ -285,7 +285,7 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `{% data variables.product.company_short %}` as we do in running copy: `{% raw %}{% data variables.product.prodname_dotcom %}{% endraw %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}..." rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu...," to avoid multiple nouns in a row.
 
 ##### Examples
 
@@ -653,7 +653,7 @@ For {% data variables.product.prodname_docs %} purposes, a first-party action is
 
 ```yaml
 steps:
-  - uses: actions/checkout@main
+  - uses: {% data reusables.actions.action-checkout %}
 ```
 
 #### Disclaimers for third-party actions
@@ -718,7 +718,7 @@ Variables: `{% raw %}{% data variables.product.prodname_github_codespaces %}{% e
 
 When referring to instances of remote working environments created with this technology, refer to these as "codespaces" (lowercase c). For example, "to delete your codespace" or "to list your codespaces."
 
-Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
+Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the {% data variables.product.prodname_vscode %} documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
@@ -1192,6 +1192,12 @@ We use short titles to populate the sidebar navigation. Since short titles appea
 
 Writing short titles can be challenging. To help get short titles under the character count, consider the short title in context. Remove any repeated words if possible and any product or feature names that are in the map topic or category that the content belongs to.
 
+## Site policy content
+
+Do not use reusables or variables in site policy content. Site policy articles are legal documents and must have a human-readable source.
+
+Site policy content otherwise uses the same style and content models as the rest of {% data variables.product.prodname_docs %}.
+
 ## User interface elements
 
 ### Boldface
@@ -1327,7 +1333,6 @@ With {% data variables.product.company_short %}'s enterprise products, administr
 
 - [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 - [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-- [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
@@ -1345,7 +1350,7 @@ The following documentation should reference "user accounts."
 
 - The "[AUTOTITLE](/enterprise-cloud@latest/admin)" product
 - Enterprise-specific billing documentation, like "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
-- Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
+- Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
 - Enterprise-specific API content, like the "[AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
 For enterprises on {% data variables.product.prodname_ghe_cloud %} that don't use {% data variables.product.prodname_emus %}, use "personal account" when describing members of organizations owned by the enterprise.

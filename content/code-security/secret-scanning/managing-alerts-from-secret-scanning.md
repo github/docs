@@ -97,8 +97,8 @@ As an organization owner, or repository administrator, you need to enable the de
 
 Non-provider alerts are different from high confidence alerts. Non-provider alerts:
 
-- Are not shown in security overview.
-- Are listed in a different view from high confidence alerts. That view is called "Other".
+- Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
+- Are listed in a different view from high-confidence alerts. That view is called "Other".
 - Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %}.
 - Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
 
@@ -165,6 +165,29 @@ Tokens, like {% data variables.product.pat_generic %} and other credentials, are
 |Expired on| Date the token expired|
 |Last used on| Date the token was last used|
 |Access| Whether the token has organization access|
+
+{% endif %}
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+## Viewing alerts for generic secrets detected using AI
+
+{% data reusables.secret-scanning.generic-secret-detection-ai %}
+
+When you enable AI-powered generic secret detection for your repository, {% data variables.product.prodname_secret_scanning %} will scan for unstructured secrets, such as passwords, in your source code and generate alerts.
+
+Once a potential password is identified, an alert is displayed in a separate list on the {% data variables.product.prodname_secret_scanning %} alerts page (under the **Security** tab of the repository). The separate view makes it easier for you to triage and verify the validity of the findings.
+
+To see the separate list of alerts for generic secrets, you must to toggle to "Other" on the alerts page. Each alert notes that it was detected using AI.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
+1. On the top right corner of the list of {% data variables.product.prodname_secret_scanning %} alerts, toggle to "Other".
+
+   ![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert index view for a repository. A toggle, titled "Other", is highlighted in a dark orange outline.](/assets/images/help/repository/secret-scanning-ai-other-toggle.png)
+
+For more information about the feature and its limitations, see "[AUTOTITLE](/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning)." For information on how to enable the feature for your repository, see "[AUTOTITLE](/code-security/secret-scanning/enabling-ai-powered-generic-secret-detection)."
 
 {% endif %}
 

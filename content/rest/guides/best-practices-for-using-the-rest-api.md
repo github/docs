@@ -51,19 +51,22 @@ If you receive a rate limit error, you should stop making requests temporarily a
 
 Continuing to make requests while you are rate limited may result in the banning of your integration.
 
-## Follow any redirects that the API sends you
+## Follow redirects
 
-GitHub is explicit in telling you when a resource has moved by providing a redirect status code. You should follow these redirections. Every redirect response sets the `Location` header with the new URI to go to. If you receive a redirect, it's best to update your code to follow the new URI, in case you're requesting a deprecated path that we might remove.
+The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. You should assume that any
+request may result in a redirection. Receiving an HTTP redirection is not an error, and you should follow the redirect.
 
-We've provided [a list of HTTP status codes](/rest#http-redirects) to watch out for when designing your app to follow redirects.
+A `301` status code indicates permanent redirection. You should repeat your request to the URL specified by the `location` header. Additionally, you should update your code to use this URL for future requests.
 
-## Don't manually parse URLs
+A `302` or `307` status code indicates temporary redirection. You should repeat your request to the URL specified by the `location` header. However, you should not update your code to use this URL for future requests.
 
-Often, API responses contain data in the form of URLs. For example, when requesting a repository, we'll send a key called `clone_url` with a URL you can use to clone the repository.
+Other redirection status codes may be used in accordance with HTTP specifications.
 
-For the stability of your app, you shouldn't try to parse this data or try to guess and construct the format of future URLs. Your app is liable to break if we decide to change the URL.
+## Do not manually parse URLs
 
-For example, when working with paginated results, it's often tempting to construct URLs that append `?page=<number>` to the end. Avoid that temptation. For more information about dependably following paginated results, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
+Many API endpoints return URL values for fields in the response body. You should not try to parse these URLs or to predict the structure of future URLs. This can cause your integration to break if {% data variables.product.company_short %} changes the structure of the URL in the future. Instead, you should look for a field that contains the information that you need. For example, the endpoint to create an issue returns an `html_url` field with a value like `https://github.com/octocat/Hello-World/issues/1347` and a `number` field with a value like `1347`. If you need to know the number of the issue, use the `number` field instead of parsing the `html_url` field.
+
+Similarly, you should not try to manually construct pagination queries. Instead, you should use the link headers to determine what pages of results you can request. For more information, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
 ## Use conditional requests if appropriate
 
@@ -81,11 +84,9 @@ For example, if a previous request returned a `last-modified` header value of `W
 curl {% data variables.product.api_url_pre %}/repos/github/docs --include --header 'if-modified-since: Wed, 25 Oct 2023 19:17:59 GMT'
 ```
 
-## Dealing with API errors
+## Do not ignore errors
 
-Although your code would never introduce a bug, you may find that you've encountered successive errors when trying to access the API.
-
-Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that you're correctly interacting with the API. For example, if an endpoint requests a string and you're passing it a numeric value, you're going to receive a `5xx` validation error, and your call won't succeed. Similarly, attempting to access an unauthorized or nonexistent endpoint will result in a `4xx` error.
+You should not ignore repeated `4xx` and `5xx` error codes. Instead, you should ensure that you are correctly interacting with the API. For example, if an endpoint requests a string and you are passing it a numeric value, you will receive a validation error. Similarly, attempting to access an unauthorized or nonexistent endpoint will result in a `4xx` error.
 
 Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
 

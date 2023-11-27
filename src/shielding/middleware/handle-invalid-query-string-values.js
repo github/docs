@@ -19,12 +19,21 @@ const RECOGNIZED_VALUES = {
   platform: allPlatforms,
   tool: Object.keys(allTools),
 }
+// So we can look up if a key in the object is actually present
+// and not a built in.
+// Otherwise...
+//
+//    > const myObj = {foo: 'bar'}
+//    > 'constructor' in myObj
+//    true
+//
+const RECOGNIZED_VALUES_KEYS = new Set(Object.keys(RECOGNIZED_VALUES))
 
 export default function handleInvalidQuerystringValues(req, res, next) {
   const { method, query } = req
   if (method === 'GET' || method === 'HEAD') {
     for (const key of Object.keys(query)) {
-      if (key in RECOGNIZED_VALUES) {
+      if (RECOGNIZED_VALUES_KEYS.has(key)) {
         const validValues = RECOGNIZED_VALUES[key]
         const values = Array.isArray(query[key]) ? query[key] : [query[key]]
         if (values.some((value) => !validValues.includes(value))) {
