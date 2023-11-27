@@ -19,11 +19,11 @@ topics:
 
 ## Introduction
 
-This tutorial demonstrates how to use the [`actions/github-script` action](https://github.com/marketplace/actions/github-script) in a workflow to label newly opened or reopened issues. For example, you can add the `triage` label every time an issue is opened or reopened. Then, you can see all issues that need to be triaged by filtering for issues with the `triage` label.
+This tutorial demonstrates how to use the {% data variables.product.prodname_cli %} in a workflow to label newly opened or reopened issues. For example, you can add the `triage` label every time an issue is opened or reopened. Then, you can see all issues that need to be triaged by filtering for issues with the `triage` label.
 
-The `actions/github-script` action allows you to easily use the {% data variables.product.prodname_dotcom %} API in a workflow.
+The {% data variables.product.prodname_cli %} allows you to easily use the {% data variables.product.prodname_dotcom %} API in a workflow.
 
-In the tutorial, you will first make a workflow file that uses the [`actions/github-script` action](https://github.com/marketplace/actions/github-script). Then, you will customize the workflow to suit your needs.
+In the tutorial, you will first make a workflow file that uses the {% data variables.product.prodname_cli %}. Then, you will customize the workflow to suit your needs.
 
 ## Creating the workflow
 
@@ -44,20 +44,17 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
         permissions:
           issues: write
         steps:
-          - uses: {% data reusables.actions.action-github-script %}
-            with:
-              script: |
-                github.rest.issues.addLabels({
-                  issue_number: context.issue.number,
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  labels: ["triage"]
-                })
+          - run: gh issue edit "$NUMBER" --add-label "$LABELS"
+            env:
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
+              NUMBER: {% raw %}${{ github.event.issue.number }}{% endraw %}
+              LABELS: triage
     ```
 
-1. Customize the `script` parameter in your workflow file:
-   - The `issue_number`, `owner`, and `repo` values are automatically set using the `context` object. You do not need to change these.
-   - Change the value for `labels` to the list of labels that you want to add to the issue. Separate multiple labels with commas. For example, `["help wanted", "good first issue"]`. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
+1. Customize the `env` values in your workflow file:
+   - The `GITHUB_TOKEN`, `GH_REPO`, and `NUMBER` values are automatically set using the `github` and `secrets` contexts. You do not need to change these.
+   - Change the value for `LABELS` to the list of labels that you want to add to the issue. The label(s) must exist for your repository. Separate multiple labels with commas. For example, `help wanted,good first issue`. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
 1. {% data reusables.actions.commit-workflow %}
 
 ## Testing the workflow
@@ -72,6 +69,6 @@ Test out your workflow by creating an issue in your repository.
 
 ## Next steps
 
-- To learn more about additional things you can do with the `actions/github-script` action, see the [`actions/github-script` action documentation](https://github.com/marketplace/actions/github-script).
+- To learn more about additional things you can do with the {% data variables.product.prodname_cli %}, see the [GitHub CLI manual](https://cli.github.com/manual/).
 - To learn more about different events that can trigger your workflow, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#issues)."
-- [Search GitHub](https://github.com/search?q=%22uses:+actions/github-script%22&type=code) for examples of workflows using this action.
+- [Search GitHub](https://github.com/search?q=path%3A.github%2Fworkflows+gh+issue+edit&type=code) for examples of workflows using `gh issue edit`.
