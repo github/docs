@@ -19,11 +19,7 @@ OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} 
 
 This guide explains how to configure AWS to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) that uses tokens to authenticate to AWS and access resources.
 
-{% note %}
-
-**Note:** {% data reusables.actions.oidc-custom-claims-aws-restriction %}
-
-{% endnote %}
+{% data reusables.actions.oidc-custom-claims-aws-restriction %}
 
 ## Prerequisites
 
