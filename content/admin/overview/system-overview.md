@@ -159,5 +159,5 @@ Tarballs are also available, with a full list of dependencies and metadata, at `
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)"
+- "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)"
 - "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)"

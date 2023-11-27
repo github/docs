@@ -21,7 +21,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 {% tip %}
 
-**Tip:** You must [verify your email address](/get-started/signing-up-for-github/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+**Tip:** You must [verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% endtip %}
 

@@ -5,8 +5,8 @@ redirect_from:
   - /articles/setting-up-a-trial-of-github-enterprise-cloud
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-cloud
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud
+  - /get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud
 versions:
-  fpt: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -53,7 +53,7 @@ If you invite an existing organization into your trial enterprise, all of these 
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 
-Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "[AUTOTITLE](/free-pro-team@latest/get-started/quickstart/creating-an-account-on-github)."
 
 {% note %}
 
