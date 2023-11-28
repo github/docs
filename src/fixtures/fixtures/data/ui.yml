@@ -225,10 +225,6 @@ product_guides:
   load_more: Load more guides
   all_guides_title: 'All {{ name }} guides'
   filter_instructions: Filter the guide list using these controls
-  filters:
-    type: Type
-    topic: Topic
-    all: All
   guides_found:
     multiple: '{n} guides found'
     one: 1 guide found
