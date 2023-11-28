@@ -9,6 +9,7 @@ const JUNK_PATHS = new Set([
   '/server.js',
   '/package.json',
   '/.git',
+  '/_next',
 ])
 
 // Basename is the last token of the path when split by `/`.
