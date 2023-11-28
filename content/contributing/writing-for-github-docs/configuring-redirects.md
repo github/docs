@@ -41,7 +41,6 @@ The order of precedence is specified in [`lib/all-versions.js`](https://github.c
 1. {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} (`fpt`)
 1. {% data variables.product.prodname_ghe_cloud %} (`ghec`)
 1. {% data variables.product.prodname_ghe_server %} (`ghes`)
-1. {% data variables.product.prodname_ghe_managed %} (`ghae`)
 
 If a page titled `ARTICLE` is only available in {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, the link `https://docs.github.com/ARTICLE` will automatically redirect to `https://docs.github.com/enterprise-cloud@latest/ARTICLE` because {% data variables.product.prodname_ghe_cloud %} has precedence over {% data variables.product.prodname_ghe_server %}.<!-- markdownlint-disable-line search-replace -->
 
