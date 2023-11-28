@@ -22,6 +22,10 @@ A codespace will stop running after a period of inactivity. By default this peri
 
 {% endwarning %}
 
+### Inactivity defined
+
+{% data reusables.codespaces.inactivity-definition %}
+
 ### Timeout periods for organization-owned repositories
 
 Organizations can set a maximum idle timeout policy for codespaces created from some or all of their repositories. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting. You will be notified of this after the codespace is created. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
