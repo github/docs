@@ -61,9 +61,10 @@ export default function Category({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('src/rest/lib/index.js')
-  const nonEnterpriseDefaultVersion = (await import(
+  const nonEnterpriseDefaultVersionModule = await import(
     'src/versions/lib/non-enterprise-default-version.js'
-  )) as unknown as string
+  )
+  const nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersionModule.default as string
 
   const req = context.req as any
   const res = context.res as any
@@ -155,15 +156,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     // TocLanding expects a collection of objects that looks like this:
     //
     // {
-    //   fullPath: '/en/free-pro-team@latest/rest/activity/events',
+    //   fullPath: '/en/rest/activity/events',
     //   title: 'Events',
     //   childTocItems: [
     //     {
-    //       fullPath: '/en/free-pro-team@latest/rest/activity/events#list-public-events',
+    //       fullPath: '/en/rest/activity/events#list-public-events',
     //       title: 'List public events'
     //     },
     //     {
-    //       fullPath: '/en/free-pro-team@latest/rest/activity/events#list-public-events-for-a-network-of-repositories',
+    //       fullPath: '/en/rest/activity/events#list-public-events-for-a-network-of-repositories',
     //       title: 'List public events for a network of repositories'
     //     },
     //     ...
