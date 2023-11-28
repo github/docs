@@ -148,7 +148,7 @@ Titles should be descriptive and follow the guidelines for titles in the content
 
 ## Versioning
 
-If a video is only relevant for specific {% data variables.product.prodname_dotcom %} products (Free, Pro and Team; {% data variables.product.prodname_ghe_server %}; {% data variables.product.prodname_ghe_managed %}; and {% data variables.product.prodname_ghe_cloud %}), the video must be versioned for those products. Use Liquid conditional statements to version the videos appropriately. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or {% data variables.product.prodname_enterprise %} release. For more information about liquid conditional statements and versioning, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
+If a video is only relevant for specific {% data variables.product.prodname_dotcom %} products (Free, Pro and Team; {% data variables.product.prodname_ghe_server %}; and {% data variables.product.prodname_ghe_cloud %}), the video must be versioned for those products. Use Liquid conditional statements to version the videos appropriately. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or {% data variables.product.prodname_enterprise %} release. For more information about liquid conditional statements and versioning, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
 
 ## Video hosting
 

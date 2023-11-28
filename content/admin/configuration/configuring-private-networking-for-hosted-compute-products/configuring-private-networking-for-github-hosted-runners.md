@@ -44,6 +44,12 @@ You will use a script to automate configuring your Azure resources.
 
 - Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
 
+  {% note %}
+
+  **Note:** Alternatively, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud)."
+
+  {% endnote %}
+
   ```bicep copy
   @description('NSG for outbound rules')
   param location string

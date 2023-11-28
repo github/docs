@@ -17,6 +17,7 @@ topics:
 children:
   - /adding-an-email-address-to-your-github-account
   - /changing-your-primary-email-address
+  - /verifying-your-email-address
   - /setting-a-backup-email-address
   - /setting-your-commit-email-address
   - /blocking-command-line-pushes-that-expose-your-personal-email-address
@@ -25,4 +26,3 @@ children:
   - /managing-marketing-emails-from-github
 shortTitle: Manage email preferences
 ---
-

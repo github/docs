@@ -8309,7 +8309,7 @@ input CreateTeamDiscussionInput {
 
   """
   If true, restricts the visibility of this discussion to team members and
-  organization admins. If false or not specified, allows any organization member
+  organization owners. If false or not specified, allows any organization member
   to view this discussion.
 
   **Upcoming Change on 2024-07-01 UTC**
@@ -13154,7 +13154,7 @@ enum EnterpriseMembersCanCreateRepositoriesSettingValue {
   DISABLED
 
   """
-  Organization administrators choose whether to allow members to create repositories.
+  Organization owners choose whether to allow members to create repositories.
   """
   NO_POLICY
 
@@ -22385,7 +22385,12 @@ type Mutation {
   ): CreateDiscussionPayload
 
   """
-  Creates an organization as part of an enterprise account.
+  Creates an organization as part of an enterprise account. A personal access
+  token used to create an organization is implicitly permitted to update the
+  organization it created, if the organization is part of an enterprise that has
+  SAML enabled or uses Enterprise Managed Users. If the organization is not part
+  of such an enterprise, and instead has SAML enabled for it individually, the
+  token will then require SAML authorization to continue working against that organization.
   """
   createEnterpriseOrganization(
     """
@@ -23597,6 +23602,16 @@ type Mutation {
   ): UnresolveReviewThreadPayload
 
   """
+  Unsubscribes from notifications
+  """
+  unsubscribeFromNotifications(
+    """
+    Parameters for UnsubscribeFromNotifications
+    """
+    input: UnsubscribeFromNotificationsInput!
+  ): UnsubscribeFromNotificationsPayload
+
+  """
   Update a branch protection rule
   """
   updateBranchProtectionRule(
@@ -23727,7 +23742,7 @@ type Mutation {
   ): UpdateEnterpriseMembersCanInviteCollaboratorsSettingPayload
 
   """
-  Sets whether or not an organization admin can make purchases.
+  Sets whether or not an organization owner can make purchases.
   """
   updateEnterpriseMembersCanMakePurchasesSetting(
     """
@@ -23915,6 +23930,19 @@ type Mutation {
     """
     input: UpdateOrganizationWebCommitSignoffSettingInput!
   ): UpdateOrganizationWebCommitSignoffSettingPayload
+
+  """
+  Toggle the setting for your GitHub Sponsors profile that allows other GitHub
+  accounts to sponsor you on GitHub while paying for the sponsorship on Patreon.
+  Only applicable when you have a GitHub Sponsors profile and have connected
+  your GitHub account with Patreon.
+  """
+  updatePatreonSponsorability(
+    """
+    Parameters for UpdatePatreonSponsorability
+    """
+    input: UpdatePatreonSponsorabilityInput!
+  ): UpdatePatreonSponsorabilityPayload
 
   """
   Updates an existing project.
@@ -26792,9 +26820,9 @@ The type of membership a user has with an Organization.
 """
 enum OrgRemoveMemberAuditEntryMembershipType {
   """
-  Organization administrators have full access and can change several settings,
+  Organization owners have full access and can change several settings,
   including the names of repositories that belong to the Organization and Owners
-  team membership. In addition, organization admins can delete the organization
+  team membership. In addition, organization owners can delete the organization
   and all of its repositories.
   """
   ADMIN
@@ -34591,7 +34619,7 @@ type ProjectV2Workflow implements Node {
   databaseId: Int
 
   """
-  The workflows' enabled state.
+  Whether the workflow is enabled.
   """
   enabled: Boolean!
 
@@ -34601,12 +34629,12 @@ type ProjectV2Workflow implements Node {
   id: ID!
 
   """
-  The workflows' name.
+  The name of the workflow.
   """
   name: String!
 
   """
-  The workflows' number.
+  The number of the workflow.
   """
   number: Int!
 
@@ -34681,22 +34709,22 @@ Properties by which project workflows can be ordered.
 """
 enum ProjectV2WorkflowsOrderField {
   """
-  The workflows' date and time of creation
+  The date and time of the workflow creation
   """
   CREATED_AT
 
   """
-  The workflows' name
+  The name of the workflow
   """
   NAME
 
   """
-  The workflows' number
+  The number of the workflow
   """
   NUMBER
 
   """
-  The workflows' date and time of update
+  The date and time of the workflow update
   """
   UPDATED_AT
 }
@@ -46034,7 +46062,7 @@ type RepositoryRulesetBypassActor implements Node {
   id: ID!
 
   """
-  This actor represents the ability for an organization admin to bypass
+  This actor represents the ability for an organization owner to bypass
   """
   organizationAdmin: Boolean!
 
@@ -46125,7 +46153,7 @@ input RepositoryRulesetBypassActorInput {
   bypassMode: RepositoryRulesetBypassActorBypassMode!
 
   """
-  For org admin bupasses, true
+  For organization owner bypasses, true
   """
   organizationAdmin: Boolean
 
@@ -53513,7 +53541,7 @@ type TeamDiscussion implements Comment & Deletable & Node & Reactable & Subscrib
     )
 
   """
-  Whether or not the discussion is only visible to team members and org admins.
+  Whether or not the discussion is only visible to team members and organization owners.
   """
   isPrivate: Boolean!
     @deprecated(
@@ -55823,6 +55851,42 @@ type UnresolveReviewThreadPayload {
 }
 
 """
+Autogenerated input type of UnsubscribeFromNotifications
+"""
+input UnsubscribeFromNotificationsInput
+  @requiredCapabilities(requiredCapabilities: ["access_internal_graphql_notifications"]) {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The NotificationThread IDs of the objects to unsubscribe from.
+  """
+  ids: [ID!]!
+    @possibleTypes(
+      concreteTypes: ["Commit", "Discussion", "Issue", "PullRequest", "Repository", "Team", "TeamDiscussion"]
+      abstractType: "Subscribable"
+    )
+}
+
+"""
+Autogenerated return type of UnsubscribeFromNotifications
+"""
+type UnsubscribeFromNotificationsPayload
+  @requiredCapabilities(requiredCapabilities: ["access_internal_graphql_notifications"]) {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Did the operation succeed?
+  """
+  success: Boolean
+}
+
+"""
 Represents an 'unsubscribed' event on a given `Subscribable`.
 """
 type UnsubscribedEvent implements Node {
@@ -57387,6 +57451,43 @@ input UpdateParametersInput {
   Branch can pull changes from its upstream repository
   """
   updateAllowsFetchAndMerge: Boolean!
+}
+
+"""
+Autogenerated input type of UpdatePatreonSponsorability
+"""
+input UpdatePatreonSponsorabilityInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Whether Patreon tiers should be shown on the GitHub Sponsors profile page,
+  allowing potential sponsors to make their payment through Patreon instead of GitHub.
+  """
+  enablePatreonSponsorships: Boolean!
+
+  """
+  The username of the organization with the GitHub Sponsors profile, if any.
+  Defaults to the GitHub Sponsors profile for the authenticated user if omitted.
+  """
+  sponsorableLogin: String
+}
+
+"""
+Autogenerated return type of UpdatePatreonSponsorability
+"""
+type UpdatePatreonSponsorabilityPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The GitHub Sponsors profile.
+  """
+  sponsorsListing: SponsorsListing
 }
 
 """

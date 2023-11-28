@@ -64,7 +64,7 @@ For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](
 
 ## Buttons
 
-Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
+Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
 
 If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in the `docs-strategy` repository to share your use case for approval by the Content Strategy team.
 
@@ -653,7 +653,7 @@ For {% data variables.product.prodname_docs %} purposes, a first-party action is
 
 ```yaml
 steps:
-  - uses: actions/checkout@main
+  - uses: {% data reusables.actions.action-checkout %}
 ```
 
 #### Disclaimers for third-party actions
@@ -726,7 +726,7 @@ Use "development container configuration files" to refer to all of the files in 
 
 Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GH_advanced_security %} billing.
 
-We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GH_advanced_security %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES/GHAE 3.7 onward do not use it.
+We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GH_advanced_security %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES 3.7 onward do not use it.
 
 ### {% data variables.product.pat_generic_caps_plural %}
 
@@ -1333,7 +1333,6 @@ With {% data variables.product.company_short %}'s enterprise products, administr
 
 - [{% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 - [{% data variables.product.prodname_ghe_server %}](/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
-- [{% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
@@ -1343,15 +1342,12 @@ If the reader manages an enterprise account, and you're describing the people's 
 - {% data variables.product.prodname_ghe_server %}
   - **Use:** If you need to temporarily take over a user account...
   - **Avoid:** If you need to temporarily take over a personal account...
-- {% data variables.product.prodname_ghe_managed %}
-  - **Use:** Authorized users can access your enterprise from any IP address.
-  - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
 
 The following documentation should reference "user accounts."
 
 - The "[AUTOTITLE](/enterprise-cloud@latest/admin)" product
 - Enterprise-specific billing documentation, like "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
-- Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
+- Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
 - Enterprise-specific API content, like the "[AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
 For enterprises on {% data variables.product.prodname_ghe_cloud %} that don't use {% data variables.product.prodname_emus %}, use "personal account" when describing members of organizations owned by the enterprise.

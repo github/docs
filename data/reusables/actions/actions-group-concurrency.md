@@ -77,7 +77,9 @@ on:
     branches:
       - main
 
-concurrency: ci-${{ github.ref }}
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 ```
 
 {% endraw %}

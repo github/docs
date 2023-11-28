@@ -1986,7 +1986,7 @@
       "kind": "mutations",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/mutations#createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4968,6 +4968,40 @@
       ]
     },
     {
+      "name": "unsubscribeFromNotifications",
+      "kind": "mutations",
+      "id": "unsubscribefromnotifications",
+      "href": "/graphql/reference/mutations#unsubscribefromnotifications",
+      "description": "<p>Unsubscribes from notifications.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnsubscribeFromNotificationsInput!",
+          "id": "unsubscribefromnotificationsinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateBranchProtectionRule",
       "kind": "mutations",
       "id": "updatebranchprotectionrule",
@@ -5436,7 +5470,7 @@
       "kind": "mutations",
       "id": "updateenterprisememberscanmakepurchasessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanmakepurchasessetting",
-      "description": "<p>Sets whether or not an organization admin can make purchases.</p>",
+      "description": "<p>Sets whether or not an organization owner can make purchases.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -53170,7 +53204,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>This actor represents the ability for an organization admin to bypass.</p>",
+          "description": "<p>This actor represents the ability for an organization owner to bypass.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -58675,7 +58709,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Whether or not the discussion is only visible to team members and org admins.</p>",
+          "description": "<p>Whether or not the discussion is only visible to team members and organization owners.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -67923,7 +67957,7 @@
         },
         {
           "name": "NO_POLICY",
-          "description": "<p>Organization administrators choose whether to allow members to create repositories.</p>"
+          "description": "<p>Organization owners choose whether to allow members to create repositories.</p>"
         },
         {
           "name": "PRIVATE",
@@ -68992,7 +69026,7 @@
       "values": [
         {
           "name": "ADMIN",
-          "description": "<p>Organization administrators have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization admins can delete the organization\nand all of its repositories.</p>"
+          "description": "<p>Organization owners have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization owners can delete the organization\nand all of its repositories.</p>"
         },
         {
           "name": "BILLING_MANAGER",
@@ -76531,7 +76565,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization owners. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -79435,7 +79469,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>For org admin bupasses, true.</p>",
+          "description": "<p>For organization owner bypasses, true.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -80601,6 +80635,33 @@
           "name": "threadId",
           "description": "<p>The ID of the thread to unresolve.</p>",
           "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UnsubscribeFromNotificationsInput",
+      "kind": "inputObjects",
+      "id": "unsubscribefromnotificationsinput",
+      "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput",
+      "description": "<p>Autogenerated input type of UnsubscribeFromNotifications.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ids",
+          "description": "<p>The NotificationThread IDs of the objects to unsubscribe from.</p>",
+          "type": "[ID!]!",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
