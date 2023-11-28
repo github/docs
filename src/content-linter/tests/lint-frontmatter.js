@@ -45,6 +45,16 @@ describe('front matter', () => {
 
       const customErrorMessage = makeCustomErrorMessage(page, trouble, 'includeGuides')
       expect(trouble.length, customErrorMessage).toEqual(0)
+
+      const counts = new Map()
+      for (const guide of page.includeGuides) {
+        counts.set(guide, (counts.get(guide) || 0) + 1)
+      }
+      const countUnique = counts.size
+      let notDistinctMessage = `In ${page.relativePath} there are duplicate links in .includeGuides`
+      const dupes = [...counts.entries()].filter(([, count]) => count > 1).map(([entry]) => entry)
+      notDistinctMessage += `\nTo fix this, remove: ${dupes.join(' and ')}`
+      expect(page.includeGuides.length, notDistinctMessage).toEqual(countUnique)
     },
   )
 
