@@ -28,9 +28,13 @@ As an organization owner, you may want to configure constraints on the maximum i
 
 For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
 
+### Inactivity defined
+
+{% data reusables.codespaces.inactivity-definition %}
+
 ### Behavior when you set a maximum idle timeout constraint
 
-If someone sets the default idle timeout to 90 minutes in their personal settings and they then start a codespace for a repository with a maximum idle timeout constraint of 60 minutes, the codespace will time out after 60 minutes of inactivity. When codespace creation completes, a message explaining this will be displayed:
+If someone sets the default idle timeout to 90 minutes in their personal settings and they then start a codespace for a repository that has a maximum idle timeout constraint of 60 minutes, the codespace will time out after 60 minutes of inactivity. When codespace creation completes, a message explaining this will be displayed:
 
 > Idle timeout for this codespace is set to 60 minutes in compliance with your organization’s policy.
 
