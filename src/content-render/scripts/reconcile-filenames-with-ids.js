@@ -64,7 +64,7 @@ contentFiles.forEach((oldFullPath) => {
 
   // if file is untracked, do a regular mv; otherwise do a git mv
   if (gitStatusOfFile.includes('??')) {
-    execFileSync('git', ['mv', oldContentPath, newContentPath])
+    execFileSync('mv', [oldContentPath, newContentPath])
   } else {
     execFileSync('git', ['mv', oldContentPath, newContentPath])
   }
