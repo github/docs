@@ -81,9 +81,6 @@ We recommend reviewing the following caveats before you change the visibility of
 - {% data variables.product.product_name %} will detach private forks and turn them into a standalone private repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"{% ifversion fpt or ghec %}
 - If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
 - The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
-{%- ifversion fpt or ghec %}
-- Attachments uploaded to the repository's issues and pull requests will become inaccessible until the repository is made private again or the attachments are reuploaded. This is a temporary limitation that {% data variables.product.company_short %} is working to resolve.
-{%- endif %}
 
 For information about improving repository security, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."{% endif %}
 
