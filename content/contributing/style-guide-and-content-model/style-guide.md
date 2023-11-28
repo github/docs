@@ -726,7 +726,7 @@ Use "development container configuration files" to refer to all of the files in 
 
 Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GH_advanced_security %} billing.
 
-We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GH_advanced_security %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES/GHAE 3.7 onward do not use it.
+We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GH_advanced_security %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES 3.7 onward do not use it.
 
 ### {% data variables.product.pat_generic_caps_plural %}
 
@@ -1342,9 +1342,6 @@ If the reader manages an enterprise account, and you're describing the people's 
 - {% data variables.product.prodname_ghe_server %}
   - **Use:** If you need to temporarily take over a user account...
   - **Avoid:** If you need to temporarily take over a personal account...
-- {% data variables.product.prodname_ghe_managed %}
-  - **Use:** Authorized users can access your enterprise from any IP address.
-  - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
 
 The following documentation should reference "user accounts."
 
