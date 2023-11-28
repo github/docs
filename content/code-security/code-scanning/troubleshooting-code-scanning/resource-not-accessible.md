@@ -12,11 +12,25 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-You may see `Error: 403 "Resource not accessible by integration"` when using {% data variables.product.prodname_dependabot %}.
+## About this error
 
-{% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, and the workflow will run with read-only scopes. Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
+```text
+403: Resource not accessible by integration
+```
 
-A simple approach is to run on pushes to the default branch and any other important long-running branches, as well as pull requests opened against this set of branches:
+You may see this error when using {% data variables.product.prodname_dependabot %}.
+
+{% data variables.product.prodname_dependabot %} is considered untrusted when it triggers a workflow run, if the workflow will run with read-only scopes.
+
+## Confirming the cause of the error
+
+If you're using {% data variables.product.prodname_dependabot %} in your {% data variables.product.prodname_code_scanning %} workflow, investigate the scope it's using.
+
+Uploading {% data variables.product.prodname_code_scanning %} results for a branch usually requires the `security_events: write` scope. However, {% data variables.product.prodname_code_scanning %} always allows the uploading of results when the `pull_request` event triggers the action run. This is why, for {% data variables.product.prodname_dependabot %} branches, we recommend you use the `pull_request` event instead of the `push` event.
+
+## Fixing the problem
+
+You can run on pushes to the default branch and any other important long-running branches, as well as pull requests opened against this set of branches:
 
 ```yaml
 on:
@@ -28,7 +42,7 @@ on:
       - main
 ```
 
-An alternative approach is to run on all pushes except for {% data variables.product.prodname_dependabot %} branches:
+Alternatively, you can run on all pushes except for {% data variables.product.prodname_dependabot %} branches:
 
 ```yaml
 on:
@@ -38,7 +52,9 @@ on:
   pull_request:
 ```
 
-## Analysis still failing on the default branch
+For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
+
+### Analysis still failing on the default branch
 
 If the {% data variables.code-scanning.codeql_workflow %} still fails on a commit made on the default branch, you need to check:
 
