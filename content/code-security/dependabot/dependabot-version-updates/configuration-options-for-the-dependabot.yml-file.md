@@ -870,7 +870,7 @@ updates:
 
 ## Configuration options for private registries
 
-The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
+The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries. You can give Dependabot access to private package registries hosted by GitLab or Bitbucket by specifying a type of Git and linking to Git.
 {% ifversion ghes > 3.7 %}
 {% note %}
 
