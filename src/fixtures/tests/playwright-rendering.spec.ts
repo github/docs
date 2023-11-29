@@ -55,7 +55,7 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await page.goto('/')
   await page.getByTestId('site-search-input').click()
   await page.getByTestId('site-search-input').fill('serve playwright')
-  await page.getByRole('button', { name: 'Search' }).click()
+  await page.keyboard.press('Enter')
   await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
   await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
 
