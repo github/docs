@@ -87,8 +87,6 @@ gh release edit TAG
 
 For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_edit)
 
-Releases cannot currently be edited with {% data variables.product.prodname_cli %}.
-
 {% endcli %}
 
 ## Deleting a release
