@@ -265,6 +265,7 @@
     "ora": "^7.0.1",
     "parse5": "7.1.2",
     "port-used": "^2.0.8",
+    "quick-lru": "7.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rehype-highlight": "^7.0.0",
