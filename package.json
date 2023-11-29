@@ -353,6 +353,11 @@
     "unist-util-visit-parents": "6.0.1",
     "website-scraper": "^5.3.1"
   },
+  "overrides": {
+    "ts-jest@29.1.1": {
+      "@babel/core": "7.23.3"
+    }
+  },
   "optionalDependencies": {
     "esm": "^3.2.25"
   },
