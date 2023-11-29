@@ -60,7 +60,7 @@ For more information on what happens when you create a codespace, see "[AUTOTITL
 
 For more information on the lifecycle of a codespace, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)."
 
-If you want to use Git hooks for your codespace, then you should set up hooks using the `devcontainer.json` lifecycle scripts, such as `postCreateCommand`. These get executed during step 4, above. For information about the lifecycle scripts, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created.
+If you want to use Git hooks for your codespace, then you should set up hooks using the `devcontainer.json` lifecycle scripts, such as `postCreateCommand`. These get executed during step 4, above. For information about the lifecycle scripts, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website. Since the dev container for your codespace is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the dev container image will not apply to your codespace. Hooks must instead be installed after the codespace is created.
 
 {% data reusables.codespaces.use-visual-studio-features %}
 

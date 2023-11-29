@@ -2,6 +2,8 @@
 title: Configuring automatic deletion of your codespaces
 shortTitle: Configure automatic deletion
 intro: 'Inactive codespaces are automatically deleted. You can choose how long your stopped codespaces are retained, up to a maximum of 30 days.'
+redirect_from:
+  - /codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces
 versions:
   fpt: '*'
   ghec: '*'
@@ -49,7 +51,7 @@ Each codespace has its own retention period. You may, therefore, have codespaces
 
    {% warning %}
 
-   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
+   **Warning**: Setting the period to `0` will result in your codespaces being immediately deleted when you stop them, or when they timeout due to inactivity. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)."
 
    {% endwarning %}
 
@@ -127,3 +129,8 @@ You can check, in the {% data variables.product.prodname_vscode %} desktop appli
    ![Screenshot of the "Remote Explorer" side bar. In the right-click menu for a codespace, "Expiring in 19 days" is highlighted with an orange outline.](/assets/images/help/codespaces/vscode-deleting-in-5-days.png)
 
 {% endvscode %}
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces)"

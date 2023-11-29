@@ -7,6 +7,7 @@ redirect_from:
   - /github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
   - /codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account
   - /codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account
+  - /codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account
 versions:
   fpt: '*'
   ghec: '*'
@@ -164,13 +165,14 @@ If your codespace fails to pick up configuration settings from dotfiles, see "[A
 You can also personalize {% data variables.product.prodname_github_codespaces %} using additional options in [your personal settings](https://github.com/settings/codespaces):
 
 - To enable GPG verification, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
-- To set your editor, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
-- To set how long a codespace can remain unused before it is automatically stopped, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
-- To set the period for which your unused codespaces are retained, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
-- To set your default region, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces)."
+- To set your editor, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)."
+- To set how long a codespace can remain unused before it is automatically stopped, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)."
+- To set the period for which your unused codespaces are retained, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
+- To set your default region, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-region-for-github-codespaces)."
 
 ## Further reading
 
 - "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
 - "[AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"
-- "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces)"

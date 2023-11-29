@@ -56,7 +56,7 @@ If your organization owns a codespace, your organization has control over that c
 
 - Use the [REST API](/rest/codespaces/organizations) to manage codespaces, such as stopping or deleting a codespace
 - Access audit logs to review actions related to {% data variables.product.prodname_github_codespaces %}
-- Set policies to manage constraints, such as restricting the base image or machine type that can be used in codespaces, or setting a default timeout and retention period
+- Set policies to manage constraints, such as restricting the dev container image or machine type that can be used in codespaces, or setting a default timeout and retention period
 
 If a user owns a codespace, your organization does not have any of these options for managing the codespace, even if the codespace was created from one of your organization's repositories.
 

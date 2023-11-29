@@ -98,7 +98,7 @@ When you connect to a codespace using the browser, or the {% data variables.prod
 
 ### About Settings Sync
 
-You can enable Settings Sync to sync extensions and other settings across devices and instances of {% data variables.product.prodname_vscode_shortname %}. {% data reusables.codespaces.about-settings-sync %} For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#settings-sync)."
+You can enable Settings Sync to sync extensions and other settings across devices and instances of {% data variables.product.prodname_vscode_shortname %}. {% data reusables.codespaces.about-settings-sync %} For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync)."
 
 ## Next steps
 
@@ -114,5 +114,5 @@ You've successfully created, personalized, and run your first application within
 - "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)"
 - "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide)"
 - "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli)"
-- "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
+- "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-default-editor-for-github-codespaces)."
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
