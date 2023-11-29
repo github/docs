@@ -79,10 +79,10 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 
 {% cli %}
 
-To edit releases using the {% data variables.product.prodname_cli %}:
+1. To edit a release, use the `gh release edit` subcommand. Replace `tag` with the tag representing the release you wish to edit. For example, to edit a given release's title:
 
 ```shell
-gh release edit TAG
+gh release edit <tag> -t "New title"
 ```
 
 For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_edit)
