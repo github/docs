@@ -184,6 +184,6 @@ inst/CITATION
 
 ## Citation formats
 
-We currently support APA and BibTex file formats.
+We currently support APA and BibTeX file formats.
 
 Are you looking for additional citation formats? {% data variables.product.company_short %} uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.

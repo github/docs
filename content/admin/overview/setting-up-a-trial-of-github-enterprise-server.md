@@ -6,8 +6,8 @@ redirect_from:
   - /articles/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server
   - /github/getting-started-with-github/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server
+  - /get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server
 versions:
-  fpt: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -21,7 +21,7 @@ You can request a 45-day trial to evaluate {% data variables.product.prodname_gh
 
 {% ifversion ghes %}{% data variables.product.prodname_dependabot %}{% else %}Security{% endif %} alerts and {% data variables.product.prodname_github_connect %} are not currently available in trials of {% data variables.product.prodname_ghe_server %}. For a demonstration of these features, contact {% data variables.contact.contact_enterprise_sales %}. For more information about these features, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)."
 
-Trials are also available for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)."
+Trials are also available for {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
 {% data reusables.products.which-product-to-use %}
 
@@ -67,4 +67,4 @@ If you haven't upgraded by the last day of your trial, you'll receive an email n
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)"
+- "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)"

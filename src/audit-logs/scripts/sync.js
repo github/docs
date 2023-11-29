@@ -180,6 +180,24 @@ async function main() {
       }
     })
 
+  // We don't maintain the order of events as we process them so after filtering
+  // all the events based on their allowlist values, we sort them so they're in
+  // order for display on the audit log pages.
+  for (const pageType of Object.values(auditLogData)) {
+    for (const events of Object.values(pageType)) {
+      events.sort((e1, e2) => {
+        // Event actions have underscores and periods (e.g.
+        // `enterprise.runner_group_runners_updated`) and we ignore them both
+        // so that for example `org_secret_scanning_custom_pattern.update` is
+        // treated as `org secrect scanning custom pattern update` and will be
+        // sorted after `org.accept_business_invitation`.
+        const a1 = e1.action.replace(/[_.]/g, ' ')
+        const a2 = e2.action.replace(/[_.]/g, ' ')
+        return a1.localeCompare(a2)
+      })
+    }
+  }
+
   console.log(`\n▶️  Generating audit log data files...\n`)
 
   // write out audit log event data to page event files per version e.g.:

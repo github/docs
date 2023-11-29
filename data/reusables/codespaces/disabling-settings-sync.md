@@ -4,7 +4,7 @@ When you turn off Settings Sync in a codespace, new codespaces continue to use t
 
 If you want to return to using the default {% data variables.product.prodname_vscode_shortname %} settings in all instances of {% data variables.product.prodname_vscode_shortname %}, including the desktop application, you can clear the cache in the cloud when you turn off Settings Sync.
 
-1. If Settings Sync is currently turned off in your instance of {% data variables.product.prodname_vscode_shortname %}, and you want to clear your cached settings, you must first turn it on. For instructions, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#turning-on-settings-sync-in-a-codespace)."
+1. If Settings Sync is currently turned off in your instance of {% data variables.product.prodname_vscode_shortname %}, and you want to clear your cached settings, you must first turn it on. For instructions, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#turning-on-settings-sync-in-a-codespace)."
 1. At the bottom of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %} and click **Settings Sync is On**.
 1. In the dropdown, click **Settings Sync: Turn Off**.
 

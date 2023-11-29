@@ -13,7 +13,6 @@ import slash from 'slash'
 import readFileContents from './read-file-contents.js'
 import getLinkData from '#src/learning-track/lib/get-link-data.js'
 import getDocumentType from '#src/events/lib/get-document-type.js'
-import { union } from 'lodash-es'
 import { allTools } from '#src/tools/lib/all-tools.js'
 import { renderContentWithFallback } from '#src/languages/lib/render-with-fallback.js'
 import { deprecated, supported } from '#src/versions/lib/enterprise-server-releases.js'
@@ -254,15 +253,11 @@ class Page {
     }
 
     if (this.rawIncludeGuides) {
-      this.allTopics = []
       this.includeGuides = await getLinkData(this.rawIncludeGuides, context)
       this.includeGuides.map((guide) => {
         const { page } = guide
         guide.type = page.type
         if (page.topics) {
-          this.allTopics = union(this.allTopics, page.topics).sort((a, b) =>
-            a.localeCompare(b, page.languageCode),
-          )
           guide.topics = page.topics
         }
         delete guide.page

@@ -76,3 +76,8 @@ You can change the display name for your codespace on {% data variables.product.
 1. In the prompt, under "Change display name to..." type your desired display name and click **OK**.
 
 {% endwebui %}
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces)"

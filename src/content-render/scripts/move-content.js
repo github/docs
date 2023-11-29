@@ -21,18 +21,21 @@
 
 import fs from 'fs'
 import path from 'path'
-import { execSync } from 'child_process'
+import { execFileSync } from 'child_process'
 
 import { program } from 'commander'
 import chalk from 'chalk'
 import walk from 'walk-sync'
 import yaml from 'js-yaml'
+import escapeStringRegexp from 'escape-string-regexp'
 
 import fm from '#src/frame/lib/frontmatter.js'
 import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 
-const CONTENT_ROOT = path.resolve('content')
-const DATA_ROOT = path.resolve('data')
+// This is so you can optionally run it again the test fixtures root.
+const ROOT = process.env.ROOT || '.'
+const CONTENT_ROOT = path.resolve(path.join(ROOT, 'content'))
+const DATA_ROOT = path.resolve(path.join(ROOT, 'data'))
 
 const REDIRECT_FROM_KEY = 'redirect_from'
 const CHILDREN_KEY = 'children'
@@ -118,13 +121,16 @@ async function main(opts, nameTuple) {
   const currentBranchName = getCurrentBranchName(verbose)
   if (currentBranchName === 'main' && git) {
     console.error(chalk.red("Cannot proceed because you're on the 'main' branch."))
-    console.error("This command will executed 'git mv ...' and 'git commit ...'")
+    console.error("This command will execute 'git mv ...' and 'git commit ...'")
     console.error('Create a new dedicated branch instead, first, for this move.\n')
     process.exit(2)
   }
 
   // This will exit non-zero if anything is wrong with these inputs
   validateFileInputs(oldPath, newPath, isFolder)
+
+  const oldHref = makeHref(CONTENT_ROOT, undo ? newPath : oldPath)
+  const newHref = makeHref(CONTENT_ROOT, undo ? oldPath : newPath)
 
   if (isFolder) {
     // The folder must have an index.md file
@@ -152,8 +158,6 @@ async function main(opts, nameTuple) {
     }
   } else {
     // When it's just an individual file, it's easier.
-    const oldHref = makeHref(CONTENT_ROOT, undo ? newPath : oldPath)
-    const newHref = makeHref(CONTENT_ROOT, undo ? oldPath : newPath)
     const files = [[oldPath, newPath, oldHref, newHref]]
 
     // First take care of the `git mv` (or regular rename) part.
@@ -165,6 +169,10 @@ async function main(opts, nameTuple) {
       editFiles(files, true, opts)
     }
   }
+
+  // Updating featuredLinks front matter actually doesn't care if
+  // the file is a folder or not. It just needs to know the old and new hrefs.
+  changeFeaturedLinks(oldHref, newHref)
 
   if (!undo) {
     if (verbose) {
@@ -264,17 +272,17 @@ function makeHref(root, filePath) {
 function moveFolder(oldPath, newPath, files, opts) {
   const { verbose, git: useGit } = opts
   if (useGit) {
-    let cmd = `git mv ${oldPath} ${newPath}`
+    let cmd = ['mv', oldPath, newPath]
     if (verbose) {
-      console.log(`git mv command: ${chalk.grey(cmd)}`)
+      console.log(`git mv command: ${chalk.grey(cmd.join(' '))}`)
     }
-    execSync(cmd)
+    execFileSync('git', cmd)
 
-    cmd = `git commit -a -m "renamed ${files.length} files"`
+    cmd = ['commit', '-a', '-m', `renamed ${files.length} files`]
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
-    execSync(cmd)
+    execFileSync('git', cmd)
   } else {
     fs.renameSync(oldPath, newPath)
     if (verbose) {
@@ -287,16 +295,16 @@ function undoFolder(oldPath, newPath, files, opts) {
   const { verbose, git: useGit } = opts
 
   if (useGit) {
-    let cmd = `git mv ${oldPath} ${newPath}`
-    execSync(cmd)
+    let cmd = ['mv', oldPath, newPath]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git mv command: ${chalk.grey(cmd)}`)
+      console.log(`git mv command: ${chalk.grey(cmd.join(' '))}`)
     }
 
-    cmd = `git commit -a -m "renamed ${files.length} files"`
-    execSync(cmd)
+    cmd = ['commit', '-a', '-m', `renamed ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   } else {
     fs.renameSync(oldPath, newPath)
@@ -438,10 +446,10 @@ function moveFiles(files, opts) {
     }
 
     if (useGit) {
-      const cmd = `git mv ${oldPath} ${newPath}`
-      execSync(cmd)
+      const cmd = ['mv', oldPath, newPath]
+      execFileSync('git', cmd)
       if (verbose) {
-        console.log(`git mv command: ${chalk.grey(cmd)}`)
+        console.log(`git mv command: ${chalk.grey(cmd.join(' '))}`)
       }
     } else {
       fs.renameSync(oldPath, newPath)
@@ -452,10 +460,10 @@ function moveFiles(files, opts) {
   }
 
   if (useGit) {
-    const cmd = `git commit -a -m "renamed ${files.length} files"`
-    execSync(cmd)
+    const cmd = ['commit', '-a', '-m', `renamed ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
 }
@@ -497,10 +505,10 @@ function editFiles(files, updateParent, opts) {
   }
 
   if (useGit) {
-    const cmd = `git commit -a -m "set ${REDIRECT_FROM_KEY} on ${files.length} files"`
-    execSync(cmd)
+    const cmd = ['commit', '-a', '-m', `set ${REDIRECT_FROM_KEY} on ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
 }
@@ -536,10 +544,10 @@ function undoFiles(files, updateParent, opts) {
     }
   }
   if (useGit) {
-    const cmd = `git commit -a -m "unset ${REDIRECT_FROM_KEY} on ${files.length} files"`
-    execSync(cmd)
+    const cmd = ['commit', '-a', '-m', `unset ${REDIRECT_FROM_KEY} on ${files.length} files`]
+    execFileSync('git', cmd)
     if (verbose) {
-      console.log(`git commit command: ${chalk.grey(cmd)}`)
+      console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)
     }
   }
 }
@@ -575,11 +583,47 @@ function changeLearningTracks(filePath, oldHref, newHref) {
   fs.writeFileSync(filePath, newContent, 'utf-8')
 }
 
+function changeFeaturedLinks(oldHref, newHref) {
+  const allFiles = walk(CONTENT_ROOT, {
+    globs: ['**/*.md'],
+    includeBasePath: true,
+    directories: false,
+  }).filter((file) => !file.includes('README.md'))
+
+  const regex = new RegExp(`(^|%})${escapeStringRegexp(oldHref)}($|{%)`)
+
+  for (const file of allFiles) {
+    let changed = false
+    const fileContent = fs.readFileSync(file, 'utf-8')
+    const { content, data } = readFrontmatter(fileContent)
+    const featuredLinks = data.featuredLinks || {}
+    for (const [key, entries] of Object.entries(featuredLinks)) {
+      if (key === 'popularHeading') {
+        continue
+      }
+      entries.forEach((entry, i) => {
+        if (regex.test(entry)) {
+          entries[i] = entry.replace(regex, `${newHref}$1`)
+          changed = true
+        }
+      })
+    }
+
+    if (changed) {
+      fs.writeFileSync(
+        file,
+        readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
+        'utf-8',
+      )
+    }
+  }
+}
+
 function getCurrentBranchName(verbose = false) {
-  const cmd = 'git branch --show-current'
-  const o = execSync(cmd)
+  const cmd = ['branch', '--show-current']
+  const o = execFileSync('git', cmd)
   if (verbose) {
-    console.log(`git commit command: ${chalk.grey(cmd)}`)
+    console.log(`git commit command: git ${chalk.grey(cmd.join(' '))}`)
   }
   return o.toString().trim()
 }

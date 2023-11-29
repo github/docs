@@ -65,8 +65,7 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can creat
 Enterprise owners can invite existing organizations to join their enterprise account.
 
 During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invite organizations to join your trial enterprise. You can invite organizations that are not currently owned by another enterprise. If an organization you want to invite is already owned by another enterprise, you must be an owner of both enterprise accounts and initiate an organization transfer. For more information, see "[Transferring an organization between enterprise accounts](#transferring-an-organization-between-enterprise-accounts)."
-
-If you add an organization to a trial enterprise, certain features in the organization may be disabled. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)."
+If you add an organization to a trial enterprise, certain features in the organization may be disabled. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)."
 
 When you invite an organization to join your enterprise account, at least one owner needs to accept the invitation. Then, you must give a final approval for the transfer. After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 

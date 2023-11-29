@@ -22,7 +22,7 @@ OpenAPI is a specification for describing REST API interfaces. It describes the 
 
 {% data variables.product.company_short %} provides both 3.0 and 3.1 OpenAPI descriptions.
 
-For each description, there is a version for each product: {% data variables.product.prodname_free_user %}/{% data variables.product.prodname_pro %}/{% data variables.product.prodname_team %} (`api.github.com`), {% data variables.product.prodname_ghe_cloud %} (`ghec`), {% data variables.product.prodname_ghe_managed %} (`github.ae`), and each version of {% data variables.product.prodname_ghe_server %} (`ghes-X.X`).
+For each description, there is a version for each product: {% data variables.product.prodname_free_user %}/{% data variables.product.prodname_pro %}/{% data variables.product.prodname_team %} (`api.github.com`), {% data variables.product.prodname_ghe_cloud %} (`ghec`), and each version of {% data variables.product.prodname_ghe_server %} (`ghes-X.X`).
 
 For each product, if date-based versioning is supported, there is also a description for each date-based version. For more information, see {% ifversion api-date-versioning%}"[AUTOTITLE](/rest/overview/api-versions)."{% else %}"[AUTOTITLE](/free-pro-team@latest/rest/overview/api-versions)" in the {% data variables.product.prodname_free_user %} documentation.{% endif %}
 

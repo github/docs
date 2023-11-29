@@ -43,9 +43,9 @@ All of these requests count towards your personal rate limit of {% ifversion gha
 
 ### Primary rate limit for {% data variables.product.prodname_github_app %} installations
 
-{% data variables.product.prodname_github_apps %} authenticating with an installation access token use the installation's minimum rate limit of 5,000 requests per hour. If the installation is on a {% data variables.location.product_location %} organization, the installation has a rate limit of 15,000 requests per hour.
+{% data variables.product.prodname_github_apps %} authenticating with an installation access token use the installation's minimum rate limit of 5,000 requests per hour. If the installation is on a {% data variables.product.prodname_ghe_cloud %} organization, the installation has a rate limit of 15,000 requests per hour.
 
-For installations that are not on a {% data variables.location.product_location %} organization, the rate limit for the installation will scale with the number of users and repositories. Installations that have more than 20 repositories receive another 50 requests per hour for each repository. Installations that are on an organization that have more than 20 users receive another 50 requests per hour for each user. The rate limit cannot increase beyond 12,500 requests per hour.
+For installations that are not on a {% data variables.product.prodname_ghe_cloud %} organization, the rate limit for the installation will scale with the number of users and repositories. Installations that have more than 20 repositories receive another 50 requests per hour for each repository. Installations that are on an organization that have more than 20 users receive another 50 requests per hour for each user. The rate limit cannot increase beyond 12,500 requests per hour.
 
 Primary rate limits for {% data variables.product.prodname_github_app %} user access tokens (as opposed to installation access tokens) are dictated by the primary rate limits for the authenticated user. This rate limit is combined with any requests that another {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} makes on that user's behalf and any requests that the user makes with a {% data variables.product.pat_generic %}. For more information, see "[Primary rate limit for authenticated users](#primary-rate-limit-for-authenticated-users)."
 
@@ -71,7 +71,7 @@ For these requests, the rate limit is 5,000 requests per hour per {% data variab
 
 You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
-The rate limit for `GITHUB_TOKEN` is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.location.product_location %}, the limit is 15,000 requests per hour per repository.{% endif %}
+The rate limit for `GITHUB_TOKEN` is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to a {% data variables.product.prodname_ghe_cloud %} account, the limit is 15,000 requests per hour per repository.{% endif %}
 
 ## About secondary rate limits
 

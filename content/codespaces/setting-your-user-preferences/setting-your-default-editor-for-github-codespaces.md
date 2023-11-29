@@ -8,6 +8,7 @@ versions:
 redirect_from:
   - /codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces
+  - /codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces
 topics:
   - Codespaces
 type: how_to
@@ -50,3 +51,8 @@ If you want to work on a codespace in a JetBrains IDE you must install the JetBr
      To connect to a codespace from the Gateway application, you must have an SSH server running on the codespace. {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
 
    - If you choose **JupyterLab**, the JupyterLab application must be installed in the codespaces you open. {% data reusables.codespaces.jupyterlab-in-default-image %}
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces)"
