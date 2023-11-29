@@ -2,6 +2,8 @@ import express from 'express'
 import { omit, without, mapValues } from 'lodash-es'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
+import QuickLRU from 'quick-lru'
+
 import { schemas, hydroNames } from './lib/schema.js'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { noCacheControl } from '#src/frame/middleware/cache-control.js'
@@ -28,6 +30,11 @@ async function publish(...args) {
   return await _publish(...args)
 }
 
+const sentValidationErrors = new QuickLRU({
+  maxSize: 10_000,
+  maxAge: 1000 * 60,
+})
+
 router.post(
   '/',
   catchMiddlewareError(async function postEvents(req, res) {
@@ -42,14 +49,25 @@ router.post(
     // Validate the data matches the corresponding data schema
     const validate = validations[type]
     if (!validate(req.body)) {
-      // Track validation errors in Hydro so that we can know if
-      // there's a widespread problem in events.ts
-      await publish(
-        formatErrors(validate.errors, req.body).map((error) => ({
-          schema: hydroNames.validation,
-          value: error,
-        })),
-      )
+      const hash = `${req.ip}:${validate.errors
+        .map((error) => error.message + error.instancePath)
+        .join(':')}`
+      // This protects so we don't bother sending the same validation
+      // error, per user, more than once (per time interval).
+      // This helps if we're bombarded with junk bot traffic. So it
+      // protects our Hydro instance from being overloaded with things
+      // that aren't helping anybody.
+      if (!sentValidationErrors.has(hash)) {
+        sentValidationErrors.set(hash, true)
+        // Track validation errors in Hydro so that we can know if
+        // there's a widespread problem in events.ts
+        await publish(
+          formatErrors(validate.errors, req.body).map((error) => ({
+            schema: hydroNames.validation,
+            value: error,
+          })),
+        )
+      }
       // We aren't helping bots spam us :)
       return res.status(400).json(isProd ? {} : validate.errors)
     }
