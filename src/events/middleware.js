@@ -58,7 +58,9 @@ router.post(
       schema: hydroNames[type],
       value: omit(req.body, OMIT_FIELDS),
     })
+
     return res.json({})
   }),
 )
+
 export default router
