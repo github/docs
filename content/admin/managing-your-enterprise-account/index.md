@@ -6,5 +6,6 @@ versions:
 children:
   - /creating-an-enterprise-account
   - /deleting-an-enterprise-account
+  - /changing-the-url-for-your-enterprise
 shortTitle: Manage enterprise account
 ---
