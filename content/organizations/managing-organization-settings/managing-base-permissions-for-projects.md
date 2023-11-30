@@ -15,6 +15,12 @@ You can set a project's base permission to control the level of access for all m
 
 When you set the base permission for projects in your organization's settings, the base permission will apply to any new projects created by organization members and existing projects that do not currently have a base permission configured in the project's settings.
 
+{% note %}
+
+**Note:** {% data reusables.projects.migration-permissions-warning %}
+
+{% endnote %}
+
 ## Setting a base permission for {% data variables.projects.projects_v2  %} in your organization
 
 {% data reusables.profile.access_org %}
