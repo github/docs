@@ -70,7 +70,11 @@ In general, security updates use any configuration options that affect pull requ
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. If you want to allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you can include a registries setting in the configuration file. For more information, see [registries](#registries) below. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory.  For more information, see [`vendor`](#vendor) below.{% ifversion ghes %}
+**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. 
+
+If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below. 
+
+If you want to allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you can include a `registries` setting in the configuration file. For more information, see [`registries`](#registries) below.{% ifversion ghes %}
 
 {% note %}
 
