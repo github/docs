@@ -98,7 +98,7 @@ You can view data for security alerts across organizations in an enterprise. {% 
 
 {% data reusables.security-overview.alert-differences %}
 
-{% ifversion ghes < 3.7 or ghae < 3.7 %}
+{% ifversion ghae < 3.7 %}
 
 ## Viewing security overview for a team
 

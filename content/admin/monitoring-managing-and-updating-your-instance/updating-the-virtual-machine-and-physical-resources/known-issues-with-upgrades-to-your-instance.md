@@ -2,7 +2,7 @@
 title: Known issues with upgrades to your instance
 intro: 'See an overview of workarounds for issues that impact the upgrade process for {% data variables.product.prodname_ghe_server %}, or impact your instance after you complete an upgrade.'
 versions:
-  ghes: '>=3.7'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise

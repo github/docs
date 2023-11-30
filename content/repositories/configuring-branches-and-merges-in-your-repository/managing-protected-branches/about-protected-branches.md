@@ -169,7 +169,7 @@ Before you can require a linear commit history, your repository must allow squas
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.6 %}
+{% ifversion fpt or ghec or ghes %}
 
 ### Require deployments to succeed before merging
 
