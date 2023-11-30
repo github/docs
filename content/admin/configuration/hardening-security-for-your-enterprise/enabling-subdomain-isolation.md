@@ -43,9 +43,7 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 {%- endif %}
 | `http(s)://HOSTNAME/pages/` | `http(s)://pages.HOSTNAME/` |
 | `http(s)://HOSTNAME/raw/` | `http(s)://raw.HOSTNAME/` |
-{%- ifversion ghes < 3.7 %}
-| `http(s)://HOSTNAME/render/` | `http(s)://render.HOSTNAME/` |
-{%- endif %}
+
 | `http(s)://HOSTNAME/reply/` | `http(s)://reply.HOSTNAME/` |
 | `http(s)://HOSTNAME/uploads/` | `http(s)://uploads.HOSTNAME/` |
 {%- ifversion viewscreen-and-notebooks %}

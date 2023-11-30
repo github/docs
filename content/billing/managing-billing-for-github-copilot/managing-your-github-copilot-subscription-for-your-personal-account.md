@@ -64,4 +64,4 @@ You can cancel your {% data variables.product.prodname_copilot_individuals_short
 ## Further reading
 
 - "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-individual)"
-- "[AUTOTITLE](/copilot/getting-started-with-github-copilot)"
+- "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)"

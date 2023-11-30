@@ -14,8 +14,6 @@ redirect_from:
   - /github/authenticating-to-github/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits
 ---
 
-{% data reusables.identity-and-permissions.vigilant-mode-beta-note %}
-
 ## About vigilant mode
 
 When you work locally on your computer, Git allows you to set the author of your changes and the identity of the committer. This, potentially, makes it difficult for other people to be confident that commits and tags you create were actually created by you. To help solve this problem you can sign your commits and tags. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)" and "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)." {% data variables.product.prodname_dotcom %} marks signed commits and tags with a verification status.

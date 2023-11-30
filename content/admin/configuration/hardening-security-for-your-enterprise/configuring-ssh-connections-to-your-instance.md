@@ -27,7 +27,7 @@ To accommodate the SSH clients in your environment, you can configure the types 
 
 When users perform Git operations on {% data variables.location.product_location %} via SSH over port 22, the client can authenticate with an RSA key. The client may sign the attempt using the SHA-1 hash function. In this context, the SHA-1 hash function is no longer secure. For more information, see [SHA-1](https://en.wikipedia.org/wiki/SHA-1) on Wikipedia.
 
-By default{% ifversion ghes < 3.7 %} on {% data variables.product.product_name %} 3.6 and later{% endif %}, SSH connections that satisfy **both** of the following conditions will fail.
+By default, SSH connections that satisfy **both** of the following conditions will fail.
 
 {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
 
