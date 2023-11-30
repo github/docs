@@ -13,7 +13,7 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
-layout: inline # The supported secrets table expands with a11y options, this allows the page more room
+layout: inline
 ---
 
 {% data reusables.secret-scanning.beta %}
@@ -155,7 +155,7 @@ Push protection and validity checks are not supported for non-provider patterns.
 {% endif %}
 
 <!-- GHES 3.5 to GHES 3.8 table -->
-{% ifversion ghes = 3.6 or ghes = 3.7 or ghes = 3.8 %}
+{% ifversion ghes = 3.7 or ghes = 3.8 %}
 
 | Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
 |----|:----|:----:|:----:|
