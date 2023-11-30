@@ -37,7 +37,14 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
     // This makes the deprecation steps easier.
     .filter((file) => {
       return !deprecated.some((depVersion) =>
-        file.split(path.sep).find((pathSplit) => pathSplit.includes(depVersion)),
+        file.split(path.sep).find((pathSplit) => {
+          if (pathSplit.startsWith('ghes')) {
+            // An example version format is: ghes-3.6 or ghes-3.6-2022-01-01
+            const ghesVersion = pathSplit.split('-')[1]
+            return ghesVersion === depVersion
+          }
+          return false
+        }),
       )
     })
 
