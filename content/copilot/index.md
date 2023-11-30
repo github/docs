@@ -11,7 +11,7 @@ introLinks:
   quickstart: /copilot/quickstart
 featuredLinks:
   startHere:
-    - /copilot/getting-started-with-github-copilot
+    - /copilot/using-github-copilot/getting-started-with-github-copilot
   popular:
     - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
     - /copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment
@@ -22,7 +22,7 @@ versions:
 children:
   - /quickstart
   - /overview-of-github-copilot
-  - /getting-started-with-github-copilot
+  - /using-github-copilot
   - /managing-copilot-business
   - /github-copilot-enterprise
   - /github-copilot-chat

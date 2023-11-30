@@ -4,6 +4,7 @@ shortTitle: Getting started
 intro: 'You can start using {% data variables.product.prodname_copilot %} by installing the extension in your preferred environment.'
 product: '{% data reusables.gated-features.copilot %}'
 redirect_from:
+  - /copilot/getting-started-with-github-copilot
   - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
   - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
   - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
