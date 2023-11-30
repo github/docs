@@ -36,7 +36,9 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
     // the most recent deprecated version but still allow data to exist.
     // This makes the deprecation steps easier.
     .filter((file) => {
-      return !deprecated.some((depVersion) => file.split(path.sep).includes(depVersion))
+      return !deprecated.some((depVersion) =>
+        file.split(path.sep).find((pathSplit) => pathSplit.includes(depVersion)),
+      )
     })
 
   const restVersions = {}
