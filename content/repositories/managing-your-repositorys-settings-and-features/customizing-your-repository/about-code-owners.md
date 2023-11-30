@@ -151,7 +151,9 @@ apps/ @octocat
 
 ## CODEOWNERS and branch protection
 
-Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+Repository owners must add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. Specifically the option "Require review from Code Owners" For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+
+Be aware that you must also specify the CODEOWNERS file/location itself in CODEOWNERS to protect this file and rules from being changed. And it would be wise to protect the highest tier location as well if not used, to stop a CODEOWNERS file being created there ```/.github/CODEOWNERS @owner_username```
 
 ## Further reading
 
