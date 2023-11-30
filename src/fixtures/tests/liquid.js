@@ -67,9 +67,9 @@ describe('post', () => {
   test('whitespace control', async () => {
     const $ = await getDOM('/get-started/liquid/whitespace')
     const html = $('#article-contents').html()
-    expect(html).toMatch('<p>GitHub</p>')
-    expect(html).toMatch('<p>Text before. GitHub Text after.</p>')
-    expect(html).toMatch('<li>GitHub</li>')
+    expect(html).toMatch('<p>HubGit</p>')
+    expect(html).toMatch('<p>Text before. HubGit Text after.</p>')
+    expect(html).toMatch('<li>HubGit</li>')
     expect(html).toMatch('CramFPTped')
 
     // Test what happens to `Cram{% ifversion fpt %}FPT{% endif %}ped.`

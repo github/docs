@@ -6,7 +6,7 @@ describe('markdown rendering', () => {
     const html = $('[data-testid="lead"]').html()
     expect(html).toMatch('<strong>Markdown</strong>')
     expect(html).toMatch('<code>syntax</code>')
-    expect(html).toMatch('<em>GitHub</em>')
+    expect(html).toMatch('<em>HubGit</em>')
   })
 
   test('page with permission frontmatter', async () => {
@@ -17,6 +17,6 @@ describe('markdown rendering', () => {
     // Markdown
     expect(html).toMatch('<strong>admin</strong>')
     // Liquid
-    expect(html).toMatch('GitHub Pages site')
+    expect(html).toMatch('HubGit Pages site')
   })
 })
