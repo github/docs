@@ -63,14 +63,15 @@ jobs:
       # Add to the FR project
       # and set type to "External contributor PR"
       # and set date to now
-      - name: Triage to FR PR project
-        if: steps.set-result.outputs.result == 'false'
+      - name: Triage to docs-content FR project
+        #  TODO uncomment this step after above steps are uncommented
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR_URL: ${{ github.event.pull_request.html_url }}
           PROJECT_NUMBER: 11672
           PROJECT_ID: PVT_kwDNJr_OAGNkBg
           TYPE_FIELD_ID: PVTSSF_lADNJr_OAGNkBs4D-Nyn
+          DATE_FIELD_ID: PVTF_lADNJr_OAGNkBs4D-N1h
           EXTERNAL_PR_TYPE_ID: bbd0922a
         run: |
           echo "Adding item to project..."
@@ -85,6 +86,8 @@ jobs:
 
           DATE=$(date '+%Y-%m-%d')
 
-          gh project item-edit --project-id $PROJECT_ID --id $ITEM_ID --field-id $TYPE_FIELD_ID --date $DATE
+          echo "calling with: --project-id $PROJECT_ID --id $ITEM_ID --field-id $DATE_FIELD_ID --date $DATE"
+
+          gh project item-edit --project-id $PROJECT_ID --id $ITEM_ID --field-id $DATE_FIELD_ID --date $DATE
 
           echo "done editing"
