@@ -3359,6 +3359,48 @@
       ]
     },
     {
+      "name": "createUserList",
+      "kind": "mutations",
+      "id": "createuserlist",
+      "href": "/graphql/reference/mutations#createuserlist",
+      "description": "<p>Creates a new user list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateUserListInput!",
+          "id": "createuserlistinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createuserlistinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "list",
+          "type": "UserList",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist",
+          "description": "<p>The list that was just created.</p>"
+        },
+        {
+          "name": "viewer",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user who created the list.</p>"
+        }
+      ]
+    },
+    {
       "name": "declineTopicSuggestion",
       "kind": "mutations",
       "id": "declinetopicsuggestion",
@@ -4195,6 +4237,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteUserList",
+      "kind": "mutations",
+      "id": "deleteuserlist",
+      "href": "/graphql/reference/mutations#deleteuserlist",
+      "description": "<p>Deletes a user list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteUserListInput!",
+          "id": "deleteuserlistinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteuserlistinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The owner of the list that will be deleted.</p>"
         }
       ]
     },
@@ -9128,6 +9204,90 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#repository",
           "description": "<p>The updated repository.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateUserList",
+      "kind": "mutations",
+      "id": "updateuserlist",
+      "href": "/graphql/reference/mutations#updateuserlist",
+      "description": "<p>Updates an existing user list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateUserListInput!",
+          "id": "updateuserlistinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateuserlistinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "list",
+          "type": "UserList",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist",
+          "description": "<p>The list that was just updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateUserListsForItem",
+      "kind": "mutations",
+      "id": "updateuserlistsforitem",
+      "href": "/graphql/reference/mutations#updateuserlistsforitem",
+      "description": "<p>Updates which of the viewer's lists an item belongs to.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateUserListsForItemInput!",
+          "id": "updateuserlistsforiteminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateuserlistsforiteminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "item",
+          "type": "UserListItems",
+          "id": "userlistitems",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#userlistitems",
+          "description": "<p>The item that was added.</p>"
+        },
+        {
+          "name": "lists",
+          "type": "[UserList!]",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist",
+          "description": "<p>The lists to which this item belongs.</p>"
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user who owns the lists.</p>"
         }
       ]
     },
@@ -73757,6 +73917,56 @@
           "href": "/graphql/reference/objects#profileitemshowcase"
         },
         {
+          "name": "lists",
+          "description": "<p>A user-curated list of repositories.</p>",
+          "type": "UserListConnection!",
+          "id": "userlistconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "location",
           "description": "<p>The user's public profile location.</p>",
           "type": "String",
@@ -75675,6 +75885,14 @@
           "href": "/graphql/reference/objects#userstatus"
         },
         {
+          "name": "suggestedListNames",
+          "description": "<p>Suggested names for user lists.</p>",
+          "type": "[UserListSuggestion!]!",
+          "id": "userlistsuggestion",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistsuggestion"
+        },
+        {
           "name": "topRepositories",
           "description": "<p>Repositories the user has contributed to, ordered by contribution rank, plus repositories the user has created.</p>",
           "type": "RepositoryConnection!",
@@ -76271,6 +76489,301 @@
           "name": "value",
           "description": "<p>Email id.</p>",
           "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UserList",
+      "kind": "objects",
+      "id": "userlist",
+      "href": "/graphql/reference/objects#userlist",
+      "description": "<p>A user-curated list of repositories.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of this list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the UserList object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not this list is private.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "items",
+          "description": "<p>The items associated with this list.</p>",
+          "type": "UserListItemsConnection!",
+          "id": "userlistitemsconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistitemsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "lastAddedAt",
+          "description": "<p>The date and time at which this list was created or last had items added to it.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of this list.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The slug of this list.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user to which this list belongs.</p>",
+          "type": "User!",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "UserListConnection",
+      "kind": "objects",
+      "id": "userlistconnection",
+      "href": "/graphql/reference/objects#userlistconnection",
+      "description": "<p>The connection type for UserList.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[UserListEdge]",
+          "id": "userlistedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[UserList]",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "UserListEdge",
+      "kind": "objects",
+      "id": "userlistedge",
+      "href": "/graphql/reference/objects#userlistedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "UserList",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist"
+        }
+      ]
+    },
+    {
+      "name": "UserListItemsConnection",
+      "kind": "objects",
+      "id": "userlistitemsconnection",
+      "href": "/graphql/reference/objects#userlistitemsconnection",
+      "description": "<p>The connection type for UserListItems.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[UserListItemsEdge]",
+          "id": "userlistitemsedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistitemsedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[UserListItems]",
+          "id": "userlistitems",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#userlistitems"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "UserListItemsEdge",
+      "kind": "objects",
+      "id": "userlistitemsedge",
+      "href": "/graphql/reference/objects#userlistitemsedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "UserListItems",
+          "id": "userlistitems",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#userlistitems"
+        }
+      ]
+    },
+    {
+      "name": "UserListSuggestion",
+      "kind": "objects",
+      "id": "userlistsuggestion",
+      "href": "/graphql/reference/objects#userlistsuggestion",
+      "description": "<p>Represents a suggested user list.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The ID of the suggested user list.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the suggested user list.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -89296,6 +89809,20 @@
       ]
     },
     {
+      "name": "UserListItems",
+      "kind": "unions",
+      "id": "userlistitems",
+      "href": "/graphql/reference/unions#userlistitems",
+      "description": "<p>Types that can be added to a user list.</p>",
+      "possibleTypes": [
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
       "name": "VerifiableDomainOwner",
       "kind": "unions",
       "id": "verifiabledomainowner",
@@ -93578,6 +94105,47 @@
       ]
     },
     {
+      "name": "CreateUserListInput",
+      "kind": "inputObjects",
+      "id": "createuserlistinput",
+      "href": "/graphql/reference/input-objects#createuserlistinput",
+      "description": "<p>Autogenerated input type of CreateUserList.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of the list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not the list is private.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the new list.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "DeclineTopicSuggestionInput",
       "kind": "inputObjects",
       "id": "declinetopicsuggestioninput",
@@ -94260,6 +94828,32 @@
         {
           "name": "id",
           "description": "<p>The discussion ID to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteUserListInput",
+      "kind": "inputObjects",
+      "id": "deleteuserlistinput",
+      "href": "/graphql/reference/input-objects#deleteuserlistinput",
+      "description": "<p>Autogenerated input type of DeleteUserList.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "listId",
+          "description": "<p>The ID of the list to delete.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -102211,6 +102805,100 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateUserListInput",
+      "kind": "inputObjects",
+      "id": "updateuserlistinput",
+      "href": "/graphql/reference/input-objects#updateuserlistinput",
+      "description": "<p>Autogenerated input type of UpdateUserList.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of the list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not the list is private.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "listId",
+          "description": "<p>The ID of the list to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateUserListsForItemInput",
+      "kind": "inputObjects",
+      "id": "updateuserlistsforiteminput",
+      "href": "/graphql/reference/input-objects#updateuserlistsforiteminput",
+      "description": "<p>Autogenerated input type of UpdateUserListsForItem.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The item to add to the list.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "listIds",
+          "description": "<p>The lists to which this item should belong.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "suggestedListIds",
+          "description": "<p>The suggested lists to create and add this item to.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
