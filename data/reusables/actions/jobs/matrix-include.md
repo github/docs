@@ -36,3 +36,25 @@ following this logic:
 - `{fruit: apple, shape: circle}` adds `shape: circle` only to the original matrix combinations that include `fruit: apple`.
 - `{fruit: banana}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination.
 - `{fruit: banana, animal: cat}` cannot be added to any original matrix combination without overwriting a value, so it is added as an additional matrix combination. It does not add to the `{fruit: banana}` matrix combination because that combination was not one of the original matrix combinations.
+
+An example closer to reality, will create seven jobs, testing five versions for perl and only two for macos
+
+```yaml
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        perl:
+            - '5.16'
+            - '5.20'
+            - '5.26'
+            - '5.30'
+            - latest
+        include:
+          - os: macos-latest
+            perl: '5.26'
+          - os: macos-latest
+            perl: latest
+```
