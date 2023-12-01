@@ -84,6 +84,14 @@ If you need to use multiple accounts on {% data variables.location.product_locat
 
 {% endif %}
 
+### Session cookies
+
+{% data variables.product.company_short %} uses cookies to provide services and secure {% data variables.location.product_location %}. {% ifversion fpt or ghec %}You can review details about {% data variables.product.company_short %}'s cookies in the [privacy/cookies repository](https://github.com/privacy/cookies).{% endif %}
+
+- The gist.{% ifversion fpt or ghec %}github.com{% elsif ghes %}HOSTNAME domain{% endif %} and {% ifversion fpt or ghec %}github.com domains{% elsif ghes %}base domain for your instance{% endif %} use separate cookies.
+- {% data variables.product.product_name %} typically marks a user session for deletion after two weeks of inactivity.
+- {% data variables.product.product_name %} does not immediately delete a session when you sign out. Periodically, {% data variables.product.product_name %} automatically deletes expired sessions.
+
 ## Authenticating with {% data variables.product.prodname_desktop %}
 
 You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
