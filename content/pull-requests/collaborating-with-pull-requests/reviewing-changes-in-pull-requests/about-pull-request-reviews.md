@@ -25,6 +25,8 @@ Repository owners and collaborators can request a pull request review from a spe
 
 Reviews allow for discussion of proposed changes and help ensure that the changes meet the repository's contributing guidelines and other quality standards. You can define which individuals or teams own certain types or areas of code in a CODEOWNERS file. When a pull request modifies code that has a defined owner, that individual or team will automatically be requested as a reviewer. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
 
+For an introduction to requesting and providing pull request reviews, see the [Review pull requests](https://github.com/skills/review-pull-requests) {% data variables.product.prodname_learning %} course.
+
 {% ifversion fpt or ghec %}You can schedule reminders for pull requests that need to be reviewed. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)."{% endif %}
 
 A review has three possible statuses:
