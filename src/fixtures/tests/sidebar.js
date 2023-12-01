@@ -42,7 +42,7 @@ describe('sidebar', () => {
       const link = $(
         '[data-testid=sidebar] [data-testid=product-sidebar] a[href*="/get-started/foo/html-short-title"]',
       )
-      expect(link.text()).toBe('GitHub Pages & "GitHub"')
+      expect(link.text()).toBe('HubGit Pages & "HubGit"')
     })
   })
 })

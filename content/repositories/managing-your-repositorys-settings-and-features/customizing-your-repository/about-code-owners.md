@@ -153,6 +153,12 @@ apps/ @octocat
 
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
+{% ifversion repo-rules %}
+
+{% data reusables.repositories.rulesets-alternative %}
+
+{% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)"

@@ -48,11 +48,11 @@ describe('breadcrumbs', () => {
   test('works for titles that depend on Liquid', async () => {
     const $fpt = await getDOM('/get-started/quickstart/dynamic-title')
     const fptLinks = $fpt('[data-testid=breadcrumbs-in-article] a')
-    expect($fpt(fptLinks[2]).text()).toBe('Hello GitHub')
+    expect($fpt(fptLinks[2]).text()).toBe('Hello HubGit')
 
     const $ghec = await getDOM('/enterprise-cloud@latest/get-started/quickstart/dynamic-title')
     const ghecLinks = $ghec('[data-testid=breadcrumbs-in-article] a')
-    expect($ghec(ghecLinks[2]).text()).toBe('Greetings GitHub Enterprise Cloud')
+    expect($ghec(ghecLinks[2]).text()).toBe('Greetings HubGit Enterprise Cloud')
   })
 
   test('early access article pages have breadcrumbs with product, category, and article', async () => {

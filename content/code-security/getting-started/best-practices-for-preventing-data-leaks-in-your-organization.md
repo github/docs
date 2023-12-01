@@ -94,6 +94,12 @@ You can also proactively secure IP and maintain compliance for your organization
 
 To ensure that all code is properly reviewed prior to being merged into the default branch, you can enable branch protection. By setting branch protection rules, you can enforce certain workflows or requirements before a contributor can push changes. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
+{% ifversion repo-rules %}
+
+{% data reusables.repositories.rulesets-alternative %}
+
+{% endif %}
+
 ## Mitigate data leaks
 
 If a user pushes sensitive data, ask them to remove it by using the `git filter-repo` tool or the BFG Repo-Cleaner open source tool. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)." Also, it is possible to revert almost anything in Git. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2015-06-08-how-to-undo-almost-anything-with-git/).
