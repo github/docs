@@ -83,7 +83,7 @@ When you migrate a repository, either directly or as part of an organization mig
 - Pull requests
 - Issues
 - Milestones
-- Wikis
+- Wikis (excluding attachments)
 - Projects (classic) at the repository level
 - {% data variables.product.prodname_actions %} workflows
 - Commit comments

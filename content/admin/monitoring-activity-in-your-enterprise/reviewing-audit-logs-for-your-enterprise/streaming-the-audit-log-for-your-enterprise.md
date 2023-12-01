@@ -27,10 +27,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 ## About audit log streaming
 
-To help protect your intellectual property and maintain compliance for your organization, you can use streaming to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
-
-The benefits of streaming audit data include:
+To help protect your intellectual property and maintain compliance for your company, you can use streaming to keep copies of your audit log data. The audit log details events such as changes to settings and access, user membership, app permissions, and more. If you stream audit log data, you can take advantage of the following benefits.
 
 - **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
 - **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
@@ -51,6 +48,14 @@ All streamed audit logs are sent as compressed JSON files. The filename format i
 Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
 
 {% endif %}
+
+## Events that appear in audit log streams
+
+You can review the specific events that appear in streamed audit logs. For more information, see the following articles.
+
+- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
 
 ## Setting up audit log streaming
 

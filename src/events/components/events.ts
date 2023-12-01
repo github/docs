@@ -320,7 +320,7 @@ function initPageAndExitEvent() {
 
 // The DOM still mutates after `routeChangeComplete`
 // so we need to wait for it to stop mutating to get accurate data
-function waitForDomMutateStop(fn: Function, minMs = 20) {
+function waitForDomMutateStop(fn: Function, minMs = 35, pollMs = 5) {
   let lastMutate = Date.now()
   const observer = new MutationObserver(() => {
     lastMutate = Date.now()
@@ -331,7 +331,7 @@ function waitForDomMutateStop(fn: Function, minMs = 20) {
       observer.disconnect()
       fn()
     } else {
-      setTimeout(poll)
+      setTimeout(poll, pollMs)
     }
   }
   poll()

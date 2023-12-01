@@ -144,7 +144,9 @@ To discover how a member was added to an organization, you can filter the member
 
 ## Authenticating with a {% data variables.enterprise.prodname_managed_user %}
 
-{% data variables.enterprise.prodname_managed_users_caps %} must authenticate through their IdP. To authenticate, a {% data variables.enterprise.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.enterprise.prodname_managed_users_caps %} must authenticate through your IdP. The way that {% data variables.enterprise.prodname_managed_users %} authenticate depends on whether you configure SAML or OIDC authentication.
+
+If your enterprise is configured for SAML authentication, a {% data variables.enterprise.prodname_managed_user %} can access your enterprise by visiting their IdP application portal. If your enterprise is configured for OIDC authentication,  a {% data variables.enterprise.prodname_managed_user %} can access your enterprise by using the login page on {% data variables.product.prodname_dotcom_the_website %}. IdP-initiated authentication is not currently supported for OIDC. In either configuration, a {% data variables.enterprise.prodname_managed_user %} can initiate authentication directly from the organization or enterprise's page on {% data variables.location.product_location %}.
 
 By default, when an unauthenticated user attempts to access an enterprise that uses {% data variables.product.prodname_emus %}, {% data variables.product.company_short %} displays a 404 error. An enterprise owner can optionally enable automatic redirects to single sign-on (SSO) instead of the 404. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)."
 
