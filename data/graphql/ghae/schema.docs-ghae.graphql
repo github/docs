@@ -1956,7 +1956,7 @@ type BranchProtectionRule implements Node {
   id: ID!
 
   """
-  Can admins overwrite branch protection.
+  Can admins override branch protection.
   """
   isAdminEnforced: Boolean!
 
@@ -6262,7 +6262,7 @@ input CreateBranchProtectionRuleInput {
   dismissesStaleReviews: Boolean
 
   """
-  Can admins overwrite branch protection.
+  Can admins override branch protection.
   """
   isAdminEnforced: Boolean
 
@@ -32004,7 +32004,7 @@ input RefUpdate @preview(toggledBy: "update-refs-preview") {
 }
 
 """
-A ref update rules for a viewer.
+Branch protection rules that are enforced on the viewer.
 """
 type RefUpdateRule {
   """
@@ -44947,7 +44947,7 @@ input UpdateBranchProtectionRuleInput {
   dismissesStaleReviews: Boolean
 
   """
-  Can admins overwrite branch protection.
+  Can admins override branch protection.
   """
   isAdminEnforced: Boolean
 

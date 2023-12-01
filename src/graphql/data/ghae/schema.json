@@ -8593,7 +8593,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -44324,7 +44324,7 @@
       "kind": "objects",
       "id": "refupdaterule",
       "href": "/graphql/reference/objects#refupdaterule",
-      "description": "<p>A ref update rules for a viewer.</p>",
+      "description": "<p>Branch protection rules that are enforced on the viewer.</p>",
       "fields": [
         {
           "name": "allowsDeletions",
@@ -75667,7 +75667,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -81337,7 +81337,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

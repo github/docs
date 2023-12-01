@@ -8439,7 +8439,7 @@
       "kind": "mutations",
       "id": "updateprojectv2",
       "href": "/graphql/reference/mutations#updateprojectv2",
-      "description": "<p>Updates an existing project (beta).</p>",
+      "description": "<p>Updates an existing project.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -10978,7 +10978,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -54090,7 +54090,7 @@
       "kind": "objects",
       "id": "refupdaterule",
       "href": "/graphql/reference/objects#refupdaterule",
-      "description": "<p>A ref update rules for a viewer.</p>",
+      "description": "<p>Branch protection rules that are enforced on the viewer.</p>",
       "fields": [
         {
           "name": "allowsDeletions",
@@ -79471,7 +79471,7 @@
       "kind": "interfaces",
       "id": "projectv2owner",
       "href": "/graphql/reference/interfaces#projectv2owner",
-      "description": "<p>Represents an owner of a project (beta).</p>",
+      "description": "<p>Represents an owner of a project.</p>",
       "fields": [
         {
           "name": "id",
@@ -92239,7 +92239,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -100004,7 +100004,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
