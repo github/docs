@@ -160,6 +160,15 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.
 | `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
 
+## Search for my issues and pull requests
+
+To quickly view your issues and pull requests, navigate to the respective links from your GitHub dashboard. More advanced search options are available with `@me`, either by using the global search bar, or by filtering results from an individual repository. Any qualifier that accepts a username will allow you to limit your search to issues and pull requests you have created or have interacted with. To do so, follow the desired qualifier with `@me`.
+
+| Qualifier        | Example
+| ------------- | -------------
+| <code>author:<em>@me</em></code> | **[author:@me](https://github.com/search?q=author%3A%40me)** matches issues and pull requests you have authored.
+| <code>is:pr commenter:<em>@me</em></code> | **[is:pr commenter:@me](https://github.com/search?q=is%3Apr+commenter%3A%40me&type=pullrequests)** matches pull requests you have commented on.
+
 ## Search for linked issues and pull requests
 
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
