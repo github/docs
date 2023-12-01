@@ -95,12 +95,6 @@ For example, if your organization uses {% data variables.product.prodname_team %
 
 ### Sample storage cost calculation
 
-{% note %}
-
-**Note:** {% data variables.product.company_short %} updates your storage space within a 6 to 12-hour window. If you delete artifacts, the available space will be reflected in your account during the next scheduled update.
-
-{% endnote %}
-
 For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 
 - 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
