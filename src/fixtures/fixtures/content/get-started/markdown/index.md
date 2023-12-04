@@ -10,4 +10,5 @@ children:
   - /intro
   - /permissions
   - /code-annotations
+  - /alerts
 ---
