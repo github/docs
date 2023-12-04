@@ -3,7 +3,7 @@ intro: |
   {% warning %}
 
   **Warnings**:
-  
+
   - This release contains a known issue that may lead to replication issues on an instance in a high-availability, geo-replication, or repository cache configuration. Upgrade to {% data variables.product.prodname_ghe_server %} 3.10.2 or later instead of this release. For more information, see the "[Known issues](#3.10.1-known-issues)" section of these release notes.
   - A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.10.1-known-issues)" section of these release notes.
 
@@ -65,6 +65,8 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
     - |
       {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-26]
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
     - |
       {% data reusables.release-notes.large-adoc-files-issue %} [Updated: 2023-10-31]
     - |
