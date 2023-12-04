@@ -82,3 +82,5 @@ sections:
       {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %}
     - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]

@@ -65,4 +65,6 @@ sections:
     - |
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
     - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
+    - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]

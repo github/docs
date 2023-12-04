@@ -82,6 +82,8 @@ sections:
     - |
       {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-26]
     - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
+    - |
       {% data reusables.release-notes.large-adoc-files-issue %} [Updated: 2023-10-31]
     - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
