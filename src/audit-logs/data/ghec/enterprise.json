@@ -2310,6 +2310,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
+    "action": "organization_role.revoke",
+    "description": "A user or team was unassigned an organization role.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
+  },
+  {
     "action": "organization_role.update",
     "description": "A custom organization role was edited in an organization.",
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
