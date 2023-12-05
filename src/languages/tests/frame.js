@@ -1,7 +1,7 @@
 import { languageKeys } from '#src/languages/lib/languages.js'
-import { blockIndex } from '../../../middleware/block-robots.js'
-import { get, getDOMCached as getDOM } from '../../../tests/helpers/e2etest.js'
-import Page from '../../../lib/page.js'
+import { blockIndex } from '#src/frame/middleware/block-robots.js'
+import { get, getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
+import Page from '#src/frame/lib/page.js'
 import { jest } from '@jest/globals'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')

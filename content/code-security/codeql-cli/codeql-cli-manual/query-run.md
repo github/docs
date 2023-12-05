@@ -253,6 +253,11 @@ Don't check embedded query metadata in QLDoc comments for validity.
 \[Advanced] Override the default maximum size for a compilation cache
 directory.
 
+#### `--fail-on-ambiguous-relation-name`
+
+\[Advanced] Fail compilation if an ambiguous relation name is generated
+during compilation.
+
 ### Options to set up compilation environment
 
 #### `--search-path=<dir>[:<dir>...]`
@@ -381,3 +386,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

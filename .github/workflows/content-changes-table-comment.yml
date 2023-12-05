@@ -6,6 +6,7 @@ name: Content Changes Table Comment
 
 on:
   workflow_dispatch:
+  # Required in lieu of `pull_request` so that the content changes tables can be posts to PRs opened from a fork.
   pull_request_target:
 
 permissions:
@@ -44,14 +45,9 @@ jobs:
             filterContentDir:
               - 'content/**/*'
 
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-
   filterContentDir:
     needs: PR-Preview-Links
-    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
+    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs') }}
     runs-on: ubuntu-latest
     env:
       PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -65,7 +61,7 @@ jobs:
         run: src/workflows/get-preview-app-info.sh
 
       - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
           node-version-file: 'package.json'
           cache: npm
@@ -115,8 +111,3 @@ jobs:
             ghes: GitHub Enterprise Server
             ghae: GitHub AE
           edit-mode: replace
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

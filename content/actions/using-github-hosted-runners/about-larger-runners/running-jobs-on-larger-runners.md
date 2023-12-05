@@ -143,19 +143,17 @@ To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set 
 In this example, the workflow uses a label that is associated with macOS XL runners, which is `macos-latest-xl -arm64`. The `runs-on` key sends the job to any available runner with a matching label:
 
 ```yaml
-name: learn-github-actions
+name: learn-github-actions-testing
 on: [push]
 jobs:
-  check-bats-version:
-    runs-on:
-      labels: macos-latest-xlarge -arm64
+  build:
+    runs-on: macos-13-xlarge
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '16'
-      - run: npm install -g bats
-      - run: bats -v
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
 ```
 
 {% endmac %}
@@ -197,20 +195,5 @@ jobs:
 {% mac %}
 
 Because macOS arm64 does not support Node 12, macOS {% data variables.actions.hosted_runner %}s automatically use Node 16 to execute any JavaScript action written for Node 12. Some community actions may not be compatible with Node 16. If you use an action that requires a different Node version, you may need to manually install a specific version at runtime.
-
-For example, the `setup-ruby` action must be modified before you can use it on macOS {% data variables.actions.hosted_runner %}s. The following example shows how to install a specific version of Ruby, if you replace `RUBY_VERSION` with the desired version of Ruby.
-
-```yaml copy
-- name: Setup Ruby
-  run: |
-    brew install ruby-build
-    ruby-build RUBY_VERSION /Users/runner/hostedtoolcache/Ruby/RUBY_VERSION/arm64
-    touch /Users/runner/hostedtoolcache/Ruby/RUBY_VERSION/arm64.complete
-- name: Setup Ruby (with Bundler cache)
-  uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-  with:
-    ruby-version: RUBY_VERSION
-    bundler-cache: true
-```
 
 {% endmac %}

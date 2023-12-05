@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Check if the event originated from a team member
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: set-result
         with:
           github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
@@ -53,7 +53,7 @@ jobs:
             return 'false'
       - name: Label external contributor pull requests with docs-content-fr
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
-        if: ${{ steps.set-result.outputs.result == 'false' || contains(github.event.pull_request.head.ref, 'codeql-cli-update') }}
+        if: ${{ steps.set-result.outputs.result == 'false' }}
         with:
           repo-token: '${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}'
           add-labels: 'docs-content-fr'
@@ -65,10 +65,6 @@ jobs:
           project-url: 'https://github.com/orgs/github/projects/1367'
           column-name: 'Docs-internal external contributor PRs'
 
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
   first-responder-remove-pr:
     name: Remove PR from FR project board
     if: github.repository == 'github/docs-internal' && ((github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed') && github.actor != 'dependabot[bot]'
@@ -79,7 +75,7 @@ jobs:
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Remove card from project
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
           github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           result-encoding: string
@@ -104,8 +100,3 @@ jobs:
         with:
           repo-token: '${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}'
           remove-labels: 'docs-content-fr'
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

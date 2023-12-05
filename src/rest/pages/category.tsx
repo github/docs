@@ -1,19 +1,24 @@
 import { GetServerSideProps } from 'next'
 import { Operation } from 'src/rest/components/types'
 import { RestReferencePage } from 'src/rest/components/RestReferencePage'
-import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
+import {
+  addUINamespaces,
+  getMainContext,
+  MainContext,
+  MainContextT,
+} from 'src/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
 } from 'src/automated-pipelines/components/AutomatedPageContext'
-import type { MiniTocItem } from 'components/context/ArticleContext'
+import type { MiniTocItem } from 'src/frame/components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
   TocItem,
   TocLandingContext,
   TocLandingContextT,
-} from 'components/context/TocLandingContext'
+} from 'src/frame/components/context/TocLandingContext'
 import { TocLanding } from 'src/landings/components/TocLanding'
 
 type MinitocItemsT = {
@@ -56,9 +61,10 @@ export default function Category({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('src/rest/lib/index.js')
-  const nonEnterpriseDefaultVersion = (await import(
+  const nonEnterpriseDefaultVersionModule = await import(
     'src/versions/lib/non-enterprise-default-version.js'
-  )) as unknown as string
+  )
+  const nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersionModule.default as string
 
   const req = context.req as any
   const res = context.res as any
@@ -150,15 +156,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     // TocLanding expects a collection of objects that looks like this:
     //
     // {
-    //   fullPath: '/en/free-pro-team@latest/rest/activity/events',
+    //   fullPath: '/en/rest/activity/events',
     //   title: 'Events',
     //   childTocItems: [
     //     {
-    //       fullPath: '/en/free-pro-team@latest/rest/activity/events#list-public-events',
+    //       fullPath: '/en/rest/activity/events#list-public-events',
     //       title: 'List public events'
     //     },
     //     {
-    //       fullPath: '/en/free-pro-team@latest/rest/activity/events#list-public-events-for-a-network-of-repositories',
+    //       fullPath: '/en/rest/activity/events#list-public-events-for-a-network-of-repositories',
     //       title: 'List public events for a network of repositories'
     //     },
     //     ...
@@ -200,10 +206,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // created.
   tocLandingContext.tocItems = restCategoryTocItems
 
+  const mainContext = await getMainContext(req, res)
+  if (tocLandingContext.currentLearningTrack?.trackName) {
+    addUINamespaces(req, mainContext.data.ui, ['learning_track_nav'])
+  }
+
   return {
     props: {
       restOperations,
-      mainContext: await getMainContext(req, res),
+      mainContext,
       automatedPageContext: getAutomatedPageContextFromRequest(req),
       tocLandingContext,
     },

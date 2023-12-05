@@ -10,7 +10,7 @@ import { getDocsVersion } from '#src/versions/lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
-const { frontmatterDefaults, targetDirectory } = JSON.parse(
+const { frontmatterDefaults, targetDirectory, indexOrder } = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf-8'),
 )
 
@@ -21,6 +21,7 @@ export async function updateRestFiles() {
     targetDirectory,
     sourceContent: restMarkdownContent,
     frontmatter: frontmatterDefaults,
+    indexOrder,
   })
 }
 
@@ -35,7 +36,16 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
     // the most recent deprecated version but still allow data to exist.
     // This makes the deprecation steps easier.
     .filter((file) => {
-      return !deprecated.some((depVersion) => file.split(path.sep).includes(depVersion))
+      return !deprecated.some((depVersion) =>
+        file.split(path.sep).find((pathSplit) => {
+          if (pathSplit.startsWith('ghes')) {
+            // An example version format is: ghes-3.6 or ghes-3.6-2022-01-01
+            const ghesVersion = pathSplit.split('-')[1]
+            return ghesVersion === depVersion
+          }
+          return false
+        }),
+      )
     })
 
   const restVersions = {}

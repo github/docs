@@ -1,4 +1,6 @@
-import { get } from '../../../tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
+// import { setFastlySurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
@@ -38,6 +40,11 @@ describe('junk paths', () => {
     const res = await get('/en/get-started/index.md')
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/get-started')
+  })
+
+  test('just _next', async () => {
+    const res = await get('/_next')
+    expect(res.statusCode).toBe(404)
   })
 })
 
@@ -95,6 +102,13 @@ describe('404 pages and their content-type', () => {
     const res = await get('/en/something-that-doesnt-existent')
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toMatch('text/html')
+    expect(res.headers['cache-control']).toMatch('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d\d+/)
+    const surrogateKeySplit = res.headers['surrogate-key'].split(/\s/g)
+    // The default is that it'll be purged at the next deploy.
+    expect(surrogateKeySplit.includes(SURROGATE_ENUMS.DEFAULT)).toBeTruthy()
+    expect(res.headers['surrogate-control']).toContain('public')
+    expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
   })
 })
 

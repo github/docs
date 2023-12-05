@@ -281,7 +281,7 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 
    {% endnote %}
 
-   {% ifversion ghes = 3.6 %}If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}.{% endif %} {% ifversion ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, and the explanation isn't listed in the note above, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
+    If `ghe-repl-status` did not return `OK`, and the explanation isn't listed in the note above, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 
 {% data reusables.enterprise_installation.multiple-node-repeat-upgrade-process %}
 1. After you have upgraded the last replica node and the resync is complete, disable maintenance mode so users can use {% data variables.location.product_location %}.

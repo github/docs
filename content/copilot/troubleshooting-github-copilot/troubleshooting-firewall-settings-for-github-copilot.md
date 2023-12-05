@@ -30,8 +30,14 @@ Due to GitHub Copilot's interaction with a remote machine learning model and its
 
 Additional domains and URLs may require allowlisting, depending on your organization's security policies and the editors in use. For more information about specific editors, see "[Further reading](#further-reading)."
 
+## Deprecation of {% data variables.product.prodname_copilot_chat_short %} API endpoints
+
+On February 1, 2024, we will deprecate the {% data variables.product.prodname_copilot_chat_short %} API endpoints currently being routed through `https://copilot-proxy.githubusercontent.com`. Instead, these requests will go through `https://api.githubcopilot.com`. Versions 0.8.0 and later of the {% data variables.product.prodname_copilot_chat_short %} extension for {% data variables.product.prodname_vscode_shortname %} and versions 0.1.1817.27579 and later of the {% data variables.product.prodname_copilot_chat_short %} extension for {% data variables.product.prodname_vs %} already route chat traffic through `https://api.githubcopilot.com`. All versions of the {% data variables.product.prodname_copilot_short %} plugin for JetBrains IDEs already route chat traffic through `https://api.githubcopilot.com`.
+
+To ensure {% data variables.product.prodname_copilot_chat_short %} continues working from February 1, 2024, please update to the most recent version of the {% data variables.product.prodname_copilot_short %} extension and ensure your firewall and network settings allow communication to `https://api.githubcopilot.com`.
+
 ## Further reading
 
-- [Network Connections in Visual Studio Code](https://code.visualstudio.com/docs/setup/network)
+- [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)
 - [Install and use Visual Studio and Azure Services behind a firewall or proxy server](https://learn.microsoft.com/en-us/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server)
 - "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"

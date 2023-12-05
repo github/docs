@@ -18,7 +18,12 @@ permissions:
 
 jobs:
   find-pr-and-post-comment:
-    if: ${{ github.repository == 'github/docs-internal' }}
+    if: >-
+      ${{
+        github.repository == 'github/docs-internal' &&
+        (github.event_name != 'workflow_run' ||
+        github.event.workflow_run.conclusion == 'success')
+      }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
@@ -67,6 +72,7 @@ jobs:
           edit-mode: replace
 
       - uses: ./.github/actions/slack-alert
+        if: ${{ failure() }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

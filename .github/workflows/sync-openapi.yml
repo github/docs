@@ -19,15 +19,6 @@ permissions:
   contents: write
   pull-requests: write
 
-# **IMPORTANT:** Do not change the FREEZE environment variable set here!
-# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
-# during a docs deployment freeze), add an Actions Secret to the repo settings
-# called `FREEZE` with a value of `true`. To re-enable Audit Logs updates, simply
-# delete that Secret from the repo settings. The environment variable here
-# will duplicate that Secret's value for later evaluation.
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
@@ -38,11 +29,6 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-20.04-xl
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Checkout repository code
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
@@ -118,6 +104,7 @@ jobs:
             --label github-openapi-bot
 
       - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

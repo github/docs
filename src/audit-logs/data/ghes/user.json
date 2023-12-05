@@ -80,21 +80,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "integration.manager_added",
-    "description": "A member of an enterprise or organization was added as an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.manager_removed",
-    "description": "A member of an enterprise or organization was removed from being an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.transfer",
-    "description": "Ownership of an integration was transferred to another user or organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "integration_installation.create",
     "description": "An integration was installed.",
     "docs_reference_links": "N/A"
@@ -117,6 +102,21 @@
   {
     "action": "integration_installation.version_updated",
     "description": "Permissions for an integration were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_added",
+    "description": "A member of an enterprise or organization was added as an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_removed",
+    "description": "A member of an enterprise or organization was removed from being an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.transfer",
+    "description": "Ownership of an integration was transferred to another user or organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -511,8 +511,8 @@
   },
   {
     "action": "two_factor_authentication.add_factor",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A secondary authentication factor was added to a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
   },
   {
     "action": "two_factor_authentication.disabled",
@@ -536,8 +536,8 @@
   },
   {
     "action": "two_factor_authentication.remove_factor",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "A secondary authentication factor was removed from a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
   },
   {
     "action": "two_factor_authentication.sign_in_fallback_sms",
@@ -641,7 +641,7 @@
   },
   {
     "action": "user.logout",
-    "description": "N/A",
+    "description": "A user signed out.",
     "docs_reference_links": "N/A"
   },
   {

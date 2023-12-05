@@ -40,6 +40,8 @@ Any options that also affect security updates are used the next time a security 
 
 The `dependabot.yml` file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
 
+For a real-world example of `dependabot.yml` file, see  [{% data variables.product.prodname_dependabot %}'s own configuration file](https://github.com/dependabot/dependabot-core/blob/main/.github/dependabot.yml).
+
 ## Configuration options for the `dependabot.yml` file
 
 The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
@@ -68,7 +70,11 @@ In general, security updates use any configuration options that affect pull requ
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.{% ifversion ghes %}
+**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers.
+
+If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
+
+If you want to allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you can include a `registries` setting in the configuration file. For more information, see [`registries`](#registries) below.{% ifversion ghes %}
 
 {% note %}
 
@@ -176,11 +182,9 @@ updates:
 
 {% note %}
 
-**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, changes to your manifest file(s) after a failed update, or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
+**Note**: `schedule` defines when {% data variables.product.prodname_dependabot %} attempts a new update. However, it's not the only time you may receive pull requests. Updates can be triggered based on changes to your `dependabot.yml` file, {% ifversion dependabot-updates-deprecate-rerun-failed-jobs %}{% else %}changes to your manifest file(s) after a failed update, {% endif %}or {% data variables.product.prodname_dependabot_security_updates %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 
-{% ifversion dependabot-updates-failure-skip-schedule %}
 {% data reusables.dependabot.version-updates-skip-scheduled-runs %}
-{% endif %}
 
 {% endnote %}
 
@@ -871,6 +875,8 @@ updates:
 ## Configuration options for private registries
 
 The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
+
+You can give {% data variables.product.prodname_dependabot %} access to private package registries hosted by GitLab or Bitbucket by specifying a `type` of `git`. For more information, see [`git`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git).
 {% ifversion ghes > 3.7 %}
 {% note %}
 

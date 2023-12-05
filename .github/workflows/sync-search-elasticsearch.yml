@@ -32,7 +32,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  FREEZE: ${{ secrets.FREEZE }}
   ELASTICSEARCH_URL: ${{ secrets.ELASTICSEARCH_URL }}
   # Since we'll run in NODE_ENV=production, we need to be explicit that
   # we don't want Hydro configured.
@@ -46,7 +45,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0 # v7.0.0
         id: set-matrix
         with:
           script: |
@@ -85,9 +84,11 @@ jobs:
         run: echo "${{ steps.set-matrix.outputs.result }}"
 
       - name: Check out repo
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
@@ -109,11 +110,6 @@ jobs:
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Check out repo
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
@@ -195,7 +191,8 @@ jobs:
         run: |
           ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language ${{ matrix.language }} \
-            --stagger-seconds 5
+            --stagger-seconds 5 \
+            --retries 5
 
       - name: Check created indexes and aliases
         run: |
@@ -213,6 +210,7 @@ jobs:
         run: src/workflows/purge-fastly-edge-cache.js
 
       - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

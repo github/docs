@@ -63,7 +63,7 @@ You might fork a project to propose changes to the upstream repository. In this 
 1. Under "Owner," select the dropdown menu and click an owner for the forked repository.
 1. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
 1. Optionally, in the "Description" field, type a description of your fork.
-{%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
+{%- ifversion fpt or ghec or ghes or ghae > 3.6 %}
 1. Optionally, select **Copy the DEFAULT branch only**.
 
    For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. If you do not select this option, all branches will be copied into the new fork.

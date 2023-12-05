@@ -18,7 +18,7 @@ topics:
   - CD
 shortTitle: Migrate from CircleCI
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -143,8 +143,6 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
 
 ### GitHub Actions syntax for persisting data between jobs
 
-{% raw %}
-
 ```yaml
 - name: Upload math result for job 1
   uses: {% data reusables.actions.action-upload-artifact %}
@@ -159,8 +157,6 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
   with:
     name: homework
 ```
-
-{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
@@ -231,7 +227,7 @@ workflows:
 
 ### GitHub Actions syntax for using databases and service containers
 
-{% raw %}
+<!-- markdownlint-disable search-replace -->
 
 ```yaml
 name: Containers
@@ -278,7 +274,7 @@ jobs:
         run: bundle exec rake
 ```
 
-{% endraw %}
+<!-- markdownlint-enable search-replace -->
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
 

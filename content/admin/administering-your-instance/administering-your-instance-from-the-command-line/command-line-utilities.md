@@ -42,7 +42,8 @@ $ ghe-announce -d -s MESSAGE
 > Announcement message set.
 # Removes a previously set message
 $ ghe-announce -u
-> Removed the announcement message, which was user dismissible: MESSAGE
+> Removed the announcement message, which was user 
+> dismissible: MESSAGE
 ```
 
 {% endif %}
@@ -68,9 +69,11 @@ With this command, you can also pause or resume jobs in the queue.
 
 ```shell
 $ ghe-aqueduct status
-# lists queues and the number of currently queued jobs for all queues
+# lists queues and the number of currently queued jobs
+# for all queues
 $ ghe-aqueduct queue_depth --queue QUEUE
-# lists the number of currently queued jobs for the specified queue
+# lists the number of currently queued jobs for the
+# specified queue
 $ ghe-aqueduct pause --queue QUEUE
 # pauses the specified queue
 $ ghe-aqueduct resume --queue QUEUE
@@ -115,7 +118,8 @@ With this utility, you can both retrieve and modify the configuration settings o
 $ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
 $ ghe-config core.github-hostname URL
-# Sets the configuration value of `core.github-hostname` to the specified URL
+# Sets the configuration value of `core.github-hostname` 
+# to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
 ```
@@ -126,11 +130,12 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   ghe-config HOSTNAME.uuid
 ```
 
-Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
-# Exempts the users hubot and github-actions[bot] from rate limits. Usernames are case-sensitive.
+# Exempts the users hubot and github-actions[bot] from rate limits.
+# Usernames are case-sensitive.
 ```
 
 ### ghe-config-apply
@@ -300,10 +305,10 @@ ghe-saml-mapping-csv -d
 
 {% ifversion ghes < 3.9 %}
 
-After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.6 %}3.6{% elsif ghes = 3.7%}3.7{% endif %} your instance is running.
+After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.7%}3.7{% endif %} your instance is running.
 
-- In version 3.{% ifversion ghes = 3.6 %}6.10{% elsif ghes = 3.7%}7.7{% elsif ghes = 3.8 %}8.0{% endif %}{% ifversion ghes < 3.8 %} and earlier{% endif %}, the utility writes the file to `/tmp`.
-- In version 3.{% ifversion ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later,
+- In version 3.{% ifversion ghes = 3.7%}7.7{% elsif ghes = 3.8 %}8.0{% endif %}{% ifversion ghes < 3.8 %} and earlier{% endif %}, the utility writes the file to `/tmp`.
+- In version 3.{% ifversion ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later,
 
 {%- elsif ghes > 3.8 %}By default,{% endif %} the utility writes the file to `/data/user/tmp`.
 
@@ -632,6 +637,27 @@ ghe-cluster-balance help
 
 {% endif %}
 
+### ghe-cluster-maintenance
+
+With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
+
+```shell
+$ ghe-cluster-maintenance -h
+# Shows options
+$ ghe-cluster-maintenance -q
+# Queries the current mode
+$ ghe-cluster-maintenance -s
+# Sets maintenance mode
+{%- ifversion custom-maintenance-mode-message %}
+$ ghe-cluster-maintenance -s "MESSAGE"
+# Sets maintenance mode with a custom message
+$ ghe-cluster-maintenance -m "MESSAGE"
+# Updates the custom message
+{%- endif %}
+$ ghe-cluster-maintenance -u
+# Unsets maintenance mode
+```
+
 ### ghe-cluster-status
 
 Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
@@ -921,6 +947,38 @@ If your storage system is configured correctly, you'll see the following output.
 All Storage tests passed
 ```
 
+### ghe-actions-stop
+
+This utility stops {% data variables.product.prodname_actions %} from running on {% data variables.location.product_location %}.
+
+{% note %}
+
+**Notes**:
+
+- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+- In high availability configurations, run this command from the primary.
+
+{% endnote %}
+
+### ghe-actions-start
+
+This utility starts {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} after it has been previously stopped.
+
+{% note %}
+
+**Notes**:
+
+- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+- In high availability configurations, run this command from the primary.
+
+{% endnote %}
+
+If your system is configured correctly, you'll see the following ouput:
+
+```shell
+Actions was enabled!
+```
+
 ## High availability
 
 ### ghe-repl-promote
@@ -1044,7 +1102,7 @@ git-import-rewrite
 
 ### ghe-find-insecure-git-operations
 
-This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes > 3.5 %} and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server) and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."
 
 ```shell
 ghe-find-insecure-git-operations

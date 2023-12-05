@@ -34,7 +34,7 @@ If you use {% data variables.product.product_name %} through a Microsoft Enterpr
 | {% data variables.product.prodname_github_codespaces %} usage | "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" | "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" |
 | {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan | "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)" | "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits)" |
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)" | "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits)" |
-| {% data variables.product.prodname_copilot_business_short %} usage | "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-for-business)" | N/A |
+| {% data variables.product.prodname_copilot_business_short %} usage | "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-business)" | N/A |
 
 ## About billing through Azure
 

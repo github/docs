@@ -16,12 +16,13 @@ topics:
   - API
 children:
   - /blocking
+  - /custom-properties
   - /custom-roles
   - /members
+  - /organization-roles
   - /orgs
   - /outside-collaborators
   - /personal-access-tokens
-  - /properties
   - /rule-suites
   - /rules
   - /security-managers

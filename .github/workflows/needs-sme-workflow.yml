@@ -7,6 +7,7 @@ name: Comment on adding "needs SME" label
 on:
   issues:
     types: [labeled]
+  # Needed in lieu of `pull_request` so that PRs from a fork can be labeled.
   pull_request_target:
     types: [labeled]
 
@@ -30,9 +31,11 @@ jobs:
             Thanks for opening an issue! We've triaged this issue for technical review by a subject matter expert :eyes:
 
       - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
   add-pr-comment:
     if: ${{ github.repository == 'github/docs' && (github.event.label.name == 'needs SME' && github.event_name == 'pull_request_target') }}
     runs-on: ubuntu-latest
@@ -47,6 +50,7 @@ jobs:
             Thanks for opening a pull request! We've triaged this issue for technical review by a subject matter expert :eyes:
 
       - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

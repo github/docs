@@ -39,7 +39,7 @@ children:
   - /creating-github-apps
   - /sharing-github-apps
   - /maintaining-github-apps
-  - /publishing-apps-to-github-marketplace
+  - /github-marketplace
   - /oauth-apps
 redirect_from:
   - /developers

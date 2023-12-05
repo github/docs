@@ -8,7 +8,7 @@ import { HTTPError } from 'got'
 import parsePageSectionsIntoRecords from './parse-page-sections-into-records.js'
 import getPopularPages from './popular-pages.js'
 import languages from '#src/languages/lib/languages.js'
-import domwaiter from '../../../script/domwaiter.js'
+import domwaiter from './domwaiter.js'
 
 const pageMarker = chalk.green('|')
 const recordMarker = chalk.grey('.')

@@ -7,6 +7,7 @@ name: Repo Freeze Check
 on:
   workflow_dispatch:
   merge_group:
+  # Needed in lieu of `pull_request` so that PRs from a fork can stopped from merging when there's a freeze.
   pull_request_target:
     types:
       - opened
@@ -20,6 +21,12 @@ on:
 permissions:
   contents: read
 
+# **IMPORTANT:** Do not change the FREEZE environment variable set here!
+# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
+# during a docs deployment freeze), add an Actions Secret to the repo settings
+# called `FREEZE` with a value of `true`. To re-enable Audit Logs updates, simply
+# delete that Secret from the repo settings. The environment variable here
+# will duplicate that Secret's value for later evaluation.
 env:
   FREEZE: ${{ secrets.FREEZE }}
 
@@ -33,12 +40,7 @@ jobs:
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Fail if repo merges are paused
-        if: ${{ env.FREEZE == 'true' && github.head_ref != 'repo-sync' }}
+        if: ${{ env.FREEZE == 'true' && github.event.pull_request.user.login != 'docs-bot' }}
         run: |
           echo 'Merges into the "main" branch on this repo are currently paused!'
           exit 1
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

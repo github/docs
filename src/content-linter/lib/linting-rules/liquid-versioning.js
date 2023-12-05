@@ -10,7 +10,7 @@ import {
   deprecated,
 } from '#src/versions/lib/enterprise-server-releases.js'
 import allowedVersionOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
-import { getDeepDataByLanguage } from '../../../../lib/get-data.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
 
 const getAllPossibleVersionNames = memoize(() => {

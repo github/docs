@@ -34,18 +34,17 @@ See [`redirect_from`](https://github.com/github/docs/blob/main/content/README.md
 
 ### Automatic redirects for URLs that do not include a version
 
-If a URL for a page is entered without a version (`https://docs.github.com/ARTICLE` instead of `https://docs.github.com/VERSION/ARTICLE`), the site will automatically redirect it to the first available version of the page.
+If a URL for a page is entered without a version (`https://docs.github.com/ARTICLE` instead of `https://docs.github.com/VERSION/ARTICLE`), the site will automatically redirect it to the first available version of the page.<!-- markdownlint-disable-line search-replace -->
 
 The order of precedence is specified in [`lib/all-versions.js`](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js). The current order of precedence is:
 
 1. {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} (`fpt`)
 1. {% data variables.product.prodname_ghe_cloud %} (`ghec`)
 1. {% data variables.product.prodname_ghe_server %} (`ghes`)
-1. {% data variables.product.prodname_ghe_managed %} (`ghae`)
 
-If a page titled `ARTICLE` is only available in {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, the link `https://docs.github.com/ARTICLE` will automatically redirect to `https://docs.github.com/enterprise-cloud@latest/ARTICLE` because {% data variables.product.prodname_ghe_cloud %} has precedence over {% data variables.product.prodname_ghe_server %}.
+If a page titled `ARTICLE` is only available in {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, the link `https://docs.github.com/ARTICLE` will automatically redirect to `https://docs.github.com/enterprise-cloud@latest/ARTICLE` because {% data variables.product.prodname_ghe_cloud %} has precedence over {% data variables.product.prodname_ghe_server %}.<!-- markdownlint-disable-line search-replace -->
 
-If `ARTICLE` is available in Free, Pro, or Team, no redirect will occur because `fpt` pages do not have a version segment, so the `fpt` content at `https://docs.github.com/ARTICLE` will render.
+If `ARTICLE` is available in Free, Pro, or Team, no redirect will occur because `fpt` pages do not have a version segment, so the `fpt` content at `https://docs.github.com/ARTICLE` will render.<!-- markdownlint-disable-line search-replace -->
 
 ### Redirects across versions
 

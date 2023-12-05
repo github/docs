@@ -21,7 +21,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 {% tip %}
 
-**Tip:** You must [verify your email address](/get-started/signing-up-for-github/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+**Tip:** You must [verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% endtip %}
 
@@ -81,7 +81,7 @@ When {% data variables.product.prodname_oauth_apps %} request new access permiss
 
 When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
 
-- **For organizations _with_ {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization admins approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization admin, you can [approve the application](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) yourself.
+- **For organizations _with_ {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization owners approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization owner, you can [approve the application](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) yourself.
 
 - **For organizations _without_ {% data variables.product.prodname_oauth_app %} access restrictions, the application will automatically be authorized for access to that organization's resources.** For this reason, you should be careful about which {% data variables.product.prodname_oauth_apps %} you approve for access to your personal account resources as well as any organization resources.
 

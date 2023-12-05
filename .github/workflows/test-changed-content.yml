@@ -21,6 +21,7 @@ permissions:
 jobs:
   test-changed-content:
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
@@ -44,17 +45,15 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@246636f5fa148b5ad8e65ca4c57b18af3123e5f6 # v39.0.1
+        uses: tj-actions/changed-files@40526807ee1e208a1a8c1bbe6bd2d1b044ef6368 # v40.0.2
         with:
           files: 'content/**'
+          # Necessary so we can know what the old name was when a
+          # content file was renamed.
+          output_renamed_files_as_deleted_and_added: true
 
       - name: Run tests
         env:
           CHANGED_FILES: ${{ steps.changed-files.outputs.modified_files }}
           DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
         run: npm test -- src/content-render/tests/render-changed-and-deleted-files.js
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

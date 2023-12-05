@@ -1,8 +1,8 @@
 import nock from 'nock'
 import { expect, jest } from '@jest/globals'
 
-import { checkCachingHeaders } from '../../../tests/helpers/caching-headers.js'
-import { setDefaultFastlySurrogateKey } from '../../../middleware/set-fastly-surrogate-key.js'
+import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
+import { setDefaultFastlySurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import archivedEnterpriseVersionsAssets from '#src/archives/middleware/archived-enterprise-versions-assets.js'
 
 function mockRequest(path, { headers }) {

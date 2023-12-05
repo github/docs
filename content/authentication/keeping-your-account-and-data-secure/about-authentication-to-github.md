@@ -49,6 +49,12 @@ You can authenticate to {% data variables.product.product_name %} in your browse
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
+{% ifversion account-switcher %}
+
+If you need to use multiple accounts on {% data variables.location.product_location %}, such as a personal account and a service account, you can quickly switch between your accounts without always needing to reauthenticate each time. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts)."
+
+{% endif %}
+
 - **Username and password only**
   - You'll create a password when you create your account on {% data variables.product.product_name %}. We recommend that you use a password manager to generate a random and unique password. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."{% ifversion fpt or ghec %}
   - If you have not enabled 2FA, {% data variables.product.product_name %} will ask for additional verification when you first sign in from an unrecognized device, such as a new browser profile, a browser where the cookies have been deleted, or a new computer.
@@ -77,6 +83,14 @@ You can authenticate to {% data variables.product.product_name %} in your browse
   - Before you can access resources owned by an organization or enterprise account that uses SAML single sign-on, you may need to also authenticate through an IdP. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 {% endif %}
+
+### Session cookies
+
+{% data variables.product.company_short %} uses cookies to provide services and secure {% data variables.location.product_location %}. {% ifversion fpt or ghec %}You can review details about {% data variables.product.company_short %}'s cookies in the [privacy/cookies repository](https://github.com/privacy/cookies).{% endif %}
+
+- The gist.{% ifversion fpt or ghec %}github.com{% elsif ghes %}HOSTNAME domain{% endif %} and {% ifversion fpt or ghec %}github.com domains{% elsif ghes %}base domain for your instance{% endif %} use separate cookies.
+- {% data variables.product.product_name %} typically marks a user session for deletion after two weeks of inactivity.
+- {% data variables.product.product_name %} does not immediately delete a session when you sign out. Periodically, {% data variables.product.product_name %} automatically deletes expired sessions.
 
 ## Authenticating with {% data variables.product.prodname_desktop %}
 

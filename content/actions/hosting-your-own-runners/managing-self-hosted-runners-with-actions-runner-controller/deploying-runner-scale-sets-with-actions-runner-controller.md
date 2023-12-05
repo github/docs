@@ -149,9 +149,11 @@ You can either create a Kubernetes secret, or specify values in your [`values.ya
 
 Once you have created your {% data variables.product.prodname_github_app %}, create a Kubernetes secret and pass the reference to that secret in your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file.
 
+{% data reusables.actions.arc-runners-namespace %}
+
 ```bash
 kubectl create secret generic pre-defined-secret \
-  --namespace=my_namespace \
+  --namespace=arc-runners \
   --from-literal=github_app_id=123456 \
   --from-literal=github_app_installation_id=654321 \
   --from-literal=github_app_private_key='-----BEGIN RSA PRIVATE KEY-----********'
@@ -216,9 +218,11 @@ proxy:
 
 ARC supports using anonymous or authenticated proxies. If you use authenticated proxies, you will need to set the `credentialSecretRef` value to reference a Kubernetes secret. You can create a secret with your proxy credentials with the following command.
 
+{% data reusables.actions.arc-runners-namespace %}
+
 ```bash copy
   kubectl create secret generic proxy-auth \
-    --namespace=my_namespace \
+    --namespace=arc-runners \
     --from-literal=username=proxyUsername \
     --from-literal=password=proxyPassword \
 ```
@@ -364,34 +368,38 @@ template:
     containers:
     - name: runner
       image: ghcr.io/actions/actions-runner:latest
+      command: ["/home/runner/run.sh"]
       env:
         - name: DOCKER_HOST
-          value: tcp://localhost:2376
-        - name: DOCKER_TLS_VERIFY
-          value: "1"
-        - name: DOCKER_CERT_PATH
-          value: /certs/client
+          value: unix:///run/docker/docker.sock
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
-        - name: dind-cert
-          mountPath: /certs/client
+        - name: dind-sock
+          mountPath: /run/docker
           readOnly: true
     - name: dind
       image: docker:dind
+      args:
+        - dockerd
+        - --host=unix:///run/docker/docker.sock
+        - --group=$(DOCKER_GROUP_GID)
+      env:
+        - name: DOCKER_GROUP_GID
+          value: "123"
       securityContext:
         privileged: true
       volumeMounts:
         - name: work
           mountPath: /home/runner/_work
-        - name: dind-cert
-          mountPath: /certs/client
+        - name: dind-sock
+          mountPath: /run/docker
         - name: dind-externals
           mountPath: /home/runner/externals
     volumes:
     - name: work
       emptyDir: {}
-    - name: dind-cert
+    - name: dind-sock
       emptyDir: {}
     - name: dind-externals
       emptyDir: {}

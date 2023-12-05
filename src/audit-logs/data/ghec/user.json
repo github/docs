@@ -11,7 +11,7 @@
   },
   {
     "action": "actions_cache.delete",
-    "description": "N/A",
+    "description": "A GitHub Actions cache was deleted using the REST API.",
     "docs_reference_links": "N/A"
   },
   {
@@ -360,36 +360,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "integration.manager_added",
-    "description": "A member of an enterprise or organization was added as an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.manager_removed",
-    "description": "A member of an enterprise or organization was removed from being an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.remove_client_secret",
-    "description": "A client secret for an integration was removed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.revoke_all_tokens",
-    "description": "All user tokens for an integration were requested to be revoked.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.revoke_tokens",
-    "description": "Token(s) for an integration were revoked.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.transfer",
-    "description": "Ownership of an integration was transferred to another user or organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "integration_installation.create",
     "description": "An integration was installed.",
     "docs_reference_links": "N/A"
@@ -422,6 +392,36 @@
   {
     "action": "integration_installation.version_updated",
     "description": "Permissions for an integration were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_added",
+    "description": "A member of an enterprise or organization was added as an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_removed",
+    "description": "A member of an enterprise or organization was removed from being an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.remove_client_secret",
+    "description": "A client secret for an integration was removed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.revoke_all_tokens",
+    "description": "All user tokens for an integration were requested to be revoked.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.revoke_tokens",
+    "description": "Token(s) for an integration were revoked.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.transfer",
+    "description": "Ownership of an integration was transferred to another user or organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -735,6 +735,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "project_field.create",
+    "description": "A field was created in a project board.",
+    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields"
+  },
+  {
+    "action": "project_field.delete",
+    "description": "A field was deleted in a project board.",
+    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields/deleting-custom-fields"
+  },
+  {
     "action": "project.link",
     "description": "A repository was linked to a project board.",
     "docs_reference_links": "N/A"
@@ -768,16 +778,6 @@
     "action": "project.update_user_permission",
     "description": "A user was added to or removed from a project board or had their permission level changed.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "project_field.create",
-    "description": "A field was created in a project board.",
-    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields"
-  },
-  {
-    "action": "project_field.delete",
-    "description": "A field was deleted in a project board.",
-    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields/deleting-custom-fields"
   },
   {
     "action": "project_view.create",
@@ -836,7 +836,7 @@
   },
   {
     "action": "repo.actions_enabled",
-    "description": "GitHub Actions was enabled for a repository. Can be viewed using the UI, This event is not included when you access the audit log using the REST API.",
+    "description": "GitHub Actions was enabled for a repository.",
     "docs_reference_links": "organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api"
   },
   {
@@ -1195,6 +1195,31 @@
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository"
   },
   {
+    "action": "sponsors.sponsor_sponsorship_cancel",
+    "description": "A sponsorship was canceled.",
+    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_create",
+    "description": "A sponsorship was created, by sponsoring an account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_payment_complete",
+    "description": "After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_preference_change",
+    "description": "The option to receive email updates from a sponsored account was changed.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_tier_change",
+    "description": "A sponsorship was upgraded or downgraded.",
+    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship, /billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
+  },
+  {
     "action": "sponsors.sponsored_developer_approve",
     "description": "A GitHub Sponsors account was approved.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
@@ -1230,29 +1255,14 @@
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
   },
   {
-    "action": "sponsors.sponsor_sponsorship_cancel",
-    "description": "A sponsorship was canceled.",
-    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
+    "action": "sponsors.sponsors_patreon_user_create",
+    "description": "A Patreon account was linked to a user account for use with GitHub Sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
   },
   {
-    "action": "sponsors.sponsor_sponsorship_create",
-    "description": "A sponsorship was created, by sponsoring an account.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_payment_complete",
-    "description": "After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_preference_change",
-    "description": "The option to receive email updates from a sponsored account was changed.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_tier_change",
-    "description": "A sponsorship was upgraded or downgraded.",
-    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship, /billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
+    "action": "sponsors.sponsors_patreon_user_destroy",
+    "description": "A Patreon account for use with GitHub Sponsors was unlinked from a user account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account"
   },
   {
     "action": "sponsors.update_tier_repository",

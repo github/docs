@@ -65,7 +65,7 @@ To see your {% data variables.product.prodname_codespaces %} usage, filter the r
 
 ### Storage usage for your base dev container
 
-If you don't add a dev container configuration to your repository, or if your configuration does not specify an image to use, then {% data variables.product.prodname_dotcom %} creates a container from a default Linux image. Storage of base dev containers built from the default Linux image is free of charge and does not consume your included storage. Your storage usage will be based only on the files in your repository, and any files you subsequently add to the codespace, including {% data variables.product.prodname_vscode_shortname %} extensions. If you use an alternative base image, then the resulting container and all of the files in the codespace will be counted as used storage. {% data reusables.codespaces.default-image-contents %}
+If you don't add a dev container configuration to your repository, or if your configuration does not specify a dev container image to use, then {% data variables.product.prodname_dotcom %} creates a container from a default Linux image. Storage of base dev containers built from the default dev container image is free of charge and does not consume your included storage. Your storage usage will be based only on the files in your repository, and any files you subsequently add to the codespace, including {% data variables.product.prodname_vscode_shortname %} extensions. If you use an alternative base image, then the resulting container and all of the files in the codespace will be counted as used storage. {% data reusables.codespaces.default-image-contents %}
 
 You can check which image was used to create a codespace's dev container. In the Terminal of your codespace, run this command.
 
@@ -82,15 +82,15 @@ If the dev container for the current codespace was built from the default image,
 
 ## Tips for making your allowed usage go further
 
-- Your codespaces consume compute usage while they are running. If you're not using a codespace, stopping the codespace prevents unnecessary compute usage. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)."
-- You can reduce the idle timeout for {% data variables.product.prodname_codespaces %} in your personal settings to less than the default 30 minutes. This will shorten the period of inactivity before your codespaces are automatically stopped. This can save on compute usage. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
-- Your codespaces consume storage while they exist. You should delete a codespace you have finished using and know that you will not use again. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+- Your codespaces consume compute usage while they are running. If you're not using a codespace, stopping the codespace prevents unnecessary compute usage. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace)."
+- You can reduce the idle timeout for {% data variables.product.prodname_codespaces %} in your personal settings to less than the default 30 minutes. This will shorten the period of inactivity before your codespaces are automatically stopped. This can save on compute usage. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)."
+- Your codespaces consume storage while they exist. You should delete a codespace you have finished using and know that you will not use again. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
   {% note %}
 
   **Note**: Deleting a codespace will not reduce your used storage amount for the billing current month as this is a cumulative figure.
 
   {% endnote %}
-- Configure your retention period to ensure codespaces you forget to delete are deleted automatically. The default retention period is 30 days. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+- Configure your retention period to ensure codespaces you forget to delete are deleted automatically. The default retention period is 30 days. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 - {% data variables.product.prodname_vscode %} extensions consume storage. Make sure you are only installing extensions that you need. You can find out how much space is being used by extensions by running this command in your codespace.
 
   ```shell copy
@@ -114,4 +114,4 @@ If the dev container for the current codespace was built from the default image,
   You can check for prebuild configurations in the "{% data variables.product.prodname_codespaces %}" page of a repository's settings. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
   Alternatively, you can check which repositories have prebuilds by reviewing a usage report. For more information, see "[Understanding your {% data variables.product.prodname_codespaces %} usage](#understanding-your-codespaces-usage)" above.
-- Storage of containers built from the default Linux image for codespaces is free of charge and does not reduce your included storage. You can therefore avoid your storage allowance being consumed by your dev container by using the default image in your dev container configuration, rather than specifying a more specialized image. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and "[Storage usage for your base dev container](#storage-usage-for-your-base-dev-container)" above.
+- Storage of containers built from the default dev container image for codespaces is free of charge and does not reduce your included storage. You can therefore avoid your storage allowance being consumed by your dev container by using the default image in your dev container configuration, rather than specifying a more specialized image. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)" and "[Storage usage for your base dev container](#storage-usage-for-your-base-dev-container)" above.

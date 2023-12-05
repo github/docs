@@ -1,4 +1,4 @@
-import { defaultCacheControl } from '../../../middleware/cache-control.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 
 // When a *whole* path is considerered junk.
 const JUNK_PATHS = new Set([
@@ -9,6 +9,7 @@ const JUNK_PATHS = new Set([
   '/server.js',
   '/package.json',
   '/.git',
+  '/_next',
 ])
 
 // Basename is the last token of the path when split by `/`.

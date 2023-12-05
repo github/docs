@@ -4,8 +4,8 @@ import walk from 'walk-sync'
 import { jest } from '@jest/globals'
 
 import releaseNotesSchema from '../lib/release-notes-schema.js'
-import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
-import { ajvValidate } from '../../../lib/ajv-validate.js'
+import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
+import { ajvValidate } from '#src/tests/lib/ajv-validate.js'
 
 const ghesReleaseNoteRootPath = 'data/release-notes'
 const jsonValidator = ajvValidate(releaseNotesSchema)

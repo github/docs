@@ -10,20 +10,20 @@ import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
 
 import shortVersions from '#src/versions/middleware/short-versions.js'
-import contextualize from '../../../middleware/context.js'
+import contextualize from '#src/frame/middleware/context/context.js'
 import features from '#src/versions/middleware/features.js'
 import getRedirect from '#src/redirects/lib/get-redirect.js'
-import warmServer from '../../../lib/warm-server.js'
+import warmServer from '#src/frame/lib/warm-server.js'
 import { liquid } from '#src/content-render/index.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 import excludedLinks from '#src/links/lib/excluded-links.js'
-import { getEnvInputs, boolEnvVar } from '../../../src/workflows/get-env-inputs.js'
+import { getEnvInputs, boolEnvVar } from '#src/workflows/get-env-inputs.js'
 import { debugTimeEnd, debugTimeStart } from './debug-time-taken.js'
 import { uploadArtifact as uploadArtifactLib } from './upload-artifact.js'
-import github from '../../../script/helpers/github.js'
-import { getActionContext } from '../../../src/workflows/action-context.js'
+import github from '#src/workflows/github.js'
+import { getActionContext } from '#src/workflows/action-context.js'
 import { createMinimalProcessor } from '#src/content-render/unified/processor.js'
-import { createReportIssue, linkReports } from '../../../src/workflows/issue-report.js'
+import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -578,7 +578,9 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
   try {
     html = await renderInnerHTML(page, permalink)
   } catch (error) {
-    console.warn(`The error happened trying to render ${page.relativePath}`)
+    console.warn(
+      `The error happened trying to render ${page.relativePath} (permalink: ${permalink.href})`,
+    )
     throw error
   }
   const $ = cheerio.load(html, { xmlMode: true })
@@ -943,7 +945,7 @@ async function innerFetch(core, url, config = {}) {
   //   3. ~4000ms
   //
   // ...if the limit we set is 3.
-  // Our own timeout, in ./middleware/timeout.js defaults to 10 seconds.
+  // Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
   // So there's no point in trying more attempts than 3 because it would
   // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
   const retry = {
@@ -1031,7 +1033,13 @@ function getRetryAfterSleep(headerValue) {
 }
 
 function checkImageSrc(src, $) {
+  if (!src.startsWith('/') && !src.startsWith('http')) {
+    return { CRITICAL: 'Image path is not absolute. Should start with a /' }
+  }
   const pathname = new URL(src, 'http://example.com').pathname
+  if (pathname.startsWith('http://')) {
+    return { CRITICAL: "Don't use insecure HTTP:// for external images" }
+  }
   if (!pathname.startsWith('/')) {
     return { WARNING: "External images can't not be checked" }
   }

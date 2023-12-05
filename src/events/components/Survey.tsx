@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './Survey.module.scss'
@@ -110,6 +110,7 @@ export const Survey = () => {
             )}
             htmlFor="survey-yes"
           >
+            <span className="visually-hidden">{t`yes`}</span>
             <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
           </label>
           <input
@@ -129,6 +130,7 @@ export const Survey = () => {
             )}
             htmlFor="survey-no"
           >
+            <span className="visually-hidden">{t`no`}</span>
             <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
           </label>
         </div>

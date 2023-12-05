@@ -8,6 +8,7 @@ name: Close bad repo-sync PRs
 # **Who does it impact**: Open-source.
 
 on:
+  # Necessary in lieu of `pull_request` so that PRs opened from forks can be closed if they try to push to a repo sync branch.
   pull_request_target:
 
 permissions:
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Close pull request if unwanted
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           script: |
@@ -60,10 +61,3 @@ jobs:
               issue_number: prNumber,
               body: "Please leave this `repo-sync` branch to the robots!\n\nI'm going to close this pull request now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
             })
-
-      - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

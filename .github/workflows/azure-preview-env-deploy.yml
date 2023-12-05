@@ -116,7 +116,7 @@ jobs:
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
@@ -157,7 +157,7 @@ jobs:
         run: src/early-access/scripts/merge-early-access.sh
 
       - name: Determine if we should include translations?
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: with-translations
         with:
           script: |
@@ -192,10 +192,7 @@ jobs:
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
-          rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
-          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
-          rsync -rptovR ./user-code/src/./**/*.tsx ./src
+          rsync -rptovR ./user-code/src/./**/*.{scss,ts,tsx} ./src
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:
@@ -231,7 +228,7 @@ jobs:
         with:
           resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
           subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
-          template: ./azure-preview-env-template.json
+          template: ./src/workflows/azure-preview-env-template.json
           deploymentName: ${{ env.DEPLOYMENT_NAME }}
           parameters: appName="${{ env.APP_NAME }}"
             containerImage="${{ env.DOCKER_IMAGE }}"
@@ -254,8 +251,3 @@ jobs:
         # The `--fail --retry N` combination means that a 4xx response
         # code will exit immediately but a 5xx will exhaust the retries.
         run: curl --fail --retry-connrefused --retry 5 -I ${{ env.APP_URL }}
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

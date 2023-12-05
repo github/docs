@@ -13,7 +13,7 @@
 // Example use:
 //
 //    export GITHUB_TOKEN=github_pat_11AAAG.....
-//    ./script/deleted-assets-pr-comment.js github docs-internal main 4a0b0f2
+//    ./src/assets/scripts/deleted-assets-pr-comment.js github docs-internal main 4a0b0f2
 //
 // [end-readme]
 

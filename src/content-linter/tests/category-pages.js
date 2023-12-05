@@ -1,4 +1,3 @@
-import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 import walk from 'walk-sync'
@@ -6,17 +5,16 @@ import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 
-import matter from '../../../lib/read-frontmatter.js'
+import matter from '#src/frame/lib/read-frontmatter.js'
 import { renderContent } from '#src/content-render/index.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import contextualize from '../../../middleware/context.js'
+import contextualize from '#src/frame/middleware/context/context.js'
 import shortVersions from '#src/versions/middleware/short-versions.js'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+import { ROOT } from '#src/frame/lib/constants.js'
 
 const slugger = new GithubSlugger()
 
-const contentDir = path.join(__dirname, '../../../content')
+const contentDir = path.join(ROOT, 'content')
 
 describe('category pages', () => {
   const walkOptions = {
@@ -69,8 +67,10 @@ describe('category pages', () => {
         let publishedArticlePaths,
           availableArticlePaths,
           indexTitle,
+          indexShortTitle,
           categoryVersions,
-          categoryChildTypes
+          categoryChildTypes,
+          allowTitleToDifferFromFilename
         const articleVersions = {}
 
         beforeAll(async () => {
@@ -80,6 +80,7 @@ describe('category pages', () => {
           const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
           const { data } = matter(indexContents)
           categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
+          allowTitleToDifferFromFilename = data.allowTitleToDifferFromFilename
           categoryChildTypes = []
           const articleLinks = data.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
@@ -113,6 +114,14 @@ describe('category pages', () => {
           indexTitle = data.title.includes('{')
             ? await renderContent(data.title, req.context, { textOnly: true })
             : data.title
+
+          if (data.shortTitle) {
+            indexShortTitle = data.shortTitle.includes('{')
+              ? await renderContent(data.shortTitle, req.context, { textOnly: true })
+              : data.shortTitle
+          } else {
+            indexShortTitle = ''
+          }
 
           publishedArticlePaths = (
             await Promise.all(
@@ -195,20 +204,28 @@ describe('category pages', () => {
           ).toBe(true)
         })
 
-        // TODO: Unskip this test once the related script has been executed
-        // Docs Engineering issue: 963
-        test.skip('slugified title matches parent directory name', () => {
+        test('slugified title matches parent directory name', () => {
+          if (allowTitleToDifferFromFilename) return
+
           // Get the parent directory name
           const categoryDirPath = path.dirname(indexAbsPath)
           const categoryDirName = path.basename(categoryDirPath)
 
           slugger.reset()
-          const expectedSlug = slugger.slug(decode(indexTitle))
+          const expectedSlugs = [slugger.slug(decode(indexTitle))]
+          if (indexShortTitle && indexShortTitle !== indexTitle) {
+            expectedSlugs.push(slugger.slug(decode(indexShortTitle)))
+          }
 
+          let customMessage = `Directory name "${categoryDirName}" is not one of ${expectedSlugs
+            .map((x) => `"${x}"`)
+            .join(', ')} which comes from the title "${indexTitle}"${
+            indexShortTitle ? ` or shortTitle "${indexShortTitle}"` : ' (no shortTitle)'
+          }`
+          const newCategoryDirPath = path.join(path.dirname(categoryDirPath), expectedSlugs.at(-1))
+          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
           // Check if the directory name matches the expected slug
-          expect(categoryDirName).toBe(expectedSlug)
-
-          // If this fails, execute "script/reconcile-category-dirs-with-ids.js"
+          expect(expectedSlugs.includes(categoryDirName), customMessage).toBeTruthy()
         })
       },
     )

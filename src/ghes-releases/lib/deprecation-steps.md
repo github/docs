@@ -101,9 +101,11 @@ The dates we use for Enterprise releases and deprecations are stored in [release
 
 1. Remove the temporarily created directory from your `github/docs-internal` checkout.
 
-## Step 4: Test the archived static pages
+## Step 4: Deprecate the GHES release in docs-internal
 
 - [ ] Completed step 4 ✅
+
+This step will remove the version from the drop-down picker, effectively deprecating the version from a user's perspective. The content for the deperecated release will still exist in the Markdown files.
 
 1. In your `docs-internal` checkout, create a new branch: `git checkout -b deprecate-<version>`.
 
@@ -120,27 +122,21 @@ The dates we use for Enterprise releases and deprecations are stored in [release
    - You should see a banner on the top of every deprecated page with the date that the version was deprecated.
    - You should see a banner at the top of every page for the oldes currently supported version with the date that it will be deprecated in the ~3 months.
 
-## Step 5: Deprecate the version in docs-internal
+1. If everything looks good, check in the changes to `lib/enterprise-server-releases.js` and create a pull request.
+
+1. Ensure that CI is passing or make any changes to content needed to get tests to pass.
+
+1. 🚢 Ship the change.
+
+## Step 5: Create a tag
 
 - [ ] ✅ Completed step 5
 
-1. In your `deprecate-<version>` branch, create a new branch: `git checkout -b deprecate-<version>`.
-1. Ensure that CI is passing or make any changes to content needed to get tests to pass.
-1. 🚢 Ship the change.
-
-The version is now effectively deprecated. 🎉
-
-## Step 🎉: You can complete the remaining steps in any order. And get a snack, you deserve it! 🍪
-
-## Step 6: Create a tag
-
-- [ ] ✅ Completed step 6
-
 1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-release`. To create only a tag and not a release, you can [create a new release](https://github.com/github/docs-internal/releases), which allows you to "Choose a tag." Select add a new tag and use the tag name as the release title. After creating the new release, you wil see the new tag as well. You can then delete the release.
 
-## Step 7: Remove static files for the version
+## Step 6: Remove static files for the version
 
-- [ ] Completed step 7 ✅
+- [ ] Completed step 6 ✅
 
 1. In your `docs-internal` checkout, create a new branch: `git checkout -b remove-<version>-data-files`.
 
@@ -152,9 +148,9 @@ The version is now effectively deprecated. 🎉
 
 1. When the PR is approved, merge it in. 🚢
 
-## Step 8: Remove the liquid conditionals and content for the version
+## Step 7: Remove the liquid conditionals and content for the version
 
-- [] Completed step 8 ✅
+- [ ] Completed step 7 ✅
 
 1. In your `docs-internal` checkout, create a new branch `remove-<version>-markup` branch: `git checkout -b remove-<version>-markup`.
 

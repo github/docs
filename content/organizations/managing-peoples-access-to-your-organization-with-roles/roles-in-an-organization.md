@@ -31,6 +31,10 @@ Organization-level roles are sets of permissions that can be assigned to individ
 
 You can assign people to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
 
+{% ifversion custom-org-roles %}
+For more granular control of access to your organization's settings, you can create a custom organization role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
+{% endif %}
+
 {% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 {% endif %}

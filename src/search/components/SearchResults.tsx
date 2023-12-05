@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import type { SearchResultsT, SearchResultHitT, SearchQueryT } from './types'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './SearchResults.module.scss'
@@ -45,12 +45,12 @@ function SearchResultHits({ hits, search }: { hits: SearchResultHitT[]; search: 
 }
 
 function NoSearchResults() {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('search_results')
   return (
     <div className="d-flex flex-items-center flex-column my-6 border rounded-2">
       <div className="d-flex flex-items-center flex-column p-4">
         <SearchIcon size={24} />
-        <Text className="f2 mt-3">{t('n_results').replace('{n}', 0)}</Text>
+        <Text className="f2 mt-3">{t('n_results').replace('{n}', '0')}</Text>
       </div>
     </div>
   )

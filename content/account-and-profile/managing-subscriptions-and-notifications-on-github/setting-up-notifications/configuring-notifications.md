@@ -192,7 +192,7 @@ If you belong to an organization, you can choose the email account you want noti
 
 ### Customizing email routes per organization
 
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."{% endif %}
+If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% endif %}
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}

@@ -78,7 +78,7 @@ If you enter multiple filters, the view will show alerts matching _all_ these fi
 
 {% ifversion fpt or ghes or ghec %}
 
-You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag{% ifversion codeql-ml-queries %} and `-tag:experimental` will omit all experimental alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
+You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag.
 
 {% endif %}
 
@@ -199,6 +199,10 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
 ### Dismissing multiple alerts at once
 
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
+
+## Re-opening dismissed alerts
+
+If you dismiss an alert but later realize that you need to fix the alert, you can re-open it and fix the problem with the code. Display the list of closed alerts, find the alert, display it, and reopen it. You can then fix the alert in the same way as any other alert.
 
 {% ifversion remove-code-scanning-configurations %}
 

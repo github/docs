@@ -51,15 +51,13 @@ You specify how often to check each ecosystem for new versions in the configurat
 
 If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
 
-{% ifversion dependabot-updates-failure-skip-schedule %}
 {% data reusables.dependabot.version-updates-skip-scheduled-runs %}
-{% endif %}
 
 ## Supported repositories and ecosystems
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#vendor)."
-
+You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see [`vendor`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#vendor).
+{% data variables.product.prodname_dependabot %} also supports dependencies in private registries. For more information, see [`registries`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#registries).
 {% ifversion ghes %}
 
 {% note %}

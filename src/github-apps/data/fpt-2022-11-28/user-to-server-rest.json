@@ -1789,20 +1789,20 @@
   ],
   "copilot": [
     {
-      "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing"
     },
     {
-      "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing/seats"
     },
     {
-      "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "post",
       "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
     }
@@ -2973,6 +2973,90 @@
       "requestPath": "/orgs/{org}/memberships/{username}"
     },
     {
+      "slug": "list-organization-fine-grained-permissions-for-an-organization",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-fine-grained-permissions"
+    },
+    {
+      "slug": "get-all-organization-roles-for-an-organization",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles"
+    },
+    {
+      "slug": "create-a-custom-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/organization-roles"
+    },
+    {
+      "slug": "remove-all-organization-roles-for-a-team",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}"
+    },
+    {
+      "slug": "assign-an-organization-role-to-a-team",
+      "subcategory": "organization-roles",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}"
+    },
+    {
+      "slug": "remove-an-organization-role-from-a-team",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}"
+    },
+    {
+      "slug": "remove-all-organization-roles-for-a-user",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/users/{username}"
+    },
+    {
+      "slug": "assign-an-organization-role-to-a-user",
+      "subcategory": "organization-roles",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}"
+    },
+    {
+      "slug": "remove-an-organization-role-from-a-user",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}"
+    },
+    {
+      "slug": "get-an-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
+    },
+    {
+      "slug": "update-a-custom-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
+    },
+    {
+      "slug": "delete-a-custom-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
+    },
+    {
+      "slug": "list-teams-that-are-assigned-to-an-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}/teams"
+    },
+    {
+      "slug": "list-users-that-are-assigned-to-an-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}/users"
+    },
+    {
       "slug": "list-outside-collaborators-for-an-organization",
       "subcategory": "outside-collaborators",
       "verb": "get",
@@ -3040,43 +3124,43 @@
     },
     {
       "slug": "get-all-custom-properties-for-an-organization",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "get",
       "requestPath": "/orgs/{org}/properties/schema"
     },
     {
       "slug": "create-or-update-custom-properties-for-an-organization",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "patch",
       "requestPath": "/orgs/{org}/properties/schema"
     },
     {
       "slug": "get-a-custom-property-for-an-organization",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "get",
       "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}"
     },
     {
       "slug": "create-or-update-a-custom-property-for-an-organization",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "put",
       "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}"
     },
     {
       "slug": "remove-a-custom-property-for-an-organization",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "delete",
       "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}"
     },
     {
       "slug": "list-custom-property-values-for-organization-repositories",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "get",
       "requestPath": "/orgs/{org}/properties/values"
     },
     {
       "slug": "create-or-update-custom-property-values-for-organization-repositories",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "patch",
       "requestPath": "/orgs/{org}/properties/values"
     },
@@ -4074,7 +4158,7 @@
     },
     {
       "slug": "get-all-custom-property-values-for-a-repository",
-      "subcategory": "properties",
+      "subcategory": "custom-properties",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
@@ -4151,6 +4235,12 @@
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
     },
     {
+      "slug": "download-a-repository-archive-tar",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/tarball/{ref}"
+    },
+    {
       "slug": "list-repository-teams",
       "subcategory": "repos",
       "verb": "get",
@@ -4191,6 +4281,12 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/vulnerability-alerts"
+    },
+    {
+      "slug": "download-a-repository-archive-zip",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/zipball/{ref}"
     },
     {
       "slug": "create-a-repository-using-a-template",
@@ -4353,6 +4449,12 @@
       "subcategory": "repository-advisories",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve"
+    },
+    {
+      "slug": "create-a-temporary-private-fork",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks"
     }
   ],
   "teams": [

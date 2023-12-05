@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
+import { Router } from 'next/router'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -206,10 +207,10 @@ function getReferrer(documentReferrer: string) {
 }
 
 function getColorModePreference() {
-  // color mode is set as attributes on <body>, we'll use that information
+  // color mode is set as attributes on <html>, we'll use that information
   // along with media query checking rather than parsing the cookie value
   // set by github.com
-  let color_mode_preference = document.querySelector('body')?.dataset.colorMode
+  let color_mode_preference = document.querySelector('html')?.dataset.colorMode
 
   if (color_mode_preference === 'auto') {
     if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -295,22 +296,45 @@ function initPageAndExitEvent() {
   })
 
   // Client-side routing
-  const pushState = history.pushState
-  history.pushState = function (state, title, url) {
+  Router.events.on('routeChangeStart', (url) => {
     // Don't trigger page events on query string or hash changes
-    const newPath = url?.toString().replace(location.origin, '').split('?')[0]
-    previousPath = location.pathname
+    previousPath = location.pathname // pathname set to "prior" url, arg "upcoming" url
+    const newPath = url?.toString().split('?')[0].split('#')[0]
     const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
       sendExit()
     }
-    const result = pushState.call(history, state, title, url)
+  })
+
+  Router.events.on('routeChangeComplete', (url) => {
+    // Don't trigger page events on query string or hash changes
+    // Don't set `previousPath` here as location.pathname is now updated
+    const newPath = url?.toString().split('?')[0].split('#')[0]
+    const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
-      sendPage()
       resetPageParams()
+      waitForDomMutateStop(sendPage)
     }
-    return result
+  })
+}
+
+// The DOM still mutates after `routeChangeComplete`
+// so we need to wait for it to stop mutating to get accurate data
+function waitForDomMutateStop(fn: Function, minMs = 35, pollMs = 5) {
+  let lastMutate = Date.now()
+  const observer = new MutationObserver(() => {
+    lastMutate = Date.now()
+  })
+  observer.observe(document.documentElement, { subtree: true, childList: true })
+  function poll() {
+    if (Date.now() - lastMutate > minMs) {
+      observer.disconnect()
+      fn()
+    } else {
+      setTimeout(poll, pollMs)
+    }
   }
+  poll()
 }
 
 function initClipboardEvent() {

@@ -4,6 +4,142 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CreateUserListInput</code> was added</p>",
+          "<p>Type <code>CreateUserListPayload</code> was added</p>",
+          "<p>Type <code>DeleteUserListInput</code> was added</p>",
+          "<p>Type <code>DeleteUserListPayload</code> was added</p>",
+          "<p>Type <code>UpdateUserListInput</code> was added</p>",
+          "<p>Type <code>UpdateUserListPayload</code> was added</p>",
+          "<p>Type <code>UpdateUserListsForItemInput</code> was added</p>",
+          "<p>Type <code>UpdateUserListsForItemPayload</code> was added</p>",
+          "<p>Type <code>UserList</code> was added</p>",
+          "<p>Type <code>UserListConnection</code> was added</p>",
+          "<p>Type <code>UserListEdge</code> was added</p>",
+          "<p>Type <code>UserListItems</code> was added</p>",
+          "<p>Type <code>UserListItemsConnection</code> was added</p>",
+          "<p>Type <code>UserListItemsEdge</code> was added</p>",
+          "<p>Type <code>UserListSuggestion</code> was added</p>",
+          "<p>Field <code>createUserList</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteUserList</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateUserList</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateUserListsForItem</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>lists</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>suggestedListNames</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>UnsubscribeFromNotificationsInput</code> was added</p>",
+          "<p>Type <code>UnsubscribeFromNotificationsPayload</code> was added</p>",
+          "<p>Field <code>unsubscribeFromNotifications</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>UpdatePatreonSponsorabilityInput</code> was added</p>",
+          "<p>Type <code>UpdatePatreonSponsorabilityPayload</code> was added</p>",
+          "<p>Field <code>updatePatreonSponsorability</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>MemberFeatureRequestNotification</code> was added</p>",
+          "<p>Field <code>paymentSource</code> was added to object type <code>SponsorsActivity</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SponsorshipPaymentSource</code> was added</p>",
+          "<p>Field <code>paymentSource</code> was added to object type <code>Sponsorship</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>AbortRepositoryMigrationInput</code> was added</p>",
+          "<p>Type <code>AbortRepositoryMigrationPayload</code> was added</p>",
+          "<p>Field <code>abortRepositoryMigration</code> was added to object type <code>Mutation</code></p>",
+          "<p><code>PullRequestReview</code> object implements <code>Minimizable</code> interface</p>",
+          "<p>Field <code>isMinimized</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>minimizedReason</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>viewerCanMinimize</code> was added to object type <code>PullRequestReview</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'FILE_PATH_PATTERN<code>was removed from enum</code>RepositoryRuleType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>roleName</code> was added to object type <code>PermissionSource</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-10-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'TRANSFERRING_OWNERSHIP<code>was added to enum</code>RepositoryLockReason'</p>"
         ]
       }

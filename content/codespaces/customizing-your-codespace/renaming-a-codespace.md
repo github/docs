@@ -53,12 +53,14 @@ Changing the display name of a codespace can be useful if you have multiple code
 To change the display name of a codespace, use the `gh codespace edit` subcommand:
 
 ```shell
-gh codespace edit -c PERMANENT-CODESPACE-NAME -d NEW-DISPLAY-NAME
+gh codespace edit -c PERMANENT-CODESPACE-NAME -d 'NEW-DISPLAY-NAME'
 ```
 
 In this example, replace `PERMANENT-CODESPACE-NAME` with the permanent name of the codespace whose display name you want to change. Replace `NEW-DISPLAY-NAME` with the display name you want to use for this codespace.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#rename-a-codespace)."
+Display names can be up to 48 characters in length. The display name can contain any combination of characters, including spaces, provided you enclose it in single quotes.
+
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli#rename-a-codespace)."
 
 {% endcli %}
 
@@ -76,3 +78,8 @@ You can change the display name for your codespace on {% data variables.product.
 1. In the prompt, under "Change display name to..." type your desired display name and click **OK**.
 
 {% endwebui %}
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces)"

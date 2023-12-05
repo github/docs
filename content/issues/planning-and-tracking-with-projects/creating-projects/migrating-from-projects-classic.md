@@ -11,7 +11,6 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-
 {% note %}
 
 **Notes:**
@@ -21,6 +20,7 @@ allowTitleToDifferFromFilename: true
 - Automation will not be migrated.
 - Triage, archive, and activity will not be migrated.
 - After migration, the new migrated project and old project will not be kept in sync.
+- {% data reusables.projects.migration-permissions-warning %}
 
 {% endnote %}
 
@@ -40,7 +40,7 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 ## Migrating a user project board
 
 {% data reusables.projects.enable-migration %}
-1. In the top right corner of {% data variables.product.prodname_dotcom_the_website %}, click your profile photo, then click **Your projects**.
+1. In the upper-right corner of {% data variables.product.prodname_dotcom_the_website %}, select your profile photo, then click **Your projects**.
 
    ![Screenshot showing the profile photo menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
 

@@ -74,7 +74,7 @@ jobs:
           echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
 
       - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
         with:
           node-version-file: 'package.json'
           cache: npm
@@ -102,7 +102,7 @@ jobs:
 
       - name: 'Update docker-compose.staging.yaml template file'
         run: |
-          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' src/workflows/docker-compose.staging.tmpl.yaml > docker-compose.staging.yaml
 
       - name: 'Apply updated docker-compose.staging.yaml config to deployment slot'
         run: |
@@ -110,55 +110,12 @@ jobs:
 
       # Watch deployment slot instances to see when all the instances are ready
       - name: Check that deployment slot is ready
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           CHECK_INTERVAL: 10000
-        with:
-          script: |
-            const { execSync } = require('child_process')
-
-            const slotName = process.env.SLOT_NAME
-            const appServiceName = process.env.APP_SERVICE_NAME
-            const resourceGroupName = process.env.RESOURCE_GROUP_NAME
-
-            const getStatesForSlot = (slot, appService, resourceGroup) => {
-              return JSON.parse(
-                execSync(
-                  `az webapp list-instances --slot ${slot} --query "[].state" -n ${appService} -g ${resourceGroup}`,
-                  { encoding: 'utf8' }
-                )
-              )
-            }
-
-            let hasStopped = false
-            const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
-            async function doCheck() {
-              const states = getStatesForSlot(slotName, appServiceName, resourceGroupName)
-              console.log(`Instance states:`, states)
-
-              // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
-              // That way we don't immediately succeed just because all the previous instances were READY
-              if (!hasStopped) {
-                hasStopped = states.some((s) => s === 'STOPPED')
-              }
-
-              const isAllReady = states.every((s) => s === 'READY')
-
-              if (hasStopped && isAllReady) {
-                process.exit(0) // success
-              }
-
-              console.log(`checking again in ${waitDuration}ms`)
-              setTimeout(doCheck, waitDuration)
-            }
-
-            doCheck()
+          EXPECTED_SHA: ${{ github.sha }}
+          CANARY_BUILD_URL: https://ghdocs-staging-canary.azurewebsites.net/_build
+        run: src/workflows/check-canary-slots.js
 
       - name: 'Swap deployment slot to production'
         run: |
           az webapp deployment slot swap --slot ${{ env.SLOT_NAME }} --target-slot production -n ${{ env.APP_SERVICE_NAME }} -g ${{ env.RESOURCE_GROUP_NAME }}
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

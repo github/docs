@@ -6,16 +6,16 @@ import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import yaml from 'js-yaml'
 
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import {
   getPathWithLanguage,
   getPathWithoutLanguage,
   getPathWithoutVersion,
   getVersionStringFromPath,
-} from '../../../lib/path-utils.js'
+} from '#src/frame/lib/path-utils.js'
 import loadRedirects from '#src/redirects/lib/precompile.js'
-import patterns from '../../../lib/patterns.js'
-import { loadUnversionedTree, loadPages, loadPageMap } from '../../../lib/page-data.js'
+import patterns from '#src/frame/lib/patterns.js'
+import { loadUnversionedTree, loadPages, loadPageMap } from '#src/frame/lib/page-data.js'
 import getRedirect, { splitPathByLanguage } from '#src/redirects/lib/get-redirect.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'

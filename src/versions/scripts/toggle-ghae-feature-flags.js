@@ -6,7 +6,7 @@ import { program } from 'commander'
 import walk from 'walk-sync'
 import { execSync, execFileSync } from 'child_process'
 import { escapeRegExp } from 'lodash-es'
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 
 const scriptName = new URL(import.meta.url).pathname.split('/').pop()
 

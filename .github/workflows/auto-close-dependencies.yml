@@ -7,7 +7,7 @@ name: Auto Close Open Source Dependency Updates
 # **Who does it impact**: It helps docs engineering focus on higher value work.
 
 on:
-  pull_request_target:
+  pull_request:
     paths:
       - 'package*.json'
       - 'Gemfile*'
@@ -50,7 +50,7 @@ jobs:
 
       # Because we get far too much spam ;_;
       - name: Lock conversations
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         with:
@@ -66,9 +66,3 @@ jobs:
               console.error(`Failed to lock the pull request. Error: ${error}`)
               throw error
             }
-      - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

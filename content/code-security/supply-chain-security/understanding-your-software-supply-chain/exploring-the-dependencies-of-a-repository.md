@@ -55,7 +55,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 {% endif %}
 
 {% ifversion dependency-graph-repository-view-update %}
-Dependencies submitted to a project using the Dependency submission API (beta) will show which detector was used for their submission and when they were submitted.{% elsif ghes > 3.6 or ghae > 3.6 %}Dependencies submitted to a project using the Dependency submission API (beta), although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %}{% ifversion dependency-submission-api %} For more information on using the dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+Dependencies submitted to a project using the Dependency submission API (beta) will show which detector was used for their submission and when they were submitted.{% elsif ghes or ghae > 3.6 %}Dependencies submitted to a project using the Dependency submission API (beta), although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %}{% ifversion dependency-submission-api %} For more information on using the dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
 {% endif %}
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
@@ -84,6 +84,7 @@ You may notice some repositories have a "Used by" section in the sidebar of the 
 - The dependency graph is enabled for the repository (see the above section for more details).
 - Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems).
 - Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
+- More than 100 repositories depend on your package.
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 

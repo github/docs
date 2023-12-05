@@ -77,7 +77,7 @@ You can pin repositories that you want to feature, such as those that are freque
 
    - If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
 
-   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-link.png)
+   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-org-link.png)
 
 1. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
 1. Click **Save pins**.

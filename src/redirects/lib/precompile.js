@@ -1,4 +1,4 @@
-import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
 import getExceptionRedirects from './exception-redirects.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 

@@ -24,6 +24,7 @@ sections:
     - On an instance with subdomain isolation disabled, a notebook could not be loaded due to an extra `/` character in the URL path.
     - On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, custom patterns would erroneously show no results for a dry run.
     - On an instance with GitHub Actions enabled, the software on ephemeral runners would not automatically update to the latest version.
+    - '{% data reusables.release-notes.mermaid-rendering-known-issue %}'
   changes:
     - When listing the node metadata for all nodes using the [Manage GitHub Enterprise Server REST API](https://docs.github.com/enterprise-server/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28#get-all-ghes-node-metadata-for-all-nodes), information about whether a given node is a replica is included.
     - When GitHub Enterprise checks for a new upgrade or hotpatch package, if the check fails the failure details are output to the `ghe-update-check` log, and the Management Console UI provides a "Check Again" button to rerun the check.
@@ -31,9 +32,10 @@ sections:
     - When running async repository repairs, the output message about scheduling a repair job is more accurate.
   known_issues:
     - |
-      Custom firewall rules are removed during the upgrade process.
+      {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
     - |
-      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+      Custom firewall rules are removed during the upgrade process.
+
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
@@ -47,11 +49,9 @@ sections:
     - |
       The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
     - |
-      {% data reusables.release-notes.mermaid-rendering-known-issue %}
-    - |
       When enabling CodeQL via default setup [at scale](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale), some checks related to GitHub Actions are omitted, potentially preventing the process from completing.
     - |
-      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
     - |
       {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
     - |
@@ -64,3 +64,7 @@ sections:
       {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
     - |
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]

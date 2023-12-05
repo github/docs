@@ -38,7 +38,7 @@ In a matter of minutes, you will be ready to edit, preview and test your changes
 
 ### Using browser shortcuts
 
-The [`script/bookmarklets`](../script/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`script/bookmarklets/README.md`](../script/bookmarklets/README.md) for details.
+The [`src/bookmarklets`](../src/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`src/bookmarklets/README.md`](../src/bookmarklets/README.md) for details.
 
 ### Enabling different languages
 
@@ -50,7 +50,7 @@ The supported language codes are defined in [lib/languages.js](#src/languages/li
 
 This site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.app/), another Ruby static site generator.
 
-Today it's a dynamic Node.js webserver powered by Express, using [middleware](../middleware/README.md) to support proper HTTP redirects, language header detection, and dynamic content generation to support the various flavors of GitHub's product documentation, like GitHub.com and GitHub Enterprise Server.
+Today it's a dynamic Node.js webserver powered by Express, using middleware to support proper HTTP redirects, language header detection, and dynamic content generation to support the various flavors of GitHub's product documentation, like GitHub.com and GitHub Enterprise Server.
 
 The tooling for this site has changed over the years, but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved:
 

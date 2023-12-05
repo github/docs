@@ -5,6 +5,7 @@ name: Merged notification
 # **Who does it impact**: Open-source contributors.
 
 on:
+  # Needed in lieu of `pull_request` so that the notification comment is posted to a PR from a fork.
   pull_request_target:
     types:
       - 'closed'
@@ -19,7 +20,7 @@ jobs:
     if: github.repository == 'github/docs' && github.event.pull_request.merged && github.event.pull_request.base.ref == github.event.repository.default_branch && github.event.pull_request.user.login != 'docs-bot'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
           script: |
             github.rest.issues.createComment({
@@ -27,10 +28,3 @@ jobs:
               issue_number: context.payload.pull_request.number,
               body: "Thanks very much for contributing! Your pull request has been merged 🎉 You should see your changes appear on the site in approximately 24 hours. If you're looking for your next contribution, check out our [help wanted issues](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) :zap:"
             })
-
-      - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

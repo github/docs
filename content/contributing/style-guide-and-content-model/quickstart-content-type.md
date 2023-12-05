@@ -33,7 +33,7 @@ Contents of quickstarts:
   - If relevant troubleshooting content exists for the quickstart, provide links to it.
 - Next steps
   - Provide a quick recap of what has been accomplished in the quickstart as a means of transitioning to next steps.
-  - Include 2-3 actionable next steps that someone can take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in {% data variables.product.prodname_learning %}.
+  - Include 2-3 actionable next steps that someone can take after completing the quickstart. Always link to conceptual content on the feature or product. You can also link off to other related information on docs.github.com or in {% data variables.product.prodname_learning %}.<!-- markdownlint-disable-line search-replace -->
 
 ## Title guidelines for quickstarts
 

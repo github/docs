@@ -22,33 +22,35 @@ Titles can be challenging. Use these general guidelines to help create clear, he
 ### Titles for all content types
 
 - Titles clearly describe what a page is about. They are descriptive and specific.
-  - Use: Browsing actions in the workflow editor
-  - Use: Example of configuring a codespace
-  - Avoid: Using the workflow editor sidebar
-  - Avoid: Example
-  - Titles have hard limits for length to keep them easy to understand (and easier to render on the site):
-     - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 26 characters
-     - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 29 characters
-     - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 30 characters, ideally 20-25 characters
-- Titles are consistent across a content type
-  - See specific guidelines for each content type
-- Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products
+  - Use: "Browsing actions in the workflow editor"
+  - Use: "Example of configuring a codespace"
+  - Avoid: "Using the workflow editor sidebar"
+  - Avoid: "Example"
+- Titles have hard limits for length to keep them easy to understand (and easier to render on the site):
+  - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 26 characters
+  - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 29 characters
+  - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 30 characters, ideally 20-25 characters
+- Titles use sentence case.
+  - Use: "Changing a commit message"
+  - Avoid: "Changing A Commit Message"
+- Titles are consistent across a content type. See specific guidelines for each content type.
+- Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products.
   - Use: "{% data variables.product.company_short %}'s billing plans"
   - Avoid: "Billing plans for user and organization accounts"
-- Titles use consistent terminology
-  - Develop and follow patterns within a category or on similar subjects
-- Titles use terminology from the product itself
-- Write the title and the intro at the same time
-  - Use the intro to develop the ideas presented in the title
-  - See guidance on intros for more information
+- Titles use consistent terminology.
+  - Develop and follow patterns within a category or on similar subjects.
+- Titles use terminology from the product itself.
+- Write the title and the intro at the same time.
+  - Use the intro to develop the ideas presented in the title.
+  - See guidance on [intros](#intro) for more information.
 - If it's hard to come up with a title, consider the content type. Sometimes trouble choosing a title indicates that another content type would fit better.
-- Think about how the title will appear in search results for multiple products
+- Think about how the title will appear in search results for multiple products.
   - What specific words do we need to include in the title or intro so that folks don’t mistake it for content about a different product?
-- Think about how the title will look in production
+- Think about how the title will look in production.
 
 ## Product callout
 
-Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC, GHES, and GHAE, you can version content about the feature for GHEC, GHES, and GHAE only. If a feature is available for Pro, Team, GHEC, GHES, and GHAE (but not Free), use a product callout to convey that availability.
+Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC and GHES, you can version content about the feature for GHEC and GHES only. If a feature is available for Pro, Team, GHEC, and GHES (but not Free), use a product callout to convey that availability.
 
 All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
 

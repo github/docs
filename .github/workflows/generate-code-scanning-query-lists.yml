@@ -1,0 +1,103 @@
+name: Generate code scanning query lists
+
+# **What it does**: This workflow is currently run manually approximately every two weeks as part
+#      of the release process for the CodeQL CLI. We hope to automate this in the future
+#   When run, this workflow generates updated query lists with data from the codeql
+#   repository, and creates a pull request if there are updates.
+# **Why we have it**: So we can automate CodeQL query tables and show code scanning users the built in queries.
+# **Who does it impact**: Anyone making CodeQL query suite changes in `github/codeql`, and wanting to get them published on the docs site.
+
+on:
+  workflow_dispatch:
+    inputs:
+      SOURCE_BRANCH:
+        description: 'Branch to pull the source files from in the codeql repo (for example codeql-cli-2.x.x).'
+        type: string
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-query-lists:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - name: Checkout codeql repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          repository: github/codeql
+          path: codeql
+          ref: ${{ inputs.SOURCE_BRANCH }}
+
+      - name: Get the codeql SHA being synced
+        id: codeql
+        run: |
+          cd codeql
+          OPENAPI_COMMIT_SHA=$(git rev-parse HEAD)
+          echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Copied files from github/codeql repo. Commit SHA: $OPENAPI_COMMIT_SHA"
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4.7.1
+        with:
+          python-version: 3.8
+
+      - name: Download CodeQL CLI
+        # Look under the `codeql` directory, as this is where we checked out the `github/codeql` repo
+        uses: ./codeql/.github/actions/fetch-codeql
+
+      - name: Build code scanning query list
+        run: |
+          for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
+            echo "Generating code scanning query list for $lang"
+            python src/code-scanning/generate-code-scanning-query-list.py $lang > data/reusables/code-scanning/codeql-query-tables/$lang.md
+          done
+
+      - name: Create pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: |
+          # If nothing to commit, exit now. It's fine. No orphans.
+          changes=$(git diff --name-only | wc -l)
+          untracked=$(git status --untracked-files --short | wc -l)
+          if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
+            echo "There are no changes to commit after running the generation and conversion scripts. Exiting..."
+            exit 0
+          fi
+
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+          branchname=codeql-query-tables-${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }}
+
+          # Exit if the branch already exists. Since the actions/checkout fetch-depth is 1, 
+          # it doesn't "know" about branches locally, so we need to manually list them.
+          branchExists=$(git ls-remote --heads origin refs/heads/$branchname | wc -l)
+
+          if [ $branchExists -ne 0 ]; then
+            echo "Branch $branchname already exists in the remote repository."
+            exit 0
+          else
+            git checkout -b $branchname
+          fi
+
+          git add data/reusables/code-scanning/codeql-query-tables
+          git commit -m "Update CodeQL query tables"
+          git push origin $branchname
+
+          echo "Creating pull request..."
+          gh pr create \
+            --title "Update CodeQL query tables" \
+            --draft \
+            --repo github/docs-internal \
+            --label "codeql-query-tables,skip FR board" \
+            --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release.
+
+            No action is required from the first responder for the Docs content team. This PR will be reviewed and merged by the Code scanning and GHAS focus team as part of the next release of CodeQL CLI. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})
+
+            If CI does not pass or other problems arise, contact #docs-engineering on slack.'

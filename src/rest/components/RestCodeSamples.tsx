@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
@@ -41,7 +41,7 @@ function getLanguageHighlight(selectedLanguage: string) {
 }
 
 export function RestCodeSamples({ operation, slug, heading }: Props) {
-  const { t } = useTranslation('products')
+  const { t } = useTranslation(['rest_reference'])
   const { isEnterpriseServer } = useVersion()
 
   // Refs to track the request example, response example
@@ -264,7 +264,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                   }}
                   href="#"
                 >
-                  {t(`rest.reference.code_sample_options.${optionKey}`)}
+                  {t(`code_sample_options.${optionKey}`)}
                 </TabNav.Link>
               ))}
             </TabNav>
@@ -311,7 +311,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h4
         className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
-          __html: displayedExample.response.description || t('rest.reference.response'),
+          __html: displayedExample.response.description || t('response'),
         }}
       ></h4>
       <div className="border rounded-1">
@@ -335,7 +335,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                 }}
                 href="#"
               >
-                {t(`rest.reference.response_options.${optionKey}`)}
+                {t(`response_options.${optionKey}`)}
               </TabNav.Link>
             ))}
           </TabNav>

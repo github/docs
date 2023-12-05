@@ -32,8 +32,7 @@ codeql github upload-results --sarif=<file> [--github-auth-stdin] [--github-url=
 
 Uploads a SARIF file to GitHub code scanning.
 
-See:
-<https://docs.github.com/en/code-security/secure-coding/running-codeql-cli-in-your-ci-system#uploading-results-to-github>
+See: [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/uploading-codeql-analysis-results-to-github)
 
 A GitHub Apps token or personal access token must be set. For best
 security practices, it is recommended to set the `--github-auth-stdin`
@@ -51,8 +50,8 @@ This token must have the `security_events` scope.
 \[Mandatory] Path to the SARIF file to upload. This should be the
 output of [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) (or [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results)) with `--format sarif-latest` for upload to github.com or
 GitHub AE, or the appropriate supported format tag for GitHub Enterprise
-Server instances (see <https://docs.github.com/> for the right value for
-your release).
+Server instances (see [AUTOTITLE](/enterprise-server@latest/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)
+for SARIF versions supported by your release).
 
 #### `-r, --repository=<repository-name>`
 
@@ -97,8 +96,7 @@ upload.
 
 `json`: Print the response body of the SARIF upload API request.
 
-See also:
-<https://docs.github.com/en/rest/reference/code-scanning#upload-an-analysis-as-sarif-data>
+See also: [AUTOTITLE](/rest/code-scanning/code-scanning)
 
 ### Options to configure where to upload SARIF files.
 
@@ -148,3 +146,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

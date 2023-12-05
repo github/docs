@@ -51,7 +51,7 @@ dependabot_alerts:
     - >-
       /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
     - >-
-      /code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts
+      /code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules
     - >-
       /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
     - >-
@@ -131,12 +131,11 @@ secret_scanning:
     - /code-security/secret-scanning/secret-scanning-patterns
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/protecting-pushes-with-secret-scanning{%
+      %}/code-security/secret-scanning/push-protection-for-repositories-and-organizations{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection-for-users
-      %}/code-security/secret-scanning/push-protection-for-users{%
-      endif %}
+      %}/code-security/secret-scanning/push-protection-for-users{% endif %}
     - >-
       {% ifversion secret-scanning-push-protection
       %}/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection{%
@@ -151,8 +150,8 @@ security_alerts:
       %}/code-security/security-overview/about-security-overview {% endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/security-overview/assessing-adoption-code-security {% endif
-      %}
+      %}/code-security/security-overview/assessing-adoption-code-security {%
+      endif %}
     - >-
       {% ifversion ghec or ghes
       %}/code-security/security-overview/assessing-code-security-risk {% endif
@@ -163,11 +162,11 @@ security_alerts:
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{%
+      %}/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository{%
       endif %}
     - >-
       {% ifversion ghec or ghes
-      %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{%
+      %}/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests{%
       endif %}
     - >-
       {% ifversion ghec or ghes
@@ -183,19 +182,18 @@ code_security_actions:
     errors out of your repository.
   guides:
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
+      /code-security/code-scanning/introduction-to-code-scanning/about-code-scanning
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+      /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning
+      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages
+      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
+      /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container
+    - /code-security/code-scanning/troubleshooting-code-scanning
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
-    - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page
+      /code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page
 code_security_integration:
   title: Integrate with code scanning
   description: Upload code analysis results from third-party systems to GitHub using SARIF.

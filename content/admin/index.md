@@ -65,14 +65,14 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
-  Releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
-  Try Enterprise Cloud for free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
+  releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
+  try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
   startHere:
     - '{% ifversion ghae %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-users-across-your-enterprise{% endif %}'
-    - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
+    - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management
     - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list{% endif %}'
     - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
@@ -91,7 +91,7 @@ featuredLinks:
   popular:
     - /admin/overview/about-github-enterprise-server
     - '{% ifversion ghae %}/admin/release-notes{% endif %}'
-    - '{% ifversion ghes %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/admin/overview/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/installation{% endif %}'
     - '{% ifversion ghae %}/admin/identity-and-access-management/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
     - '{% ifversion ghae %}/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise{% endif %}'
@@ -111,6 +111,7 @@ versions:
   ghae: '*'
 children:
   - /overview
+  - /managing-your-enterprise-account
   - /installation
   - /configuration
   - /administering-your-instance
@@ -127,4 +128,3 @@ children:
   - /release-notes
   - /all-releases
 ---
-

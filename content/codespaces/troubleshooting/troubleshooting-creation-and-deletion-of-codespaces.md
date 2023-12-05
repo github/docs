@@ -45,7 +45,7 @@ If the creation of a codespace fails, it's likely to be due to a temporary infra
 
 {% note %}
 
-**Note:** A codespace that was not successfully created is never going to be usable and should be deleted. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace)."
+**Note:** A codespace that was not successfully created is never going to be usable and should be deleted. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
 
 {% endnote %}
 
@@ -80,7 +80,7 @@ A codespace can only be deleted by:
 - An organization owner for an organization-owned codespace.
 - Automatic deletion at the end of a retention period.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 
 ## Container storage
 

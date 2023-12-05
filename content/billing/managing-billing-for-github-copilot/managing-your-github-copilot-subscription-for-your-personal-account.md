@@ -41,7 +41,7 @@ Before you can start using {% data variables.product.prodname_copilot_for_indivi
 
 ## Canceling your {% data variables.product.prodname_copilot_individuals_short %} subscription
 
-You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription at any time. The cancellation will take effect at the end of your current billing cycle. You can also cancel your {% data variables.product.prodname_copilot_individuals_short %} trial, during the {% data reusables.copilot.trial-period %}-day trial period. For more information, see "[Canceling your {% data variables.product.prodname_copilot_individuals_short %} trial](#canceling-your-copilot-for-individuals-trial)."
+You can cancel your {% data variables.product.prodname_copilot_individuals_short %} subscription at any time. The cancellation will take effect at the end of your current billing cycle. You can also cancel your {% data variables.product.prodname_copilot_individuals_short %} trial, during the {% data reusables.copilot.trial-period %}-day trial period. For more information, see "[Canceling your {% data variables.product.prodname_copilot_individuals_short %} trial](#canceling-your-copilot-individual-trial)."
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -63,5 +63,5 @@ You can cancel your {% data variables.product.prodname_copilot_individuals_short
 
 ## Further reading
 
-- "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)"
-- "[AUTOTITLE](/copilot/getting-started-with-github-copilot)"
+- "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-individual)"
+- "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)"

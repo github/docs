@@ -16,10 +16,10 @@ redirect_from:
 ## Overview
 
 By default, your codespace is assigned a token scoped with `read` permission or `read` and `write` permission to the repository from which it was created. The scope of this token changes automatically in the following circumstances.
-- If you create a codespace for a repository to which you only have read access, then make a commit in the codespace or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically links your codespace to a new or existing fork of the repository and updates the token to have `read` and `write` permission to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#about-automatic-forking)."
-- If you create a codespace from a template, then publish the codespace to a new repository, {% data variables.product.prodname_github_codespaces %} updates the token to have `read` and `write` permission to the new repository. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github)."
+- If you create a codespace for a repository to which you only have read access, then make a commit in the codespace or push a new branch, {% data variables.product.prodname_github_codespaces %} automatically links your codespace to a new or existing fork of the repository and updates the token to have `read` and `write` permission to the fork. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#about-automatic-forking)."
+- If you create a codespace from a template, then publish the codespace to a new repository, {% data variables.product.prodname_github_codespaces %} updates the token to have `read` and `write` permission to the new repository. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template#publishing-to-a-repository-on-github)."
 
-For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/security-in-github-codespaces#authentication)."
+For more information, see "[AUTOTITLE](/codespaces/reference/security-in-github-codespaces#authentication)."
 
 If your project needs additional permissions for other repositories, you can configure this in the `devcontainer.json` file, as described in "[Setting additional repository permissions](#setting-additional-repository-permissions)" later in this article. When permissions are listed in the `devcontainer.json` file, you will be prompted to review and authorize the additional permissions as part of codespace creation for that repository. Once you've authorized the listed permissions, {% data variables.product.prodname_github_codespaces %} will remember your choice and will not prompt you for authorization unless the permissions in the `devcontainer.json` file change.
 
@@ -143,3 +143,8 @@ When you enable access and security for a repository owned by your personal acco
    - **Selected repositories** - Personal codespaces created from specific repositories can access other repositories you own.
 
 1. If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat this step for all repositories whose codespaces you want to access other repositories you own.
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace)"

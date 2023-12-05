@@ -17,8 +17,8 @@ import chalk from 'chalk'
 import yaml from 'js-yaml'
 
 import { updateInternalLinks } from '#src/links/lib/update-internal-links.js'
-import frontmatter from '../../../lib/read-frontmatter.js'
-import walkFiles from '../../../script/helpers/walk-files.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
+import walkFiles from '#src/workflows/walk-files.js'
 
 program
   .description('Update internal links in content files')
@@ -55,7 +55,7 @@ async function main(files, opts) {
         !(
           file.startsWith('content') ||
           file.startsWith('data') ||
-          file.startsWith('tests/fixtures')
+          file.startsWith('src/fixtures/fixtures')
         )
       ) {
         throw new Error(`${file} must be a content or data filepath`)

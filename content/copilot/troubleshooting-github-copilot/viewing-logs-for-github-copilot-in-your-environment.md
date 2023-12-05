@@ -64,6 +64,28 @@ If you find the log file doesn't contain enough information to resolve an issue,
 1. Keep using your IDE until you encounter the issue again, then collect the log file as described in "[Collecting log files](#collecting-log-files)."
 1. When you have the information you need, disable debug mode by removing `#com.github.copilot:trace` from the "Custom Debug Log Configuration" window.
 
+## Viewing network connectivity diagnostics logs
+
+If you encounter problems connecting to {% data variables.product.prodname_copilot%} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
+
+1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot%}**, and click **Log Diagnostics**.
+1. The `idea.log` file should open in the JetBrains IDE with the diagnostics output. Alternatively, you can open the `idea.log` file in your preferred editor.
+1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot%} can access the necessary services.
+
+## Troubleshooting certificate-related errors
+
+{% note %}
+
+**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
+
+{% endnote %}
+
+If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)". Then use the following troubleshooting steps.
+
+1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot%}**, and click **Log CA Certificates**.
+1. The `idea.log` file should open in the JetBrains IDE with the trusted CA certificates logged in PEM format. You may need to refresh the `idea.log` file to view all of the output. Alternatively, you can open the `idea.log` file in your preferred editor.
+1. Check to see if the expected custom certificate is included in the certificate list output.
+
 {% endjetbrains %}
 
 {% visualstudio %}
@@ -113,32 +135,13 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 
 {% note %}
 
-**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)."
+**Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
 
 {% endnote %}
 
-## Enabling debug mode
-
-If you find the log file doesn't contain enough information to resolve an issue, it may help to temporarily enable debug logging. This can be especially helpful for debugging network-related issues.
-
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} by pressing <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `settings`, then click **Preferences: Open User Settings (JSON)**.
-1. In the JSON object, insert the following content as a top-level property, then save the file.
-
-   ```json copy
-   "github.copilot.advanced": {
-      "debug.overrideLogLevels": {
-         "*": "DEBUG"
-      }
-   },
-   ```
-
-1. Keep using your IDE until you encounter the issue again, then collect the log file as described in "[Viewing and collecting log files](#viewing-and-collecting-log-files)."
-1. When you have the information you need, disable debug mode by removing the content you added to your settings.
-
 ## Viewing Electron logs
 
-In rare cases, errors might not be propagated to the corresponding error handlers and are not logged in the regular locations. If you encounter errors and there is nothing in the logs, you may try to see the logs from the process running VS Code and the extension.
+In rare cases, errors might not be propagated to the corresponding error handlers and are not logged in the regular locations. If you encounter errors and there is nothing in the logs, you may try to see the logs from the process running {% data variables.product.prodname_vscode_shortname %} and the extension.
 
 1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
    - For Mac:

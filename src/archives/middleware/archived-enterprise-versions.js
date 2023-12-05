@@ -7,19 +7,19 @@ import {
   deprecatedWithFunctionalRedirects,
   firstReleaseStoredInBlobStorage,
 } from '#src/versions/lib/enterprise-server-releases.js'
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
 import isArchivedVersion from '#src/archives/lib/is-archived-version.js'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
-} from '../../../middleware/set-fastly-surrogate-key.js'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import got from 'got'
-import { readCompressedJsonFileFallbackLazily } from '../../../lib/read-json-file.js'
-import { archivedCacheControl, languageCacheControl } from '../../../middleware/cache-control.js'
+import { readCompressedJsonFileFallbackLazily } from '#src/frame/lib/read-json-file.js'
+import { archivedCacheControl, languageCacheControl } from '#src/frame/middleware/cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '#src/languages/lib/languages.js'
 import getRedirect, { splitPathByLanguage } from '#src/redirects/lib/get-redirect.js'
-import getRemoteJSON from '../../../middleware/get-remote-json.js'
+import getRemoteJSON from '#src/frame/lib/get-remote-json.js'
 
 const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterprise'
 
@@ -67,7 +67,7 @@ const cacheAggressively = (res) => {
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in ./middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = { limit: 3 }
@@ -112,7 +112,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     })
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
-    if (newRedirectTo) {
+    if (newRedirectTo && newRedirectTo !== withoutLanguage) {
       if (redirectCode === 302) {
         languageCacheControl(res) // call first to get `vary`
       }

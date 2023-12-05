@@ -58,11 +58,11 @@ Repository owners who set up prebuilds for their repository can reduce the stora
 
 Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
 
-As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)."
+As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace#deleting-codespaces-in-your-organization)."
 
 {% note %}
 
-**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
 {% endnote %}
 

@@ -5,6 +5,7 @@ name: Azure - Destroy Preview Env
 # **Who does it impact**: All contributors.
 
 on:
+  # Required in lieu of `pull_request` so that PRs created from forks can destroy the preview environment.
   pull_request_target:
     types:
       - closed
@@ -70,8 +71,3 @@ jobs:
           # The token provided by the workflow does not have the permissions to delete created environments
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           environment: preview-env-${{ env.PR_NUMBER }}
-
-      - uses: ./.github/actions/slack-alert
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
