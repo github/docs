@@ -186,8 +186,7 @@ For example, you can make a GraphQL request to see all the new organization memb
 
 ### Using the REST API
 
-To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
+To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data. For more information about the specific events you can access using the REST API, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
 

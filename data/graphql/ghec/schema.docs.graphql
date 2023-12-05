@@ -2258,7 +2258,7 @@ type BranchProtectionRule implements Node {
   id: ID!
 
   """
-  Can admins overwrite branch protection.
+  Can admins override branch protection.
   """
   isAdminEnforced: Boolean!
 
@@ -6756,7 +6756,7 @@ input CreateBranchProtectionRuleInput {
   dismissesStaleReviews: Boolean
 
   """
-  Can admins overwrite branch protection.
+  Can admins override branch protection.
   """
   isAdminEnforced: Boolean
 
@@ -24070,7 +24070,7 @@ type Mutation {
   ): UpdateProjectColumnPayload
 
   """
-  Updates an existing project (beta).
+  Updates an existing project.
   """
   updateProjectV2(
     """
@@ -33948,7 +33948,7 @@ enum ProjectV2OrderField {
 }
 
 """
-Represents an owner of a project (beta).
+Represents an owner of a project.
 """
 interface ProjectV2Owner {
   """
@@ -39292,7 +39292,7 @@ input RefUpdate @preview(toggledBy: "update-refs-preview") {
 }
 
 """
-A ref update rules for a viewer.
+Branch protection rules that are enforced on the viewer.
 """
 type RefUpdateRule {
   """
@@ -56091,7 +56091,7 @@ input UpdateBranchProtectionRuleInput {
   dismissesStaleReviews: Boolean
 
   """
-  Can admins overwrite branch protection.
+  Can admins override branch protection.
   """
   isAdminEnforced: Boolean
 

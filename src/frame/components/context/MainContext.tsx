@@ -9,6 +9,7 @@ export type ProductT = {
   href: string
   id: string
   name: string
+  nameRendered: string
 }
 
 type VersionItem = {

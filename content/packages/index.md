@@ -1,6 +1,6 @@
 ---
-title: GitHub Packages documentation
-shortTitle: GitHub Packages
+title: "{% data variables.product.prodname_registry %} documentation"
+shortTitle: "{% data variables.product.prodname_registry %}"
 intro: 'Learn to safely publish and consume packages, store your packages alongside your code, and share your packages privately with your team or publicly with the open source community. You can also automate your packages with {% data variables.product.prodname_actions %}.'
 introLinks:
   quickstart: /packages/quickstart

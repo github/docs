@@ -20,6 +20,8 @@ topics:
   - User account
 shortTitle: Manage user suspension
 ---
+## About suspended users
+
 If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
 
 When you suspend a user, the change takes effect immediately with no notification to the user. If the user attempts to pull or push to a repository, they'll receive this error:
@@ -27,7 +29,8 @@ When you suspend a user, the change takes effect immediately with no notificatio
 ```shell
 $ git clone git@[hostname]:john-doe/test-repo.git
 Cloning into 'test-repo'...
-ERROR: Your account is suspended. Please check with your installation administrator.
+ERROR: Your account is suspended. Please check with 
+your installation administrator.
 fatal: The remote end hung up unexpectedly
 ```
 
@@ -39,7 +42,13 @@ Before suspending site administrators, you must demote them to regular users. Fo
 
 {% endtip %}
 
-## Suspending a user from the user admin dashboard
+## Viewing suspended users in the site admin dashboard
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. In the left sidebar, click **Suspended users**.
+1. A list of suspened users displays.
+
+## Suspending a user from the site admin dashboard
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -49,7 +58,7 @@ Before suspending site administrators, you must demote them to regular users. Fo
 1. In the "Log reason" field, type a reason to suspend the user.
 1. Click **Suspend**.
 
-## Unsuspending a user from the user admin dashboard
+## Unsuspending a user from the site admin dashboard
 
 As when suspending a user, unsuspending a user takes effect immediately. The user will not be notified.
 
