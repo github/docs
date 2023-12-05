@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
   - /admin/configuration/configuring-your-enterprise/configuring-applications
+  - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps
 versions:
   ghes: '*'
 type: how_to

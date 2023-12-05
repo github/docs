@@ -1,13 +1,7 @@
-date: '2023-11-14'
-release_candidate: true
-deprecated: true
+date: '2023-12-05'
+release_candidate: false
+deprecated: false
 intro: |
-  {% note %}
-
-  **Note:** Release candidate (RC) builds are intended solely for use in a test environment. If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
-  {% endnote %}
-
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
 sections:
@@ -211,6 +205,10 @@ sections:
     - |
       The speed of restoration operations with GitHub Enterprise Server Backup Utilities has increased.
 
+    # https://github.com/github/ghes/issues/6613
+    - |
+      Configuration runs now correspond with a unique ID. During the run, the log remains at `/data/user/common/ghe-config.log`. After the run, the instance rotates the log's contents into `/data/user/config-apply/logs/YYYYMMDD/ghe-config.HOSTNAME.ID.log`, where YYYYMMDD is the date of the run, HOSTNAME is the hostname of the node, and ID is the ID of the run. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-instance/about-system-logs#log-files-for-instance-configuration)."
+
     # https://github.com/github/releases/issues/3403
     - |
       Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names were changed in GitHub Enterprise Server 3.9 and 3.10. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
@@ -325,8 +323,16 @@ sections:
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
       {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
 
   deprecations:
+    # https://github.com/github/releases/issues/3259
+    - heading: Enterprise-level security overview is deprecated
+      notes:
+        - |
+          The enterprise-level "Security overview" page is deprecated in favor of the new "Security risk" and "Security coverage" pages. For more information, see "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)" and "[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)."
+
     # https://github.com/github/releases/issues/2605
     - heading: Dependabot updates no longer support Python 3.6 or 3.7
       notes:
