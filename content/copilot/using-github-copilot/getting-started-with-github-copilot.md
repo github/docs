@@ -1,8 +1,8 @@
 ---
 title: Getting started with GitHub Copilot
 shortTitle: Getting started
-intro: 'You can start using {% data variables.product.prodname_copilot %} by installing the extension in your preferred environment.'
-product: '{% data reusables.gated-features.copilot %}'
+intro: "You can start using {% data variables.product.prodname_copilot %} by installing the extension in your preferred environment."
+product: "{% data reusables.gated-features.copilot %}"
 redirect_from:
   - /copilot/getting-started-with-github-copilot
   - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
@@ -33,7 +33,9 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 ## Prerequisites
 
 {% data reusables.copilot.subscription-prerequisite %}
+
 - To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
+
   - IntelliJ IDEA (Ultimate, Community, Educational)
   - Android Studio
   - AppCode
@@ -83,8 +85,8 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 {% data reusables.copilot.supported-languages %} The following samples are in Java, but other languages will work similarly.
 
 {% data reusables.copilot.create-java-file %}
-1. In the Java file, create a class by typing `class Test`.
-   {% data variables.product.prodname_copilot %} will automatically suggest a class body in grayed text. The exact suggestion may vary.
+
+1. In the Java file, create a class by typing `class Test`. {% data variables.product.prodname_copilot %} will automatically suggest a class body in grayed text. The exact suggestion may vary.
 {% data reusables.copilot.accept-suggestion %}
 1. To prompt {% data variables.product.prodname_copilot %} to suggest a function body, type the following line below the bracket of the `main` function. The exact suggestion may vary.
 {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
@@ -97,27 +99,48 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 {% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-java-file %}
-1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
-{% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
-{% data reusables.copilot.see-alternative-suggestions %}
 
-   | OS | See next suggestion | See previous suggestion |
-   | :- | :- | :- |
-   | macOS | <kbd>Option</kbd>+<kbd>]</kbd> | <kbd>Option</kbd>+<kbd>[</kbd> |
-   | Windows | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
-   | Linux | <kbd>Alt</kbd>+<kbd>]</kbd> | <kbd>Alt</kbd>+<kbd>[</kbd> |
+1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
+   {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
+   {% data reusables.copilot.see-alternative-suggestions %}
+
+   | OS      | See next suggestion            | See previous suggestion        |
+   | :------ | :----------------------------- | :----------------------------- |
+   | macOS   | <kbd>Option</kbd>+<kbd>]</kbd> | <kbd>Option</kbd>+<kbd>[</kbd> |
+   | Windows | <kbd>Alt</kbd>+<kbd>]</kbd>    | <kbd>Alt</kbd>+<kbd>[</kbd>    |
+   | Linux   | <kbd>Alt</kbd>+<kbd>]</kbd>    | <kbd>Alt</kbd>+<kbd>[</kbd>    |
+
 {% data reusables.copilot.accept-or-reject-suggestion %}
+
+## Partially accepting suggestions
+
+You may not want to accept an entire suggestion from {% data variables.product.prodname_copilot %}. You can use keyboard shortcuts to accept either the next word of a suggestion, or the next line.
+{% data reusables.copilot.create-java-file %}
+
+1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
+   {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
+
+1. To accept a part of the suggestion, use one of the following keyboard shortcuts.
+   | OS | Accept Next Word | Accept Next Line |
+   | :- | :- | :- |
+   |macOS|<kbd>Command</kbd>+<kbd>→</kbd>|<kbd>Command</kbd>+<kbd>Control</kbd>+<kbd>→</kbd>|
+   |Windows|<kbd>Control</kbd>+<kbd>→</kbd>|<kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd>|
+   |Linux|<kbd>Control</kbd>+<kbd>→</kbd>|<kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>→</kbd>|
+
+1. Alternatively, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 
 ## Seeing multiple suggestions in a new tab
 
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-java-file %}
+
 1. To prompt {% data variables.product.prodname_copilot %} to show you a suggestion, type the following line in the Java file.
-{% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
+   {% indented_data_reference reusables.copilot.java-int-snippet spaces=3 %}
 1. Open a new tab with multiple additional suggestions.
-    - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> to open the new tab immediately.
-    - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
+
+   - On macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd>, then click **Open GitHub Copilot**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> to open the new tab immediately.
+   - On Windows or Linux, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>, then click **Open GitHub Copilot**.
 
 1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
 
@@ -126,13 +149,14 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-java-file %}
+
 1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
 
-    ```java copy
-    // find all images without alternate text
-    // and give them a red border
-    void process () {
-    ```
+   ```java copy
+   // find all images without alternate text
+   // and give them a red border
+   void process () {
+   ```
 
 ## Enabling and disabling {% data variables.product.prodname_copilot %}
 
@@ -172,11 +196,13 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
 
 {% data reusables.copilot.vs-extensions %}
+
 1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
 
    ![Screenshot of a list of search results. Next to the {% data variables.product.prodname_copilot %} extension, the "Download" button is highlighted with an orange outline.](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
 
 {% data reusables.copilot.vs-exit-and-relaunch %}
+
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
 
    ![Screenshot of a list of installed extensions in {% data variables.product.prodname_vs %}. The "{% data variables.product.prodname_copilot %}" extension is highlighted with an orange outline.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
@@ -190,6 +216,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.supported-languages %} The following samples are in C#, but other languages will work similarly.
 
 {% data reusables.copilot.create-c-file %}
+
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
 
    ```csharp copy
@@ -202,6 +229,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.alternative-suggestions %}
 {% data reusables.copilot.create-c-file %}
+
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
    ```csharp copy
@@ -210,13 +238,14 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>.</kbd> (or <kbd>Alt</kbd>+<kbd>,</kbd>).
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
-{% data reusables.copilot.accept-or-reject-suggestion %}
+   {% data reusables.copilot.accept-or-reject-suggestion %}
 
 ## Generating code suggestions from comments
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-c-file %}
+
 1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
 
    ```csharp copy
@@ -271,6 +300,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.supported-languages %} The following samples are in JavaScript, but other languages will work similarly.
 
 {% data reusables.copilot.create-js-file %}
+
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
 
    ```javascript copy
@@ -292,6 +322,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.alternative-suggestions %}
 
 {% data reusables.copilot.create-js-file %}
+
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
    ```javascript copy
@@ -300,19 +331,42 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.see-alternative-suggestions %}
 
-   | OS | See next suggestion | See previous suggestion |
-   | :- | :- | :- |
-   |macOS|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
-   |Windows|<kbd>Alt</kbd>+<kbd>]</kbd>|<kbd>Alt</kbd>+<kbd>[</kbd>|
-   |Linux|<kbd>Alt</kbd>+<kbd>]</kbd>|<kbd>Alt</kbd>+<kbd>[</kbd>|
+   | OS      | See next suggestion                       | See previous suggestion                   |
+   | :------ | :---------------------------------------- | :---------------------------------------- |
+   | macOS   | <kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd> | <kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd> |
+   | Windows | <kbd>Alt</kbd>+<kbd>]</kbd>               | <kbd>Alt</kbd>+<kbd>[</kbd>               |
+   | Linux   | <kbd>Alt</kbd>+<kbd>]</kbd>               | <kbd>Alt</kbd>+<kbd>[</kbd>               |
+
 1. Alternatively, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
+
+## Partially accepting suggestions
+
+You may not want to accept an entire suggestion from {% data variables.product.prodname_copilot %}. You can use keyboard shortcuts to accept either the next word of a suggestion, or the next line.
+{% data reusables.copilot.create-js-file %}
+
+1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+
+   ```javascript copy
+   function calculateDaysBetweenDates(begin, end) {
+   ```
+
+1. If you want to accept only the next word of the suggestion, use one of the following keyboard shortcuts.
+   | OS | Accept Next Word |
+   | :- | :- |
+   |macOS|<kbd>Command</kbd>+<kbd>→</kbd>|
+   |Windows|<kbd>Control</kbd>+<kbd>→</kbd>|
+   |Linux|<kbd>Control</kbd>+<kbd>→</kbd>|
+
+1. If you want to accept the next line of the suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment#using-or-rebinding-keyboard-shortcuts-for-github-copilot)."
+1. Alternatively, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 
 ## Seeing multiple suggestions in a new tab
 
 {% data reusables.copilot.suggestions-new-tab %}
 
 {% data reusables.copilot.create-js-file %}
+
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
    ```javascript copy
@@ -327,6 +381,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-js-file %}
+
 1. In the JavaScript file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
 
    ```javascript copy
@@ -340,6 +395,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 You can also use {% data variables.product.prodname_copilot %} to generate suggestions for APIs and frameworks. The following example uses {% data variables.product.prodname_copilot %} to create a simple Express server that returns the current time.
 
 {% data reusables.copilot.create-js-file %}
+
 1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
 
    ```javascript copy
@@ -376,45 +432,48 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 ## Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim on macOS
 
 {% data reusables.copilot.install-copilot-in-vimneovim %}
-   - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Terminal:
 
-         git clone https://github.com/github/copilot.vim \
-            ~/.vim/pack/github/start/copilot.vim
+- To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Terminal:
 
-   - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal:
+      git clone https://github.com/github/copilot.vim \
+         ~/.vim/pack/github/start/copilot.vim
 
-         git clone https://github.com/github/copilot.vim \
-            ~/.config/nvim/pack/github/start/copilot.vim
+- To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal:
+
+      git clone https://github.com/github/copilot.vim \
+         ~/.config/nvim/pack/github/start/copilot.vim
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim on Windows
 
 {% data reusables.copilot.install-copilot-in-vimneovim %}
-   - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Git Bash:
 
-           git clone https://github.com/github/copilot.vim.git \
-            $HOME/vimfiles/pack/github/start/copilot.vim
+- To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Git Bash:
 
-   - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Git Bash:
+        git clone https://github.com/github/copilot.vim.git \
+         $HOME/vimfiles/pack/github/start/copilot.vim
 
-           git clone https://github.com/github/copilot.vim.git \
-            $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
+- To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Git Bash:
+
+        git clone https://github.com/github/copilot.vim.git \
+         $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in Vim/Neovim on Linux
 
 {% data reusables.copilot.install-copilot-in-vimneovim %}
-   - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command:
 
-         git clone https://github.com/github/copilot.vim \
-            ~/.vim/pack/github/start/copilot.vim
+- To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command:
 
-   - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command:
+      git clone https://github.com/github/copilot.vim \
+         ~/.vim/pack/github/start/copilot.vim
 
-         git clone https://github.com/github/copilot.vim \
-            ~/.config/nvim/pack/github/start/copilot.vim
+- To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command:
+
+      git clone https://github.com/github/copilot.vim \
+         ~/.config/nvim/pack/github/start/copilot.vim
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
@@ -439,6 +498,7 @@ If you use Azure Data Studio, you can view and incorporate suggestions from {% d
 ## Prerequisites
 
 {% data reusables.copilot.subscription-prerequisite %}
+
 - To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must have Azure Data Studio version 1.44.0 or later installed. For more information, see the [Azure Data Studio download page](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) in the Azure Data Studio documentation.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in Azure Data Studio
@@ -464,6 +524,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data variables.product.prodname_copilot %} can provide you with inline suggestions as you create SQL databases in Azure Data Studio. For example, if you're writing a query that joins two tables, {% data variables.product.prodname_copilot_short %} may suggest the join condition from columns in the open editor, other files in the workspace, and common syntax patterns.
 
 {% data reusables.copilot.create-sql-file %}
+
 1. In the SQL file, type the following query. {% data variables.product.prodname_copilot %} will automatically suggest a join condition in grayed text. The exact suggestion may vary.
 
    ```sql copy
@@ -479,6 +540,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 For some suggestions, {% data variables.product.prodname_copilot %} may provide multiple alternatives. You can select which suggestion you want to use, or reject all suggestions.
 
 {% data reusables.copilot.create-sql-file %}
+
 1. In the SQL file, type the following query. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
    ```sql copy
@@ -489,17 +551,42 @@ For some suggestions, {% data variables.product.prodname_copilot %} may provide 
 
 1. Optionally, you can see alternative suggestions, if any are available.
 
-   | OS | See next suggestion | See previous suggestion |
-   | :- | :- | :- |
-   | Windows | <kbd>Alt</kbd>+<kbd>[</kbd> | <kbd>Alt</kbd>+<kbd>]</kbd> |
-   | Linux | <kbd>Alt</kbd>+<kbd>[</kbd> | <kbd>Alt</kbd>+<kbd>]</kbd> |
-   | macOS | <kbd>Option</kbd>+<kbd>[</kbd> | <kbd>Option</kbd>+<kbd>]</kbd> |
+   | OS      | See next suggestion            | See previous suggestion        |
+   | :------ | :----------------------------- | :----------------------------- |
+   | Windows | <kbd>Alt</kbd>+<kbd>[</kbd>    | <kbd>Alt</kbd>+<kbd>]</kbd>    |
+   | Linux   | <kbd>Alt</kbd>+<kbd>[</kbd>    | <kbd>Alt</kbd>+<kbd>]</kbd>    |
+   | macOS   | <kbd>Option</kbd>+<kbd>[</kbd> | <kbd>Option</kbd>+<kbd>]</kbd> |
+
+## Partially accepting suggestions
+
+You may not want to accept an entire suggestion from {% data variables.product.prodname_copilot %}. You can use keyboard shortcuts to accept either the next word of a suggestion, or the next line.
+{% data reusables.copilot.create-sql-file %}
+
+1. In the SQL file, type the following query. {% data variables.product.prodname_copilot %} will show you a suggestion.
+
+   ```sql copy
+   SELECT [UserId], [Red], [Orange], [Yellow], [Green], [Blue], [Purple], [Rainbow]
+   FROM [Tag].[Scoreboard]
+   INNER JOIN
+   ```
+
+1. If you want to accept only the next word of the suggestion, use one of the following keyboard shortcuts.
+
+   | OS      | Accept Next Word                |
+   | :------ | :------------------------------ |
+   | macOS   | <kbd>Command</kbd>+<kbd>→</kbd> |
+   | Windows | <kbd>Control</kbd>+<kbd>→</kbd> |
+   | Linux   | <kbd>Control</kbd>+<kbd>→</kbd> |
+
+1. If you want to accept the next line of the suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see "[Keyboard shortcuts in Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/keyboard-shortcuts)" in the Microsoft documentation.
+1. Alternatively, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 
 ## Generating code suggestions from comments
 
 {% data reusables.copilot.generating-suggestions-from-comments %}
 
 {% data reusables.copilot.create-sql-file %}
+
 1. In the SQL file, type the following query and comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the query.
 
    ```sql copy
