@@ -18,7 +18,9 @@ shortTitle: Authenticating
 
 Many REST API endpoints require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.
 
-You can authenticate your request by sending a token in the `Authorization` header of your request. In the following example, replace `YOUR-TOKEN` with a reference to your token:
+To authenticate your request, you will need to provide an authentication token with the required scopes or permissions. There a few different ways to get a token: You can create a {% data variables.product.pat_generic %}, generate a token with a {% data variables.product.prodname_github_app %}, or use the built-in `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow.
+
+After creating a token, you can authenticate your request by sending the token in the `Authorization` header of your request. For example, in the folllowing request, replace `YOUR-TOKEN` with a reference to your token:
 
 ```shell
 curl --request GET \
@@ -33,7 +35,11 @@ curl --request GET \
 
 {% endnote %}
 
-If you try to use a REST API endpoint without a token or with a token that has insufficient permissions, you will receive a `404 Not Found` or `403 Forbidden` response.
+### Failed login limit
+
+If you try to use a REST API endpoint without a token or with a token that has insufficient permissions, you will receive a `404 Not Found` or `403 Forbidden` response. Authenticating with invalid credentials will initially return a `401 Unauthorized` response.
+
+After detecting several requests with invalid credentials within a short period, the API will temporarily reject all authentication attempts for that user (including ones with valid credentials) with a `403 Forbidden` response. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
 
 ## Authenticating with a {% data variables.product.pat_generic %}
 
@@ -93,6 +99,50 @@ If you are the owner of a {% data variables.product.prodname_github_app %} or {%
 
 If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
 
+If this is not possible, you can store your token as a secret and use the name of your secret in your {% data variables.product.prodname_actions %} workflow. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+
+### Authenticating in a {% data variables.product.prodname_actions %} workflow using {% data variables.product.prodname_cli %}
+
+To make an authenticated request to the API in a {% data variables.product.prodname_actions %} workflow using {% data variables.product.prodname_cli %}, you can store the value of `GITHUB_TOKEN` as an environment variable, and use the `run` keyword to execute the {% data variables.product.prodname_cli %} `api` subcommand. For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+
+In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+
+```yaml
+jobs:
+  use_api:
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - env:
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+        run: |
+          gh api /PATH
+```
+
+### Authenticating in a {% data variables.product.prodname_actions %} workflow using `curl`
+
+To make an authenticated request to the API in a {% data variables.product.prodname_actions %} workflow using `curl`, you can store the value of `GITHUB_TOKEN` as an environment variable, and use the `run` keyword to execute a `curl` request to the API. For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+
+In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+
+```yaml copy
+jobs:
+  use_api:
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - env:
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+        run: |
+          curl --request GET \
+          --url "{% data variables.product.api_url_code %}/PATH" \
+          --header "Authorization: Bearer $GH_TOKEN"
+```
+
+### Authenticating in a {% data variables.product.prodname_actions %} workflow using JavaScript
+
+For an example of how to authenticate in a {% data variables.product.prodname_actions %} workflow using JavaScript, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript#authenticating-in-github-actions)."
+
 ## Authenticating with username and password
 
 {% ifversion ghes %}
@@ -114,4 +164,5 @@ Authentication with username and password is not supported. If you try to authen
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
+- "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)"

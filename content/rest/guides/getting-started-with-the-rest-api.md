@@ -1,5 +1,6 @@
 ---
 title: Getting started with the REST API
+shortTitle: Using the API
 intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST API.'
 versions:
   fpt: '*'
@@ -8,520 +9,359 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Using the API
 ---
 
-## About the {% data variables.product.prodname_dotcom %} REST API
+## Introduction
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or `curl`. For a quickstart guide, see "[AUTOTITLE](/rest/quickstart)."
+This article describes how to use the {% data variables.product.prodname_dotcom %} REST API with {% data variables.product.prodname_cli %}, `curl`, or JavaScript. For a quickstart guide, see "[AUTOTITLE](/rest/quickstart)."
 
-When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
+## About requests to the REST API
 
-The REST API reference documentation describes the HTTP method, path, and parameters for every operation. It also displays example requests and responses for each operation. For more information, see the [REST reference documentation](/rest).
+This section describes the elements that make up an API request:
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[AUTOTITLE](/rest/overview/about-githubs-apis)."
+- [HTTP method](#http-method)
+- [Path](#path)
+- [Headers](#headers)
+- [Media types](#media-types)
+- [Authentication](#authentication)
+- [Parameters](#parameters)
+
+Every request to the REST API includes an HTTP method and a path. Depending on the REST API endpoint, you might also need to specify request headers, authentication information, query parameters, or body parameters.
+
+The REST API reference documentation describes the HTTP method, path, and parameters for every endpoint. It also displays example requests and responses for each endpoint. For more information, see the [REST reference documentation](/rest).
+
+### HTTP method
+
+The HTTP method of an endpoint defines the type of action it performs on a given resource. Some common HTTP methods are `GET`, `POST`, `DELETE`, and `PATCH`. The REST API reference documentation provides the HTTP method for every endpoint.
+
+For example, the HTTP method for the ["List repository issues" endpoint]([AUTOTITLE](/rest/issues/issues#list-repository-issues) is `GET`."
+
+Where possible, the {% data variables.product.product_name %} REST API strives to use an appropriate HTTP method for each action.
+
+- `GET`: Used for retrieving resources.
+- `POST`: Used for creating resources.
+- `PATCH`: Used for updating properties of resources.
+- `PUT`: Used for replacing resources or collections of resources.
+- `DELETE`: Used for deleting resources.
+
+### Path
+
+Each endpoint has a path. The REST API reference documentation gives the path for every endpoint. For example, the path for the ["List repository issues" endpoint](/rest/issues/issues#list-repository-issues) is `/repos/{owner}/{repo}/issues`.
+
+The curly brackets `{}` in a path denote path parameters that you need to specify. Path parameters modify the endpoint path and are required in your request. For example, the path parameters for the ["List repository issues" endpoint](/rest/issues/issues#list-repository-issues) are `{owner}` and `{repo}`. To use this path in your API request, replace `{repo}` with the name of the repository where you would like to request a list of issues, and replace `{owner}` with the name of the account that owns the repository.
+
+### Headers
+
+Headers provide extra information about the request and the desired response. Following are some examples of headers that you can use in your requests to the {% data variables.product.prodname_dotcom %} REST API. For an example of a request that uses headers, see "[Making a request](#making-a-request)."
+
+#### `Accept`
+
+Most {% data variables.product.prodname_dotcom %} REST API endpoints specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. The value of the `Accept` header is a media type. For more information about media types, see "[Media types](#media-types)."
+
+{% ifversion api-date-versioning %}
+
+#### `X-GitHub-Api-Version`
+
+You should use this header to specify a version of the REST API to use for your request. For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
+
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+#### `User-Agent`
+
+All API requests must include a valid `User-Agent` header. The `User-Agent` header identifies the user or application that is making the request.
+
+{% cli %}
+
+By default, {% data variables.product.prodname_cli %} sends a valid `User-Agent` header. However,  {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
+
+{% endcli %}
+
+{% curl %}
+
+By default, `curl` sends a valid `User-Agent` header. However {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
+
+{% endcurl %}
+
+{% javascript %}
+
+If you use the Octokit.js SDK, the SDK will send a valid `User-Agent` header for you. However, {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
+
+{% endjavascript %}
+
+The following is an example `User-Agent` for an app named `Awesome-Octocat-App`:
+
+```shell
+User-Agent: Awesome-Octocat-App
+```
+
+Requests with no `User-Agent` header will be rejected. If you provide an invalid `User-Agent` header, you will receive a `403 Forbidden` response.
+
+{% endif %}
+
+<!-- Anchor to maintain links to this heading -->
+<a name="media-types"></a>
+
+### Media types
+
+You can specify one or more media types by adding them to the `Accept` header of your request. For more information about the `Accept` header, see "[`Accept`](#accept)."
+
+Media types specify the format of the data you want to consume from the API. Media types are specific to resources, allowing them to change independently and support formats that other resources don't. The documentation for each {% data variables.product.prodname_dotcom %} REST API endpoint will describe the media types that it supports. For more information, see the "[AUTOTITLE](/rest)."
+
+The most common media types supported by the {% data variables.product.prodname_dotcom %} REST API are `application/vnd.github+json` and `application/json`.
+
+There are other custom media types that you can use with some endpoints. For example, some endpoints support the media types `full`, `raw`, `text`, or `html`. And the REST API to manage [commits](/rest/commits/commits#get-a-commit) and [pull requests](/rest/pulls/pulls) support the media types `diff`, `patch`, and `sha`.
+
+All custom media types for {% data variables.product.product_name %} look like this: `application/vnd.github.PARAM+json`, where `PARAM` is the name of the media type. For example, to specify the `raw` media type, you would use `application/vnd.github.raw+json`.
+
+For an example of a request that uses media types, see "[Making a request](#making-a-request)."
+
+### Authentication
+
+Many endpoints require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.
+
+{% curl %}
+
+To authenticate your request, you will need to provide an authentication token with the required scopes or permissions. There a few different ways to get a token: You can create a {% data variables.product.pat_generic %}, generate a token with a {% data variables.product.prodname_github_app %}, or use the built-in `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow. For more information, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
+
+For an example of a request that uses an authentication token, see "[Making a request](#making-a-request)."
+
+{% note %}
+
+**Note:** If you don't want to create a token, you can use {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} will take care of authentication for you, and help keep your account secure. For more information, see the [{% data variables.product.prodname_cli %} version of this page](/rest/guides/getting-started-with-the-rest-api?tool=cli).
+
+{% endnote %}
+
+{% warning %}
+
+**Warning:** Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+
+{% endwarning %}
+
+{% endcurl %}
+
+{% cli %}
+
+Although some REST API endpoints are accessible without authentication, {% data variables.product.prodname_cli %} requires you to authenticate before you can use the `api` subcommand to make an API request. Use the `auth login` subcommand to authenticate to {% data variables.product.product_name %}. For more information, see "[Making a request](#making-a-request)."
+
+{% endcli %}
+
+{% javascript %}
+
+To authenticate your request, you will need to provide an authentication token with the required scopes or permissions. There a few different ways to get a token: You can create a {% data variables.product.pat_generic %}, generate a token with a {% data variables.product.prodname_github_app %}, or use the built-in `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow. For more information, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
+
+For an example of a request that uses an authentication token, see "[Making a request](#making-a-request)."
+
+{% warning %}
+
+**Warning:** Treat your access token the same way you would treat your passwords or other sensitive credentials. For more information, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+
+{% endwarning %}
+
+{% endjavascript %}
+
+### Parameters
+
+Many API methods require or allow you to send additional information in parameters in your request. There are a few different types of parameters: Path parameters, body parameters, and query parameters.
+
+#### Path parameters
+
+Path parameters modify the endpoint path. These parameters are required in your request. For more information, see "[Path](#path)."
+
+#### Body parameters
+
+Body parameters allow you to pass additional data to the API. These parameters can be optional or required, depending on the endpoint. For example, a body parameter may allow you to specify an issue title when creating a new issue, or specify certain settings when enabling or disabling a feature. The documentation for each {% data variables.product.prodname_dotcom %} REST API endpoint will describe the body parameters that it supports. For more information, see the "[AUTOTITLE](/rest)."
+
+For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) requires that you specify a title for the new issue in your request. It also allows you to optionally specify other information, such as text to put in the issue body, users to assign to the new issue, or labels to apply to the new issue. For an example of a request that uses body parameters, see "[Making a request](#making-a-request)."
+
+You must authenticate your request to pass body parameters. For more information, see "[Authenticating](#authenticating)."
+
+#### Query parameters
+
+Query parameters allow you to control what data is returned for a request. These parameters are usually optional. The documentation for each {% data variables.product.prodname_dotcom %} REST API endpoint will describe any query parameters that it supports. For more information, see the "[AUTOTITLE](/rest)."
+
+For example, the ["List public events" endpoint](/rest/activity/events#list-public-events) returns thirty issues by default. You can use the `per_page` query parameter to return two issues instead of 30. You can use the `page` query parameter to fetch only the first page of results. For an example of a request that uses query parameters, see "[Making a request](#making-a-request)."
 
 ## Making a request
 
-To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[AUTOTITLE](/rest/meta#get-octocat)."
-
 {% cli %}
 
-{% note %}
+This section demonstrates how to make an authenticated request to the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}.
 
-**Note**: You must install {% data variables.product.prodname_cli %} in order to use the commands in the {% data variables.product.prodname_cli %} examples. For installation instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+### 1. Setup
 
-{% endnote %}
+Install {% data variables.product.prodname_cli %} on macOS, Windows, or Linux. For more information, see [Installation](https://github.com/cli/cli#installation) in the {% data variables.product.prodname_cli %} repository.
 
-If you are not already authenticated to {% data variables.product.prodname_cli %}, you must use the `gh auth login` subcommand to authenticate before making any requests. For more information, see "[Authenticating](#authenticating)."
+### 2. Authenticate
 
-To make a request using {% data variables.product.prodname_cli %}, use the `api` subcommand along with the path. Use the `--method` or `-X` flag to specify the method.
+1. Authenticate with {% data variables.product.company_short %} by running this command from your terminal.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. For example, `octo-inc.ghe.com`.{% endif %}
 
-```shell
-gh api /octocat --method GET
+   {%- ifversion ghes or ghae %}
+
+   ```shell copy
+   gh auth login --hostname HOSTNAME
+   ```
+
+   {%- else %}
+
+   ```shell copy
+   gh auth login
+   ```
+
+   {%- endif %}
+
+   You can use the `--scopes` option to specify what scopes you want. If you want to authenticate with a token that you created, you can use the `--with-token` option. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
+
+1. Follow the on-screen prompts.
+
+   {% data variables.product.prodname_cli %} automatically stores your Git credentials for you when you choose HTTPS as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.prodname_dotcom %} credentials. This can be useful as it allows you to use Git commands like `git push` and `git pull` without needing to set up a separate credential manager or use SSH.
+
+### 3. Choose an endpoint for your request
+
+1. Choose an endpoint to make a request to. You can explore {% data variables.product.product_name %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.product_name %}.
+1. Identify the HTTP method and path of the endpoint. You will send these with your request. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
+
+   For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the HTTP method `POST` and the path `/repos/{owner}/{repo}/issues`.
+
+1. Identify any required path parameters. Required path parameters appear in curly brackets `{}` in the path of the endpoint. Replace each parameter placeholder with the desired value. For more information, see "[Path](#path)."
+
+   For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the path `/repos/{owner}/{repo}/issues`, and the path parameters are `{owner}` and `{repo}`. To use this path in your API request, replace `{repo}` with the name of the repository where you would like to create a new issue, and replace `{owner}` with the name of the account that owns the repository.
+
+### 4. Make a request with {% data variables.product.prodname_cli %}
+
+Use the {% data variables.product.prodname_cli %} `api` subcommand to make your API request. For more information, see the [{% data variables.product.prodname_cli %} `api` documentation](https://cli.github.com/manual/gh_api).
+
+In your request, specify the following options and values:
+
+- **--method** followed by the HTTP method and the path of the endpoint. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
+- **--header**:
+  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."{% ifversion api-date-versioning %}
+  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."{% endif %}
+- **`-f`** or **`-F`** followed by any body parameters or query parameters in `key=value` format. Use the `-F` option to pass a parameter that is a number, Boolean, or null. Use the `-f` option to pass string parameters.
+
+  Some endpoints use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
+
+  If you do not need to specify any body parameters or query parameters in your request, omit this option. For more information, see "[Body parameters](#body-parameters)" and "[Query parameters](#query-parameters)." For examples, see "[Example request using body parameters](#example-request-using-body-parameters)" and "[Example request using query parameters](#example-request-using-query-parameters)."
+
+#### Example request
+
+The following example request uses the ["Get Octocat" endpoint](/rest/meta/meta#get-octocat) to return the octocat as ASCII art.
+
+```shell copy
+gh api --method GET /octocat \
+--header 'Accept: application/vnd.github+json' \
+--header "X-GitHub-Api-Version: 2022-11-28"
+```
+
+#### Example request using query parameters
+
+The ["List public events" endpoint](/rest/activity/events#list-public-events) returns thirty issues by default. The following example uses the `per_page` query parameter to return two issues instead of 30, and the `page` query parameter to fetch only the first page of results.
+
+```shell copy
+gh api --method GET /events -F per_page=2 -F page=1
+--header 'Accept: application/vnd.github+json' \
+```
+
+#### Example request using body parameters
+
+The following example uses the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) to create a new issue in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes or ghae %} Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} In the response, find the `html_url` of your issue, and navigate to your issue in the browser.
+
+```shell copy
+gh api --method POST /repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
+--header "Accept: application/vnd.github+json" \
+--header "X-GitHub-Api-Version: 2022-11-28" \
+-f title='Created with the REST API' \
+-f body='This is a test issue created by the REST API' \
 ```
 
 {% endcli %}
 
-{% javascript %}
-
-{% note %}
-
-**Note**: You must install and import `octokit` in order to use the Octokit.js library used in the JavaScript examples. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-
-{% endnote %}
-
-To make a request using JavaScript, you can use Octokit.js. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
-
-First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
-
-```javascript
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
-  baseUrl: "{% data variables.product.api_url_code %}",
-{% endif %}});
-```
-
-Then, use the `request` method to make requests. Pass the HTTP method and path as the first argument.
-
-```javascript
-await octokit.request("GET /octocat", {});
-```
-
-{% endjavascript %}
-
 {% curl %}
 
-Prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `{% data variables.product.api_url_code %}`, to the path to get the full URL: `{% data variables.product.api_url_code %}/octocat`.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+This section demonstrates how to make an authenticated request to the {% data variables.product.prodname_dotcom %} REST API using `curl`.
 
-Use the `curl` command in your command line. Use the `--request` or `-X` flag followed by the HTTP method. Use the `--url` flag followed by the full URL.
+### 1. Setup
 
-```shell
-curl --request GET \
---url "https://api.github.com/octocat"
-```
+You must have `curl` installed on your machine. To check if `curl` is already installed, run `curl --version` on the command line.
 
-{% note %}
+- If the output provides information about the version of `curl`, that means `curl` is installed.
+- If you get a message similar to `command not found: curl`, that means `curl` is not installed. Download and install `curl`. For more information, see [the curl download page](https://curl.se/download.html).
 
-**Note**: If you get a message similar to "command not found: curl", you may need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
+### 2. Choose an endpoint for your request
 
-{% endnote %}
+1. Choose an endpoint to make a request to. You can explore {% data variables.product.product_name %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.product_name %}.
+1. Identify the HTTP method and path of the endpoint. You will send these with your request. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
 
-{% endcurl %}
+   For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the HTTP method `POST` and the path `/repos/{owner}/{repo}/issues`.
 
-Continue reading to learn how to authenticate, send parameters, and use the response.
+1. Identify any required path parameters. Required path parameters appear in curly brackets `{}` in the path of the endpoint. Replace each parameter placeholder with the desired value. For more information, see "[Path](#path)."
 
-## Authenticating
+   For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the path `/repos/{owner}/{repo}/issues`, and the path parameters are `{owner}` and `{repo}`. To use this path in your API request, replace `{repo}` with the name of the repository where you would like to create a new issue, and replace `{owner}` with the name of the account that owns the repository.
 
-Many operations require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.{% cli %} Although some REST API operations are accessible without authentication, you must authenticate to {% data variables.product.prodname_cli %} in order to use the `api` subcommand.{% endcli %}
+### 3. Create authentication credentials
 
-### About tokens
+Create an access token to authenticate your request. You can save your token and use it for multiple requests. Give the token any scopes or permissions that are required to access the endpoint. You will send this token in an `Authorization` header with your request. For more information, see "[Authentication](#authentication)."
 
-You can authenticate your request by adding a token.
+### 4. Make a `curl` request
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+Use the `curl` command to make your request. For more information, see [the curl documentation](https://curl.se/docs/manpage.html).
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)", "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app), and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
+Specify the following options and values in your request:
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+- **`--request` or `-X`** followed by the HTTP method as the value. For more information, see "[HTTP method](#http-method)."
+- **`--url`** followed by the full path as the value. The full path is a URL that includes the base URL for the GitHub REST API (`https://api.github.com`) and the path of the endpoint, like this: `{% data variables.product.api_url_code %}/PATH`.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `PATH` with the path of the endpoint. For more information, see "[Path](#path)."
 
-For more information about best practices you can use to keep your tokens secure, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+  To use query parameters, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`. If you need to send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`. For more information, see "[Query parameters](#query-parameters)." For an example, see "[Example request using query parameters](#example-request-using-query-parameters-1)."
+- **`--header` or `-H`**:
+  - **`Accept`**: Pass the media type in an `Accept` header. To pass multiple media types in an `Accept` header, separate the media types with a comma, for example: `Accept: application/vnd.github+json,application/vnd.github.diff`. For more information, see "[`Accept`](#accept)" and "[Media types](#media-types)."{% ifversion api-date-versioning %}
+  - **`X-GitHub-Api-Version`**: Pass the API version in a `X-GitHub-Api-Version` header. For more information, see "[`X-GitHub-Api-Version`](#x-github-api-version)."{% endif %}
+  - **`Authorization`**: Pass your authentication token in an `Authorization` header. Note that in most cases you can use `Authorization: Bearer` or `Authorization: token` to pass a token. However, if you are passing a JSON web token (JWT), you must use `Authorization: Bearer`. For more information, see "[Authentication](#authentication)." For an example of a request that uses an `Authorization` header, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
+- **`--data` or `-d`** followed by any body parameters within a JSON object. If you do not need to specify any body parameters in your request, omit this option. For more information, see "[Body parameters](#body-parameters)." For an example, see "[Example request using body parameters](#example-request-using-body-parameters-1)."
 
-### Authentication example
+#### Example request
 
-{% cli %}
+The following example request uses the ["Get Octocat" endpoint](/rest/meta/meta#get-octocat) to return the octocat as ASCII art.
 
-With {% data variables.product.prodname_cli %}, you don't need to create an access token in advance. Use the `auth login` subcommand to authenticate to {% data variables.product.prodname_cli %}:
-
-```shell
-gh auth login
-```
-
-You can use the `--scopes` flag to specify what scopes you want. If you want to authenticate with a token that you created, you can use the `--with-token` flag. For more information, see the [{% data variables.product.prodname_cli %} `auth login` documentation](https://cli.github.com/manual/gh_auth_login).
-
-{% endcli %}
-
-{% javascript %}
-
-{% warning %}
-
-**Warning**: Treat your access token like a password.
-
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
-
-If these options are not possible, consider using another CLI service to store your token securely.
-
-{% endwarning %}
-
-To authenticate with the Octokit.js library, you can pass your token when you create an instance of `Octokit`. Replace `YOUR-TOKEN` with your token.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
-
-```javascript
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
-  auth: 'YOUR-TOKEN',
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-{% warning %}
-
-**Warning**: Treat your access token like a password.
-
-To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of `curl` commands. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
-
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
-
-If these options are not possible, consider using another CLI service to store your token securely.
-
-{% endwarning %}
-
-In `curl` commands, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
-
-```shell
-curl --request GET \
---url "https://api.github.com/octocat" \
---header "Authorization: Bearer YOUR-TOKEN"
-```
-
-{% note %}
-
-**Note:** {% data reusables.getting-started.bearer-vs-token %}
-
-{% endnote %}
-
-{% endcurl %}
-
-### Authentication example for {% data variables.product.prodname_actions %}
-
-{% cli %}
-
-You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
-
-Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-
-```yaml
-jobs:
-  use_api:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-        run: |
-          gh api /octocat
-```
-
-{% endcli %}
-
-{% javascript %}
-
-You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
-
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-
-The following example workflow:
-
-1. Checks out the repository content
-1. Sets up Node.js
-1. Installs `octokit`
-1. Stores the value of `GITHUB_TOKEN` as an environment variable called `TOKEN` and runs `.github/actions-scripts/use-the-api.mjs`, which can access that environment variable as `process.env.TOKEN`
-
-Example workflow:
-
-```yaml
-on:
-  workflow_dispatch:
-jobs:
-  use_api_via_script:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - name: Check out repo content
-        uses: {% data reusables.actions.action-checkout %}
-
-      - name: Setup Node
-        uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '16.17.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install octokit
-
-      - name: Run script
-        env:
-          TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-        run: |
-          node .github/actions-scripts/use-the-api.mjs
-```
-
-Example JavaScript script, with the file path `.github/actions-scripts/use-the-api.mjs`:
-
-```javascript
-import { Octokit } from "octokit";
-
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
-  auth: process.env.TOKEN,
-});
-
-await octokit.request("GET /octocat", {});
-```
-
-Instead of storing your script in a separate file and executing the script from your workflow, you can use the `actions/github-script` action to run a script. For more information, see the [actions/github-script README](https://github.com/actions/github-script).
-
-```yaml
-jobs:
-  use_api_via_script:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - uses: {% data reusables.actions.action-github-script %}
-        with:
-          github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-          script: |
-            await github.request('GET /octocat', {})
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-You can also use the `run` keyword to execute `curl` commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
-
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-
-```yaml
-jobs:
-  use_api:
-    runs-on: ubuntu-latest
-    permissions: {}
-    steps:
-      - env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-        run: |
-          curl --request GET \
-          --url "https://api.github.com/octocat" \
-          --header "Authorization: Bearer $GH_TOKEN"
-```
-
-{% endcurl %}
-
-## Using headers
-
-Most operations specify that you should pass an `Accept` header with a value of `application/vnd.github+json`. Other operations may specify that you should send a different `Accept` header or additional headers.
-
-{% cli %}
-
-To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
-
-```shell
-gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versioning %} --header 'X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}'{% endif %} --method GET /octocat
-```
-
-{% endcli %}
-
-{% javascript %}
-
-The Octokit.js library automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument to the `request` method. The value of the `headers` property is an object with the header names as keys and header values as values. For example, to send a `content-type` header with a value of `text/plain`:
-
-```javascript
-await octokit.request("GET /octocat", {
-  headers: {
-    "content-type": "text/plain",{% ifversion api-date-versioning %}
-    "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
-  },
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-To send a header in a `curl` command, use the `--header` or `-H` flag followed by the header in `key: value` format.
-
-```shell
+```shell copy
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
---header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--header "X-GitHub-Api-Version: 2022-11-28"
 ```
 
-{% endcurl %}
+#### Example request using query parameters
 
-## Using path parameters
+The ["List public events" endpoint](/rest/activity/events#list-public-events) returns thirty issues by default. The following example uses the `per_page` query parameter to return two issues instead of 30, and the `page` query parameter to fetch only the first page of results.
 
-Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[AUTOTITLE](/rest/issues/issues#list-repository-issues)."
-
-{% cli %}
-
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** In order for this command to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, rerun the `gh auth login` command to authenticate to {% data variables.product.prodname_dotcom_the_website %} instead of {% data variables.location.product_location %}.
-
-{% endnote %}
-{% endif %}
-
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`.
-
-```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues
-```
-
-{% endcli %}
-
-{% javascript %}
-
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** In order for this example to work for {% data variables.location.product_location %}, replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}. Otherwise, create a new `Octokit` instance and do not specify `baseURL`.
-
-{% endnote %}
-{% endif %}
-
-When you make a request with Octokit.js, all parameters, including path parameters, are passed in an object as the second argument to the `request` method. To get issues from the `octocat/Spoon-Knife` repository, specify `owner` as `octocat` and `repo` as `Spoon-Knife`.
-
-```javascript
-await octokit.request("GET /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife"
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-To get issues from the `octocat/Spoon-Knife` repository, replace `{owner}` with `octocat` and `{repo}` with `Spoon-Knife`. To build the full path, prepend the base URL for the {% data variables.product.prodname_dotcom %} REST API, `https://api.github.com`: `https://api.github.com/repos/octocat/Spoon-Knife/issues`.
-
-{% ifversion ghes or ghae %}
-{% note %}
-
-**Note:** If you want to use {% data variables.location.product_location %} instead of {% data variables.product.prodname_dotcom_the_website %}, use `{% data variables.product.api_url_code %}` instead of `https://api.github.com` and replace `[hostname]` with the name of {% data variables.location.product_location %}. Replace `octocat/Spoon-Knife` with a repository owned by {% data variables.location.product_location %}.
-
-{% endnote %}
-{% endif %}
-
-```shell
+```shell copy
 curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
+--url "{% data variables.product.api_url_code %}/events?per_page=2&page=1" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"
+--header "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/events
 ```
 
-{% endcurl %}
+#### Example request using body parameters
 
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
-
-## Using query parameters
-
-Query parameters allow you to control what data is returned for a request. For example, a query parameter may let you specify how many items are returned when the response is paginated.
-
-By default, the "List repository issues" operation returns thirty issues, sorted in descending order by the date they were created. You can use the `per_page` parameter to return two issues instead of 30. You can use the `sort` parameter to sort the issues by the date they were last updated instead of by the date they were created. You can use the `direction` parameter to sort the results in ascending order instead of descending order.
-
-{% cli %}
-
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
-
-```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 -f sort=updated -f direction=asc
-```
-
-Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
-
-{% note %}
-
-In order to use {% data variables.product.prodname_cli %} with query parameters that are arrays, you must use {% data variables.product.prodname_cli %} version 2.31.0 or greater. For upgrade instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
-
-{% endnote %}
-
-{% endcli %}
-
-{% javascript %}
-
-When you make a request with Octokit.js, all parameters, including query parameters, are passed in an object as the second argument to the `request` method.
-
-```javascript
-await octokit.request("GET /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife",
-  per_page: 2,
-  sort: "updated",
-  direction: "asc",
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-For `curl` commands, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
-
-```shell
-curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2&sort=updated&direction=asc" \
---header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"
-```
-
-Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`.
-
-{% endcurl %}
-
-The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
-
-## Using body parameters
-
-Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[AUTOTITLE](/rest/issues/issues#create-an-issue)."
-
-The "Create an issue" operation uses the same path as the "List repository issues" operation in the examples above, but it uses a `POST` method instead of a `GET` method.
-
-{% cli %}
-
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters. If the parameter is an array, you must append `[]` to the parameter name.
-
-{% note %}
-
-In order to use {% data variables.product.prodname_cli %} with body parameters that are arrays, you must use {% data variables.product.prodname_cli %} version 2.21.0 or greater. For upgrade instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
-
-{% endnote %}
-
-```shell
-gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API" -f "labels[]=bug"
-```
-
-{% endcli %}
-
-{% javascript %}
+The following example uses the "[Create an issue](/rest/issues/issues#create-an-issue)" endpoint to create a new issue in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-NAME` with the name of the repository where you want to create a new issue, and replace `REPO-OWNER` with the name of the account that owns the repository.{% endif %} Replace `YOUR-TOKEN` with the authentication token you created in a previous step.
 
 {% ifversion pat-v2 %}
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+**Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes or ghae %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% endnote %}
 
 {% endif %}
 
-When you make a request with Octokit.js, all parameters, including body parameters, are passed in an object as the second argument to the `request` method.
-
-```javascript
-await octokit.request("POST /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife",
-  title: "Created with the REST API",
-  body: "This is a test issue created by the REST API",
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-{% ifversion pat-v2 %}
-
-{% note %}
-
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-
-{% endnote %}
-
-{% endif %}
-
-For `curl` commands, use the `--data` flag to pass the body parameters in a JSON object.
-
-```shell
-curl --request POST \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
---header "Accept: application/vnd.github+json" \
+```shell copy
+curl \
+--request POST \
+--url "{% data variables.product.api_url_code %}/repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues" \
+--header "Accept: application/vnd.github+json" \{% ifversion api-date-versioning %}
+--header "X-GitHub-Api-Version: 2022-11-28" \{% endif %}
 --header "Authorization: Bearer YOUR-TOKEN" \
 --data '{
   "title": "Created with the REST API",
@@ -531,9 +371,87 @@ curl --request POST \
 
 {% endcurl %}
 
-The operation creates an issue and returns data about the new issue. In the response, find the `html_url` of your issue and navigate to your issue in the browser. For more information about using the response, see the "[Using the response](#using-the-response)" section.
+{% javascript %}
+
+This section demonstrates how to make a request to the {% data variables.product.prodname_dotcom %} REST API using JavaScript and [Octokit.js](https://github.com/octokit/octokit.js). For a more detailed guide, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
+
+### 1. Setup
+
+You must install `octokit` to use the Octokit.js library shown in the following examples.
+
+- Install `octokit`. For example, `npm install octokit`. For other ways to install or load `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+
+### 2. Choose an endpoint for your request
+
+1. Choose an endpoint to make a request to. You can explore {% data variables.product.product_name %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.product_name %}.
+1. Identify the HTTP method and path of the endpoint. You will send these with your request. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
+
+   For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the HTTP method `POST` and the path `/repos/{owner}/{repo}/issues`.
+
+1. Identify any required path parameters. Required path parameters appear in curly brackets `{}` in the path of the endpoint. Replace each parameter placeholder with the desired value. For more information, see "[Path](#path)."
+
+   For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the path `/repos/{owner}/{repo}/issues`, and the path parameters are `{owner}` and `{repo}`. To use this path in your API request, replace `{repo}` with the name of the repository where you would like to create a new issue, and replace `{owner}` with the name of the account that owns the repository.
+
+### 3. Create an access token
+
+Create an access token to authenticate your request. You can save your token and use it for multiple requests. Give the token any scopes or permissions that are required to access the endpoint. You will send this token in an `Authorization` header with your request. For more information, see "[Authentication](#authentication)."
+
+### 4. Make a request with Octokit.js
+
+1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+1. Create an instance of `Octokit` with your token.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `YOUR-TOKEN` with your token.
+
+   ```javascript copy
+   const octokit = new Octokit({ {% ifversion ghes or ghae %}
+     baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+     auth: 'YOUR-TOKEN'
+   });
+   ```
+
+1. Use `octokit.request` to execute your request.
+
+   - Send the HTTP method and path as the first argument to the `request` method. For more information, see "[HTTP method](#http-method)" and "[Path](#path)."
+   - Specify all path, query, and body parameters in an object as the second argument to the `request` method. For more information, see "[Parameters](#parameters)."
+
+   In the following example request, the HTTP method is `POST`, the path is `/repos/{owner}/{repo}/issues`, the path parameters are `owner: "{% ifversion ghes or ghae %}REPO-OWNER{% else %}octocat{% endif %}"` and `repo: "{% ifversion ghes or ghae %}REPO-NAME{% else %}Spoon-Knife{% endif %}"`, and the body parameters are `title: "Created with the REST API"` and `body: "This is a test issue created by the REST API"`.{% ifversion ghes or ghae %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
+
+   {% ifversion pat-v2 %}
+
+   {% note %}
+
+   **Note**: If you are using a {% data variables.product.pat_v2 %}, you must replace `{% ifversion ghes or ghae %}REPO-OWNER` and `REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+   {% endnote %}
+
+   {% endif %}
+
+   ```javascript copy
+   await octokit.request("POST /repos/{owner}/{repo}/issues", {
+     owner: "{% ifversion ghes or ghae %}REPO-OWNER{% else %}octocat{% endif %}",
+     repo: "{% ifversion ghes or ghae %}REPO-NAME{% else %}Spoon-Knife{% endif %}",
+     title: "Created with the REST API",
+     body: "This is a test issue created by the REST API",
+   });
+   ```
+
+   The `request` method automatically passes the `Accept: application/vnd.github+json` header. To pass additional headers or a different `Accept` header, add a `headers` property to the object that is passed as a second argument. The value of the `headers` property is an object with the header names as keys and header values as values.
+
+   For example, the following code will send a `content-type` header with a value of `text/plain`{% ifversion api-date-versioning %} and a `X-GitHub-Api-Version` header with a value of `{{ allVersions[currentVersion].latestApiVersion }}`{% endif %}.
+
+   ```javascript copy
+   await octokit.request("GET /octocat", {
+     headers: {
+       "content-type": "text/plain",{% ifversion api-date-versioning %}
+       "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
+     },
+   });
+   ```
+
+{% endjavascript %}
 
 ## Using the response
+
+After you make a request, the API will return the response status code, response headers, and potentially a response body.
 
 ### About the response code and headers
 
@@ -543,15 +461,18 @@ Additionally, the response will include headers that give more details about the
 
 {% cli %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+To view the status code and headers, use the `--include` or `--i` option when you send your request.
 
-For example, this request:
+For example, this request gets a list of issues in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository:
 
 ```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 --include
+gh api \
+--header 'Accept: application/vnd.github+json' \
+--method GET /repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues \
+-F per_page=2 --include
 ```
 
-returns the response code and headers like:
+And it returns a response code and headers that look something like this:
 
 ```shell
 HTTP/2.0 200 OK
@@ -593,11 +514,13 @@ When you make a request with Octokit.js, the `request` method returns a promise.
 
 You can use a `try/catch` block to catch an error if it occurs. For example, if the request in the following script is successful, the script will log the status code and the value of the `x-ratelimit-remaining` header. If the request was not successful, the script will log the status code, the value of the `x-ratelimit-remaining` header, and the error message.
 
-```javascript
+In the following example, replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.
+
+```javascript copy
 try {
   const result = await octokit.request("GET /repos/{owner}/{repo}/issues", {
-    owner: "octocat",
-    repo: "Spoon-Knife",
+    owner: "REPO-OWNER",
+    repo: "REPO-NAME",
     per_page: 2,
   });
 
@@ -612,19 +535,19 @@ try {
 
 {% curl %}
 
-To view the status code and headers, use the `--include` or `--i` flag when you send your request.
+To view the status code and headers, use the `--include` or `--i` option when you send your request.
 
-For example, this request:
+For example, this request gets a list of issues in {% ifversion ghes or ghae %}a specified{% else %}the octocat/Spoon-Knife{% endif %} repository:
 
 ```shell
 curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
+--url "https://api.github.com/repos/{% ifversion ghes or ghae %}REPO-OWNER/REPO-NAME{% else %}octocat/Spoon-Knife{% endif %}/issues?per_page=2" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN" \
 --include
 ```
 
-returns the response code and headers like:
+And it returns a response code and headers that look something like this:
 
 ```shell
 HTTP/2 200
@@ -660,52 +583,24 @@ In this example, the response code is `200`, which indicates a successful reques
 
 ### About the response body
 
-Many operations will return a response body. Unless otherwise specified, the response body is in JSON format. For example, this request returns a list of issues with data about each issue:
-
-{% cli %}
-
-```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2
-```
-
-{% endcli %}
-
-{% javascript %}
-
-```javascript
-await octokit.request("GET /repos/{owner}/{repo}/issues", {
-  owner: "octocat",
-  repo: "Spoon-Knife",
-  per_page: 2,
-});
-```
-
-{% endjavascript %}
-
-{% curl %}
-
-```shell
-curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
---header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"
-```
-
-{% endcurl %}
+Many endpoints will return a response body. Unless otherwise specified, the response body is in JSON format. Blank fields are included as `null` instead of being omitted. All timestamps return in UTC time, ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
 
 Unlike the GraphQL API where you specify what information you want, the REST API typically returns more information than you need. If desired, you can parse the response to pull out specific pieces of information.
 
 {% cli %}
 
-For example, you can use `>` to redirect the response to a file:
+For example, you can use `>` to redirect the response to a file. In the following example, replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.
 
-```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 > data.json
+```shell copy
+gh api \
+--header 'Accept: application/vnd.github+json' \
+--method GET /repos/REPO-OWNER/REPO-NAME/issues \
+-F per_page=2 > data.json
 ```
 
 Then you can use jq to get the title and author ID of each issue:
 
-```shell
+```shell copy
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
@@ -728,13 +623,13 @@ For more information about jq, see [the jq documentation](https://stedolan.githu
 
 {% javascript %}
 
-For example, you can get the title and author ID of each issue:
+For example, you can get the title and author ID of each issue. In the following example, replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.
 
-```javascript
+```javascript copy
 try {
   const result = await octokit.request("GET /repos/{owner}/{repo}/issues", {
-    owner: "octocat",
-    repo: "Spoon-Knife",
+    owner: "REPO-OWNER",
+    repo: "REPO-NAME",
     per_page: 2,
   });
 
@@ -751,18 +646,18 @@ try {
 
 {% curl %}
 
-For example, you can use `>` to redirect the response to a file:
+For example, you can use `>` to redirect the response to a file. In the following example, replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
-```shell
+```shell copy
 curl --request GET \
---url "https://api.github.com/repos/octocat/Spoon-Knife/issues?per_page=2" \
+--url "{% data variables.product.api_url_code %}/repos/REPO-OWNER/REPO-NAME/issues?per_page=2" \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN" > data.json
 ```
 
 Then you can use jq to get the title and author ID of each issue:
 
-```shell
+```shell copy
 jq '.[] | {title: .title, authorID: .user.id}' data.json
 ```
 
@@ -783,8 +678,22 @@ For more information about jq, see [the jq documentation](https://stedolan.githu
 
 {% endcurl %}
 
+#### Detailed versus summary representations
+
+A response can include all attributes for a resource or only a subset of attributes, depending on whether you fetch an individual resource or a list of resources.
+
+- When you fetch an _individual resource_, like a specific repository, the response will typically include all attributes for that resource. This is the "detailed" representation of the resource.
+- When you fetch a _list of resources_, like a list of multiple repositories, the response will only include a subset of the attributes for each resource. This is the "summary" representation of the resource.
+
+Note that authorization sometimes influences the amount of detail included in a representation.
+
+The reason for this is because some attributes are computationally expensive for the API to provide, so {% data variables.product.prodname_dotcom %} excludes those attributes from the summary representation. To obtain those attributes, you can fetch the detailed representation.
+
+The documentation provides an example response for each API method. The example
+response illustrates all attributes that are returned by that method.
+
 ## Next steps
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[AUTOTITLE](/rest/issues#create-an-issue-comment)" and "[AUTOTITLE](/rest/issues/issues#update-an-issue)."
+This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information, see the ["Create an issue comment" endpoint](/rest/issues#create-an-issue-comment) and the ["Update an issue" endpoint](/rest/issues/issues#update-an-issue).
 
-For more information about the operations that you can use, see the [REST reference documentation](/rest).
+For more information about other endpoints that you can use, see the [REST reference documentation](/rest).
