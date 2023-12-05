@@ -1,4 +1,4 @@
----
+---pull 
 title: Authenticating with a GitHub App on behalf of a user
 shortTitle: Authenticate on behalf of users
 intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
@@ -20,7 +20,7 @@ topics:
 
 Your app can make API requests on behalf of a user. API requests made by an app on behalf of a user will be attributed to that user. For example, if your app posts a comment on behalf of a user, the {% data variables.product.company_short %} UI will show the user's avatar photo along with the app's identicon badge as the author of the issue.
 
-![Screenshot of a comment that has a user avatar with an overlaid app identicon badge. The avatar is highlighted with an orange outline.](/assets/images/help/apps/github-app-acting-on-your-behalf.png)
+{{![Screenshot of a comment that has a user avatar with an overlaid app identicon badge. The avatar is highlighted with an orange outline.](/assets/images/help/apps/github-app-acting-on-your-behalf.png)}}
 
 Similarly, if the request triggers a corresponding entry in the audit logs and security logs, the logs will list the user as the actor but will state that the "programmatic_access_type" is "GitHub App user-to-server token".
 
@@ -32,7 +32,7 @@ Once a user has authorized your app, you can generate a user access token, which
 
 Requests made with a user access token are sometimes called "user-to-server" requests.
 
-If you want to attribute app activity to the app instead of to a user, you should authenticate as an app installation instead. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
+""If you want to attribute app activity to the app instead of to a user, you should authenticate as an app installation instead. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."""{{}}
 
 {% note %}
 
