@@ -162,7 +162,7 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 
 ## Search for my issues and pull requests
 
-To quickly view your issues and pull requests, navigate to the respective links from your GitHub dashboard. More advanced search options are available with `@me`, either by using the global search bar, or by filtering results from an individual repository. Any qualifier that accepts a username will allow you to limit your search to issues and pull requests you have created or have interacted with. To do so, follow the desired qualifier with `@me`.
+You can search for issues and pull requests you have created or have interacted with by following the desired qualifier with `@me`. Any qualifier that works with a username allows you to limit your search to issues and pull requests you created, are assigned, mentioned on, or are requested as a reviewer of.
 
 | Qualifier        | Example
 | ------------- | -------------
