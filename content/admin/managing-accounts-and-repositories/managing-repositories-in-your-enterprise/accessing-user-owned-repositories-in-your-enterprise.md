@@ -8,7 +8,7 @@ type: how_to
 topics:
   - Enterprise
   - Repositories
-shortTitle: Access user-owned repos
+shortTitle: Access user-owned repositories
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise
 ---

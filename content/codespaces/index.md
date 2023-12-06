@@ -1,6 +1,6 @@
 ---
-title: GitHub Codespaces documentation
-shortTitle: GitHub Codespaces
+title: "{% data variables.product.prodname_codespaces %} documentation"
+shortTitle: "{% data variables.product.prodname_codespaces %}"
 intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
 introLinks:
   overview: /codespaces/overview

@@ -2295,6 +2295,11 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards"
   },
   {
+    "action": "organization_role.assign",
+    "description": "An organization role was assigned to a user or team.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
+  },
+  {
     "action": "organization_role.create",
     "description": "A custom organization role was created in an organization.",
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
@@ -2302,6 +2307,11 @@
   {
     "action": "organization_role.destroy",
     "description": "A custom organization role was deleted in an organization.",
+    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
+  },
+  {
+    "action": "organization_role.revoke",
+    "description": "A user or team was unassigned an organization role.",
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
