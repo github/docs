@@ -46,7 +46,7 @@ When an app acts on your behalf, it will attribute the activity to you in conjun
 
 ![Screenshot of a comment that has a user avatar with an overlaid app identicon badge. The avatar is highlighted with an orange outline.](/assets/images/help/apps/github-app-acting-on-your-behalf.png)
 
-Similarly, if the activity triggers a corresponding entry in the audit logs and security logs, the logs will list you as the actor but will state that the "programmatic_access_type" is "GitHub App user-to-server token".
+Similarly, if the activity triggers a corresponding entry in the audit logs and security logs, the logs will list you as the actor but will state that the "programmatic_access_type" is "GitHub App user-to-server token" or "OAuth access token".
 
 ## Difference between authorization and installation
 
