@@ -31,18 +31,18 @@ topics:
 
 {% data variables.product.prodname_dotcom %} generates and displays dependency data differently than other tools. Consequently, if you've been using another tool to identify dependencies you will almost certainly see different results. Consider the following:
 
-*   {% data variables.product.prodname_advisory_database %} is one of the data sources that {% data variables.product.prodname_dotcom %} uses to identify vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. It's a free, curated database of security advisories for common package ecosystems on {% data variables.product.prodname_dotcom %}. It includes both data reported directly to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_security_advisories %}, as well as official feeds and community sources. This data is reviewed and curated by {% data variables.product.prodname_dotcom %} to ensure that false or unactionable information is not shared with the development community. {% data reusables.security-advisory.link-browsing-advisory-db %}
-*   The dependency graph parses all known package manifest files in a user’s repository. For example, for npm it will parse the _package-lock.json_ file. It constructs a graph of all of the repository’s dependencies and public dependents. This happens when you enable the dependency graph and when anyone pushes to the default branch, and it includes commits that makes changes to a supported manifest format. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)" and "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)."
-*   {% data variables.product.prodname_dependabot %} scans any push, to the default branch, that contains a manifest file. When a new advisory is added, it scans all existing repositories and generates an alert for each repository that is affected. {% data variables.product.prodname_dependabot_alerts %} are aggregated at the repository level, rather than creating one alert per advisory. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-*   {% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. Where possible, {% data variables.product.prodname_dependabot %} creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors)."
-  
+- {% data variables.product.prodname_advisory_database %} is one of the data sources that {% data variables.product.prodname_dotcom %} uses to identify vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. It's a free, curated database of security advisories for common package ecosystems on {% data variables.product.prodname_dotcom %}. It includes both data reported directly to {% data variables.product.prodname_dotcom %} from {% data variables.product.prodname_security_advisories %}, as well as official feeds and community sources. This data is reviewed and curated by {% data variables.product.prodname_dotcom %} to ensure that false or unactionable information is not shared with the development community. {% data reusables.security-advisory.link-browsing-advisory-db %}
+- The dependency graph parses all known package manifest files in a user’s repository. For example, for npm it will parse the _package-lock.json_ file. It constructs a graph of all of the repository’s dependencies and public dependents. This happens when you enable the dependency graph and when anyone pushes to the default branch, and it includes commits that makes changes to a supported manifest format. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)" and "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)."
+- {% data variables.product.prodname_dependabot %} scans any push, to the default branch, that contains a manifest file. When a new advisory is added, it scans all existing repositories and generates an alert for each repository that is affected. {% data variables.product.prodname_dependabot_alerts %} are aggregated at the repository level, rather than creating one alert per advisory. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+- {% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. Where possible, {% data variables.product.prodname_dependabot %} creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors)."
+
     {% endif %}{% data variables.product.prodname_dependabot %} doesn't scan repositories on a schedule, but rather when something changes. For example, a scan is triggered when a new dependency is added ({% data variables.product.prodname_dotcom %} checks for this on every push), or when a new advisory is added to the database{% ifversion ghes or ghae %} and synchronized to {% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts#detection-of-insecure-dependencies)."
 
 ## Do {% data variables.product.prodname_dependabot_alerts %} only relate to insecure dependencies in manifests and lockfiles?
 
 {% data variables.product.prodname_dependabot_alerts %} advise you about dependencies you should update, including transitive dependencies, where the version can be determined from a manifest or a lockfile. {% ifversion fpt or ghec or ghes %}{% data variables.product.prodname_dependabot_security_updates %} only suggest a change where {% data variables.product.prodname_dependabot %} can directly "fix" the dependency, that is, when these are:
-* Direct dependencies explicitly declared in a manifest or lockfile
-* Transitive dependencies declared in a lockfile{% endif %}
+- Direct dependencies explicitly declared in a manifest or lockfile
+- Transitive dependencies declared in a lockfile{% endif %}
 
 **Check**: Is the uncaught vulnerability for a component that's not specified in the repository's manifest or lockfile?
 
@@ -58,7 +58,7 @@ It's worth noting that security advisories may exist for other ecosystems. The i
 
 The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include advisories for security risks in the supported ecosystems, starting from 2017. When adding CVEs to the database, we prioritize curating newer CVEs, and CVEs affecting newer versions of software.
 
-Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}. 
+Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}.
 
 **Check**: Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
 
@@ -69,6 +69,7 @@ Some third-party tools use uncurated CVE data that isn't checked or filtered by 
 Since {% data variables.product.prodname_dependabot %} uses curated data in the {% data variables.product.prodname_advisory_database %}, the volume of alerts may be lower, but the alerts you do receive will be accurate and relevant.
 
 {% ifversion fpt or ghec %}
+
 ## Does each insecure dependency generate a separate alert?
 
 When a dependency has multiple vulnerabilities, an alert is generated for each vulnerability at the level of advisory plus manifest.
@@ -85,6 +86,7 @@ The {% data variables.product.prodname_dependabot_alerts %} count in {% data var
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Can Dependabot ignore specific dependencies?
 
 You can configure {% data variables.product.prodname_dependabot %} to ignore specific dependencies in the configuration file, which will prevent security and version updates for those dependencies. If you only wish to use security updates, you will need to override the default behavior with a configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file)" to prevent version updates from being activated. For information about ignoring dependencies, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."

@@ -15,7 +15,6 @@ topics:
 shortTitle: Deploy with GitHub Actions
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -61,7 +60,7 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trig
 
 ## Using concurrency
 
-Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time.
+Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information about concurrency, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 
 {% note %}
 
@@ -157,7 +156,7 @@ You can also build an app that uses deployment and deployment status webhooks to
 
 ## Choosing a runner
 
-You can run your deployment workflow on {% data variables.product.company_short %}-hosted runners or on self-hosted runners. Traffic from {% data variables.product.company_short %}-hosted runners can come from a [wide range of network addresses](/rest/meta#get-github-meta-information). If you are deploying to an internal environment and your company restricts external traffic into private networks, {% data variables.product.prodname_actions %} workflows running on {% data variables.product.company_short %}-hosted runners may not be able to communicate with your internal services or resources. To overcome this, you can host your own runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
+You can run your deployment workflow on {% data variables.product.company_short %}-hosted runners or on self-hosted runners. Traffic from {% data variables.product.company_short %}-hosted runners can come from a [wide range of network addresses](/rest/meta#get-github-meta-information). If you are deploying to an internal environment and your company restricts external traffic into private networks, {% data variables.product.prodname_actions %} workflows running on {% data variables.product.company_short %}-hosted runners may not be able to communicate with your internal services or resources. To overcome this, you can host your own runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."
 
 {% endif %}
 

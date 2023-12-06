@@ -11,8 +11,7 @@ versions:
   ghec: '*'
 type: reference
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About Dockerfile instructions
@@ -63,7 +62,7 @@ ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
 
  To supply `args` defined in the action's metadata file to a Docker container that uses the _exec_ form in the `ENTRYPOINT`, we recommend creating a shell script called `entrypoint.sh` that you call from the `ENTRYPOINT` instruction:
 
-#### Example *Dockerfile*
+#### Example _Dockerfile_
 
 ```dockerfile
 # Container image that runs your code
@@ -76,11 +75,11 @@ COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
-#### Example *entrypoint.sh* file
+#### Example _entrypoint.sh_ file
 
 Using the example Dockerfile above, {% data variables.product.product_name %} will send the `args` configured in the action's metadata file as arguments to `entrypoint.sh`. Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
 
-``` sh
+```shell
 #!/bin/sh
 
 # `$#` expands to the number of arguments and `$@` expands to the supplied `args`
@@ -90,13 +89,14 @@ printf '\n'
 ```
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
-  ``` sh
-  chmod +x entrypoint.sh
-  ```
+
+```shell
+chmod +x entrypoint.sh
+```
 
 When an `ENTRYPOINT` shell script is not executable, you'll receive an error similar to this:
 
-``` sh
+```shell
 Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "exec: \"/entrypoint.sh\": permission denied": unknown
 ```
 

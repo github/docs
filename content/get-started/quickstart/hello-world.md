@@ -20,10 +20,10 @@ This tutorial teaches you {% data variables.product.product_name %} essentials l
 
 In this quickstart guide, you will:
 
-* Create and use a repository
-* Start and manage a new branch
-* Make changes to a file and push them to {% data variables.product.product_name %} as commits
-* Open and merge a pull request
+- Create and use a repository
+- Start and manage a new branch
+- Make changes to a file and push them to {% data variables.product.product_name %} as commits
+- Open and merge a pull request
 
 To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
 
@@ -50,17 +50,17 @@ When you create a branch off the `main` branch, you're making a copy, or snapsho
 
 This diagram shows:
 
-* The `main` branch
-* A new branch called `feature`
-* The journey that `feature` takes before it's merged into `main`
+- The `main` branch
+- A new branch called `feature`
+- The journey that `feature` takes before it's merged into `main`
 
-![branching diagram](/assets/images/help/repository/branching.png)
+![Diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes," and is then merged back into main.](/assets/images/help/repository/branching.png)
 
 Have you ever saved different versions of a file? Something like:
 
-* `story.txt`
-* `story-edit.txt`
-* `story-edit-reviewed.txt`
+- `story.txt`
+- `story-edit.txt`
+- `story-edit-reviewed.txt`
 
 Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
 
@@ -71,12 +71,20 @@ Here at {% data variables.product.product_name %}, our developers, writers, and 
 1. Click the **Code** tab of your `hello-world` repository.
 1. Above the file list, click the dropdown menu that says **main**.
 
+{% ifversion global-nav-update %}
+
+   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
+
+{% else %}
+
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
+
+{% endif %}
+
 1. Type a branch name, `readme-edits`, into the text box.
 1. Click **Create branch: readme-edits from main**.
 
    ![Screenshot of the branch dropdown for a repository. "Create branch: readme-edits from 'main'" is outlined in dark orange.](/assets/images/help/repository/new-branch.png)
-
 Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
 
 ## Making and committing changes
@@ -88,6 +96,7 @@ You can make and save changes to the files in your repository. On {% data variab
 1. Under the `readme-edits` branch you created, click the _README.md_ file.
 1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
 1. In the editor, write a bit about yourself. Try using different Markdown elements.
+{% ifversion code-search-code-view %}1. Click **Commit changes...**.{% endif %}
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
 
@@ -106,16 +115,16 @@ By using {% data variables.product.product_name %}'s `@mention` feature in your 
 You can even open pull requests in your own repository and merge them yourself. It's a great way to learn the {% data variables.product.product_name %} flow before working on larger projects.
 
 1. Click the **Pull requests** tab of your `hello-world` repository.
-2. Click **New pull request**
-3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
-4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
+1. Click **New pull request**
+1. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
+1. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
 
    ![Screenshot of a diff for the README.md file. 3 red lines list the text that's being removed, and 3 green lines list the text being added.](/assets/images/help/repository/diffs.png)
 
-5. Click **Create pull request**.
-6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
-7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-7. Click **Create pull request**.
+1. Click **Create pull request**.
+1. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
+1. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**, **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+1. Click **Create pull request**.
 
 Your collaborators can now review your edits and make suggestions.
 
@@ -137,10 +146,10 @@ By completing this tutorial, you've learned to create a project and make a pull 
 
 Here's what you accomplished in this tutorial:
 
-* Created an open source repository
-* Started and managed a new branch
-* Changed a file and committed those changes to {% data variables.product.product_name %}
-* Opened and merged a pull request
+- Created an open source repository
+- Started and managed a new branch
+- Changed a file and committed those changes to {% data variables.product.product_name %}
+- Opened and merged a pull request
 
 Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
 

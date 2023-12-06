@@ -15,8 +15,7 @@ topics:
   - CI
   - Xcode
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -36,11 +35,11 @@ You should have an understanding of Xcode app building and signing. For more inf
 
 The signing process involves storing certificates and provisioning profiles, transferring them to the runner, importing them to the runner's keychain, and using them in your build.
 
-To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 Create secrets in your repository or organization for the following items:
 
-* Your Apple signing certificate.
+- Your Apple signing certificate.
 
   - This is your `p12` certificate file. For more information on exporting your signing certificate from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
   
@@ -51,10 +50,11 @@ Create secrets in your repository or organization for the following items:
     ```shell
     base64 -i BUILD_CERTIFICATE.p12 | pbcopy
     ```
-* The password for your Apple signing certificate.
+
+- The password for your Apple signing certificate.
   - In this example, the secret is named `P12_PASSWORD`.
 
-* Your Apple provisioning profile.
+- Your Apple provisioning profile.
 
   - For more information on exporting your provisioning profile from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
 
@@ -66,7 +66,7 @@ Create secrets in your repository or organization for the following items:
     base64 -i PROVISIONING_PROFILE.mobileprovision | pbcopy
     ```
 
-* A keychain password.
+- A keychain password.
 
   - A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named `KEYCHAIN_PASSWORD`.
 
@@ -74,7 +74,7 @@ Create secrets in your repository or organization for the following items:
 
 This example workflow includes a step that imports the Apple certificate and provisioning profile from the {% data variables.product.prodname_dotcom %} secrets, and installs them on the runner.
 
-```yaml{:copy}
+```yaml copy
 name: App build
 on: push
 
@@ -117,6 +117,12 @@ jobs:
         ...
 ```
 
+{% note %}
+
+**Note:** For iOS build targets, your provisioning profile should have the extension `.mobileprovision`. For macOS build targets, the extension should be  `.provisionprofile`. The example workflow above should be updated to reflect your target platform.
+
+{% endnote %}
+
 ## Required clean-up on self-hosted runners
 
 {% data variables.product.prodname_dotcom %}-hosted runners are isolated virtual machines that are automatically destroyed at the end of the job execution. This means that the certificates and provisioning profile used on the runner during the job will be destroyed with the runner when the job is completed.
@@ -126,6 +132,7 @@ On self-hosted runners, the `$RUNNER_TEMP` directory is cleaned up at the end of
 If you use self-hosted runners, you should add a final step to your workflow to help ensure that these sensitive files are deleted at the end of the job. The workflow step shown below is an example of how to do this.
 
 {% raw %}
+
 ```yaml
 - name: Clean up keychain and provisioning profile
   if: ${{ always() }}
@@ -133,4 +140,5 @@ If you use self-hosted runners, you should add a final step to your workflow to 
     security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
     rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
 ```
+
 {% endraw %}

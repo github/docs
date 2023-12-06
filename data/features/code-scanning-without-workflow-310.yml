@@ -1,0 +1,7 @@
+# Reference: #9106 for language picker
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.9'
+  ghae: '> 3.9'

@@ -1,0 +1,1 @@
+You can also set projects in your organization as templates that other organization members can then use as the base for the projects they create. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-project-templates-in-your-organization)."

@@ -1,0 +1,80 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+.header {
+  display: unset;
+}
+
+// Need children of portal root to be higher z-index to show dropdown
+.portalRoot * {
+  z-index: 3 !important;
+}
+
+// Contains the search input, language picker, and sign-up button.  When the
+// search input is open and up to sm (where the language picker and sign-up
+// button are hidden) we need to take up almost all the header width but then at
+// md and above we don't want the search input to take up the header width.
+.widgetsContainer {
+  width: 100%;
+
+  @include breakpoint(md) {
+    width: auto;
+  }
+}
+
+// Contains the search input and used when the smaller width search input UI is
+// closed to hide the full width input, but as the width increases to md and
+// above we show the search input along the other UI widgets (the menu button,
+// the language picker, etc.)
+.searchContainerWithClosedSearch {
+  display: none;
+
+  @include breakpoint(md) {
+    display: block;
+  }
+}
+
+// Contains the search input and used when the smaller width search input UI is
+// open and we set it full width but as the browser width increases to md and
+// above we don't take up the whole width anymore since we now show other UI
+// widgets.
+.searchContainerWithOpenSearch {
+  width: 100%;
+  margin-right: -1px;
+
+  @include breakpoint(md) {
+    width: auto;
+  }
+}
+
+// Contains the logo and version picker and used when the smaller width search
+// input UI is closed.
+.logoWithClosedSearch {
+  display: flex;
+  align-items: center;
+  color: var(--color-bg-default);
+}
+
+// Contains the logo and version picker and used when the smaller width search
+// input UI is open (where we don't show the logo or version picker).  As the
+// width increases to md and above and search no longer takes up the whole header
+// width, we show the logo and version picker.
+.logoWithOpenSearch {
+  display: none;
+
+  @include breakpoint(md) {
+    display: flex;
+    align-items: center;
+    color: var(--color-bg-default);
+  }
+}
+
+// Prevent the ... menu from still showing if someone opens it and then widens
+// their browser to lg.
+.menuOverlay {
+  min-width: 20rem;
+
+  @include breakpoint(lg) {
+    display: none;
+  }
+}

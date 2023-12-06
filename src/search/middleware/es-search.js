@@ -20,12 +20,14 @@ function getClient() {
     node: ELASTICSEARCH_URL,
     // The default is 30,000ms but we noticed that the median time is about
     // 100-150ms with some occasional searches taking multiple seconds.
-    // The default `maxRetries` is 5 which is a sensible number.
+    // The default `maxRetries` is 3 which is a sensible number.
     // If a query gets stuck, it's better to (relatively) quickly give up
     // and retry. So if it takes longer than this time here, we're banking on
     // that it was just bad luck and that it'll work if we simply try again.
     // See internal issue #2318.
-    requestTimeout: 1000,
+    requestTimeout: 1900,
+    // It's important that requestTimeout * maxRetries is less than 10 seconds.
+    maxRetries: 5,
   })
 }
 
@@ -89,30 +91,28 @@ export async function getSearchResults({
   const highlight = getHighlightConfiguration(query, highlightFields)
 
   const searchQuery = {
+    index: indexName,
     highlight,
     from,
     size,
 
-    // COMMENTED out because of ES 7.11.
-    // Once we're on ES >7.11  we can add this option in.
-    // // Since we know exactly which fields from the source we're going
-    // // need we can specify that here. It's an inclusion list.
-    // // We can save precious network by not having to transmit fields
-    // // stored in Elasticsearch to here if it's not going to be needed
-    // // anyway.
-    // _source_includes: [
-    //   'title',
-    //   'url',
-    //   'breadcrumbs',
-    //   // 'headings'
-    //   'popularity',
-    // ],
+    // Since we know exactly which fields from the source we're going
+    // need we can specify that here. It's an inclusion list.
+    // We can save precious network by not having to transmit fields
+    // stored in Elasticsearch to here if it's not going to be needed
+    // anyway.
+    _source_includes: ['title', 'url', 'breadcrumbs', 'popularity'],
   }
 
-  // See note above why this is excluded in ES 7.11
-  // if (includeTopics) {
-  //   searchQuery._source_includes.push('topics')
-  // }
+  if (includeTopics) {
+    searchQuery._source_includes.push('topics')
+  }
+
+  for (const key of ['intro', 'headings']) {
+    if (include.includes(key)) {
+      searchQuery._source_includes.push(key)
+    }
+  }
 
   if (sort === 'best') {
     // To sort by a function score, you need to wrap the primary
@@ -151,11 +151,10 @@ export async function getSearchResults({
     throw new Error(`Unrecognized sort enum '${sort}'`)
   }
 
-  const result = await client.search({ index: indexName, body: searchQuery })
+  const result = await client.search(searchQuery)
 
-  // const hitsAll = result.hits  // ES >7.11
-  const hitsAll = result.body // ES <=7.11
-  const hits = getHits(hitsAll.hits.hits, {
+  const hitsAll = result.hits
+  const hits = getHits(hitsAll.hits, {
     indexName,
     debug,
     includeTopics,
@@ -165,9 +164,9 @@ export async function getSearchResults({
   const t1 = new Date()
 
   const meta = {
-    found: hitsAll.hits.total,
+    found: hitsAll.total,
     took: {
-      query_msec: hitsAll.took,
+      query_msec: result.took,
       total_msec: t1.getTime() - t0.getTime(),
     },
     page,
@@ -233,7 +232,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
           },
         },
         { [matchPhraseStrategy]: { headings: { boost: BOOST_PHRASE * BOOST_HEADINGS, query } } },
-      ]
+      ],
     )
     // If the content is short, it is given a disproportionate advantage
     // in search ranking. For example, our category and map-topic pages
@@ -251,7 +250,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
               content_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE, query },
             },
           },
-        ]
+        ],
       )
     }
   }
@@ -304,7 +303,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
               content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' },
             },
           },
-        ]
+        ],
       )
     }
     matchQueries.push(
@@ -321,7 +320,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
         { [matchStrategy]: { title: { boost: BOOST_TITLE, query } } },
         { [matchStrategy]: { headings: { boost: BOOST_HEADINGS, query } } },
         { [matchStrategy]: { content: { boost: BOOST_CONTENT, query } } },
-      ]
+      ],
     )
   }
 
@@ -376,7 +375,7 @@ function getHits(hits, { indexName, debug, includeTopics, highlightFields, inclu
     //   }
     // even if there was a match on 'title'.
     const hitHighlights = Object.fromEntries(
-      highlightFields.map((key) => [key, (hit.highlight && hit.highlight[key]) || []])
+      highlightFields.map((key) => [key, (hit.highlight && hit.highlight[key]) || []]),
     )
 
     const result = {
@@ -412,6 +411,10 @@ function getHighlightConfiguration(query, highlights) {
   const fields = {}
   if (highlights.includes('title')) {
     fields.title = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh',
       fragment_size: 200,
       number_of_fragments: 1,
     }
@@ -423,6 +426,10 @@ function getHighlightConfiguration(query, highlights) {
     // The 'no_match_size' is so we can display *something* for the
     // preview if there was no highlight match at all within the content.
     fields.content = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh', //
       fragment_size: 150,
       number_of_fragments: 1,
       no_match_size: 150,

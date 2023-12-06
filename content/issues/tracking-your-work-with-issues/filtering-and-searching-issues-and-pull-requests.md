@@ -63,9 +63,9 @@ You can filter issues and pull requests to find:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Above the list, select the **Filters** dropdown menu, then click the type of filter you're interested in.
+1. Above the list, select the **Filters** dropdown menu, then click the type of filter you're interested in.
 
-  ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues_filter_dropdown.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues-filter-dropdown.png)
 
 ## Filtering issues and pull requests by assignees
 
@@ -75,7 +75,7 @@ Once you've [assigned an issue or pull request to someone](/issues/tracking-your
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Above the list of issues or pull requests, select the **Assignee** dropdown menu.
 
-   ![Screenshot of a list of issues. In the header above the list, a dropdown menu, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/issues_assignee_dropdown.png)
+   ![Screenshot of a list of issues. In the header above the list, a dropdown menu, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/issues-assignee-dropdown.png)
 1. The Assignee drop-down menu lists everyone who has write access to your repository. Click the name of the person whose assigned items you want to see, or click **Assigned to nobody** to see which issues are unassigned.
 
 {% tip %}
@@ -91,7 +91,7 @@ Once you've [applied labels to an issue or pull request](/issues/using-labels-an
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. In the list of labels, click a label.
+1. In the list of labels, click a label.
 
 {% tip %}
 
@@ -130,7 +130,7 @@ You can use advanced filters to search for issues and pull requests that meet sp
 
 The issues and pull requests search bar allows you to define your own custom filters and sort by a wide variety of criteria. You can find the search bar on each repository's **Issues** and **Pull requests** tabs and on your [Issues and Pull requests dashboards](/issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests).
 
-![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in dark orange.](/assets/images/help/issues/issues_search_bar.png)
+![Screenshot of the list of issues for a repository. Above the list, a search field, containing the query "is:issue is:open", is outlined in dark orange.](/assets/images/help/issues/issues-search-bar.png)
 
 {% tip %}
 
@@ -201,19 +201,19 @@ Filters can be sorted to provide better information during a specific time perio
 
 You can sort any filtered view by:
 
-* The newest created issues or pull requests
-* The oldest created issues or pull requests
-* The most commented issues or pull requests
-* The least commented issues or pull requests
-* The newest updated issues or pull requests
-* The oldest updated issues or pull requests
-* The most added reaction on issues or pull requests
+- The newest created issues or pull requests
+- The oldest created issues or pull requests
+- The most commented issues or pull requests
+- The least commented issues or pull requests
+- The newest updated issues or pull requests
+- The oldest updated issues or pull requests
+- The most added reaction on issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Above the list of issues or pull requests, select the **Sort** dropdown menu, then click a sort method.
 
-  ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Sort," is outlined in dark orange.](/assets/images/help/issues/issues_sort_dropdown.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Sort," is outlined in dark orange.](/assets/images/help/issues/issues-sort-dropdown.png)
 
 To clear your sort selection, click **Sort** > **Newest**.
 
@@ -225,7 +225,7 @@ You can send the URL that issues generates to any user, and they'll be able to s
 
 For example, if you filter on issues assigned to Hubot, and sort on the oldest open issues, your URL would update to something like the following:
 
-```
+```text
 /issues?q=state:open+type:issue+assignee:hubot+sort:created-asc
 ```
 

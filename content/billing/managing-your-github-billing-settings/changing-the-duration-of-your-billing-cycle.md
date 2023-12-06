@@ -25,7 +25,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
-{% data reusables.dotcom_billing.confirm_duration_change %}
+1. Review your new payment details, then click **Change your account's billing cycle**.
 
 ## Changing the duration of your organization's billing cycle
 
@@ -35,15 +35,16 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.change_plan_duration %}
-{% data reusables.dotcom_billing.confirm_duration_change %}
+1. Review your new payment details, then click **Change your organization's billing cycle**.
 
 ### Changing the duration of a legacy per-repository plan
 
 {% data reusables.organizations.billing-settings %}
-4. Under "Billing overview", next to your plan, click **Change plan**.
-5. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**.
+1. Under "Billing overview", next to your plan, click **Change plan**.
+1. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**.
 
 {% ifversion ghec %}
+
 ## Changing the duration of your enterprise account's billing cycle
 
 {% data reusables.enterprise-accounts.billing-perms %}

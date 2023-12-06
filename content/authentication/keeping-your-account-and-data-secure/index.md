@@ -15,12 +15,14 @@ topics:
 children:
   - /about-authentication-to-github
   - /creating-a-strong-password
+  - /switching-between-accounts
   - /updating-your-github-access-credentials
-  - /creating-a-personal-access-token
+  - /managing-your-personal-access-tokens
   - /reviewing-your-ssh-keys
   - /reviewing-your-deploy-keys
   - /token-expiration-and-revocation
   - /reviewing-your-security-log
+  - /security-log-events
   - /removing-sensitive-data-from-a-repository
   - /about-anonymized-urls
   - /about-githubs-ip-addresses
@@ -30,4 +32,3 @@ children:
   - /viewing-and-managing-your-sessions
 shortTitle: Account security
 ---
-

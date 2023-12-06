@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`annotate renders annotations 1`] = `
+"<div class="annotate beside"><div class="annotate-header"><header class="d-flex flex-items-center flex-justify-between p-2 text-small rounded-top-1 border-top border-left border-right"><span class="flex-1">YAML</span><div class="BtnGroup"><button name="annotate-display" value="beside" type="button" class="BtnGroup-item btn btn-sm">Beside</button><button name="annotate-display" value="inline" type="button" class="BtnGroup-item btn btn-sm">Inline</button></div><button class="js-btn-copy btn btn-sm tooltipped tooltipped-nw" aria-label="Copy YAML code to clipboard" data-clipboard="1746955726" aria-live="polite" aria-atomic="true"><svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-copy" aria-hidden="true"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></svg></button><pre hidden data-clipboard="1746955726"># The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
+name: Post welcome comment
+
+# Add the \`pull_request\` event, so that the workflow runs automatically
+# every time a pull request is created.
+on:
+  pull_request:
+    types: [opened]
+</pre></header></div><div class="annotate-beside"><div class="annotate-row"><div class="annotate-code"><pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Post</span> <span class="hljs-string">welcome</span> <span class="hljs-string">comment</span></code></pre></div><div class="annotate-note"><p>The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.</p></div></div><div class="annotate-row"><div class="annotate-code"><pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">pull_request:</span>
+    <span class="hljs-attr">types:</span> [<span class="hljs-string">opened</span>]</code></pre></div><div class="annotate-note"><p>Add the <code>pull_request</code> event, so that the workflow runs automatically
+every time a pull request is created.</p></div></div></div><div class="annotate-inline"><pre><code class="hljs language-yaml"><span class="hljs-comment"># The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">Post</span> <span class="hljs-string">welcome</span> <span class="hljs-string">comment</span>
+
+<span class="hljs-comment"># Add the \`pull_request\` event, so that the workflow runs automatically</span>
+<span class="hljs-comment"># every time a pull request is created.</span>
+<span class="hljs-attr">on:</span>
+  <span class="hljs-attr">pull_request:</span>
+    <span class="hljs-attr">types:</span> [<span class="hljs-string">opened</span>]
+</code></pre></div></div>"
+`;

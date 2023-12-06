@@ -18,15 +18,8 @@ You can view a list of devices that have logged into your account, and revoke an
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.sessions %}
 1. Under "Web sessions," you can see your active SAML sessions.
-
-   ![Screenshot of the list of active SAML sessions](/assets/images/help/settings/saml-active-sessions.png)
-
-1. To see the session details, click **See more**.
-   ![Screenshot of the active SAML sessions with the button to open SAML session details emphasized](/assets/images/help/settings/saml-expand-session-details.png)
-
-1. To revoke a session, click **Revoke SAML**.
-
-   ![Screenshot of the Session details page with the button to revoke a SAML session emphasized](/assets/images/help/settings/saml-revoke-session.png)
+1. To see the session details, next to the session, click **See more**.
+1. To revoke a session, in the session details, click **Revoke SAML**.
 
   {% note %}
 

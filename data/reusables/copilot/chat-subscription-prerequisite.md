@@ -1,0 +1,1 @@
+- To use the {% data variables.product.prodname_copilot_chat %} beta you must have an active {% data variables.product.prodname_copilot %} subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."

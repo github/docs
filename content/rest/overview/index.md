@@ -10,19 +10,24 @@ versions:
 topics:
   - API
 children:
-  - /about-githubs-apis
+  - /comparing-githubs-rest-api-and-graphql-api
   - /resources-in-the-rest-api
+  - /rate-limits-for-the-rest-api
   - /api-versions
   - /media-types
   - /authenticating-to-the-rest-api
-  - /troubleshooting
-  - /libraries
-  - /openapi-description
-  - /endpoints-available-for-github-apps
+  - /keeping-your-api-credentials-secure
+  - /troubleshooting-the-rest-api
+  - /libraries-for-the-rest-api
+  - /about-the-openapi-description-for-the-rest-api
+  - /issue-event-types
+  - /github-event-types
+  - /endpoints-available-for-github-app-installation-access-tokens
+  - /endpoints-available-for-github-app-user-access-tokens
   - /endpoints-available-for-fine-grained-personal-access-tokens
   - /permissions-required-for-github-apps
-  - /breaking-changes
   - /permissions-required-for-fine-grained-personal-access-tokens
+  - /breaking-changes
 redirect_from:
   - /developers/overview
 ---

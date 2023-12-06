@@ -41,5 +41,6 @@ You can track the progress on your {% data variables.projects.projects_v1_board 
 For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/tracking-progress-on-your-project-board)."
 
 ## Further reading
+
 - "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards)"{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board)"{% endif %}

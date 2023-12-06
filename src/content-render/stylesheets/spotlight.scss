@@ -1,0 +1,26 @@
+.ghd-spotlight {
+  border-left: 0.25rem solid;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  pre {
+    background: transparent;
+    padding: 0.5rem;
+  }
+}
+
+$colors: "default", "muted", "subtle", "accent", "success", "attention",
+  "severe", "danger", "open", "closed", "done", "sponsors";
+
+@each $color in $colors {
+  .ghd-spotlight-#{$color} {
+    border-left-color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
+
+    strong:first-child,
+    b:first-child {
+      color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
+    }
+  }
+}

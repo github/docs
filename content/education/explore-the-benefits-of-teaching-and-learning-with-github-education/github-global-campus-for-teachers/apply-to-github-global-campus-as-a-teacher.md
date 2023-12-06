@@ -21,15 +21,13 @@ shortTitle: Apply to Global Campus
 
 {% data reusables.education.educator-requirements %}
 
-For more information about personal accounts on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+For more information about personal accounts on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
 1. Under "Select the academic status", select **Teacher**.
-
-   ![Screenshot of selection of "Teacher" academic status](/assets/images/help/education/academic-status-teacher.png)
 {% data reusables.education.select-email-address %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}

@@ -1,7 +1,7 @@
 import { Heading, Flash } from '@primer/react'
 
-import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useMainContext } from 'src/frame/components/context/MainContext'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export function NoQuery() {
   const { t } = useTranslation(['search'])

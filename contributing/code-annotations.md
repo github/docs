@@ -1,0 +1,1 @@
+The content in the `contributing` directory has been deprecated. See "[Annotating code examples](https://docs.github.com/en/contributing/writing-for-github-docs/annotating-code-examples)" in the GitHub Docs for the maintained version of this article.

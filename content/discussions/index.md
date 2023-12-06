@@ -1,9 +1,15 @@
 ---
-title: GitHub Discussions Documentation
-shortTitle: GitHub Discussions
+title: "{% data variables.product.prodname_discussions %} documentation"
+shortTitle: "{% data variables.product.prodname_discussions %}"
 intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an{% ifversion fpt or ghec %} open source or{% endif %} internal project. Community members can ask and answer questions, share updates, have open-ended conversations, and follow along on decisions affecting the community''s way of working.'
 introLinks:
   quickstart: /discussions/quickstart
+redirect_from:
+  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/about-team-discussions
+  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/creating-a-team-discussion
+  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion
+  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/pinning-a-team-discussion
+  - /enterprise-cloud@latest/organizations/collaborating-with-your-team
 featuredLinks:
   startHere:
     - /discussions/collaborating-with-your-community-using-discussions/about-discussions

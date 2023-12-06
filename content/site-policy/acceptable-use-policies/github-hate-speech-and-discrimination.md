@@ -21,4 +21,4 @@ GitHub does not tolerate speech that attacks or promotes hate toward an individu
 - Attacking an individual based on their perceived gender
 - Dog whistling; or using coded or suggestive language and/or symbols to promote abuse or hate
 
-While GitHub takes all instances of abuse and harassment on the platform seriously, we are especially committed to fighting hate-based abuse where it disproportionately affects communities that have historically been targeted by such abuse. We aim to make GitHub a place where all individuals feel welcome and safe. 
+While GitHub takes all instances of abuse and harassment on the platform seriously, we are especially committed to fighting hate-based abuse where it disproportionately affects communities that have historically been targeted by such abuse. We aim to make GitHub a place where all individuals feel welcome and safe.

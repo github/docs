@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note:** SCIM for {% data variables.product.product_name %} is currently in private beta and is subject to change. For access to the beta, contact your account manager on {% data variables.contact.contact_enterprise_sales %}. Please provide feedback in the [GitHub Community discussion](https://github.com/orgs/community/discussions/36825).
+**Note:** SCIM for {% data variables.product.product_name %} is currently in private beta and is subject to change. For access to the beta, contact your account manager on {% data variables.contact.contact_enterprise_sales %}. Please provide feedback in the [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/36825).
 
 {% endnote %}
 

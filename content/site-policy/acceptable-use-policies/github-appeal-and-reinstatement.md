@@ -24,11 +24,11 @@ If you seek reinstatement or wish to appeal an enforcement action, please fill o
 
 GitHub staff will review the information provided in the form to determine whether there is sufficient information to warrant reinstatement or granting of an appeal.
 
-* **Reinstatement**: Where a user can agree to abide by our Acceptable Use Policies moving forward and has made the changes necessary to address the violation(s), we may choose to reinstate their account or content depending on the circumstances and severity of the initial violation.
+- **Reinstatement**: Where a user can agree to abide by our Acceptable Use Policies moving forward and has made the changes necessary to address the violation(s), we may choose to reinstate their account or content depending on the circumstances and severity of the initial violation.
 
 All legitimate reinstatement requests will be reviewed initially by GitHub staff and will be answered with a decision.
 
-* **Appeal**: Where a user seeks to dispute a decision, they can use the form to explain their basis for disputing the decision and to provide any additional information regarding the alleged violation that they believe should have led to a different decision. If the information provided demonstrates that a different conclusion should have been reached, we may be able to grant an appeal.
+- **Appeal**: Where a user seeks to dispute a decision, they can use the form to explain their basis for disputing the decision and to provide any additional information regarding the alleged violation that they believe should have led to a different decision. If the information provided demonstrates that a different conclusion should have been reached, we may be able to grant an appeal.
 
 If the GitHub staff reviewer is the same person who made the initial determination and that staff member believes their initial conclusion was correct (and thus would be inclined to deny the appeal), a different member of GitHub’s staff will independently review the appeal. All legitimate appeals will be answered with a final decision.
 

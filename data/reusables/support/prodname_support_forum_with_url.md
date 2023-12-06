@@ -1,1 +1,1 @@
-[APIs and Integrations discussions on GitHub Community](https://github.com/orgs/community/discussions/categories/apis-and-integrations)
+[API and Webhooks category in GitHub's Community Discussions](https://github.com/orgs/community/discussions/categories/api-and-webhooks)

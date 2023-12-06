@@ -68,7 +68,7 @@ describe('automated content directory updates', () => {
     // full file path.
     const contentDataFullPath = {}
     Object.keys(newContentData).forEach(
-      (key) => (contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key])
+      (key) => (contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key]),
     )
 
     // Rewrites the content directory in the operating system's
@@ -104,7 +104,7 @@ describe('automated content directory updates', () => {
     expect(alertsFileExists).toBe(true)
 
     const codeScanningIndexFileExists = existsSync(
-      `${tempDirectory}/content/rest/code-scanning/index.md`
+      `${tempDirectory}/content/rest/code-scanning/index.md`,
     )
     expect(codeScanningIndexFileExists).toBe(true)
   })
@@ -112,26 +112,26 @@ describe('automated content directory updates', () => {
   test('rest/actions index file is updated as expected', async () => {
     // workflows added and artifacts removed
     const actionsIndex = matter(
-      await readFile(`${tempDirectory}/content/rest/actions/index.md`, 'utf8')
+      await readFile(`${tempDirectory}/content/rest/actions/index.md`, 'utf8'),
     )
     expect(actionsIndex.data.children).toEqual(['/secrets', '/workflows'])
   })
 
   test('non-target directory index files did not get changed', async () => {
     const overviewIndex = matter(
-      await readFile(`${tempDirectory}/content/rest/overview/index.md`, 'utf8')
+      await readFile(`${tempDirectory}/content/rest/overview/index.md`, 'utf8'),
     )
     expect(overviewIndex.data.children).toEqual(['/apis'])
 
     const articleIndex = matter(
-      await readFile(`${tempDirectory}/content/articles/index.md`, 'utf8')
+      await readFile(`${tempDirectory}/content/articles/index.md`, 'utf8'),
     )
     expect(articleIndex.data.children).toEqual(['/article'])
   })
 
   test('new directory gets correct index file and parent index file updated', async () => {
     const codeScanningIndex = matter(
-      await readFile(`${tempDirectory}/content/rest/code-scanning/index.md`, 'utf8')
+      await readFile(`${tempDirectory}/content/rest/code-scanning/index.md`, 'utf8'),
     )
     expect(codeScanningIndex.data.children).toEqual(['/alerts'])
 

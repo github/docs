@@ -70,3 +70,7 @@ If the URL for your site contains a username or organization name that begins or
 ## Browser cache
 
 If you've recently changed or removed your custom domain and can't access the new URL in your browser, you may need to clear your browser's cache to reach the new URL. For more information on clearing your cache, see your browser's documentation.
+
+## Domain name taken
+
+If you're trying to use a custom domain and it says the domain is already in use, you can make the domain available for your own use by verifying it first. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."

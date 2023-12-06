@@ -17,7 +17,6 @@ topics:
 shortTitle: Build & test Python
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -33,53 +32,75 @@ This guide shows you how to build, test, and publish a Python package.
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
 
-We recommend that you have a basic understanding of Python, PyPy, and pip. For more information, see:
+We recommend that you have a basic understanding of Python, and pip. For more information, see:
+
 - [Getting started with Python](https://www.python.org/about/gettingstarted/)
-- [PyPy](https://pypy.org/)
 - [Pip package manager](https://pypi.org/project/pip/)
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Python starter workflow
+## Using a Python starter workflow
 
-{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data reusables.actions.starter-workflow-get-started %}
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+{% data variables.product.prodname_dotcom %} provides a starter workflow for Python that should work if your repository already contains at least one `.py` file. The subsequent sections of this guide give examples of how you can customize this starter workflow.
 
-```yaml{:copy}
-name: Python package
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.actions.new-starter-workflow %}
+1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Python application".
+1. On the "Python application" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-on: [push]
+{%- ifversion ghes or ghae %}
 
-jobs:
-  build:
+   If you don't find the "Python application" starter workflow, copy the following workflow code to a new file called `python-app.yml` in the `.github/workflows` directory of your repository.
 
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+   ```yaml copy
+   name: Python application
 
-    steps:
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up Python {% raw %}${{ matrix.python-version }}{% endraw %}
-        uses: {% data reusables.actions.action-setup-python %}
-        with:
-          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install ruff pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Lint with ruff
-        run: |
-          # stop the build if there are Python syntax errors or undefined names
-          ruff --format=github --select=E9,F63,F7,F82 --target-version=py37 .
-          # default set of ruff rules with GitHub Annotations
-          ruff --format=github --target-version=py37 .
-      - name: Test with pytest
-        run: |
-          pytest
-```
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
+
+   permissions:
+     contents: read
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Set up Python 3.10
+         uses: {% data reusables.actions.action-setup-python %}
+         with:
+           python-version: "3.10"
+       - name: Install dependencies
+         run: |
+           python -m pip install --upgrade pip
+           pip install flake8 pytest
+           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+       - name: Lint with flake8
+         run: |
+           # stop the build if there are Python syntax errors or undefined names
+           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+       - name: Test with pytest
+         run: |
+           pytest
+   ```
+
+{%- endif %}
+
+1. Edit the workflow as required. For example, change the Python version.
+1. Click **Commit changes**.
+
+{% ifversion fpt or ghec %}
+   The `python-app.yml` workflow file is added to the `.github/workflows` directory of your repository.
+{% endif %}
 
 ## Specifying a Python version
 
@@ -105,7 +126,9 @@ If you are using a self-hosted runner, you can configure the runner to use the `
 
 ### Using multiple Python versions
 
-```yaml{:copy}
+The following example uses a matrix for the job to set up multiple Python versions. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+
+```yaml copy
 name: Python package
 
 on: [push]
@@ -115,10 +138,8 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
-      # You can use PyPy versions in python-version.
-      # For example, {% ifversion actions-node16-action %}pypy2.7 and pypy3.9{% else %}pypy2 and pypy3{% endif %}
       matrix:
-        python-version: ["2.7", "3.7", "3.8", "3.9", "3.10", "3.11"]
+        python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -135,7 +156,7 @@ jobs:
 
 You can configure a specific version of Python. For example, 3.10. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -147,7 +168,8 @@ jobs:
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - name: Set up Python 3.x
+      - name: Set up Python
+        # This is the version of the action for setting up Python, not the Python version.
         uses: {% data reusables.actions.action-setup-python %}
         with:
           # Semantic version range syntax or exact version of a Python version
@@ -165,7 +187,7 @@ If you specify a version of Python that is not available, `setup-python` fails w
 
 You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -177,12 +199,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", {% ifversion actions-node16-action %}pypy2.7, pypy3.9{% else %}pypy2, pypy3{% endif %}]
+        python-version: ["3.9", "3.10", "3.11", "pypy3.9", "pypy3.10"]
         exclude:
           - os: macos-latest
-            python-version: "3.7"
+            python-version: "3.9"
           - os: windows-latest
-            python-version: "3.7"
+            python-version: "3.9"
 ```
 
 ### Using the default Python version
@@ -201,7 +223,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 
 {% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -214,9 +236,9 @@ steps:
 
 ### Requirements file
 
-After you update `pip`, a typical next step is to install dependencies from *requirements.txt*. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+After you update `pip`, a typical next step is to install dependencies from _requirements.txt_. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -237,7 +259,7 @@ You can cache and restore the dependencies using the [`setup-python` action](htt
 
 The following example caches dependencies for pip.
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-python %}
@@ -262,7 +284,7 @@ You can use the same commands that you use locally to build and test your code.
 
 This example installs or upgrades `pytest` and `pytest-cov`. Tests are then run and output in JUnit format while code coverage results are output in Cobertura. For more information, see [JUnit](https://junit.org/junit5/) and [Cobertura](https://cobertura.github.io/cobertura/).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -283,7 +305,7 @@ steps:
 
 The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://beta.ruff.rs/docs).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -297,7 +319,7 @@ steps:
 - name: Lint with Ruff
   run: |
     pip install ruff
-    ruff --format=github --target-version=py37 .
+    ruff --output-format=github .
   continue-on-error: true
 ```
 
@@ -307,7 +329,7 @@ The linting step has `continue-on-error: true` set. This will keep the workflow 
 
 With {% data variables.product.prodname_actions %}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -339,7 +361,7 @@ You can upload artifacts to view after a workflow completes. For example, you ma
 
 The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `pytest`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -378,9 +400,9 @@ jobs:
 
 You can configure your workflow to publish your Python package to a package registry once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you [publish a release](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
 
-For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -407,9 +429,8 @@ jobs:
       - name: Build package
         run: python -m build
       - name: Publish package
-        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        uses: pypa/gh-action-pypi-publish@v1
         with:
-          user: __token__
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
 

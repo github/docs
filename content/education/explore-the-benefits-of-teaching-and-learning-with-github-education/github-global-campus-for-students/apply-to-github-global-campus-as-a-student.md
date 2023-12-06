@@ -18,7 +18,7 @@ shortTitle: Apply to Global Campus
 To be eligible for {% data variables.product.prodname_global_campus %}, including {% data variables.product.prodname_student_pack %} and other benefits, you must:
 - Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
 - Have a verifiable school-issued email address or upload documents that prove your current student status
-- Have a [{% data variables.product.prodname_dotcom %} personal account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)
+- Have a [{% data variables.product.prodname_dotcom %} personal account](/get-started/quickstart/creating-an-account-on-github)
 - Be at least 13 years old
 
 Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
@@ -37,9 +37,7 @@ For information about renewing your {% data variables.product.prodname_global_ca
 
 {% data reusables.education.benefits-page %}
 1. Under "Individuals", click **Get student benefits**.
-  !["Get student benefits" on {% data variables.product.prodname_education %} homepage](/assets/images/help/education/click-get-student-benefits.png)
 1. Under "Select the academic status", select **Student**.
-  ![Select academic status](/assets/images/help/education/academic-status-student.png)
 {% data reusables.education.select-email-address %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
@@ -50,7 +48,7 @@ For information about renewing your {% data variables.product.prodname_global_ca
 
 Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
 
-![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+![Screenshot of a profile menu on the GitHub Education website. The "Reverify your academic affiliation" menu option is outlined in dark orange.](/assets/images/help/education/reverify-academic-affiliation.png)
 
 For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
@@ -59,6 +57,6 @@ To see when your free access to the {% data variables.product.prodname_student_p
 ## Further reading
 
 - "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/why-wasnt-my-application-to-global-campus-for-students-approved)"
-- "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)"
+- "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)"
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)

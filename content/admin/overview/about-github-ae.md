@@ -13,11 +13,11 @@ topics:
 
 {% data reusables.github-ae.github-ae-enables-you %} {% data variables.product.prodname_ghe_managed %} is fully managed, reliable, and scalable, allowing you to accelerate delivery while improving your risk and compliance posture.
 
-{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with security and access controls, workflow automation, and policy enforcement. 
+{% data variables.product.prodname_ghe_managed %} offers one developer platform from idea to production. You can increase development velocity with the tools that teams know and love, while you maintain industry and regulatory compliance with security and access controls, workflow automation, and policy enforcement.
 
 ## A highly available and planet-scale cloud
 
-{% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data. 
+{% data variables.product.prodname_ghe_managed %} is a fully managed service, hosted in a high availability architecture. {% data variables.product.prodname_ghe_managed %} is hosted globally in a cloud that can scale to support your full development lifecycle without limits. {% data variables.product.prodname_dotcom %} fully manages backups, failover, and disaster recovery, so you never need to worry about your service or data.
 
 ## Data residency
 
@@ -44,13 +44,13 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 - FedRAMP High Authorization to Operate (ATO)
 - SOC 1, SOC 2 Type II, and SOC 3
 - ISO/IEC certifications
-   - ISO/IEC 27001:2013 
-   - ISO/IEC 27701:2019
-   - ISO/IEC 9001:2015
-   - ISO/IEC 22301:2019 
-   - ISO/IEC 27018:2014 
-   - ISO/IEC 20000-1:2018 
-   - ISO/IEC 27017:2015
+  - ISO/IEC 27001:2013
+  - ISO/IEC 27701:2019
+  - ISO/IEC 9001:2015
+  - ISO/IEC 22301:2019
+  - ISO/IEC 27018:2014
+  - ISO/IEC 20000-1:2018
+  - ISO/IEC 27017:2015
 
 ## Further reading
 

@@ -23,13 +23,13 @@ shortTitle: Invite users to join
 
 {% note %}
 
-**Note:** If you use an email address for the invitation, the invitee will only be able to accept the invitation if the email address matches with a verified email address associated with the invitee's personal account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."
+**Note:** If you use an email address for the invitation, the invitee will only be able to accept the invitation if the email address matches with a verified email address associated with the invitee's personal account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."
 
 If an invitee's personal account has been flagged, the invitee won't be able to accept any new or pending invitations to join organizations.
 
 {% endnote %}
 
-If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)."
 
 {% data reusables.organizations.org-invite-scim %}
 
@@ -51,6 +51,7 @@ If your organization requires members to use two-factor authentication, users th
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
 {% ifversion organization-invitation-enhancements %}
+
 ## Retrying or canceling expired invitations
 
 Invitations expire after 7 days. You can retry or cancel expired invitations, either one by one or in bulk. Failed invitations to outside collaborators can also be found in this view.
@@ -62,4 +63,5 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 {% endif %}
 
 ## Further reading
+
 - "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"

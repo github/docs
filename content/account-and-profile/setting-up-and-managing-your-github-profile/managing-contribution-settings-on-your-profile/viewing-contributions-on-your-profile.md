@@ -29,6 +29,7 @@ shortTitle: View contributions
 On your profile page, certain actions count as contributions:
 
 - Committing to a repository's default branch or `gh-pages` branch
+- Creating a branch
 - Opening an issue
 - Opening a discussion
 - Answering a discussion
@@ -48,7 +49,7 @@ This section displays your repositories with the most watchers. {% ifversion fpt
 
 This section displays up to six public repositories or gists. Important details are listed for each of the items you've chosen to feature. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
 
-![Screenshot of the "Pinned repositories" section of a user's profile page.](/assets/images/help/profile/profile_pinned_repositories.png)
+![Screenshot of the "Pinned repositories" section of a user's profile page.](/assets/images/help/profile/profile-pinned-repositories.png)
 
 {% endif %}
 
@@ -59,7 +60,7 @@ Your contributions calendar shows your contribution activity.
 ### Viewing contributions from specific times
 
 - Click on a day's square to show the contributions made during that 24-hour period.
-- Press *Shift* and click on another day's square to show contributions made during that time span.
+- Press _Shift_ and click on another day's square to show contributions made during that time span.
 
 {% note %}
 
@@ -67,7 +68,7 @@ Your contributions calendar shows your contribution activity.
 
 {% endnote %}
 
-![Screenshot of the contributions graph on a user profile.](/assets/images/help/profile/contributions_graph.png)
+![Screenshot of the contributions graph on a user profile.](/assets/images/help/profile/contributions-graph.png)
 
 ### How contribution event times are calculated
 
@@ -95,4 +96,4 @@ If you can't see certain events in your timeline, check to make sure you still h
 
 ## Viewing contributions from {% data variables.product.prodname_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."

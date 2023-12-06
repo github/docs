@@ -15,7 +15,7 @@ versions:
 topics:
   - Pull requests
 ---
-Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
+Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the _pending_, _passing_, or _failing_ state of status checks next to individual commits in your pull request.
 
 ![Screenshot of a list of commits and statuses.](/assets/images/help/pull_requests/commit-list-statuses.png)
 
@@ -24,6 +24,8 @@ Anyone with write permissions to a repository can set the state for any status c
 You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
+
+{% data reusables.actions.workflows.skipped-job-status-checks-passing %}
 
 ## Types of status checks on {% data variables.product.product_name %}
 
@@ -61,13 +63,16 @@ You can also skip workflow runs triggered by the `push` and `pull_request` event
 Alternatively, to skip or request _all_ checks for your commit, add one of the following trailer lines to the end of your commit message:
 
 - To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
+
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
+
 - To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
+
   ```shell
   $ git commit -m "Refactor usability tests
   >
@@ -75,7 +80,10 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
   request-checks: true"
   ```
 
+{% data reusables.commits.about-commit-cleanup %}
+
 {% ifversion status-check-retention %}
+
 ### Retention of status checks
 
 {% data reusables.pull_requests.retention-checks-data %}

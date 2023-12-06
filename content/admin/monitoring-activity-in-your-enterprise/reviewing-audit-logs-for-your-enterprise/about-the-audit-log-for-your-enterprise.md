@@ -29,6 +29,11 @@ topics:
 
 {% data reusables.audit_log.audit-log-search-list-info-about-action %}
 
+{% ifversion ghes %}Site administrators can review the audit log for an instance, which contains a wider range of events including system administrative events. To access the instance-level audit log:
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. In the left menu, click **Audit log**.{% endif %}
+
 In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes or ghae %}viewing push logs and {% endif %}managing global webhooks. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity)." You can also use the audit log, and other tools, to monitor the actions taken in response to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
 
 ## Using your audit logs
@@ -52,6 +57,7 @@ As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you
 For a full list of audit log actions that may appear in your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 ## Further reading
+
 - "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"
 {%- ifversion ghes %}
 - "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/about-system-logs)"

@@ -40,7 +40,7 @@ You can open any {% data variables.product.prodname_dotcom %} repository in {% d
   To open the repository in a new browser tab, press <kbd>></kbd>.
 
 - Change the URL from "github.com" to "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **github.dev**.
+- When viewing a file, select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click **github.dev**.
 
   ![Screenshot of the dropdown menu for the edit icon. The option "github.dev" is highlighted with a dark orange outline.](/assets/images/help/codespaces/github-dev-dropdown-option.png)
 
@@ -54,7 +54,7 @@ Both {% data variables.codespaces.serverless %} and {% data variables.product.pr
 |-|----------------|---------|
 | **Cost** | Free.      | Free monthly quota of usage for personal accounts. For information on pricing, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-github-codespaces-pricing)."|
 | **Availability** | Available to everyone on GitHub.com. | Available to everyone on GitHub.com. |
-| **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)." |
+| **Start up** | {% data variables.codespaces.serverless %} opens instantly with a key-press and you can start using it right away, without having to wait for additional configuration or installation. | When you create or resume a codespace, the codespace is assigned a VM and the container is configured based on the contents of a `devcontainer.json` file. This set up may take a few minutes to create the environment. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)." |
 | **Compute**  | There is no associated compute, so you won’t be able to build and run your code or use the integrated terminal. | With  {%  data variables.product.prodname_github_codespaces %}, you get the power of a dedicated VM on which you can run and debug your application.|
 | **Terminal access** | None. | {% data variables.product.prodname_github_codespaces %} provides a common set of tools by default, meaning that you can use the Terminal exactly as you would in your local environment.|
 | **Extensions**  | Only a subset of extensions that can run in the web will appear in the Extensions View and can be installed. For more information, see "[Using extensions](#using-extensions)."| With {% data variables.product.prodname_github_codespaces %}, you can use most extensions from the {% data variables.product.prodname_vscode_marketplace %}.|
@@ -71,7 +71,7 @@ To continue your work in a codespace, click **Continue Working on…** and selec
 
 ## Using source control
 
-When you use {% data variables.codespaces.serverless %}, all actions are managed through the Source Control View, which is located in the Activity Bar on the left hand side. For more information on the Source Control View, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+When you use {% data variables.codespaces.serverless %}, all actions are managed through the "Source Control" view, which is located in the Activity Bar on the left hand side. For more information on the "Source Control" view, see "[Version Control](https://code.visualstudio.com/docs/editor/versioncontrol)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 Because {% data variables.codespaces.serverless %} uses the GitHub Repositories extension to power its functionality, you can switch branches without needing to stash changes. For more information, see "[GitHub Repositories](https://code.visualstudio.com/docs/editor/github#_github-repositories-extension)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
@@ -107,8 +107,8 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 You can use {% data variables.codespaces.serverless %} to work with an existing pull request.
 
 1. Browse to the pull request you'd like to open in {% data variables.codespaces.serverless %}.
-2. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
-3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
+1. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
+1. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
 ## Using extensions
 

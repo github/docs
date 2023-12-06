@@ -6,7 +6,8 @@ introLinks:
 featuredLinks:
   startHere:
     - /search-github/searching-on-github/searching-issues-and-pull-requests
-    - /search-github/searching-on-github/searching-code
+    - '{% ifversion ghes or ghae %}/search-github/searching-on-github/searching-code{% endif %}'
+    - /search-github/github-code-search/understanding-github-code-search-syntax
     - /search-github/searching-on-github/searching-for-repositories
     - /search-github/searching-on-github/searching-commits
   popular:

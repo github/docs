@@ -56,7 +56,9 @@ You can determine how many licenses you'll need for {% data variables.product.pr
 {% endif %}
 
 {% ifversion ghec %}
-If you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account and pay with a credit card, you can purchase a {% data variables.product.prodname_GH_advanced_security %} license from your enterprise account settings. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."
+If you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account and pay with a credit card, you can purchase a {% data variables.product.prodname_GH_advanced_security %} license or start a free trial from your enterprise account settings. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
+
+You can not purchase {% data variables.product.prodname_GH_advanced_security %} or start a {% data variables.product.prodname_GH_advanced_security %} trial if you are currently on a {% data variables.product.prodname_ghe_cloud %} trial.
 
 If you pay by invoice, contact {% data variables.contact.contact_enterprise_sales %} to discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise.
 
@@ -67,7 +69,7 @@ For other billing-related questions, contact {% data variables.contact.github_su
 
 We record and display two numbers of {% ifversion ghas-billing-UI-update %}active {% endif %}committers for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.location.product_location %}:
 
-- **{% ifversion ghas-billing-UI-update %}Active committers{% else %}Committers{% endif %}** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}in your enterprise. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise, and they are not a {% data variables.product.prodname_github_app %} bot. For information about differences between bot and machine accounts, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
+- **{% ifversion ghas-billing-UI-update %}Active committers{% else %}Committers{% endif %}** is the number of committers who contributed to at least one {% ifversion fpt or ghec %}private {% endif %}repository in an organization and who use a {% ifversion ghas-billing-UI-update %}license {% else %}seat {% endif %}in your enterprise. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise, and they are not a {% data variables.product.prodname_github_app %} bot. For information about differences between bot and machine accounts, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
 - **Unique to this repository/organization** is the number of {% ifversion ghas-billing-UI-update %}active {% endif %}committers who contributed only to this repository, or to repositories in this organization. This number shows how many {% ifversion ghas-billing-UI-update %}licenses {% else %}seats {% endif %}you can free up by deactivating {% data variables.product.prodname_GH_advanced_security %} for that repository or organization.
 
 If there are no unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_GH_advanced_security %}. Deactivating the feature for that repository or organization would not free any {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.
@@ -105,11 +107,11 @@ The following example timeline demonstrates how active committer count for {% da
 
 | Date | Events during the month | Total committers |
 | :- | :- | -: |
-| <nobr>April 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** |
-| <nobr>May 1</nobr> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | **50** |
-| <nobr>August 1</nobr> | Developer **A**'s contributions no longer count towards the licenses required, because 90 days have passed. | 50 - 1 =<br>**49** |
-| <nobr>August 15</nobr> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | 49 + 10 =<br>**59** |
-| <nobr>August 16</nobr> | A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | 49 - 29 =<br>**20** |
+| <span style="white-space: nowrap;">April 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** |
+| <span style="white-space: nowrap;">May 1</span> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | **50** |
+| <span style="white-space: nowrap;">August 1</span> | Developer **A**'s contributions no longer count towards the licenses required, because 90 days have passed. | 50 - 1 =<br>**49** |
+| <span style="white-space: nowrap;">August 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_advanced_security %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | 49 + 10 =<br>**59** |
+| <span style="white-space: nowrap;">August 16</span> | A member of your enterprise disables {% data variables.product.prodname_GH_advanced_security %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | 49 - 29 =<br>**20** |
 
 {% note %}
 

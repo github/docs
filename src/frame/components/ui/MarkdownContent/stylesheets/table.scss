@@ -1,0 +1,95 @@
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
+
+.markdownBody {
+  table {
+    display: table;
+    border-collapse: collapse;
+    position: relative;
+    font-size: 90%;
+    width: 100%;
+    line-height: 1.5;
+
+    // For mobile (small viewports) we need to fix the table
+    // because if the table is larger than the viewport
+    // it will force the width of the table causing issues
+    // with the header on scroll
+    table-layout: fixed;
+
+    // We want to keep table-layout: auto so that column widths dynamically adjust;
+    // otherwise entries get needlessly squashed into narrow columns. As a workaround,
+    // we use components/lib/wrap-code-terms.js to prevent some reference table content
+    // from expanding beyond the horizontal boundaries of the parent element.
+    @media (min-width: 544px) {
+      table-layout: auto;
+    }
+
+    code {
+      font-size: 85%;
+      padding: 0.2em 0.4em;
+      border-radius: 6px; // primer rounded-2
+    }
+
+    pre > code {
+      padding: 0;
+      background-color: transparent;
+    }
+
+    thead tr {
+      border: none;
+    }
+
+    th {
+      text-align: left;
+      position: sticky;
+      vertical-align: top;
+      z-index: 0;
+      top: 105px; // 88 + 8 + 8 + 1
+      background: var(--color-canvas-default);
+      box-shadow: 0 3px 0 0 var(--color-canvas-subtle);
+      padding: 0.75rem 0.5rem;
+      border: 0;
+
+      @include breakpoint-xxl {
+        top: 65px !important; // 48 + 8 + 8 + 1
+      }
+    }
+
+    th[align="center"] {
+      text-align: center;
+    }
+
+    th[align="right"] {
+      text-align: right;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: 0;
+    }
+
+    td {
+      padding: 0.75rem 0.5rem;
+      border: 0;
+      vertical-align: top;
+    }
+
+    // markdown that has been converted to HTML is often wrapped in <p> tags
+    // don't let it interfere with the spacing
+    td p {
+      padding: 0;
+      margin: 0;
+    }
+
+    tr:nth-child(2n) {
+      background: none;
+    }
+
+    td.has-nested-table {
+      width: 100%;
+
+      table {
+        table-layout: auto;
+      }
+    }
+  }
+}

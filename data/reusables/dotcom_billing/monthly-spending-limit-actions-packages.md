@@ -1,1 +1,1 @@
-1. Under "Monthly spending limit", scroll down to "Actions & Packages" and choose to limit spending or allow unlimited spending.
+1. Scroll down to "Actions & Packages" and choose to limit spending or allow unlimited spending.

@@ -27,10 +27,10 @@ You can register your Canvas installation with {% data variables.product.prodnam
 ### 1. Register {% data variables.product.prodname_classroom %} Developer Keys in Canvas
 
 1. Sign into [Canvas](https://www.instructure.com/canvas/#login).
-2. In the left sidebar on the home page, click **Admin**, then click **Site Admin**.
-3. Click **Developer Keys**.
-4. Under "Developer Keys", click the **+ Developer Key** button, then select **+ LTI Key** from the dropdown menu.
-5. On the "Key Settings" configuration screen, set the fields to the following values.
+1. In the left sidebar on the home page, click **Admin**, then click **Site Admin**.
+1. Click **Developer Keys**.
+1. Under "Developer Keys", click the **+ Developer Key** button, then select **+ LTI Key** from the dropdown menu.
+1. On the "Key Settings" configuration screen, set the fields to the following values.
 
     | Field in Canvas app configuration | Value or setting |
     | :- | :- |
@@ -45,14 +45,14 @@ You can register your Canvas installation with {% data variables.product.prodnam
     | **LTI Advantage Services** dropdown | Select the "Can retrieve user data associated with the context the tool is installed in" checkbox. |
     | **Additional Settings** dropdown | Under "Privacy Level", select `Public` |
     | **Placements** | Select `Course Settings Sub Navigation`. <br/><br/>**Note**: If you set the placement to something else, this must be communicated to teachers. Our documentation will expect that this is the placement of the button. |
-6. Click **Save**.
-7. In the table on the "Developer Keys" page, in the row for the GitHub Classroom developer key, take note of the value of the client ID in the "Details" column -- this must be communicated to teachers for them to finish setup.
-8. In the table on the "Developer Keys" page, under the "State" column, toggle the state of the key to "On".
+1. Click **Save**.
+1. In the table on the "Developer Keys" page, in the row for the GitHub Classroom developer key, take note of the value of the client ID in the "Details" column -- this must be communicated to teachers for them to finish setup.
+1. In the table on the "Developer Keys" page, under the "State" column, toggle the state of the key to "On".
 
 ### 2. Register your developer keys with {% data variables.product.prodname_classroom %}
 
 1. Go to https://classroom.github.com/register-lms.
-2. Fill in the following information:
+1. Fill in the following information:
 
    - Under "LMS Type", choose "Canvas" from the dropdown menu.
    - "Issuer Identifier": `https://canvas.instructure.com`
@@ -74,20 +74,20 @@ You must be using Moodle version 3.0 or greater.
 ### 1. Enable publishing as an LTI tool in Moodle
 
 1. Sign into [Moodle](https://moodle.org/login/).
-2. Click the "Site administration" tab in the top level menu.
-3. On the "Site administration" page, click the "Plugins" tab, then scroll down to the "Authentication" section and click **Manage authentication**.
-4. Next to the "LTI" field, click the toggle button to enable LTI.
-5. Click the "Plugins" tab again, then scroll down to "Enrolments" and click **Manage enrol plugins**.
-6. Next to the "Publish as LTI tool" field, click the toggle button to enable publishing as an LTI tool.
-7. Return to the "Site administration" page by clicking on the "Site administration" tab in the top level menu, then scroll down to the "Security" section and click **HTTP Security**.
-8. Next to "Allow frame embedding", select the checkbox to enable frame embedding, then click **Save changes**.
+1. Click the "Site administration" tab in the top level menu.
+1. On the "Site administration" page, click the "Plugins" tab, then scroll down to the "Authentication" section and click **Manage authentication**.
+1. Next to the "LTI" field, click the toggle button to enable LTI.
+1. Click the "Plugins" tab again, then scroll down to "Enrolments" and click **Manage enrol plugins**.
+1. Next to the "Publish as LTI tool" field, click the toggle button to enable publishing as an LTI tool.
+1. Return to the "Site administration" page by clicking on the "Site administration" tab in the top level menu, then scroll down to the "Security" section and click **HTTP Security**.
+1. Next to "Allow frame embedding", select the checkbox to enable frame embedding, then click **Save changes**.
 
 ### 2. Register {% data variables.product.prodname_classroom %} as an external tool
 
 1. Return to the Moodle "Site administration" page by clicking on the "Site administration" tab in the top level menu.
-2. Click the "Plugins" tab, then next to the "Activity modules" section, under "External tool", click **Manage tools**.
-3. Click **Configure a tool manually**.
-4. Enter the following values in the fields.
+1. Click the "Plugins" tab, then next to the "Activity modules" section, under "External tool", click **Manage tools**.
+1. Click **Configure a tool manually**.
+1. Enter the following values in the fields.
 
     | Field in Moodle app configuration | Value or setting |
     | :- | :- |
@@ -100,10 +100,11 @@ You must be using Moodle version 3.0 or greater.
     | **Redirection URI(s)** | `https://classroom.github.com/lti1p3/openid-connect/redirect` |
     | **Default launch container** | `New window` |
 
-5. Select the **Supports Deep Linking (Content-Item Message)** checkbox.
-6. Under the "Services" dropdown, next to "IMS LTI Names and Role Provisioning", select "Use this service to retrieve members' information as per privacy settings" from the dropdown menu.
-7. Click **Save changes**.
-8. GitHub Classroom has now been registered as an external tool. Under "Tools", on the 'GitHub Classroom" box, click the menu icon to see the "Tool configuration details" screen. This screen contains important information you'll need to input in the last step of registering your instance in {% data variables.product.prodname_classroom %} below.
+1. Select the **Supports Deep Linking (Content-Item Message)** checkbox.
+1. Under the "Services" dropdown, next to "IMS LTI Names and Role Provisioning", select "Use this service to retrieve members' information as per privacy settings" from the dropdown menu.
+1. Under the "Privacy" dropdown, set "Share launcher's name with tool" to "Always" and set "Share launcher's email with tool" to "Always."
+1. Click **Save changes**.
+1. GitHub Classroom has now been registered as an external tool. Under "Tools", on the 'GitHub Classroom" box, click the menu icon to see the "Tool configuration details" screen. This screen contains important information you'll need to input in the last step of registering your instance in {% data variables.product.prodname_classroom %} below.
 
 ### 3. Registering your Moodle instance with {% data variables.product.prodname_classroom %}
 
@@ -126,9 +127,9 @@ You must be using Moodle version 3.0 or greater.
 ### 1. Register {% data variables.product.prodname_classroom %} as an external tool
 
 1. Go to Sakai and log in.
-2. Go to "Administration Workspace" and select **External Tools** in the left hand sidebar.
-3. Click **Install LTI 1.x Tool**.
-4. Enter the following values in the fields.
+1. Go to "Administration Workspace" and select **External Tools** in the left hand sidebar.
+1. Click **Install LTI 1.x Tool**.
+1. Enter the following values in the fields.
 
     | Field in Sakai app configuration | Value or setting |
     | :- | :- |
@@ -141,7 +142,7 @@ You must be using Moodle version 3.0 or greater.
     | **LTI 1.3 Tool Keyset URL** | `https://classroom.github.com/.well-known/jwks.json` |
     | **LTI 1.3 Tool OpenID Connect/Initialization Endpoint** | `https://classroom.github.com/lti1p3/openid-connect/auth` |
     | **LTI 1.3 Tool Redirect Endpoint** | `https://classroom.github.com/lti1p3/openid-connect/redirect` |
-5. Upon submitting, Sakai will show you the information you need to register your Sakai instance with {% data variables.product.prodname_classroom %}.
+1. Upon submitting, Sakai will show you the information you need to register your Sakai instance with {% data variables.product.prodname_classroom %}.
 
 ### 2. Registering your Sakai instance with {% data variables.product.prodname_classroom %}
 

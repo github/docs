@@ -10,11 +10,11 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
+defaultPlatform: linux
 topics:
   - Action development
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -35,28 +35,54 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell{:copy}
-  cd hello-world-composite-action
-  ```
+   ```shell copy
+   cd hello-world-composite-action
+   ```
 
-2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh` with example code:
 
-  ```bash{:copy}
-  echo "Goodbye"
-  ```
+   ```shell copy
+   echo "echo Goodbye" > goodbye.sh
+   ```
 
-3. From your terminal, make `goodbye.sh` executable.
+1. From your terminal, make `goodbye.sh` executable.
+   {% linux %}
 
-  ```shell{:copy}
-  chmod +x goodbye.sh
-  ```
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endmac %}
+   {% windows %}
+
+   ```shell copy
+   git add --chmod=+x -- goodbye.sh
+   ```
+
+   {% endwindows %}
 
 1. From your terminal, check in your `goodbye.sh` file.
-  ```shell{:copy}
-  git add goodbye.sh
-  git commit -m "Add goodbye script"
-  git push
-  ```
+
+   {% linux %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+   {% endmac %}
+   {% windows %}
+
+   ```shell copy
+   git commit -m "Add goodbye script"
+   git push
+   ```
+
+   {% endwindows %}
 
 ## Creating an action metadata file
 
@@ -64,7 +90,8 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
     {% raw %}
     **action.yml**
-    ```yaml{:copy}
+
+    ```yaml copy
     name: 'Hello World'
     description: 'Greet someone'
     inputs:
@@ -82,38 +109,39 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator{% endraw %}
-{%- ifversion actions-save-state-set-output-envs %}
+          {%- ifversion actions-save-state-set-output-envs %}
           run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-{%- else %}
+          {%- else %}
           run: echo "::set-output name=random-number::$(echo $RANDOM)"
-{%- endif %}{% raw %}
+          {%- endif %}{% raw %}
           shell: bash
         - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
           shell: bash
         - run: goodbye.sh
           shell: bash
     ```
+
     {% endraw %}
-  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
+    This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
 
-  For more information about managing outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
+    For more information about managing outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
 
-  For more information about how to use `github.action_path`, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)".
+    For more information about how to use `github.action_path`, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)".
 
 1. From your terminal, check in your `action.yml` file.
 
-  ```shell{:copy}
-  git add action.yml
-  git commit -m "Add action"
-  git push
-  ```
+   ```shell copy
+   git add action.yml
+   git commit -m "Add action"
+   git push
+   ```
 
 1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
 
-  ```shell{:copy}
-  git tag -a -m "Description of this release" v1
-  git push --follow-tags
-  ```
+   ```shell copy
+   git tag -a -m "Description of this release" v1
+   git push --follow-tags
+   ```
 
 ## Testing out your action in a workflow
 
@@ -122,7 +150,8 @@ The following workflow code uses the completed hello world action that you made 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 
 **.github/workflows/main.yml**
-```yaml{:copy}
+
+```yaml copy
 on: [push]
 
 jobs:
@@ -140,3 +169,11 @@ jobs:
 ```
 
 From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
+
+## Example composite actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of composite actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [microsoft/action-python](https://github.com/microsoft/action-python)
+- [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
+- [tailscale/github-action](https://github.com/tailscale/github-action)

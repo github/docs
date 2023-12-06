@@ -1,6 +1,6 @@
 # Release notes for GitHub AE
 
-Rendered here: https://docs.github.com/en/github-ae@latest/admin/release-notes
+Rendered here: https://docs.github.com/en/github-ae@latest/admin/release-notes <!-- markdownlint-disable-line search-replace -->
 
 ## How it works
 
@@ -20,7 +20,7 @@ Note that patch files can be deprecated individually (i.e., hidden on the docs s
 
 ### Middleware processing
 
-The YAML data is processed and sorted by `middleware/contextualizers/ghae-release-notes.js` and added to the `context` object.
+The YAML data is processed and sorted by `src/release-notes/middleware/ghae-release-notes.js` and added to the `context` object.
 
 ### Layouts
 
@@ -30,6 +30,6 @@ The release notes page has a custom design with CSS in `stylesheets/release-note
 
 ### Schema
 
-The schema that validates the YAML data lives in `tests/helpers/schemas/release-notes-schema.js`. See the schema file to find out the required and optional properties.
+The schema that validates the YAML data lives in `src/content-linter/lib/release-notes-schema.js`. See the schema file to find out the required and optional properties.
 
-The schema is exercised by a test in `tests/linting/lint-files.js`. The test will fail if the data does not pass validation.
+The schema is exercised by a test in `src/content-linter/tests/lint-files.js`. The test will fail if the data does not pass validation.

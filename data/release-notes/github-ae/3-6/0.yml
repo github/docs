@@ -42,7 +42,7 @@ sections:
 
           - View secret scanning results
           - Dismiss or reopen secret scanning results
-          
+
           For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
         # https://github.com/github/releases/issues/1703, https://github.com/github/releases/issues/2084
         - |
@@ -199,7 +199,7 @@ sections:
           - Syntax errors are now surfaced when viewing a CODEOWNERS file from the web UI. Previously, when a line in a CODEOWNERS file had a syntax error, the error would be ignored or in some cases cause the entire CODEOWNERS file to not load. GitHub Apps and Actions can access the same list of errors using new REST and GraphQL APIs. For more information, see "[Repositories](/rest/repos/repos#list-codeowners-errors)" in the REST API documentation or "[Objects](/graphql/reference/objects#repositorycodeowners)" in the GraphQL API documentation.
           - After someone creates a new pull request or pushes new changes to a draft pull request, any code owners that will be requested for review are now listed in the pull request under "Reviewers". This feature gives you an early look at who will be requested to review once the pull request is marked ready for review.
           - Comments in CODEOWNERS files can now appear at the end of a line, not just on dedicated lines.
-          
+
           For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
         # https://github.com/github/releases/issues/2233
         - |

@@ -29,12 +29,12 @@ shortTitle: Configure access to private registries
 In most ecosystems, private dependencies are usually published to private package registries. These private registries are similar to their public equivalents, but they require authentication.
 
 {% ifversion dependabot-private-registries %}
-For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to _only_ access private registries by removing calls to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
+For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
 {% endif %}
 
 ## Configuring private registries
 
-You configure {% data variables.product.prodname_dependabot %}'s access to private registries in the _dependabot.yml_ file.
+You configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
 The top-level `registries` key is optional and specifies authentication details. {% data reusables.dependabot.dependabot-updates-registries %}
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
@@ -52,12 +52,14 @@ When you add a secret at the organization level, you can specify which repositor
 
 {% data variables.product.prodname_dependabot %} secrets also include secrets that are used by {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} pull requests. {% data variables.product.prodname_dependabot %} itself may not use these secrets, but the workflows require them. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#accessing-secrets)."
 
-After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example:
+After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the `dependabot.yml` configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example:
 
 {% raw %}
+
 ```yaml
 password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."
@@ -65,9 +67,9 @@ For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-vers
 #### Naming your secrets
 
 The name of a {% data variables.product.prodname_dependabot %} secret:
-* Can only contain alphanumeric characters (`[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed. If you enter lowercase letters these are changed to uppercase.
-* Must not start with the `GITHUB_` prefix.
-* Must not start with a number.
+- Can only contain alphanumeric characters (`[A-Z]`, `[0-9]`) or underscores (`_`). Spaces are not allowed. If you enter lowercase letters these are changed to uppercase.
+- Must not start with the `GITHUB_` prefix.
+- Must not start with a number.
 
 ### Adding a repository secret for {% data variables.product.prodname_dependabot %}
 
@@ -98,15 +100,16 @@ When creating a secret in an organization, you can use a policy to limit which r
 1. From the **Repository access** dropdown list, choose an access policy.
 1. If you chose **Selected repositories**:
 
-   * Click {% octicon "gear" aria-label="The Gear icon" %}.
-   * In the dialog box, select the repositories that can access this secret.
-   * Click **Update selection**.
+   - Click {% octicon "gear" aria-label="selected repositories" %}.
+   - In the dialog box, select the repositories that can access this secret.
+   - Click **Update selection**.
 
 1. Click **Add secret**.
 
    The name of the secret is listed on the {% data variables.product.prodname_dependabot %} secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
 {% ifversion fpt or ghec %}
+
 ## Configuring firewall IP rules
 
 You can add {% data variables.product.prodname_dependabot %} to your registries IP allow list.

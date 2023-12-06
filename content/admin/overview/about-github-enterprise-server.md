@@ -17,6 +17,12 @@ topics:
 
 {% data reusables.enterprise.github-distributes-ghes %} For more information, see "[AUTOTITLE](/admin/overview/system-overview)."
 
+{% note %}
+
+**Note:** Installing third-party software or making changes to the underlying operating system is not supported for {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
+
 You can choose to deploy {% data variables.product.product_name %} on premises, or to a supported cloud environment.
 
 ## Supported environments for deployment
@@ -43,7 +49,7 @@ For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-e
 
 ## About administration
 
-You can configure and monitor {% data variables.product.product_name %} via browser, administrative SSH access, and REST or GraphQL APIs. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with the deployment and maintainance of {% data variables.product.product_name %}.
+You can configure and monitor {% data variables.product.product_name %} via browser, administrative SSH access, and REST or GraphQL APIs. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with the deployment and maintenance of {% data variables.product.product_name %}.
 
 You can give certain employees administrative access to {% data variables.product.product_name %}, so they can set up external authentication, configure the instance to meet developer needs, and monitor the instance's activity and performance. To ensure compliance with business rules or regulatory restrictions, administrators can configure policies that control how people use {% data variables.location.product_location %}. For more information, see the following articles.
 
@@ -81,7 +87,7 @@ Additionally, you can configure a passive replica instance to fail over to in th
 
 ## About documentation
 
-Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}. 
+Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}.
 
 - [Enterprise administrator documentation](/admin)
 - [User documentation](/)
@@ -90,7 +96,7 @@ Different versions of {% data variables.product.product_name %} are reflected se
 
 ## Trying {% data variables.product.product_name %}
 
-You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
+You can sign up for a free, 45-day trial of {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)."
 
 ## Further reading
 

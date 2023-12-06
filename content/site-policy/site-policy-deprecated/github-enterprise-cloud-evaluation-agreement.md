@@ -8,6 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
 ---
+<!-- markdownlint-disable search-replace -->
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
@@ -19,11 +20,11 @@ Customer must have a Corporate Account on GitHub.com in order to have evaluation
 
 ## 2. Term and Termination
 
-*2.1 Term.* "Evaluation Agreement Effective Date" is the date on which Customer agrees to the terms and conditions of this Evaluation Agreement. This Agreement begins on the Evaluation Agreement Effective Date and continues in effect for fourteen (14) days ("**Evaluation Term**").
+_2.1 Term._ "Evaluation Agreement Effective Date" is the date on which Customer agrees to the terms and conditions of this Evaluation Agreement. This Agreement begins on the Evaluation Agreement Effective Date and continues in effect for fourteen (14) days ("**Evaluation Term**").
 
-*2.2 Termination.* Either party may terminate this Evaluation Agreement for any reason, without cause. Section 2.3 will apply to either party's election to terminate this Evaluation Agreement. This Evaluation Agreement will terminate immediately, without the requirement of notice, if Customer breaches any terms of the Evaluation Agreement.
+_2.2 Termination._ Either party may terminate this Evaluation Agreement for any reason, without cause. Section 2.3 will apply to either party's election to terminate this Evaluation Agreement. This Evaluation Agreement will terminate immediately, without the requirement of notice, if Customer breaches any terms of the Evaluation Agreement.
 
-*2.3 Effect of Termination.* Upon expiration of the Evaluation Term, any Subscription Licenses will automatically terminate; Customer will no longer have the right to use Enterprise Cloud; and Customer may lose access to Content, features, or capacity of its account. Please see the "Effect of Termination" section of the Corporate Terms of Service for information on obtaining a copy of that Content.
+_2.3 Effect of Termination._ Upon expiration of the Evaluation Term, any Subscription Licenses will automatically terminate; Customer will no longer have the right to use Enterprise Cloud; and Customer may lose access to Content, features, or capacity of its account. Please see the "Effect of Termination" section of the Corporate Terms of Service for information on obtaining a copy of that Content.
 
 ## 3. Warranties and Disclaimers
 

@@ -8,8 +8,7 @@ versions:
   ghec: '*'
 shortTitle: Skip workflow runs
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% note %}
@@ -20,15 +19,17 @@ shortTitle: Skip workflow runs
 
 Workflows that would otherwise be triggered using `on: push` or `on: pull_request` won't be triggered if you add any of the following strings to the commit message in a push, or the HEAD commit of a pull request:
 
-* `[skip ci]`
-* `[ci skip]`
-* `[no ci]`
-* `[skip actions]`
-* `[actions skip]`
+- `[skip ci]`
+- `[ci skip]`
+- `[no ci]`
+- `[skip actions]`
+- `[actions skip]`
 
-Alternatively, you can end the commit message with two empty lines followed by either:
+Alternatively, you can add a `skip-checks` trailer to your commit message. The trailers section should be included at the end of your commit message and be proceeded by two empty lines. If you already have other trailers in your commit message, `skip-checks` should be last. You can use either of the following:
 - `skip-checks:true`
 - `skip-checks: true`
+
+{% data reusables.commits.about-commit-cleanup %}
 
 You won't be able to merge the pull request if your repository is configured to require specific checks to pass first. To allow the pull request to be merged you can push a new commit to the pull request without the skip instruction in the commit message.
 

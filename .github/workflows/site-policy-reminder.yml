@@ -10,7 +10,7 @@ on:
 
 permissions:
   pull-requests: write
-  contents: none
+  contents: read
 
 jobs:
   run:

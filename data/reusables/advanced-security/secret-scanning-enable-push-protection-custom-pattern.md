@@ -8,4 +8,4 @@
 
    {% endnote %}
 
-   ![Screenshot of custom pattern page with the button to enable push protection emphasized](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
+   ![Screenshot of custom pattern page with the button to enable push protection emphasized.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)

@@ -16,7 +16,7 @@ Discussions give a space for more collaborative conversations by connecting and 
 
 ## Enabling {% data variables.product.prodname_discussions %} on your repository
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
 
 When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 
@@ -24,7 +24,15 @@ When you first enable {% data variables.product.prodname_discussions %}, you wil
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %}
 **Settings**.
 
+{% ifversion global-nav-update %}
+
+   ![Screenshot of the tabs in a {% data variables.product.company_short %} repository. The "Settings" option is outlined in dark orange.](/assets/images/help/discussions/public-repo-settings-global-nav-update.png)
+
+{% else %}
+
    ![Screenshot of the tabs in a {% data variables.product.company_short %} repository. The "Settings" option is outlined in dark orange.](/assets/images/help/discussions/public-repo-settings.png)
+
+{% endif %}
 
 1. Scroll down to the "Features" section and click **Set up discussions**.
 
@@ -44,7 +52,6 @@ Organization owners can enable {% data variables.product.prodname_discussions %}
 ## Welcoming contributions to your discussions
 
 You can welcome your community and introduce a new way to communicate in a repository or organization by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. Pinning and locking discussions helps people know that a post is meant as an announcement. You can use announcements as a way to link people to more resources and offer guidance for opening discussions in your community. For more information about pinning a discussion, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
-
 
 ## Setting up community guidelines for contributors
 

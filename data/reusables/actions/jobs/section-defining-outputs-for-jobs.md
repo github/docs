@@ -9,6 +9,7 @@ To use job outputs in a dependent job, you can use the `needs` context. For more
 ### Example: Defining outputs for a job
 
 {% raw %}
+
 ```yaml
 jobs:
   job1:
@@ -39,4 +40,5 @@ jobs:
           OUTPUT2: ${{needs.job1.outputs.output2}}
         run: echo "$OUTPUT1 $OUTPUT2"
 ```
+
 {% endraw %}

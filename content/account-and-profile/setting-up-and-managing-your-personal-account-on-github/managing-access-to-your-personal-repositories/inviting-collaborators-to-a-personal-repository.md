@@ -43,27 +43,20 @@ You can send an invitation to collaborate in your repository directly to someone
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4%}
 1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" %} Collaborators**.
 1. Click **Add people**.
 1. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
 1. Click **Add NAME to REPOSITORY**.
-{% else %}
-1. In the left sidebar, click **Collaborators**.
-1. Under "Collaborators", start typing the collaborator's username.
-1. Select the collaborator's username from the dropdown menu.
-1. Click **Add collaborator**.
-{% endif %}
 {% ifversion fpt or ghec %}
 1. The user will receive an email inviting them to the repository. Once they accept your invitation, they will have collaborator access to your repository.
 {% endif %}
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository)"
 - "[AUTOTITLE](/organizations/organizing-members-into-teams)"

@@ -6,7 +6,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 const externalScalarsJSON = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './src/graphql/lib/non-schema-scalars.json'))
+  await fs.readFile(path.join(process.cwd(), './src/graphql/lib/non-schema-scalars.json')),
 )
 const externalScalars = await Promise.all(
   externalScalarsJSON.map(async (scalar) => {
@@ -14,7 +14,7 @@ const externalScalars = await Promise.all(
     scalar.id = helpers.getId(scalar.name)
     scalar.href = helpers.getFullLink('scalars', scalar.id)
     return scalar
-  })
+  }),
 )
 
 // select and format all the data from the schema that we need for the docs
@@ -69,20 +69,20 @@ export default async function processSchemas(idl, previewsPerVersion) {
                 queryArg.isDeprecated = helpers.getDeprecationStatus(arg.directives, queryArg.name)
                 queryArg.deprecationReason = await helpers.getDeprecationReason(
                   arg.directives,
-                  queryArg
+                  queryArg,
                 )
                 queryArg.preview = await helpers.getPreview(
                   arg.directives,
                   queryArg,
-                  previewsPerVersion
+                  previewsPerVersion,
                 )
                 queryArgs.push(queryArg)
-              })
+              }),
             )
 
             query.args = sortBy(queryArgs, 'name')
             data.queries.push(query)
-          })
+          }),
         )
 
         return
@@ -104,12 +104,12 @@ export default async function processSchemas(idl, previewsPerVersion) {
             mutation.isDeprecated = helpers.getDeprecationStatus(field.directives, mutation.name)
             mutation.deprecationReason = await helpers.getDeprecationReason(
               field.directives,
-              mutation
+              mutation,
             )
             mutation.preview = await helpers.getPreview(
               field.directives,
               mutation,
-              previewsPerVersion
+              previewsPerVersion,
             )
 
             // there is only ever one input field argument, but loop anyway
@@ -122,7 +122,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
                 inputField.kind = helpers.getTypeKind(inputField.type, schema)
                 inputField.href = helpers.getFullLink(inputField.kind, inputField.id)
                 inputFields.push(inputField)
-              })
+              }),
             )
 
             mutation.inputFields = sortBy(inputFields, 'name')
@@ -131,7 +131,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
             // first get the payload, then find payload object's fields. these are the mutation's return fields.
             const returnType = helpers.getType(field)
             const mutationReturnFields = objectsInSchema.find(
-              (obj) => obj.name.value === returnType
+              (obj) => obj.name.value === returnType,
             )
 
             if (!mutationReturnFields) console.log(`no return fields found for ${returnType}`)
@@ -147,25 +147,25 @@ export default async function processSchemas(idl, previewsPerVersion) {
                 returnField.description = await helpers.getDescription(field.description.value)
                 returnField.isDeprecated = helpers.getDeprecationStatus(
                   field.directives,
-                  returnField.name
+                  returnField.name,
                 )
                 returnField.deprecationReason = await helpers.getDeprecationReason(
                   field.directives,
-                  returnField
+                  returnField,
                 )
                 returnField.preview = await helpers.getPreview(
                   field.directives,
                   returnField,
-                  previewsPerVersion
+                  previewsPerVersion,
                 )
                 returnFields.push(returnField)
-              })
+              }),
             )
 
             mutation.returnFields = sortBy(returnFields, 'name')
 
             data.mutations.push(mutation)
-          })
+          }),
         )
         return
       }
@@ -199,7 +199,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
               objectInterface.id = helpers.getId(objectInterface.name)
               objectInterface.href = helpers.getFullLink('interfaces', objectInterface.id)
               objectImplements.push(objectInterface)
-            })
+            }),
           )
         }
 
@@ -207,11 +207,12 @@ export default async function processSchemas(idl, previewsPerVersion) {
         if (def.fields.length) {
           await Promise.all(
             def.fields.map(async (field) => {
-              if (!field.description) return
               const objectField = {}
 
               objectField.name = field.name.value
-              objectField.description = await helpers.getDescription(field.description.value)
+              objectField.description = field.description
+                ? await helpers.getDescription(field.description.value)
+                : ''
               objectField.type = helpers.getType(field)
               objectField.id = helpers.getId(objectField.type)
               objectField.kind = helpers.getTypeKind(objectField.type, schema)
@@ -220,16 +221,16 @@ export default async function processSchemas(idl, previewsPerVersion) {
               objectField.isDeprecated = helpers.getDeprecationStatus(field.directives)
               objectField.deprecationReason = await helpers.getDeprecationReason(
                 field.directives,
-                objectField
+                objectField,
               )
               objectField.preview = await helpers.getPreview(
                 field.directives,
                 objectField,
-                previewsPerVersion
+                previewsPerVersion,
               )
 
               objectFields.push(objectField)
-            })
+            }),
           )
         }
 
@@ -253,23 +254,24 @@ export default async function processSchemas(idl, previewsPerVersion) {
         graphqlInterface.isDeprecated = helpers.getDeprecationStatus(def.directives)
         graphqlInterface.deprecationReason = await helpers.getDeprecationReason(
           def.directives,
-          graphqlInterface
+          graphqlInterface,
         )
         graphqlInterface.preview = await helpers.getPreview(
           def.directives,
           graphqlInterface,
-          previewsPerVersion
+          previewsPerVersion,
         )
 
         // an interface's fields render in the "Fields" section
         if (def.fields.length) {
           await Promise.all(
             def.fields.map(async (field) => {
-              if (!field.description) return
               const interfaceField = {}
 
               interfaceField.name = field.name.value
-              interfaceField.description = await helpers.getDescription(field.description.value)
+              interfaceField.description = field.description
+                ? await helpers.getDescription(field.description.value)
+                : ''
               interfaceField.type = helpers.getType(field)
               interfaceField.id = helpers.getId(interfaceField.type)
               interfaceField.kind = helpers.getTypeKind(interfaceField.type, schema)
@@ -278,16 +280,16 @@ export default async function processSchemas(idl, previewsPerVersion) {
               interfaceField.isDeprecated = helpers.getDeprecationStatus(field.directives)
               interfaceField.deprecationReason = await helpers.getDeprecationReason(
                 field.directives,
-                interfaceField
+                interfaceField,
               )
               interfaceField.preview = await helpers.getPreview(
                 field.directives,
                 interfaceField,
-                previewsPerVersion
+                previewsPerVersion,
               )
 
               interfaceFields.push(interfaceField)
-            })
+            }),
           )
         }
 
@@ -310,12 +312,12 @@ export default async function processSchemas(idl, previewsPerVersion) {
         graphqlEnum.isDeprecated = helpers.getDeprecationStatus(def.directives)
         graphqlEnum.deprecationReason = await helpers.getDeprecationReason(
           def.directives,
-          graphqlEnum
+          graphqlEnum,
         )
         graphqlEnum.preview = await helpers.getPreview(
           def.directives,
           graphqlEnum,
-          previewsPerVersion
+          previewsPerVersion,
         )
 
         await Promise.all(
@@ -324,7 +326,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
             enumValue.name = value.name.value
             enumValue.description = await helpers.getDescription(value.description.value)
             enumValues.push(enumValue)
-          })
+          }),
         )
 
         graphqlEnum.values = sortBy(enumValues, 'name')
@@ -355,7 +357,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
             possibleType.id = helpers.getId(possibleType.name)
             possibleType.href = helpers.getFullLink('objects', possibleType.id)
             possibleTypes.push(possibleType)
-          })
+          }),
         )
 
         union.possibleTypes = sortBy(possibleTypes, 'name')
@@ -380,12 +382,12 @@ export default async function processSchemas(idl, previewsPerVersion) {
         inputObject.isDeprecated = helpers.getDeprecationStatus(def.directives)
         inputObject.deprecationReason = await helpers.getDeprecationReason(
           def.directives,
-          inputObject
+          inputObject,
         )
         inputObject.preview = await helpers.getPreview(
           def.directives,
           inputObject,
-          previewsPerVersion
+          previewsPerVersion,
         )
 
         if (def.fields.length) {
@@ -402,16 +404,16 @@ export default async function processSchemas(idl, previewsPerVersion) {
               inputField.isDeprecated = helpers.getDeprecationStatus(field.directives)
               inputField.deprecationReason = await helpers.getDeprecationReason(
                 field.directives,
-                inputField
+                inputField,
               )
               inputField.preview = await helpers.getPreview(
                 field.directives,
                 inputField,
-                previewsPerVersion
+                previewsPerVersion,
               )
 
               inputFields.push(inputField)
-            })
+            }),
           )
         }
 
@@ -434,7 +436,7 @@ export default async function processSchemas(idl, previewsPerVersion) {
         scalar.preview = await helpers.getPreview(def.directives, scalar, previewsPerVersion)
         data.scalars.push(scalar)
       }
-    })
+    }),
   )
 
   // add non-schema scalars and sort all scalars alphabetically

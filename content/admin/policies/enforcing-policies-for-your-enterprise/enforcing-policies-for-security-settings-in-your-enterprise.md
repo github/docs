@@ -63,10 +63,10 @@ Before you require use of two-factor authentication, we recommend notifying orga
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-4. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Two-factor authentication", select **Require two-factor authentication for all organizations in your business**, then click **Save**.
-6. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
-7. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
+1. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Two-factor authentication", select **Require two-factor authentication for all organizations in your business**, then click **Save**.
+1. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
+1. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
 
 {% endif %}
 
@@ -98,6 +98,7 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion sso-redirect %}
+
 ## Managing SSO for unauthenticated users
 
 {% data reusables.enterprise-managed.sso-redirect-release-phase %}

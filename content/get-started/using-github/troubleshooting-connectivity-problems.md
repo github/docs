@@ -25,7 +25,7 @@ If you're having connectivity problems on your company or organization's network
 If you're unable to verify with the captcha:
 - Ensure JavaScript is enabled on your browser.
 - Ensure your browser is supported. If your browser isn't supported, upgrade your browser or install a supported browser. For a list of supported browsers, see "[AUTOTITLE](/get-started/using-github/supported-browsers)."
-- Ensure your network configuration is not blocking https://octocaptcha.com/ or https://arkoselabs.com/. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed, then visit https://client-demo.arkoselabs.com/github and ensure you are able to load the captcha.
+- Ensure your network configuration is not blocking https://octocaptcha.com/ or https://arkoselabs.com/. If you're behind a corporate firewall, contact your IT administrator to allow those domains. To verify access to these domains, visit https://octocaptcha.com/test and ensure the text "Connection successfully made!" is displayed. Then, visit [Arkose Labs Demo](https://demo.arkoselabs.com/?key=DF9C4D87-CB7B-4062-9FEB-BADB6ADA61E6) for a captcha test page, and ensure you are able to load the captcha.
 - Ensure your browser does not have plug-ins or extensions that may be interfering with GitHub. If so, temporarily disable the plug-ins or extensions during captcha verification.
 
 ## Switching cloning methods

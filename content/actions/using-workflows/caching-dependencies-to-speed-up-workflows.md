@@ -35,9 +35,9 @@ To cache dependencies for a job, you can use {% data variables.product.prodname_
 
 **Warning**: {% ifversion fpt or ghec %}Be mindful of the following when using caching with {% data variables.product.prodname_actions %}:
 
-* {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
+- {% endif %}We recommend that you don't store any sensitive information in the cache. For example, sensitive information can include access tokens or login credentials stored in a file in the cache path. Also, command line interface (CLI) programs like `docker login` can save access credentials in a configuration file. Anyone with read access can create a pull request on a repository and access the contents of a cache. Forks of a repository can also create pull requests on the base branch and access caches on the base branch.
 {%- ifversion fpt or ghec %}
-* When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
+- When using self-hosted runners, caches from workflow runs are stored on {% data variables.product.company_short %}-owned cloud storage. A customer-owned storage solution is only available with {% data variables.product.prodname_ghe_server %}.
 {%- endif %}
 
 {% endwarning %}
@@ -48,7 +48,7 @@ For more information on workflow run artifacts, see "[AUTOTITLE](/actions/using-
 
 ## Restrictions for accessing a cache
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. 
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags.
 Workflow runs can restore caches created in either the current branch or the default branch (usually `main`). If a workflow run is triggered for a pull request, it can also restore caches created in the base branch, including base branches of forked repositories. For example, if the branch `feature-b` has the base branch `feature-a`, a workflow run triggered on a pull request would have access to caches created in the default `main` branch, the base `feature-a` branch, and the current `feature-b` branch.
 
 Workflow runs cannot restore caches created for child branches or sibling branches. For example, a cache created for the child `feature-b` branch would not be accessible to a workflow run triggered on the parent `main` branch. Similarly, a cache created for the `feature-a` branch with the base `main` would not be accessible to its sibling `feature-c` branch with the base `main`. Workflow runs also cannot restore caches created for different tag names. For example, a cache created for the tag `release-a` with the base `main` would not be accessible to a workflow run triggered for the tag `release-b` with the base `main`.
@@ -66,14 +66,13 @@ If there is an exact match to the provided `key`, this is considered a cache hit
 
 You cannot change the contents of an existing cache. Instead, you can create a new cache with a new key.
 
-
 ### Input parameters for the `cache` action
 
 - `key`: **Required** The key created when saving a cache and the key used to search for a cache. It can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.
 - `path`: **Required** The path(s) on the runner to cache or restore.
   - You can specify a single path, or you can add multiple paths on separate lines. For example:
 
-    ```
+    ```yaml
     - name: Cache Gradle packages
       uses: {% data reusables.actions.action-cache %}
       with:
@@ -81,17 +80,20 @@ You cannot change the contents of an existing cache. Instead, you can create a n
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
+
   - You can specify either directories or single files, and glob patterns are supported.
   - You can specify absolute paths, or paths relative to the workspace directory.
 - `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurs for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. For example:
 
   {% raw %}
+
   ```yaml
   restore-keys: |
     npm-feature-${{ hashFiles('package-lock.json') }}
     npm-feature-
     npm-
   ```
+
   {% endraw %}
 
 - `enableCrossOsArchive`: **Optional** A boolean value that when enabled, allows Windows runners to save or restore caches independent of the operating system the cache was created on. If this parameter is not set, it defaults to `false`. For more information, see [Cross OS cache](https://github.com/actions/cache/blob/main/tips-and-workarounds.md#cross-os-cache) in the Actions Cache documentation.
@@ -101,6 +103,7 @@ You cannot change the contents of an existing cache. Instead, you can create a n
 - `cache-hit`: A boolean value to indicate an exact match was found for the key.
 
 ### Cache hits and misses
+
 When `key` exactly matches an existing cache, it's called a _cache hit_, and the action restores the cached files to the `path` directory.
 
 When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.
@@ -119,7 +122,7 @@ For a more detailed explanation of the cache matching process, see "[Matching a 
 
 This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
 
-```yaml{:copy}
+```yaml copy
 name: Caching with npm
 on: push
 jobs:
@@ -166,9 +169,11 @@ Using expressions to create a `key` allows you to automatically create a new cac
 For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file. So, when the dependencies that make up the `package-lock.json` file change, the cache key changes and a new cache is automatically created.
 
 {% raw %}
+
 ```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
+
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
@@ -201,23 +206,27 @@ Cache version is a way to stamp a cache with metadata of the `path` and the comp
 ### Example using multiple restore keys
 
 {% raw %}
+
 ```yaml
 restore-keys: |
   npm-feature-${{ hashFiles('package-lock.json') }}
   npm-feature-
   npm-
 ```
+
 {% endraw %}
 
 The runner evaluates the expressions, which resolve to these `restore-keys`:
 
 {% raw %}
+
 ```yaml
 restore-keys: |
   npm-feature-d5ea0750
   npm-feature-
   npm-
 ```
+
 {% endraw %}
 
 The restore key `npm-feature-` matches any key that starts with the string `npm-feature-`. For example, both of the keys `npm-feature-fd3052de` and `npm-feature-a9b253ff` match the restore key. The cache with the most recent creation date would be used. The keys in this example are searched in the following order:
@@ -247,7 +256,7 @@ For example, if a pull request contains a `feature` branch and targets the defau
 
 ## Usage limits and eviction policy
 
-{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} 
+{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} {% data reusables.actions.cache-eviction-policy %}
 
 {% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. For more information, see "[Managing caches](#managing-caches)."{% endif %}{% ifversion actions-cache-admin-ui %} You can also increase the cache size limit for a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
 
@@ -274,7 +283,13 @@ There are multiple ways to manage caches for your repositories:
 
 - Using the {% data variables.product.prodname_dotcom %} web interface, as shown below.
 - Using the REST API. For more information, see the "[AUTOTITLE](/rest/actions/cache)" REST API documentation.
-- Installing a {% data variables.product.prodname_cli %} extension to manage your caches from the command line. For more information, see the [gh-actions-cache](https://github.com/actions/gh-actions-cache) extension.
+- Installing the `gh cache` subcommand to manage your caches from the command line. For more information, see the [GitHub CLI documentation](https://cli.github.com/manual/gh_cache).
+
+    {% note %}
+
+    **Note:** If you are doing this manually, ensure you have version 2.32.0 or higher of the CLI installed.
+
+    {% endnote %}
 
 {% else %}
 
@@ -295,8 +310,8 @@ You can use the web interface to view a list of cache entries for a repository. 
 {% data reusables.repositories.actions-cache-list %}
 1. Review the list of cache entries for the repository.
 
-   * To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
-   * To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
+   - To search for cache entries used for a specific branch, click the **Branch** dropdown menu and select a branch. The cache list will display all of the caches used for the selected branch.
+   - To search for cache entries with a specific cache key, use the syntax `key: key-name` in the **Filter caches** field. The cache list will display caches from all branches where the key was used.
 
    ![Screenshot of the list of cache entries.](/assets/images/help/repository/actions-cache-entry-list.png)
 
@@ -307,7 +322,7 @@ Users with `write` access to a repository can use the {% data variables.product.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.actions-cache-list %}
-1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="Delete cache" %}. 
+1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="Delete cache" %}.
 
    ![Screenshot of the list of cache entries. A trash can icon, used to delete a cache, is highlighted with a dark orange outline.](/assets/images/help/repository/actions-cache-delete.png)
 
@@ -319,11 +334,11 @@ Users with `write` access to a repository can use the {% data variables.product.
 
 ### Force deleting cache entries
 
-Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency. 
+Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
 
-For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. Once a repository has reached its maximum cache storage, the cache eviction policy will create space by deleting the oldest caches in the repository. In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
+For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. {% data reusables.actions.cache-eviction-policy %} In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
 
-This example workflow uses `gh-actions-cache` to delete all the caches created by a branch once a pull request is closed.
+This example workflow uses `gh-actions-cache` to delete up to 100 caches created by a branch once a pull request is closed.
 
 ```yaml
 name: cleanup caches by a branch
@@ -335,19 +350,13 @@ on:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: {% data reusables.actions.action-checkout %}
-        
+    steps:      
       - name: Cleanup
         run: |
           gh extension install actions/gh-actions-cache
           
-          REPO={% raw %}${{ github.repository }}{% endraw %}
-          BRANCH="refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge"
-
           echo "Fetching list of cache key"
-          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
+          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
 
           ## Setting this to not fail the workflow while deleting cache keys. 
           set +e
@@ -359,8 +368,10 @@ jobs:
           echo "Done"
         env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          REPO: {% raw %}${{ github.repository }}{% endraw %}
+          BRANCH: refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge
 ```
 
-Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[AUTOTITLE](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."
+Alternatively, you can use the API to automatically list or delete all caches on your own cadence. For more information, see "[AUTOTITLE](/rest/actions/cache#about-the-cache-in-github-actions)."
 
 {% endif %}

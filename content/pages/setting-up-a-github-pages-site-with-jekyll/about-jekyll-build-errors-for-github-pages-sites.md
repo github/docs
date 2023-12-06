@@ -20,7 +20,7 @@ shortTitle: Jekyll build errors for Pages
 ## About Jekyll build errors
 
 {% ifversion pages-custom-workflow %}If you are publishing from a branch, sometimes{% else %}Sometimes,{% endif %} {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% ifversion fpt or ghec %}
-- The person who pushed the changes hasn't verified their email address. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."{% endif %}
+- The person who pushed the changes hasn't verified their email address. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% endif %}
 - You're pushing with a deploy key. If you want to automate pushes to your site's repository, you can set up a machine user instead. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#machine-users)."
 - You're using a CI service that isn't configured to build your publishing source. For example, Travis CI won't build the `gh-pages` branch unless you add the branch to a safe list. For more information, see "[Customizing the build](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)" on Travis CI, or your CI service's documentation.
 
@@ -41,12 +41,14 @@ If Jekyll does attempt to build your site and encounters an error, you will rece
 For more information about troubleshooting build errors, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites)."
 
 {% ifversion build-pages-with-actions %}
+
 ## Viewing Jekyll build error messages with {% data variables.product.prodname_actions %}
 
 By default, your {% data variables.product.prodname_pages %} site is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. To find potential build errors, you can check the workflow run for your {% data variables.product.prodname_pages %} site by reviewing your repository's workflow runs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."  For more information about how to re-run the workflow in case of an error, see "[AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
 {% endif %}
 
 {% ifversion build-pages-with-actions %}{% else %}
+
 ## Viewing your repository's build failures on {% data variables.product.product_name %}
 
 You can see build failures (but not build warnings) for your site on {% data variables.product.product_name %} in the **Settings** tab of your site's repository.
@@ -73,16 +75,19 @@ We recommend testing your site locally, which allows you to see build error mess
 You can configure a third-party service, such as [Travis CI](https://travis-ci.com/), to display error messages after each commit.
 
 1. If you haven't already, add a file called _Gemfile_ in the root of your publishing source, with the following content:
-  ```ruby
-  source `https://rubygems.org`
-  gem `github-pages`
-  ```
 
-2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.com/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
-  ```yaml
-  language: ruby
-  rvm:
-    - 2.3
-  script: "bundle exec jekyll build"
-  ```
-3. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.
+   ```ruby
+   source `https://rubygems.org`
+   gem `github-pages`
+   ```
+
+1. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.com/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
+
+   ```yaml
+   language: ruby
+   rvm:
+     - 2.3
+   script: "bundle exec jekyll build"
+   ```
+
+1. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.
