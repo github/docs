@@ -3202,15 +3202,6 @@
       },
       {
         "category": "collaborators",
-        "slug": "accept-a-repository-invitation",
-        "subcategory": "invitations",
-        "verb": "patch",
-        "requestPath": "/user/repository_invitations/{invitation_id}",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "collaborators",
         "slug": "decline-a-repository-invitation",
         "subcategory": "invitations",
         "verb": "delete",
