@@ -30,10 +30,6 @@ async function warmServer() {
 
   statsd.gauge('memory_heap_used', process.memoryUsage().heapUsed, ['event:warm-server'])
 
-  statsd.gauge('num_redirects', Object.keys(redirects).length)
-  statsd.gauge('num_page_map', Object.keys(pageMap).length)
-  statsd.gauge('num_page_list', Object.keys(pageList).length)
-
   if (process.env.NODE_ENV !== 'test') {
     console.log(`Context primed in ${Date.now() - startTime} ms`)
   }
