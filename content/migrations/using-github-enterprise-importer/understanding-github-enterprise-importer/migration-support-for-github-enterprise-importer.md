@@ -64,7 +64,7 @@ When you migrate an organization, a new organization is created within the desti
 - Repositories
 - Team access to repositories
 - Member privileges
-- Organization-level webhooks
+- Organization-level webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#enabling-webhooks)")
 - Default branch name for new repositories created in the organization
 
 All repositories are migrated with private visibility. If you want to set a repository's visibility to public or internal, you can do this after the migration using the UI or API.
@@ -87,7 +87,7 @@ When you migrate a repository, either directly or as part of an organization mig
 - Projects (classic) at the repository level
 - {% data variables.product.prodname_actions %} workflows
 - Commit comments
-- Active webhooks
+- Active webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#enabling-webhooks)")
 - Repository topics
 - Repository settings
   - Branch protections (see "[Branch protections](#branch-protections)" for more details)
