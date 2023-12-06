@@ -47,6 +47,7 @@ program
   )
   .parse(process.argv)
 
+console.log('ROOT: ', process.env.ROOT)
 const {
   fix,
   paths,
