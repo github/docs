@@ -84,6 +84,10 @@ export async function addItemToProject(item, project) {
 // Given a GitHub login, returns a bool indicating
 // whether the login is part of the docs team
 export async function isDocsTeamMember(login) {
+  // Returns true if login is docs-bot, to bypass the checks and make PRs opened by docs-bot be treated as though they were made by a docs team member
+  if (login === 'docs-bot') {
+    return true
+  }
   // Get all members of the docs team
   const data = await graphql(
     `
