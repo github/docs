@@ -67,9 +67,13 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% data reusables.saml.saml-supported-idps %}
 
-For more information about connecting Azure AD to your enterprise, see [Tutorial: Azure Active Directory SSO integration with GitHub Enterprise Cloud - Enterprise Account](https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) in Microsoft Docs.
+{% ifversion ghec %}
 
-{% ifversion ghes or ghae %}
+For more information about connecting Azure AD to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Cloud - Enterprise Account](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) in Microsoft Docs.
+
+{% elsif ghes or ghae %}
+
+For more information about connecting Azure AD to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-ae-tutorial) in Microsoft Docs.
 
 ## Username considerations with SAML
 
