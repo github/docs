@@ -346,7 +346,7 @@ Footnotes are not supported in wikis.
 
 Alerts are an extension of the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content. Alert syntax is supported in:
 - Issues
-- Pull requestes
+- Pull requests
 - Markdown files
 - Discussions
 - Gists
