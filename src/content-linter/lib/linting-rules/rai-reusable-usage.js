@@ -24,7 +24,6 @@ export const raiReusableUsage = {
       .filter((token) => token.kind === TokenKind.Tag)
       .filter((token) => token.name === 'data' || token.name === 'indented_data_reference')
 
-
     for (const token of tokens) {
       // When the liquid tag is indented_data_reference, there are
       // two arguments: the path in the data directory and the number
