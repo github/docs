@@ -92,4 +92,13 @@ describe(raiReusableUsage.names.join(' - '), () => {
     expect(errors[0].lineNumber).toBe(3)
     expect(errors[0].errorRange).toEqual([1, 41])
   })
+
+  test('an rai data file referencing data variables succeeds', async () => {
+    const TEST_FILE = 'src/fixtures/fixtures/data/reusables/rai/referencing_variable.md'
+    const result = await runRule(raiReusableUsage, {
+      files: [TEST_FILE],
+    })
+    const errors = result[TEST_FILE]
+    expect(errors.length).toBe(0)
+  })
 })

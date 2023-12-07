@@ -17,6 +17,8 @@ export const raiReusableUsage = {
     const tokens = getLiquidTokens(content)
       .filter((token) => token.kind === TokenKind.Tag)
       .filter((token) => token.name === 'data' || token.name === 'indented_data_reference')
+      // It's ok to reference variables from rai content
+      .filter((token) => !token.args.startsWith('variables'))
 
     for (const token of tokens) {
       // When the liquid tag is indented_data_reference, there are
