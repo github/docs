@@ -1,0 +1,4 @@
+# Reference: Issue #12592 Dependabot Grouped Security Updates
+versions:
+  fpt: '*'
+  ghec: '*'
