@@ -22,10 +22,12 @@ permissions:
 jobs:
   generate-query-lists:
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-xl
     steps:
       - name: Checkout repository code
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Checkout codeql repo
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
@@ -42,21 +44,37 @@ jobs:
           echo "OPENAPI_COMMIT_SHA=$OPENAPI_COMMIT_SHA" >> $GITHUB_OUTPUT
           echo "Copied files from github/codeql repo. Commit SHA: $OPENAPI_COMMIT_SHA"
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4.7.1
-        with:
-          python-version: 3.8
-
       - name: Download CodeQL CLI
-        # Look under the `codeql` directory, as this is where we checked out the `github/codeql` repo
+        # Look under the `codeql` directory, as this is where we checked out the `github/codeql` repo
         uses: ./codeql/.github/actions/fetch-codeql
+
+      - name: Test CodeQL CLI Download
+        run: codeql --version
+
+      # "Server for running multiple commands while avoiding repeated JVM initialization."
+      # Having started this should speed up the execution of the various
+      # CLI calls of the executable.
+      - name: Start CodeQL CLI server in the background
+        run: |
+          codeql execute cli-server &
+          sleep 3
+          codeql --version
 
       - name: Build code scanning query list
         run: |
           for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
             echo "Generating code scanning query list for $lang"
-            python src/code-scanning/generate-code-scanning-query-list.py $lang > data/reusables/code-scanning/codeql-query-tables/$lang.md
+            npm run generate-code-scanning-query-list -- \
+              --verbose \
+              --codeql-path codeql \
+              --codeql-dir codeql \
+              -o data/reusables/code-scanning/codeql-query-tables/$lang.md \
+              $lang
           done
+
+      - name: Debug
+        run: |
+          git diff
 
       - name: Create pull request
         env:
@@ -75,7 +93,7 @@ jobs:
 
           branchname=codeql-query-tables-${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }}
 
-          # Exit if the branch already exists. Since the actions/checkout fetch-depth is 1, 
+          # Exit if the branch already exists. Since the actions/checkout fetch-depth is 1,
           # it doesn't "know" about branches locally, so we need to manually list them.
           branchExists=$(git ls-remote --heads origin refs/heads/$branchname | wc -l)
 
@@ -93,7 +111,6 @@ jobs:
           echo "Creating pull request..."
           gh pr create \
             --title "Update CodeQL query tables" \
-            --draft \
             --repo github/docs-internal \
             --label "codeql-query-tables,skip FR board" \
             --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release.
