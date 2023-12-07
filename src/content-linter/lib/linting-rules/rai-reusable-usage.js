@@ -1,5 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
 import { TokenKind } from 'liquidjs'
+import path from 'path'
 
 import { getFrontmatter } from '../helpers/utils.js'
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
@@ -11,8 +12,9 @@ export const raiReusableUsage = {
   tags: ['feature', 'rai'],
   function: (params, onError) => {
     // ROOT is set in the test environment to src/fixtures/fixtures otherwise
-    const ROOT = process.env.ROOT
-    const RAI_DATA_PATH = ROOT ? `${ROOT}/data/reusables/rai` : 'data/reusables/rai'
+    const ROOT = process.env.ROOT || '.'
+    const RAI_DATA_PATH = path.join(ROOT, 'data/reusables/rai')
+
     const isRaiDataFile = params.name && params.name.startsWith(RAI_DATA_PATH)
     const fm = getFrontmatter(params.frontMatterLines) || {}
     const isRaiContentFile = fm.type === 'rai'
