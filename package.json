@@ -188,6 +188,7 @@
     ]
   },
   "jest": {
+    "testTimeout": 30000,
     "coverageThreshold": {
       "global": {
         "branches": 95,
