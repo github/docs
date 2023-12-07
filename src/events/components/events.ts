@@ -296,45 +296,51 @@ function initPageAndExitEvent() {
   })
 
   // Client-side routing
-  Router.events.on('routeChangeStart', (url) => {
+  Router.events.on('routeChangeStart', async (url) => {
     // Don't trigger page events on query string or hash changes
     previousPath = location.pathname // pathname set to "prior" url, arg "upcoming" url
     const newPath = url?.toString().split('?')[0].split('#')[0]
     const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
       sendExit()
-    }
-  })
-
-  Router.events.on('routeChangeComplete', (url) => {
-    // Don't trigger page events on query string or hash changes
-    // Don't set `previousPath` here as location.pathname is now updated
-    const newPath = url?.toString().split('?')[0].split('#')[0]
-    const shouldSendEvents = newPath !== previousPath
-    if (shouldSendEvents) {
+      await waitForPageReady()
       resetPageParams()
-      waitForDomMutateStop(sendPage)
+      sendPage()
     }
   })
 }
 
-// The DOM still mutates after `routeChangeComplete`
-// so we need to wait for it to stop mutating to get accurate data
-function waitForDomMutateStop(fn: Function, minMs = 35, pollMs = 5) {
-  let lastMutate = Date.now()
-  const observer = new MutationObserver(() => {
-    lastMutate = Date.now()
-  })
-  observer.observe(document.documentElement, { subtree: true, childList: true })
-  function poll() {
-    if (Date.now() - lastMutate > minMs) {
-      observer.disconnect()
-      fn()
-    } else {
-      setTimeout(poll, pollMs)
+// We want to wait for the DOM to mutate the <meta> tags
+// as well as finish routeChangeComplete (location.pathname)
+// before sending the page event in order to get accurate data
+async function waitForPageReady() {
+  const route = new Promise((resolve) => {
+    const handler = () => {
+      Router.events.off('routeChangeComplete', handler)
+      resolve(true)
     }
-  }
-  poll()
+    Router.events.on('routeChangeComplete', handler)
+  })
+  const mutate = new Promise((resolve) => {
+    const observer = new MutationObserver((mutations) => {
+      const metaMutated = mutations.find(
+        (mutation) =>
+          mutation.target?.nodeName === 'META' ||
+          Array.from(mutation.addedNodes).find((node) => node.nodeName === 'META') ||
+          Array.from(mutation.removedNodes).find((node) => node.nodeName === 'META'),
+      )
+      if (metaMutated) {
+        observer.disconnect()
+        resolve(true)
+      }
+    })
+    observer.observe(document.getElementsByTagName('head')[0], {
+      subtree: true,
+      childList: true,
+      attributes: true,
+    })
+  })
+  return Promise.all([route, mutate])
 }
 
 function initClipboardEvent() {
