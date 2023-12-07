@@ -11,15 +11,7 @@ export const raiReusableUsage = {
     'RAI articles and reusables can only reference reusable content in the data/reusables/rai directory',
   tags: ['feature', 'rai'],
   function: (params, onError) => {
-    // ROOT is set in the test environment to src/fixtures/fixtures otherwise
-    const ROOT = process.env.ROOT || '.'
-    const RAI_DATA_PATH = path.join(ROOT, 'data/reusables/rai')
-
-    const isRaiDataFile = params.name && params.name.startsWith(RAI_DATA_PATH)
-    const fm = getFrontmatter(params.frontMatterLines) || {}
-    const isRaiContentFile = fm.type === 'rai'
-
-    if (!isRaiDataFile && !isRaiContentFile) return
+    if (!isFileRai(params)) return
 
     const content = params.lines.join('\n')
     const tokens = getLiquidTokens(content)
@@ -46,4 +38,21 @@ export const raiReusableUsage = {
       )
     }
   },
+}
+
+// Rai file content can be in either the data/reusables/rai directory
+// or anywhere in the content directory
+function isFileRai(params) {
+  // ROOT is set in the test environment to src/fixtures/fixtures otherwise
+  // it is set to the root of the project.
+  const ROOT = process.env.ROOT || '.'
+  const DATA_PATH = path.join(ROOT, 'data/reusables')
+  const DATA_RAI = path.join(DATA_PATH, 'rai')
+
+  if (params.name.startsWith(DATA_PATH)) {
+    return params.name.startsWith(DATA_RAI)
+  }
+
+  const fm = getFrontmatter(params.frontMatterLines) || {}
+  return fm.type === 'rai'
 }
