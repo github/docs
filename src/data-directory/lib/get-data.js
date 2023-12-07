@@ -205,7 +205,7 @@ function getDataByDir(dottedPath, dir, englishRoot) {
           throw error
         }
       }
-      content = correctTranslatedContentStrings(content, englishContent)
+      content = correctTranslatedContentStrings(content, englishContent, { dottedPath })
     }
     return content
   }
