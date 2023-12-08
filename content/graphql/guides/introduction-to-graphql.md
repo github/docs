@@ -71,7 +71,7 @@ It's helpful to picture a graph: dots connected by lines. The dots are nodes, th
 
 ## Edge
 
-Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for [pagination](https://graphql.github.io/learn/pagination/).
+Edges represent connections between nodes. When you query a connection, you traverse its edges to get to its nodes. Every `edges` field has a `node` field and a `cursor` field. Cursors are used for pagination. For more information, see "[AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api)."
 
 ## Node
 
