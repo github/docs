@@ -88,7 +88,7 @@ puts jwt
 
 ```python copy
 #!/usr/bin/env python3
-import jwt
+from jwt import JWT, jwk_from_pem
 import time
 import sys
 
@@ -107,7 +107,7 @@ else:
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
-    signing_key = jwt.jwk_from_pem(pem_file.read())
+    signing_key = jwk_from_pem(pem_file.read())
 
 payload = {
     # Issued at time
@@ -119,7 +119,7 @@ payload = {
 }
 
 # Create JWT
-jwt_instance = jwt.JWT()
+jwt_instance = JWT()
 encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
 
 print(f"JWT:  {encoded_jwt}")
