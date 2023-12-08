@@ -89,7 +89,7 @@ For more information about authentication and provisioning, see the following ar
 
 Some customers have reported success using a partner IdP's application only for authentication, in combination with a different IdP for provisioning. For example, a combination of Okta for authentication and a custom SCIM solution for provisioning, or a combination of Keycloak for authentication and SailPoint for provisioning. {% data variables.product.company_short %} has not tested all IdPs, and does not test partner IdPs in combination with other IdPs.
 
-For more information about provisioning users from your IdP using the public beta of {% data variables.product.company_short %}'s SCIM schema, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)," and consult your IdP's documentation, support team, or other resources.
+For more information about provisioning users from your IdP using the private beta of {% data variables.product.company_short %}'s SCIM schema, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)," and consult your IdP's documentation, support team, or other resources.
 
 {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
 
