@@ -34,7 +34,7 @@ The REST API reference documentation describes the HTTP method, path, and parame
 
 The HTTP method of an endpoint defines the type of action it performs on a given resource. Some common HTTP methods are `GET`, `POST`, `DELETE`, and `PATCH`. The REST API reference documentation provides the HTTP method for every endpoint.
 
-For example, the HTTP method for the ["List repository issues" endpoint]([AUTOTITLE](/rest/issues/issues#list-repository-issues) is `GET`."
+For example, the HTTP method for the ["List repository issues" endpoint]([AUTOTITLE](/rest/issues/issues#list-repository-issues) is `GET`)."
 
 Where possible, the {% data variables.product.product_name %} REST API strives to use an appropriate HTTP method for each action.
 
