@@ -38,25 +38,21 @@ If you reach this limit, consider deleting package versions or contact Support f
 {% data reusables.package_registry.authenticate-packages %}
 
 {% ifversion packages-npm-v2 %}
+    Authenticating in a {% data variables.product.prodname_actions %} workflow
+    This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
-### Authenticating in a {% data variables.product.prodname_actions %} workflow
-
-This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
-
-{% data reusables.package_registry.v2-actions-codespaces %}
+    {% data reusables.package_registry.v2-actions-codespaces %}
 {% endif %}
 
-### Authenticating with a {% data variables.product.pat_generic %}
-
+Authenticating with a {% data variables.product.pat_generic %}
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user _~/.npmrc_ file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
+You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user ~/.npmrc file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
 
-To authenticate by adding your {% data variables.product.pat_v1 %} to your _~/.npmrc_ file, edit the _~/.npmrc_ file for your project to include the following line, replacing {% ifversion ghes or ghae %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new _~/.npmrc_ file if one doesn't exist.
+To authenticate by adding your {% data variables.product.pat_v1 %} to your ~/.npmrc file, edit the ~/.npmrc file for your project to include the following line, replacing {% ifversion ghes or ghae %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new ~/.npmrc file if one doesn't exist.
 
-{% ifversion ghes %}
-If your instance has subdomain isolation enabled:
-{% endif %}
+{% ifversion ghes %} If your instance has subdomain isolation enabled: {% endif %}
+
 
 ```shell
 //{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}/:_authToken=TOKEN
