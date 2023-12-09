@@ -28,25 +28,25 @@ To use the action place this snippet under your `jobs` in the desired workflow.
 
 This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use starter workflows for some of the most widely used static site generators. For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
 
-{% note %}
+{% warning %}
 
 **Warning:** If this action throws an error similar to the following:
 
-```
-Error: Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions, or consider exploring the `enablement` parameter for this action.
+`
+Error: Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions, or consider exploring the enablement parameter for this action.
 Error: HttpError: Resource not accessible by integration
-```
+`
 
 This means that `GITHUB_TOKEN` which is used by default in the `configure-pages` action does not have the required permission. In this case, you need to set up a [{% data variables.product.pat_generic_caps %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#about-personal-access-tokens) that has writing access to {% data variables.product.prodname_pages %}. This token should be stored in [secrets](/actions/security-guides/using-secrets-in-github-actions) then used in the argument `token`:
 
-```
+```yaml
 - name: Configure GitHub Pages
   uses: actions/configure-pages@v3
   with:
     token: ${{ secrets.PAGES_TOKEN }}
 ```
 
-{% endnote %}
+{% endwarning %}
 
 ## Configuring the `upload-pages-artifact` action
 
