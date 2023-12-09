@@ -22,10 +22,6 @@ For more complex contributions, please open an issue using the most appropriate 
 
 If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work. 
 
-### Join us in discussions
-
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
-
 ### And that's it!
 
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
@@ -52,7 +48,3 @@ The GitHub product documentation in the assets, content, and data folders are li
 All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
-
-## Thanks :purple_heart:
-
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
