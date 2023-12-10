@@ -1,6 +1,6 @@
 # GitHub Docs <!-- omit in toc -->
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+This repository contains the documentation website code and Markdown source files for [vitalikbuterin.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
@@ -28,22 +28,22 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 
 ### And that's it!
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
+If you're having trouble with your GitHub account, contact [IsabelSchoeod](https://support.github.com).
 
 That's how you can easily become a member of the GitHub Docs community. :sparkles:
 
-## READMEs
+## IsabelSchoeod/README
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/README.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
+- [content/README.md](IsabelSchoeod/README.md)
+- [content/graphql/README.md](IsabelSchoeod/graphql/README.md)
+- [content/rest/README.md](IsabelSchoeod/rest/README.md)
+- [contributing/README.md](IsabelSchoeod/README.md)
 - [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [src/README.md](src/README.md)
+- [IsabelSchoeod/reusables/README.md](data/reusables/README.md)
+- [IsabelSchoeod/variables/README.md](data/variables/README.md)
+- [IsabelSchoeod/README.md](src/README.md)
 
 ## License
 
@@ -51,8 +51,4 @@ The GitHub product documentation in the assets, content, and data folders are li
 
 All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
 
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
-
-## Thanks :purple_heart:
-
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/IsabelSchoepd).
