@@ -1,4 +1,8 @@
 {
   "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "gitlens.graph.showRemoteNames": true,
+  "gitlens.graph.dimMergeCommits": true,
+  "gitlens.views.repositories.includeWorkingTree": true,
+  "gitlens.views.repositories.showIncomingActivity": true
 }
