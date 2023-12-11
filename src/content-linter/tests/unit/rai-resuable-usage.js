@@ -2,7 +2,6 @@ import path from 'path'
 
 import { runRule } from '../../lib/init-test.js'
 import { raiReusableUsage } from '../../lib/linting-rules/rai-reusable-usage.js'
-import { expect } from '@jest/globals'
 
 describe(raiReusableUsage.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
