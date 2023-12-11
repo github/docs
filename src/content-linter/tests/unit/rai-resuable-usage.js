@@ -15,7 +15,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     process.env.ROOT = envVarValueBefore
   })
 
-  test('a non-rai content article referencing non-rai data succeeds', async () => {
+  test('a non-RAI content article referencing non-RAI data succeeds', async () => {
     const markdown = [
       '---',
       'title: article',
@@ -30,7 +30,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test('an rai content article referencing non-rai data fails', async () => {
+  test('an RAI content article referencing non-RAI data fails', async () => {
     const markdown = [
       '---',
       'title: article',
@@ -48,7 +48,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     expect(errors[0].errorRange).toEqual([1, 49])
   })
 
-  test('an rai content article referencing rai data succeeds', async () => {
+  test('an RAI content article referencing RAI data succeeds', async () => {
     const markdown = [
       '---',
       'title: article',
@@ -64,7 +64,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test('a non-rai data file referencing non-rai data succeeds', async () => {
+  test('a non-RAI data file referencing non-RAI data succeeds', async () => {
     const TEST_FILE = 'src/fixtures/fixtures/data/reusables/nested_reusables/nested.md'
     const result = await runRule(raiReusableUsage, {
       files: [TEST_FILE],
@@ -73,7 +73,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test('an rai data file referencing rai data succeeds', async () => {
+  test('an RAI data file referencing RAI data succeeds', async () => {
     const TEST_FILE = 'src/fixtures/fixtures/data/reusables/rai/referencing_rai_data.md'
     const result = await runRule(raiReusableUsage, {
       files: [TEST_FILE],
@@ -82,7 +82,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     expect(errors.length).toBe(0)
   })
 
-  test('an rai data file referencing non-rai data fails', async () => {
+  test('an RAI data file referencing non-RAI data fails', async () => {
     const TEST_FILE = 'src/fixtures/fixtures/data/reusables/rai/not_referencing_this_directory.md'
     const result = await runRule(raiReusableUsage, {
       files: [TEST_FILE],
@@ -93,7 +93,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
     expect(errors[0].errorRange).toEqual([1, 41])
   })
 
-  test('an rai data file referencing data variables succeeds', async () => {
+  test('an RAI data file referencing data variables succeeds', async () => {
     const TEST_FILE = 'src/fixtures/fixtures/data/reusables/rai/referencing_variable.md'
     const result = await runRule(raiReusableUsage, {
       files: [TEST_FILE],

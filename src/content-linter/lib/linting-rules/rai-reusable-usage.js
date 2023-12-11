@@ -48,11 +48,11 @@ function isFileRai(params) {
   // ROOT is set in the test environment to src/fixtures/fixtures otherwise
   // it is set to the root of the project.
   const ROOT = process.env.ROOT || '.'
-  const DATA_PATH = path.join(ROOT, 'data/reusables')
-  const DATA_RAI = path.join(DATA_PATH, 'rai')
+  const dataPath = path.join(ROOT, 'data/reusables')
+  const dataRai = path.join(dataPath, 'rai')
 
-  if (params.name.startsWith(DATA_PATH)) {
-    return params.name.startsWith(DATA_RAI)
+  if (params.name.startsWith(dataPath)) {
+    return params.name.startsWith(dataRai)
   }
 
   const fm = getFrontmatter(params.frontMatterLines) || {}
