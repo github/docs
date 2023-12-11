@@ -35,6 +35,14 @@ jobs:
       - name: Install dependencies
         run: npm install @octokit/graphql
 
+      - name: Set AUTHOR_LOGIN
+        run: |
+          if [[ "${{ github.event.pull_request.assignee.login && github.event.pull_request.user.login == 'docs-bot' }}" ]]; then
+            echo "AUTHOR_LOGIN=${{ github.event.pull_request.assignee.login }}" >> $GITHUB_ENV
+          else
+            echo "AUTHOR_LOGIN=${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
+          fi
+
       - name: Run script
         run: |
           node src/workflows/ready-for-docs-review.js
@@ -43,7 +51,6 @@ jobs:
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id }}
-          AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
           REPO: ${{ github.event.pull_request.base.repo.full_name }}
 
         # Since the projects API is still in beta, use the old workflow if something fails
