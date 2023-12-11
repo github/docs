@@ -317,7 +317,7 @@ async function waitForPageReady() {
   const route = new Promise((resolve) => {
     const handler = () => {
       Router.events.off('routeChangeComplete', handler)
-      resolve(true)
+      setTimeout(() => resolve(true))
     }
     Router.events.on('routeChangeComplete', handler)
   })
@@ -331,7 +331,7 @@ async function waitForPageReady() {
       )
       if (metaMutated) {
         observer.disconnect()
-        resolve(true)
+        setTimeout(() => resolve(true))
       }
     })
     observer.observe(document.getElementsByTagName('head')[0], {
