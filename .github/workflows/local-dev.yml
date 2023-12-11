@@ -28,6 +28,9 @@ jobs:
       # Note that we don't check out docs-early-access, Elasticsearch,
       # or any remote translations. Nothing fancy here!
 
+      - name: Disable Next.js telemetry
+        run: npx next telemetry disable
+
       - name: Start server in the background
         run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &
 
