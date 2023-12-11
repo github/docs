@@ -22,7 +22,7 @@ export const raiReusableUsage = {
 
     for (const token of tokens) {
       // if token is 'data  foo.bar` or `indented_data_reference foo.bar  depth=3`
-      // we only want the `foo.bar` part. 
+      // we only want the `foo.bar` part.
       const dataDirectoryReference = token.args.split(/\s+/)[0]
       if (dataDirectoryReference.startsWith('reusables.rai')) continue
 
