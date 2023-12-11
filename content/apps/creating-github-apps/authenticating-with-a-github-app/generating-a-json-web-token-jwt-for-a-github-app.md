@@ -131,7 +131,7 @@ This script will prompt you for the file path where your private key is stored a
 
 {% note %}
 
-**Note:** You must pass your App ID and /path/to/PEM as arguments when running this script.
+**Note:** You must pass your App ID and the file path where your private key is stored as arguments when running this script.
 
 {% endnote %}
 
@@ -141,11 +141,11 @@ This script will prompt you for the file path where your private key is stored a
 set -o pipefail
 
 app_id=$1 # App ID as first argument
-pem=$( cat $2 ) # /path/to/PEM as second argument
+pem=$( cat $2 ) # file path of the private key as second argument
 
 now=$(date +%s)
-iat=$((${now} - 60)) # Issues 60 seconds in the past.
-exp=$((${now} + 600)) # Expires 10 minutes in the future.
+iat=$((${now} - 60)) # Issues 60 seconds in the past
+exp=$((${now} + 600)) # Expires 10 minutes in the future
 
 b64enc() { openssl base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n'; }
 
