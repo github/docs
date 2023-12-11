@@ -4,7 +4,7 @@ redirect_from:
   - /dmca-notice-how-to
   - /articles/dmca-notice-how-to
   - /articles/guide-to-submitting-a-dmca-takedown-notice
-  - /github/site-policy/guide-to-submitting-a-dmca-takedown-notice
+  - /github/site-policy/guide-to-submitting-a-dmca-takedown-noticesd
 versions:
   fpt: '*'
 topics:
