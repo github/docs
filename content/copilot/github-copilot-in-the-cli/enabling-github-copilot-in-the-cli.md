@@ -15,6 +15,12 @@ shortTitle: Enabling Copilot in the CLI
 
 {% endnote %}
 
+{% note %}
+
+**Note:**  After enabling {% data variables.product.prodname_copilot_cli %}, you'll need to install the {% data variables.product.prodname_copilot_cli %} extension, see "[AUTOTITLE](/github-cli/github-cli/using-github-copilot-in-the-cli.md)."
+
+{% endnote %}
+
 The {% data variables.product.prodname_copilot_cli %} public beta is available to all organizations{% ifversion ghec %} and enterprises{% endif %} that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_cli_short %} for your organization{% ifversion ghec %} or enterprise{% endif %} in the {% data variables.product.prodname_copilot_short %} settings.
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_cli_short %} at the organization level
