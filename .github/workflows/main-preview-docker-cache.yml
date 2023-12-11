@@ -1,84 +1,24 @@
-name: Build and Push Main Preview Env Docker Cache
-
-# **What it does**: Builds and pushes the `main` Docker cache image
-# **Why we have it**: It allows PRs using the registry cache to pull a pre-built image, which should speed up the build
-# **Who does it impact**: All contributors.
-
-on:
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read
-
-# This allows a subsequently queued workflow run to take priority over
-# previously queued runs and interrupt currently executing runs
-concurrency:
-  group: '${{ github.workflow }}'
-  cancel-in-progress: true
-
-jobs:
-  build-and-push-nonprod-cache:
-    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    env:
-      ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
-      DOCKER_IMAGE_CACHE_REF: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
-      NONPROD_REGISTRY_USERNAME: ${{ fromJSON('["ghdocs", "ghdocsinternal"]')[github.repository == 'github/docs-internal'] }}
-
-    steps:
-      - name: 'Az CLI login'
-        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
-        with:
-          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
-
-      - name: 'Docker login'
-        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
-        with:
-          login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
-          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
-          password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226
-
-      - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-        with:
-          # To prevent issues with cloning early access content later
-          persist-credentials: 'false'
-
-      - if: ${{ env.ENABLE_EARLY_ACCESS }}
-        name: Clone docs-early-access
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-        with:
-          repository: github/docs-early-access
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-          path: docs-early-access
-          ref: main
-
-      - if: ${{ env.ENABLE_EARLY_ACCESS }}
-        name: Merge docs-early-access repo's folders
-        run: src/early-access/scripts/merge-early-access.sh
-
-      # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
-      - name: 'Prune for preview env'
-        run: src/workflows/prune-for-preview-env.sh
-
-      - name: 'Build and push image'
-        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09
-        with:
-          context: .
-          push: true
-          target: preview
-          tags: ${{ env.DOCKER_IMAGE_CACHE_REF }}
-          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
-          cache-to: type=registry,mode=max,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
-
-      - uses: ./.github/actions/slack-alert
-        if: ${{ failure() }}
-        with:
-          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+            - name: Setup Node.js environment
+  uses: actions/setup-node@v4.0.0
+  with:
+    # Set always-auth in npmrc.
+    always-auth: # optional, default is false
+    # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+    node-version: # optional
+    # File containing the version Spec of the version to use.  Examples: .nvmrc, .node-version, .tool-versions.
+    node-version-file: # optional
+    # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
+    architecture: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec.
+    check-latest: # optional
+    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.
+    registry-url: # optional
+    # Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).
+    scope: # optional
+    # Used to pull node distributions from node-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+    token: # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.
+    cache: # optional
+    # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+    cache-dependency-path: # optional
+          
