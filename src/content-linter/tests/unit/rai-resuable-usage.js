@@ -1,5 +1,3 @@
-import path from 'path'
-
 import { runRule } from '../../lib/init-test.js'
 import { raiReusableUsage } from '../../lib/linting-rules/rai-reusable-usage.js'
 
@@ -7,7 +5,7 @@ describe(raiReusableUsage.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
 
   beforeAll(() => {
-    process.env.ROOT = path.join('src', 'fixtures', 'fixtures')
+    process.env.ROOT = 'src/fixtures/fixtures'
   })
 
   afterAll(() => {
