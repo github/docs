@@ -5,7 +5,7 @@ redirect_from:
   - /program
   - /developers/overview/github-developer-program
 versions:
-  fpt: '*'
+  fpt: '*'sd
   ghec: '*'
 topics:
   - API
