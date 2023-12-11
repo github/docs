@@ -41,7 +41,9 @@ jobs:
         run: |
           set -e
 
-          filesToRemove=`npm run find-orphaned-assets`
+          # The `-s` is to make npm run silent and not print verbose
+          # information about the npm script alias.
+          filesToRemove=`npm run -s find-orphaned-assets`
           [ -z "$filesToRemove" ] && exit 0
 
           echo $filesToRemove | xargs git rm
