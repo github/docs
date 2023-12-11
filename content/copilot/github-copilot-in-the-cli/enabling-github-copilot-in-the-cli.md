@@ -17,7 +17,7 @@ shortTitle: Enabling Copilot in the CLI
 
 {% note %}
 
-**Note:**  After enabling {% data variables.product.prodname_copilot_cli %}, you'll need to install the {% data variables.product.prodname_copilot_cli %} extension, see "[AUTOTITLE](/github-cli/github-cli/using-github-copilot-in-the-cli.md)."
+**Note:**  After enabling {% data variables.product.prodname_copilot_cli %}, you'll need to install the {% data variables.product.prodname_copilot_cli %} extension, see "[AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)."
 
 {% endnote %}
 
