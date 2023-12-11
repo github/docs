@@ -17,24 +17,13 @@ allowTitleToDifferFromFilename: true
 
 You can {% ifversion projects-v2-org-templates-improvements %}create a template, or {% endif %}set a project as a template{% ifversion projects-v2-org-templates-improvements %},{% endif %} to share a pre-configured project with other people in your organization which they can then use as the base for their projects.
 
-The projects you have marked as templates are made available in the "Select a template" pop-up window when other people create projects in your organization.
+The projects you mark as templates are shown in the "Create a project" dialog when anyone creates a project in your organization. {% ifversion projects-v2-org-templates-GA-updates %}You can also configure up to six templates to recommend to your organization's members.{% endif %}
 
 When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project. {% ifversion projects-v2-org-templates-improvements %}You can find the template that a project used from the project's settings page, under the "Templates" section.{% endif %}
 
 {% ifversion projects-v2-org-templates-improvements %}
 
-## Creating templates
-
-{% else %}
-
-## Setting a project as a template
-
-{% endif %}
-
-{% ifversion projects-v2-org-templates-improvements %}
-You can either create a new template directly, or you can set a project as a template.
-
-### Creating a new template
+## Creating a new template
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -42,9 +31,10 @@ You can either create a new template directly, or you can set a project as a tem
 {% data reusables.projects.templates-tab %}
 1. Click **New template**.
 
-### Setting a project as a template
-
 {% endif %}
+
+## Setting a project as a template
+
 If you have admin permissions for a project in your organization, you can set the project as a template and make it available for others in your organization to use.
 
 {% data reusables.projects.project-settings %}
@@ -82,6 +72,39 @@ If you have write or admin permissions for a project in your organization, you c
 
 {% data reusables.projects.project-settings %}
 1. In the "Templates" section, click {% octicon "duplicate" aria-hidden="true" %} **Copy as template**.
+
+{% ifversion projects-v2-org-templates-GA-updates %}
+
+## Configuring recommended templates
+
+If you are an organization owner, you can select up to six templates to recommend to your organization's members. These recommended templates are suggested first when an organization member creates a new project.
+
+### Choosing which templates to recommend
+
+You can add up to six templates to your organization's recommended templates.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. Under "Recommended templates", click **Customize recommended templates**.
+1. In the list of templates owned by your organization, select up to six templates that you want to recommend to your members.
+
+   ![Screenshot of the recommended template selection modal.](/assets/images/help/projects-v2/rec-template-select.png)
+
+1. Click **Save**.
+
+### Arranging your recommended templates
+
+You can change the display order of your recommended templates in the "Create project" dialog.
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. Under "Recommended templates", find the template you want to reposition, click on {% octicon "grabber" aria-label="Drag to reorder" %}, and drag the template to the new position.
+
+   ![Screenshot of an organization's recommended templates settings. The 'Drag to reorder' handle is highlighted with an orange outline.](/assets/images/help/projects-v2/rec-template-handle.png)
+
+{% endif %}
 
 ## Further reading
 
