@@ -19,13 +19,13 @@ jobs:
     steps:
       - name: Remove issue from board
         if: ${{ github.event.client_payload.command.resource.type == 'Issue' }}
-        run: gh issue edit "$ISSUE_URL" --remove-project "Docs content first responder" --remove-label "docs-content-fr"
+        run: gh issue edit "$ISSUE_URL" --remove-project "Docs content first responder (deprecated)" --remove-label "docs-content-fr"
         env:
           GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           ISSUE_URL: https://github.com/${{ github.event.client_payload.command.repository.full_name }}/issues/${{ github.event.client_payload.command.resource.number }}
       - name: Remove PR from board
         if: ${{ github.event.client_payload.command.resource.type == 'PullRequest' }}
-        run: gh pr edit "$PR_URL" --remove-project "Docs content first responder" --remove-label "docs-content-fr"
+        run: gh pr edit "$PR_URL" --remove-project "Docs content first responder (deprecated)" --remove-label "docs-content-fr"
         env:
           GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           PR_URL: https://github.com/${{ github.event.client_payload.command.repository.full_name }}/pull/${{ github.event.client_payload.command.resource.number }}
