@@ -1,8 +1,4 @@
-import { jest } from '@jest/globals'
-
 import { getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
-
-jest.setTimeout(10 * 60 * 1000)
 
 describe('sidebar', () => {
   test('top level product mentioned at top of sidebar', async () => {

@@ -16,7 +16,7 @@ topics:
 
 ## About teams
 
-You can use teams to manage access for people in an organization, and for sending notifications. Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name.
+You can use teams to manage access for people in an organization, and for sending notifications. Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Teams can only be made up of members of your organization, outside collaborators are unable to be on a team.
 
 {% ifversion team-mentions-setting %}Organization owners and team maintainers can disable team notifications. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/configuring-team-notifications)."{% endif %}
 

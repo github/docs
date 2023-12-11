@@ -375,7 +375,7 @@ export const Header = () => {
                           href={currentProduct.href}
                           className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
                         >
-                          {currentProduct.name}
+                          {currentProduct.nameRendered}
                         </Link>
                       </div>
                     )}

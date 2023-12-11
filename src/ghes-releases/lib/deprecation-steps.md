@@ -60,7 +60,7 @@ The dates we use for Enterprise releases and deprecations are stored in [release
 1. Do a dry run by scraping a small amount of files to test locally on your machine. This command does not overwrite the references to asset files so they will render on your machine.
 
     ```shell
-    node --max-old-space-size=8192 src/ghes-releases/scripts/archive-version.js --dry-run --local-dev
+    npm run archive-version -- --dry-run --local-dev
     ```
 
 1. Navigate to the scraped files directory (`tmpArchivalDir_<VERSION_TO_DEPRECATE>`) inside your docs-internal checkout. Open a few HTML files and ensure they render and drop-down pickers work correctly.
@@ -68,7 +68,7 @@ The dates we use for Enterprise releases and deprecations are stored in [release
 1. If the dry-run looks good, scrape all content files. This will take about 20-30 minutes. **Note:**  This will overwrite the directory that was previously generated with new files. You can also create a specific output directory using the `--output` flag.
 
     ```shell
-    node --max-old-space-size=8192 src/ghes-releases/scripts/archive-version.js
+    npm run archive-version
     ```
 
 1. Revert changes to `src/search/components/Search.tsx`.
@@ -90,7 +90,7 @@ The dates we use for Enterprise releases and deprecations are stored in [release
    1. Click `Containers` in the left sidebar, then click the `enterprise` container.
 
    1. Click `Upload` in the top bar. Drag and drop or click `Browse for files` to select the directory inside of `tmpArchivalDir_<VERSION_TO_DEPRECATE>`. For example, at the time of this writing, the directory name was `3.5`. The upload will take several minutes and the UI may not give feedback immediately. Don't close the browser tab or navigate away from the page until the upload is complete.
-  
+
    App method:
 
    1. Open the Microsoft Azure Storage Explorer app from the `Overview` tab [githubdocs Azure Storage Blob resource page](https://portal.azure.com/#@githubazure.onmicrosoft.com/resource/subscriptions/fa6134a7-f27e-4972-8e9f-0cedffa328f1/resourceGroups/docs-production/providers/Microsoft.Storage/storageAccounts/githubdocs/overview).
@@ -144,7 +144,7 @@ This step will remove the version from the drop-down picker, effectively depreca
 
 1. Manually delete the deprecated directory in `data/graphql`. For example, if you are deprecating the 3.5 release, you'd delete the `data/graphql/ghes-3.5` directory.
 
-1. Open a new PR. Reviewers will be automatically assigned. 
+1. Open a new PR. Reviewers will be automatically assigned.
 
 1. When the PR is approved, merge it in. 🚢
 
@@ -157,7 +157,7 @@ This step will remove the version from the drop-down picker, effectively depreca
 1. Remove the outdated Liquid markup and frontmatter.
 
    ```shell
-   src/ghes-releases/scripts/remove-version-markup.js --release <number>
+   npm run remove-version-markup -- --release <number>
    ```
 
 1. If data resuables were deleted automatically, you'll need to remove references to the deleted reusable in the content. Using VSCode to find the occurrences is quick and there are typically only a few to update. If you have any questions, reach out to the docs-content team in #docs-content to ask for help updating the Markdown files.
@@ -178,7 +178,7 @@ This step will remove the version from the drop-down picker, effectively depreca
 
 ## Re-scraping a page or all pages
 
-Occasionally, a change will need to be added to our archived enterprise versions. If this occurs, you can check out the `enterprise-<release number>-release` branch and re-scrape the page or all pages using `src/ghes-releases/scripts/archive-version.js`. To scrape a single page you can use the `—page <page relative path>` option.
+Occasionally, a change will need to be added to our archived enterprise versions. If this occurs, you can check out the `enterprise-<release number>-release` branch and re-scrape the page or all pages using `npm run archive-version`. To scrape a single page you can use the `—page <page relative path>` option.
 
 For each language, upload the new file to Azure blob storage in the `enterprise` container.
 

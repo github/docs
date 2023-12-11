@@ -85,7 +85,7 @@ jobs:
         env:
           POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
         run: |
-          node src/languages/scripts/create-translation-health-report.js \
+          npm run create-translation-health-report -- \
             --language ${{ matrix.language }} \
             --gitref ${{ env.gitref }} \
             >> $GITHUB_WORKSPACE/translation-health-report.json

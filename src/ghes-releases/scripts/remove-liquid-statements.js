@@ -17,7 +17,7 @@ const tokenize = (str) => {
   return tokenizer.readTopLevelTokens()
 }
 // This module is used by
-// src/ghes-releases/scripts/remove-version-markup.js to remove
+// `npm run remove-version-markup` to remove
 // and update Liquid conditionals when a GHES release is being deprecated. It is also used by
 // src/ghes-releases/tests/remove-liquid-statements.js.
 export default function removeLiquidStatements(content, release, nextOldestRelease, file) {

@@ -46,6 +46,12 @@ If you customize the `dependabot.yml` file, you may notice some changes to the p
 
 For an example, see "[Setting custom labels](#setting-custom-labels)" below.
 
+{% ifversion dependabot-grouped-security-updates %}{% note %}
+
+**Note:** If you use grouped security updates, the grouped pull requests will also inherit relevant configuration settings from the `dependabot.yml` file. However, they will not inherit any customizations made with the `groups` option, which only applies to version updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+
+{% endnote %}{% endif %}
+
 ## Modifying scheduling
 
 When you set a `daily` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions at 05:00 UTC. You can use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
@@ -150,7 +156,7 @@ updates:
 
 {% data reusables.dependabot.dependabot-version-updates-groups-match-first %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+{% ifversion dependabot-grouped-security-updates %}{% data reusables.dependabot.dependabot-security-updates-groups-supported %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
 
 You must configure groups per package ecosystem.
 
