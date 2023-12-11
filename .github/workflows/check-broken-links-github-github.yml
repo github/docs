@@ -19,7 +19,6 @@ jobs:
     env:
       # need to use a token from a user with access to github/github for this step
       GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-      FIRST_RESPONDER_PROJECT: Docs content first responder
       REPORT_AUTHOR: docs-bot
       REPORT_LABEL: github github broken link report
       REPORT_REPOSITORY: github/docs-content
