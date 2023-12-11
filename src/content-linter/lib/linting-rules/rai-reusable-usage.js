@@ -21,10 +21,8 @@ export const raiReusableUsage = {
       .filter((token) => !token.args.startsWith('variables'))
 
     for (const token of tokens) {
-      // When the liquid tag is indented_data_reference, there are
-      // two arguments: the path in the data directory and the number
-      // of spaces to indent. We only want the first argument to
-      // validate if the data reference is defined.
+      // if token is 'data  foo.bar` or `indented_data_reference foo.bar  depth=3`
+      // we only want the `foo.bar` part. 
       const dataDirectoryReference = token.args.split(/\s+/)[0]
       if (dataDirectoryReference.startsWith('reusables.rai')) continue
 
