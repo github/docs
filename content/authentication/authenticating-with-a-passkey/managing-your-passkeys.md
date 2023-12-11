@@ -8,55 +8,69 @@ type: how_to
 shortTitle: Manage your passkeys
 ---
 
-## About managing your passkeys
+## Managing Your Passkeys
 
-If you are connecting to {% data variables.product.prodname_dotcom_the_website %} from an eligible device and browser, {% data variables.product.company_short %} may prompt you to register the device as a passkey during sign-in. You can also add passkeys to your account from your account settings. For more information, see "[Adding a passkey to your account](#adding-a-passkey-to-your-account)."
+When signing in to {% data variables.product.prodname_dotcom_the_website %}, you might be asked to register a passkey for enhanced security. Alternatively, you can manage passkeys through your account settings. If you're a 2FA user, eligible security keys can be upgraded to passkeys.
 
-If you use two-factor authentication (2FA), {% data variables.product.company_short %} may prompt you to upgrade existing eligible security keys (such as Mac TouchID, or Windows Hello) into passkeys after authenticating to {% data variables.product.prodname_dotcom_the_website %}. You can also upgrade eligible security keys from your account settings. For more information, see "[Upgrading an existing security key to a passkey](#upgrading-an-existing-security-key-to-a-passkey)."
+### Who Can Use Passkeys?
 
-For information on how to remove a passkey from your account, see "[Removing a passkey from your account](#removing-a-passkey-from-your-account)."
+Personal account owners managing their own credentials can authenticate to {% data variables.product.prodname_dotcom_the_website %} using passkeys.
 
-## Adding a passkey to your account
+---
 
-{% data reusables.passkeys.adding-a-passkey %}
+## How to Manage Passkeys
 
-## Upgrading an existing security key to a passkey
+### Adding a Passkey to Your Account
+
+To register a passkey during sign-in or through account settings:
+
+1. Go to your account settings.
+2. If prompted, authenticate with your password or another existing method.
+3. Find "Configure passwordless authentication" and select "Upgrade your security key registration to a passkey".
+4. Review the security key information and click **Upgrade to passkey**.
+5. Follow the steps provided by the passkey provider when prompted.
+
+### Upgrading an Existing Security Key
+
+Before starting the upgrade process, ensure you are using the device linked to the existing security key. Here's how to upgrade:
 
 {% note %}
 
-**Notes:**
+**Note:**
 
-- Platform support for upgrading security keys is inconsistent, so if you're seeing failures from your operating system or browser when trying to register an existing credential, we suggest that you remove and re-register the security key.
-- If you have used a security key recently and it's eligible for an upgrade, an upgrade button will be shown next to the security key in the settings menu. You can use the button to trigger the upgrade flow. You can also attempt to upgrade other keys by registering them as a passkey, even if the upgrade button isn't shown.
+- Platform support for upgrading security keys may vary. If you encounter issues, consider removing and re-registering the security key.
+- Eligible keys will display an upgrade button in the settings menu. If not, try registering them as a passkey to initiate the upgrade.
 
 {% endnote %}
 
-Before starting the upgrade procedure, make sure that you are using the device that's linked to the existing security key. Then, when you click **Add a passkey** in your account settings, {% data variables.product.company_short %} will automatically bump you into the "Upgrade to a passkey" flow.
+1. Access your account settings.
+2. Under security settings, select the option to upgrade your security key.
+3. Confirm the key to be upgraded and click **Upgrade to passkey**.
+4. Follow the instructions from your passkey provider when prompted.
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-{% data reusables.passkeys.add-passkey-settings-page %}
-1. If prompted, authenticate with your password, or use another existing authentication method.
-1. Under “Configure passwordless authentication”, under "Upgrade your security key registration to a passkey", review the information that confirms the name of the security key to be upgraded, then click **Upgrade to passkey**.
-1. At the prompt, follow the steps outlined by the passkey provider.
-{% data reusables.passkeys.passkey-success-done %}
+### Removing a Passkey
 
-## Removing a passkey from your account
+To remove a passkey from your account:
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-1. To the right of the passkey that you want to remove, click **{% octicon "trash" aria-label="Delete passkey" %}**.
-1. Review the information in the “Delete confirmation” pop-up window, then click **Delete**.
+1. Access your account settings.
+2. Navigate to security settings.
+3. Find the passkey you want to remove and click **{% octicon "trash" aria-label="Delete passkey" %}**.
+4. Confirm deletion.
 
-## Recovering a passkey
+---
 
-Many passkeys support syncing, where your passkey is backed up by the provider's account system (iCloud, Google account, password manager, etc.). If you ever lose your device, you can recover your synced passkeys by signing in to your passkey provider.
+## Recovering and Understanding Passkeys
 
-In some cases, your passkey may be "device-bound", which means the passkey cannot be synced and is not backed up to the cloud. For example, you can register FIDO2 hardware security keys (such as a YubiKey) as a passkey, but that passkey will not be synced. If your passkey is device-bound, and you lose or wipe the device, the passkey cannot be recovered. If you are only using device-bound passkeys, it is a best practice to register passkeys on at least two different devices, in case you lose access to one.
+- **Recovering Passkeys:** Some passkeys support syncing through providers like iCloud or Google accounts, allowing recovery if your device is lost. Others might be device-bound and cannot be recovered if the device is lost or wiped.
+- **Device-Bound Passkeys:** Consider registering passkeys on multiple devices if using device-bound passkeys to prevent access loss.
 
-You can see which of your passkeys are synced, and which are device-bound, under "Passkeys" in your account security settings. Synced passkeys will include a blue `Synced` label next to their name.
+You can identify synced passkeys with a `Synced` label in your account security settings under "Passkeys".
 
-## Further reading
+---
 
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)
-- [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)
+### Learn More:
+
+- [About Passkeys](/authentication/authenticating-with-a-passkey/about-passkeys)
+- [Signing in with a Passkey](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey)
+
+---
