@@ -23,6 +23,7 @@
     "copy-fixture-data": "node src/tests/scripts/copy-fixture-data.js",
     "create-translation-health-report": "node src/languages/scripts/create-translation-health-report.js",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.js",
+    "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "dev": "cross-env npm start",
     "find-orphaned-assets": "node src/assets/scripts/find-orphaned-assets.js",
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
@@ -227,6 +228,7 @@
   "dependencies": {
     "@elastic/elasticsearch": "8.10.0",
     "@github/failbot": "0.8.3",
+    "@octokit/plugin-retry": "6.0.1",
     "@octokit/request-error": "5.0.1",
     "@primer/behaviors": "^1.3.5",
     "@primer/css": "^21.0.7",

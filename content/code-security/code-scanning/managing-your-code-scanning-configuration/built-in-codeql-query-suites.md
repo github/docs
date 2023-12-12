@@ -17,8 +17,8 @@ topics:
 
 With {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can select a specific group of {% data variables.product.prodname_codeql %} queries, called a {% data variables.product.prodname_codeql %} query suite, to run against your code. The following built-in query suites are available through {% data variables.product.prodname_dotcom %}:
 
-- the `default` query suite.
-- the `security-extended` query suite. This suite is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
+- `default` query suite.
+- `security-extended` query suite. This suite is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
 
 Currently, both the `default` query suite and the `security-extended` query suite are available for default setup for {% data variables.product.prodname_code_scanning %}. {% ifversion bulk-code-scanning-query-suite %}Additionally, organization owners and security managers can recommend a query suite for use with default setup throughout their organization. For more information on configuring default setup for individual repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)." For more information on configuring default setup at scale and recommending a query suite, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% else %}For more information on default setup, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% endif %}
 
@@ -39,6 +39,17 @@ The built-in {% data variables.product.prodname_codeql %} query suites, `default
 - The `security-extended` query suite consists of all the queries in the `default` query suite, plus additional queries with slightly lower precision and severity.
 - Relative to the `default` query suite, the `security-extended` suite may return a greater number of false positive {% data variables.product.prodname_code_scanning %} results.
 - This query suite is available for use with default setup for {% data variables.product.prodname_code_scanning %}, and is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
+
+## Queries included in the `default` and `security-extended` query suites
+
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/c-cpp-built-in-queries)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/csharp-built-in-queries)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/go-built-in-queries)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/java-kotlin-built-in-queries)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/javascript-typescript-built-in-queries)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/python-built-in-queries)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/ruby-built-in-queries)"
+- "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/swift-built-in-queries)"
 
 ## Further reading
 

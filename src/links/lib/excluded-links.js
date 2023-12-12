@@ -23,6 +23,7 @@ export default [
 
   // These links require auth.
   regex('https://github.com/settings/profile'),
+  regex('https://github.com/settings/billing'),
   regex('https://github.com/github/docs/edit'),
   regex('https://github.com/github/insights-releases/releases/latest'),
   regex('https://classroom.github.com/videos'),
