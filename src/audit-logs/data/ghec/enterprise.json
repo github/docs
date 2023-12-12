@@ -110,11 +110,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.add_billing_viewer",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "business.add_organization",
     "description": "An organization was added to an enterprise.",
     "docs_reference_links": "N/A"
@@ -162,11 +157,6 @@
   {
     "action": "business.cancel_billing_manager_invitation",
     "description": "An invitation for someone to be an billing manager of an enterprise was canceled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.cancel_billing_viewer_invitation",
-    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
@@ -305,11 +295,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.invite_billing_viewer",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "business.members_can_update_protected_branches.clear",
     "description": "An enterprise owner unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Organization owners can choose whether to allow updating protected branches settings.",
     "docs_reference_links": "N/A"
@@ -362,11 +347,6 @@
   {
     "action": "business.remove_billing_manager",
     "description": "A billing manager was removed from an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.remove_billing_viewer",
-    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {

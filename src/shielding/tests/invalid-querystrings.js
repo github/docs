@@ -63,6 +63,14 @@ describe('invalid query strings', () => {
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en')
   })
+
+  test('bad tool query string with Chinese URL-encoded characters', async () => {
+    const url =
+      '/?tool%25252525253Dvisualstudio%252525253D%2525252526tool%252525253Dvscode%2525253D%25252526tool%2525253Dvscode%25253D%252526tool%25253Dvimneovim%253D%2526tool%253Djetbrains%3D%26tool%3Djetbrains=&tool=azure_data_studio'
+    const res = await get(url)
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/?tool=azure_data_studio')
+  })
 })
 
 function randomCharacters(length) {
