@@ -56,7 +56,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Free | 20 | 5 |
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
-  | Enterprise | 500 | 50 |
+  | Enterprise | 1000 | 50 |
 
   **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
 

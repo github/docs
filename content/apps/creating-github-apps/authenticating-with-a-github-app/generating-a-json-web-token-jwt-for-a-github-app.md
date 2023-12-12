@@ -88,7 +88,7 @@ puts jwt
 
 ```python copy
 #!/usr/bin/env python3
-import jwt
+from jwt import JWT, jwk_from_pem
 import time
 import sys
 
@@ -107,7 +107,7 @@ else:
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
-    signing_key = jwt.jwk_from_pem(pem_file.read())
+    signing_key = jwk_from_pem(pem_file.read())
 
 payload = {
     # Issued at time
@@ -119,10 +119,59 @@ payload = {
 }
 
 # Create JWT
-jwt_instance = jwt.JWT()
+jwt_instance = JWT()
 encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
 
 print(f"JWT:  {encoded_jwt}")
 ```
 
 This script will prompt you for the file path where your private key is stored and for the ID of your app. Alternatively, you can pass those values as inline arguments when you execute the script.
+
+### Example: Using Bash to generate a JWT
+
+{% note %}
+
+**Note:** You must pass your App ID and the file path where your private key is stored as arguments when running this script.
+
+{% endnote %}
+
+```bash copy
+#!/usr/bin/env bash
+
+set -o pipefail
+
+app_id=$1 # App ID as first argument
+pem=$( cat $2 ) # file path of the private key as second argument
+
+now=$(date +%s)
+iat=$((${now} - 60)) # Issues 60 seconds in the past
+exp=$((${now} + 600)) # Expires 10 minutes in the future
+
+b64enc() { openssl base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n'; }
+
+header_json='{
+    "typ":"JWT",
+    "alg":"RS256"
+}'
+# Header encode
+header=$( echo -n "${header_json}" | b64enc )
+
+payload_json='{
+    "iat":'"${iat}"',
+    "exp":'"${exp}"',
+    "iss":'"${app_id}"'
+}'
+# Payload encode
+payload=$( echo -n "${payload_json}" | b64enc )
+
+# Signature
+header_payload="${header}"."${payload}"
+signature=$( 
+    openssl dgst -sha256 -sign <(echo -n "${pem}") \
+    <(echo -n "${header_payload}") | b64enc 
+)
+
+# Create JWT
+JWT="${header_payload}"."${signature}"
+printf '%s\n' "JWT: $JWT"
+```

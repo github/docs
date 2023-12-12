@@ -1,0 +1,14 @@
+#!/bin/sh
+[ -n "$CI" ] && exit 0
+. "$(dirname "$0")/_/husky.sh"
+
+# Same process in husky/post-merge
+echo "Check if any packages need to be installed"
+if [[ $(node src/workflows/cmp-files.js package-lock.json .installed.package-lock.json) -eq 0 ]]
+then
+  echo "Packages are ready"
+else
+  echo "Installing packages"
+  npm install
+  echo "Installed packages"
+fi

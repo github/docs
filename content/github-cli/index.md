@@ -1,6 +1,6 @@
 ---
-title: GitHub CLI documentation
-shortTitle: GitHub CLI
+title: "{% data variables.product.prodname_cli %} documentation"
+shortTitle: "{% data variables.product.prodname_cli %}"
 intro: '{% data reusables.cli.about-cli %}'
 versions:
   fpt: '*'

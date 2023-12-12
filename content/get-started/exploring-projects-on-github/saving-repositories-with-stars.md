@@ -16,7 +16,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Save repos with stars
+shortTitle: Save repositories with stars
 ---
 You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.
 

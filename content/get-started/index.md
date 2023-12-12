@@ -34,7 +34,7 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-ae
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
-    - /get-started/signing-up-for-github/signing-up-for-a-new-github-account
+    - /get-started/quickstart/creating-an-account-on-github
     - /get-started/quickstart/hello-world
     - /get-started/quickstart/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
@@ -53,7 +53,6 @@ children:
   - /quickstart
   - /onboarding
   - /learning-about-github
-  - /signing-up-for-github
   - /using-github
   - /accessibility
   - /writing-on-github
@@ -65,4 +64,3 @@ children:
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs
 ---
-

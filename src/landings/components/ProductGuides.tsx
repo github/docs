@@ -12,7 +12,8 @@ export const ProductGuides = () => {
   const { t } = useTranslation('product_guides')
 
   const { currentProduct } = useMainContext()
-  const productName = currentProduct?.name || title
+
+  const productName = currentProduct?.nameRendered || title
   const nameRegex = /{{\s*name\s*}}/
 
   return (

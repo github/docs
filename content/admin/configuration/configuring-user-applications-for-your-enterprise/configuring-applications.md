@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
   - /admin/configuration/configuring-your-enterprise/configuring-applications
+  - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps
 versions:
   ghes: '*'
 type: how_to
@@ -33,8 +34,8 @@ You can enable a retention policy for checks, actions, and associated data by se
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. In the "Settings" sidebar, click **Checks**.
 1. Select **Enable archiving of Checks-related data**.
-1. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived.
-1. Under "Delete threshold (days)", type the number of days for the deletion threshold. Archived checks older than this number of days will be permanently deleted.
+1. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived before being permanently deleted.
+1. Under "Delete threshold (days)", type the number of days for the deletion threshold. An archived check exists in an archived state for the number of days specified here. After this threshold, the check will be permanently deleted.
 {% data reusables.enterprise_management_console.save-settings %}
 {% endif %}
 

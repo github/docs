@@ -34,10 +34,12 @@
     "content/rest/index.md": {
       "startsWith": [
         "quickstart",
-        "overview",
+        "about-the-rest-api",
+        "using-the-rest-api",
+        "authentication",
         "guides"
       ]
     }
   },
-  "sha": "2a7dd8505dc86e70d7a321400d9278f58ca3f3ff"
+  "sha": "1fd29675070876e3278e71b47f4f2606601bc698"
 }

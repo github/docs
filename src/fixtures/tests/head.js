@@ -8,6 +8,6 @@ describe('<head>', () => {
     expect(lead.html()).toMatch('<code>syntax</code>')
     // As a meta description its content is stripped of all HTML
     const description = $('head meta[name="description"]')
-    expect(description.attr('content')).toBe('This intro has Markdown syntax for GitHub')
+    expect(description.attr('content')).toBe('This intro has Markdown syntax for HubGit')
   })
 })

@@ -89,7 +89,7 @@ For more information about authentication and provisioning, see the following ar
 
 Some customers have reported success using a partner IdP's application only for authentication, in combination with a different IdP for provisioning. For example, a combination of Okta for authentication and a custom SCIM solution for provisioning, or a combination of Keycloak for authentication and SailPoint for provisioning. {% data variables.product.company_short %} has not tested all IdPs, and does not test partner IdPs in combination with other IdPs.
 
-For more information about provisioning users from your IdP using the public beta of {% data variables.product.company_short %}'s SCIM schema, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)," and consult your IdP's documentation, support team, or other resources.
+For more information about provisioning users from your IdP using the private beta of {% data variables.product.company_short %}'s SCIM schema, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)," and consult your IdP's documentation, support team, or other resources.
 
 {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
 
@@ -144,7 +144,9 @@ To discover how a member was added to an organization, you can filter the member
 
 ## Authenticating with a {% data variables.enterprise.prodname_managed_user %}
 
-{% data variables.enterprise.prodname_managed_users_caps %} must authenticate through their IdP. To authenticate, a {% data variables.enterprise.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.enterprise.prodname_managed_users_caps %} must authenticate through your IdP. The way that {% data variables.enterprise.prodname_managed_users %} authenticate depends on whether you configure SAML or OIDC authentication.
+
+If your enterprise is configured for SAML authentication, a {% data variables.enterprise.prodname_managed_user %} can access your enterprise by visiting their IdP application portal. If your enterprise is configured for OIDC authentication,  a {% data variables.enterprise.prodname_managed_user %} can access your enterprise by using the login page on {% data variables.product.prodname_dotcom_the_website %}. IdP-initiated authentication is not currently supported for OIDC. In either configuration, a {% data variables.enterprise.prodname_managed_user %} can initiate authentication directly from the organization or enterprise's page on {% data variables.location.product_location %}.
 
 By default, when an unauthenticated user attempts to access an enterprise that uses {% data variables.product.prodname_emus %}, {% data variables.product.company_short %} displays a 404 error. An enterprise owner can optionally enable automatic redirects to single sign-on (SSO) instead of the 404. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)."
 

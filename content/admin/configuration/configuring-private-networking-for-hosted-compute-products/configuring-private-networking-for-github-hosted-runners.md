@@ -222,7 +222,7 @@ To use the script, fill in the placeholder environment variable values with the 
 # - Resource group
 # - Network Security Group rules
 # - Virtual network (vnet) and subnet
-# - Network Settings with specified subnet and GitHub Enterprise databse ID
+# - Network Settings with specified subnet and GitHub Enterprise database ID
 #
 # It also registers the `GitHub.Network` resource provider with the subscription,
 # delegates the created subnet to the Actions service via the `GitHub.Network/NetworkSettings`
@@ -335,4 +335,4 @@ Once the network configuration is associated with a runner group, all runners in
 1. In the left sidebar, click **Hosted compute networking**.
 1. To edit a network configuration, to the right of the network configuration, click {% octicon "pencil" aria-label="Edit a network configuration" %}. Then click **Edit configuration**.
 1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Disable**.
-1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.
+1. To delete a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.

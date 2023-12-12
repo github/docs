@@ -205,7 +205,7 @@ function getDataByDir(dottedPath, dir, englishRoot) {
           throw error
         }
       }
-      content = correctTranslatedContentStrings(content, englishContent)
+      content = correctTranslatedContentStrings(content, englishContent, { dottedPath })
     }
     return content
   }
@@ -283,7 +283,10 @@ const getYamlContent = memoize((root, relPath, englishRoot) => {
   // For example, we never want `data/variables/product.yml` translated
   // so we know to immediately fall back to the English one.
   if (ALWAYS_ENGLISH_YAML_FILES.has(relPath)) {
-    root = '' // this forces it to read from English
+    // This forces it to read from English. Later, when it goes
+    // into `getFileContent(...)` it will note that `root !== englishRoot`
+    // so it won't try to fall back.
+    root = englishRoot
   }
   const fileContent = getFileContent(root, relPath, englishRoot)
   return yaml.load(fileContent, { filename: relPath })

@@ -1393,12 +1393,6 @@
       "requestPath": "/user/repository_invitations"
     },
     {
-      "slug": "accept-a-repository-invitation",
-      "subcategory": "invitations",
-      "verb": "patch",
-      "requestPath": "/user/repository_invitations/{invitation_id}"
-    },
-    {
       "slug": "decline-a-repository-invitation",
       "subcategory": "invitations",
       "verb": "delete",

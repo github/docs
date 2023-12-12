@@ -32,11 +32,19 @@ An organization owner can restrict the ability to invite collaborators. For more
 
 {% ifversion ghes %}
 Before you can add someone as an outside collaborator on a repository, the person must have a personal account on {% data variables.location.product_location %}. If your enterprise uses an external authentication system such as SAML or LDAP, the person you want to add must sign in through that system to create an account. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site administrator can create an account for the person. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+{% elsif ghec %}
+Outside collaborators are not required to use SAML SSO to access resources in your organization. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 {% endif %}
 
 {% ifversion not ghae %}
 If your organization requires two-factor authentication, all outside collaborators must enable two-factor authentication before accepting your invitation to collaborate on a repository. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 {% endif %}
+
+{% ifversion ghec %}
+Outside collaborators cannot be added to an {% data variables.enterprise.prodname_emu_enterprise %}. However, you can grant limited access to users outside your enterprise using the guest collaborator role. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
+{% endif %}
+
+Outside collaborators cannot be added to a team, team membership is restricted to members of the organization.
 
 ## Adding outside collaborators to a repository
 

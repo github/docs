@@ -47,8 +47,8 @@ You can control whether organization members can create {% data variables.projec
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under **{%ifversion ghes > 3.7 or ghae > 3.7 or ghec or fpt %}Projects (classic) only{% elsif ghes = 3.7 %}Repository projects{% else %}Projects{% endif %}**:
-    - To enable project boards in repositories, select **{% ifversion ghes < 3.7 %}Enable projects for all repositories{% else %}Allow members to enable Projects (classic) for all repositories{% endif %}**.
-    - To disable project boards in repositories, unselect **{% ifversion ghes < 3.7 %}Enable projects for all repositories{% else %}Allow members to enable Projects (classic) for all repositories{% endif %}**.
+    - To enable project boards in repositories, select **Allow members to enable Projects (classic) for all repositories**.
+    - To disable project boards in repositories, unselect **Allow members to enable Projects (classic) for all repositories**.
 1. Click **Save**.
 
 {% endif %}

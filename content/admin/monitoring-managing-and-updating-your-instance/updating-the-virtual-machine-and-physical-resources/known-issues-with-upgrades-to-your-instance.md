@@ -2,7 +2,7 @@
 title: Known issues with upgrades to your instance
 intro: 'See an overview of workarounds for issues that impact the upgrade process for {% data variables.product.prodname_ghe_server %}, or impact your instance after you complete an upgrade.'
 versions:
-  ghes: '>=3.7'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
@@ -21,7 +21,7 @@ redirect_from:
 
 {% ifversion mysql-8-upgrade %}
 
-## Increased I/O utilization from MySQL 8 upgrade in {% data variables.product.prodname_ghe_server %} 3.10
+## Increased I/O utilization from MySQL 8 upgrade in {% data variables.product.prodname_ghe_server %} 3.9 or later
 
 If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9 or later, an upgrade to the database software on your instance will increase I/O utilization. In some cases, this may affect your instance's performance.
 

@@ -15,7 +15,7 @@ import walk from 'walk-sync'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import { execSync } from 'child_process'
+import { execFileSync } from 'child_process'
 import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
 
 const slugger = new GithubSlugger()
@@ -60,13 +60,13 @@ contentFiles.forEach((oldFullPath) => {
   const oldContentPath = path.relative(process.cwd(), oldFullPath)
   const newContentPath = path.relative(process.cwd(), newFullPath)
 
-  const gitStatusOfFile = execSync(`git status --porcelain ${oldContentPath}`).toString()
+  const gitStatusOfFile = execFileSync('git', ['status', '--porcelain', oldContentPath]).toString()
 
   // if file is untracked, do a regular mv; otherwise do a git mv
   if (gitStatusOfFile.includes('??')) {
-    execSync(`mv ${oldContentPath} ${newContentPath}`)
+    execFileSync('mv', [oldContentPath, newContentPath])
   } else {
-    execSync(`git mv ${oldContentPath} ${newContentPath}`)
+    execFileSync('git', ['mv', oldContentPath, newContentPath])
   }
 
   // then add the old path to the redirect_from frontmatter

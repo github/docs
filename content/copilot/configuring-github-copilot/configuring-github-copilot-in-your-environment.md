@@ -22,7 +22,7 @@ If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can au
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot?tool=jetbrains)."
+To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=jetbrains)."
 
 ## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -196,7 +196,7 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot?tool=visualstudio)."
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=visualstudio)."
 
 ## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -250,7 +250,7 @@ If you use {% data variables.product.prodname_vscode %}, {% data variables.produ
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot?tool=vscode)."
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode)."
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 

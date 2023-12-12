@@ -29,7 +29,7 @@ An enterprise account allows you to centrally manage policy and settings for mul
 
 ### 2. Creating an enterprise account
 
-To create your enterprise account, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)."
+To create your enterprise account, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
 {% data reusables.enterprise.ghec-cta-button %}
 

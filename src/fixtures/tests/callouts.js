@@ -4,7 +4,7 @@ describe('callouts', () => {
   test('article page', async () => {
     const $ = await getDOM('/get-started/foo/page-with-callout')
     const callout = $('[data-testid=callout]')
-    expect(callout.html()).toBe('<p>Callout for GitHub Pages</p>')
+    expect(callout.html()).toBe('<p>Callout for HubGit Pages</p>')
   })
 
   test('callout disappears depend on Liquid inside it', async () => {
