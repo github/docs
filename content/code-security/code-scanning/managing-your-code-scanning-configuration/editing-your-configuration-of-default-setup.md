@@ -15,7 +15,7 @@ topics:
 
 After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your code security needs. For existing configurations of default setup, you can edit{% ifversion code-scanning-without-workflow-310 %}:
 - Which languages default setup will analyze.
-- {% endif %} The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/built-in-codeql-query-suites)."
+- {% endif %} The query suite run during analysis. For more information on the available query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites)."
 
 {% ifversion codeql-model-packs-java %}
 
