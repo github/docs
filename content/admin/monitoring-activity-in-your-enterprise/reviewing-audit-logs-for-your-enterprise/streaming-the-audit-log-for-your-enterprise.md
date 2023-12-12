@@ -275,6 +275,13 @@ To get a list of IP address ranges that {% data variables.product.prodname_dotco
 
 {% ifversion pause-audit-log-stream %}
 
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} validates the HEC endpoint via `<Domain>:port/services/collector`. If self-hosting the HEC endpoint (e.g. with [Splunk HEC Receiver
+](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/splunkhecreceiver) via OpenTelemetry), ensure this is reachable.
+
+{% endnote %}
+
 ## Pausing audit log streaming
 
 Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
