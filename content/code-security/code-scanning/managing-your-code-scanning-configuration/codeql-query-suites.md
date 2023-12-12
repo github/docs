@@ -1,12 +1,13 @@
 ---
-title: Built-in CodeQL query suites
-shortTitle: Built-in CodeQL query suites
+title: CodeQL query suites
+shortTitle: CodeQL query suites
 intro: 'You can choose from different built-in {% data variables.product.prodname_codeql %} query suites to use in your {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} setup.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   feature: code-scanning-without-workflow
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/built-in-codeql-query-suites
+  - /code-security/code-scanning/managing-your-code-scanning-configuration/built-in-codeql-query-suites
 type: reference
 topics:
   - Code scanning
