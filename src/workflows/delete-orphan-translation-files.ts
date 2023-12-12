@@ -46,33 +46,45 @@ main(program.args[0], {
 })
 
 function main(root: string, options: Options) {
-  let deleted = 0
-  let countInSync = 0
-  let countOrphan = 0
+  const deleted: number[] = []
+  const inSync: number[] = []
+  const orphan: number[] = []
   for (const filePath of getContentAndDataFiles(root)) {
     const relPath = path.relative(root, filePath)
+    const size = fs.statSync(filePath).size
     if (!fs.existsSync(path.join(ROOT, relPath))) {
-      countOrphan++
-      if (deleted < options.max) {
+      orphan.push(size)
+      if (deleted.length < options.max) {
         if (options.dryRun) {
           console.log('DELETE', filePath)
         } else {
           fs.rmSync(filePath)
           console.log('DELETED', filePath)
         }
-        deleted++
+        deleted.push(size)
 
-        if (deleted >= options.max) {
+        if (deleted.length >= options.max) {
           console.log(`Max. number (${options.max}) of files deleted`)
         }
       }
     } else {
-      countInSync++
+      inSync.push(size)
     }
   }
-  console.log(`In conclusion, deleted ${deleted.toLocaleString()} files.`)
+  const sumDeleted = deleted.reduce((a, b) => a + b, 0)
   console.log(
-    `There are ${countInSync.toLocaleString()} files in sync and ${countOrphan.toLocaleString()} orphan files in ${root}`,
+    `In conclusion, deleted ${deleted.length.toLocaleString()} files (${formatFileSize(
+      sumDeleted,
+    )}).`,
+  )
+  const sumInSync = inSync.reduce((a, b) => a + b, 0)
+  const sumOrphan = orphan.reduce((a, b) => a + b, 0)
+  console.log(
+    `There are ${inSync.length.toLocaleString()} files (${formatFileSize(
+      sumInSync,
+    )}) in sync and ${orphan.length.toLocaleString()} orphan files (${formatFileSize(
+      sumOrphan,
+    )}) in ${root}`,
   )
 }
 
@@ -81,4 +93,14 @@ function getContentAndDataFiles(root: string) {
     ...walkFiles(path.join(root, 'content'), ['.md']),
     ...walkFiles(path.join(root, 'data'), ['.md', '.yml']),
   ]
+}
+
+function formatFileSize(bytes: number) {
+  if (bytes < 1024) {
+    return `${bytes} B`
+  }
+  if (bytes < 1024 * 1024) {
+    return `${(bytes / 1024).toFixed(1)} kB`
+  }
+  return `${(bytes / 1024 / 1024).toFixed(1)} MB`
 }
