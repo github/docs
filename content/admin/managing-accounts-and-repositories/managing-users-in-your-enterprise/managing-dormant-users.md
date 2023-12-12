@@ -8,6 +8,7 @@ redirect_from:
   - /admin/user-management/managing-dormant-users
   - /admin/user-management/managing-users-in-your-enterprise/managing-dormant-users
 intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
+permissions: "{% ifversion ghec or ghae %}Enterprise owners can manage dormant users for an enterprise.{% elsif ghes %}Site administrators can manage dormant users on a {% data variables.product.product_name %} instance.{% endif %}"
 versions:
   ghec: '*'
   ghes: '*'
@@ -37,12 +38,14 @@ You can customize the dormancy threshold for {% data variables.location.product_
 
 Dormancy applies to both enterprise members and outside collaborators.
 
+{% ifversion ghes %}
+
 ## Viewing dormant users
 
 {% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-1. In the left sidebar, click **Dormant users**.{% ifversion ghes %}
+1. In the left sidebar, click **Dormant users**.
 1. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
 
 ## Determining whether a user account is dormant
@@ -62,6 +65,7 @@ Dormancy applies to both enterprise members and outside collaborators.
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Dormancy threshold", select the dropdown menu, and click the desired dormancy threshold.
+
 {% endif %}
 
 {% ifversion ghec %}

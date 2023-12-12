@@ -44,6 +44,8 @@ If your organization requires two-factor authentication, all outside collaborato
 Outside collaborators cannot be added to an {% data variables.enterprise.prodname_emu_enterprise %}. However, you can grant limited access to users outside your enterprise using the guest collaborator role. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
 {% endif %}
 
+Outside collaborators cannot be added to a team, team membership is restricted to members of the organization.
+
 ## Adding outside collaborators to a repository
 
 You can give outside collaborators access to a repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)."
