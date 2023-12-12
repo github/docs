@@ -59,7 +59,7 @@ You must have a linked SAML identity. To create a linked identity, you must auth
 
 {% endnote %}
 
-### Enabling team synchronization for Azure AD
+### Enabling team synchronization for Entra ID
 
 {% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
