@@ -2,7 +2,7 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import { jest } from '@jest/globals'
 
-import { ajvValidate } from '#src/tests/lib/ajv-validate.js'
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
 import secretScanningSchema from '../lib/secret-scanning-schema.js'
 
@@ -10,16 +10,16 @@ jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('lint secret-scanning', () => {
   const yamlContent = yaml.load(fs.readFileSync('data/secret-scanning.yml', 'utf8'))
-  const jsonValidate = ajvValidate(secretScanningSchema)
+  const validate = getJsonValidator(secretScanningSchema)
 
   test('matches the schema', () => {
-    const valid = jsonValidate(yamlContent)
+    const isValid = validate(yamlContent)
     let errors
 
-    if (!valid) {
-      errors = formatAjvErrors(jsonValidate.errors)
+    if (!isValid) {
+      errors = formatAjvErrors(validate.errors)
     }
 
-    expect(valid, errors).toBe(true)
+    expect(isValid, errors).toBe(true)
   })
 })

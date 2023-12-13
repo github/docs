@@ -7,7 +7,7 @@ import mergeAllOf from 'json-schema-merge-allof'
 import { renderContent } from '#src/content-render/index.js'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
-import { validateData } from './validate-data.js'
+import { validateJson } from '#src/tests/lib/validate-json-schema.js'
 import { getBodyParams } from './get-body-params.js'
 
 export default class Operation {
@@ -59,7 +59,11 @@ export default class Operation {
       this.renderPreviewNotes(),
     ])
 
-    validateData(this, operationSchema)
+    const { isValid, errors } = validateJson(operationSchema, this)
+    if (!isValid) {
+      console.error(JSON.stringify(errors, null, 2))
+      throw new Error('Invalid OpenAPI operation found')
+    }
   }
 
   async renderDescription() {

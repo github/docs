@@ -1,11 +1,13 @@
 ---
-title: Create a repo
+title: Quickstart for repositories
+type: quick_start
 redirect_from:
   - /create-a-repo
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'To put your project up on {% data variables.product.prodname_dotcom %}, you will need to create a repository for it to live in.'
+  - /get-started/quickstart/create-a-repo
+intro: 'Learn how to create a new repository and commit your first change in 5 minutes.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,28 +21,7 @@ topics:
 ---
 ## Create a repository
 
-{% ifversion fpt or ghec %}
-
-You can store a variety of projects in {% data variables.product.prodname_dotcom %} repositories, including open source projects. With open source projects, you can share code to make better, more reliable software. You can use repositories to collaborate with others and track your work. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories)." To learn more about open source projects, visit [OpenSource.org](https://opensource.org/about).
-
-{% elsif ghes or ghae %}
-
-You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
-
-{% endif %}
-
-{% ifversion fpt or ghec %}
-
-{% note %}
-
-**Notes:**
-- You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](https://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %}
-- {% data reusables.open-source.open-source-learning %}
-- You can also add community health files to your repositories, to set guidelines on how to contribute, keep your repositories safe, and much more. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-
-{% endnote %}
-
-{% endif %}
+{% data variables.product.product_name %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
 
 {% webui %}
 
