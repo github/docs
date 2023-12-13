@@ -1,25 +1,12 @@
 import matter from 'gray-matter'
-import Ajv from 'ajv'
-import addErrors from 'ajv-errors'
-import addFormats from 'ajv-formats'
-import semver from 'semver'
 
-const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
-ajv.addKeyword({
-  keyword: 'translatable',
-})
-ajv.addFormat('semver', {
-  validate: (x) => semver.validRange(x),
-})
-addErrors(ajv)
-addFormats(ajv)
+import { validateJson } from '#src/tests/lib/validate-json-schema.js'
 
 function readFrontmatter(markdown, opts = {}) {
   const schema = opts.schema || { type: 'object', properties: {} }
   const filepath = opts.filepath || null
 
   let content, data
-  let errors = []
 
   try {
     ;({ content, data } = matter(markdown))
@@ -39,18 +26,13 @@ function readFrontmatter(markdown, opts = {}) {
     }
 
     if (filepath) error.filepath = filepath
-    errors.push(error)
+    const errors = [error]
     console.warn(errors)
 
     return { errors }
   }
 
-  const ajvValidate = ajv.compile(schema)
-  const valid = ajvValidate(data)
-
-  if (!valid) {
-    errors = ajvValidate.errors
-  }
+  const validate = validateJson(schema, data)
 
   // Combine the AJV-supplied `instancePath` and `params` into a more user-friendly frontmatter path.
   // For example, given:
@@ -69,8 +51,10 @@ function readFrontmatter(markdown, opts = {}) {
     return typeof mainProps !== 'object' ? `${prefixProps}.${mainProps}` : prefixProps
   }
 
-  if (!valid && filepath) {
-    errors = ajvValidate.errors.map((error) => {
+  const errors = []
+
+  if (!validate.isValid && filepath) {
+    const formattedErrors = validate.errors.map((error) => {
       const userFriendly = {}
       userFriendly.property = cleanPropertyPath(error.params, error.instancePath)
       userFriendly.message = error.message
@@ -78,6 +62,9 @@ function readFrontmatter(markdown, opts = {}) {
       userFriendly.filepath = filepath
       return userFriendly
     })
+    errors.push(...formattedErrors)
+  } else if (!validate.isValid) {
+    errors.push(...validate.errors)
   }
 
   return { content, data, errors }

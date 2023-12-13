@@ -1,10 +1,8 @@
 import { jest } from '@jest/globals'
-import Ajv from 'ajv'
-import addErrors from 'ajv-errors'
-import semver from 'semver'
 
 import featureVersionsSchema from '../lib/feature-versions-schema.js'
 import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
 
 /*
@@ -18,26 +16,18 @@ import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
 jest.useFakeTimers({ legacyFakeTimers: true })
 
 const featureVersions = Object.entries(getDeepDataByLanguage('features', 'en'))
-
-const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })
-addErrors(ajv)
-// *** TODO: We can drop this override once the frontmatter schema has been updated to work with AJV. ***
-ajv.addFormat('semver', {
-  validate: (x) => semver.validRange(x),
-})
-// *** End TODO ***
-const validate = ajv.compile(featureVersionsSchema)
+const validate = getJsonValidator(featureVersionsSchema)
 
 // Make sure data/features/*.yml contains valid versioning.
 describe('lint feature versions', () => {
   test.each(featureVersions)('data/features/%s matches the schema', (name, featureVersion) => {
-    const valid = validate(featureVersion)
+    const isValid = validate(featureVersion)
     let errors
 
-    if (!valid) {
+    if (!isValid) {
       errors = formatAjvErrors(validate.errors)
     }
 
-    expect(valid, errors).toBe(true)
+    expect(isValid, errors).toBe(true)
   })
 })

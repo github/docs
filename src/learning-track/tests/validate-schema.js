@@ -6,10 +6,10 @@ import { jest } from '@jest/globals'
 import { liquid } from '#src/content-render/index.js'
 import learningTracksSchema from '../lib/learning-tracks-schema.js'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
-import { ajvValidate } from '#src/tests/lib/ajv-validate.js'
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 
 const learningTrackRootPath = 'data/learning-tracks'
-const jsonValidator = ajvValidate(learningTracksSchema)
+const validate = getJsonValidator(learningTracksSchema)
 const yamlWalkOptions = {
   globs: ['**/*.yml'],
   directories: false,
@@ -31,14 +31,14 @@ describe('lint learning tracks', () => {
     })
 
     it('matches the schema', () => {
-      const valid = jsonValidator(yamlContent)
+      const isValid = validate(yamlContent)
       let errors
 
-      if (!valid) {
-        errors = formatAjvErrors(jsonValidator.errors)
+      if (!isValid) {
+        errors = formatAjvErrors(validate.errors)
       }
 
-      expect(valid, errors).toBe(true)
+      expect(isValid, errors).toBe(true)
     })
 
     it('contains valid liquid', () => {
