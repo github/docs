@@ -1,7 +1,7 @@
 ---
-title: Migrating from Azure DevOps with GitHub Enterprise Importer
-shortTitle: Migrate from Azure DevOps
-intro: 'Learn how to complete the entire process of migrating from Azure DevOps to {% data variables.product.prodname_dotcom %}, from planning to implementation to completing follow-up tasks.'
+title: Overview of a migration from Azure DevOps to GitHub Enterprise Cloud
+shortTitle: Overview
+intro: 'Learn how to complete the entire process of migrating from Azure DevOps to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_importer_proper_name %}, from planning to implementation to completing follow-up tasks.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,6 +9,7 @@ versions:
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
+  - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
 ---
 
 ## About migrations from Azure DevOps
@@ -96,7 +97,7 @@ We recommend creating a test organization to use as a destination for your trial
 1. Create a test organization for your trial migrations.
 {% data reusables.enterprise-migration-tool.trial-migrations-tasks %}
 {% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %}
-1. Run your production migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-azure-devops-to-github-enterprise-cloud)."
+1. Run your production migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud)."
 {% data reusables.enterprise-migration-tool.delete-test-organization %}
 
 ## Completing follow-up tasks

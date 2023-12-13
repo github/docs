@@ -1,7 +1,7 @@
 ---
-title: Migrating between GitHub products with GitHub Enterprise Importer
-shortTitle: Migrate between GitHub products
-intro: 'Learn how to complete the entire process of migrating from one {% data variables.product.company_short %} product to another, from planning to implementation to completing follow-up tasks.'
+title: Overview of a migration between GitHub products
+shortTitle: Overview
+intro: 'Learn how to complete the entire process of migrating from one {% data variables.product.company_short %} product to another with {% data variables.product.prodname_importer_proper_name %}, from planning to implementation to completing follow-up tasks.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,6 +9,7 @@ versions:
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
+  - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
 ---
 
 ## About migrations between {% data variables.product.company_short %} products
