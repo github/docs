@@ -1,6 +1,6 @@
 ---
 title: Migrating repositories from Bitbucket Server to GitHub Enterprise Cloud
-shortTitle: Bitbucket Server to Enterprise Cloud
+shortTitle: Migrate repositories
 intro: 'You can migrate repositories from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %} using the {% data variables.product.prodname_cli %}.'
 versions:
   fpt: '*'
@@ -9,6 +9,7 @@ versions:
 defaultTool: cli
 redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
+  - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}

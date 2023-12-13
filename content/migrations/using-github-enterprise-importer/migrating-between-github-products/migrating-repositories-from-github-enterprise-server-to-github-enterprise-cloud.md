@@ -1,6 +1,6 @@
 ---
 title: Migrating repositories from GitHub Enterprise Server to GitHub Enterprise Cloud
-shortTitle: Enterprise Server to Enterprise Cloud
+shortTitle: Migrate from Enterprise Server
 intro: 'You can migrate repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, using the {% data variables.product.prodname_cli %} or API.'
 versions:
   fpt: '*'
@@ -10,6 +10,7 @@ defaultTool: cli
 redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-to-github-enterprise-cloud/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
+  - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}

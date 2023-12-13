@@ -1,6 +1,6 @@
 ---
 title: Migrating organizations from GitHub.com to GitHub Enterprise Cloud
-shortTitle: GitHub.com to Enterprise Cloud
+shortTitle: Migrate organizations on GitHub.com
 intro: 'You can migrate organizations from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_cloud %}, using the {% data variables.product.prodname_cli %} or the GraphQL API.'
 versions:
   fpt: '*'
@@ -9,6 +9,8 @@ versions:
 defaultTool: cli
 redirect_from:
   - /early-access/enterprise-importer/migrating-organizations-with-github-enterprise-importer/migrating-organizations-from-githubcom-to-github-enterprise-cloud
+  - /migrations/using-github-enterprise-importer/migrating-organizations-with-github-enterprise-importer/migrating-organizations-from-githubcom-to-github-enterprise-cloud
+  - /migrations/using-github-enterprise-importer/migrating-organizations-with-github-enterprise-importer
 ---
 
 ## About organization migrations with {% data variables.product.prodname_importer_proper_name %}

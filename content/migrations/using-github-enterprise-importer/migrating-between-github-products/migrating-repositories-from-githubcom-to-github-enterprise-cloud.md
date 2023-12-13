@@ -1,6 +1,6 @@
 ---
 title: Migrating repositories from GitHub.com to GitHub Enterprise Cloud
-shortTitle: GitHub.com to Enterprise Cloud
+shortTitle: Migrate repositories on GitHub.com
 intro: 'You can migrate repositories from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_cloud %}, using the {% data variables.product.prodname_cli %} or the GraphQL API.'
 versions:
   fpt: '*'
@@ -10,6 +10,7 @@ defaultTool: cli
 redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-to-github-enterprise-cloud/migrating-repositories-from-githubcom-to-github-enterprise-cloud
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
+  - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
