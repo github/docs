@@ -113,6 +113,8 @@ You can check for any incidents currently affecting {% data variables.product.pr
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
 
+You can also use the {% data variables.product.company_short %} Status API to check for incidents. For more information, see [{% data variables.product.company_short %} Status API](https://www.githubstatus.com/api/).
+
 {% endif %}
 
 {% ifversion ghec or ghes %}
