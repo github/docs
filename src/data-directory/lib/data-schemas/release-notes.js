@@ -2,7 +2,9 @@ const section = {
   anyOf: [
     {
       type: 'array',
-      items: { type: 'string' },
+      items: {
+        type: 'string',
+      },
       minItems: 1,
     },
     {
@@ -18,7 +20,9 @@ const section = {
           },
           notes: {
             type: 'array',
-            items: { type: 'string' },
+            items: {
+              type: 'string',
+            },
             minItems: 1,
           },
         },

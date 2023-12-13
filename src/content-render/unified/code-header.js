@@ -11,7 +11,7 @@ import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import murmur from 'imurmurhash'
 
-const languages = yaml.load(fs.readFileSync('./data/variables/code-languages.yml', 'utf8'))
+const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8'))
 
 const matcher = (node) =>
   node.type === 'element' &&

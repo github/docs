@@ -24,7 +24,12 @@ export default {
         },
         guides: {
           type: 'array',
-          items: { type: 'string' },
+          items: {
+            type: 'string',
+            // matches Liquid tags and URLs with trailing backslash
+            // if this regex becomes problematic, we can remove it
+            pattern: '^(\\{%.*%\\})?\\s*(\\/((\\w|-|\\.))+)+\\s*(\\{%.*%\\})?$',
+          },
         },
         versions: versionsProps,
       },
