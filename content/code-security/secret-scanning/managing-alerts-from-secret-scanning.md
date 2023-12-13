@@ -47,7 +47,8 @@ shortTitle: Manage secret alerts
    {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 
    {% data reusables.secret-scanning.validity-check-partner-patterns-enabled %}
-{% endif %}
+{% endif %}{% ifversion secret-scanning-bypass-filter %}
+1. Optionally, to see which alerts are the result of a user bypassing push protection, select the "Bypassed" dropdown menu, then click **True**.{% endif %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.{% ifversion secret-scanning-non-provider-patterns %}
    {% note %}
 
