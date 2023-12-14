@@ -3184,6 +3184,40 @@
       ]
     },
     {
+      "name": "dequeuePullRequest",
+      "kind": "mutations",
+      "id": "dequeuepullrequest",
+      "href": "/graphql/reference/mutations#dequeuepullrequest",
+      "description": "<p>Remove a pull request from the merge queue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DequeuePullRequestInput!",
+          "id": "dequeuepullrequestinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#dequeuepullrequestinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "mergeQueueEntry",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry",
+          "description": "<p>The merge queue entry of the dequeued pull request.</p>"
+        }
+      ]
+    },
+    {
       "name": "disablePullRequestAutoMerge",
       "kind": "mutations",
       "id": "disablepullrequestautomerge",
@@ -3332,6 +3366,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequest",
           "description": "<p>The pull request auto-merge was enabled on.</p>"
+        }
+      ]
+    },
+    {
+      "name": "enqueuePullRequest",
+      "kind": "mutations",
+      "id": "enqueuepullrequest",
+      "href": "/graphql/reference/mutations#enqueuepullrequest",
+      "description": "<p>Add a pull request to the merge queue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "EnqueuePullRequestInput!",
+          "id": "enqueuepullrequestinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#enqueuepullrequestinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "mergeQueueEntry",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry",
+          "description": "<p>The merge queue entry for the enqueued pull request.</p>"
         }
       ]
     },
@@ -7052,6 +7120,70 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "AddedToMergeQueueEvent",
+      "kind": "objects",
+      "id": "addedtomergequeueevent",
+      "href": "/graphql/reference/objects#addedtomergequeueevent",
+      "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enqueuer",
+          "description": "<p>The user who added this Pull Request to the merge queue.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the AddedToMergeQueueEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue where this pull request was added to.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
         }
       ]
     },
@@ -28004,6 +28136,363 @@
       ]
     },
     {
+      "name": "MergeQueue",
+      "kind": "objects",
+      "id": "mergequeue",
+      "href": "/graphql/reference/objects#mergequeue",
+      "description": "<p>The queue of pull request entries to be merged into a protected branch in a repository.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "configuration",
+          "description": "<p>The configuration for this merge queue.</p>",
+          "type": "MergeQueueConfiguration",
+          "id": "mergequeueconfiguration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueconfiguration"
+        },
+        {
+          "name": "entries",
+          "description": "<p>The entries in the queue.</p>",
+          "type": "MergeQueueEntryConnection",
+          "id": "mergequeueentryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MergeQueue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "nextEntryEstimatedTimeToMerge",
+          "description": "<p>The estimated time in seconds until a newly added entry would be merged.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository this merge queue belongs to.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this merge queue.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this merge queue.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueConfiguration",
+      "kind": "objects",
+      "id": "mergequeueconfiguration",
+      "href": "/graphql/reference/objects#mergequeueconfiguration",
+      "description": "<p>Configuration for a MergeQueue.</p>",
+      "fields": [
+        {
+          "name": "checkResponseTimeout",
+          "description": "<p>The amount of time in minutes to wait for a check response before considering it a failure.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "maximumEntriesToBuild",
+          "description": "<p>The maximum number of entries to build at once.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "maximumEntriesToMerge",
+          "description": "<p>The maximum number of entries to merge at once.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method to use for this queue.</p>",
+          "type": "PullRequestMergeMethod",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "mergingStrategy",
+          "description": "<p>The strategy to use when merging entries.</p>",
+          "type": "MergeQueueMergingStrategy",
+          "id": "mergequeuemergingstrategy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeuemergingstrategy"
+        },
+        {
+          "name": "minimumEntriesToMerge",
+          "description": "<p>The minimum number of entries required to merge at once.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "minimumEntriesToMergeWaitTime",
+          "description": "<p>The amount of time in minutes to wait before ignoring the minumum number of\nentries in the queue requirement and merging a collection of entries.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueEntry",
+      "kind": "objects",
+      "id": "mergequeueentry",
+      "href": "/graphql/reference/objects#mergequeueentry",
+      "description": "<p>Entries in a MergeQueue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "baseCommit",
+          "description": "<p>The base commit for this entry.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "enqueuedAt",
+          "description": "<p>The date and time this entry was added to the merge queue.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enqueuer",
+          "description": "<p>The actor that enqueued this entry.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "estimatedTimeToMerge",
+          "description": "<p>The estimated time in seconds until this entry will be merged.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "headCommit",
+          "description": "<p>The head commit for this entry.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MergeQueueEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "jump",
+          "description": "<p>Whether this pull request should jump the queue.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue that this entry belongs to.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position of this entry in the queue.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The pull request that will be added to a merge group.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "solo",
+          "description": "<p>Does this pull request need to be deployed on its own.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this entry in the queue.</p>",
+          "type": "MergeQueueEntryState!",
+          "id": "mergequeueentrystate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeueentrystate"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueEntryConnection",
+      "kind": "objects",
+      "id": "mergequeueentryconnection",
+      "href": "/graphql/reference/objects#mergequeueentryconnection",
+      "description": "<p>The connection type for MergeQueueEntry.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[MergeQueueEntryEdge]",
+          "id": "mergequeueentryedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentryedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[MergeQueueEntry]",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueEntryEdge",
+      "kind": "objects",
+      "id": "mergequeueentryedge",
+      "href": "/graphql/reference/objects#mergequeueentryedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry"
+        }
+      ]
+    },
+    {
       "name": "MergedEvent",
       "kind": "objects",
       "id": "mergedevent",
@@ -39881,6 +40370,14 @@
           "href": "/graphql/reference/objects#commit"
         },
         {
+          "name": "mergeQueueEntry",
+          "description": "<p>The merge queue entry of the pull request in the base branch's merge queue.</p>",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry"
+        },
+        {
           "name": "mergeStateStatus",
           "description": "<p>Detailed information about the current pull request merge state status.</p>",
           "type": "MergeStateStatus!",
@@ -45124,6 +45621,86 @@
           "id": "release",
           "kind": "objects",
           "href": "/graphql/reference/objects#release"
+        }
+      ]
+    },
+    {
+      "name": "RemovedFromMergeQueueEvent",
+      "kind": "objects",
+      "id": "removedfrommergequeueevent",
+      "href": "/graphql/reference/objects#removedfrommergequeueevent",
+      "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "beforeCommit",
+          "description": "<p>Identifies the before commit SHA for the<code>removed_from_merge_queue</code>event.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enqueuer",
+          "description": "<p>The user who removed this Pull Request from the merge queue.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the RemovedFromMergeQueueEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue where this pull request was removed from.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "reason",
+          "description": "<p>The reason this pull request was removed from the queue.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -50991,6 +51568,26 @@
           "id": "mergecommittitle",
           "kind": "enums",
           "href": "/graphql/reference/enums#mergecommittitle"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue for a specified branch, otherwise the default branch if not provided.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue",
+          "arguments": [
+            {
+              "name": "branch",
+              "description": "<p>The name of the branch to get the merge queue for. Case sensitive.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "milestone",
@@ -69214,6 +69811,52 @@
       ]
     },
     {
+      "name": "MergeQueueEntryState",
+      "kind": "enums",
+      "id": "mergequeueentrystate",
+      "href": "/graphql/reference/enums#mergequeueentrystate",
+      "description": "<p>The possible states for a merge queue entry.</p>",
+      "values": [
+        {
+          "name": "AWAITING_CHECKS",
+          "description": "<p>The entry is currently waiting for checks to pass.</p>"
+        },
+        {
+          "name": "LOCKED",
+          "description": "<p>The entry is currently locked.</p>"
+        },
+        {
+          "name": "MERGEABLE",
+          "description": "<p>The entry is currently mergeable.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The entry is currently queued.</p>"
+        },
+        {
+          "name": "UNMERGEABLE",
+          "description": "<p>The entry is currently unmergeable.</p>"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueMergingStrategy",
+      "kind": "enums",
+      "id": "mergequeuemergingstrategy",
+      "href": "/graphql/reference/enums#mergequeuemergingstrategy",
+      "description": "<p>The possible merging strategies for a merge queue.</p>",
+      "values": [
+        {
+          "name": "ALLGREEN",
+          "description": "<p>Entries only allowed to merge if they are passing.</p>"
+        },
+        {
+          "name": "HEADGREEN",
+          "description": "<p>Failing Entires are allowed to merge if they are with a passing entry.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeStateStatus",
       "kind": "enums",
       "id": "mergestatestatus",
@@ -70335,6 +70978,10 @@
       "description": "<p>The possible item types found in a timeline.</p>",
       "values": [
         {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
           "name": "ADDED_TO_PROJECT_EVENT",
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
@@ -70497,6 +71144,10 @@
         {
           "name": "REFERENCED_EVENT",
           "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
@@ -73162,6 +73813,11 @@
       "description": "<p>An item in a pull request timeline.</p>",
       "possibleTypes": [
         {
+          "name": "AddedToMergeQueueEvent",
+          "id": "addedtomergequeueevent",
+          "href": "/graphql/reference/objects#addedtomergequeueevent"
+        },
+        {
           "name": "AddedToProjectEvent",
           "id": "addedtoprojectevent",
           "href": "/graphql/reference/objects#addedtoprojectevent"
@@ -73365,6 +74021,11 @@
           "name": "ReferencedEvent",
           "id": "referencedevent",
           "href": "/graphql/reference/objects#referencedevent"
+        },
+        {
+          "name": "RemovedFromMergeQueueEvent",
+          "id": "removedfrommergequeueevent",
+          "href": "/graphql/reference/objects#removedfrommergequeueevent"
         },
         {
           "name": "RemovedFromProjectEvent",
@@ -77720,6 +78381,32 @@
       ]
     },
     {
+      "name": "DequeuePullRequestInput",
+      "kind": "inputObjects",
+      "id": "dequeuepullrequestinput",
+      "href": "/graphql/reference/input-objects#dequeuepullrequestinput",
+      "description": "<p>Autogenerated input type of DequeuePullRequest.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the pull request to be dequeued.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DisablePullRequestAutoMergeInput",
       "kind": "inputObjects",
       "id": "disablepullrequestautomergeinput",
@@ -77986,6 +78673,48 @@
         {
           "name": "pullRequestId",
           "description": "<p>ID of the pull request to enable auto-merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "EnqueuePullRequestInput",
+      "kind": "inputObjects",
+      "id": "enqueuepullrequestinput",
+      "href": "/graphql/reference/input-objects#enqueuepullrequestinput",
+      "description": "<p>Autogenerated input type of EnqueuePullRequest.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expectedHeadOid",
+          "description": "<p>The expected head OID of the pull request.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "jump",
+          "description": "<p>Add the pull request to the front of the queue.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The ID of the pull request to enqueue.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
