@@ -60,7 +60,12 @@ export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
         as="h2"
         id="in-this-article"
         className="mb-1 ml-3"
-        sx={{ fontSize: 1 }}
+        sx={{
+          '@media (min-width: 1012px) and (max-width: 1400px)': {
+            marginTop: '2rem',
+          },
+          fontSize: 1,
+        }}
         aria-label={t('miniToc')}
       >
         {t('miniToc')}
