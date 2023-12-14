@@ -87,7 +87,7 @@ Style your CTAs using the following format.
 Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
-- Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml)" in the `github/docs` repository.
+- Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml)" in the `github/docs` repository.
 - Do not use HTML to style or markup a code block.
 - Style any placeholders that people need to replace with their own values in all caps.
   - **Use:** `git checkout -b BRANCH-NAME`
@@ -216,6 +216,14 @@ Use italics to emphasize words or parts of a sentence. Use emphasis sparingly fo
 - **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %} (classic).
 - **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
 - **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
+
+## Error messages
+
+When you include the text of an error message from a {% data variables.product.company_short %} product or interface in an article, format the text according to the interface where the message appears.
+
+- If the message appears in {% data variables.product.prodname_dotcom %}'s web interface, or in a graphical client app like {% data variables.product.prodname_desktop %} or {% data variables.product.prodname_mobile %}, treat the message like other text in the UI. For more information, see "[User interface text](#user-interface-text)."
+
+- If the message appears in a command-line interface, log output, or a response from an API, reproduce the text exactly and use backticks to format the message using a monospaced font.
 
 ## Footnotes
 
@@ -841,6 +849,7 @@ A release note for a bug fix answers the following questions.
 - Language like "fixed a bug..." or "fixed an issue..." is implied and unnecessary.
 - To reduce repetition and unnecessary words, "now" is usually implied.
 - To clarify actors and impact, avoid passive language when possible.
+- If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
 
 #### Examples of release notes for bug fixes
 
@@ -896,6 +905,7 @@ A release note for a known issue answers the following questions.
 
 - To clarify actors and impact, avoid passive language when possible.
 - To reduce repetition and unnecessary words, "now" is usually implied.
+- If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
 - If useful, include relevant links to GitHub Docs.
 - Known issues are also a type of content on GitHub Docs. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/troubleshooting-content-type#known-issues)." If useful, write or link to more in-depth and contextually relevant content in the docs.
 

@@ -312,15 +312,13 @@ sections:
     - |
       On an instance hosted in AWS, system time may lose synchronization with Amazon's servers after an administrator reboots the instance.
     - |
-      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
-    - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
       {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
     - |
       On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
     - |
-      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %}
     - |
       {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
     - |

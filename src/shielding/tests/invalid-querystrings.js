@@ -57,11 +57,18 @@ describe('invalid query strings', () => {
     }
   })
 
+  test('query string keys with single square brackets', async () => {
+    const url = `/en?query[foo]=bar`
+    const res = await get(url)
+    expect(res.statusCode).toBe(400)
+    expect(res.body).toMatch('Invalid query string key (query)')
+  })
+
   test('query string keys with square brackets', async () => {
     const url = `/?constructor[foo][bar]=buz`
     const res = await get(url)
-    expect(res.statusCode).toBe(302)
-    expect(res.headers.location).toBe('/en')
+    expect(res.statusCode).toBe(400)
+    expect(res.body).toMatch('Invalid query string key (constructor)')
   })
 
   test('bad tool query string with Chinese URL-encoded characters', async () => {

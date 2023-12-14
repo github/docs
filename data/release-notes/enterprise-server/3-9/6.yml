@@ -86,3 +86,5 @@ sections:
       {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]

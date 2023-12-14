@@ -11,7 +11,7 @@
 - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
 
 # FPT versioning was removed as part of github/docs-content#5166
-/rest/overview/resources-in-the-rest-api
+/rest/using-the-rest-api/getting-started-with-the-rest-api
 - /rest/overview/api-previews
 
 /enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment

@@ -13,7 +13,7 @@ const pages: { [key: string]: string } = {
   productLanding: '/code-security',
   restCategory: '/rest/actions/artifacts',
   restLanding: '/rest',
-  restOverview: '/rest/overview/about-githubs-apis',
+  restOverview: '/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api',
   search: '/search?q=playwright',
   switchers: '/get-started/liquid/tool-platform-switcher',
   tableWithHeaders: '/get-started/liquid/table-row-headers',

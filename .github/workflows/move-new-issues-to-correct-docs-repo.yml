@@ -7,8 +7,11 @@ name: Move new issues to correct docs repo
 on:
   issues:
     types:
+      # Note, if an issue is transferred from github/some-other-repo
+      # over to github/docs-internal, this will trigger both 'transferred'
+      # *and* 'opened' events. And 'opened' covers the most basic case
+      # of an issue being created here in this repo.
       - opened
-      - transferred
       - reopened
 
 permissions:

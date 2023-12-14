@@ -212,6 +212,8 @@ To use the script, fill in the placeholder environment variable values with the 
 
 - Run the following script in the same directory where you saved the `actions-nsg-deployment.bicep` file.
 - When setting the `YOUR_AZURE_LOCATION` environment variable, use your region’s name. This value is different than your region’s display name. To see a list of names and display names, use `az account list-locations -o table`.
+- When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
+- To delete the subnet, the service association link needs to be removed first. The service association link is safely removed when the network settings resource is deleted. You can delete the network settings resource only when it is not in use by a network configuration in your {% data variables.product.company_short %} settings.
 
 {% endnote %}
 
@@ -222,7 +224,7 @@ To use the script, fill in the placeholder environment variable values with the 
 # - Resource group
 # - Network Security Group rules
 # - Virtual network (vnet) and subnet
-# - Network Settings with specified subnet and GitHub Enterprise databse ID
+# - Network Settings with specified subnet and GitHub Enterprise database ID
 #
 # It also registers the `GitHub.Network` resource provider with the subscription,
 # delegates the created subnet to the Actions service via the `GitHub.Network/NetworkSettings`

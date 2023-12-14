@@ -1,23 +1,19 @@
 import express from 'express'
 import { omit, without, mapValues } from 'lodash-es'
-import Ajv from 'ajv'
-import addFormats from 'ajv-formats'
 import QuickLRU from 'quick-lru'
 
 import { schemas, hydroNames } from './lib/schema.js'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { noCacheControl } from '#src/frame/middleware/cache-control.js'
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { formatErrors } from './lib/middleware-errors.js'
 import { publish as _publish } from './lib/hydro.js'
 
 const router = express.Router()
-const ajv = new Ajv()
-addFormats(ajv)
 const OMIT_FIELDS = ['type']
 const allowedTypes = new Set(without(Object.keys(schemas), 'validation'))
 const isProd = process.env.NODE_ENV === 'production'
-const validations = mapValues(schemas, (schema) => ajv.compile(schema))
-
+const validators = mapValues(schemas, (schema) => getJsonValidator(schema))
 // In production, fire and not wait to respond.
 // _publish will send an error to failbot,
 // so we don't get alerts but we still track it.
@@ -47,7 +43,7 @@ router.post(
     }
 
     // Validate the data matches the corresponding data schema
-    const validate = validations[type]
+    const validate = validators[type]
     if (!validate(req.body)) {
       const hash = `${req.ip}:${validate.errors
         .map((error) => error.message + error.instancePath)

@@ -64,12 +64,12 @@ When you migrate an organization, a new organization is created within the desti
 - Repositories
 - Team access to repositories
 - Member privileges
-- Organization-level webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#enabling-webhooks)")
+- Organization-level webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)")
 - Default branch name for new repositories created in the organization
 
 All repositories are migrated with private visibility. If you want to set a repository's visibility to public or internal, you can do this after the migration using the UI or API.
 
-Team membership is **not** migrated. After the migration, you'll need to add members to migrated teams. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#recreating-teams)."
+Team membership is **not** migrated. After the migration, you'll need to add members to migrated teams. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#recreating-teams)."
 
 {% note %}
 
@@ -87,7 +87,7 @@ When you migrate a repository, either directly or as part of an organization mig
 - Projects (classic) at the repository level
 - {% data variables.product.prodname_actions %} workflows
 - Commit comments
-- Active webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#enabling-webhooks)")
+- Active webhooks (must be re-enabled after your migration, see "[Enabling webhooks](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#enabling-webhooks)")
 - Repository topics
 - Repository settings
   - Branch protections (see "[Branch protections](#branch-protections)" for more details)
@@ -175,6 +175,6 @@ There are limits to what {% data variables.product.prodname_importer_proper_name
 - **10 GB size limit for a Git repository:** This limit only applies to the source code. To inspect the size of your repository, use the [git-sizer](https://github.com/github/git-sizer) tool and check the total size of blobs.
 - **10 GB limit for metadata**: The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 10 GB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
 - **{% data variables.large_files.product_name_short %} objects not migrated**: The {% data variables.product.prodname_importer_secondary_name %} can migrate repositories that use {% data variables.large_files.product_name_short %}, but the LFS objects themselves will not be migrated. They can be pushed to your migration destination as a follow-up task after the migration is complete. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)."
-- **Follow-up tasks required:** When migrating between {% data variables.product.prodname_dotcom %} products, certain settings are not migrated and must be reconfigured in the new repository. For a list of follow-up tasks you'll need to complete after each migration, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#completing-follow-up-tasks)."
+- **Follow-up tasks required:** When migrating between {% data variables.product.prodname_dotcom %} products, certain settings are not migrated and must be reconfigured in the new repository. For a list of follow-up tasks you'll need to complete after each migration, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/overview-of-a-migration-between-github-products#completing-follow-up-tasks)."
 - **Delayed code search functionality:** Re-indexing the search index can take a few hours after a repository is migrated, and code searches may return unexpected results until re-indexing is complete.
 - **Rulesets configured for your organization can cause migrations to fail**: For example, if you configured a rule that requires email addresses for commit authors to end with `@monalisa.cat`, and the repository you're migrating contains commits that don't comply with this rule, your migration will fail. For more information about rulesets, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
