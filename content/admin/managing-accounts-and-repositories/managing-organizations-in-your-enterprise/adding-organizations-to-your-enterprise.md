@@ -2,42 +2,42 @@
 title: Adding organizations to your enterprise
 intro: 'You can add organizations to manage within your enterprise by creating a new organization, inviting an existing organization, or transferring an organization from a different enterprise account.'
 redirect_from:
-  - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
-  - /articles/adding-organizations-to-your-enterprise-account
-  - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
-  - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
-  - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
-versions:
-  ghec: '*'
-type: how_to
-topics:
-  - Administrator
-  - Enterprise
-  - Organizations
-shortTitle: Add organizations
-permissions: Enterprise owners can add organizations to an enterprise.
+  - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account                  
+  - /articles/adding-organizations-to-your-enterprise-account          
+  - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account          
+  - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account          
+  - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise          
+versions:         
+  ghec: '*'         
+type: how_to         
+topics:         
+  - Administrator          
+  - Enterprise          
+  - Organizations          
+shortTitle: Add organizations         
+permissions: Enterprise owners can add organizations to an enterprise.         
 ---
 
-## About addition of organizations to your enterprise account
+## About addition of organizations to your enterprise account          
 
-Your enterprise account can own organizations. Members of your enterprise can collaborate across related projects within an organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+Your enterprise account can own organizations. Members of your enterprise can collaborate across related projects within an organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)."          
 
-You can add new organizations to your enterprise account. If you do not use {% data variables.product.prodname_emus %}, you can add existing organizations on {% data variables.location.product_location %} to your enterprise. You cannot add an existing organization from an {% data variables.enterprise.prodname_emu_enterprise %} to a different enterprise.
+You can add new organizations to your enterprise account. If you do not use {% data variables.product.prodname_emus %}, you can add existing organizations on {% data variables.location.product_location %} to your enterprise. You cannot add an existing organization from an {% data variables.enterprise.prodname_emu_enterprise %} to a different enterprise.         
 
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account)."          
 
-After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
+After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.         
 
-- If two-factor authentication (2FA) is required by the enterprise, organization members who do not use 2FA will be removed from the organization.
-- The organization's members will become members of the enterprise, and {% data variables.product.company_short %} will bill the enterprise account for the organization's usage. You must ensure that the enterprise account has enough licenses to accommodate any new members. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
-- Enterprise owners can manage their role within the organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
-- Any policies applied to the enterprise will apply to the organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
-  {% note %}
+- If two-factor authentication (2FA) is required by the enterprise, organization members who do not use 2FA will be removed from the organization.          
+- The organization's members will become members of the enterprise, and {% data variables.product.company_short %} will bill the enterprise account for the organization's usage. You must ensure that the enterprise account has enough licenses to accommodate any new members. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."          
+- Enterprise owners can manage their role within the organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."          
+- Any policies applied to the enterprise will apply to the organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."          
+  {% note %}         
 
-  **Note:** {% data reusables.actions.org-to-enterprise-actions-permissions %}
+  **Note:** {% data reusables.actions.org-to-enterprise-actions-permissions %}          
 
-  {% endnote %}
-- If SAML SSO is configured for the enterprise account, the enterprise's SAML configuration will apply to the organization. If the organization used SAML SSO, the enterprise account's configuration will replace the organization's configuration. SCIM is not available for enterprise accounts, so SCIM will be disabled for the organization. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)" and "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+  {% endnote %}         
+- If SAML SSO is configured for the enterprise account, the enterprise's SAML configuration will apply to the organization. If the organization used SAML SSO, the enterprise account's configuration will replace the organization's configuration. SCIM is not available for enterprise accounts, so SCIM will be disabled for the organization. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)" and "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."          
 - If SAML SSO was configured for the organization, members' existing {% data variables.product.pat_generic %} or SSH keys that were authorized to access the organization's resources will be authorized to access the same resources. To access additional organizations owned by the enterprise, members must authorize the {% data variables.product.pat_generic %} or key. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 - If the organization was connected to {% data variables.product.prodname_ghe_server %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. For more information, see "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation.
 - If the organization used billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but must pay the vendor directly. For more information, contact the app's vendor.
