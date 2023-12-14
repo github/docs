@@ -129,6 +129,7 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>United States</li>
 <li>Uzbekistan</li>
 <li>Venezuela</li>
+<li>Zambia</li>
 </ul>
 
 ## Further reading
