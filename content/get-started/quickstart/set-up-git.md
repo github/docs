@@ -32,7 +32,7 @@ If you want to work with Git locally, but do not want to use the command line, y
 
 If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
-- [Creating a repository](/get-started/quickstart/create-a-repo)
+- [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)
 - [Forking a repository](/get-started/quickstart/fork-a-repo)
 - [Managing files](/repositories/working-with-files/managing-files)
 - [Being social](/get-started/quickstart/be-social)

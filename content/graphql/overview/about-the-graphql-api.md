@@ -57,3 +57,5 @@ For other information, such as authentication and rate limit details, check out 
 ## Requesting support
 
 {% data reusables.support.help_resources %}
+
+If you observe unexpected failures, you can use [githubstatus.com](https://www.githubstatus.com/) or the [{% data variables.product.company_short %} status API](https://www.githubstatus.com/api) to check for incidents affecting the API.

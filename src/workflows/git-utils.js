@@ -4,8 +4,8 @@ import fs from 'fs/promises'
 
 import { RequestError } from '@octokit/request-error'
 
-import Github from './github.js'
-const github = Github()
+import { retryingGithub } from './github.js'
+const github = retryingGithub()
 
 // https://docs.github.com/rest/reference/git#get-a-reference
 export async function getCommitSha(owner, repo, ref) {
@@ -17,7 +17,7 @@ export async function getCommitSha(owner, repo, ref) {
     })
     return data.object.sha
   } catch (err) {
-    console.log('error getting tree')
+    console.log('error getting commit sha', owner, repo, ref)
     throw err
   }
 }
@@ -35,7 +35,7 @@ export async function hasMatchingRef(owner, repo, ref) {
     if (err instanceof RequestError && err.status === 404) {
       return false
     }
-    console.log('error getting tree')
+    console.log('error getting matching ref', owner, repo, ref)
     throw err
   }
 }
@@ -50,7 +50,7 @@ export async function getTreeSha(owner, repo, commitSha) {
     })
     return data.tree.sha
   } catch (err) {
-    console.log('error getting tree')
+    console.log('error getting tree sha', owner, repo, commitSha)
     throw err
   }
 }
@@ -70,7 +70,7 @@ export async function getTree(owner, repo, ref) {
     // skip actions/changes files
     return data.tree
   } catch (err) {
-    console.log('error getting tree')
+    console.log('error getting tree', owner, repo, ref)
     throw err
   }
 }

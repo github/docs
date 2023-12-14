@@ -24,7 +24,7 @@ topics:
 
 A repository is the most basic element of {% data variables.product.prodname_dotcom %}. It's a place where you can store your code, your files, and each file's revision history. Repositories can have multiple collaborators and can be either public{% ifversion ghes or ghec %}, internal,{% endif %} or private.
 
-To create a new repository, go to [https://github.com/new](https://github.com/new). For instructions, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)."
+To create a new repository, go to [https://github.com/new](https://github.com/new). For instructions, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)."
 
 ## Repository terminology
 
