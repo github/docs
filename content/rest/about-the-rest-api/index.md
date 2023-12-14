@@ -9,6 +9,7 @@ versions:
 topics:
   - API
 children:
+  - /about-the-rest-api
   - /comparing-githubs-rest-api-and-graphql-api
   - /api-versions
   - /breaking-changes
