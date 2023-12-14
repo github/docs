@@ -11,6 +11,9 @@ topics:
   - API
 redirect_from:
   - /rest/guides/getting-started-with-the-rest-api
+  - /rest/initialize-the-repo
+  - /rest/overview/resources-in-the-rest-api
+  - /rest/using-the-rest-api/resources-in-the-rest-api
 ---
 
 ## Introduction
@@ -691,8 +694,25 @@ Note that authorization sometimes influences the amount of detail included in a 
 
 The reason for this is because some attributes are computationally expensive for the API to provide, so {% data variables.product.prodname_dotcom %} excludes those attributes from the summary representation. To obtain those attributes, you can fetch the detailed representation.
 
-The documentation provides an example response for each API method. The example
-response illustrates all attributes that are returned by that method.
+The documentation provides an example response for each API method. The example response illustrates all attributes that are returned by that method.
+
+#### Hypermedia
+
+All resources may have one or more `*_url` properties linking to other resources. These are meant to provide explicit URLs so that proper API clients don't need to construct URLs on their own.  It is highly recommended that API clients use these. Doing so will make future upgrades of the API easier for developers. All URLs are expected to be proper [RFC 6570](https://datatracker.ietf.org/doc/html/rfc6570) URI templates.
+
+You can then expand these templates using something like the [uri_template](https://github.com/hannesg/uri_template) gem:
+
+```ruby
+>> tmpl = URITemplate.new('/notifications{?since,all,participating}')
+>> tmpl.expand
+=> "/notifications"
+
+>> tmpl.expand all: 1
+=> "/notifications?all=1"
+
+>> tmpl.expand all: 1, participating: 1
+=> "/notifications?all=1&participating=1"
+```
 
 ## Next steps
 
