@@ -178,7 +178,7 @@ printf '%s\n' "JWT: $JWT"
 
 ### Example: Using PowerShell to generate a JWT
 
-```pwsh copy
+```ps1 copy
 #!/usr/bin/env pwsh
 
 $app_id = 123456
