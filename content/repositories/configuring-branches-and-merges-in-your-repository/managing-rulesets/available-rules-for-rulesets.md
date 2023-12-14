@@ -50,6 +50,10 @@ You can require that changes are successfully deployed to specific environments 
 
 When you enable required commit signing on a branch, contributors {% ifversion fpt or ghec %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
 
+Branch protection rules and rulesets behave differently when you create a branch: with rulesets, we check only the commits that aren't accessible from other branches, whereas with branch protection rules, we do not verify signed commits unless you restrict pushes that create matching branches. With both, when you update a branch, we still check all the commits in the specified range, even if a commit is reachable from other branches.
+
+With both methods, we use the `verified_signature?` to confirm if a commit has a valid signature. If not, the update is not accepted.
+
 {% note %}
 
 {% ifversion fpt or ghec %}
