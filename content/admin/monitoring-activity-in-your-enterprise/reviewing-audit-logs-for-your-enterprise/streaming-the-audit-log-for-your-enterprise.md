@@ -247,8 +247,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} validates the HEC endpoint via `<Domain>:port/services/collector`. If self-hosting the HEC endpoint (e.g. with [Splunk HEC Receiver
-](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/splunkhecreceiver) via OpenTelemetry), ensure this is reachable.
+**Note**: {% data variables.product.prodname_dotcom %} validates the HEC endpoint via `<Domain>:port/services/collector`. If self-hosting the HEC endpoint (such as with [Splunk HEC Receiver](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/splunkhecreceiver) via OpenTelemetry), ensure the endpoint is reachable at this destination.
 
 {% endnote %}
 
