@@ -20,6 +20,12 @@ shortTitle: Billing cycle
 ---
 When you change your billing cycle's duration, your {% data variables.product.prodname_dotcom %} subscription, along with any other paid features and products, will be moved to your new billing cycle on your next billing date.
 
+{% note %}
+
+**Note:** Certain products, such as {% data variables.product.prodname_copilot_for_business %}, {% data variables.product.prodname_actions %}, or {% data variables.product.prodname_registry %}, only offer monthly billing.
+
+{% endnote %}
+
 ## Changing the duration of your personal account's billing cycle
 
 {% data reusables.user-settings.access_settings %}

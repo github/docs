@@ -163,7 +163,7 @@ curl sends a valid `User-Agent` header by default.
 
 If you observe an error that is not addressed here, you should refer to the error message that the API gives you. Most error messages will provide a clue about what is wrong and a link to relevant documentation.
 
-If you observe unexpected failures, you can check the status of the REST API at [githubstatus.com](https://www.githubstatus.com/).
+If you observe unexpected failures, you can use [githubstatus.com](https://www.githubstatus.com/) or the [{% data variables.product.company_short %} status API](https://www.githubstatus.com/api) to check for incidents affecting the API.
 
 ## Further reading
 

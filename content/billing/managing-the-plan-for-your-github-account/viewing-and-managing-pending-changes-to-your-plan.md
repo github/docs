@@ -37,7 +37,7 @@ When you cancel a pending change, your plan will not change until your next bill
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.review-pending-changes %}
-{% data reusables.dotcom_billing.cancel-pending-changes %}
+{% data reusables.dotcom_billing.cancel-pending-changes-org %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ## Further reading

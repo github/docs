@@ -10,7 +10,7 @@ import yaml from 'js-yaml'
 import { getContents } from '#src/workflows/git-utils.js'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
-import { validateData } from '../../rest/scripts/utils/validate-data.js'
+import { validateJson } from '#src/tests/lib/validate-json-schema.js'
 
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
@@ -287,12 +287,20 @@ function initAppData(storage, category, data) {
 async function validateAppData(data, pageType) {
   if (pageType.includes('permissions')) {
     for (const value of Object.values(data)) {
-      validateData(value, permissionSchema)
+      const { isValid, errors } = validateJson(permissionSchema, value)
+      if (!isValid) {
+        console.error(JSON.stringify(errors, null, 2))
+        throw new Error('GitHub Apps permission schema validation failed')
+      }
     }
   } else {
     for (const arrayItems of Object.values(data)) {
       for (const item of arrayItems) {
-        validateData(item, enabledSchema)
+        const { isValid, errors } = validateJson(enabledSchema, item)
+        if (!isValid) {
+          console.error(JSON.stringify(errors, null, 2))
+          throw new Error('GitHub Apps enabled apps schema validation failed')
+        }
       }
     }
   }
