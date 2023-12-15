@@ -1,11 +1,13 @@
 ---
-title: Fork a repo
+title: Fork a repository
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /fork-a-repo
   - /forking
   - /articles/fork-a-repo
   - /github/getting-started-with-github/fork-a-repo
   - /github/getting-started-with-github/quickstart/fork-a-repo
+  - /get-started/quickstart/fork-a-repo
 intro: A fork is a new repository that shares code and visibility settings with the original “upstream” repository.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
@@ -96,7 +98,7 @@ gh repo fork REPOSITORY --org "octo-org"
 
 {% desktop %}
 
-You can fork a repository on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_desktop %}. For information about forking on {% data variables.product.prodname_dotcom_the_website %}, see [the web browser version of this article](/get-started/quickstart/fork-a-repo?tool=webui).
+You can fork a repository on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_desktop %}. For information about forking on {% data variables.product.prodname_dotcom_the_website %}, see [the web browser version of this article](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo?tool=webui).
 
 {% data reusables.desktop.forking-a-repo %}
 
@@ -228,11 +230,9 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 {% endif %}
 
-## Next Steps
+## Next steps
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
-
-- For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/quickstart/set-up-git)."
 
 - You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 

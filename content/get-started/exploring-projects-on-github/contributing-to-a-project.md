@@ -1,5 +1,6 @@
 ---
-title: Contributing to projects
+title: Contributing to a project
+shortTitle: Contribute to a project
 intro: Learn how to contribute to a project through forking.
 permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
@@ -12,6 +13,8 @@ topics:
   - Forks
   - GitHub
   - Open Source
+redirect_from:
+  - /get-started/quickstart/contributing-to-projects
 ---
 
 ## About forking
@@ -20,7 +23,7 @@ If you want to contribute to someone else's project but don't have write access 
 
 {% data reusables.repositories.fork-definition-long %}
 
-You can contribute by submitting pull requests from your fork to the upstream repository. For more information, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo)."
+You can contribute by submitting pull requests from your fork to the upstream repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)."
 
 ## Forking a repository
 
@@ -195,7 +198,7 @@ To do so, head on over to the repository on {% data variables.product.product_na
 
 ## Managing feedback
 
-Pull Requests are an area for discussion. In this case, the Octocat is very busy, and probably won't merge your changes. For other projects, don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. It may even be that the project owner chooses not to merge your pull request, and that's totally okay. Your changes exist in your fork. And who knows--maybe someone you've never met will find your changes much more valuable than the original project.
+Pull requests are an area for discussion. Don't be offended if the project owner rejects your pull request, or asks for more information on why it's been made. Even if the project owner chooses not to merge your pull request, your changes still exist in your fork. It could be that someone else will find your fork much more valuable than the original project.
 
 ## Finding projects
 
