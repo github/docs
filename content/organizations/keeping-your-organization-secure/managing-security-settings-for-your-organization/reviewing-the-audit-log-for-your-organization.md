@@ -18,6 +18,12 @@ shortTitle: Review audit log
 
 ## Accessing the audit log
 
+{% note %}
+
+**Note:**  {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
+
+{% endnote %}
+
 The audit log lists events triggered by activities that affect your organization within the current month and previous six months. Only owners can access an organization's audit log.
 
 {% data reusables.audit_log.only-three-months-displayed %}

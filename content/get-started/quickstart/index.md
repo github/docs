@@ -15,9 +15,7 @@ children:
   - /creating-an-account-on-github
   - /hello-world
   - /set-up-git
-  - /fork-a-repo
   - /github-flow
-  - /contributing-to-projects
   - /be-social
   - /communicating-on-github
   - /github-glossary
@@ -26,3 +24,4 @@ children:
 redirect_from:
   - /github/getting-started-with-github/quickstart
 ---
+

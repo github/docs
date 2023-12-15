@@ -17,13 +17,15 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
-{% ifversion ghes %}
+
 {% note %}
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+{% ifversion ghes %}**Notes:**
+- Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}
+**Note:** {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 {% endnote %}
-{% endif %}
 
 ## About audit log streaming
 

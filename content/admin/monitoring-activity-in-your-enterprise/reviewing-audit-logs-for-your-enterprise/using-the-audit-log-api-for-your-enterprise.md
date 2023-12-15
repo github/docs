@@ -17,6 +17,12 @@ topics:
 
 ## Using the audit log API
 
+{% note %}
+
+**Note:**  {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
+
+{% endnote %}
+
 You can maintain compliance for your enterprise and secure your intellectual property by interacting with the audit log using the REST API. For more information about the specific events that you can access via the audit log API, see the following articles.
 
 - "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
