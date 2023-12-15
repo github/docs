@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/stale@1160a2240286f5da8ec72b1c0816ce2481aabf84
+      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e
         with:
           only-labels: needs SME
           remove-stale-when-updated: true
