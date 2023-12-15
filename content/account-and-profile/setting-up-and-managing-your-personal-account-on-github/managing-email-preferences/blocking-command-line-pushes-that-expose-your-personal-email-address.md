@@ -2,13 +2,13 @@
 title: Blocking command line pushes that expose your personal email address
 intro: 'If you''ve chosen to keep your email address private when performing web-based operations, you can also choose to block command line pushes that may expose your personal email address.'
 redirect_from:
-  - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
-  - /github/setting-up-and-managing-your-github-user-account/blocking-command-line-pushes-that-expose-your-personal-email-address
-  - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
-  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
-versions:
-  fpt: '*'
-  ghec: '*'
+  - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address                                                                                                                                                                         
+  - /github/setting-up-and-managing-your-github-user-account/blocking-command-line-pushes-that-expose-your-personal-email-address                                                                                      
+  - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address                                                                                      
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address                                                                                      
+versions:                                                                                     
+  fpt: '*'                                                                                      
+  ghec: '*'                                                                                      
 topics:
   - Accounts
   - Notifications
