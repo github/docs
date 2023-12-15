@@ -311,7 +311,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo`
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
       const res = await get(
@@ -343,7 +343,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/quickstart/fork-a-repo`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo`
     const redirectFromPath = '/articles/fork-a-repo'
 
     test('redirects to expected article', async () => {
