@@ -2,27 +2,27 @@
 title: Types of GitHub accounts
 intro: 'Accounts on {% data variables.product.product_name %} allow you to organize and control access to code.'
 redirect_from:
-  - /manage-multiple-clients
-  - /managing-clients
-  - /articles/what-s-the-difference-between-user-and-organization-accounts
-  - /articles/differences-between-user-and-organization-accounts
-  - /articles/types-of-github-accounts
-  - /github/getting-started-with-github/types-of-github-accounts
-  - /github/getting-started-with-github/learning-about-github/types-of-github-accounts
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
+  - /manage-multiple-clients                                                                                                                                                                                                     
+  - /managing-clients                                                                                                          
+  - /articles/what-s-the-difference-between-user-and-organization-accounts                                                                                                      
+  - /articles/differences-between-user-and-organization-accounts                                                                                                      
+  - /articles/types-of-github-accounts                                                                                                      
+  - /github/getting-started-with-github/types-of-github-accounts                                                                                                      
+  - /github/getting-started-with-github/learning-about-github/types-of-github-accounts                                                                                                      
+versions:                                                                                                     
+  fpt: '*'                                                                                                      
+  ghes: '*'                                                                                                      
+  ghae: '*'                                                                                                      
+  ghec: '*'                                                                                                      
+topics:                                                                                                     
+  - Accounts                                                                                                      
+  - CLI                                                                                                      
+  - Mobile                                                                                                      
+  - Desktop                                                                                                      
+  - Security                                                                                                      
 ---
 
-## About accounts on {% data variables.product.product_name %}
+## About accounts on {% data variables.product.product_name %}                                                                                                      
 
 With {% data variables.product.product_name %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.product_name %}.
 - Personal accounts
