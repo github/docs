@@ -13,7 +13,7 @@ children:
   - /choosing-who-owns-and-pays-for-codespaces-in-your-organization
   - /listing-the-codespaces-in-your-organization
   - /managing-the-cost-of-github-codespaces-in-your-organization
-  - /managing-secrets-for-your-repository-and-organization-for-github-codespaces
+  - /managing-development-environment-secrets-for-your-repository-or-organization
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-github-codespaces
   - /restricting-access-to-machine-types
@@ -24,4 +24,3 @@ children:
   - /restricting-the-retention-period-for-codespaces
 product: '{% data reusables.gated-features.codespaces-org %}'
 ---
- 

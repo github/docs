@@ -1,8 +1,8 @@
 ---
-title: Managing secrets for your repository and organization for GitHub Codespaces
+title: Managing development environment secrets for your repository or organization
 shortTitle: Manage secrets
-intro: 'Secrets allow you to store sensitive information in your organization or repository for use with {% data variables.product.prodname_github_codespaces %}.'
-permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
+intro: 'Development environment secrets allow you to store sensitive information in your organization or repository for use with {% data variables.product.prodname_github_codespaces %}.'
+permissions: 'To manage development environment secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,18 +11,19 @@ topics:
   - Secret store
   - Security
 redirect_from:
+  - /codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
-product: 'Secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."'
+product: 'Development environment secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."'
 ---
 
 ## About secrets
 
-Development environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. For information on creating user-specific secrets, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
+Development environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. This article explains how to manage organization secrets and repository secrets. For information on creating user-specific secrets, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)."
 
-The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
+The development environment secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
 
-{% endif %}Organization-level secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets.
+{% endif %}Organization secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets.
 
 {% data reusables.codespaces.secrets-on-start %}
 
@@ -87,4 +88,4 @@ You can check which access policies are applied to a development environment sec
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)"
