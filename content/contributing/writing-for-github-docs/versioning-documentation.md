@@ -242,10 +242,6 @@ versions:
   feature: 'some-new-feature'
 ```
 
-### Schema enforcement
-
-The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](https://github.com/github/docs/blob/main/src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](https://github.com/github/docs/blob/main/src/content-linter/tests/lint-versioning.js).
-
 ## Best practices
 
 Versioned content impacts the reader, but also impacts anyone who contributes to or reviews the content. Here are a few tips to improve the writing, reading, and reviewing experience for versioning syntax. None of these practices are mandatory and you will find edge and corner cases, but they're intended as useful heuristics to help you think through versioning.
