@@ -24,7 +24,7 @@ topics:
 
 You should use the API that best aligns with your needs and that you are most comfortable using. You don't need to exclusively use one API over the other. Node IDs let you move between the REST API and GraphQL API. For more information, see "[AUTOTITLE](/graphql/guides/using-global-node-ids)."
 
-This article discusses the benefits of each API. For more information about the GraphQL API, see "[AUTOTITLE](/graphql/overview/about-the-graphql-api)." For more information about the REST API, see "[AUTOTITLE](/rest/about-the-rest-api/about-the-rest-api)".
+This article discusses the benefits of each API. For more information about the GraphQL API, see "[AUTOTITLE](/graphql/overview/about-the-graphql-api)." For more information about the REST API, see [the REST documentation](/rest).
 
 ## Choosing the GraphQL API
 
