@@ -18,7 +18,7 @@ allowTitleToDifferFromFilename: true
 
 ## Adding issues and pull requests to a project
 
-You have several options for adding issues and pull requests to your project. You can add them individually{% ifversion projects-v2-auto-add %}, automatically, {% endif %} or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see "[Creating draft issues](#creating-draft-issues).
+You have several options for adding issues and pull requests to your project. You can add them individually{% ifversion projects-v2-auto-add %}, automatically, {% endif %} or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see "[Creating draft issues](#creating-draft-issues)."
 
 {% ifversion projects-v2-timeline-events %}
 
