@@ -17,6 +17,10 @@ const DEBUG_JIT_DATA_READS = Boolean(JSON.parse(process.env.DEBUG_JIT_DATA_READS
 // Having this is safer than trying to wrangle the translations to NOT
 // have them translated.
 const ALWAYS_ENGLISH_YAML_FILES = new Set(['data/variables/product.yml'])
+const ALWAYS_ENGLISH_MD_FILES = new Set([
+  'data/reusables/ssh/fingerprints.md',
+  'data/reusables/ssh/known_hosts.md',
+])
 
 // Returns all the things inside a directory
 export const getDeepDataByLanguage = memoize((dottedPath, langCode, dir = null) => {
@@ -294,6 +298,14 @@ const getYamlContent = memoize((root, relPath, englishRoot) => {
 
 // The reason why this is memoized, is the same as for getYamlContent() above.
 const getMarkdownContent = memoize((root, relPath, englishRoot) => {
+  // Certain reusables we never want to be pulled from the translations.
+  // For example, certain reusables don't contain any English prose. Just
+  // facts like numbers or hardcoded key words.
+  // If this is the case, forcibly always draw from the English files.
+  if (ALWAYS_ENGLISH_MD_FILES.has(relPath)) {
+    root = englishRoot
+  }
+
   const fileContent = getFileContent(root, relPath, englishRoot)
   return matter(fileContent).content.trimEnd()
 })
