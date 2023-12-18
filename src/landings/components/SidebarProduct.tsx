@@ -49,23 +49,21 @@ export const SidebarProduct = () => {
       nonAutomatedRestPaths.every((item: string) => !page.href.includes(item)),
     )
     return (
-      <>
-        <div className="ml-3">
-          <NavList aria-label="REST sidebar overview articles">
-            {conceptualPages.map((childPage) => (
-              <NavListItem key={childPage.href} childPage={childPage} />
-            ))}
-          </NavList>
+      <div className="ml-3">
+        <NavList aria-label="REST sidebar overview articles">
+          {conceptualPages.map((childPage) => (
+            <NavListItem key={childPage.href} childPage={childPage} />
+          ))}
+        </NavList>
 
-          <hr data-testid="rest-sidebar-reference" className="m-2" />
+        <hr data-testid="rest-sidebar-reference" className="m-2" />
 
-          <NavList aria-label="REST sidebar reference pages">
-            {restPages.map((category) => (
-              <RestNavListItem key={category.href} category={category} />
-            ))}
-          </NavList>
-        </div>
-      </>
+        <NavList aria-label="REST sidebar reference pages">
+          {restPages.map((category) => (
+            <RestNavListItem key={category.href} category={category} />
+          ))}
+        </NavList>
+      </div>
     )
   }
 

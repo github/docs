@@ -224,6 +224,17 @@ describe('misc Liquid', () => {
     expect(texts[0]).toBe(url)
     expect(texts[1]).toBe('Pricing')
   })
+
+  test('page with tool Liquid tag followed by Markdown', async () => {
+    // This test tests Markdown being correctly rendered when the
+    // Markdown directly follows a tool tag like `{% linux %}...{% endlinux %}`.
+    // The next line immediately after the `{% endlinux %}` should not
+    // leave the Markdown unrendered
+    const $ = await getDOM('/get-started/liquid/tool-platform-switcher')
+    const innerHTML = $('#article-contents').html()
+    expect(innerHTML).not.toMatch('On *this* line is `Markdown` too.')
+    expect(innerHTML).toMatch('<p>On <em>this</em> line is <code>Markdown</code> too.</p>')
+  })
 })
 
 describe('data tag', () => {

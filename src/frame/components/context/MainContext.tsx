@@ -124,7 +124,6 @@ export type MainContextT = {
 
   enterpriseServerVersions: Array<string>
 
-  searchVersions: Record<string, string>
   nonEnterpriseDefaultVersion: string
 
   status: number
@@ -263,7 +262,6 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     // the product sidebar or the rest sidebar.
     sidebarTree: (includeSidebarTree && req.context.sidebarTree) || null,
     featureFlags: {},
-    searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
     fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,

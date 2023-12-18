@@ -675,11 +675,7 @@ Code examples that use third-party actions must include the following disclaimer
 # documentation.
 ```
 
-To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endnote %}` reusable. If the code block is indented, you must use `indented_data_reference` along with the reusable. For example:
-
-```text
-{% raw %}{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}{% endraw %}
-```
+To insert this disclaimer, use the `{% raw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% endnote %}` reusable.
 
 For {% data variables.product.prodname_docs %} purposes, a third-party action is any action that doesn't have the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
 
