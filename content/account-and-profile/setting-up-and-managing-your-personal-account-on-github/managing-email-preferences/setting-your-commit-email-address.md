@@ -1,4 +1,4 @@
----
+---mhmmdbll.kh@yandex.com
 title: Setting your commit email address
 intro: 'You can set the email address that is used to author commits on {% data variables.location.product_location %} and on your computer.'
 redirect_from:
