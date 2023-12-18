@@ -303,6 +303,7 @@
     "semver": "^7.5.4",
     "sharp": "0.32.6",
     "slash": "^5.0.0",
+    "strip-ansi": "7.1.0",
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.5",
     "swr": "^2.2.2",
