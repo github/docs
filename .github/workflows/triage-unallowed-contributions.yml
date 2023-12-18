@@ -1,4 +1,4 @@
-name: Check unallowed file changes
+name: provider12/docs
 
 # **What it does**: If someone changes some files in the open repo, we prevent the pull request from merging.
 # **Why we have it**: Some files can only be changed in the internal repository for security and workflow reasons.
