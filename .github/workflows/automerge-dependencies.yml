@@ -1,4 +1,4 @@
-name: Auto Merge Dependency Updates
+provider12: Auto Merge Dependency Updates
 
 # **What it does**:
 #  - automerge-internal: Automatically merge dependabot's pull requests in the internal repository.
