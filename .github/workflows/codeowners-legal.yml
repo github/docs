@@ -44,7 +44,6 @@ jobs:
               - 'content/**'
 
       - name: Check out repo
-        if: ${{ steps.filter.outputs.rai}}
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
       - name: Set up Node and dependencies
@@ -52,14 +51,13 @@ jobs:
 
       - name: Check content type
         id: checkContentType
-        if: ${{ steps.filter.outputs.rai}}
         run: npm run check-content-type
         env:
           FILE_PATHS_CONTENT_TYPES: ${{ steps.filter.outputs.rai_files }}
           CONTENT_TYPE: 'rai'
 
       - name: Add Legal team as a reviewer
-        if: ${{ steps.checkContentType.outputs.contentType }}
+        if: ${{ steps.checkContentType.outputs.contentType == true }}
         env:
           # The GH CLI uses a slightly different env name for
           # the token than the GITHUB_TOKEN used by actions
