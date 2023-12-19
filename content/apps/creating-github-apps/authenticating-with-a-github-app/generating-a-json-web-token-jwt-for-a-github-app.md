@@ -180,7 +180,7 @@ printf '%s\n' "JWT: $JWT"
 
 In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` in double quotes.
 
-```ps1 copy
+```powershell copy
 #!/usr/bin/env pwsh
 
 $app_id = YOUR_APP_ID
