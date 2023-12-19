@@ -2,7 +2,7 @@
 
 // [start-readme]
 //
-// This calls a function directly that is used by our archived enterprise
+// This calls a function directly that is used by our archived enterpriseafsa
 // middleware. Namely, the `getRemoteJSON` function. That function is
 // able to use the disk to cache responses quite aggressively. So when
 // it's been run once, with the same disk, next time it can draw from disk
