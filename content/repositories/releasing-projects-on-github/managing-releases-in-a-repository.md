@@ -85,7 +85,7 @@ If you @mention any {% data variables.product.product_name %} users in the notes
    gh release edit TAG -t "New title"
    ```
 
-   For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_edit)
+   For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_edit).
 
 {% endcli %}
 
