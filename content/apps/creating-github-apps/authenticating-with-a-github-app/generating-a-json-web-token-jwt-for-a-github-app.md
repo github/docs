@@ -178,11 +178,13 @@ printf '%s\n' "JWT: $JWT"
 
 ### Example: Using PowerShell to generate a JWT
 
+In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` in double quotes.
+
 ```ps1 copy
 #!/usr/bin/env pwsh
 
-$app_id = 123456
-$private_key_path = "my-awesome-app.2023-12-14.private-key.pem"
+$app_id = YOUR_APP_ID
+$private_key_path = "YOUR_PATH_TO_PEM"
 
 $header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
   alg = "RS256"
