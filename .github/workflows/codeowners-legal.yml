@@ -55,9 +55,12 @@ jobs:
         env:
           FILE_PATHS_CONTENT_TYPES: ${{ steps.filter.outputs.rai_files }}
           CONTENT_TYPE: 'rai'
+      - name: Logging
+        run: |
+          echo ${{ steps.checkContentType.outputs.contentType }}
 
       - name: Add Legal team as a reviewer
-        if: ${{ steps.checkContentType.outputs.contentType == true }}
+        if: ${{ steps.checkContentType.outputs.contentType == 'true' }}
         env:
           # The GH CLI uses a slightly different env name for
           # the token than the GITHUB_TOKEN used by actions

@@ -11,6 +11,8 @@ main()
 async function main() {
   const filePaths = JSON.parse(FILE_PATHS_CONTENT_TYPES)
   const containsRai = checkContentType(filePaths, CONTENT_TYPE)
+  console.log('filePaths', filePaths)
+  console.log('containsRai', containsRai)
   if (containsRai.length === 0) {
     coreLib.setOutput('contentType', false)
   } else {
