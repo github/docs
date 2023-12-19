@@ -28,6 +28,8 @@ At this time, migrating from Bitbucket Server with the {% data variables.product
 
 If this is your first migration, you'll need to install the {% data variables.product.prodname_bbs2gh_cli %}. For more information about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
+{% data reusables.enterprise-migration-tool.bbs2gh-binary %}
+
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 1. Install the {% data variables.product.prodname_bbs2gh_cli_short %}.
 
@@ -250,6 +252,8 @@ After you generate the script, review the file and, optionally, edit the script.
 
 - If there are any repositories you don't want to migrate, delete or comment out the corresponding lines.
 - By default, repository names in {% data variables.product.prodname_dotcom %} will follow a `projectKey-repositoryName` convention. For example, a Bitbucket Server repository named `airports` that is part of the `open-source` project, which has the key `OS`, would be called `OS-airports` in {% data variables.product.prodname_dotcom %}. If you want any repositories to have a different name on {% data variables.product.prodname_dotcom %}, update the value for the corresponding `--github-repo` flag.
+
+{% data reusables.enterprise-migration-tool.bbs2gh-binary-generate-script %}
 
 ### Running your migration script
 
