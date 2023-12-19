@@ -4,6 +4,7 @@ notAllowed:
   - '.github/CODEOWNERS'
   - 'assets/fonts/**'
   - 'data/graphql/**'
+  - 'data/reusables/rai/**'
   - 'Dockerfile*'
   - 'src/*/scripts/**'
   - 'src/**.json'
