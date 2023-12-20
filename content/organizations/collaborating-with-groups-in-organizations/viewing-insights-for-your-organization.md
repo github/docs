@@ -27,7 +27,7 @@ You can use organization activity insights to help you better understand how mem
 
 {% note %}
 
-**Note:** Organization activity insights are currently in public beta and subject to change.
+**Deprecation note:** Organization activity insights will be deprecated for all users in January 2024.
 
 {% endnote %}
 
