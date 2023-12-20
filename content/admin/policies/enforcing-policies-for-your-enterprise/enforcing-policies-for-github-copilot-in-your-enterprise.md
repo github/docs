@@ -42,7 +42,9 @@ Enterprise owners can choose whether to grant access to {% data variables.produc
 
     ![Screenshot of the {% data variables.product.prodname_copilot %} policy page. The organization permissions dropdown is outlined in dark orange.](/assets/images/help/copilot/set-org-permissions-enterprise.png)
 
-1. Click **Save**.
+1. Review your selection.
+    - If you selected **Disable**, you will see a warning that disabling {% data variables.product.prodname_copilot %} will revoke access for all organizations and members. To confirm, click **Confirm and save**.
+    - If you selected **Allow for all organizations** or **Allow for specific organizations**, click **Save**.
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot %} suggestions that match public code in your enterprise
 
@@ -57,7 +59,7 @@ Enterprise owners can choose whether to grant access to {% data variables.produc
 
     ![Screenshot of the {% data variables.product.prodname_copilot %} policy page. The dropdown menu of suggestions that match public code settings is outlined in dark orange.](/assets/images/help/copilot/duplication-detection-enterprise-dropdown.png)
 
-## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_chat %} (beta) in your enterprise
+## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_chat %} in your enterprise
 
 {% data variables.product.prodname_copilot_chat %} is a feature that allows users to chat with {% data variables.product.prodname_copilot %} to get code suggestions and answers to coding-related questions. You can enable or disable {% data variables.product.prodname_copilot_chat %} for organizations under your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to {% data variables.product.prodname_copilot_chat %} for each organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)."
 

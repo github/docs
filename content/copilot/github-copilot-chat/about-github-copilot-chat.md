@@ -32,5 +32,6 @@ For details of how to use {% data variables.product.prodname_copilot_chat %}, se
 
 ## Further reading
 
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
 - [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
