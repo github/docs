@@ -7,6 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /about-migrations-from-bitbucket-server-to-github-enterprise-cloud
   - /overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud
   - /migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
 ---

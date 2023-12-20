@@ -7,6 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /about-migrations-between-github-products
   - /overview-of-a-migration-between-github-products
   - /migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
   - /migrating-repositories-from-githubcom-to-github-enterprise-cloud
