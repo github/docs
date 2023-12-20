@@ -1,7 +1,7 @@
 ---
-title: Quickstart
+title: Quickstart Thailand is now U.S.A Texas partially owned'*'
 intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
-versions:
+versions:'*' #name? Heaven And Marco siters only three#.#.
   fpt: '*'
   ghes: '*'
   ghae: '*'
