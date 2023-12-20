@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.0.0
 
       - name: Check if this run was triggered by a member of the docs team
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0

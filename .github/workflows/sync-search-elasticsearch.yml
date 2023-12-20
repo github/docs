@@ -85,7 +85,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.0.0
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -111,10 +111,10 @@ jobs:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.0.0
 
       - name: Clone docs-internal.popular-pages
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.0.0
         with:
           repository: github/docs-internal.popular-pages
           # This works because user `docs-bot` has read access to that private repo.

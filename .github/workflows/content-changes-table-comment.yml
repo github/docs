@@ -27,7 +27,7 @@ jobs:
       filterContentDir: ${{ steps.filter.outputs.filterContentDir }}
     steps:
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.0.0
 
       - name: Get files changed
         uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
@@ -53,7 +53,7 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: check out repo content
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.0.0
 
       - name: Get preview app info
         env:
