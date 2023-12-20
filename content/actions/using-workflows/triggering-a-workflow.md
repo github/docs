@@ -53,13 +53,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.MY_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.MY_TOKEN }}{% endraw %}
           ISSUE_URL: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-Conversely, the following workflow uses `GITHUB_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
+Conversely, the following workflow uses `GH_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
 
 ```yaml
 on:
@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           ISSUE_URL: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
@@ -172,7 +172,7 @@ jobs:
     steps:
       - name: "Comment about changes we can't accept"
         env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           PR: {% raw %}${{ github.event.pull_request.html_url }}{% endraw %}
         run: |
           gh pr edit $PR --add-label 'invalid'
