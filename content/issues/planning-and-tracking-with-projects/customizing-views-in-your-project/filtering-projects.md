@@ -159,7 +159,7 @@ You can use `>`, `>=`, `<`, and `<=` to compare number, date, and iteration fiel
 | <code>field:&gt;<em>VALUE</em></code>  | **priority:&gt;1** will show items with a priority greater than 1.
 | <code>field:&gt;=<em>VALUE</em></code> | **date:&gt;=2022-06-01** will show items with a date of "2022-06-01" or later.
 | <code>field:&lt;<em>VALUE</em></code>  | **iteration:<"Iteration 5"** will show items with an iteration before "Iteration 5."
-| <code>field:&gt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
+| <code>field:&lt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
 
 You can also use `..` to filter for an inclusive range. When working with a range, `*` can be supplied as a wildcard operator.
 
