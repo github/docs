@@ -72,7 +72,7 @@ async function updateMarkdownFiles(targetDirectory, sourceContent, frontmatter, 
   // of the directories under targetDirectory
   await updateDirectory(targetDirectory, frontmatter, { indexOrder })
   // We don't want to update directories that the pipelines don't affect
-  // so we make one call to update only only the root index.md file
+  // so we make one call to update only the root index.md file
   // in targetDirectory to prevent any unintended changes
   await updateDirectory(path.dirname(targetDirectory), frontmatter, { rootDirectoryOnly: true })
 }
