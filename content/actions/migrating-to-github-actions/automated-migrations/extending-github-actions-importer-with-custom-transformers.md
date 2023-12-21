@@ -88,7 +88,7 @@ The above example results in the following {% data variables.product.prodname_ac
     npm run deploy
 ```
 
-The `transform` method uses the identifier of the build step from your source CI/CD instance in an argument. In this example, the identifier is `buildJavaScriptLibrary`. You can also use comma-separated values to pass multiple identifiers to the `transform` method. For example, `transform "buildJavaScriptApp", "buildTypescriptApp" { |item| ... }`.
+The `transform` method uses the identifier of the build step from your source CI/CD instance in an argument. In this example, the identifier is `buildJavaScriptLibrary`. You can also use comma-separated values to pass multiple identifiers to the `transform` method. For example, `transform "buildJavaScriptApp", "buildTypeScriptApp" { |item| ... }`.
 
 {% note %}
 
