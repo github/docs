@@ -7,6 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /about-migrations-from-azure-devops-to-github-enterprise-cloud
   - /overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud
   - /migrating-repositories-from-azure-devops-to-github-enterprise-cloud
 ---

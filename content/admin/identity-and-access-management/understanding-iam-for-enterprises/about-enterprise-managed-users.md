@@ -162,11 +162,11 @@ By default, when an unauthenticated user attempts to access an enterprise that u
 
 {% data variables.product.product_name %} automatically creates a username for each person by normalizing an identifier provided by your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
 
+The profile name and email address of a {% data variables.enterprise.prodname_managed_user %} is provided by the IdP. {% data variables.enterprise.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address. If you change the email address associated with a user in your IdP, this will delink the user from the contribution history associated with their old email address.
+
 A conflict may occur when provisioning users if the unique parts of the identifier provided by your IdP are removed during normalization. If you're unable to provision a user due to a username conflict, you should modify the username provided by your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-problems)."
 
 {% data reusables.enterprise-accounts.emu-only-emails-within-the-enterprise-can-conflict %}
-
-The profile name and email address of a {% data variables.enterprise.prodname_managed_user %} is also provided by the IdP. {% data variables.enterprise.prodname_managed_users_caps %} cannot change their profile name or email address on {% data variables.product.prodname_dotcom %}, and the IdP can only provide a single email address.
 
 ## Supporting developers with multiple user accounts on {% data variables.location.product_location %}
 
