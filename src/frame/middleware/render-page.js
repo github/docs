@@ -82,7 +82,7 @@ export default async function renderPage(req, res) {
     // The reason we're *NOT* using `nextApp.render404` is because, in
     // Next v13, is for two reasons:
     //
-    //  1. You can not control the `cache-control` header. It always
+    //  1. You cannot control the `cache-control` header. It always
     //     gets set to `private, no-cache, no-store, max-age=0, must-revalidate`.
     //     which is causing problems with Fastly because then we can't
     //     let Fastly cache it till the next purge, even if we do set a
