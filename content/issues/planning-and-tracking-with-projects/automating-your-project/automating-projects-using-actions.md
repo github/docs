@@ -30,7 +30,7 @@ You may also want to use the **actions/add-to-project** workflow, which is maint
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a {% data variables.product.pat_generic %} (recommended for user projects). Workflow examples for both approaches are shown below. For steps using GitHub CLI commands, set the `GITHUB_TOKEN` environment variable to `GH_TOKEN`.
+**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a {% data variables.product.pat_generic %} (recommended for user projects). Workflow examples for both approaches are shown below.
 
 {% endnote %}
 
