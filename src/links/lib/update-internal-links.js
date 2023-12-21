@@ -70,7 +70,7 @@ async function updateFile(file, context, opts) {
   // Since this function can process both `.md` and `.yml` files,
   // when treating a `.md` file, the `data` from `frontmatter(rawContent)`
   // is easy. But when dealing a file like `data/learning-tracks/foo.yml`
-  // then the the `frontmatter(rawContent).data` always becomes `{}`.
+  // then the `frontmatter(rawContent).data` always becomes `{}`.
   // And since the Yaml file might contain arrays of internal linked
   // pathnames, we have to re-read it fully.
   if (file.endsWith('.yml')) {
