@@ -45,6 +45,13 @@ In addition, **at least one** of the following must be true:
 - You have opened a pull request or issue in the repository.
 - You have starred the repository.
 
+## Viewing your contributions graph for a specific repository
+
+ - Navigate to the repository’s page on GitHub.
+ - Click on the Insights tab.
+ - In the left sidebar, click on Contributors.
+ - Optionally, you can select a specific time period by clicking and dragging on the graph.
+
 ## Common reasons that contributions are not counted
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
