@@ -26,7 +26,7 @@ In this example, the
 
    After 3 spaces, here's the "body" of the second bullet point.
 
-## Injected insode a code block
+## Injected inside a code block
 
 1. Here's some Yaml code.
 
