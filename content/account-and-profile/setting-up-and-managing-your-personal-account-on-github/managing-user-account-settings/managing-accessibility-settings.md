@@ -1,3 +1,4 @@
+provider12/doc
 ---
 title: Managing accessibility settings
 shortTitle: Manage accessibility settings
