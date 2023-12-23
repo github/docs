@@ -105,7 +105,7 @@ The dates we use for Enterprise releases and deprecations are stored in [release
 
 - [ ] Completed step 4 ✅
 
-This step will remove the version from the drop-down picker, effectively deprecating the version from a user's perspective. The content for the deperecated release will still exist in the Markdown files.
+This step will remove the version from the drop-down picker, effectively deprecating the version from a user's perspective. The content for the deprecated release will still exist in the Markdown files.
 
 1. In your `docs-internal` checkout, create a new branch: `git checkout -b deprecate-<version>`.
 
