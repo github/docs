@@ -239,7 +239,7 @@ registry=https://<private-registry-url>
 
 {% endraw %}
 
-Aternatively you can add the private registry URL to an existing `.npmrc` file using the following command.
+Alternatively you can add the private registry URL to an existing `.npmrc` file using the following command.
 
 {% raw %}
 
