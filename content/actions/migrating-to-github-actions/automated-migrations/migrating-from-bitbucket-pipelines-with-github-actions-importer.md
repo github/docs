@@ -284,7 +284,7 @@ The following table shows the type of properties that {% data variables.product.
 | `caches`                  | `actions/cache`                                 | Supported    |
 | `clone`                   | `actions/checkout`                              | Supported    |
 | `condition`               | `job.<job_id>.steps[*].run`                     | Supported    |
-| `deployment`              | `jobs.<job_id>.environmen`                      | Supported    |
+| `deployment`              | `jobs.<job_id>.environment`                     | Supported    |
 | `image`                   | `jobs.<job_id>.container`                       | Supported    |
 | `max-time`                | `jobs.<job_id>.steps[*].timeout-minutes`        | Supported    |
 | `options.docker`          | None                                            | Supported    |
