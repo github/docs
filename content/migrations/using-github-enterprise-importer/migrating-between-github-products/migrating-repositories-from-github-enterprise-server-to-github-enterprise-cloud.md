@@ -308,6 +308,8 @@ mutation startRepositoryMigration (
 
 {% data reusables.enterprise-migration-tool.install-gei-extension-intro %}
 
+{% data reusables.enterprise-migration-tool.gei-binary %}
+
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 {% data reusables.enterprise-migration-tool.install-gei-extension %}
 
@@ -421,6 +423,8 @@ gh gei generate-script --github-source-org SOURCE \
 {% data reusables.enterprise-migration-tool.review-migration-script %}
 
 {% data reusables.enterprise-migration-tool.skip-releases %}
+
+{% data reusables.enterprise-migration-tool.gei-binary-generate-script %}
 
 ## Step 6: Migrate repositories
 

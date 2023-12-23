@@ -15,6 +15,11 @@ const secureFiles = [
     path: 'content/actions/deployment/security-hardening-your-deployments/**',
     requiredCodeOwner: 'github/oidc',
   },
+  {
+    name: 'RAI transparency note reusable directory',
+    path: 'data/reusables/rai',
+    requiredCodeOwner: 'github/legal-product',
+  },
 ]
 
 const codeOwnersFile = await fs.readFile('.github/CODEOWNERS', 'utf8')

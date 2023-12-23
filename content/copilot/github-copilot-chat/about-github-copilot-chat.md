@@ -21,7 +21,7 @@ type: rai
 
 {% data variables.product.prodname_copilot_chat %} works by using a combination of natural language processing and machine learning to understand your question and provide you with an answer. This process can be broken down into a number of steps.
 
-{% data reusables.copilot.about-copilot-chat %}
+{% data reusables.rai.copilot.about-copilot-chat %}
 
 ## Next steps
 
@@ -32,5 +32,6 @@ For details of how to use {% data variables.product.prodname_copilot_chat %}, se
 
 ## Further reading
 
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
 - [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

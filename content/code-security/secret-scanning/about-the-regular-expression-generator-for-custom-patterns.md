@@ -15,7 +15,7 @@ topics:
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
 
-{% data reusables.secret-scanning.beta-custom-pattern-regular-expression-generator %}
+{% data reusables.rai.secret-scanning.beta-custom-pattern-regular-expression-generator %}
 
 ## About the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
 

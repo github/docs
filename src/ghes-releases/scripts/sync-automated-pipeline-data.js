@@ -35,11 +35,11 @@ const { allVersions } = await import('#src/versions/lib/all-versions.js')
 // Currently, this is only ghes- but if we had more than one type of
 // numbered release it would get all of them.
 const numberedReleaseBaseNames = Array.from(
-  new Set([
-    ...Object.values(allVersions)
+  new Set(
+    Object.values(allVersions)
       .filter((version) => version.hasNumberedReleases)
       .map((version) => version.openApiBaseName),
-  ]),
+  ),
 )
 
 // A list of currently supported versions (calendar date inclusive)

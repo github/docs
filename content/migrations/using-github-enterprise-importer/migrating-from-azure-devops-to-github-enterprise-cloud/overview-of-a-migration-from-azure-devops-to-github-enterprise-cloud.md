@@ -1,6 +1,6 @@
 ---
 title: Overview of a migration from Azure DevOps to GitHub Enterprise Cloud
-shortTitle: Overview
+shortTitle: Overview of a migration
 intro: 'Learn how to complete the entire process of migrating from Azure DevOps to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_importer_proper_name %}, from planning to implementation to completing follow-up tasks.'
 versions:
   fpt: '*'
@@ -12,7 +12,7 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
 ---
 
-## About migrations from Azure DevOps
+## Overview
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %} on a repository-by-repository basis. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
 
@@ -56,7 +56,7 @@ Because permissions work differently in {% data variables.product.prodname_dotco
 
 Service hooks are not migrated from ADO, so you will need to recreate them separately.
 
-1. Review the data that's migrated from Azure DevOps. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer#azure-devops-migration-support)."
+1. Review the data that's migrated from Azure DevOps. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud)."
 1. Make a list of any data that you'll need to manually migrate or recreate.
 
 ### Who will run the migration?
