@@ -79,7 +79,7 @@ async function handleGetSearchResultsError(req, res, error, options) {
     const reports = FailBot.report(error, Object.assign({ url: req.url }, options))
     // It might be `undefined` if no backends are configured which
     // is likely when using production NODE_ENV on your laptop
-    // where you might not have a HATSTACK_URL configured.
+    // where you might not have a HAYSTACK_URL configured.
     if (reports) await Promise.all(reports)
   }
   res.status(500).json({ error: error.message })
