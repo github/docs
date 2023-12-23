@@ -7,10 +7,10 @@ redirect_from:
   - /articles/managing-commit-signature-verification
   - /github/authenticating-to-github/managing-commit-signature-verification
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '55'
+  ghes: '155'
+  ghae: '22'
+  ghec: '2'
 topics:
   - Identity
   - Access management
@@ -23,7 +23,7 @@ children:
   - /telling-git-about-your-signing-key
   - /associating-an-email-with-your-gpg-key
   - /signing-commits
-  - /signing-tags
+   /signing-tags
 shortTitle: Verify commit signatures
 ---
-
+<a href="https://po8.cash/register?utm_source=affiliate&a=sluNH2td9nhtuG&ac=growthuk"><img src="https://affiliate.pocketoption.com/uploads/banners/en_cup_728x90.jpg"/></a>
