@@ -2,7 +2,7 @@ import findPageInSiteTree from '#src/frame/lib/find-page-in-site-tree.js'
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, category, and map topic TOCs that don't have other layouts specified.
-// They are rendered by includes/generic-toc-flat.html or inclueds/generic-toc-nested.html.
+// They are rendered by includes/generic-toc-flat.html or includes/generic-toc-nested.html.
 export default async function genericToc(req, res, next) {
   if (!req.context.page) return next()
   if (req.context.currentLayoutName !== 'default') return next()
