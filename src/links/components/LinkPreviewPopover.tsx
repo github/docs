@@ -33,7 +33,7 @@ let currentlyOpen: HTMLLinkElement | null = null
 // inserted into the visible DOM. So before that, as a `div` element,
 // its `offsetHeight` and `.getBoundingClientRect().height` are always 0.
 // We *could* "change our mind" and wait till it's been inserted and then
-// change accoding to the popover's true height. But this can cause a flicker.
+// change according to the popover's true height. But this can cause a flicker.
 const BOUNDING_TOP_MARGIN = 300
 
 // All links that should have a hover card also get a
