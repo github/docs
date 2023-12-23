@@ -102,7 +102,7 @@ async function updateFile(file, context, opts) {
     file.endsWith('.yml')
   ) {
     // data/learning-tracks/**/*.yml files are different because the keys
-    // are abitrary but what they might all have in common is a key
+    // are arbitrary but what they might all have in common is a key
     // there called `guides`
     for (const key of Object.keys(data)) {
       HAS_LINKS[key] = ['guides']
