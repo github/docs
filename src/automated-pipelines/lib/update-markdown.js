@@ -113,7 +113,7 @@ async function updateMarkdownFile(
 
     // Create a new object so that we don't mutate the original data
     const newData = { ...data }
-    // Only modify the versions property when a file already existss
+    // Only modify the versions property when a file already exists
     newData.versions = sourceData.versions
     const targetContent = manuallyCreatedContent + commentDelimiter + sourceContent
     const newFileContent = appendVersionComment(matter.stringify(targetContent, newData))
