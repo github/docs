@@ -49,7 +49,7 @@ As an organization owner, you should limit and review access as appropriate for 
 Recommendation | More information
 ------------------ | -----------------
 Disable the ability to fork repositories. | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)"
-Disable changing repository visiblity. | "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)"
+Disable changing repository visibility. | "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)"
 Restrict repository creation to private or internal. |  "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)"
 Disable repository deletion and transfer. | "[AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)"
 Scope {% data variables.product.pat_generic %}s to the minimum permissions necessary. | None
