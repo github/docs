@@ -132,7 +132,7 @@ This step will remove the version from the drop-down picker, effectively depreca
 
 - [ ] ✅ Completed step 5
 
-1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-release`. To create only a tag and not a release, you can [create a new release](https://github.com/github/docs-internal/releases), which allows you to "Choose a tag." Select add a new tag and use the tag name as the release title. After creating the new release, you wil see the new tag as well. You can then delete the release.
+1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-release`. To create only a tag and not a release, you can [create a new release](https://github.com/github/docs-internal/releases), which allows you to "Choose a tag." Select add a new tag and use the tag name as the release title. After creating the new release, you will see the new tag as well. You can then delete the release.
 
 ## Step 6: Remove static files for the version
 
