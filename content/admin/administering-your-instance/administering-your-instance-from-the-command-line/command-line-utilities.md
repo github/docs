@@ -973,7 +973,7 @@ This utility starts {% data variables.product.prodname_actions %} on {% data var
 
 {% endnote %}
 
-If your system is configured correctly, you'll see the following ouput:
+If your system is configured correctly, you'll see the following output:
 
 ```shell
 Actions was enabled!
