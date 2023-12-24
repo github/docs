@@ -132,7 +132,7 @@ function getOrCreatePopoverGlobal() {
     wrapper.appendChild(inner)
 
     // this extra element and its event listener are used to help us direct
-    // where focus should go when reachign the end of a hover card;
+    // where focus should go when reaching the end of a hover card;
     // see `topBumper` for its counterpart
     const bottomBumper = document.createElement('span')
     bottomBumper.setAttribute('aria-hidden', 'true')
