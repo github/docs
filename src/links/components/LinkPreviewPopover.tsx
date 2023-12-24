@@ -168,7 +168,7 @@ function getOrCreatePopoverGlobal() {
       else if (event.key === 'Tab') headingLink.focus()
     })
 
-    // The bottom bumper is more complex and handled via handleBottomBumer()
+    // The bottom bumper is more complex and handled via handleBottomBumper()
     bottomBumper.addEventListener('keyup', (event) => {
       handleBottomBumper(titleLink, headingLink, event)
     })
