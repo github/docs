@@ -7,7 +7,7 @@ class UngettableError extends Error {}
 // Used to pull translation UI strings from the page props into
 // React components. When you instantiate the hook you can pass
 // the name or names of the namespaces you want to use. Then, when
-// refererring to specific keys you don't have to say the namespace
+// referring to specific keys you don't have to say the namespace
 // (or which of the namespaces) you refer to.
 // Example use:
 //
