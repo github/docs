@@ -160,7 +160,7 @@ This step will remove the version from the drop-down picker, effectively depreca
    npm run remove-version-markup -- --release <number>
    ```
 
-1. If data resuables were deleted automatically, you'll need to remove references to the deleted reusable in the content. Using VSCode to find the occurrences is quick and there are typically only a few to update. If you have any questions, reach out to the docs-content team in #docs-content to ask for help updating the Markdown files.
+1. If data reusables were deleted automatically, you'll need to remove references to the deleted reusable in the content. Using VSCode to find the occurrences is quick and there are typically only a few to update. If you have any questions, reach out to the docs-content team in #docs-content to ask for help updating the Markdown files.
 
 1. Open a PR with the results.
 
