@@ -121,7 +121,7 @@ You can fix or dismiss {% data variables.product.prodname_dependabot_alerts %} o
 
      - Select a reason for dismissing the alert. {% ifversion dependabot-alerts-dismissal-comment %}
      - Optionally, add a dismissal comment. The dismissal comment will be added to the alert timeline and can be used as justification during auditing and reporting.{% endif %}
-     - Click **Dismiss alert**. The alert won't appear aymore in the **Open** tab of the alert list, and you are able to view it in the **Closed** tab.
+     - Click **Dismiss alert**. The alert won't appear anymore in the **Open** tab of the alert list, and you are able to view it in the **Closed** tab.
 
 For more information about reviewing and updating {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#reviewing-and-fixing-alerts)."
 
