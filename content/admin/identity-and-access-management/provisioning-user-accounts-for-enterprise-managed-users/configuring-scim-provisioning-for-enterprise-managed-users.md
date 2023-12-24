@@ -73,7 +73,7 @@ After creating your {% data variables.product.pat_generic %} and storing it secu
 
 ### Configuring provisioning if you use a partner IdP
 
-To use a partner IdP's application both authentication and provisioning, review the parner's instructions for configuring provisioning in the links in the following table. {% else %} For instructions about the configuration of provisioning on your IdP, click a link in the following table.
+To use a partner IdP's application both authentication and provisioning, review the partner's instructions for configuring provisioning in the links in the following table. {% else %} For instructions about the configuration of provisioning on your IdP, click a link in the following table.
 
 {% endif %}
 
