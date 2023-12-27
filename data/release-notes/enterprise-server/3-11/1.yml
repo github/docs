@@ -1,4 +1,10 @@
 date: '2023-12-21'
+intro: |
+  {% warning %}
+  
+  **Warning**: Hotpatch upgrades from GitHub Enterprise Server version `3.11.0` to `3.11.1` will result in the instance losing network connectivity after a reboot. We have removed the hotpatch upgrade package for the `3.11.1` version of GitHub Enterprise Server to ensure this upgrade path is not executed accidentally. Before you upgrade, please make sure you have read the "[Known issues](#3.11.1-known-issues)" section of these release notes.
+      
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -74,6 +80,8 @@ sections:
     - |
       On an instance in a cluster configuration, administrators can identify the repository networks or gists that are common across a specified set of storage nodes using the `spokesctl find-on-replicas` command.
   known_issues:
+    - |
+      {% data reusables.release-notes.2023-12-networking-issue-in-ghes-3-11-1 %} [Updated 2023-12-27]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
