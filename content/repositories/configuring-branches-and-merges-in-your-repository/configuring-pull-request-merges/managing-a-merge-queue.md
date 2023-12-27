@@ -32,11 +32,11 @@ For more information on merging a pull request using a merge queue, see "[AUTOTI
 
 ### Triggering merge group checks with {% data variables.product.prodname_actions %}
 
-You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %}  workflow when a pull request is added to a merge queue.
+You can use the `push` or `merge_group` event to trigger your {% data variables.product.prodname_actions %}  workflow when a pull request is added to a merge queue. If you have both `push` and `merge_group` listed, the `merge_group` run will be automatically canceled in favor of the `push` run.
 
 {% note %}
 
-**Note:** If your repository uses {% data variables.product.prodname_actions %} to perform required checks on pull requests in your repository, you need to update the workflows to include the `merge_group` event as an additional trigger. Otherwise, status checks will not be triggered when you add a pull request to a merge queue. The merge will fail as the required status check will not be reported. The `merge_group` event is separate from the `pull_request` and `push` events.
+**Note:** If your repository uses {% data variables.product.prodname_actions %} to perform required checks on pull requests in your repository based on the `pull_request` event, you need to update the workflows to include the `merge_group` event as an additional trigger. Otherwise, status checks will not be triggered when you add a pull request to a merge queue. The merge will fail as the required status check will not be reported. The `merge_group` event is separate from the `pull_request` event.
 
 {% endnote %}
 
@@ -46,6 +46,13 @@ A workflow that reports a check which is required by the target branch's protect
 on:
   pull_request:
   merge_group:
+```
+
+Or like this:
+
+```yaml
+on:
+  push:
 ```
 
 For more information on the `merge_group` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group)."
