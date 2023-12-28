@@ -1,3 +1,4 @@
+<!--This reusable is an intentional duplicate of data/reusables/rai/secret-scanning/beta-custom-pattern-regular-expression-generator.md. The duplicate is necessary to enforce legal review of Responsible AI content. If you are updating this content, you may also want to update data/reusables/rai/secret-scanning/beta-custom-pattern-regular-expression-generator.md. -->
 {% ifversion secret-scanning-custom-pattern-ai-generated %}
 
 {% note %}

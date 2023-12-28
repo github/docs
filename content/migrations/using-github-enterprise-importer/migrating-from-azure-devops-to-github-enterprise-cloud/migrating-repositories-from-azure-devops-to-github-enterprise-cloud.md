@@ -146,6 +146,8 @@ mutation startRepositoryMigration (
 
 If this is your first migration, you'll need to install the {% data variables.product.prodname_ado2gh_cli %}. For more information about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
+{% data reusables.enterprise-migration-tool.ado2gh-binary %}
+
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 1. Install the {% data variables.product.prodname_ado2gh_cli_short %}.
 
@@ -210,6 +212,8 @@ To add additional functionality to the script, such as rewiring pipelines, creat
 ### Reviewing the migration script
 
 {% data reusables.enterprise-migration-tool.review-migration-script %}
+
+{% data reusables.enterprise-migration-tool.ado2gh-binary-generate-script %}
 
 ## Step 5: Migrate repositories
 

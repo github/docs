@@ -23,7 +23,7 @@ router.get('/', function redirects(req, res) {
   defaultCacheControl(res)
 
   const redirectFrom = `${req.query.path}#${req.query.hash}`
-  res.status(200).send({ to: clientSideRestAPIRedirects()[redirectFrom] } || null)
+  res.status(200).send({ to: clientSideRestAPIRedirects()[redirectFrom] })
 })
 
 export default router

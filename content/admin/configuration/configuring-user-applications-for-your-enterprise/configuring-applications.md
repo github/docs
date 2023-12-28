@@ -6,7 +6,6 @@ redirect_from:
   - /enterprise/admin/configuration/configuring-applications
   - /admin/configuration/configuring-applications
   - /admin/configuration/configuring-your-enterprise/configuring-applications
-  - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps
 versions:
   ghes: '*'
 type: how_to
@@ -40,17 +39,11 @@ You can enable a retention policy for checks, actions, and associated data by se
 {% endif %}
 
 {% ifversion azure-maps %}
+{% ifversion ghes < 3.13 %}
 
 ## Enabling interactive maps
 
-You can allow users to create interactive maps using GeoJSON or TopoJSON syntax. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can enable the display of interactive maps in the web interface for users of {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)."
 
-To enable interactive maps on {% data variables.location.product_location %}, you must enable the feature and provide a public authentication token for Azure. For more information, see [Authentication with Azure Maps](https://learn.microsoft.com/en-us/azure/azure-maps/azure-maps-authentication) in the Microsoft Docs.
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. In the "Settings" sidebar, click **Privacy**.
-1. To enable interactive maps, select "Enable GeoJSON rendering".
-1. To configure authentication, under "Azure Maps API Token", paste your token.
-{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
 {% endif %}
