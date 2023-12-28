@@ -233,4 +233,4 @@ By default, you cannot delete a protected branch. When you enable deletion of a 
 
 **Note:** If the branch is locked, you cannot delete the branch even if you have permission to delete it.
 
-{% endnote %}
+{% endnote %}.
