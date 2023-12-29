@@ -91,7 +91,7 @@ If you are a site administrator for {% data variables.location.product_location 
    {% linux %}
 
    ```shell
-   > Enter a file in which to save the key (/home/YOU/.ssh/ALGORITHM):[Press enter]
+   > Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]
    ```
 
    {% endlinux %}
