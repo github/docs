@@ -34,7 +34,7 @@ topics:
 {% note %}
 
 **Note:** Security overview shows information and metrics for the default branches of an organization's repositories.
-  
+
 {% endnote %}
 
 Security overview shows which security features are enabled for repositories and includes repository and alert-focused views so you can quickly investigate security issues and take action to remediate them.
@@ -76,6 +76,8 @@ Security overview has multiple views that provide different ways to explore enab
 - Use "Coverage" to assess the adoption of code security features across repositories in the organization.
 - Use "Risk" to assess the risk from security alerts of all types for one or more repositories in the organization.
 - Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.
+
+{% data reusables.security-overview.alert-differences %}
 
 For more information about these views, see {% ifversion security-overview-dashboard %}"[AUTOTITLE](/code-security/security-overview/viewing-security-insights-for-your-organization),"{% endif %}"[AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security)" and "[AUTOTITLE](/code-security/security-overview/assessing-code-security-risk)."
 
@@ -127,24 +129,22 @@ At the team level, security overview displays repository-specific security infor
 
 ## Permission to view data in security overview
 
-If you are an owner or security manager for an organization, you can see data for all the repositories in the organization in all views.{% ifversion security-overview-org-risk-coverage-enterprise %} You can see the data in the organization-level security overview, or see data for all organizations where you are an owner or security manager in the enterprise-level security overview.{% endif %}
+{% ifversion security-overview-org-risk-coverage-enterprise %}
 
-{% ifversion ghec or ghes or ghae > 3.5 %}If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in either the organization-level or enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
+### Organization-level overview
 
-If you are an organization member, you can view security overview for the organization and see data for repositories where you have access.{% ifversion security-overview-org-risk-coverage-enterprise %} You can view this data in the organization-level overview, but you cannot access the enterprise-level overview.{% endif %}
+{% endif %}
 
-{% note %}
+If you are an owner or security manager for an organization, you can see data for all the repositories in the organization in all views.
 
-**Note:** To ensure a consistent and responsive experience, for organization members, the organization-level security overview pages will only display results from the most recently updated 3,000 repositories. If your results have been restricted, a notification will appear at the top of the page. Organization owners and security managers will see results from all repositories.
-
-{% endnote %}
+If you are an organization member, you can view security overview for the organization and see data for repositories where you have access.
 
 {% ifversion security-overview-dashboard %}
 {% rowheaders %}
 
 | Organization member with | Overview dashboard (beta) view | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|---------|
-| `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories |
+| `admin` access for one or more repositories | View data for those repositories | View data for those repositories |  View data for those repositories, and enable and disable security features |
 | `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access for those repositories |
 | Security alert access for one or more repositories | View all security alert data for those repositories | View all security alert data for those repositories | No access for those repositories
 | Custom organization role with permission to view one or more types of security alert | View allowed alert data for all repositories |  View allowed alert data for all repositories in all views  | No access |
@@ -155,7 +155,7 @@ If you are an organization member, you can view security overview for the organi
 
 | Organization member with | Risk and alerts views | Coverage view |
 |--------------------|-------------|---------------------|
-| `admin` access for one or more repositories | View data for those repositories |  View data for those repositories |
+| `admin` access for one or more repositories | View data for those repositories |  View data for those repositories, and enable and disable security features |
 | `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access for those repositories |
 | Security alert access for one or more repositories | View all security alert data for those repositories | No access for those repositories
 | Custom organization role with permission to view one or more types of security alert |  View allowed alert data for all repositories in all views  | No access |
@@ -163,8 +163,29 @@ If you are an organization member, you can view security overview for the organi
 {% endrowheaders %}
 {% endif %}
 
+{% note %}
+
+**Note:** To ensure a consistent and responsive experience, for organization members, the organization-level security overview pages will only display results from the most recently updated 3,000 repositories. If your results have been restricted, a notification will appear at the top of the page. Organization owners and security managers will see results from all repositories.
+
+{% endnote %}
+
 For more information about access to security alerts and related views, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles#security)."
 
+{% endif %}
+
+{% ifversion security-overview-org-risk-coverage-enterprise %}
+
+### Enterprise-level overview
+
+{% ifversion ghec or ghes or ghae > 3.5 %}
+{% note %}
+
+**Note:** If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in both the organization-level and enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+
+{% endnote %}
+{% endif %}
+
+In the enterprise-level security overview, you can see data for all organizations where you are an organization owner or security manager. However, you cannot use the enterprise-level security overview to enable and disable security features. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 {% endif %}
 
 ## Further reading

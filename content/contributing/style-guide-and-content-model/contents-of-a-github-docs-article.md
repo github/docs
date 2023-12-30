@@ -50,7 +50,7 @@ Titles can be challenging. Use these general guidelines to help create clear, he
 
 ## Product callout
 
-Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC, GHES, and GHAE, you can version content about the feature for GHEC, GHES, and GHAE only. If a feature is available for Pro, Team, GHEC, GHES, and GHAE (but not Free), use a product callout to convey that availability.
+Use the product callout when a feature is available in specific products only and that availability cannot be conveyed by versioning alone. For example, if a feature is available for GHEC and GHES, you can version content about the feature for GHEC and GHES only. If a feature is available for Pro, Team, GHEC, and GHES (but not Free), use a product callout to convey that availability.
 
 All product callouts are stored as reusables in [`gated-features`](https://github.com/github/docs/tree/main/data/reusables/gated-features) and added in YAML frontmatter for relevant articles.
 

@@ -23,8 +23,6 @@ shortTitle: Google Cloud Storage
 
 {% ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-storage-about-oidc %}
-
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
 {% endif %}
 
 ## Prerequisites
@@ -38,8 +36,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% ifversion ghes-actions-storage-oidc %}
 
 ## Enabling {% data variables.product.prodname_actions %} with Google Cloud Storage using OIDC (recommended)
-
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
 
 To configure {% data variables.product.prodname_ghe_server %} to use OIDC with Google Cloud Storage, you must first create a Google Cloud service account, then create a Google Cloud identity pool and identity provider, and finally configure {% data variables.product.prodname_ghe_server %} to use the provider and service account to access your Google Cloud Storage bucket.
 

@@ -1,6 +1,6 @@
 date: '2023-11-14'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -182,7 +182,7 @@ sections:
 
         # https://github.com/github/releases/issues/2741
         - |
-          Users can more easily understand changes to a repository using the actiity view. For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
+          Users can more easily understand changes to a repository using the activity view. For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
 
     - heading: Issues
       notes:

@@ -23,10 +23,12 @@ topics:
 
 {% note %}
 
-{% ifversion ghes %}**Notes**:
+**Notes**:
+{% ifversion ghes %}
 - This article contains the events available in the latest version of {% data variables.product.prodname_ghe_server %}. Some of the events may not be available in previous versions.
-- This article contains the events that may appear in the enterprise settings, specifically. The audit log in the site admin dashboard may contain additional events not listed here.
--{% else %}**Note:**{% endif %} This article contains the events that may appear in the audit log for an enterprise. For the events that can appear in a user account's security log or the audit log for an organization, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
+- This article contains the events that may appear in the enterprise settings, specifically. The audit log in the site admin dashboard may contain additional events not listed here.{% endif %}
+- This article contains the events that may appear in the audit log for an enterprise. For the events that can appear in a user account's security log or the audit log for an organization, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
+- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
 
 {% endnote %}
 

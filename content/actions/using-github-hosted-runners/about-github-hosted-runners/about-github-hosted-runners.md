@@ -38,7 +38,7 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 ## Using a {% data variables.product.prodname_dotcom %}-hosted runner
 
-To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."{% ifversion repository-actions-runners %} If you have `repo: write` access to a repository, you can view a list of the runners available to use in workflows in the repository. For more information, see "[Viewing available runners for a repository](#viewing-available-runners-for-a-repository)."{% endif %}
+To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."{% ifversion repository-actions-runners %} If you have `repo: write` access to a repository, you can view a list of the runners available to use in workflows in the repository. For more information, see "[Viewing available runners for a repository](#viewing-available-runners-for-a-repository)."{% endif %}
 
 When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
 
@@ -143,17 +143,7 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 
 Workflow logs include a link to the preinstalled tools on the exact runner. To find this information in the workflow log, expand the `Set up job` section. Under that section, expand the `Runner Image` section. The link following `Included Software` will describe the preinstalled tools on the runner that ran the workflow.
 
-For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
-
-For the overall list of included tools for each runner operating system, see the links below:
-
-- [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
-- [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
-- [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
-- [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
-- [macOS 13](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
-- [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
-- [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)." For the overall list of included tools for each runner operating system, see the [Available Images](https://github.com/actions/runner-images#available-images) documentation the runner images repository.
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 

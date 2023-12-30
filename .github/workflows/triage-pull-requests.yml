@@ -5,6 +5,7 @@ name: Triage new pull requests
 # **Who does it impact**: Docs open source.
 
 on:
+  # Needed in lieu of `pull_request` so that PRs from a fork can be triaged.
   pull_request_target:
     types:
       - reopened

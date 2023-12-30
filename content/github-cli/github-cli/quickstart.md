@@ -19,26 +19,7 @@ shortTitle: Quickstart
 
 ## Prerequisites
 
-1. Install {% data variables.product.prodname_cli %} on macOS, Windows, or Linux. For more information, see [Installation](https://github.com/cli/cli#installation) in the {% data variables.product.prodname_cli %} repository.
-1. Authenticate with {% data variables.product.company_short %} by running this command from your terminal.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. For example, `octo-inc.ghe.com`.{% endif %}
-
-   {%- ifversion fpt or ghec %}
-
-   ```shell
-   gh auth login
-   ```
-
-   {%- else %}
-
-   ```shell
-   gh auth login --hostname HOSTNAME
-   ```
-
-   {%- endif %}
-
-1. Follow the on-screen prompts.
-
-   {% data variables.product.prodname_cli %} automatically stores your Git credentials for you when you choose HTTPS as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.prodname_dotcom %} credentials. This can be useful as it allows you to use `git push`, `git pull`, and so on, without needing to set up a separate credential manager or use SSH.
+{% data reusables.rest-api.github-cli-install-and-auth %}
 
 ## Some useful commands
 
@@ -101,7 +82,7 @@ You can change configuration settings and add aliases or extensions, to make {% 
 - Enter `gh config set SUBCOMMANDS` to configure {% data variables.product.prodname_cli %}'s settings, replacing `SUBCOMMANDS` with the setting you want to adjust.
 
   For example, you can specify the text editor that's used when a {% data variables.product.prodname_cli %} command requires you to edit text - such as when you add the body text for a new issue you're creating. To set your preferred text editor to {% data variables.product.prodname_vscode %} enter `gh config set editor "code -w"`. The `-w` (or `--wait`) flag in this example causes the command to wait for the file to be closed in {% data variables.product.prodname_vscode %} before proceeding with the next step in your terminal.
-  
+
   For more information, see [`gh config set`](https://cli.github.com/manual/gh_config_set).
 
 - Define aliases for commands that you commonly run. For example, if you run `gh alias set prd "pr create --draft"`, you will then be able to run `gh prd` to quickly open a draft pull request. For more information, see [`gh alias`](https://cli.github.com/manual/gh_alias).

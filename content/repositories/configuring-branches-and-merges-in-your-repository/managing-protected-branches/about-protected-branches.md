@@ -169,7 +169,7 @@ Before you can require a linear commit history, your repository must allow squas
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.6 %}
+{% ifversion fpt or ghec or ghes %}
 
 ### Require deployments to succeed before merging
 
@@ -180,7 +180,8 @@ You can require that changes are successfully deployed to specific environments 
 
 ### Lock branch
 
-Locking a branch ensures that no commits can be made to the branch.
+Locking a branch will make the branch read-only and ensures that no commits can be made to the branch. Locked branches can also not be deleted.
+
 By default, a forked repository does not support syncing from its upstream repository. You can enable **Allow fork syncing** to pull changes from the upstream repository while preventing other contributions to the fork's branch.
 {%  endif %}
 
@@ -227,3 +228,9 @@ If a site administrator has blocked force pushes to the default branch only, you
 ### Allow deletions
 
 By default, you cannot delete a protected branch. When you enable deletion of a protected branch, anyone with at least write permissions to the repository can delete the branch.
+
+{% note %}
+
+**Note:** If the branch is locked, you cannot delete the branch even if you have permission to delete it.
+
+{% endnote %}

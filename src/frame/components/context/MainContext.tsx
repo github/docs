@@ -9,6 +9,7 @@ export type ProductT = {
   href: string
   id: string
   name: string
+  nameRendered: string
 }
 
 type VersionItem = {
@@ -73,7 +74,7 @@ type DataT = {
   ui: UIStrings
   reusables: DataReusables
   variables: {
-    release_candidate: { version: string }
+    release_candidate: { version: string | null }
   }
 }
 
@@ -123,7 +124,6 @@ export type MainContextT = {
 
   enterpriseServerVersions: Array<string>
 
-  searchVersions: Record<string, string>
   nonEnterpriseDefaultVersion: string
 
   status: number
@@ -202,6 +202,13 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     }
   }
 
+  // This is a number, like 3.13 or it's possibly null if there is no
+  // supported release candidate at the moment.
+  const { releaseCandidate } = req.context.enterpriseServerReleases
+  // Combine the version number with the prefix so it can appear
+  // as a full version string if the release candidate is set.
+  const releaseCandidateVersion = releaseCandidate ? `enterprise-server@${releaseCandidate}` : null
+
   return {
     breadcrumbs: req.context.breadcrumbs || {},
     communityRedirect: req.context.page?.communityRedirect || {},
@@ -216,7 +223,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
 
       variables: {
         release_candidate: {
-          version: req.context.getDottedData('variables.release_candidate.version') || null,
+          version: releaseCandidateVersion,
         },
       },
     },
@@ -255,7 +262,6 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     // the product sidebar or the rest sidebar.
     sidebarTree: (includeSidebarTree && req.context.sidebarTree) || null,
     featureFlags: {},
-    searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
     fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,

@@ -24,7 +24,7 @@ export function PatchNotes({ patch }: Props) {
         return (
           <div key={key}>
             <HeadingLink as="h3" slug={sectionSlug}>
-              {`${patch.version}: ${SectionToLabelMap[key]}` || 'INVALID SECTION'}
+              {`${patch.version}: ${SectionToLabelMap[key] || 'INVALID SECTION'}`}
             </HeadingLink>
 
             <ul>

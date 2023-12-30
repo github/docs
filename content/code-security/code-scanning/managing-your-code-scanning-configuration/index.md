@@ -15,6 +15,14 @@ topics:
 children:
   - /about-the-tool-status-page
   - /editing-your-configuration-of-default-setup
-  - /built-in-codeql-query-suites
+  - /codeql-query-suites
   - /viewing-code-scanning-logs
+  - /c-cpp-built-in-queries
+  - /csharp-built-in-queries
+  - /go-built-in-queries
+  - /java-kotlin-built-in-queries
+  - /javascript-typescript-built-in-queries
+  - /python-built-in-queries
+  - /ruby-built-in-queries
+  - /swift-built-in-queries
 ---

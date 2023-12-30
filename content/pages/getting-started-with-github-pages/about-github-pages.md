@@ -51,7 +51,7 @@ If you publish your site privately, the URL for your site will be different. For
 {% endif %}
 
 {% ifversion fpt or ghec %}
-For more information about how custom domains affect the URL for your site, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)."
+For more information about how custom domains affect the URL for your site, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages#using-a-custom-domain-across-multiple-repositories)."
 {% endif %}
 
 You can only create one user or organization site for each account on {% data variables.product.product_name %}. Project sites, whether owned by an organization or a personal account, are unlimited.
@@ -124,7 +124,7 @@ In addition, your use of {% data variables.product.prodname_pages %} is subject 
 
 ### Educational exercises
 
-Using {% data variables.product.prodname_pages %} to create a copy of an existing website as a learning exercise is not prohibited. However, in addition to complying with the the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service), you must write the code yourself, the site must not collect any user data, and you must include a prominent disclaimer on the site indicating that the project is not associated with the original and was only created for educational purposes.
+Using {% data variables.product.prodname_pages %} to create a copy of an existing website as a learning exercise is not prohibited. However, in addition to complying with the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service), you must write the code yourself, the site must not collect any user data, and you must include a prominent disclaimer on the site indicating that the project is not associated with the original and was only created for educational purposes.
 
 ### Usage limits
 

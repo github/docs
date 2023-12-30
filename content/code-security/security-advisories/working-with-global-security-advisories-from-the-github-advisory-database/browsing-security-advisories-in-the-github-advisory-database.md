@@ -1,6 +1,6 @@
 ---
 title: Browsing security advisories in the GitHub Advisory Database
-intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find advisories for security risks in open source projects that are hosted on {% data variables.product.company_short %}.'
+intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find CVEs and {% data variables.product.prodname_dotcom %}-originated advisories affecting the open source world.'
 shortTitle: Browse Advisory Database
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database

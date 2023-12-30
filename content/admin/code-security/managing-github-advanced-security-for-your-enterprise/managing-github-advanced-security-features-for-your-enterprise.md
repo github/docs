@@ -49,6 +49,8 @@ When you enable one or more security and analysis features for existing reposito
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 1. Optionally, to automatically allow {% data variables.product.prodname_secret_scanning %} to check the validity of a secret by sending it to the relevant partner, select the relevant checkbox under "{% data variables.product.prodname_secret_scanning_caps %}". You can also enable the validity check for a single repository or organization. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)," and "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
 
+   For information on using the REST API to enable validity checks for partner patterns for your enterprise, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis#update-code-security-and-analysis-features-for-an-enterprise)" in the REST API documentation.
+
    {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 
 {%- endif %}

@@ -25,7 +25,7 @@ shortTitle: Billing for GitHub Actions
 
 {% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts included with your account. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 Minutes reset every month, while storage usage does not.
 
@@ -33,7 +33,7 @@ Minutes reset every month, while storage usage does not.
 
 {% note %}
 
-**Note**: Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repos. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+**Note**: Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
 {% endnote %}
 
@@ -94,6 +94,12 @@ For example, if your organization uses {% data variables.product.prodname_team %
 {% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage during that month.
 
 ### Sample storage cost calculation
+
+{% note %}
+
+**Note:** {% data variables.product.company_short %} updates your storage space within a 6 to 12-hour window. If you delete artifacts, the available space will be reflected in your account during the next scheduled update.
+
+{% endnote %}
 
 For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 

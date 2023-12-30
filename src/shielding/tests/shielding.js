@@ -41,6 +41,11 @@ describe('junk paths', () => {
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/get-started')
   })
+
+  test('just _next', async () => {
+    const res = await get('/_next')
+    expect(res.statusCode).toBe(404)
+  })
 })
 
 describe('rate limiting', () => {

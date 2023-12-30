@@ -70,7 +70,7 @@ You can download a CSV file of the data displayed on the "Security risk" page. T
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% data reusables.security-overview.alert-differences %}
 
 ## Viewing enterprise-level code security risks
 
@@ -96,9 +96,9 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% data reusables.organizations.security-overview-feature-specific-page %}{% endif %}
 {% endif %}
 
-{% endif %}
+{% data reusables.security-overview.alert-differences %}
 
-{% ifversion ghes < 3.7 or ghae < 3.7 %}
+{% ifversion ghae < 3.7 %}
 
 ## Viewing security overview for a team
 

@@ -1,0 +1,77 @@
+name: Codeowners - Legal
+
+# **What it does**: Enforces reviews of Responsible AI (RAI) content by the GitHub legal team. Because RAI content can live anywhere in the content directory, it becomes a maintenance problem to use CODEOWNERS to enforce review on each article.
+# **Why we have it**: RAI content must be reviewed by the GitHub legal team.
+# **Who does it impact**: Content writers and the GitHub legal team.
+
+on:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    paths:
+      - 'content/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  codeowners-legal:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get files changed
+        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            rai:
+              - 'content/**'
+
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
+
+      - name: Check content type
+        id: checkContentType
+        run: npm run check-content-type
+        env:
+          FILE_PATHS_CONTENT_TYPES: ${{ steps.filter.outputs.rai_files }}
+          CONTENT_TYPE: 'rai'
+      - name: Logging
+        run: |
+          echo ${{ steps.checkContentType.outputs.contentType }}
+
+      - name: Add Legal team as a reviewer
+        if: ${{ steps.checkContentType.outputs.contentType == 'true' }}
+        env:
+          # The GH CLI uses a slightly different env name for
+          # the token than the GITHUB_TOKEN used by actions
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          PR: ${{ github.event.pull_request.html_url }}
+        run: |
+          has_reviewer=$(
+            gh pr view $PR --json reviews |
+            jq 'any(.reviews[]; select(length > 0))'
+          )
+          if ! $has_reviewer
+          then
+            gh pr edit $PR --add-reviewer github/legal-product
+          fi

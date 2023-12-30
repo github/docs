@@ -17,7 +17,7 @@ permissions: Organization owners can manage the visibility of project boards in 
 
 Projects can be public or private. For public projects, everyone on the internet can view the project. For private projects, only users granted at least read access can see the project.
 
-Only the project visibility is affected; to view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository.
+Only the project visibility is affected; to view an item on the project, someone must have the required permissions for the repository that the item belongs to. Only people with access to a private repository will be able to view project items from that private repository.
 
 ![Screenshot showing a project using a table layout. One of the items is marked with a padlock icon, indicating it's hidden, and highlighted with an orange outline.](/assets/images/help/projects-v2/hidden-items.png)
 

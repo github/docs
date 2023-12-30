@@ -39,7 +39,7 @@ async function main() {
   async function recurse(tree) {
     const { page } = tree
     tree.renderedFullTitle = page.rawTitle.includes('{')
-      ? await await liquid.parseAndRender(page.rawTitle, req.context)
+      ? await liquid.parseAndRender(page.rawTitle, req.context)
       : page.rawTitle
     for (const node of tree.childPages || []) {
       await recurse(node)

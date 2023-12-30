@@ -5,7 +5,7 @@ name: Ready for docs-content review
 # **Who does it impact**: Writers working in the docs-internal repository
 
 on:
-  pull_request_target:
+  pull_request:
     types: [labeled, review_requested]
   workflow_call:
 
@@ -24,6 +24,7 @@ jobs:
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         with:
           repository: github/docs-internal
+          token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
@@ -34,6 +35,14 @@ jobs:
       - name: Install dependencies
         run: npm install @octokit/graphql
 
+      - name: Set AUTHOR_LOGIN
+        run: |
+          if [[ "${{ github.event.pull_request.assignee.login && github.event.pull_request.user.login == 'docs-bot' }}" ]]; then
+            echo "AUTHOR_LOGIN=${{ github.event.pull_request.assignee.login }}" >> $GITHUB_ENV
+          else
+            echo "AUTHOR_LOGIN=${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
+          fi
+
       - name: Run script
         run: |
           node src/workflows/ready-for-docs-review.js
@@ -42,7 +51,6 @@ jobs:
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id }}
-          AUTHOR_LOGIN: ${{ github.event.pull_request.user.login }}
           REPO: ${{ github.event.pull_request.base.repo.full_name }}
 
         # Since the projects API is still in beta, use the old workflow if something fails

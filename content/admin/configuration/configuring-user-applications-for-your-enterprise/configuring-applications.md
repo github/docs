@@ -33,23 +33,17 @@ You can enable a retention policy for checks, actions, and associated data by se
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. In the "Settings" sidebar, click **Checks**.
 1. Select **Enable archiving of Checks-related data**.
-1. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived.
-1. Under "Delete threshold (days)", type the number of days for the deletion threshold. Archived checks older than this number of days will be permanently deleted.
+1. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived before being permanently deleted.
+1. Under "Delete threshold (days)", type the number of days for the deletion threshold. An archived check exists in an archived state for the number of days specified here. After this threshold, the check will be permanently deleted.
 {% data reusables.enterprise_management_console.save-settings %}
 {% endif %}
 
 {% ifversion azure-maps %}
+{% ifversion ghes < 3.13 %}
 
 ## Enabling interactive maps
 
-You can allow users to create interactive maps using GeoJSON or TopoJSON syntax. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can enable the display of interactive maps in the web interface for users of {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)."
 
-To enable interactive maps on {% data variables.location.product_location %}, you must enable the feature and provide a public authentication token for Azure. For more information, see [Authentication with Azure Maps](https://learn.microsoft.com/en-us/azure/azure-maps/azure-maps-authentication) in the Microsoft Docs.
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. In the "Settings" sidebar, click **Privacy**.
-1. To enable interactive maps, select "Enable GeoJSON rendering".
-1. To configure authentication, under "Azure Maps API Token", paste your token.
-{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
 {% endif %}

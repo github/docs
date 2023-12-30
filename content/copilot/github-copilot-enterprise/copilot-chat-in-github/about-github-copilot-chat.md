@@ -21,7 +21,7 @@ type: rai
 
 {% data variables.product.prodname_copilot_chat %} works by using a combination of natural language processing and machine learning to understand your question and provide you with an answer. This process can be broken down into a number of steps.
 
-{% data reusables.copilot.about-copilot-chat %}
+{% data reusables.rai.copilot.about-copilot-chat %}
 
 ## Next steps
 

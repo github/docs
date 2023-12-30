@@ -5,9 +5,15 @@
 // in the JSON file.
 
 // These paths must match the paths in src/pages/[versionId]/rest
-export const nonAutomatedRestPaths = ['/rest/guides', '/rest/quickstart', '/rest/overview']
+export const nonAutomatedRestPaths = [
+  '/rest/quickstart',
+  '/rest/about-the-rest-api',
+  '/rest/using-the-rest-api',
+  '/rest/authentication',
+  '/rest/guides',
+]
 
 // This path is used to set the page in the
 // src/rest/components/ApiVersionPicker.tsx component. That component
 // has a link to the page that describes what api versioning is.
-export const apiVersionPath = '/rest/overview/api-versions'
+export const apiVersionPath = '/rest/about-the-rest-api/api-versions'

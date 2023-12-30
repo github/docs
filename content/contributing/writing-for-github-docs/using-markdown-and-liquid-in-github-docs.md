@@ -75,7 +75,7 @@ For information on when to use callout tags, see "[AUTOTITLE](/contributing/styl
 
 ## Code sample syntax highlighting
 
-To render syntax highlighting in command line instructions and code samples, we use triple backticks followed by the language of the sample. For a list of all supported languages, see [`code-languages.yml`](https://github.com/github/docs/blob/main/data/variables/code-languages.yml).
+To render syntax highlighting in command line instructions and code samples, we use triple backticks followed by the language of the sample. For a list of all supported languages, see [`code-languages.yml`](https://github.com/github/docs/blob/main/data/code-languages.yml).
 
 ### Example usage of code syntax highlighting
 

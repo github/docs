@@ -143,3 +143,8 @@ When you enable access and security for a repository owned by your personal acco
    - **Selected repositories** - Personal codespaces created from specific repositories can access other repositories you own.
 
 1. If you chose "Selected repositories", select the "Select repositories" dropdown menu, then click a repository to allow the repository's codespaces to access other repositories you own. Repeat this step for all repositories whose codespaces you want to access other repositories you own.
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace)"

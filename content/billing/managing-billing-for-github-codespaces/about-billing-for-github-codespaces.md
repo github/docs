@@ -110,7 +110,7 @@ The compute usage of a codespace is the length of time for which that codespace 
 
 As an example, if a codespace is active for 1 hour and 15 minutes, then the compute cost will be the hourly cost of the codespace, as determined by its machine type, multiplied by 1.25.
 
-You can control compute usage by stopping your codespaces. For information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)." Codespaces are stopped automatically after a configurable period of inactivity. The timeout period can be configured by the user, or at the organization level. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+You can control compute usage by stopping your codespaces. For information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)." Codespaces are stopped automatically after a configurable period of inactivity. The timeout period can be configured by the user, or at the organization level. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 
 ## About billing for storage usage
 
@@ -199,6 +199,18 @@ Use of codespaces created using prebuilds is charged at the same rate as regular
 For information on managing and changing your account's spending limit, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 
 {% data reusables.codespaces.exporting-changes %}
+
+## Viewing projected usage for an organization
+
+Organization owners and billing managers can view an estimated total usage cost for {% data variables.product.prodname_github_codespaces %} for the organization, for the current monthly billing cycle. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage#viewing-github-codespaces-usage-for-your-organization-account)."
+
+The projected usage shown on the billing page for an organization is calculated based on the total cost for {% data variables.product.prodname_codespaces %} compute and storage usage incurred during the previous seven days, prior to the current day. This is projected forward for the remainder of the billing month to give you an idea of how much the total cost might be for the current billing cycle.
+
+The calculation used for this estimate is:
+
+`<cost for the previous 7 full days>/7 * <days remaining in the billing month, including the current day> + <cost already accrued in this billing month>`
+
+The projected usage does not take into account information such as whether {% data variables.product.prodname_github_codespaces %} is still enabled, the number or size of codespaces that currently exist, or your prebuild settings. For this reason, if all of the organization's codespaces and prebuilds were deleted today, the projected usage for the billing month would still show a figure higher than the accrued usage. However, after seven days have elapsed, with no further {% data variables.product.prodname_codespaces %} usage, the projected usage will be the same as the currently accrued usage.
 
 ## Limiting the machine types for organization-owned codespaces
 

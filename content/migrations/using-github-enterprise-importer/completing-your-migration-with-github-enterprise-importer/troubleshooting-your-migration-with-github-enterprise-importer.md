@@ -68,7 +68,7 @@ Failures that include a `404` status code usually indicate a typo in one of your
 
 ### `Archive generation failed` response
 
-If you receive a `Archive generation failed...` response when migrating from {% data variables.product.prodname_ghe_server %}, your repository is probably too large. For more information about repository size limits, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer#:~:text=Different%20size%20limits%20per%20repository%20apply%20depending%20on%20your%20GHES%20version.)."
+If you receive a `Archive generation failed...` response when migrating from {% data variables.product.prodname_ghe_server %}, your repository is probably too large. For more information about repository size limits, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products#data-that-is-migrated-from-github-enterprise-server)."
 
 First, try excluding releases from the migration by using the `--skip-releases` flag with the `migrate-repo` command.
 

@@ -64,9 +64,9 @@ If you’re migrating from {% data variables.product.prodname_ghe_cloud %} or {%
 
 {% endnote %}
 
-If you’re migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. For more information about how to install the {% data variables.product.prodname_ado2gh_cli %}, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-azure-devops-to-github-enterprise-cloud)."
+If you’re migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. For more information about how to install the {% data variables.product.prodname_ado2gh_cli %}, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud)."
 
-If you’re migrating from Bitbucket Server or Bitbucket Data Center, we recommend the `inventory-report` command in the {% data variables.product.prodname_bbs2gh_cli %}. The `inventory-report` command will use your Bitbucket instance's API to build a simple CSV. For more information about how to install the {% data variables.product.prodname_bbs2gh_cli %}, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud)."
+If you’re migrating from Bitbucket Server or Bitbucket Data Center, we recommend the `inventory-report` command in the {% data variables.product.prodname_bbs2gh_cli %}. The `inventory-report` command will use your Bitbucket instance's API to build a simple CSV. For more information about how to install the {% data variables.product.prodname_bbs2gh_cli %}, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud)."
 
 For other migration origins, create your migration inventory yourself. You could build the spreadsheet using the origin’s reporting tools, if available, or API, or you could create the inventory manually.
 
@@ -103,7 +103,7 @@ Then, use the open-source tool, `git-sizer`, to get this data for your repositor
 1. To clone your repository from the migration origin, run `git clone --mirror`.
 1. Navigate to the directory where you cloned your repository.
 1. To get the size of the largest file in your repository in bytes, run `git-sizer --no-progress -j | jq ".max_blob_size"`.
-1. To get the total size of all files in your repository in bytes, run `git-sizer --no-progress -j | jq “.unique_blob_size”`.
+1. To get the total size of all files in your repository in bytes, run `git-sizer --no-progress -j | jq ".unique_blob_size"`.
 1. Add the values from the previous steps to your inventory.
 
 ## About migration types

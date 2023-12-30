@@ -10,7 +10,7 @@ redirect_from:
 
 On {% data variables.product.prodname_docs %}, we provide versions of our documentation that reflect the differences in UI and functionality across {% data variables.product.company_short %}'s major product offerings. Contributors can use versioning syntax to scope content to a specific product offering.
 
-Versioning syntax allows the reader to manually choose the version of the documentation that applies to the product they're using. {% data variables.product.prodname_docs %}' URLs can also include versioning information, which allows links from {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_ghe_server %}, and {% data variables.product.prodname_ghe_managed %} to send the reader directly to documentation for the product they're using.
+Versioning syntax allows the reader to manually choose the version of the documentation that applies to the product they're using. {% data variables.product.prodname_docs %}' URLs can also include versioning information, which allows links from {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_ghe_server %} to send the reader directly to documentation for the product they're using.
 
 ## How and where to version
 
@@ -51,7 +51,7 @@ There are two types of versioning syntax for {% data variables.product.prodname_
 
 ## About the different versions of {% data variables.product.company_short %}
 
-We provide versioned documentation for users of {% data variables.product.prodname_dotcom_the_website %} plans including {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %}, and {% data variables.product.prodname_ghe_managed %}. If multiple versions of a page exist on the site, readers can choose the version from the version picker at the top of the page.
+We provide versioned documentation for users of {% data variables.product.prodname_dotcom_the_website %} plans including {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. If multiple versions of a page exist on the site, readers can choose the version from the version picker at the top of the page.
 
 ### {% data variables.product.prodname_dotcom_the_website %}
 
@@ -71,13 +71,11 @@ Documentation for {% data variables.product.prodname_ghe_server %} has multiple 
 
 The versions are named `enterprise-server@<release>`. The short name is `ghes`. In Liquid conditionals, we can specify ranges, like `ghes > 3.0`. For more information, see "[Versioning with Liquid conditional operators](#versioning-with-liquid-conditional-operators)."
 
-### {% data variables.product.prodname_ghe_managed %}
-
-Versioning for {% data variables.product.prodname_ghe_managed %} uses the `github-ae@latest` version. The short name is `ghae`.
-
 ## Versioning in the YAML frontmatter
 
-You can use the `versions` property within the file's frontmatter to define which products an entire page applies to. For example, the following YAML frontmatter will version an article for {% data variables.product.prodname_ghe_server %} 2.20 and above and Free, Pro, or Team.
+You can use the `versions` property within a file's frontmatter to define which products an article will appear for. Index files require a `versions` property, but they will be automatically versioned based on the versions of their children.
+
+For example, the following YAML frontmatter will version an article for {% data variables.product.prodname_ghe_server %} 2.20 and above and Free, Pro, or Team.
 
 ```yaml
 title: About your personal dashboard
@@ -94,13 +92,13 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. The following example will version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 2.22 and 3.0 only:
+You can also version a page for a range of releases. The following example will version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=2.22 <3.1'
+  ghes: '>=3.1 <3.3'
 ```
 
 ## Versioning with Liquid conditional operators
@@ -121,10 +119,10 @@ If you define multiple products in the `versions` key within a page's YAML front
 
 ### Comparison operators
 
-For versions that don't have numbered releases (like `fpt` and `ghae`), you have two options:
+For versions that don't have numbered releases (like `fpt` and `ghec`), you have two options:
 
-- `{% raw %}{% ifversion ghae %}{% endraw %}`
-- `{% raw %}{% ifversion not ghae %}{% endraw %}`
+- `{% raw %}{% ifversion ghec %}{% endraw %}`
+- `{% raw %}{% ifversion not ghec %}{% endraw %}`
 
 For versions that have numbered releases (currently only `ghes`), you can do the same for content that is either available in all of the releases or not available in any of the releases:
 
@@ -194,7 +192,7 @@ This row is for all versions | B3 | C3
 
 When you document any new change or feature, use feature-based versioning.
 
-A small minority of features and changes will only ever apply to one product. The majority of features come to {% data variables.product.prodname_dotcom_the_website %} and eventually reach all products. In general, changes "flow" from {% data variables.product.prodname_dotcom_the_website %} (including {% data variables.product.prodname_ghe_cloud %}) [to {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/overview/about-upgrades-to-new-releases), and then [to {% data variables.product.prodname_ghe_managed %}](/github-ae@latest/admin/overview/about-upgrades-to-new-releases).
+A small minority of features and changes will only ever apply to one product. The majority of features come to {% data variables.product.prodname_dotcom_the_website %} and eventually reach all products. In general, changes "flow" from {% data variables.product.prodname_dotcom_the_website %} (including {% data variables.product.prodname_ghe_cloud %}) [to {% data variables.product.prodname_ghe_server %}](/enterprise-server@latest/admin/overview/about-upgrades-to-new-releases).
 
 Feature-based versioning provides named "feature flags" that simplify the maintenance and versioning of documentation. You can use a single feature name (or "flag") to group and version prose throughout content. When a feature comes to additional products, you only need to make a change to the YAML versioning in the file within `data/features/`.
 
@@ -217,7 +215,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.1'
-  ghae: '*'
 ```
 
 The format and allowed values are the same as the frontmatter versions property. For more information, see "[Versions](https://github.com/github/docs/tree/main/content#versions)" in the `github/docs` repository README.
@@ -244,33 +241,6 @@ versions:
   fpt: '*'
   feature: 'some-new-feature'
 ```
-
-### Schema enforcement
-
-The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](https://github.com/github/docs/blob/main/src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](https://github.com/github/docs/blob/main/src/content-linter/tests/lint-versioning.js).
-
-## Versioning for {% data variables.product.prodname_ghe_managed %}
-
-{% data variables.product.prodname_docs %} shows only the documentation for the latest version of {% data variables.product.prodname_ghe_managed %}. For more information, see "[About the displayed version of {% data variables.product.prodname_ghe_managed %} documentation](#about-the-displayed-version-of-github-ae-documentation)."
-
-You can version documentation to appear in the current {% data variables.product.prodname_ghe_managed %} documentation set in two ways:
-
-- In Liquid syntax, use `ghae` or <code>ghae > VERSION</code>.
-
-  - For example, if you want documentation to be visible for {% data variables.product.prodname_ghe_managed %} 3.6 and later, use `ghae > 3.5`.
-  - If you're confident that the change is available in the latest public release of {% data variables.product.prodname_ghe_managed %} and you want documentation to appear immediately on {% data variables.product.prodname_docs %}, you can always just use `ghae`.
-- In YAML front matter or [feature-based versioning files](#feature-based-versioning), use <code>ghae: '> VERSION'</code>.
-
-  - For example, if you want documentation to be visible for {% data variables.product.prodname_ghe_managed %} 3.6 and later, use `ghae: '> 3.5'`.
-  - If you're confident that the change is available in the latest public release of {% data variables.product.prodname_ghe_managed %} and you want documentation to appear immediately on {% data variables.product.prodname_docs %}, you can always use `ghae: '*'`.
-
-### About the displayed version of {% data variables.product.prodname_ghe_managed %} documentation
-
-We display one version of {% data variables.product.prodname_ghe_managed %} documentation on {% data variables.product.prodname_docs %}: the latest.  We define "latest" in the site's source, within [`all-versions.js`](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js#L58). In almost all cases, this value is a safe place to determine the latest public release of {% data variables.product.prodname_ghe_managed %}.
-
-"Latest" corresponds with the latest version of {% data variables.product.prodname_ghe_managed %} that we've deployed to the first customer using the product in production. Generally, {% data variables.product.company_short %} upgrades all production customers on {% data variables.product.prodname_ghe_managed %} to the latest version around the same time, so Product considers only showing the latest documentation an acceptable compromise.
-
-Product notifies Docs Content of new releases via release issues in `github/releases`.
 
 ## Best practices
 

@@ -12,12 +12,10 @@ topics:
   - Notifications
   - Accounts
 children:
+  - /creating-an-account-on-github
   - /hello-world
   - /set-up-git
-  - /create-a-repo
-  - /fork-a-repo
   - /github-flow
-  - /contributing-to-projects
   - /be-social
   - /communicating-on-github
   - /github-glossary

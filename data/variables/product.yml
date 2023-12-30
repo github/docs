@@ -37,10 +37,13 @@ prodname_github_connect: 'GitHub Connect'
 # GitHub Enterprise Importer
 prodname_importer_proper_name: 'GitHub Enterprise Importer'
 prodname_importer_secondary_name: Importer
+prodname_gei: GEI
 prodname_gei_cli_short: GEI extension
 prodname_gei_cli: GEI extension of the GitHub CLI
+prodname_ado2gh: ADO2GH
 prodname_ado2gh_cli: ADO2GH extension of the GitHub CLI
 prodname_ado2gh_cli_short: ADO2GH extension
+prodname_bbs2gh: BBS2GH
 prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
 

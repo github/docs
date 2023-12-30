@@ -8,6 +8,7 @@ redirect_from:
   - /admin/user-management/managing-dormant-users
   - /admin/user-management/managing-users-in-your-enterprise/managing-dormant-users
 intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
+permissions: "{% ifversion ghec or ghae %}Enterprise owners can manage dormant users for an enterprise.{% elsif ghes %}Site administrators can manage dormant users on a {% data variables.product.product_name %} instance.{% endif %}"
 versions:
   ghec: '*'
   ghes: '*'
@@ -25,20 +26,27 @@ topics:
 
 {% ifversion ghec %}
 When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant.
-
-The report includes both enterprise members and outside collaborators.
 {% endif %}
 
-{% ifversion ghes or ghae %}
+A user account is considered to be dormant if the user {% ifversion ghec or ghae %} hasn't performed any of the previous activities in the past 90 days.{% elsif ghes %} meets the following criteria:
+
+- The user's account has existed for longer than the dormancy threshold {% data variables.location.product_location %}.
+- The user hasn't performed any of the previous activities within the dormancy threshold.
+- The user is not a site administrator for the instance.
+
+You can customize the dormancy threshold for {% data variables.location.product_location %}.{% endif %}
+
+Dormancy applies to both enterprise members and outside collaborators.
+
+{% ifversion ghes %}
 
 ## Viewing dormant users
 
 {% data reusables.enterprise-accounts.viewing-dormant-users %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-1. In the left sidebar, click **Dormant users**.{% ifversion ghes %}
+1. In the left sidebar, click **Dormant users**.
 1. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
-{% endif %}
 
 ## Determining whether a user account is dormant
 
@@ -69,5 +77,4 @@ The report includes both enterprise members and outside collaborators.
 1. Scroll to "Other."
 1. Optionally, to generate a new report, next to "Dormant Users", click **New report**.
 1. Under "Recent reports", next to the report you want to download, click {% octicon "download" aria-hidden="true" %} **Download**.
-
 {% endif %}

@@ -68,7 +68,19 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('|:---|{% ifversion', '|:---|\n{%- ifversion')
   }
 
-  // A lot of Liquid tags lose their linebreak after the `}` which can
+  if (context.dottedPath === 'reusables.copilot.differences-cfi-cfb-table') {
+    // As of Dec 2023, the French translation has a subtle typo.
+    // This string replace is highly specific and clearly only going to
+    // work if the exact French, incorrect, translation is still in use.
+    // Consider deleting these lines in mid-2024 because hopefully by then
+    // the translation mistake, which we've reported, will be corrected.
+    content = content.replace(
+      '{% data variables.copilot.cfi_price_per_month %} par utilisateur et par mois',
+      '{% data variables.copilot.cfb_price_per_month %} par utilisateur et par mois.',
+    )
+  }
+
+  // A lot of Liquid tags lose their linebreak after the `}`
   // result in formatting problems, especially around Markdown tables.
   // This code here, compares each Liquid statement, in the translation,
   // and tests if it appears like that but with a newline in the English.

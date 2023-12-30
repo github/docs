@@ -23,6 +23,7 @@ export default [
 
   // These links require auth.
   regex('https://github.com/settings/profile'),
+  regex('https://github.com/settings/billing'),
   regex('https://github.com/github/docs/edit'),
   regex('https://github.com/github/insights-releases/releases/latest'),
   regex('https://classroom.github.com/videos'),
@@ -69,6 +70,7 @@ export default [
   regex('https://azure.microsoft.com/'),
   regex('https://support.patreon.com/'),
   'https://moodle.org',
+  'https://azure.microsoft.com',
 ]
 
 // Return a regular expression from a URL string that matches the URL

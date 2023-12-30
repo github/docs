@@ -104,5 +104,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
 
 - "[AUTOTITLE](/rest/codespaces/machines)" in the REST API documentation
 - [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
+- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces)"
 
 {% endcli %}

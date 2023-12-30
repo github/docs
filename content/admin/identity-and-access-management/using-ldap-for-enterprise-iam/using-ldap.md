@@ -114,6 +114,8 @@ When this option is selected, the certificate is validated to make sure:
 
 You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled)."
 
+LDAP sync does not create user accounts on {% data variables.location.product_location %}. For more information, see "[Viewing and creating LDAP users](#viewing-and-creating-ldap-users)."
+
 {% note %}
 
 **Note:** Using LDAP Synchronization with groups that exceed 1499 members may lead to team membership synchronization failures.
@@ -124,7 +126,7 @@ If you need help determining if modifying the `MaxValRange` is the right approac
 
 {% endnote %}
 
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
+To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys**.
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
@@ -187,6 +189,8 @@ If disclosing such information is not desired, your company or organization shou
 - `posixGroup`
 
 ## Viewing and creating LDAP users
+
+When you use LDAP, your instance creates a user account the first time someone successfully signs in using LDAP credentials. Alternatively, you can manually provision a user account.
 
 You can view the full list of LDAP users who have access to your instance and provision new users.
 

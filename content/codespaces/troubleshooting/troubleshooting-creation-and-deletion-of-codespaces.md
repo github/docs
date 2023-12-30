@@ -80,7 +80,7 @@ A codespace can only be deleted by:
 - An organization owner for an organization-owned codespace.
 - Automatic deletion at the end of a retention period.
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 
 ## Container storage
 

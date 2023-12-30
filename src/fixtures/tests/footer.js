@@ -1,11 +1,7 @@
-import { jest } from '@jest/globals'
-
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 
 describe('footer', () => {
-  jest.setTimeout(10 * 60 * 1000)
-
   describe('"contact us" link', () => {
     test('leads to support from articles', async () => {
       const $ = await getDOM(

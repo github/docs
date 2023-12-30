@@ -39,7 +39,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
                   // when it needs this text for in-page links.
                   className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
                 >
-                  {currentProduct.name}
+                  {currentProduct.nameRendered}
                 </Link>
               </div>
             )}

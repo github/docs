@@ -2,7 +2,7 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 
 const allowedCodeFenceLanguages = Object.keys(
-  yaml.load(fs.readFileSync('data/variables/code-languages.yml', 'utf8')),
+  yaml.load(fs.readFileSync('data/code-languages.yml', 'utf8')),
 )
 
 export const baseConfig = {

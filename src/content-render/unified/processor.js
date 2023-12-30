@@ -25,6 +25,7 @@ import rewriteForRowheaders from './rewrite-for-rowheaders.js'
 import wrapProceduralImages from './wrap-procedural-images.js'
 import parseInfoString from './parse-info-string.js'
 import annotate from './annotate.js'
+import alerts from './alerts.js'
 
 export function createProcessor(context) {
   return (
@@ -53,6 +54,7 @@ export function createProcessor(context) {
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
       .use(rewriteLocalLinks, context)
+      .use(alerts)
       // HTML AST above ^^^
       .use(html)
     // String below vvv
