@@ -45,6 +45,11 @@ The built-in {% data variables.product.prodname_codeql %} query suites, `code-sc
 
 - The `security-and-quality` query suite consists of all the queries in the `code-scanning` and `security-extended` query suites, plus additional queries for maintainability and reliability.
 
+### `security-experimental` query suite
+
+- The `security-experimental` query suite is provided for testing purposes only, and should not be used in production code scanning workflows.
+- Experimental queries and libraries may not be actively maintained as the supported libraries evolve. They may also be changed in backwards-incompatible ways or may be removed entirely in the future without deprecation warnings.
+
 ## Queries included in the `code-scanning`, `security-extended` and `security-and-quality` query suites
 
 - "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/c-cpp-built-in-queries)"
