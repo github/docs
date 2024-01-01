@@ -20,6 +20,8 @@ With {% data variables.product.prodname_codeql %} {% data variables.product.prod
 
 - `code-scanning` query suite.
 - `security-extended` query suite. This suite is referred to as the "Extended" query suite on {% data variables.product.prodname_dotcom %}.
+- `security-and-quality` query suite.
+- `security-experimental` query suite.
 
 Currently, both the `code-scanning` query suite and the `security-extended` query suite are available for default setup for {% data variables.product.prodname_code_scanning %}. {% ifversion bulk-code-scanning-query-suite %}Additionally, organization owners and security managers can recommend a query suite for use with default setup throughout their organization. For more information on configuring default setup for individual repositories, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)." For more information on configuring default setup at scale and recommending a query suite, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% else %}For more information on default setup, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."{% endif %}
 
