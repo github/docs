@@ -37,7 +37,7 @@ sections:
     - |
       A missing executable on the PATH caused the `ghe-spokesctl ssh` command to fail.
     - |
-      On an instance GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync.
+      On an instance with GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync.
     - |
       A user in the process of being converted into an organization could be added as a collaborator on a repository. This resulted in the new organizations owners unexpectedly receiving access to the repository.
     - |
