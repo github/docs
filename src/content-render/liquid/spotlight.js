@@ -6,7 +6,7 @@ export const tags = {
 }
 
 const template =
-  '<div class="ghd-spotlight ghd-spotlight-{{ color }} my-4 pl-3 py-2">{{ output }}</div>'
+  '<div class="ghd-alert ghd-alert-{{ color }} ghd-spotlight-{{ color }}">{{ output }}</div>'
 
 export const Spotlight = {
   type: 'block',
