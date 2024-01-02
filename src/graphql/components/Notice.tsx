@@ -1,4 +1,5 @@
 import { Link } from 'src/frame/components/Link'
+import { Alert } from 'src/frame/components/ui/Alert'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { GraphqlT } from './types'
 
@@ -9,14 +10,8 @@ type Props = {
 
 export function Notice({ item, variant = 'preview' }: Props) {
   const { t } = useTranslation('graphql')
-  const previewTitle =
-    variant === 'preview' ? t('reference.preview_notice') : t('reference.deprecation_notice')
-  const noticeStyle = variant === 'preview' ? 'ghd-spotlight-accent' : 'ghd-spotlight-attention'
   return (
-    <div className={`ghd-spotlight ${noticeStyle} my-4 pl-3 py-2`}>
-      <p>
-        <b>{previewTitle}</b>
-      </p>
+    <Alert type={variant === 'preview' ? 'NOTE' : 'WARNING'}>
       {variant === 'preview' && item.preview ? (
         <p>
           <code>{item.name}</code> is available under the{' '}
@@ -37,6 +32,6 @@ export function Notice({ item, variant = 'preview' }: Props) {
           />
         </div>
       ) : null}
-    </div>
+    </Alert>
   )
 }
