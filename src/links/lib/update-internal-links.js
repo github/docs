@@ -134,6 +134,11 @@ async function updateFile(file, context, opts) {
                 newData[key][group] = better
               }
             }
+          } else if (typeof thing === 'string' && thing.startsWith('/')) {
+            const better = getNewFrontmatterLinkList([thing], context, opts, file, rawContent)
+            if (!equalArray(better, [thing])) {
+              newData[key][group] = better[0]
+            }
           }
         }
       }

@@ -1,5 +1,4 @@
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-// import { setFastlySurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('honeypotting', () => {
@@ -45,6 +44,12 @@ describe('junk paths', () => {
   test('just _next', async () => {
     const res = await get('/_next')
     expect(res.statusCode).toBe(404)
+  })
+
+  test('with a starting /en/ but with a junk end', async () => {
+    const res = await get('/en/package-lock.json')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch('text/plain')
   })
 })
 
