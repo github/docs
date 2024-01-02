@@ -185,7 +185,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   const BOOST_EXPLICIT = 3.5
   // Number doesn't matter so much but just make sure it's
   // boosted low. Because we only really want this to come into
-  // play if nothing else matches. E.g. a search for `Acions`
+  // play if nothing else matches. E.g. a search for `AcIons`
   // which wouldn't find anythig else anyway.
   const BOOST_FUZZY = 0.1
 
