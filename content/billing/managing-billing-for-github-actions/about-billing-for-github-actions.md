@@ -33,10 +33,7 @@ Minutes reset every month, while storage usage does not.
 
 {% note %}
 
-**Notes**:
-
-- Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
-- Logs and job summaries do not count towards storage usage.
+**Note**: Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
 {% endnote %}
 
