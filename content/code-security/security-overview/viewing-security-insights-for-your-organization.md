@@ -87,7 +87,7 @@ For more information on secret scanning push protection metrics, see "[AUTOTITLE
 
 The "Mean time to remediate" metric is the average age of all alerts that were remediated or dismissed in the chosen time period. Alerts that were closed as "false positive" are excluded.
 
-The age of each closed alert is calculated by subtracting the date the alert was created from the the date that the alert was last closed during the chosen time period. For reopened alerts, the age is calculated by subtracting the original created date rather than the date the alert was reopened.
+The age of each closed alert is calculated by subtracting the date the alert was created from the date that the alert was last closed during the chosen time period. For reopened alerts, the age is calculated by subtracting the original created date rather than the date the alert was reopened.
 
 ### Net resolve rate
 

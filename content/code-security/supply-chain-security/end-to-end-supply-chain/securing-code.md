@@ -80,7 +80,7 @@ Code often needs to communicate with other systems over a network, and requires 
 {% endif %}
 
 {% ifversion fpt %}
-You can can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
+You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
    - public repositories on {% data variables.product.prodname_dotcom_the_website %}.
    - an organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
