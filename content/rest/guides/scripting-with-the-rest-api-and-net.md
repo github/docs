@@ -14,21 +14,13 @@ type: tutorial
 
 ## About Octokit.js
 
-If you want to write a script using .NET to interact with a .NET product's REST API, it's recommended to use the Octokit.Net SDK, which is a .NET library for interacting with {% data variables.product.company_short %}'s REST API. The Octokit.NET SDK implements best practices and makes it easier for you to interact with the REST API via .NET. It's well-suited for working with {% data variables.product.company_short %}'s API but can be adapted for other REST APIs as well.
+If you want to write an application using .NET to interact with GitHub's REST API, GitHub recommends using Octokit.net. The SDK implements best practices and makes it easier for you to interact with the REST API via .NET.
 
 ## Prerequisites
 
-This guide assumes that you are familiar with .NET development and the REST API of {% data variables.product.company_short %}. For more information about the REST API, refer to {% data variables.product.company_short %}'s official API documentation.
+This guide assumes that you are familiar with .NET development and the {% data variables.product.company_short %} REST API. For more information about the REST API, see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api).
 
-You must install the Octokit.NET package and import relevant namespaces to use the Octokit.NET SDK in your script. You can install Octokit.NET via NuGet or your preferred package manager. For more information, see the official documentation for Octokit.NET.
-
-## Installation
-
-To begin using the .NET Octokit SDK, you'll need to install the Octokit NuGet package. You can install it using the Package Manager Console or via the NuGet Package Manager in Visual Studio.
-
-```powershell
-Install-Package Octokit
-```
+You must install the Octokit.net package and import relevant namespaces to use the SDK in your script. You can install the package via NuGet or your preferred package manager. For more information, see the [usage instructions on the Octokit.net README](https://github.com/octokit/octokit.net#getting-started).
 
 ## Instantiating and authenticating
 
@@ -48,9 +40,9 @@ If {% ifversion ghec or fpt %}these options are not possible{% else %}this is no
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-If you want to use the .NET REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see {% data variables.product.company_short %}'s documentation.
+If you want to use the .NET REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
 
-You can pass your {% data variables.product.pat_generic %} when you create an instance of the Octokit `GitHubClient`. In the following example, replace `YOUR-TOKEN` with your {% data variables.product.pat_generic %}.
+You can pass your {% data variables.product.pat_generic %} when you create an instance of `GitHubClient`. In the following example, replace `YOUR_TOKEN` with your {% data variables.product.pat_generic %}.
 
 ```csharp
 using System;
@@ -62,7 +54,7 @@ github.Credentials = new Credentials("YOUR-TOKEN");
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-For authentication on behalf of an organization or another user, you can use a GitHub App. Here's how you can authenticate using a GitHub App:
+For authentication on behalf of an organization or another user, you may use a GitHub App. Here's how you can authenticate using a GitHub App:
 
 ```csharp
 using Octokit;
@@ -70,39 +62,40 @@ using Octokit;
 var app = new GitHubApp("YOUR-APP-ID", "YOUR-PRIVATE-KEY");
 var installationId = YOUR-INSTALLATION-ID;
 
-var token = app.CreateInstallationToken(installationId);
+var accessToken = app.CreateInstallationToken(installationId);
 var client = new GitHubClient(new ProductHeaderValue("YourAppName"))
 {
-    Credentials = new Credentials(token.Token)
+    Credentials = new Credentials(accessToken.Token)
 };
 ```
 
 ### Authenticating in {% data variables.product.prodname_actions %}
 
-If you're running your script in a GitHub Actions workflow, you can authenticate using the built-in `GITHUB_TOKEN`. It's automatically created and authorized for the repository. This token doesn't require manual configuration and is automatically available in your workflow.
+If you're running your script in a GitHub Actions workflow, you may authenticate using the built-in `GITHUB_TOKEN` instead of creating and storing your own token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information about Actions' `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
 
-You can use it to authenticate with the Octokit SDK to interact with the GitHub API. Here's an example of how to do it:
+If your workflow needs to access resources outside of the workflow's repository, then you will not be able to use `GITHUB_TOKEN`. In that case, store your credentials as a secret and replace `GITHUB_TOKEN` in the examples below with the name of your secret. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-```csharp
-using Octokit;
+If you use the `run` keyword to execute your .NET application in your {% data variables.product.prodname_actions %} workflows, you can store the value of `GITHUB_TOKEN` as an environment variable. Your script can access the environment variable as `process.env.VARIABLE_NAME`.
 
-var client = new GitHubClient(new ProductHeaderValue("YourAppName"))
-{
-    Credentials = new Credentials(Environment.GetEnvironmentVariable("GITHUB_TOKEN"))
-};
+For example, this workflow step stores `GITHUB_TOKEN` in an environment variable called `TOKEN`:
+
+```yaml
+- name: Run script
+  env:
+    TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+  run: |
+    dotnet run
 ```
 
 ### Instantiating without authentication
 
-In .NET using the Octokit SDK, you can create an instance of GitHubClient without authentication to use the GitHub REST API with some limitations on rate limits and restricted endpoints. Here's how you can do it:
+You may create an instance of GitHubClient without authentication to use the GitHub REST API, though the rate limit will be lower and you will not be able to use some endpoints. In this case, simply do not set the credentials on an instance of `GitHubClient`.
 
 ```csharp
 using Octokit;
 
 var github = new GitHubClient(new ProductHeaderValue("YourApp"));
 ```
-
-Just remember that when you're not authenticated, you will have lower rate limits and access to certain endpoints may be restricted.
 
 ## Making Requests
 
@@ -316,7 +309,7 @@ Console.WriteLine($"The title of the first issue is: {data[0].Title}");
 
 ## Example script
 
-Here is a full example script that uses Octokit.NET. The script imports `Octokit` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app)" in this guide.
+Here is a full example script that uses Octokit.net. The script imports `Octokit` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app)" in this guide.
 
 ```csharp
 using Octokit;
@@ -393,6 +386,5 @@ class Program
 
 ## Next steps
 
-- To learn more about Octokit.NET see [the .NET Octokit SDK documentation](https://github.com/octokit/octokit.NET).
-- For some real life examples, look at how {% data variables.product.company_short %} Docs uses Octokit.NET by [searching the {% data variables.product.company_short %} Docs repository](https://github.com/search?q=repo%3Agithub%2Fdocs%20path%3A.github%20octokit&type=code).
+- To learn more about Octokit.net see [the .NET Octokit SDK documentation](https://github.com/octokit/octokit.net).
 
