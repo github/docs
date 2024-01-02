@@ -52,7 +52,7 @@ By default, each time you push to a prebuild-enabled branch, the prebuild is upd
 
 If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container configuration is changed on your branch, so that it's not the same as the configuration on the base branch, prebuilds will no longer be available on your branch.
 
-Here are things to check if the "{% octicon "zap" aaria-hidden="true" %} Prebuild Ready" label is not displayed for a particular branch:
+Here are things to check if the "{% octicon "zap" aria-hidden="true" %} Prebuild Ready" label is not displayed for a particular branch:
 
 - Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
 - Confirm that the prebuild configuration includes your region.
