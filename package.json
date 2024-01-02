@@ -278,7 +278,7 @@
     "liquidjs": "^10.7.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "lowdb": "6.0.0",
+    "lowdb": "7.0.1",
     "lowlight": "3.0.0",
     "mdast-util-from-markdown": "^2.0.0",
     "mdast-util-to-hast": "^13.0.1",
