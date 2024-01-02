@@ -53,23 +53,124 @@ For {% data variables.product.prodname_dotcom %} plans and costs, see {% data va
 
 To use Git, developers use specific commands to copy, create, change, and combine code. These commands can be executed directly from the command line or by using an application like {% data variables.product.prodname_desktop %}. Here are some common commands for using Git:
 
-- `git init` initializes a brand new Git repository and begins tracking an existing directory. It adds a hidden subfolder within the existing directory that houses the internal data structure required for version control.
+#### Version Control
 
-- `git clone` creates a local copy of a project that already exists remotely. The clone includes all the project's files, history, and branches.
+- `git --version`: Check the git version
 
-- `git add` stages a change. Git tracks changes to a developer's codebase, but it's necessary to stage and take a snapshot of the changes to include them in the project's history. This command performs staging, the first part of that two-step process. Any changes that are staged will become a part of the next snapshot and a part of the project's history. Staging and committing separately gives developers complete control over the history of their project without changing how they code and work.
+#### Staging Changes
 
-- `git commit` saves the snapshot to the project history and completes the change-tracking process. In short, a commit functions like taking a photo. Anything that's been staged with `git add` will become a part of the snapshot with `git commit`.
+- `git add [file]`: Stage changes of a particular file
+- `git add .`: Stage all files
 
-- `git status` shows the status of changes as untracked, modified, or staged.
+#### Branch Management
 
-- `git branch` shows the branches being worked on locally.
+- `git branch`: Display the current working branch
+- `git branch [branch-name]`: Create a new branch
+- `git branch -M [branch-new-name]`: Rename the current branch
+- `git branch -b [new-branch-name]`: Create and switch to a new branch
+- `git branch -d [branch-name]`: Delete a branch
+- `git branch -D [branch-name]`: Delete a branch forcefully
+- `git push origin --delete [deleted-branch-name]`: Delete branch from the remote repository
 
-- `git merge` merges lines of development together. This command is typically used to combine changes made on two distinct branches. For example, a developer would merge when they want to combine changes from a feature branch into the main branch for deployment.
+#### Branch Navigation
 
-- `git pull` updates the local line of development with updates from its remote counterpart. Developers use this command if a teammate has made commits to a branch on a remote, and they would like to reflect those changes in their local environment.
+- `git checkout`: Navigate between branches
+- `git checkout [branch-name]`: Switch to a specific branch
 
-- `git push` updates the remote repository with any commits made locally to a branch.
+#### File and Directory Management
+
+- `git clean`: Remove untracked files from the working directory
+
+#### Repository Cloning
+
+- `git clone`: Create a copy of an existing repository
+
+#### Committing Changes
+
+- `git commit`: Commit changes with a detailed message
+- `git commit -m "message"`: Commit changes with a brief message
+- `git commit --amend`: Modify the recent commit
+
+#### Viewing Changes
+
+- `git show [commit]`: Output metadata and content changes of a specific commit
+
+#### Configuration Settings
+
+- `git config`: Set configuration options for your git installation
+- `git config --global user.name "[name]"`: Set your name for commit transactions
+- `git config --global user.email "[email-address]"`: Set your email for commit transactions
+- `git config --global color.ui auto`: Enable helpful colorization of command line output
+- `git config --list`: Check user config details
+
+#### Retrieving Changes
+
+- `git fetch`: Retrieve changes from the remote repository without merging
+
+#### Repository Initialization
+
+- `git init`: Turn an existing directory into a git repository
+- `git branch -M main`: Rename the current branch to main (after initializing)
+
+#### Viewing Revision History
+
+- `git log`: Explore previous revisions of the project
+- `git log --follow [file]`: List version history for a file, including renames
+
+#### Merging Changes
+
+- `git merge`: Integrate changes in divergent branches
+- `git merge [branch]`: Combine the specified branch’s history into the current branch
+
+#### Pulling Changes
+
+- `git pull`: Download and merge changes from the remote repository
+- `git pull origin main`: Pull changes from the remote main branch
+- `git pull origin [branch-name]`: Pull changes from a specific remote branch
+
+#### Pushing Changes
+
+- `git push`: Push changes to the remote repository
+- `git push origin main`: Push changes to the remote main branch
+- `git push origin [branch-name]`: Push changes to a specific remote branch
+- `git push -u origin main`: Push changes to the upstream, for seamless future pushes
+
+#### Comparing Changes
+
+- `git diff [branch-name]`: Compare the current branch with a specific branch
+- `git diff [first-branch]...[second-branch]`: Show content difference between two branches
+
+#### Rebasing Changes
+
+- `git rebase`: Incorporate changes from one branch onto another
+- `git rebase -i`: Interactive rebasing session
+
+#### Reference Log
+
+- `git reflog`: Display a history of reference updates, providing a safety net to recover lost commits or branches
+
+#### Remote Repository
+
+- `git remote`: Administer remote connections
+- `git remote add origin [link]`: Transfer origin from the local system to a remote repository
+- `git remote -v`: Verify remote git
+
+#### Undoing Changes
+
+- `git reset`: Undo changes to files in the working directory
+- `git reset [filename]`: Undo changes to a particular file
+- `git reset HEAD~1`: Undo a single commit and remove the current change
+- `git reset [hash]`: Move multiple commits back
+- `git reset --hard [hash]`: Move multiple commits back (in the code editor)
+
+#### Status
+
+- `git status`: Display the state of the working directory and the staged snapshot
+
+#### Reverting Changes
+
+- `git revert`: Create a new commit that undoes changes from a previous commit without removing any data
+- `git status`: Display the state of the working directory and the staged snapshot
 
 For more information, see the [full reference guide to Git commands](https://git-scm.com/docs).
 
