@@ -124,7 +124,7 @@ Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotco
 
 | Rank | Languages |
 |-----:|-----------|
-|     1| Javascript|
+|     1| JavaScript|
 |     2| Python    |
 |     3| SQL       |
 ```
@@ -165,7 +165,7 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 
 | Rank | Languages |
 |-----:|-----------|
-|     1| Javascript|
+|     1| JavaScript|
 |     2| Python    |
 |     3| SQL       |
 

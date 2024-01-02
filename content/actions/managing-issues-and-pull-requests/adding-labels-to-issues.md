@@ -46,14 +46,14 @@ In the tutorial, you will first make a workflow file that uses the {% data varia
         steps:
           - run: gh issue edit "$NUMBER" --add-label "$LABELS"
             env:
-              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
               GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
               NUMBER: {% raw %}${{ github.event.issue.number }}{% endraw %}
               LABELS: triage
     ```
 
 1. Customize the `env` values in your workflow file:
-   - The `GITHUB_TOKEN`, `GH_REPO`, and `NUMBER` values are automatically set using the `github` and `secrets` contexts. You do not need to change these.
+   - The `GH_TOKEN`, `GH_REPO`, and `NUMBER` values are automatically set using the `github` and `secrets` contexts. You do not need to change these.
    - Change the value for `LABELS` to the list of labels that you want to add to the issue. The label(s) must exist for your repository. Separate multiple labels with commas. For example, `help wanted,good first issue`. For more information about labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
 1. {% data reusables.actions.commit-workflow %}
 
