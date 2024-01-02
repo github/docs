@@ -95,7 +95,7 @@ sections:
     - |
       An administrator could enable GitHub Connect on an instance with a license that does not support GitHub Connect. 
     - |
-      On an instance GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync. 
+      On an instance with GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync. 
     - |
       The enterprise account pages on some installations rendered very slowly. 
     - |
