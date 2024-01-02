@@ -59,7 +59,7 @@ jobs:
           gh issue edit $ISSUE_URL --add-label "triage"
 ```
 
-Conversely, the following workflow uses `GITHUB_TOKEN ` to add a label to an issue. It will not trigger any workflows that run when a label is added.
+Conversely, the following workflow uses `GITHUB_TOKEN` to add a label to an issue. It will not trigger any workflows that run when a label is added.
 
 ```yaml
 on:
