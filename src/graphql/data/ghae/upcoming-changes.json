@@ -217,6 +217,40 @@
       "owner": "deborah-digges"
     }
   ],
+  "2024-04-01": [
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_SPECIFIC",
+      "description": "<p><code>TOO_SPECIFIC</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_GENERAL",
+      "description": "<p><code>TOO_GENERAL</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.PERSONAL_PREFERENCE",
+      "description": "<p><code>PERSONAL_PREFERENCE</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.NOT_RELEVANT",
+      "description": "<p><code>NOT_RELEVANT</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    }
+  ],
   "2023-10-01": [
     {
       "location": "PullRequestReviewComment.position",

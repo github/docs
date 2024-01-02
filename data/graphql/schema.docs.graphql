@@ -133,13 +133,21 @@ input AcceptTopicSuggestionInput {
 
   """
   The name of the suggested topic.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `name` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  name: String!
+  name: String
 
   """
   The Node ID of the repository.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `repositoryId` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+  repositoryId: ID @possibleTypes(concreteTypes: ["Repository"])
 }
 
 """
@@ -154,7 +162,7 @@ type AcceptTopicSuggestionPayload {
   """
   The accepted topic.
   """
-  topic: Topic
+  topic: Topic @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 }
 
 """
@@ -8897,18 +8905,30 @@ input DeclineTopicSuggestionInput {
 
   """
   The name of the suggested topic.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `name` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  name: String!
+  name: String
 
   """
   The reason why the suggested topic is declined.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `reason` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  reason: TopicSuggestionDeclineReason!
+  reason: TopicSuggestionDeclineReason
 
   """
   The Node ID of the repository.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `repositoryId` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+  repositoryId: ID @possibleTypes(concreteTypes: ["Repository"])
 }
 
 """
@@ -8923,7 +8943,7 @@ type DeclineTopicSuggestionPayload {
   """
   The declined topic.
   """
-  topic: Topic
+  topic: Topic @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 }
 
 """
@@ -54994,22 +55014,22 @@ enum TopicSuggestionDeclineReason {
   """
   The suggested topic is not relevant to the repository.
   """
-  NOT_RELEVANT
+  NOT_RELEVANT @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 
   """
   The viewer does not like the suggested topic.
   """
-  PERSONAL_PREFERENCE
+  PERSONAL_PREFERENCE @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 
   """
   The suggested topic is too general for the repository.
   """
-  TOO_GENERAL
+  TOO_GENERAL @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 
   """
   The suggested topic is too specific for the repository (e.g. #ruby-on-rails-version-4-2-1).
   """
-  TOO_SPECIFIC
+  TOO_SPECIFIC @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 }
 
 """
