@@ -71,7 +71,7 @@ ACTIONS_RUNNER_HOOK_JOB_STARTED=/opt/runner/cleanup_script.sh
 
 ### Permission denied
 
-If you get a "permission denied" error when you attempt to run a script, make sure that the script is executable. For example, in a terminal on Linux or MacOS you can use the following command to make a file executable.
+If you get a "permission denied" error when you attempt to run a script, make sure that the script is executable. For example, in a terminal on Linux or macOS you can use the following command to make a file executable.
 
 ```bash
 chmod +x PATH/TO/FILE

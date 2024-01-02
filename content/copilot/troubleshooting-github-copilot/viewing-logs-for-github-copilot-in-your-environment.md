@@ -93,7 +93,7 @@ If you're using a custom certificate, ensure the certificate is installed correc
 ## Viewing logs in {% data variables.product.prodname_vs %}
 
 The log files for the {% data variables.product.prodname_copilot%} extension are stored in the standard log location for {% data variables.product.prodname_vs %} extensions.
-1. Open the the **View** menu in {% data variables.product.prodname_vs %}.
+1. Open the **View** menu in {% data variables.product.prodname_vs %}.
 1. Click **Output**.
 1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot%}** from the dropdown menu.
 
