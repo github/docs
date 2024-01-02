@@ -22,7 +22,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
