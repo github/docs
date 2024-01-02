@@ -620,7 +620,7 @@ Examples:
 
 ## Product names
 
-Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses).
+Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses). Product names are never possessive.
 
 Use product name variables to render product names - do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the data directory of the github/docs repository.
 
@@ -628,14 +628,16 @@ Product names are always singular.
 - **Use:** {% data variables.product.prodname_actions %} helps you automate your software development workflows.
 - **Avoid:** {% data variables.product.prodname_actions %} help you automate your software development workflows.
 
-Take care to distinguish between product names and product elements.
+Take care to distinguish between product names and product features. Product features are always lowercase.
 
-| Product | Element |
+| Product | Feature |
 | --- | --- |
 | {% data variables.product.prodname_actions %} | an action |
 | {% data variables.product.prodname_github_codespaces %} | a codespace |
 | {% data variables.product.prodname_registry %} | a package |
 | {% data variables.product.prodname_pages %} | a GitHub Pages site |
+
+Do not capitalize commonly used features like pull requests, topics, or issues.
 
 ## Product-specific conventions
 
