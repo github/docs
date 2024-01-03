@@ -1,7 +1,7 @@
 [
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
   },
   {
@@ -678,11 +678,6 @@
     "action": "org.async_delete",
     "description": "A user initiated a background job to delete an organization.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.audit_log_export",
-    "description": "An export of the organization audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
-    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log"
   },
   {
     "action": "org.billing_signup_error",
@@ -1982,11 +1977,6 @@
   {
     "action": "user.async_delete",
     "description": "An asynchronous job was started to destroy a user account, eventually triggering a user.delete event.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user.audit_log_export",
-    "description": "Audit log entries were exported.",
     "docs_reference_links": "N/A"
   },
   {
