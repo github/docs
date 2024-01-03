@@ -33,7 +33,7 @@ env:
 
 jobs:
   dryRunElasticsearchIndexes:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-20.04-xl
     if: github.repository == 'github/docs-internal'
     steps:
       - name: Check out repo
