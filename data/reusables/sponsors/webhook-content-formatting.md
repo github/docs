@@ -1,1 +1,0 @@
-1. Under "Content type", use the dropdown menu to select which data format you’d like to receive. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks#content-type)."

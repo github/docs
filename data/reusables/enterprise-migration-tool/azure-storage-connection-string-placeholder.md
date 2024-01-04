@@ -1,1 +1,0 @@
-AZURE_STORAGE_CONNECTION_STRING | The connection string for your Azure storage account.<br><br>Make sure to quote the connection string, which contains characters that would likely otherwise be interpreted by shell.

@@ -1,6 +1,0 @@
-# Reference: Issue #7328 - Dependabot alerts REST API
-
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>= 3.8'

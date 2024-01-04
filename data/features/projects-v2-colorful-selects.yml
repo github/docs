@@ -1,6 +1,0 @@
-# Issue 9293
-# Set color and description on Projects single selects
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.9'

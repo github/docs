@@ -1,6 +1,0 @@
-# Issue forms
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.9'
-  ghae: '>=3.9'

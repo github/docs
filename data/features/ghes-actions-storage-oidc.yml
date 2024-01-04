@@ -1,4 +1,0 @@
-# Reference: #8607.
-# OIDC for Actions external storage on GHES
-versions:
-  ghes: '>=3.8'

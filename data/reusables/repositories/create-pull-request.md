@@ -1,2 +1,0 @@
-1. To create a pull request that is ready for review, click **Create Pull Request**.
-To create a draft pull request, use the drop-down and select **Create Draft Pull Request**, then click **Draft Pull Request**. For more information about draft pull requests, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."

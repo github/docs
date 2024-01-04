@@ -1,1 +1,0 @@
-Under "Add a template repository to give students starter code", select the **Select a repository** drop-down, then type a search query. In the list of results, click the template repository you'd like to use for starter code.

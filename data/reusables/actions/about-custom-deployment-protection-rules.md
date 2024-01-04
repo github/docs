@@ -1,1 +1,0 @@
-You can enable your own custom protection rules to gate deployments with third-party services. For example, you can use services such as Datadog, Honeycomb, and ServiceNow to provide automated approvals for deployments to {% data variables.location.product_location %}.

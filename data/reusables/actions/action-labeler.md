@@ -1,1 +1,0 @@
-actions/labeler@v4
