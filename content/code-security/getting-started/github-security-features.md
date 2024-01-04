@@ -26,13 +26,6 @@ The {% data variables.product.prodname_advisory_database %} contains a curated l
 
 Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
-{% ifversion fpt or ghec %}
-
-### Security advisories
-
-Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
-
-{% endif %}
 {% ifversion fpt or ghec or ghes %}
 
 ### {% data variables.product.prodname_dependabot_alerts %} and security updates
@@ -93,6 +86,10 @@ Security overview shows which security features are enabled for the repository, 
 ### {% data variables.secret-scanning.partner_alerts_caps %}
 
 Automatically detect leaked secrets across all public repositories, as well as public npm packages. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+
+### Security advisories
+
+Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 
 {% endif %}
 
