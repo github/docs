@@ -62,7 +62,7 @@ For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-s
 
 ## Understanding the risk of script injections
 
-When creating workflows, [custom actions](/actions/creating-actions/about-custom-actions), and [composite actions](/actions/creating-actions/creating-a-composite-action) actions, you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
+When creating workflows, [custom actions](/actions/creating-actions/about-custom-actions), and [composite actions](/actions/creating-actions/creating-a-composite-action), you should always consider whether your code might execute untrusted input from attackers. This can occur when an attacker adds malicious commands and scripts to a context. When your workflow runs, those strings might be interpreted as code which is then executed on the runner.
 
  Attackers can add their own malicious content to the [`github` context](/actions/learn-github-actions/contexts#github-context), which should be treated as potentially untrusted input. These contexts typically end with `body`, `default_branch`, `email`, `head_ref`, `label`, `message`, `name`, `page_name`,`ref`, and `title`.  For example: `github.event.issue.title`, or `github.event.pull_request.body`.
 
@@ -319,7 +319,7 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate
 
 ### Denying access to hosts
 
-{% data reusables.actions.runners-etc-hosts-file %}{%ifversion fpt or ghec or ghes %}For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
+{% data reusables.actions.runners-etc-hosts-file %}{%ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
 ## Hardening for self-hosted runners
 

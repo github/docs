@@ -1,6 +1,6 @@
 ---
 title: Overview of a migration between GitHub products
-shortTitle: Overview
+shortTitle: Overview of a migration
 intro: 'Learn how to complete the entire process of migrating from one {% data variables.product.company_short %} product to another with {% data variables.product.prodname_importer_proper_name %}, from planning to implementation to completing follow-up tasks.'
 versions:
   fpt: '*'
@@ -12,11 +12,11 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
 ---
 
-## About migrations between {% data variables.product.company_short %} products
+## Overview
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
 
-If you're migrating between {% data variables.product.company_short %} products, such as from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, you can use this guide to plan and implement your migration and complete follow-up tasks. For a full list of supported migration paths, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer#supported-migration-paths)."
+If you're migrating between {% data variables.product.company_short %} products, such as from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %}, you can use this guide to plan and implement your migration and complete follow-up tasks. For a full list of supported migration paths, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer#supported-migration-paths)."
 
 ## Planning your migration
 
@@ -64,7 +64,7 @@ Migration timing is largely based on the number of pull requests and issues in a
 
 Ensure that you and your stakeholders understand what data can be migrated by {% data variables.product.prodname_importer_proper_name %}.
 
-1. Review the data that's migrated for your migration source. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer)."
+1. Review the data that's migrated for your migration source. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
 1. Make a list of any data that you'll need to manually migrate or recreate.
 
 ### Who will run the migration?

@@ -58,7 +58,7 @@ Across all organizations owned by your enterprise, you can control whether organ
 1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Code security and analysis**.
 1. Under "Dependency insights", review the information about changing the setting.
 1. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-1. Under "Dependency insights", select the the dropdown menu and click a policy.
+1. Under "Dependency insights", select the dropdown menu and click a policy.
 
 {% endif %}
 

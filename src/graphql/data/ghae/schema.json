@@ -338,7 +338,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>The search string to look for.</p>"
+          "description": "<p>The search string to look for. GitHub search syntax is supported. For more\ninformation, see \"<a href=\"https://docs.github.com/search-github/searching-on-github\">Searching on\nGitHub</a>,\"\n\"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax\">Understanding the search syntax</a>,\"\nand \"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/sorting-search-results\">Sorting search results</a>.\".</p>"
         },
         {
           "name": "type",

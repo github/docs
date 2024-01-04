@@ -1,7 +1,7 @@
 name: Add docs-reviewers request to the docs-content review board
 
 # **What it does**: Adds PRs in github/github and github/audit-log-allowlists that requested a review from docs-reviewers to the docs-content review board
-# **Why we have it**: To catch docs-reviewers requests in github/github and github/audit-log-allowlists
+# **Why we have it**: To catch docs-reviewers requests in github/audit-log-allowlists
 # **Who does it impact**: docs-content maintainers
 
 on:
@@ -30,17 +30,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install @octokit/graphql
-
-      - name: Run script for github
-        run: |
-          node src/workflows/fr-add-docs-reviewers-requests.js
-        env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-          PROJECT_NUMBER: 2936
-          ORGANIZATION: 'github'
-          REPO: 'github'
-          REVIEWER: 'docs-reviewers'
-          FEATURE: 'OpenAPI schema update'
 
       - name: Run script for audit-log-allowlists
         run: |
