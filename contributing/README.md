@@ -1,7 +1,5 @@
-# Contributing to github/docs
-
-Check out our [contributing guide](../github/CONTRIBUTING.md) to see all the ways you can participate in the GitHub docs community :sparkling_heart:
-
-Visit "[Contributing to GitHub Docs documentation](https://docs.github.com/en/contributing)" for additional information about how to write and collaborate the GitHub Docs way.
-
-Here, you'll find additional information that might be helpful as you work on a pull request in this repo.
+![4DFEF118-80B7-499E-B244-12EF834536F2](https://github.com/IST-Github/docs/assets/155141998/29ed8896-dc1a-4459-8175-8c6b69dcef80)
+![0B93FD4C-4C07-4936-9190-DD2110FD8E21](https://github.com/IST-Github/docs/assets/155141998/f67b9056-76d9-43b5-b504-8b70b6a4abeb)
+![87E7B5DF-28F7-4D7D-A427-FA3271860FC5](https://github.com/IST-Github/docs/assets/155141998/54050a84-afde-4deb-9d81-2436209242db)
+![993A77C2-3554-47B5-8410-C859FC12DFED](https://github.com/IST-Github/docs/assets/155141998/fad4cc59-a1bb-455d-9277-15e8a9c176a5)
+![IMG_0123](https://github.com/IST-Github/docs/assets/155141998/0fb5029b-0679-4fd8-806c-2650535bde51)
