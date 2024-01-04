@@ -1,0 +1,209 @@
+Governance, risk, and compliance overview
+Article
+04/03/2023
+3 contributors
+In this article
+How does Microsoft provide effective security governance across the enterprise?
+How do Microsoft online services implement the Microsoft Security Policy (MSP)?
+How do online services limit and track exceptions to established policies and procedures?
+How does Microsoft assess and manage risk across the enterprise?
+Show 4 more
+How does Microsoft provide effective security governance across the enterprise?
+Microsoft understands that effective security policies must be implemented consistently across the enterprise to protect Microsoft information systems and customers. Security policies must also account for variations in business functions and information systems to be universally applicable. To meet these requirements, Microsoft implements a comprehensive security governance program as a part of the Microsoft Policy Framework. Security governance falls under the Microsoft Security Policy (MSP).
+
+The MSP organizes Microsoft's security policies, standards, and requirements so they can be implemented across all Microsoft engineering groups and business units. Individual business units are responsible for specific implementations of Microsoft security policies. For example, Microsoft 365 documents its security implementations in the Microsoft 365 Information Security Policy and the related Microsoft 365 Control Framework. Azure and Dynamics 365 document their security implementations in the Standard Operating Procedures (SOPs) and the Azure Control Framework. These security implementations align with the goals and objectives of the MSP.
+
+Microsoft's security governance program is informed by and aligns with various regulatory and compliance frameworks. Security requirements are constantly evolving to account for new technologies, regulatory and compliance requirements, and security threats. Because of these changes, Microsoft regularly updates our security policies and supporting documents to protect Microsoft systems and customers, meet our commitments, and maintain customer trust.
+
+How do Microsoft online services implement the Microsoft Security Policy (MSP)?
+Microsoft 365 documents security implementations in the Microsoft 365 Information Security Policy. This policy aligns with the Microsoft Security Policy and governs the Microsoft 365 information system, including all Microsoft 365 environments and all resources involved in the collection, processing, maintenance, use, sharing, dissemination, and disposal of data. Similarly, Azure and Dynamics 365 use the Microsoft Security Policy to govern their information system.
+
+The information systems include the following components governed by the Microsoft 365 Information Security Policy (for Microsoft 365) and the Microsoft Security Policy (for Azure and Dynamics 365):
+
+Infrastructure: The physical and hardware components of Azure, Dynamics 365, and Microsoft 365 systems (facilities, equipment, and networks)
+Software: The programs and operating software of Azure, Dynamics 365, and Microsoft 365 systems (systems, applications, and utilities)
+People: The personnel involved in the operation and use of Azure, Dynamics 365, and Microsoft 365 systems (developers, operators, users, and managers)
+Procedures: The programmed and manual procedures involved in the operation of Azure, Dynamics 365, and Microsoft 365 systems
+Data: The information generated, collected, and processed by Azure, Dynamics 365, and Microsoft 365 systems (transaction streams, files, databases, and tables)
+The Microsoft 365 Information Security Policy is supplemented by the Microsoft 365 Control Framework. The Microsoft 365 Control Framework details the minimum-security requirements for all Microsoft 365 services and information system components. It also references the legal and corporate requirements behind each control. The framework includes control activity names, descriptions, and guidance to ensure effective control implementations by service teams. Microsoft 365 uses the control framework to track control implementations for internal and external reporting. Similarly, Azure and Dynamics 365 record control implementations in the Azure Control Framework.
+
+How do online services limit and track exceptions to established policies and procedures?
+All exceptions to the Control Frameworks must have legitimate business justification and be approved by an appropriate governance entity within each online services team. Depending on the scope of the exception and the potential risk it represents, approval for exceptions may need to be obtained from a corporate vice president or higher. Exceptions are managed in a tracking tool where they are reviewed and approved for continued relevance.
+
+How does Microsoft assess and manage risk across the enterprise?
+Risk management is the process of identifying, assessing, and responding to threats or events that can impact Company or customer objectives. Risk management at Microsoft is designed to anticipate new threats and provide ongoing security for our cloud systems and the customers who use them.
+
+Microsoft's risk management align to the Enterprise Risk Management (ERM) framework. ERM enables the overall enterprise risk management process and works with management across the enterprise to identify and ensure accountability for Microsoft's most significant risks.
+
+Risk management structure.
+
+Microsoft ERM enables common risk management principles across the enterprise so business units can independently facilitate consistent and comparative risk assessments. This coordination gives Microsoft the ability to aggregate and report risk information in a consolidated manner for management. ERM provides business units in Microsoft with common methodologies, tools, and goals for the risk management process. Microsoft 365 and other engineering groups and business units use these tools to conduct individual risk assessments as part of their own risk management programs under the guidance of ERM.
+
+How do Microsoft online services work with ERM?
+Each online service follows ERM guidance to manage risks across Microsoft services. The program focuses on aligning the ERM framework with existing Microsoft engineering, service operations, and compliance processes, making the Risk Management program more effective and efficient. Each online service's risk management activities ultimately roll up into and inform the ERM process.
+
+As part of risk assessment activities, each online service analyzes design and operating effectiveness of controls implemented as part of the Microsoft Controls Framework (Framework). The Framework is a rationalized set of controls that, when properly implemented along with supporting compliance activities, allows engineering teams to comply with key regulations and certifications.
+
+How do online services keep security and compliance requirements updated?
+Governance, Risk, and Compliance teams of each online service (GRC) work to maintain the Control Framework on an ongoing basis. Several scenarios may require the GRC team to update the control framework, including changes in relevant regulations or laws, emerging threats, penetration test results, security incidents, audit feedback, and new compliance requirements. When a framework change is required, the Trust team identifies key stakeholders responsible for approving and implementing the change to ensure it is feasible and will not cause unintended issues with Online services. Once the GRC team and relevant stakeholders agree on what the change requires, the workloads responsible for implementing the change set target completion dates and work to implement the change within their respective services. After implementation targets have been met, the Trust team updates the control framework with the new or updated controls.
+
+Related external regulations & certifications
+Microsoft's online services are regularly audited for compliance with external regulations and certifications. Refer to the following table for validation of controls related to governance, risk, and compliance.
+
+Azure and Dynamics 365
+External audits	Section	Latest report date
+ISO 27001/27002
+
+Statement of Applicability
+Certificate	A.5: Information security policies
+A.18.1: Compliance with legal and contractual requirements
+A.18.2: Information security reviews	April 24, 2023
+ISO 27017
+
+Statement of Applicability
+Certificate	A.5: Information security policies
+A.18.1: Compliance with legal and contractual requirements
+A.18.2: Information security reviews	April 24, 2023
+ISO 27018
+
+Statement of Applicability
+Certificate	A.5: Information security policies	April 24, 2023
+ISO 22301
+
+Certificate	6.1.1: Determining risks and opportunities
+6.1.2: Addressing risks and opportunities	April 24, 2023
+SOC 1	IS-1: Microsoft security policy
+IS-2: Microsoft security policy review
+IS-3: Security roles and responsibilities	November 17, 2023
+SOC 2
+SOC 3	C5-1: Standard operating procedures
+IS-1: Microsoft security policy
+IS-2: Microsoft security policy review
+IS-3: Security roles and responsibilities
+SOC2-14: Confidentiality and non-disclosure agreements
+SOC2-18: Statutory, regulatory, and contractual requirements
+SOC2-19: Cross-functional compliance program
+SOC2-20: ISMS program
+SOC2-26: Annual risk assessment	November 17, 2023
+Microsoft 365
+External audits	Section	Latest report date
+FedRAMP (Office 365)	CA-2: Security assessments
+CA-5: Plan of action and milestones
+PL-2: System security plan
+RA-3: Risk assessment	July 31, 2023
+ISO 27001/27002/27017
+
+Statement of Applicability
+Certification (27001/27002)
+Certification (27017)	A.5: Information security policies
+A.18.1: Compliance with legal and contractual requirements
+A.18.2: Information security reviews	March 2023
+SOC 1	CA-03: Risk management	January 3, 2023
+SOC 2	CA-02: Governance, risk, and compliance team responsibilities
+CA-03: Risk management
+CA-11: Policy framework updates
+CA-17: Microsoft security policy
+CA-24: Internal risk assessment
+CA-25: Control framework updates	January 3, 2023
+Resources
+Microsoft Security Policy
+Microsoft Security Program Policy
+Feedback
+Was this page helpful?
+
+Additional resources
+Training
+
+Module
+
+Understand Microsoft 365 governance - Training
+Learn how Microsoft implements organization-wide security and privacy governance to support the secure operation of Microsoft 365 services and maintain compliance with regulatory requirements and customer commitments.
+
+Certification
+
+Microsoft Certified: Security, Compliance, and Identity Fundamentals - Certifications
+Prove that you are familiar with Microsoft Azure and Microsoft 365 and understand how Microsoft security, compliance, and identity solutions can span across these solution areas to provide a holistic and end-to-end solution.
+
+Documentation
+
+Risk Assessment Guide for Microsoft Cloud - Microsoft Service Assurance
+Learn about the Risk Assessment Guide for Microsoft Cloud
+
+Risk management program - Microsoft Service Assurance
+Learn about the risk management program in Microsoft 365
+
+Network security - Microsoft Service Assurance
+Learn about network security in Microsoft 365
+
+Show 5 more
+---
+title: About webhooks
+intro: 'Webhooks provide a way for notifications to be delivered to an external web server whenever certain events occur on {% data variables.product.company_short %}.'
+redirect_from:
+  - /developers/webhooks-and-events/about-webhooks
+  - /developers/webhooks-and-events/webhooks/about-webhooks
+  - /get-started/exploring-integrations/about-webhooks
+  - /post-receive-hooks
+  - /articles/post-receive-hooks
+  - /articles/creating-webhooks
+  - /articles/about-webhooks
+  - /github/extending-github/about-webhooks
+  - /get-started/customizing-your-github-workflow/exploring-integrations/about-webhooks
+  - /webhooks-and-events/webhooks/about-webhooks
+  - /webhooks/webhooks/about-webhooks
+  - /webhooks-and-events/webhooks/replacing-github-services
+  - /webhooks/replacing-github-services
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - Webhooks
+---
+
+## About webhooks
+
+Webhooks let you subscribe to events happening in a software system and automatically receive a delivery of data to your server whenever those events occur.
+
+Webhooks are used to receive data as it happens, as opposed to polling an API (calling an API intermittently) to see if data is available. With webhooks, you only need to express interest in an event once, when you create the webhook.
+
+Webhooks are used in a wide range of scenarios, including:
+- Triggering CI (continuous integration) pipelines on an external CI server. For example, to trigger CI in Jenkins or CircleCI when code is pushed to a branch.
+- Sending notifications about events on {% data variables.product.company_short %} to collaboration platforms. For example, sending a notification to Discord or Slack when there's a review on a pull request.
+- Updating an external issue tracker like Jira.
+- Deploying to a production server.
+- Logging events as they happen on {% data variables.product.company_short %}, for audit purposes.
+
+## About webhooks on {% data variables.product.prodname_dotcom %}
+
+When you create a webhook, you specify a URL and subscribe to events that occur on {% data variables.product.company_short %}. When an event that your webhook is subscribed to occurs, {% data variables.product.company_short %} will send an HTTP request with data about the event to the URL that you specified. If your server is set up to listen for webhook deliveries at that URL, it can take action when it receives one.
+
+For example, you could subscribe your webhook to events that occur when code is pushed to a repository, a pull request is opened, a {% data variables.product.prodname_pages %} site is built, or a new member is added to a team. Your server could respond by deploying code to production, triggering a CI pipeline, sending a notification, or creating a {% data variables.product.company_short %} project for the new team member.
+
+You must create a webhook within a specific repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}. The webhook can only access resources that are available in the repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %} where it is installed. For more information, see "[AUTOTITLE](/webhooks/types-of-webhooks)."
+
+For more information about creating webhooks, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)." For more information about the types of events you can subscribe to, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)." For more information about configuring your server to take an action in response to a payload delivery, see "[AUTOTITLE](/webhooks/using-webhooks/configuring-your-server-to-receive-payloads)."
+
+{% data reusables.webhooks.webhooks-ipv6 %}
+
+## Choosing webhooks or the REST API
+
+Using webhooks has the following advantages over using the API:
+- Webhooks require less effort and less resources than polling an API.
+- Webhooks scale better than API calls. If you need to monitor many resources, calling the API for each resource may cause you to hit your API rate limit quota quickly. Instead, you can subscribe to multiple webhook events and receive information only when an event happens.
+- Webhooks allow near real-time updates, since webhooks are triggered when an event happens.
+
+If you only need information once or intermittently, or only want to get information from a small set of resources with no plans to scale up, you can call the API when you need the relevant information.
+
+For information on best practices to follow when using webhooks, see "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)."
+
+{% note %}
+
+**Note:** GitHub Services (sometimes referred to as Service Hooks) was deprecated in 2019, in favor of integrating with webhooks. For more information about migrating your integration from using GitHub Services to using webhooks, see the [blog post](https://developer.github.com/changes/2018-04-25-github-services-deprecation/).
+
+{% endnote %}
+
+## Further reading
+
+- "[AUTOTITLE](/webhooks/types-of-webhooks)"
