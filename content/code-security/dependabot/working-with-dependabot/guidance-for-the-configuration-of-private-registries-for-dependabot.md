@@ -446,7 +446,7 @@ encoding@^0.1.11:
 
 If the `yarn.lock` file doesn't list the private registry as the dependency source, you can set up Yarn Classic according to the standard package manager instructions.
 
-1. Define the private registry configuration in the the `dependabot.yml` file.
+1. Define the private registry configuration in the `dependabot.yml` file.
 1. You can then either:
     - Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key registry, or
     - Perform the same action by running `yarn config set registry <private registry URL>` in your terminal.
@@ -505,7 +505,7 @@ Finally, we recommend you run `yarn login` to verify that your configuration is 
 
 If the `yarn.lock` file doesn't list the private registry as the dependency source, you can set up Yarn Berry according to the standard package manager instructions.
 
-1. Define the private registry configuration in the the `dependabot.yml` file.
+1. Define the private registry configuration in the `dependabot.yml` file.
 1. You can then either:
     - Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key `npmRegistryServer`, or
     - Perform the same action by running `yarn config set npmRegistryServer <private registry URL>` in your terminal.

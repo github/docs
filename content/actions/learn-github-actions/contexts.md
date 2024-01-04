@@ -54,7 +54,7 @@ As part of an expression, you can access context information using one of two sy
 
 In order to use property dereference syntax, the property name must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
-If you attempt to dereference a non-existent property, it will evaluate to an empty string.
+If you attempt to dereference a nonexistent property, it will evaluate to an empty string.
 
 ### Determining when to use contexts
 

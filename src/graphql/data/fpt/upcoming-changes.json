@@ -217,6 +217,96 @@
       "owner": "deborah-digges"
     }
   ],
+  "2024-04-01": [
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_SPECIFIC",
+      "description": "<p><code>TOO_SPECIFIC</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.TOO_GENERAL",
+      "description": "<p><code>TOO_GENERAL</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.PERSONAL_PREFERENCE",
+      "description": "<p><code>PERSONAL_PREFERENCE</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "TopicSuggestionDeclineReason.NOT_RELEVANT",
+      "description": "<p><code>NOT_RELEVANT</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionPayload.topic",
+      "description": "<p><code>topic</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.repositoryId",
+      "description": "<p><code>repositoryId</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.reason",
+      "description": "<p><code>reason</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "DeclineTopicSuggestionInput.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionPayload.topic",
+      "description": "<p><code>topic</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionInput.repositoryId",
+      "description": "<p><code>repositoryId</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    },
+    {
+      "location": "AcceptTopicSuggestionInput.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Suggested topics are no longer supported</p>",
+      "date": "2024-04-01",
+      "criticality": "breaking",
+      "owner": "calvinchilds"
+    }
+  ],
   "2023-10-01": [
     {
       "location": "PullRequestReviewComment.position",

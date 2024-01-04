@@ -31562,7 +31562,11 @@ type Query {
     last: Int
 
     """
-    The search string to look for.
+    The search string to look for. GitHub search syntax is supported. For more
+    information, see "[Searching on
+    GitHub](https://docs.github.com/search-github/searching-on-github),"
+    "[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax),"
+    and "[Sorting search results](https://docs.github.com/search-github/getting-started-with-searching-on-github/sorting-search-results)."
     """
     query: String!
 

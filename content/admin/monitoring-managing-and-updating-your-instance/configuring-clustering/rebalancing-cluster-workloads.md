@@ -26,7 +26,7 @@ You can run the following commands from any node in your cluster using the admin
 
 ## Checking the distribution of cluster jobs
 
-In some cases, such as hardware failure, the underlying software that that manages allocations will migrate tasks from the unhealthy node to a healthy node. If the unhealthy node recovers, the task may remain assigned to the recovered node, which can result in unbalanced load. The risk of job failure may increase if allocations are unbalanced and additional nodes fail. You can check the distribution of allocations using the `ghe-cluster-balance status` utility.
+In some cases, such as hardware failure, the underlying software that manages allocations will migrate tasks from the unhealthy node to a healthy node. If the unhealthy node recovers, the task may remain assigned to the recovered node, which can result in unbalanced load. The risk of job failure may increase if allocations are unbalanced and additional nodes fail. You can check the distribution of allocations using the `ghe-cluster-balance status` utility.
 
 1. To see a list of allocations, run the following command. The utility displays healthy allocations in green. If any jobs are not properly distributed, the utility displays the allocation's count in red.
 

@@ -50,7 +50,7 @@ Alternatively, open the project command palette by pressing {% data variables.pr
 
 ## Showing and hiding columns in board layout
 
-In the board layout, you can can choose which columns to display. The available columns are made up of the contents of your selected column field.
+In the board layout, you can choose which columns to display. The available columns are made up of the contents of your selected column field.
 
 1. In the board layout, scroll to the right of your columns, and click {% octicon "plus" aria-label="Add a new column to the board" %}.
 

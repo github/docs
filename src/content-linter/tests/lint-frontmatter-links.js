@@ -6,6 +6,9 @@ const pageList = await loadPages(undefined, ['en'])
 const pages = await loadPageMap(pageList)
 const redirects = await loadRedirects(pageList)
 
+const liquidElsif = /{%\s*elsif/
+const containsLiquidElseIf = (text) => liquidElsif.test(text)
+
 describe('front matter', () => {
   function makeCustomErrorMessage(page, trouble, key) {
     let customErrorMessage = `In the front matter of ${page.relativePath} `
@@ -33,6 +36,7 @@ describe('front matter', () => {
   }
 
   // Test content with .includeGuides front matter
+
   const pagesWithIncludeGuides = pageList.filter((page) => page.includeGuides)
   test.each(pagesWithIncludeGuides)(
     '$relativePath .includeGuides have pristine links',
@@ -79,4 +83,32 @@ describe('front matter', () => {
       expect(trouble.length, customErrorMessage).toEqual(0)
     },
   )
+
+  // Test content with .introLinks front matter
+
+  const pagesWithIntroLinks = pageList.filter((page) => page.introLinks)
+  test.each(pagesWithIntroLinks)('$relativePath .introLinks have pristine links', async (page) => {
+    const redirectsContext = { redirects, pages }
+
+    const trouble = []
+    for (const linksRaw of Object.values(page.introLinks)) {
+      const links = Array.isArray(linksRaw) ? linksRaw : [linksRaw]
+      trouble.push(
+        ...links
+          // At the present, we're not able to check when the URI
+          // contains an `elsif` Liquid tag. So just skip them.
+          .filter((uri) => !containsLiquidElseIf(uri))
+          // On /en/enterprise-cloud@latest/admin we have,
+          //
+          //   try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
+          //
+          // Ignore those too.
+          .filter((uri) => !uri.includes('https://'))
+          .map((uri, i) => checkURL(uri, i, redirectsContext))
+          .filter(Boolean),
+      )
+    }
+    const customErrorMessage = makeCustomErrorMessage(page, trouble, 'introLinks')
+    expect(trouble.length, customErrorMessage).toEqual(0)
+  })
 })

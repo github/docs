@@ -45,7 +45,7 @@ To apply the same options to more than one command you can:
 {% note %}
 
 **Notes:**
-- `config` files only accept spaces between between option flags and values—{% data variables.product.prodname_codeql %} will throw an error if you use `=` to specify an option value.
+- `config` files only accept spaces between option flags and values—{% data variables.product.prodname_codeql %} will throw an error if you use `=` to specify an option value.
 - If you specify an option in the command line, this overrides the `config` value defined for that option.
 - If you want to specify more than one option for a `<command>`, `<subcommand>` or globally, use one line per option.
 

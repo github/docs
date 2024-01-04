@@ -1,6 +1,6 @@
 ---
 title: Overview of a migration from Bitbucket Server to GitHub Enterprise Cloud
-shortTitle: Overview
+shortTitle: Overview of a migration
 intro: 'Learn about the process of migrating from Bitbucket Server to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_importer_proper_name %}, from planning to implementation to completing follow-up tasks.'
 versions:
   fpt: '*'
@@ -11,7 +11,7 @@ redirect_from:
   - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-from-bitbucket-server-with-github-enterprise-importer
 ---
 
-## About migrations from Bitbucket Server
+## Overview
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %} on a repository-by-repository basis. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
 
@@ -49,7 +49,7 @@ For migrations from Bitbucket Server, {% data variables.product.prodname_importe
 
 Because permissions work differently in {% data variables.product.prodname_dotcom %} than in Bitbucket Server, {% data variables.product.prodname_importer_proper_name %} does not attempt to migrate repository permissions from Bitbucket Server. For more information, see "[Configuring permissions](#configuring-permissions)."
 
-1. Review the data that's migrated from Bitbucket Server. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer#bitbucket-server-migration-support)."
+1. Review the data that's migrated from Bitbucket Server. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)."
 1. Make a list of any data that you'll need to manually migrate or recreate.
 
 ### Who will run the migration?
