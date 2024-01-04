@@ -288,7 +288,7 @@ class GHAapp < Sinatra::Application
     # Instantiate an Octokit client authenticated as a GitHub App.
     # GitHub App authentication requires that you construct a
     # JWT (https://jwt.io/introduction/) signed with the app's private key,
-    # so GitHub can be sure that it came from the app an not altered by
+    # so GitHub can be sure that it came from the app and not altered by
     # a malicious third party.
     def authenticate_app
       payload = {
@@ -1510,7 +1510,7 @@ class GHAapp < Sinatra::Application
     # Instantiate an Octokit client authenticated as a GitHub App.
     # GitHub App authentication requires that you construct a
     # JWT (https://jwt.io/introduction/) signed with the app's private key,
-    # so GitHub can be sure that it came from the app an not altered by
+    # so GitHub can be sure that it came from the app and not altered by
     # a malicious third party.
     def authenticate_app
       payload = {
