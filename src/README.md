@@ -39,7 +39,7 @@ A few things are harder to categorize, so there's some broad folders:
 - `frame/`, for things that make the header, footer, global sidebar functional. And there's no more specific option.
 - `workflows/`, for things that are processes rather than the production application. And there's no more specific option.
 
-But don't hestitate to make a new subject folder if there's at least a few files related.
+But don't hesitate to make a new subject folder if there's at least a few files related.
 
 ## Where to get help
 
