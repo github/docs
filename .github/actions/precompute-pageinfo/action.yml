@@ -1,6 +1,6 @@
 name: Warmup pageinfo cache
 
-description: Run this to create a .pageinfo-cache.json.gz file
+description: Run this to create a .pageinfo-cache.json.br file
 
 inputs:
   restore-only:
@@ -16,11 +16,11 @@ runs:
     # file by running the script, and C) save the file back to cache.
     # Optionally, you can have it just do A (and not B and C).
 
-    - name: Cache .pageinfo-cache.json.gz (restore)
+    - name: Cache .pageinfo-cache.json.br (restore)
       # You can't use a SHA on these. Only possible with `actions/cache@SHA...`
       uses: actions/cache/restore@v3
       with:
-        path: .pageinfo-cache.json.gz
+        path: .pageinfo-cache.json.br
         key: pageinfo-cache-
         restore-keys: pageinfo-cache-
 
@@ -42,5 +42,5 @@ runs:
       if: ${{ inputs.restore-only == '' }}
       uses: actions/cache/save@v3
       with:
-        path: .pageinfo-cache.json.gz
+        path: .pageinfo-cache.json.br
         key: pageinfo-cache-${{ github.sha }}
