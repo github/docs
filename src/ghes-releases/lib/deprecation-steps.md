@@ -109,7 +109,7 @@ This step will remove the version from the drop-down picker, effectively depreca
 
 1. In your `docs-internal` checkout, create a new branch: `git checkout -b deprecate-<version>`.
 
-1. In your `docs-internal` checkout, edit `lib/enterprise-server-releases.js` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
+1. In your `docs-internal` checkout, edit `src/versions/lib/enterprise-server-releases.js` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
 
 1. You can test that the static pages were generated correctly on localhost and on staging. Verify that the static pages are accessible by running `npm run dev` in your local `docs-internal` checkout and navigate to:
 `http://localhost:3000/enterprise/<version>/`.
@@ -122,7 +122,7 @@ This step will remove the version from the drop-down picker, effectively depreca
    - You should see a banner on the top of every deprecated page with the date that the version was deprecated.
    - You should see a banner at the top of every page for the oldes currently supported version with the date that it will be deprecated in the ~3 months.
 
-1. If everything looks good, check in the changes to `lib/enterprise-server-releases.js` and create a pull request.
+1. If everything looks good, check in the changes to `src/versions/lib/enterprise-server-releases.js` and create a pull request.
 
 1. Ensure that CI is passing or make any changes to content needed to get tests to pass.
 
