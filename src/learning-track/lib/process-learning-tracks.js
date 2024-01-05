@@ -25,10 +25,10 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     // Find the data for the current product and track name.
 
     if (context.currentProduct.includes('.')) {
-      throw new Error(`currentProduct can not contain a . (${context.currentProduct})`)
+      throw new Error(`currentProduct cannot contain a . (${context.currentProduct})`)
     }
     if (renderedTrackName.includes('.')) {
-      throw new Error(`renderedTrackName can not contain a . (${renderedTrackName})`)
+      throw new Error(`renderedTrackName cannot contain a . (${renderedTrackName})`)
     }
 
     // Note: this will use the translated learning tracks and automatically
@@ -42,7 +42,7 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     }
 
     // If the current language isn't 'en' we need to prepare and have the
-    // English quivalent ready.
+    // English equivalent ready.
     // We do this for two reasons:
     //
     //   1. For each learning-track .yml file (in data) always want the

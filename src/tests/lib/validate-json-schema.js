@@ -19,7 +19,7 @@ ajv.addFormat('semver', {
 
 // The ajv.validate function is supposed to cache
 // the compiled schema, but the documentation says
-// that the best permformance is achieved by calling
+// that the best performance is achieved by calling
 // the compile function and then calling validate.
 // So when the same schema is validated multiple times,
 // this is the best function to use. If the schema

@@ -167,7 +167,7 @@ export default function (app) {
       index: false,
       etag: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
-      // See note about about use of 'fallthrough'
+      // See note about the use of 'fallthrough'
       fallthrough: false,
     }),
   )
@@ -187,7 +187,7 @@ export default function (app) {
         etag: false,
         maxAge: '365 days',
         immutable: true,
-        // See note about about use of 'fallthrough'
+        // See note about the use of 'fallthrough'
         fallthrough: false,
       }),
     )

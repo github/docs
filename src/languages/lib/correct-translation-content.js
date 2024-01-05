@@ -130,7 +130,7 @@ export function correctTranslatedContentStrings(content, englishContent, context
   //    | First Column ...
   //
   // And since `{% endif %}` is such a common Liquid tag we can't reply
-  // on lookig for it with `{% endif %}\n` in the English content.
+  // on looking for it with `{% endif %}\n` in the English content.
   content = content.replace(/\{% endif %\} \| /g, (match) => {
     const potentiallyBetter = '{% endif %}\n| '
     if (englishContent.includes(potentiallyBetter)) {

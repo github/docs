@@ -70,7 +70,7 @@ export const Header = () => {
     return () => window.removeEventListener('keydown', close)
   }, [])
 
-  // For the UI in smaller browswer widths, and focus the picker menu button when the search
+  // For the UI in smaller browser widths, and focus the picker menu button when the search
   // input is closed.
   useEffect(() => {
     if (!isSearchOpen && isMounted.current && menuButtonRef.current) {
