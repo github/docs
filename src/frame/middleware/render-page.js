@@ -75,14 +75,14 @@ export default async function renderPage(req, res) {
     // This means, we allow the CDN to cache it, but to be purged at the
     // next deploy. The length isn't very important as long as it gets
     // a new chance after the next deploy + purge.
-    // This way, we only have to repond with this 404 once per deploy
+    // This way, we only have to respond with this 404 once per deploy
     // and the CDN can cache it.
     defaultCacheControl(res)
 
     // The reason we're *NOT* using `nextApp.render404` is because, in
     // Next v13, is for two reasons:
     //
-    //  1. You can not control the `cache-control` header. It always
+    //  1. You cannot control the `cache-control` header. It always
     //     gets set to `private, no-cache, no-store, max-age=0, must-revalidate`.
     //     which is causing problems with Fastly because then we can't
     //     let Fastly cache it till the next purge, even if we do set a
