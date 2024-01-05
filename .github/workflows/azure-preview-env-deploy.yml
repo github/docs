@@ -198,6 +198,10 @@ jobs:
         with:
           restore-only: true
 
+      - uses: ./.github/actions/precompute-pageinfo
+        with:
+          restore-only: true
+
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
         run: src/workflows/prune-for-preview-env.sh

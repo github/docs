@@ -561,6 +561,17 @@ When linking to an external site, choose the most useful resource for the contex
 
 It's not necessary to link to an external product’s website when we mention an external product.
 
+### Adding anchors to preserve links
+
+If you know that there are links to a specific section of an article, you can add an anchor to the section to preserve the link. For example, if an external resource links to a specific section of an article, you could add an anchor so that the link directs to the correct section even if the section title changes.
+
+Use this format for link anchors. The anchor name should be the section name that is being preserved. Use an HTML comment to explain why you are adding the anchor.
+
+```markdown
+<!-- Anchor to maintain the current example link. -->
+<a name="SECTION-TITLE-THAT-MIGHT-CHANGE"></a>
+```
+
 ## Lists
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
