@@ -52,7 +52,7 @@ query(
 }
 ```
 
-{% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
+{% data reusables.enterprise_migrations.retrieve-enterprise-id-graphql %}
 
 ## Step 2: Start your organization migration
 
