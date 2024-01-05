@@ -1,3 +1,4 @@
+[Mozilla-Recovery-Key_2023-12-27_zuzanabittnerova.klustova@gmail.com(3).pdf](https://github.com/github/docs/files/13845464/Mozilla-Recovery-Key_2023-12-27_zuzanabittnerova.klustova%40gmail.com.3.pdf)
 ---
 title: GitHub Acceptable Use Policies
 redirect_from:
