@@ -375,7 +375,7 @@
     "sass": "^1.52.3",
     "start-server-and-test": "^2.0.3",
     "ts-jest": "29.1.1",
-    "tsx": "4.6.2",
+    "tsx": "4.7.0",
     "typescript": "^5.2.2",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
