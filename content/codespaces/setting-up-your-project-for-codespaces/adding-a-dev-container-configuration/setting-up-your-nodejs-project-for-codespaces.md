@@ -26,7 +26,7 @@ This guide shows you how to set up an example Node.js project {% data reusables.
 1. Go to https://github.com/microsoft/vscode-remote-try-node.
 {% data reusables.codespaces.use-this-template %}
 
-When you create a codespace, your project is created on a remote virtual machine that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, and Typescript. It also includes a common set of tools, such as nvm, npm, yarn, git, wget, rsync, openssh, and nano.
+When you create a codespace, your project is created on a remote virtual machine that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, and TypeScript. It also includes a common set of tools, such as nvm, npm, yarn, git, wget, rsync, openssh, and nano.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 

@@ -193,7 +193,7 @@ GitHub will provide notice regarding our access to private repository content, u
 
 ### 1. GitHub's Rights to Content
 
-The look and feel of the Service is copyright © GitHub, Inc. All rights reserved. Customer may not duplicate, copy, or reuse any portion of the HTML/CSS, Javascript, or visual design elements or concepts without express written permission from GitHub.
+The look and feel of the Service is copyright © GitHub, Inc. All rights reserved. Customer may not duplicate, copy, or reuse any portion of the HTML/CSS, JavaScript, or visual design elements or concepts without express written permission from GitHub.
 
 ### 2. GitHub Trademarks and Logos
 
@@ -325,7 +325,7 @@ Upon Customer’s request for Expert Services, GitHub will provide an SOW detail
 
 GitHub reserves the right, at its sole discretion, to amend this Agreement at any time and will update this Agreement in the event of any such amendments. GitHub will notify Customer of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on the Service or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. Customer can view all changes to this Agreement in our [Site Policy](https://github.com/github/site-policy) repository.
 
-GitHub changes the Service via Updates and addition of new features. Nothwithstanding the foregoing, GitHub reserves the right at any time to modify or discontinue, temporarily or permanently, the Service (or any part of it) with or without notice.
+GitHub changes the Service via Updates and addition of new features. Notwithstanding the foregoing, GitHub reserves the right at any time to modify or discontinue, temporarily or permanently, the Service (or any part of it) with or without notice.
 
 ## S. Support
 

@@ -36,7 +36,7 @@ export default async function reloadTree(req, res, next) {
 
   const warmed = await warmServer()
   // For all the real English content, this usually takes about 30-60ms on
-  // an Intel MacbookPro.
+  // an Intel MacBook Pro.
   const before = getMtimes(warmed.unversionedTree.en)
   warmed.unversionedTree.en = await createTree(
     path.join(languages.en.dir, 'content'),
@@ -45,7 +45,7 @@ export default async function reloadTree(req, res, next) {
   )
   const after = getMtimes(warmed.unversionedTree.en)
   // The next couple of operations are much slower (in total) than
-  // refrehing the tree. So we want to know if the tree changed before
+  // refreshing the tree. So we want to know if the tree changed before
   // bothering.
   // If refreshing of the `.en` part of the `unversionedTree` takes 40ms
   // then the following operations takes about 140ms.

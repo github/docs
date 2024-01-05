@@ -1,13 +1,8 @@
 ---
 title: GitHub Cookies
 redirect_from:
-  - /subprocessors
-  - /github-subprocessors
   - /github-tracking
   - /github-cookies
-  - /articles/github-subprocessors-and-cookies
-  - /github/site-policy/github-subprocessors-and-cookies
-  - /site-policy/privacy-policies/github-subprocessors-and-cookies
 versions:
   fpt: '*'
 topics:

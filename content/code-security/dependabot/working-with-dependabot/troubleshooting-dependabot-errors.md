@@ -118,6 +118,16 @@ If a security vulnerability is released for `B` versions `<2.0.0` and a patch is
 
 There are two options: you can review the open pull request and merge it as soon as you are confident that the change is safe, or close that pull request and trigger a new security update pull request. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
 
+### No security update is needed as DEPENDENCY is no longer vulnerable
+
+**Security updates only.** {% data variables.product.prodname_dependabot %} cannot close a pull request to update a dependency that is not, or is no longer, vulnerable. You may see this error when dependency graph data is stale, or when the dependency graph and {% data variables.product.prodname_dependabot %} do not agree if a particular version of a dependency is vulnerable.
+
+To debug the problem, we recommend you first examine the dependency graph for your repository, review what version it has detected for the dependency, and check if the identified version matches what is being used in your repository.
+
+If you suspect your dependency graph data is out of date, you may need to manually update the dependency graph for your repository or investigate your dependency information further. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)."
+
+If you are able to confirm the dependency version is no longer vulnerable, you can close the {% data variables.product.prodname_dependabot %} pull request.
+
 ### {% data variables.product.prodname_dependabot %} timed out during its update
 
 {% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of _package.json_ files. Updates to the Composer ecosystem also take longer to assess and may time out.

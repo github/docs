@@ -14,6 +14,8 @@ sections:
     - |
       **LOW:** To render interactive maps in an instance's web UI using Azure Maps, GitHub Enterprise Server has migrated from use of an unsecure Azure Maps API token to a more secure access token provided by role-based access control (RBAC) in Entra ID. After upgrading to this release, to re-enable interactive maps, an administrator must reconfigure authentication to Azure Maps in the Management Console. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)."
     - |
+      To address scenarios that could lead to denial of service, HAProxy has been upgraded to version 2.8.4. [Updated 2024-01-03]
+    - |
       Packages have been updated to the latest security versions.
   bugs:
     - |
@@ -37,7 +39,7 @@ sections:
     - |
       A missing executable on the PATH caused the `ghe-spokesctl ssh` command to fail.
     - |
-      On an instance GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync.
+      On an instance with GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync.
     - |
       A user in the process of being converted into an organization could be added as a collaborator on a repository. This resulted in the new organizations owners unexpectedly receiving access to the repository.
     - |
@@ -78,6 +80,8 @@ sections:
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
       Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %} [Updated 2024-01-03]
   deprecations:
     - heading: Interactive maps in the web UI no longer allow authentication using an Azure Maps API key
       notes:

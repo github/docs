@@ -501,6 +501,12 @@
       "subcategory": "installations",
       "verb": "get",
       "requestPath": "/installation/repositories"
+    },
+    {
+      "slug": "revoke-an-installation-access-token",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/installation/token"
     }
   ],
   "branches": [
@@ -2073,6 +2079,14 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    }
+  ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
     }
   ],
   "reactions": [

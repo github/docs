@@ -191,7 +191,7 @@ Make sure that you are on a secure machine before performing these steps, since 
    ...
    HkVN9...
    ...
-   -----END DSA PRIVATE KEY-----"
+   -----END RSA PRIVATE KEY-----"
    ```
 
 ## Add code for your {% data variables.product.prodname_github_app %}
@@ -288,7 +288,7 @@ class GHAapp < Sinatra::Application
     # Instantiate an Octokit client authenticated as a GitHub App.
     # GitHub App authentication requires that you construct a
     # JWT (https://jwt.io/introduction/) signed with the app's private key,
-    # so GitHub can be sure that it came from the app an not altererd by
+    # so GitHub can be sure that it came from the app and not altered by
     # a malicious third party.
     def authenticate_app
       payload = {
@@ -885,7 +885,7 @@ Open your `server.rb` file. In the code block that starts with `helpers do`, whe
 
 The code above uses the `ruby-git` gem to clone the repository using the app's installation token. It clones the code in the same directory as `server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
 
-From the repository directory, this code fetches and merges the latest changes (`@git.pull`), and checks out the specifig Git ref (`@git.checkout(ref)`). The code to do all of this fits nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. When it's done, the code changes the directory back to the original working directory (`pwd`).
+From the repository directory, this code fetches and merges the latest changes (`@git.pull`), and checks out the specific Git ref (`@git.checkout(ref)`). The code to do all of this fits nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. When it's done, the code changes the directory back to the original working directory (`pwd`).
 
 Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method.
 
@@ -1510,7 +1510,7 @@ class GHAapp < Sinatra::Application
     # Instantiate an Octokit client authenticated as a GitHub App.
     # GitHub App authentication requires that you construct a
     # JWT (https://jwt.io/introduction/) signed with the app's private key,
-    # so GitHub can be sure that it came from the app an not altererd by
+    # so GitHub can be sure that it came from the app and not altered by
     # a malicious third party.
     def authenticate_app
       payload = {

@@ -59,7 +59,7 @@ sections:
     - |
       An administrator could enable GitHub Connect on an instance with a license that does not support GitHub Connect.
     - |
-      On an instance GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync.
+      On an instance with GitHub Connect enabled, some system users were incorrectly counted as consuming a license following license sync.
     - |
       A user in the process of being converted into an organization could be added as a collaborator on a repository. This resulted in the new organizations owners unexpectedly receiving access to the repository.
     - |
@@ -106,6 +106,8 @@ sections:
       {% data reusables.release-notes.2023-11-cluster-ha-failover-git-push-failure %}
     - |
       Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
+    - |
+      {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %} [Updated 2024-01-03]
   deprecations:
     - heading: Interactive maps in the web UI no longer allow authentication using an Azure Maps API key
       notes:

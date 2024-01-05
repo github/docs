@@ -83,7 +83,7 @@ If you are a site administrator for {% data variables.location.product_location 
    {% windows %}
 
    ```powershell
-   > Enter a file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
+   > Enter a file in which to save the key (c:\Users\YOU\.ssh\id_ALGORITHM):[Press enter]
    ```
 
    {% endwindows %}
@@ -91,7 +91,7 @@ If you are a site administrator for {% data variables.location.product_location 
    {% linux %}
 
    ```shell
-   > Enter a file in which to save the key (/home/YOU/.ssh/ALGORITHM):[Press enter]
+   > Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]
    ```
 
    {% endlinux %}
@@ -166,7 +166,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.desktop.windows_git_bash %}
 
-1. In a new _admin elevated_ terminal window (PowerShell or CMD), ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
+1. In a new _admin elevated_ PowerShell window, ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[AUTOTITLE](/articles/working-with-ssh-key-passphrases)", or start it manually:
 
    ```powershell
    # start the ssh-agent in the background
@@ -178,7 +178,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
    ```powershell
-   ssh-add /c/Users/YOU/.ssh/id_ed25519
+   ssh-add c:\Users\YOU\.ssh\id_ed25519
    ```
 
 {% data reusables.ssh.add-public-key-to-github %}
@@ -258,7 +258,7 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    {% windows %}
 
    ```shell
-   > Enter a file in which to save the key (/c/Users/YOU/.ssh/id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):[Press enter]
+   > Enter a file in which to save the key (c:\Users\YOU\.ssh\id_{% ifversion ghae %}ecdsa{% else %}ed25519{% endif %}_sk):[Press enter]
    ```
 
    {% endwindows %}

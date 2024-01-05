@@ -534,7 +534,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>The search string to look for.</p>"
+          "description": "<p>The search string to look for. GitHub search syntax is supported. For more\ninformation, see \"<a href=\"https://docs.github.com/search-github/searching-on-github\">Searching on\nGitHub</a>,\"\n\"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax\">Understanding the search syntax</a>,\"\nand \"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/sorting-search-results\">Sorting search results</a>.\".</p>"
         },
         {
           "name": "type",
@@ -998,7 +998,9 @@
           "id": "topic",
           "kind": "objects",
           "href": "/graphql/reference/objects#topic",
-          "description": "<p>The accepted topic.</p>"
+          "description": "<p>The accepted topic.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Suggested topics are no longer supported Removal on 2024-04-01 UTC.</p>"
         }
       ]
     },
@@ -3430,7 +3432,9 @@
           "id": "topic",
           "kind": "objects",
           "href": "/graphql/reference/objects#topic",
-          "description": "<p>The declined topic.</p>"
+          "description": "<p>The declined topic.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Suggested topics are no longer supported Removal on 2024-04-01 UTC.</p>"
         }
       ]
     },
@@ -89938,16 +89942,16 @@
         },
         {
           "name": "name",
-          "description": "<p>The name of the suggested topic.</p>",
-          "type": "String!",
+          "description": "<p>The name of the suggested topic.</p>\n<p><strong>Upcoming Change on 2024-04-01 UTC</strong>\n<strong>Description:</strong> <code>name</code> will be removed.\n<strong>Reason:</strong> Suggested topics are no longer supported.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "repositoryId",
-          "description": "<p>The Node ID of the repository.</p>",
-          "type": "ID!",
+          "description": "<p>The Node ID of the repository.</p>\n<p><strong>Upcoming Change on 2024-04-01 UTC</strong>\n<strong>Description:</strong> <code>repositoryId</code> will be removed.\n<strong>Reason:</strong> Suggested topics are no longer supported.</p>",
+          "type": "ID",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
@@ -94162,24 +94166,24 @@
         },
         {
           "name": "name",
-          "description": "<p>The name of the suggested topic.</p>",
-          "type": "String!",
+          "description": "<p>The name of the suggested topic.</p>\n<p><strong>Upcoming Change on 2024-04-01 UTC</strong>\n<strong>Description:</strong> <code>name</code> will be removed.\n<strong>Reason:</strong> Suggested topics are no longer supported.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "reason",
-          "description": "<p>The reason why the suggested topic is declined.</p>",
-          "type": "TopicSuggestionDeclineReason!",
+          "description": "<p>The reason why the suggested topic is declined.</p>\n<p><strong>Upcoming Change on 2024-04-01 UTC</strong>\n<strong>Description:</strong> <code>reason</code> will be removed.\n<strong>Reason:</strong> Suggested topics are no longer supported.</p>",
+          "type": "TopicSuggestionDeclineReason",
           "id": "topicsuggestiondeclinereason",
           "kind": "enums",
           "href": "/graphql/reference/enums#topicsuggestiondeclinereason"
         },
         {
           "name": "repositoryId",
-          "description": "<p>The Node ID of the repository.</p>",
-          "type": "ID!",
+          "description": "<p>The Node ID of the repository.</p>\n<p><strong>Upcoming Change on 2024-04-01 UTC</strong>\n<strong>Description:</strong> <code>repositoryId</code> will be removed.\n<strong>Reason:</strong> Suggested topics are no longer supported.</p>",
+          "type": "ID",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
