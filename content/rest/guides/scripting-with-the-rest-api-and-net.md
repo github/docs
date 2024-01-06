@@ -58,14 +58,11 @@ For authentication on behalf of an organization or another user, you may use a G
 
 ```csharp
 using Octokit;
+using System;
 
-var app = new GitHubApp("YOUR-APP-ID", "YOUR-PRIVATE-KEY");
-var installationId = YOUR-INSTALLATION-ID;
-
-var accessToken = app.CreateInstallationToken(installationId);
-var client = new GitHubClient(new ProductHeaderValue("YourAppName"))
+var github = new GitHubClient(new ProductHeaderValue("YourAppName"))
 {
-    Credentials = new Credentials(accessToken.Token)
+    Credentials = new Credentials("YOUR-TOKEN")
 };
 ```
 
@@ -99,7 +96,28 @@ var github = new GitHubClient(new ProductHeaderValue("YourApp"));
 
 ## Making Requests
 
-The .NET Octokit SDK supports various ways to make requests, including using the `RepositoriesClient` and `IssuesClient` classes. Here's a simple example of how to get information about a repository:
+The .NET Octokit SDK supports two ways to make requests. You can either use the `Connection.{verb}` method or you can use predefined classes.   
+
+### Using the Connection.{verb} Method
+
+The `Connection` class in the Octokit SDK provides methods corresponding to HTTP verbs like `Get`, `Post`, `Put`, etc. Here's an example of how to use the `Get` method to fetch a repository:
+
+```csharp
+using Octokit;  
+
+var client = new GitHubClient(new ProductHeaderValue("YourAppName"))
+{
+    Credentials = new Credentials("YOUR-TOKEN")
+};
+
+var response = await client.Connection.Get<Repository>(new Uri("repos/owner/repo", UriKind.Relative));
+
+Console.WriteLine($"Repository Name: {response.Body.Name}");
+```
+
+### Using Predefined Classes
+
+The Octokit SDK also provides predefined classes that represent various GitHub resources. These classes provide methods for performing operations on the corresponding resources. Here's an example of how to use the Repository class to fetch a repository:
 
 ```csharp
 using Octokit;
@@ -110,80 +128,8 @@ var client = new GitHubClient(new ProductHeaderValue("YourAppName"))
 };
 
 var repository = await client.Repository.Get("owner", "repo");
+
 Console.WriteLine($"Repository Name: {repository.Name}");
-```
-
-For more advanced use cases, you can explore the various methods provided by the Octokit SDK.
-
-### Using the `request` method to make requests
-
-To use the `request` method to make requests, pass the HTTP method and path as the first argument. Pass any body, query, or path parameters in a hash as the second argument. For example, to make a `GET` request to `/repos/{owner}/{repo}/issues` and pass the `owner`, `repo`, and `per_page` parameters:
-
-```csharp
-using Octokit;
-
-// Example: Making a GET request to /repos/{owner}/{repo}/issues
-var parameters = new Dictionary<string, string>
-{
-    { "owner", "github" },
-    { "repo", "docs" },
-    { "per_page", "2" }
-};
-
-var result = await github.Connection.Get<object>("repos/{owner}/{repo}/issues", parameters, "application/vnd.github+json");
-
-// Example: Making a POST request to /markdown/raw
-var requestBody = new Dictionary<string, string>
-{
-    { "text", "Hello **world**" }
-};
-
-var additionalHeaders = new Dictionary<string, string>
-{
-    { "content-type", "text/plain" }
-    // Add other headers as needed
-};
-
-result = await github.Connection.Post<object>("markdown/raw", requestBody, additionalHeaders, "application/vnd.github+json");
-```
-
-### Using `rest` endpoint methods to make requests
-
-```csharp
-using Octokit;
-
-// Example: Using the rest endpoint method to list issues for a repository
-var issues = await github.Issue.GetAllForRepository("github", "docs", new RepositoryIssueRequest { PerPage = 2 });
-
-// Example: Using the rest endpoint method to list issues for a repository with additional headers
-var requestWithHeaders = new RepositoryIssueRequest
-{
-    PerPage = 2,
-    Headers = { { "x-github-api-version", "your-api-version" } }
-};
-issues = await github.Issue.GetAllForRepository("github", "docs", requestWithHeaders);
-
-```
-
-### Making paginated requests
-
-If the endpoint is paginated and you want to fetch more than one page of results, you can use the `paginate` method. `paginate` will fetch the next page of results until it reaches the last page and then return all of the results as a single array. A few endpoints return paginated results as array in an object, as opposed to returning the paginated results as an array. `paginate` always returns an array of items even if the raw result was an object.
-
-```csharp
-using Octokit;
-
-// Example: Using the paginate method to fetch all issues from a repository
-var issuesData = await github.Repository.GetAllIssues("github", "docs", new RepositoryIssueRequest { PerPage = 100 });
-
-// Example: Using the paginate method with a map function
-var mappedIssuesData = await github.Repository.GetAllIssues("github", "docs", new RepositoryIssueRequest { PerPage = 100 },
-    (response, done) =>
-    {
-        var mappedData = response.Select(issue => new { Title = issue.Title, Author = issue.User.Login });
-        done();
-        return mappedData;
-    });
-
 ```
 
 ## Catching errors
@@ -196,9 +142,15 @@ Sometimes, the {% data variables.product.company_short %} REST API will return a
 using Octokit;
 using System;
 using System.Collections.Generic;
+using System.Net;
 
 try
 {
+    var github = new GitHubClient(new ProductHeaderValue("YourAppName"))
+    {
+        Credentials = new Credentials("YOUR-TOKEN")
+    };
+
     var filesChanged = new List<string>();
 
     var iterator = await github.Repository.PullRequest.Files("github", "docs", 22809);
@@ -210,7 +162,21 @@ try
 }
 catch (ApiException ex)
 {
-    Console.Error.WriteLine($"Error! Status: {ex.StatusCode}. Message: {ex.Message}");
+    switch (ex.StatusCode)
+    {
+        case HttpStatusCode.NotFound:
+            Console.Error.WriteLine("The requested resource was not found.");
+            break;
+        case HttpStatusCode.Unauthorized:
+            Console.Error.WriteLine("Invalid credentials provided.");
+            break;
+        case HttpStatusCode.Forbidden:
+            Console.Error.WriteLine("You do not have permission to access the requested resource.");
+            break;
+        default:
+            Console.Error.WriteLine($"An error occurred: {ex.Message}");
+            break;
+    }
 }
 ```
 
@@ -277,7 +243,7 @@ var response = await RequestRetry("GET /repos/{owner}/{repo}/issues", new Dictio
 
 ## Using the response
 
-The `request` method returns a response object. The properties are `Data` (the response body returned by the endpoint), `StatusCode` (the HTTP response code), `ApiUrl` (the URL of the request), and `Headers` (an object containing the response headers). Unless otherwise specified, the response body is in JSON format. Some endpoints do not return a response body; in those cases, the `Data` property is `null`.
+The `Get<T>` method in Octokit.NET returns a `ApiResponse<T>` object. The properties are `Body` (the response body returned by the endpoint), `HttpStatusCode` (the HTTP response code), `ApiInfo` (an object containing the response headers and other API information). Unless otherwise specified, the response body is in JSON format and automatically deserialized into the type `T`. Some endpoints do not return a response body; in those cases, the `Body` property is `null`.
 
 ```csharp
 var response = await github.Connection.Get<object>("repos/{owner}/{repo}/issues/{issue_number}", new Dictionary<string, string>
@@ -293,18 +259,18 @@ Console.WriteLine($"The x-ratelimit-remaining response header is: {response.Head
 Console.WriteLine($"The issue title is: {((dynamic)response.Data).title}");
 ```
 
-Similarly, the `paginate` method returns a response object. If the request was successful, the Data property is an array of data returned by the endpoint.
+The `GetAllForRepository` method in Octokit.NET returns a list of issues for a repository. This method automatically handles pagination for you.
 
 ```csharp
-var response = await github.Repository.Issue.GetAllForRepository("github", "docs", new RepositoryIssueRequest
+var issueRequest = new RepositoryIssueRequest
 {
     PerPage = 100
-});
+};
 
-var data = response.Data;
+var issues = await github.Issue.GetAllForRepository("github", "docs", issueRequest);
 
-Console.WriteLine($"{data.Count} issues were returned");
-Console.WriteLine($"The title of the first issue is: {data[0].Title}");
+Console.WriteLine($"{issues.Count} issues were returned");
+Console.WriteLine($"The title of the first issue is: {issues[0].Title}");
 ```
 
 ## Example script
