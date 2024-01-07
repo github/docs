@@ -2,6 +2,6 @@ Private forks inherit the permissions structure of the upstream repository. This
 
 {% note %}
 
-**Note:** {% data reusables.repositories.org-base-permssions-private-forks %} For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization#about-base-permissions-for-an-organization)."
+**Note:** {% data reusables.repositories.org-base-permissions-private-forks %} For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization#about-base-permissions-for-an-organization)."
 
 {% endnote %}
