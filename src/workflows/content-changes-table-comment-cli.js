@@ -18,7 +18,7 @@
 //
 //    export GITHUB_TOKEN=github_pat_11AAAG.....
 //    export APP_URL=https://docs.github.com
-//    ./src/workflows/content-changes-table-comment.js github docs-internal main 4a0b0f2
+//    ./src/workflows/content-changes-table-comment-cli.js github docs-internal main 4a0b0f2
 //
 // [end-readme]
 
