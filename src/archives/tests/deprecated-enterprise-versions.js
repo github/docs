@@ -225,7 +225,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
   })
 
-  it("can not return the archived asset if there's no Referrer", async () => {
+  it("cannot return the archived asset if there's no Referrer", async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         // No Referrer header set at all.
@@ -234,7 +234,7 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(404)
   })
 
-  it('can not return the archived asset if empty Referrer', async () => {
+  it('cannot return the archived asset if empty Referrer', async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         Referrer: '',

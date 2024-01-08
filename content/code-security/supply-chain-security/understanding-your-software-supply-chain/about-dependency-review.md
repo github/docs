@@ -23,7 +23,7 @@ redirect_from:
 
 {% data reusables.dependency-review.feature-overview %}
 
-If a pull request targets your repository's default branch and contains changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
+For pull requests that contain changes to package manifests or lock files, you can display a dependency review to see what has changed. The dependency review includes details of changes to indirect dependencies in lock files, and it tells you if any of the added or updated dependencies contain known vulnerabilities.
 
 Sometimes you might just want to update the version of one dependency in a manifest and generate a pull request. However, if the updated version of this direct dependency also has updated dependencies, your pull request may have more changes than you expected. The dependency review for each manifest and lock file provides an easy way to see what has changed, and whether any of the new dependency versions contain known vulnerabilities.
 
@@ -74,7 +74,7 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 
 ## Best practices for using the dependency review API and the dependency submission API together
 
-The dependency review API and the {% data variables.dependency-review.action_name %} both work by comparing dependency changes in a pull request with the state of your dependencies in the head commit of your target branch, which is usually your default branch.
+The dependency review API and the {% data variables.dependency-review.action_name %} both work by comparing dependency changes in a pull request with the state of your dependencies in the head commit of your target branch.
 
 If your repository only depends on statically defined dependencies in one of {% data variables.product.prodname_dotcom %}’s supported ecosystems, the dependency review API and the {% data variables.dependency-review.action_name %} work consistently.
 

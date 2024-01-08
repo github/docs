@@ -51,7 +51,7 @@ export default async function contextualizeSearch(req, res, next) {
   if (!validationErrors.length && search.query) {
     if (!process.env.ELASTICSEARCH_URL) {
       // This is only true in local dev or in Preview environments.
-      // And in local dev, it's usually for content contritbutors who
+      // And in local dev, it's usually for content contributors who
       // want to test a preview locally, but don't want to have to
       // set up Elasticsearch.
       // This same proxying logic happens in `middleware/api/index.js`

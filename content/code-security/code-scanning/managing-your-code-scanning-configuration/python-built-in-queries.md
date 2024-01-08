@@ -18,4 +18,4 @@ topics:
 
 {% data reusables.code-scanning.codeql-query-tables.codeql-version-info %}
 
-{% data reusables.code-scanning.codeql-query-tables.cpp %}
+{% data reusables.code-scanning.codeql-query-tables.python %}

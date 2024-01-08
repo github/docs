@@ -169,7 +169,7 @@ You will use a script to automate configuring your Azure resources.
 
 You can use the following GraphQL query to retrieve your enterprise `databaseId`. You will use the enterprise `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
 
-{% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
+{% data reusables.enterprise_migrations.retrieve-enterprise-id-graphql %}
 
 ```graphql
 query(

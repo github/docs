@@ -148,7 +148,7 @@ CM | `packages_stats.ecosystems.ruby_gems.registry_enabled` | Whether Rubygems i
 CN | `packages_stats.ecosystems.ruby_gems.published_packages_count` | Number of published Rubygems packages (private, public, and internal)
 CO | `packages_stats.ecosystems.ruby_gems.private_packages_count` | Number of private Rubygems packages
 CP | `packages_stats.ecosystems.ruby_gems.public_packages_count` | Number of public Rubygems packages
-CQ | `packages_stats.ecosystems.ruby_gems.internal_packages_count` | Number of internal Rubygems packaes
+CQ | `packages_stats.ecosystems.ruby_gems.internal_packages_count` | Number of internal Rubygems packages
 CR | `packages_stats.ecosystems.ruby_gems.user_packages_count` | Number of Rubygems packages owned by user accounts
 CS | `packages_stats.ecosystems.ruby_gems.organization_packages_count` | Number of Rubygems packages owned by organizations
 CT | `packages_stats.ecosystems.ruby_gems.daily_download_count` | Number of downloads of Rubygems packages

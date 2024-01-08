@@ -39,7 +39,7 @@ describe('getRedirect basics', () => {
 
     expect(getRedirect('/enterprise-cloud@latest', ctx)).toBe('/en/enterprise-cloud@latest')
 
-    expect(getRedirect('/enterprise-server@3.7', ctx)).toBe('/en/enterprise-server@3.7')
+    expect(getRedirect('/enterprise-server@3.8', ctx)).toBe('/en/enterprise-server@3.8')
 
     expect(getRedirect('/enterprise-server@latest', ctx)).toBe(
       `/en/enterprise-server@${latestStable}`,

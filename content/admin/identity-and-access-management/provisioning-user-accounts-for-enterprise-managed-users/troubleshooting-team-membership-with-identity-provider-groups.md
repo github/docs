@@ -29,7 +29,7 @@ If {% data variables.product.prodname_dotcom %} is unable to synchronize team me
 1. In the list of IdP groups, click the group you'd like to review.
 1. To review the synchronization error for the group, under the name of the group, click **Teams**.
 
-   ![Screenshot of the page for a synchronized IdP group. Under the name of the group, to the right, the "Teams" tab is highlighed in dark orange.](/assets/images/help/enterprises/idp-group-sync-teams-tab.png)
+   ![Screenshot of the page for a synchronized IdP group. Under the name of the group, to the right, the "Teams" tab is highlighted in dark orange.](/assets/images/help/enterprises/idp-group-sync-teams-tab.png)
 
    If a team is unable to sync membership with a group on your IdP, you'll see a description of the problem under the team's name and membership count.
 

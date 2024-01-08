@@ -457,7 +457,7 @@ describe('catches errors thrown in Page class', () => {
     expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 
-  describe('versionining optional attributes', () => {
+  describe('versioning optional attributes', () => {
     test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
       const page = await Page.init({
         relativePath: 'page-with-optional-attributes.md',
