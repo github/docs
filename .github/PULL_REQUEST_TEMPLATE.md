@@ -16,7 +16,7 @@ If you made changes to the `content` directory, a table will populate in a comme
 
 ### Check off the following:
 
-- [ ] I have reviewed my changes in staging, available via the **View deployment** link in this PR's timeline (i.e. please confirm you have reviewed your changes after opening the PR).
+- [ ] I have reviewed my changes in staging, available via the **View deployment** link in this PR's timeline (i.e. I confirm I have reviewed my changes **after** opening this PR).
 
   - For content changes, you will also see an automatically generated comment with links directly to pages you've modified. The comment won't appear if your PR only edits files in the `data` directory.
 - [ ] For content changes, I have completed the [self-review checklist](https://docs.github.com/en/contributing/collaborating-on-github-docs/self-review-checklist).
