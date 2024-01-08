@@ -11,6 +11,8 @@ topics:
 shortTitle: About GitHub Copilot Business
 ---
 
+{% data reusables.copilot.get-copilot-business-cta-button %}
+
 ## About {% data variables.product.prodname_copilot_for_business %}
 
 {% data reusables.copilot.about-copilot %}
