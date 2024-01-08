@@ -170,6 +170,12 @@ jobs:
         # archived enterprise server URLs.
         if: ${{ matrix.name == 'redirects' }}
 
+      - uses: ./.github/actions/precompute-pageinfo
+        # Only the 'pageinfo' tests include end-to-end tests about this.
+        if: ${{ matrix.name == 'pageinfo' }}
+        env:
+          ROOT: src/fixtures/fixtures
+
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group
         # is one that will run tests against an Elasticsearch on localhost.

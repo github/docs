@@ -349,6 +349,12 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -917,6 +923,12 @@
       "subcategory": "installations",
       "verb": "get",
       "requestPath": "/installation/repositories"
+    },
+    {
+      "slug": "revoke-an-installation-access-token",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/installation/token"
     }
   ],
   "billing": [
@@ -2789,6 +2801,14 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    }
+  ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
     }
   ],
   "reactions": [

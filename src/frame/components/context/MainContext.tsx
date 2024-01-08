@@ -134,6 +134,7 @@ export type MainContextT = {
 // they will always be available and don't need to be manually added.
 // Order does not matter on these.
 const DEFAULT_UI_NAMESPACES = [
+  'alerts',
   'header',
   'search',
   'survey',

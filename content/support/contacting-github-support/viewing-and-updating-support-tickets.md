@@ -42,7 +42,7 @@ You can only view archived tickets for an enterprise account.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot showing the the "My Tickets" dropdown menu highlighted in dark orange.](/assets/images/help/support/ticket-context.png)
+   ![Screenshot showing the "My Tickets" dropdown menu highlighted in dark orange.](/assets/images/help/support/ticket-context.png)
 1. Under the "My tickets" table, click **View archived tickets**.
 
 {% endif %}

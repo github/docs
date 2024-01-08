@@ -1397,6 +1397,17 @@
           "metadata"
         ],
         "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "metadata"
+        ],
+        "access": "write"
       }
     ]
   },
@@ -4276,6 +4287,17 @@
         "slug": "add-selected-repository-to-an-organization-variable",
         "subcategory": "variables",
         "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "organization_actions_variables"
+        ],
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
         "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
         "additional-permissions": [
           "organization_actions_variables"

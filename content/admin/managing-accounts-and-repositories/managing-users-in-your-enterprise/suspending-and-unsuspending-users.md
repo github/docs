@@ -46,7 +46,7 @@ Before suspending site administrators, you must demote them to regular users. Fo
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 1. In the left sidebar, click **Suspended users**.
-1. A list of suspened users displays.
+1. A list of suspended users displays.
 
 ## Suspending a user from the site admin dashboard
 

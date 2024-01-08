@@ -574,7 +574,7 @@ When you set the `containerMode` in the `values.yaml` file for the [`gha-runner-
 
 Depending on which value you set for the `containerMode`, a configuration will automatically be injected into the `template` section of the `values.yaml` file for the `gha-runner-scale-set` helm chart.
 - See the [`dind` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L110).
-- See the [`kuberbetes` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L160).
+- See the [`kubernetes` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L160).
 
 To customize the spec, comment out or remove `containerMode`, and append the configuration you want in the `template` section.
 

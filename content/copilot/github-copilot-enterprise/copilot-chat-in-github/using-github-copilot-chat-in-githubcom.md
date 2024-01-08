@@ -146,7 +146,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
    - How could I improve this code?
    - How can I test this script?
 
-   If you are aksing about specific lines, you could enter:
+   If you are asking about specific lines, you could enter:
    - Explain the function at the selected lines.
    - How could I improve this class?
    - Add error handling to this code.

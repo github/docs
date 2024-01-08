@@ -19,7 +19,7 @@ If your organization uses SAML SSO, you may not be able to see your organization
 
 ## Installing or requesting {% data variables.product.prodname_github_apps %} for SAML users
 
-If your organization uses SAML, you may not see your organzation listed when you try to install or request an {% data variables.product.prodname_github_app %} for your organization. To resolve this issue, follow these steps:
+If your organization uses SAML, you may not see your organization listed when you try to install or request an {% data variables.product.prodname_github_app %} for your organization. To resolve this issue, follow these steps:
 
 1. Go to `https://github.com/orgs/ORGANIZATION-NAME/sso` to start an active SAML session for your organization. Replace `ORGANIZATION-NAME` with the name of your organization.
 1. Try to install or request the {% data variables.product.prodname_github_app %} again. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party)," "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)," and "[AUTOTITLE](/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner)."

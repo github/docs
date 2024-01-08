@@ -33,7 +33,7 @@ let currentlyOpen: HTMLLinkElement | null = null
 // inserted into the visible DOM. So before that, as a `div` element,
 // its `offsetHeight` and `.getBoundingClientRect().height` are always 0.
 // We *could* "change our mind" and wait till it's been inserted and then
-// change accoding to the popover's true height. But this can cause a flicker.
+// change according to the popover's true height. But this can cause a flicker.
 const BOUNDING_TOP_MARGIN = 300
 
 // All links that should have a hover card also get a
@@ -132,7 +132,7 @@ function getOrCreatePopoverGlobal() {
     wrapper.appendChild(inner)
 
     // this extra element and its event listener are used to help us direct
-    // where focus should go when reachign the end of a hover card;
+    // where focus should go when reaching the end of a hover card;
     // see `topBumper` for its counterpart
     const bottomBumper = document.createElement('span')
     bottomBumper.setAttribute('aria-hidden', 'true')
@@ -168,7 +168,7 @@ function getOrCreatePopoverGlobal() {
       else if (event.key === 'Tab') headingLink.focus()
     })
 
-    // The bottom bumper is more complex and handled via handleBottomBumer()
+    // The bottom bumper is more complex and handled via handleBottomBumper()
     bottomBumper.addEventListener('keyup', (event) => {
       handleBottomBumper(titleLink, headingLink, event)
     })

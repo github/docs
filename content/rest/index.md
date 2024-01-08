@@ -3,7 +3,7 @@ title: GitHub REST API documentation
 shortTitle: REST API
 intro: 'Create integrations, retrieve data, and automate your workflows with the {% data variables.product.prodname_dotcom %} REST API.'
 introLinks:
-  overview: /rest/overview/about-the-rest-api
+  overview: /rest/about-the-rest-api/about-the-rest-api
   quickstart: /rest/quickstart
 featuredLinks:
   startHere:

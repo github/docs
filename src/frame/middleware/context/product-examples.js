@@ -20,7 +20,7 @@ export default async function productExamples(req, res, next) {
 
   const { currentProduct, currentLanguage } = req.context
   if (currentProduct.includes('.'))
-    throw new Error(`currentProduct can not contain a . (${currentProduct})`)
+    throw new Error(`currentProduct cannot contain a . (${currentProduct})`)
 
   req.context.productCommunityExamples = getProductExampleData(
     currentProduct,

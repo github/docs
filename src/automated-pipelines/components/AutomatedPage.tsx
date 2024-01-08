@@ -7,7 +7,7 @@ import { ArticleGridLayout } from 'src/frame/components/article/ArticleGridLayou
 import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
 import { ClientSideHighlight } from 'src/frame/components/ClientSideHighlight'
-import { Callout } from 'src/frame/components/ui/Callout'
+import { Alert } from 'src/frame/components/ui/Alert'
 
 type Props = {
   children: React.ReactNode
@@ -34,9 +34,7 @@ export const AutomatedPage = ({ children }: Props) => {
 
               {permissions && <PermissionsStatement permissions={permissions} />}
 
-              {product && (
-                <Callout className="mb-4" dangerouslySetInnerHTML={{ __html: product }} />
-              )}
+              {product && <Alert className="mb-4" html={product} />}
             </>
           }
           toc={miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}

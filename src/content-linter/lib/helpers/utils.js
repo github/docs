@@ -63,7 +63,7 @@ export function doesStringEndWithPeriod(text) {
 //      'inline'
 //    ]
 //
-// Then the return value would be the items that match that seaquence:
+// Then the return value would be the items that match that sequence:
 // Index 2-4:
 //   [
 //      { type: 'inline'},            <-- Index 0 - NOT INCLUDED

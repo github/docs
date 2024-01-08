@@ -105,11 +105,11 @@ The dates we use for Enterprise releases and deprecations are stored in [release
 
 - [ ] Completed step 4 ✅
 
-This step will remove the version from the drop-down picker, effectively deprecating the version from a user's perspective. The content for the deperecated release will still exist in the Markdown files.
+This step will remove the version from the drop-down picker, effectively deprecating the version from a user's perspective. The content for the deprecated release will still exist in the Markdown files.
 
 1. In your `docs-internal` checkout, create a new branch: `git checkout -b deprecate-<version>`.
 
-1. In your `docs-internal` checkout, edit `lib/enterprise-server-releases.js` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
+1. In your `docs-internal` checkout, edit `src/versions/lib/enterprise-server-releases.js` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
 
 1. You can test that the static pages were generated correctly on localhost and on staging. Verify that the static pages are accessible by running `npm run dev` in your local `docs-internal` checkout and navigate to:
 `http://localhost:3000/enterprise/<version>/`.
@@ -122,7 +122,7 @@ This step will remove the version from the drop-down picker, effectively depreca
    - You should see a banner on the top of every deprecated page with the date that the version was deprecated.
    - You should see a banner at the top of every page for the oldes currently supported version with the date that it will be deprecated in the ~3 months.
 
-1. If everything looks good, check in the changes to `lib/enterprise-server-releases.js` and create a pull request.
+1. If everything looks good, check in the changes to `src/versions/lib/enterprise-server-releases.js` and create a pull request.
 
 1. Ensure that CI is passing or make any changes to content needed to get tests to pass.
 
@@ -132,7 +132,7 @@ This step will remove the version from the drop-down picker, effectively depreca
 
 - [ ] ✅ Completed step 5
 
-1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-release`. To create only a tag and not a release, you can [create a new release](https://github.com/github/docs-internal/releases), which allows you to "Choose a tag." Select add a new tag and use the tag name as the release title. After creating the new release, you wil see the new tag as well. You can then delete the release.
+1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-release`. To create only a tag and not a release, you can [create a new release](https://github.com/github/docs-internal/releases), which allows you to "Choose a tag." Select add a new tag and use the tag name as the release title. After creating the new release, you will see the new tag as well. You can then delete the release.
 
 ## Step 6: Remove static files for the version
 
@@ -160,7 +160,7 @@ This step will remove the version from the drop-down picker, effectively depreca
    npm run remove-version-markup -- --release <number>
    ```
 
-1. If data resuables were deleted automatically, you'll need to remove references to the deleted reusable in the content. Using VSCode to find the occurrences is quick and there are typically only a few to update. If you have any questions, reach out to the docs-content team in #docs-content to ask for help updating the Markdown files.
+1. If data reusables were deleted automatically, you'll need to remove references to the deleted reusable in the content. Using VSCode to find the occurrences is quick and there are typically only a few to update. If you have any questions, reach out to the docs-content team in #docs-content to ask for help updating the Markdown files.
 
 1. Open a PR with the results.
 

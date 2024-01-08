@@ -45,7 +45,7 @@ In the tutorial, you will first make a workflow file that uses the `gh issue com
           - name: Add comment
             run: gh issue comment "$NUMBER" --body "$BODY"
             env:
-              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+              GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
               GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
               NUMBER: {% raw %}${{ github.event.issue.number }}{% endraw %}
               BODY: >

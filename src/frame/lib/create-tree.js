@@ -118,7 +118,7 @@ export default async function createTree(originalPath, rootPath, previousTree) {
             // `children:` property but it was decided to be skipped
             // (early exit instead of returning a tree). So let's
             // mutate the `page.children` so we can benefit from the
-            // ability to reload the site tree on consective requests.
+            // ability to reload the site tree on consecutive requests.
             item.page.children = item.page.children.filter((c) => c !== child)
           }
           return subTree

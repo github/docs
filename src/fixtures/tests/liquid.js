@@ -193,7 +193,7 @@ describe('ifversion', () => {
         return matchesPerVersion[version].includes(condition)
       })
 
-      // this is the inverse of the above, conditions that shoudn't match for this rendered version
+      // this is the inverse of the above, conditions that shouldn't match for this rendered version
       const unwantedConditions = allConditions.filter((condition) => {
         return !matchesPerVersion[version].includes(condition)
       })
