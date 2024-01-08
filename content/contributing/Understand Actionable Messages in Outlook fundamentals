@@ -1,0 +1,55 @@
+
+Here's a sample that you can use to understand Actionable Messages in Outlook fundamentals:
+
+```json
+{
+    "@type": "MessageCard",
+    "@context": "http://schema.org/extensions",
+    "summary": "New approval request from Alex Wilber",
+    "themeColor": "0078D7",
+    "sections": [
+        {
+            "activityTitle": "Alex Wilber",
+            "activitySubtitle": "7/1/2024, 9:00am",
+            "activityImage": "https://i.imgur.com/6UjttbE.png",
+            "facts": [
+                {
+                    "name": "Request ID",
+                    "value": "12345"
+                },
+                {
+                    "name": "Request Type",
+                    "value": "Expense Report"
+                },
+                {
+                    "name": "Amount",
+                    "value": "$1,234.56"
+                }
+            ],
+            "potentialAction": [
+                {
+                    "@type": "HttpPOST",
+                    "name": "Approve",
+                    "target": "https://www.contoso.com/approve",
+                    "body": "action=approve&request-id=12345"
+                },
+                {
+                    "@type": "HttpPOST",
+                    "name": "Reject",
+                    "target": "https://www.contoso.com/reject",
+                    "body": "action=reject&request-id=12345"
+                }
+            ]
+        }
+    ]
+}
+```
+
+This sample is an **Adaptive Card** that can be used to send an approval request to a recipient via email. The card contains information about the request, such as the request ID, request type, and amount. The recipient can then take quick actions on the request by clicking on the "Approve" or "Reject" buttons within the card itself, without leaving Outlook. 
+
+You can find more information about Adaptive Cards and how to create them on the [official Adaptive Cards website](https://adaptivecards.io/).
+
+Source: Conversation with Bing, 1/7/2024
+(1) Understand Actionable Messages in Outlook fundamentals. https://learn.microsoft.com/en-us/training/modules/understand-actionable-messages/.
+(2) Actionable Messages in Outlook - risual. https://www.risual.com/2021/05/actionable-messages-in-outlook/.
+(3) Get started with actionable messages via email - Outlook Developer .... https://learn.microsoft.com/en-us/outlook/actionable-messages/send-via-email.---
