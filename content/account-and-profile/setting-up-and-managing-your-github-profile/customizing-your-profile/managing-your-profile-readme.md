@@ -57,11 +57,11 @@ For a summary of all the available emojis and their codes, see "[Emoji cheat she
 
 ## Removing a profile README
 
-The profile README is removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
+The profile README will be removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
 
-- The README file is empty or doesn't exist.
-- The repository is private.
-- The repository name no longer matches your username.
+- The README file is removed or made empty.
+- The repository is made private.
+- The repository name no longer matches your username due to a change in either or both names.
 
 The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility)."
 
