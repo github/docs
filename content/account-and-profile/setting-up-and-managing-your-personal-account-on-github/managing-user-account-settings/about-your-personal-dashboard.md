@@ -86,7 +86,7 @@ This feed shows activity from repositories and users you have shown a direct int
 - Forks a public repository.
 - Publishes a new release.
 
-For more information about following people and watching repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/quickstart/be-social)."
+For more information about following people and starring repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
 ### For you feed
 
