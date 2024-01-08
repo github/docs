@@ -81,11 +81,13 @@ The list of valid values for `source` are:
 
 - content
 - commit
+- pull_request_title
 - pull_request_description
 - pull_request_comment
 - issue_title
 - issue_description
 - issue_comment
+- discussion_title
 - discussion_body
 - discussion_comment
 - commit_comment
