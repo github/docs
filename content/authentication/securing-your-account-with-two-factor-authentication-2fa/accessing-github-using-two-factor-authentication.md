@@ -105,11 +105,14 @@ For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-
 
 Enabling 2FA doesn't change how you authenticate to {% data variables.product.product_name %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh)."
 
+{% ifversion ghes < 3.13 %}
+
 ## Using two-factor authentication to access a repository using Subversion
 
 {% data reusables.subversion.sunset %}
 
 When you access a repository via Subversion, you must provide a {% data variables.product.pat_generic %} instead of entering your password. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+{% endif %}
 
 ## Troubleshooting
 

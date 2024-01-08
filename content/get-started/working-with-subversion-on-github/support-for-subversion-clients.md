@@ -7,9 +7,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients
   - /get-started/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.13'
 shortTitle: Support for Subversion clients
 ---
 GitHub supports Subversion clients via the HTTPS protocol. We use a Subversion bridge to communicate svn commands to GitHub.
