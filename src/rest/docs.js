@@ -24,8 +24,8 @@ log(
   ),
 )
 log(chalk.white.bold('  Versions that can be built: ', openApiVersions, '\n'))
-log(chalk.green.bold('\nTo start the local development server run:\n'))
-log(chalk.white.bold('  npm run dev'))
+log(chalk.green.bold('To start the local development server run:\n'))
+log(chalk.white.bold('  npm run dev\n'))
 log(chalk.green.bold.underline('REST docs script examples\n'))
 log(chalk.green.bold('  Examples of ways you can build the REST docs locally:\n'))
 log(
@@ -44,7 +44,7 @@ log(
     chalk.magenta('npm run sync-rest -- --versions ghes-3.7 ghes-3.8 ; npm run dev'),
 )
 log(
-  chalk.cyan.bold('  - REST, Dotcom and next calendar date version:') +
+  chalk.cyan.bold('  - REST Dotcom and next calendar date version:') +
     ' ' +
     chalk.magenta('npm run sync-rest -- --next --versions api.github.com ; npm run dev'),
 )
@@ -72,7 +72,7 @@ log(
     '  ' +
     chalk.magenta('npm run sync-webhooks -- --versions ghes-3.7 ghes-3.8 ; npm run dev'),
 )
-log(chalk.green.bold('\nThere are also additional options you can pass. For details run:\n'))
+log(chalk.green.bold('\nFor more info and additional options, run:\n'))
 log(chalk.white.bold('  npm run sync-rest -- --help'))
 log(chalk.white('  or'))
 log(chalk.white.bold('  npm run sync-webhooks -- --help'))
