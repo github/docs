@@ -148,13 +148,10 @@ async function getProductPageInfo(page, context) {
 
 let _cache = null
 async function getPageInfoFromCache(page, pathname) {
-  let cacheInfo = ''
   if (_cache === null) {
     try {
       _cache = readCompressedJsonFile(CACHE_FILE_PATH)
-      cacheInfo = 'initial-load'
     } catch (error) {
-      cacheInfo = 'initial-fail'
       if (error.code !== 'ENOENT') {
         throw error
       }
@@ -163,9 +160,6 @@ async function getPageInfoFromCache(page, pathname) {
   }
 
   let info = _cache[pathname]
-  if (!cacheInfo) {
-    cacheInfo = info ? 'hit' : 'miss'
-  }
   if (!info) {
     info = await getPageInfo(page, pathname)
     // You might wonder; why do we not store this compute information
@@ -179,7 +173,6 @@ async function getPageInfoFromCache(page, pathname) {
     // In CI, we use the caching because the CI runs
     // `npm run precompute-pageinfo` right before it runs jest tests.
   }
-  info.cacheInfo = cacheInfo
   return info
 }
 
@@ -213,16 +206,13 @@ router.get(
       throw new Error(`pathname '${pathname}' not one of the page's permalinks`)
     }
 
-    const fromCache = await getPageInfoFromCache(page, pathname)
-    const { cacheInfo, ...info } = fromCache
+    const info = await getPageInfoFromCache(page, pathname)
 
     const tags = [
       // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags
       // the max length of a tag is 200 characters. Most of ours are less than
       // that but we truncate just to be safe.
       `pathname:${pathname}`.slice(0, 200),
-      `language:${page.languageCode}`,
-      `cache:${cacheInfo}`,
     ]
     statsd.increment('pageinfo.lookup', 1, tags)
 
