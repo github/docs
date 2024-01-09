@@ -4,6 +4,29 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>RepositoryRuleOrder</code> was added</p>",
+          "<p>Type <code>RepositoryRuleOrderField</code> was added</p>",
+          "<p>Field <code>inviterActor</code> was added to object type <code>OrganizationInvitation</code></p>",
+          "<p>Field <code>rules</code> was added to object type <code>Ref</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>OrganizationInvitation.inviter</code>:<code>inviter</code> will be removed. <code>inviter</code> will be replaced by <code>inviterActor</code>. <strong>Effective 2024-07-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2024-01-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Input field <code>AcceptTopicSuggestionInput.name</code> changed type from <code>String!</code> to <code>String</code></p>",
           "<p>Input field <code>AcceptTopicSuggestionInput.repositoryId</code> changed type from <code>ID!</code> to <code>ID</code></p>",
           "<p>Input field <code>DeclineTopicSuggestionInput.name</code> changed type from <code>String!</code> to <code>String</code></p>",

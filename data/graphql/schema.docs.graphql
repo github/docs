@@ -29712,6 +29712,14 @@ type OrganizationInvitation implements Node {
   The user who created the invitation.
   """
   inviter: User!
+    @deprecated(
+      reason: "`inviter` will be removed. `inviter` will be replaced by `inviterActor`. Removal on 2024-07-01 UTC."
+    )
+
+  """
+  The user who created the invitation.
+  """
+  inviterActor: User
 
   """
   The organization the invite is for
@@ -39181,6 +39189,36 @@ type Ref implements Node {
   repository: Repository!
 
   """
+  A list of rules from active Repository and Organization rulesets that apply to this ref.
+  """
+  rules(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repository rules.
+    """
+    orderBy: RepositoryRuleOrder = {field: UPDATED_AT, direction: DESC}
+  ): RepositoryRuleConnection
+
+  """
   The object the ref points to. Returns null when object does not exist.
   """
   target: GitObject
@@ -45936,6 +45974,41 @@ input RepositoryRuleInput {
   The type of rule to create.
   """
   type: RepositoryRuleType!
+}
+
+"""
+Ordering options for repository rules.
+"""
+input RepositoryRuleOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order repository rules by.
+  """
+  field: RepositoryRuleOrderField!
+}
+
+"""
+Properties by which repository rule connections can be ordered.
+"""
+enum RepositoryRuleOrderField {
+  """
+  Order repository rules by created time
+  """
+  CREATED_AT
+
+  """
+  Order repository rules by type
+  """
+  TYPE
+
+  """
+  Order repository rules by updated time
+  """
+  UPDATED_AT
 }
 
 """
