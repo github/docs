@@ -16,9 +16,10 @@ const DEBUG_JIT_DATA_READS = Boolean(JSON.parse(process.env.DEBUG_JIT_DATA_READS
 // English for.
 // Having this is safer than trying to wrangle the translations to NOT
 // have them translated.
-const ALWAYS_ENGLISH_YAML_FILES = new Set([
-  'data/variables/product.yml',
-  'data/variables/release_candidate.yml',
+const ALWAYS_ENGLISH_YAML_FILES = new Set(['data/variables/product.yml'])
+const ALWAYS_ENGLISH_MD_FILES = new Set([
+  'data/reusables/ssh/fingerprints.md',
+  'data/reusables/ssh/known_hosts.md',
 ])
 
 // Returns all the things inside a directory
@@ -100,7 +101,7 @@ export const getDataByLanguage = memoize((dottedPath, langCode) => {
 
     // What could happens is that a new key has only been added to
     // the English data/ui.yml but hasn't been added to Japanese, but
-    // there nevertheless exists a Japanse `data/ui.yml`.
+    // there nevertheless exists a Japanese `data/ui.yml`.
     // Since getDataByDir() uses `get(dataObject, 'dott.ed.path')` it
     // will return `undefined` if it's not present.
     // If this happens, we can't rely on `err.code === 'ENOENT'` to
@@ -208,7 +209,7 @@ function getDataByDir(dottedPath, dir, englishRoot) {
           throw error
         }
       }
-      content = correctTranslatedContentStrings(content, englishContent)
+      content = correctTranslatedContentStrings(content, englishContent, { dottedPath })
     }
     return content
   }
@@ -286,7 +287,10 @@ const getYamlContent = memoize((root, relPath, englishRoot) => {
   // For example, we never want `data/variables/product.yml` translated
   // so we know to immediately fall back to the English one.
   if (ALWAYS_ENGLISH_YAML_FILES.has(relPath)) {
-    root = '' // this forces it to read from English
+    // This forces it to read from English. Later, when it goes
+    // into `getFileContent(...)` it will note that `root !== englishRoot`
+    // so it won't try to fall back.
+    root = englishRoot
   }
   const fileContent = getFileContent(root, relPath, englishRoot)
   return yaml.load(fileContent, { filename: relPath })
@@ -294,6 +298,14 @@ const getYamlContent = memoize((root, relPath, englishRoot) => {
 
 // The reason why this is memoized, is the same as for getYamlContent() above.
 const getMarkdownContent = memoize((root, relPath, englishRoot) => {
+  // Certain reusables we never want to be pulled from the translations.
+  // For example, certain reusables don't contain any English prose. Just
+  // facts like numbers or hardcoded key words.
+  // If this is the case, forcibly always draw from the English files.
+  if (ALWAYS_ENGLISH_MD_FILES.has(relPath)) {
+    root = englishRoot
+  }
+
   const fileContent = getFileContent(root, relPath, englishRoot)
   return matter(fileContent).content.trimEnd()
 })

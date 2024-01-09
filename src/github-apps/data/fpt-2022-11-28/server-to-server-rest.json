@@ -259,6 +259,12 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -843,6 +849,12 @@
       "subcategory": "installations",
       "verb": "get",
       "requestPath": "/installation/repositories"
+    },
+    {
+      "slug": "revoke-an-installation-access-token",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/installation/token"
     }
   ],
   "billing": [
@@ -1231,6 +1243,12 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
     },
     {
+      "slug": "get-a-code-scanning-default-setup-configuration",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup"
+    },
+    {
       "slug": "update-a-code-scanning-default-setup-configuration",
       "subcategory": "code-scanning",
       "verb": "patch",
@@ -1541,22 +1559,46 @@
   ],
   "copilot": [
     {
-      "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing"
     },
     {
-      "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "get",
       "requestPath": "/orgs/{org}/copilot/billing/seats"
     },
     {
-      "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
-      "subcategory": "copilot-for-business",
+      "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
       "verb": "post",
       "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
+    },
+    {
+      "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
+    },
+    {
+      "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "remove-users-from-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "get-copilot-business-seat-assignment-details-for-a-user",
+      "subcategory": "copilot-business",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/members/{username}/copilot"
     }
   ],
   "dependabot": [
@@ -1829,6 +1871,12 @@
       "subcategory": "protection-rules",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps"
+    },
+    {
+      "slug": "get-a-custom-deployment-protection-rule",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
     },
     {
       "slug": "disable-a-custom-protection-rule-for-an-environment",
@@ -2515,6 +2563,90 @@
       "subcategory": "members",
       "verb": "delete",
       "requestPath": "/orgs/{org}/memberships/{username}"
+    },
+    {
+      "slug": "list-organization-fine-grained-permissions-for-an-organization",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-fine-grained-permissions"
+    },
+    {
+      "slug": "get-all-organization-roles-for-an-organization",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles"
+    },
+    {
+      "slug": "create-a-custom-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/organization-roles"
+    },
+    {
+      "slug": "remove-all-organization-roles-for-a-team",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}"
+    },
+    {
+      "slug": "assign-an-organization-role-to-a-team",
+      "subcategory": "organization-roles",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}"
+    },
+    {
+      "slug": "remove-an-organization-role-from-a-team",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}"
+    },
+    {
+      "slug": "remove-all-organization-roles-for-a-user",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/users/{username}"
+    },
+    {
+      "slug": "assign-an-organization-role-to-a-user",
+      "subcategory": "organization-roles",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}"
+    },
+    {
+      "slug": "remove-an-organization-role-from-a-user",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}"
+    },
+    {
+      "slug": "get-an-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
+    },
+    {
+      "slug": "update-a-custom-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
+    },
+    {
+      "slug": "delete-a-custom-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}"
+    },
+    {
+      "slug": "list-teams-that-are-assigned-to-an-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}/teams"
+    },
+    {
+      "slug": "list-users-that-are-assigned-to-an-organization-role",
+      "subcategory": "organization-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/organization-roles/{role_id}/users"
     },
     {
       "slug": "list-outside-collaborators-for-an-organization",
@@ -3233,6 +3365,14 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
     }
   ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
+    }
+  ],
   "reactions": [
     {
       "slug": "delete-team-discussion-comment-reaction",
@@ -3707,6 +3847,12 @@
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
     },
     {
+      "slug": "download-a-repository-archive-tar",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/tarball/{ref}"
+    },
+    {
       "slug": "list-repository-teams",
       "subcategory": "repos",
       "verb": "get",
@@ -3741,6 +3887,12 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/vulnerability-alerts"
+    },
+    {
+      "slug": "download-a-repository-archive-zip",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/zipball/{ref}"
     },
     {
       "slug": "list-public-repositories",
@@ -3885,6 +4037,12 @@
       "subcategory": "repository-advisories",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve"
+    },
+    {
+      "slug": "create-a-temporary-private-fork",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks"
     }
   ],
   "teams": [

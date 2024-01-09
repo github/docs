@@ -56,10 +56,10 @@ You can use the {% data variables.actions.azure_portal %} to navigate to your {%
 
 ## Next steps
 
-- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
+- Once your deployment has been provisioned, the next step is to initialize {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 - If you're trying {% data variables.product.product_name %}, you can upgrade to a full license at any time during the trial period by contacting contact {% data variables.contact.contact_enterprise_sales %}. If you haven't upgraded by the last day of your trial, then the deployment is automatically deleted. If you need more time to evaluate {% data variables.product.product_name %}, contact {% data variables.contact.contact_enterprise_sales %} to request an extension.
 
 ## Further reading
 
 - "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features-on-github-ae)"
-- "[AUTOTITLE](/github-ae@latest/admin/release-notes)"
+- "[AUTOTITLE](/admin/release-notes)"

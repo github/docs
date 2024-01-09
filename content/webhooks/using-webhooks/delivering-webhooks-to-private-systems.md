@@ -16,7 +16,9 @@ A reverse proxy is a web server that sits between a client and an application. T
 
 - web servers, like [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 - API gateways
+- free, open-source overlay networks, like [OpenZiti](https://openziti.io)
 - commercial ingress management tools, like [ngrok](https://ngrok.com/partners/github)
+- free, open-source ingress management tools, like [zrok](https://zrok.io)
 
 How you configure your reverse proxy varies based on the system you're using.
 

@@ -18,7 +18,7 @@ topics:
 **Tips:**
 
 - By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, {% ifversion code-search-code-view %}use the [`path` code search qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#path-qualifier){% else %}use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename){% endif %}.{% ifversion file-finder-exclusion-controls %} Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).{% endif %}
-- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
+- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
 
 {% endtip %}
 
@@ -26,10 +26,10 @@ topics:
 
 {% ifversion code-search-code-view %}
 {% data reusables.repositories.navigate-to-repo %}
-1. In the file tree view, click the {% octicon "filter" aria-hidden="true" %} **Jump to file** search bar. You can also find the {% octicon "filter" aria-hidden="true" %} **Jump to file** search bar at the top of the integrated file editor.
-
-   ![Screenshot of the file tree view for a repository. A search bar, labeled "Jump to file", is outlined in dark orange.](/assets/images/help/repository/file-tree-view-jump-to-file.png)
-1. In the search bar, type the name of the file or directory you'd like to find.
+1. In the “Go to file” search bar, type the name of the file or directory you'd like to find.
+   ![Screenshot of the main view for a repository. A search bar, labeled "Go to file", is outlined in dark orange.](/assets/images/help/repository/repository-main-page-go-to-file.png)
+1. Alternatively, if there is no "Go to file" search bar, click **Go to file**, then type the name of the file or directory you'd like to find.
+   ![Screenshot of the main view for a repository. A "Go to file" button is outlined in dark orange.](/assets/images/help/repository/repository-main-page-go-to-file-no-search-bar.png)
 1. In the list of results, click the file or directory you wanted to find. You can view the file path for a directory or file below each search result.
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}

@@ -17,7 +17,7 @@ Organizations are shared accounts where businesses and open-source projects can 
 
 ### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
 
-Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."
 
 Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 

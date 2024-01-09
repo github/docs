@@ -44,6 +44,12 @@ You will use a script to automate configuring your Azure resources.
 
 - Save the following `.bicep` file. Name the file `actions-nsg-deployment.bicep`.
 
+  {% note %}
+
+  **Note:** Alternatively, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud)."
+
+  {% endnote %}
+
   ```bicep copy
   @description('NSG for outbound rules')
   param location string
@@ -163,7 +169,7 @@ You will use a script to automate configuring your Azure resources.
 
 You can use the following GraphQL query to retrieve your enterprise `databaseId`. You will use the enterprise `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
 
-{% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
+{% data reusables.enterprise_migrations.retrieve-enterprise-id-graphql %}
 
 ```graphql
 query(
@@ -206,6 +212,9 @@ To use the script, fill in the placeholder environment variable values with the 
 
 - Run the following script in the same directory where you saved the `actions-nsg-deployment.bicep` file.
 - When setting the `YOUR_AZURE_LOCATION` environment variable, use your region’s name. This value is different than your region’s display name. To see a list of names and display names, use `az account list-locations -o table`.
+- When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
+- To delete the subnet, the service association link needs to be removed first. The service association link is safely removed when the network settings resource is deleted. You can delete the network settings resource only when it is not in use by a network configuration in your {% data variables.product.company_short %} settings.
+- If you customize this script to use network resources in existing subnets, you must ensure any existing network interfaces (NICs) connected to the subnet are deleted before the subnet is delegated to the {% data variables.product.prodname_actions %} service. Otherwise, the service will fail to apply the service association link to the subnet.
 
 {% endnote %}
 
@@ -216,7 +225,7 @@ To use the script, fill in the placeholder environment variable values with the 
 # - Resource group
 # - Network Security Group rules
 # - Virtual network (vnet) and subnet
-# - Network Settings with specified subnet and GitHub Enterprise databse ID
+# - Network Settings with specified subnet and GitHub Enterprise database ID
 #
 # It also registers the `GitHub.Network` resource provider with the subscription,
 # delegates the created subnet to the Actions service via the `GitHub.Network/NetworkSettings`
@@ -329,4 +338,4 @@ Once the network configuration is associated with a runner group, all runners in
 1. In the left sidebar, click **Hosted compute networking**.
 1. To edit a network configuration, to the right of the network configuration, click {% octicon "pencil" aria-label="Edit a network configuration" %}. Then click **Edit configuration**.
 1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Disable**.
-1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.
+1. To delete a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.

@@ -92,6 +92,7 @@ export function Search() {
             aria-label="Search"
             icon={SearchIcon}
             sx={{ borderTopLeftRadius: 'unset', borderBottomLeftRadius: 'unset' }}
+            type="submit"
           />
         </form>
       </div>

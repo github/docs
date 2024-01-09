@@ -23,7 +23,7 @@ You can authenticate to the GraphQL API using a {% data variables.product.pat_ge
 To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes {% ifversion pat-v2 %}or permissions {% endif %}you will need.
 
 {% ifversion pat-v2 %}
-For example, select the "issues:read" permission to read all of the issues in the repos your token has access to.
+For example, select the "issues:read" permission to read all of the issues in the repositories your token has access to.
 
 All {% data variables.product.pat_v2 %}s include read access to public repositories. To access public repositories with a {% data variables.product.pat_v1 %}, select the "public_repo" scope.
 
@@ -407,7 +407,7 @@ For more information on the difference between enums and strings, see the [offic
 
 There is a _lot_ more you can do when forming GraphQL calls. Here are some places to look next:
 
-- [Pagination](https://graphql.org/learn/pagination/)
+- [AUTOTITLE](/graphql/guides/using-pagination-in-the-graphql-api)
 - [Fragments](https://graphql.org/learn/queries/#fragments)
 - [Inline fragments](https://graphql.org/learn/queries/#inline-fragments)
 - [Directives](https://graphql.org/learn/queries/#directives)

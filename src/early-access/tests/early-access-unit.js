@@ -1,7 +1,7 @@
 import { expect, jest, test } from '@jest/globals'
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 
-import { describeIfDocsEarlyAccess } from '../../../tests/helpers/conditional-runs.js'
+import { describeIfDocsEarlyAccess } from '#src/tests/helpers/conditional-runs.js'
 import languages from '#src/languages/lib/languages.js'
 
 const VALID_EARLY_ACCESS_URI = '/early-access/github/save-time-with-slash-commands'

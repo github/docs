@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import Cookies from 'components/lib/cookies'
-import { UnderlineNav } from '@primer/react/drafts'
+import Cookies from 'src/frame/components/lib/cookies'
+import { UnderlineNav } from '@primer/react'
 import { sendEvent, EventType } from 'src/events/components/events'
 import { useRouter } from 'next/router'
 

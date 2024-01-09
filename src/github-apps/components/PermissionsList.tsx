@@ -2,10 +2,10 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { slug as githubSlug } from 'github-slugger'
 
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'components/Link'
-import { MainContextT } from 'components/context/MainContext'
+import { Link } from 'src/frame/components/Link'
+import { MainContextT } from 'src/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,

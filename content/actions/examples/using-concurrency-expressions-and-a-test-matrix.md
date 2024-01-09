@@ -212,7 +212,7 @@ jobs:
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
-          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
+          CHANGELOG_CACHE_FILE_PATH: src/fixtures/fixtures/changelog-feed.json
         run: npm test -- {% raw %}tests/${{ matrix.test-group }}/{% endraw %}
 ```
 

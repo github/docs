@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
 
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Picker } from 'src/tools/components/Picker'
@@ -27,16 +27,23 @@ export const VersionPicker = ({ xs }: Props) => {
     return prefix + router.asPath.replace(`/${currentVersion}`, '')
   }
 
-  const allLinks = (page.applicableVersions || []).map((pageVersion) => ({
-    text: allVersions[pageVersion].versionTitle,
-    selected: currentVersion === pageVersion,
-    href: versionToHref(pageVersion),
-    extra: {
-      arrow: false,
-      info: false,
-    },
-    divider: false,
-  }))
+  const allLinks = (page.applicableVersions || [])
+    .filter((pageVersion) => {
+      // GHAE is deprecated. As per issue #3589 we're softly removing
+      // the version from the version picker. The only exception is if
+      // you're already on a GHAE page.
+      return pageVersion !== 'github-ae@latest' || currentVersion === 'github-ae@latest'
+    })
+    .map((pageVersion) => ({
+      text: allVersions[pageVersion].versionTitle,
+      selected: currentVersion === pageVersion,
+      href: versionToHref(pageVersion),
+      extra: {
+        arrow: false,
+        info: false,
+      },
+      divider: false,
+    }))
 
   const hasEnterpriseVersions = (page.applicableVersions || []).some((pageVersion) =>
     pageVersion.startsWith('enterprise-server'),

@@ -59,6 +59,13 @@ In addition to the features available with {% data variables.product.prodname_fr
   - Code owners
   - Auto-linked references
   - {% data variables.product.prodname_pages %}
+
+    {% note %}
+
+    **Note:** To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
+
+    {% endnote %}
+
   - Wikis
   - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 
@@ -88,6 +95,13 @@ In addition to the features available with {% data variables.product.prodname_fr
   - Code owners
   - Scheduled reminders
   - {% data variables.product.prodname_pages %}
+
+    {% note %}
+
+    **Note:** To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
+
+    {% endnote %}
+
   - Wikis
   - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
 {%- ifversion fpt or ghec %}
@@ -122,7 +136,7 @@ In addition to the features available with {% data variables.product.prodname_te
 
 To see how {% data variables.product.product_name %} compares to GitLab, Bitbucket, and Jenkins, see [Comparing GitHub to other DevOps solutions](https://resources.github.com/devops/tools/compare/).
 
-You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" and "[AUTOTITLE](/enterprise-server@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)."
+You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" and "[AUTOTITLE](/enterprise-server@latest/admin/overview/setting-up-a-trial-of-github-enterprise-server)."
 
 ## Further reading
 

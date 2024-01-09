@@ -12,16 +12,13 @@ versions:
 topics:
   - API
 children:
-  - /getting-started-with-the-rest-api
   - /scripting-with-the-rest-api-and-javascript
   - /scripting-with-the-rest-api-and-ruby
   - /discovering-resources-for-a-user
   - /delivering-deployments
   - /rendering-data-as-graphs
   - /working-with-comments
-  - /using-pagination-in-the-rest-api
   - /building-a-ci-server
-  - /best-practices-for-using-the-rest-api
   - /using-the-rest-api-to-interact-with-your-git-database
   - /using-the-rest-api-to-interact-with-checks
   - /encrypting-secrets-for-the-rest-api

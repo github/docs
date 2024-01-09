@@ -78,7 +78,8 @@ When you're ready to proceed, follow these steps to enable a feature for all rep
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 1. In the left sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
-1. To enable a feature in all repositories in your organization where the feature is supported, next to the name of the feature, click **Enable all**.
+1. Locate the feature that you want to enable and use any associated check boxes to fine-tune the options.
+1. When you are ready to enable the feature for all repositories in your organization where the feature is supported, next to the name of the feature, click **Enable all**.
 
 When you click **Enable all**, you'll be prompted to confirm your choice. You'll also be told if the feature depends on another feature, or requires {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories)."
 
@@ -103,8 +104,10 @@ On this view, you can use checkboxes to select specific repositories, or you can
 {% endif %}
 
 {% ifversion ghec or ghes %}
-If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)." {% ifversion ghec %}When you use the "Security coverage" view, you can can see the number of active committers for the repositories you select, and therefore the number of {% data variables.product.prodname_GH_advanced_security %} licenses that enabling a feature will consume.{% endif %}
+If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)." {% ifversion ghec %}When you use the "Security coverage" view, you can see the number of active committers for the repositories you select, and therefore the number of {% data variables.product.prodname_GH_advanced_security %} licenses that enabling a feature will consume.{% endif %}
 {% endif %}
+
+{% data reusables.security-overview.settings-limitations %}
 
 ### Enabling a feature for new repositories
 

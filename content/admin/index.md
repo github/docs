@@ -91,7 +91,7 @@ featuredLinks:
   popular:
     - /admin/overview/about-github-enterprise-server
     - '{% ifversion ghae %}/admin/release-notes{% endif %}'
-    - '{% ifversion ghes %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/admin/overview/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/installation{% endif %}'
     - '{% ifversion ghae %}/admin/identity-and-access-management/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
     - '{% ifversion ghae %}/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise{% endif %}'
@@ -111,6 +111,7 @@ versions:
   ghae: '*'
 children:
   - /overview
+  - /managing-your-enterprise-account
   - /installation
   - /configuration
   - /administering-your-instance

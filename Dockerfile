@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:20-alpine@sha256:002b6ee25b63b81dc4e47c9378ffe20915c3fa0e98e834c46584438468b1d0b5 as base
+FROM node:20-alpine@sha256:32427bc0620132b2d9e79e405a1b27944d992501a20417a7f407427cc4c2b672 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -44,10 +44,11 @@ RUN npm prune --production
 # ---------------
 FROM all_deps as builder
 
-COPY components ./components
 COPY src ./src
 # The star is because it's an optional directory
 COPY .remotejson-cache* ./.remotejson-cache
+# The star is because it's an optional file
+COPY .pageinfo-cache.json.gz* ./.pageinfo-cache.json.gz
 # Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
@@ -89,14 +90,13 @@ COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node src ./src
 COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
+COPY --chown=node:node .pageinfo-cache.json* ./.pageinfo-cache.json
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
-COPY --chown=node:node server.js ./server.js
-COPY --chown=node:node start-server.js ./start-server.js
 
 EXPOSE $PORT
 
-CMD ["node", "server.js"]
+CMD ["node", "src/frame/server.js"]
 
 # --------------------------------------------------------------------------------
 # PRODUCTION IMAGE - includes all translations

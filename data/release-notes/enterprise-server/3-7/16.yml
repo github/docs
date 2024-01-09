@@ -16,8 +16,7 @@ sections:
   known_issues:
     - |
       Custom firewall rules are removed during the upgrade process.
-    - |
-      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+
     - |
       In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
     - |
@@ -34,3 +33,9 @@ sections:
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
     - |
       {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-09-04]
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]

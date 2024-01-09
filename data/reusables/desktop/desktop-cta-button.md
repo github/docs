@@ -1,0 +1,1 @@
+<a href="https://desktop.github.com/" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.product.prodname_desktop %}</span> {% octicon "link-external" height:16 %}</a>

@@ -15,24 +15,26 @@ topics:
   - CodeQL
   - Repositories
 children:
-  - /a-particular-language-is-causing-default-setup-to-fail
   - /advanced-security-must-be-enabled
-  - /alerts-found-in-generated-code
-  - /automatic-build-failed-for-a-compiled-language
-  - /build-is-taking-too-long
-  - /codeql-scanned-fewer-lines-than-expected
+  - /alerts-in-generated-code
+  - /analysis-takes-too-long
+  - /automatic-build-failed
+  - /cannot-enable-codeql-in-a-private-repository
+  - /default-setup-fails-with-a-language
   - /enabling-default-setup-takes-too-long
   - /extraction-errors-in-the-database
-  - /logs-are-not-detailed-enough
+  - /fewer-lines-scanned-than-expected
+  - /logs-not-detailed-enough
   - /no-source-code-seen-during-build
   - /not-recognized
   - /out-of-disk-or-memory
-  - /some-languages-were-not-analyzed
-  - /resource-not-accessible-by-integration
-  - /results-are-different-than-expected
+  - /resource-not-accessible
+  - /results-different-than-expected
   - /results-differ-between-platforms
   - /server-error
+  - /some-languages-not-analyzed
   - /two-codeql-workflows
-  - /unclear-what-triggered-a-workflow-run
+  - /unclear-what-triggered-a-workflow
   - /unnecessary-step-found
 ---
+

@@ -11,7 +11,6 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-
 {% note %}
 
 **Notes:**
@@ -21,6 +20,7 @@ allowTitleToDifferFromFilename: true
 - Automation will not be migrated.
 - Triage, archive, and activity will not be migrated.
 - After migration, the new migrated project and old project will not be kept in sync.
+- {% data reusables.projects.migration-permissions-warning %}
 
 {% endnote %}
 

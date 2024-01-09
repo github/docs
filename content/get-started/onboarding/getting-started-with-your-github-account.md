@@ -38,7 +38,7 @@ For more information on all of {% data variables.product.prodname_dotcom %}'s pl
 
 ### 3. Verifying your email address
 
-To ensure you can use all the features in your {% data variables.product.product_name %} plan, verify your email address after signing up for a new account. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."
+To ensure you can use all the features in your {% data variables.product.product_name %} plan, verify your email address after signing up for a new account. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."
 {% endif %}
 
 {% ifversion ghes or ghae %}

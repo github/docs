@@ -26,6 +26,7 @@ import { frontmatterSchema } from './frontmatter-schema.js'
 import { codeAnnotations } from './code-annotations.js'
 import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
 import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
+import { raiReusableUsage } from './rai-reusable-usage.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -65,5 +66,6 @@ export const gitHubDocsMarkdownlint = {
     liquidSyntax,
     liquidIfTags,
     liquidIfVersionTags,
+    raiReusableUsage,
   ],
 }

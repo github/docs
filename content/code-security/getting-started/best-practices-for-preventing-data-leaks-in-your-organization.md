@@ -32,7 +32,7 @@ Protect your organization's repositories and settings by implementing security b
 
 {% ifversion ghec %}- Enabling secure authentication processes by using SAML and SCIM integrations, as well as 2FA authentication whenever possible. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)," "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)," and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)." {% endif %}
 
-- Requiring organization members, outside collaborators, and billing managers to enable 2FA for their personal accounts, making it harder for malicious actors to access an organization's repositories and settings.{% ifversion ghec %} This is one step further from enabling secure autentication.{% endif %} For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
+- Requiring organization members, outside collaborators, and billing managers to enable 2FA for their personal accounts, making it harder for malicious actors to access an organization's repositories and settings.{% ifversion ghec %} This is one step further from enabling secure authentication.{% endif %} For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
 
 - Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 
@@ -49,7 +49,7 @@ As an organization owner, you should limit and review access as appropriate for 
 Recommendation | More information
 ------------------ | -----------------
 Disable the ability to fork repositories. | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)"
-Disable changing repository visiblity. | "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)"
+Disable changing repository visibility. | "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)"
 Restrict repository creation to private or internal. |  "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)"
 Disable repository deletion and transfer. | "[AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)"
 Scope {% data variables.product.pat_generic %}s to the minimum permissions necessary. | None
@@ -75,9 +75,9 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
   When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}
    - Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
    - Public repositories owned by organizations
-   - Private and internal repositorites owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %}
+   - Private and internal repositories owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %}
    - Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} (for free)
-   - Private and internal repositorites when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+   - Private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 {% endif %}
 
 {% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance)."{% endif %}
@@ -93,6 +93,12 @@ You can also proactively secure IP and maintain compliance for your organization
 ### Set up branch protection rules
 
 To ensure that all code is properly reviewed prior to being merged into the default branch, you can enable branch protection. By setting branch protection rules, you can enforce certain workflows or requirements before a contributor can push changes. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+
+{% ifversion repo-rules %}
+
+{% data reusables.repositories.rulesets-alternative %}
+
+{% endif %}
 
 ## Mitigate data leaks
 

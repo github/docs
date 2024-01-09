@@ -38,6 +38,8 @@ You can set commit permissions when you first create a pull request from a fork.
 1. In the list of pull requests, navigate to the pull request that you'd like to allow commits on.
 {% data reusables.repositories.allow-maintainers-user-forks %}
 
+   ![Screenshot of a pull request. On the right bottom side, a blue, enabled checkbox, labeled "Allow edits and access to secrets by maintainers", is highlighted with an orange outline.](/assets/images/help/pull_requests/allow-edits-and-access-by-maintainers.png)
+
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

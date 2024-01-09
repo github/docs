@@ -31,8 +31,8 @@ export default function getTocItems(page) {
     tocItem.type = productTOCs.includes(page.relativePath)
       ? 'category'
       : item.includes('topic_')
-      ? 'maptopic'
-      : 'article'
+        ? 'maptopic'
+        : 'article'
 
     tocItem.href = item.match(linkString)[1]
 

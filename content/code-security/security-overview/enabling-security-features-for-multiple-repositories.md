@@ -45,11 +45,7 @@ For more information about the different ways of enabling security features in a
 1. In the side panel, next to all the security features you want to enable or disable, select **Enable** or **Disable**.
 1. As you make changes, the **Apply changes** button reports the number of security features you have edited. To confirm the changes, click **Apply changes NUMBER**. Alternatively, click {% octicon "x" aria-label="Close" %} to close the panel without making changes.
 
-   {% note %}
-
-   **Note:** Enabling {% data variables.product.prodname_code_scanning %} for multiple repositories in an organization using security overview will override any existing {% data variables.product.prodname_code_scanning %} configurations for the selected repositories, including any previous query suite selections and workflows for advanced setups.
-
-   {% endnote %}
+   {% data reusables.security-overview.settings-limitations %}
 
    ![Screenshot of the "Security coverage" view with the side panel open. The "Apply changes" button is highlighted in a dark orange outline.](/assets/images/help/security-overview/security-coverage-view-multi-repo-side-panel.png)
 

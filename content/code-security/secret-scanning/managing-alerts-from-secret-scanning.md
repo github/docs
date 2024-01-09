@@ -47,7 +47,8 @@ shortTitle: Manage secret alerts
    {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 
    {% data reusables.secret-scanning.validity-check-partner-patterns-enabled %}
-{% endif %}
+{% endif %}{% ifversion secret-scanning-bypass-filter %}
+1. Optionally, to see which alerts are the result of a user bypassing push protection, select the "Bypassed" dropdown menu, then click **True**.{% endif %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.{% ifversion secret-scanning-non-provider-patterns %}
    {% note %}
 
@@ -56,11 +57,12 @@ shortTitle: Manage secret alerts
    {% endnote %}
    {% endif %}{% ifversion secret-scanning-validity-check-partner-patterns %}
 1. Optionally, to perform a validity check on the token, on the top right-hand side of the alert, click {% octicon "sync" aria-hidden="true" %} **Verify secret**. For more information, see "[Validating partner patterns](#validating-partner-patterns)."
-   {% note %}
 
-   **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+    {% note %}
 
-   {% endnote %}
+     **Note:** You can only perform on-demand validity checks for patterns detected in the repository if automatic validity checks have been enabled for the repository. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+
+     {% endnote %}
    {% endif %}{% ifversion ghes = 3.9 or ghes = 3.10 or ghes = 3.11 %}
 1. Optionally, if the leaked secret is a {% data variables.product.company_short %} token, check the validity of the secret and follow the remediation steps.
 
@@ -69,7 +71,6 @@ shortTitle: Manage secret alerts
    **Note:**  Validity check for {% data variables.product.company_short %} tokens is currently in public beta and subject to change.
 
    {% endnote %}
-
    {% data variables.product.company_short %} provides information about the validity of the secret, for {% data variables.product.company_short %} tokens only.
 
    {% data reusables.secret-scanning.validity-check-table %}{% endif %}{% ifversion secret-scanning-github-token-metadata %}
@@ -97,8 +98,8 @@ As an organization owner, or repository administrator, you need to enable the de
 
 Non-provider alerts are different from high confidence alerts. Non-provider alerts:
 
-- Are not shown in security overview.
-- Are listed in a different view from high confidence alerts. That view is called "Other".
+- Are not shown in the summary views for security overview, only in the "{% data variables.product.prodname_secret_scanning_caps %}" view.
+- Are listed in a different view from high-confidence alerts. That view is called "Other".
 - Only have the first five detected locations shown on {% data variables.product.prodname_dotcom %}.
 - Are limited in quantity to 5000 alerts per repository (this includes open and closed alerts).
 
@@ -132,6 +133,8 @@ You can enable automatic validity checks for supported partner patterns in the c
 If your repository has validity checks enabled, you can also perform an on-demand validity check for a secret by clicking {% octicon "sync" aria-hidden="true" %} **Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
 You can filter alerts for supported partner patterns by their validation status, and use the status of a leaked secret to help prioritize the secrets needing remediation steps.
+
+You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation.
 
 {% data reusables.secret-scanning.validity-check-table %}
 

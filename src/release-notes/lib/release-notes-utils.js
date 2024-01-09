@@ -1,4 +1,5 @@
 import semver from 'semver'
+import { supported, latestStable, latest } from '#src/versions/lib/enterprise-server-releases.js'
 import { renderContent } from '#src/content-render/index.js'
 
 /**
@@ -9,8 +10,8 @@ import { renderContent } from '#src/content-render/index.js'
 export function formatReleases(releaseNotes) {
   // Get release note numbers in dot notation and sort from highest to lowest.
   const sortedReleaseNumbers = Object.keys(releaseNotes)
-    .reverse()
     .map((r) => r.replace(/-/g, '.'))
+    .sort((a, b) => supported.indexOf(a) - supported.indexOf(b))
 
   return sortedReleaseNumbers.map((releaseNumber) => {
     const notesPerVersion = releaseNotes[releaseNumber.replace(/\./g, '-')]
@@ -32,6 +33,13 @@ export function formatReleases(releaseNotes) {
     return {
       version: releaseNumber,
       patches,
+      // This is useful information when displaying a list of releases
+      // but want to omit the latest release candidate. For example,
+      // on the product landing page, we refer to a list of
+      // "Supported releases" and that should omit release candidates.
+      // Note that a release candidate is temporary. It only happens
+      // when `latestStable` isn't `latest`.
+      isReleaseCandidate: latest !== latestStable && releaseNumber === latest,
     }
   })
 }

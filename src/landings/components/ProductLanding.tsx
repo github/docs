@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { DefaultLayout } from 'components/DefaultLayout'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
 
 import { LandingHero } from 'src/landings/components/LandingHero'

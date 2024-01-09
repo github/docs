@@ -19,6 +19,7 @@ children:
   - /custom-properties
   - /custom-roles
   - /members
+  - /organization-roles
   - /orgs
   - /outside-collaborators
   - /personal-access-tokens

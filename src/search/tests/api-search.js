@@ -13,8 +13,8 @@
 
 import { jest, test, expect } from '@jest/globals'
 
-import { describeIfElasticsearchURL } from '../../../tests/helpers/conditional-runs.js'
-import { get } from '../../../tests/helpers/e2etest.js'
+import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -249,7 +249,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       sp.append('query', 'test2')
       const res = await get('/api/search/v1?' + sp)
       expect(res.statusCode).toBe(400)
-      expect(JSON.parse(res.body).error).toMatch('Can not have multiple values')
+      expect(JSON.parse(res.body).error).toMatch('Cannot have multiple values')
     }
   })
 

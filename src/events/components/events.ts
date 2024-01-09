@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
+import { Router } from 'next/router'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -206,10 +207,10 @@ function getReferrer(documentReferrer: string) {
 }
 
 function getColorModePreference() {
-  // color mode is set as attributes on <body>, we'll use that information
+  // color mode is set as attributes on <html>, we'll use that information
   // along with media query checking rather than parsing the cookie value
   // set by github.com
-  let color_mode_preference = document.querySelector('body')?.dataset.colorMode
+  let color_mode_preference = document.querySelector('html')?.dataset.colorMode
 
   if (color_mode_preference === 'auto') {
     if (window.matchMedia('(prefers-color-scheme: light)').matches) {
@@ -295,22 +296,51 @@ function initPageAndExitEvent() {
   })
 
   // Client-side routing
-  const pushState = history.pushState
-  history.pushState = function (state, title, url) {
+  Router.events.on('routeChangeStart', async (url) => {
     // Don't trigger page events on query string or hash changes
-    const newPath = url?.toString().replace(location.origin, '').split('?')[0]
-    previousPath = location.pathname
+    previousPath = location.pathname // pathname set to "prior" url, arg "upcoming" url
+    const newPath = url?.toString().split('?')[0].split('#')[0]
     const shouldSendEvents = newPath !== previousPath
     if (shouldSendEvents) {
       sendExit()
-    }
-    const result = pushState.call(history, state, title, url)
-    if (shouldSendEvents) {
-      sendPage()
+      await waitForPageReady()
       resetPageParams()
+      sendPage()
     }
-    return result
-  }
+  })
+}
+
+// We want to wait for the DOM to mutate the <meta> tags
+// as well as finish routeChangeComplete (location.pathname)
+// before sending the page event in order to get accurate data
+async function waitForPageReady() {
+  const route = new Promise((resolve) => {
+    const handler = () => {
+      Router.events.off('routeChangeComplete', handler)
+      setTimeout(() => resolve(true))
+    }
+    Router.events.on('routeChangeComplete', handler)
+  })
+  const mutate = new Promise((resolve) => {
+    const observer = new MutationObserver((mutations) => {
+      const metaMutated = mutations.find(
+        (mutation) =>
+          mutation.target?.nodeName === 'META' ||
+          Array.from(mutation.addedNodes).find((node) => node.nodeName === 'META') ||
+          Array.from(mutation.removedNodes).find((node) => node.nodeName === 'META'),
+      )
+      if (metaMutated) {
+        observer.disconnect()
+        setTimeout(() => resolve(true))
+      }
+    })
+    observer.observe(document.getElementsByTagName('head')[0], {
+      subtree: true,
+      childList: true,
+      attributes: true,
+    })
+  })
+  return Promise.all([route, mutate])
 }
 
 function initClipboardEvent() {
@@ -382,7 +412,7 @@ function initHoverEvent() {
   })
 
   // Doesn't matter which link you hovered on that triggered a timer,
-  // you're clearly not hovering over it any more.
+  // you're clearly not hovering over it anymore.
   document.documentElement.addEventListener('mouseout', () => {
     if (timer) {
       window.clearTimeout(timer)

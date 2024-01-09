@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import { useRouter } from 'next/router'
 
 import { useLanguages } from 'src/languages/components/LanguagesContext'

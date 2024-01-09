@@ -94,6 +94,8 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 1. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 1. Click **Add key**.
 
+You can also use the REST API to create deploy keys. For more information, see "[AUTOTITLE](/rest/deploy-keys/deploy-keys)."
+
 ### Using multiple repositories on one server
 
 If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.

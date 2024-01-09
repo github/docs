@@ -8,7 +8,7 @@
 
 /* Nota bene:
   If you are getting more errors all the sudden, try running this:
-  $ src/languages/scripts/create-translation-health-report.js -l en -r 000
+  $ npm run create-translation-health-report -- -l en -r 000
   If there's any errors before getting the JSON output,
   const context = { ... } probably needs more data.
 */

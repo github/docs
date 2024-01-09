@@ -29,8 +29,8 @@ Our CI system and host server will be figments of our imagination. They could be
 Heroku, Amazon, or something else entirely. The crux of this guide will be setting up
 and configuring the server managing the communication.
 
-If you haven't already, be sure to [download `ngrok`][ngrok], and learn how
-to [use it][using ngrok]. We find it to be a very useful tool for exposing local
+If you haven't already, be sure to [download `ngrok`](https://ngrok.com/), and learn how
+to [use it](/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok). We find it to be a very useful tool for exposing local
 applications to the internet.
 
 {% ifversion cli-webhook-forwarding %}
@@ -42,7 +42,7 @@ applications to the internet.
 {% endif %}
 
 Note: you can download the complete source code for this project
-[from the platform-samples repo][platform samples].
+[from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/ruby/delivering-deployments).
 
 ## Writing your server
 
@@ -59,7 +59,7 @@ post '/event_handler' do
 end
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra].)
+(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide](http://www.sinatrarb.com/).)
 
 Start this server up. By default, Sinatra starts on port `4567`, so you'll want
 to configure `ngrok` to start listening for that, too.
@@ -177,29 +177,14 @@ After the deployment is finished, we set the status to `success`.
 
 ## Conclusion
 
-At GitHub, we've used a version of [Heaven][heaven] to manage
+At GitHub, we've used a version of [Heaven](https://github.com/atmos/heaven) to manage
 our deployments for years. A common flow is essentially the same as the
 server we've built above:
 
 - Wait for a response on the state of the CI checks (success or failure)
 - If the required checks succeed, merge the pull request
 - Heaven takes the merged code, and deploys it to staging and production servers
-- In the meantime, Heaven also notifies everyone about the build, via [Hubot][hubot] sitting in our chat rooms
+- In the meantime, Heaven also notifies everyone about the build, via [Hubot](https://github.com/github/hubot) sitting in our chat rooms
 
 That's it! You don't need to build your own deployment setup to use this example.
-You can always rely on [GitHub integrations][integrations].
-
-[deploy API]: /rest/repos#deployments
-[status API]: /rest/guides/building-a-ci-server
-[ngrok]: https://ngrok.com/
-[using ngrok]: /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok
-[platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/delivering-deployments
-[Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks-and-events/webhooks/about-webhooks
-[octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
-[travis api]: https://api.travis-ci.com/docs/
-[janky]: https://github.com/github/janky
-[heaven]: https://github.com/atmos/heaven
-[hubot]: https://github.com/github/hubot
-[integrations]: https://github.com/integrations
+You can always rely on [GitHub integrations](https://github.com/integrations).

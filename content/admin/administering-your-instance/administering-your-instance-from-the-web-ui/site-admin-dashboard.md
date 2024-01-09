@@ -32,14 +32,6 @@ Data for GitHub's [trending page][] is calculated into daily, weekly, and monthl
 
   [trending page]: https://github.com/blog/1585-explore-what-is-trending-on-github
 
-## Audit log
-
-{% data variables.product.product_name %} keeps a running log of audited actions that you can query.
-
-By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)."
-
-For more information on audit logging in general, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)." For a full list of audited actions, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
-
 ## Reports
 
 If you need to get information on the users, organizations, and repositories in {% data variables.location.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
@@ -180,19 +172,3 @@ For example, the following words are reserved, among others:
 - `support`
 
 For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
-
-## Dormant users
-
-Here you can see and suspend inactive users on {% data variables.location.product_location %}. {% ifversion not ghae %}For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".{% endif %}
-
-A user account is considered to be inactive ("dormant") when it:
-
-- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
-- Has not generated any activity within that time period.
-- Is not a site administrator.
-
-{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users#configuring-the-dormancy-threshold)."
-
-## Suspended users
-
-Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/admin/user-management/managing-users-in-your-enterprise/auditing-ssh-keys).

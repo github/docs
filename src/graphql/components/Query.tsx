@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
-
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from 'src/languages/components/useTranslation'
@@ -11,7 +9,6 @@ type Props = {
 }
 
 export function Query({ item }: Props) {
-  const { locale } = useRouter()
   const { t } = useTranslation('graphql')
 
   return (
@@ -19,7 +16,7 @@ export function Query({ item }: Props) {
       <div>
         <p>
           <b>{t('graphql.reference.type')}: </b>
-          <Link href={item.href} locale={locale}>
+          <Link href={item.href} makeAbsolute>
             {item.type}
           </Link>
         </p>

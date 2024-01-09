@@ -87,6 +87,8 @@ After you've initialized a Git repository, you can push the repository to {% dat
 
 ### Adding a local repository to {% data variables.product.prodname_dotcom %} using Git
 
+Before you can add your local repository to {% data variables.product.prodname_dotcom %} using Git, you must authenticate to {% data variables.product.prodname_dotcom %} on the command line. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line)."
+
 {% mac %}
 
 {% data reusables.migrations.create-empty-repo %}
@@ -114,6 +116,8 @@ After you've initialized a Git repository, you can push the repository to {% dat
    ```shell
    git push -u origin main
    ```
+
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
 {% endmac %}
 
@@ -144,6 +148,8 @@ After you've initialized a Git repository, you can push the repository to {% dat
    git push origin main
    ```
 
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+
 {% endwindows %}
 
 {% linux %}
@@ -172,6 +178,8 @@ After you've initialized a Git repository, you can push the repository to {% dat
    ```shell
    git push origin main
    ```
+
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
 {% endlinux %}
 

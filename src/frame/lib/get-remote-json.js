@@ -85,7 +85,7 @@ export default async function getRemoteJSON(url, config) {
       }
     }
   }
-  const tags = [`url:${url}`, `from_cache:${fromCache}`]
+  const tags = [`from_cache:${fromCache}`]
   statsd.increment('middleware.get_remote_json', 1, tags)
   return cache.get(cacheKey)
 }

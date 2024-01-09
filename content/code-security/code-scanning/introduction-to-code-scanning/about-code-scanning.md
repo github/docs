@@ -36,6 +36,7 @@ To monitor results from {% data variables.product.prodname_code_scanning %} acro
 
 {% ifversion code-scanning-without-workflow %}
 To get started with {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
+
 {% else %}
 To get started with {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 {% endif %}

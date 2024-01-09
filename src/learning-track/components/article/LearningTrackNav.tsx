@@ -1,5 +1,5 @@
-import { Link } from 'components/Link'
-import type { LearningTrack } from 'components/context/ArticleContext'
+import { Link } from 'src/frame/components/Link'
+import type { LearningTrack } from 'src/frame/components/context/ArticleContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
 
 type Props = {

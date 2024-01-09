@@ -29,3 +29,5 @@ children:
   - /removing-a-collaborator-from-a-repository-security-advisory
   - /withdrawing-a-repository-security-advisory
 ---
+
+{% data reusables.security-advisory.private-repository-non-ghas-deprecation-note %}

@@ -28,12 +28,12 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization or personal account owners, security managers, and repository administrators who are watching the repository, with a link to the secret and the reason why it was allowed.{% endif %}
 
-{% ifversion ghec or fpt %}
-{% note %}
+{% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
-**Note:** The github.dev web-based editor doesn't support push protection. For more information about the editor, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor)."
+{% ifversion secret-scanning-bypass-filter %}
 
-{% endnote %}
+On the {% data variables.product.prodname_secret_scanning %} alerts page for a repository or organization, you can apply the `bypassed:true` filter to easily see which alerts are the result of a user bypassing push protection.
+
 {% endif %}
 
 You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
@@ -42,9 +42,15 @@ You can monitor security alerts to discover when users are bypassing push protec
 If you are an organization owner or security manager, you can view metrics on how push protection is performing across your organization. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
 {% endif %}
 
-{% data reusables.secret-scanning.bypass-reasons-and-alerts %}
-
 For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+
+{% ifversion ghec or fpt %}
+{% note %}
+
+**Note:** The github.dev web-based editor doesn't support push protection. For more information about the editor, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor)."
+
+{% endnote %}
+{% endif %}
 
 {% ifversion secret-scanning-push-protection-for-users %}
 

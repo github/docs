@@ -6,13 +6,13 @@ import {
   getMainContext,
   MainContext,
   MainContextT,
-} from 'components/context/MainContext'
+} from 'src/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
 } from 'src/automated-pipelines/components/AutomatedPageContext'
-import type { MiniTocItem } from 'components/context/ArticleContext'
+import type { MiniTocItem } from 'src/frame/components/context/ArticleContext'
 
 type MinitocItemsT = {
   restOperationsMiniTocItems: MiniTocItem[]

@@ -33,7 +33,7 @@ Every person who uses {% data variables.product.product_name %} signs into a per
 
 ## Personal accounts
 
-Every person who uses {% data variables.location.product_location %} signs into a personal account. Your personal account is your identity on {% data variables.location.product_location %} and has a username and profile. For example, see [@octocat's profile](https://github.com/octocat).
+{% data reusables.accounts.your-personal-account %}
 
 Your personal account can own resources such as repositories, packages, and projects. Any time you take any action on {% data variables.location.product_location %}, such as creating an issue or reviewing a pull request, the action is attributed to your personal account.
 
@@ -82,6 +82,6 @@ Your enterprise account is a collection of all the organizations {% ifversion gh
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)"{% endif %}
+- "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)"{% endif %}
 - "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)"
 - [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources

@@ -3,16 +3,16 @@ import { useRouter } from 'next/router'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
-import copyCode from 'components/lib/copy-code'
-import toggleAnnotation from 'components/lib/toggle-annotations'
-import wrapCodeTerms from 'components/lib/wrap-code-terms'
+import copyCode from 'src/frame/components/lib/copy-code'
+import toggleAnnotation from 'src/frame/components/lib/toggle-annotations'
+import wrapCodeTerms from 'src/frame/components/lib/wrap-code-terms'
 
 import {
   MainContextT,
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'components/context/MainContext'
+} from 'src/frame/components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
@@ -29,8 +29,8 @@ import {
   getArticleContextFromRequest,
   ArticleContextT,
   ArticleContext,
-} from 'components/context/ArticleContext'
-import { ArticlePage } from 'components/article/ArticlePage'
+} from 'src/frame/components/context/ArticleContext'
+import { ArticlePage } from 'src/frame/components/article/ArticlePage'
 
 import { ProductLanding } from 'src/landings/components/ProductLanding'
 import { ProductGuides } from 'src/landings/components/ProductGuides'
@@ -39,7 +39,7 @@ import {
   getTocLandingContextFromRequest,
   TocLandingContext,
   TocLandingContextT,
-} from 'components/context/TocLandingContext'
+} from 'src/frame/components/context/TocLandingContext'
 import { useEffect } from 'react'
 
 function initiateArticleScripts() {

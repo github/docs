@@ -12,7 +12,6 @@ featuredLinks:
     - '{% ifversion ghae %}/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile{% endif %}'
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications
   popular:
-    - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-your-theme-settings
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications

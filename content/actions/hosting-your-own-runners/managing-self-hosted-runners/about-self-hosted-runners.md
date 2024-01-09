@@ -188,7 +188,7 @@ codeload.github.com
 **Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
 
 ```shell copy
-actions-results-receiver-production.githubapp.com
+results-receiver.actions.githubusercontent.com
 *.blob.core.windows.net
 ```
 

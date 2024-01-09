@@ -3,56 +3,55 @@ intro: |
   {% warning %}
 
   **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.9.6-known-issues)" section of these release notes.
-  
+
   {% endwarning %}
 sections:
   security_fixes:
     - |
-      **HIGH:** Due to an incorrect permission assignment for some configuration files, an attacker with access to a local operating system user account could read MySQL connection details including the MySQL password. GitHub has requested CVE ID [CVE-2023-23767](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23767) for this vulnerability. 
+      **LOW:** Due to an incorrect permission assignment for some configuration files, an attacker with access to a local operating system user account could read MySQL connection details including the MySQL password. [Updated: 2023-11-13]
     - |
-      Packages have been updated to the latest security versions. 
+      Packages have been updated to the latest security versions.
   bugs:
     - |
-      The `ghe-cluster-repl-status` command did not display all replication statuses. 
+      The `ghe-cluster-repl-status` command did not display all replication statuses.
     - |
-      On an instance in a cluster configuration with high availability enabled, `ghe-config-apply` timed out while waiting for `hookshot-go` to start on replica application nodes. 
+      On an instance in a cluster configuration with high availability enabled, `ghe-config-apply` timed out while waiting for `hookshot-go` to start on replica application nodes.
     - |
-      `SpokesRepairRepoReplicaJob` and `SpokesSyncCacheReplicaJob` jobs  failed, causing cache server replicas to not update and potentially prolonging replication issues. 
+      `SpokesRepairRepoReplicaJob` and `SpokesSyncCacheReplicaJob` jobs  failed, causing cache server replicas to not update and potentially prolonging replication issues.
     - |
-      `/var/log/lastlog` was not copied over as a sparse file during `ghe-upgrade`, which could cause issues by using additional disk space. 
+      `/var/log/lastlog` was not copied over as a sparse file during `ghe-upgrade`, which could cause issues by using additional disk space.
     - |
       On an instance in a cluster configuration, when managing maintenance mode using `ghe-cluster-maintenance`, an erroneous warning appeared that read "Warning: Maintenance mode set on primary, please make sure to set it on any active replica if needed".     - |
-      `ghe-repl-status` did not identify Git replicas in certain incomplete states and incorrectly suggested that a failover could be performed safely. In some cases, this led to data loss during failover. 
+      `ghe-repl-status` did not identify Git replicas in certain incomplete states and incorrectly suggested that a failover could be performed safely. In some cases, this led to data loss during failover.
     - |
       Repository exports using `ghe-migrator` or the REST API's operation for organization migrations could fail when a large number of commit comments or long commit comments were present.
     - |
-      On an instance with a GitHub Advanced Security license and secret scanning enabled, secret scanning suggested incorrect filters when viewing both open and closed alerts. 
+      On an instance with a GitHub Advanced Security license and secret scanning enabled, secret scanning suggested incorrect filters when viewing both open and closed alerts.
     - |
-      On instances using the private beta of SCIM provisioning, some users were presented with a "single sign-in" hover card. 
+      On instances using the private beta of SCIM provisioning, some users were presented with a "single sign-in" hover card.
     - |
-      On an instance with multiple nodes, `ghe-spokes status` did not identify Git replicas in certain incomplete states, causing a false report that replication was in sync and leading to data loss or replication issues during failover. 
+      On an instance with multiple nodes, `ghe-spokes status` did not identify Git replicas in certain incomplete states, causing a false report that replication was in sync and leading to data loss or replication issues during failover.
     - |
       On an instance with GitHub Actions enabled, administrators received a `500` error after attempting to force cancel a workflow run via Staff Tools.
     - |
-      On an instance with a GitHub Advanced Security license, repositories within organizations created using the `+` dropdown menu did not have GitHub Advanced Security features enabled automatically, even if the features should have been enabled. 
+      On an instance with a GitHub Advanced Security license, repositories within organizations created using the `+` dropdown menu did not have GitHub Advanced Security features enabled automatically, even if the features should have been enabled.
     - |
       As a security measure, GitHub Pages does not build sites that contain symbolic links except when using custom GitHub Actions workflows. This change strengthens GitHub Pages's symbolic link detection.
     - |
       On an instance with a GitHub Advanced Security license and secret scanning enabled, dry runs sometimes incorrectly reported no results for custom patterns.
   changes:
     - |
-      Instructions in the "Migrations" section of the Management Console clarify that only standard AWS S3 endpoints are supported when configuring AWS S3 as a blob storage provider for migrations. 
+      Instructions in the "Migrations" section of the Management Console clarify that only standard AWS S3 endpoints are supported when configuring AWS S3 as a blob storage provider for migrations.
     - |
-      When running async repository repairs, the output message about scheduling a repair job is more accurate. 
+      When running async repository repairs, the output message about scheduling a repair job is more accurate.
     - |
-      On an instance in a cluster configuration, administrators can identify the repository networks or gists that are common across a specified set of storage nodes using the `spokesctl find-on-replicas` command. 
+      On an instance in a cluster configuration, administrators can identify the repository networks or gists that are common across a specified set of storage nodes using the `spokesctl find-on-replicas` command.
   known_issues:
     - |
       {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
     - |
       Custom firewall rules are removed during the upgrade process.
-    - |
-      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
@@ -70,7 +69,7 @@ sections:
     - |
       When enabling CodeQL via default setup [at scale](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale), some checks related to GitHub Actions are omitted, potentially preventing the process from completing.
     - |
-      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
     - |
       {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
     - |
@@ -80,4 +79,12 @@ sections:
     - |
       {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %}
     - |
-      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} 
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %}
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-10-actions-upgrade-bug %} [Updated: 2023-12-04]
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]

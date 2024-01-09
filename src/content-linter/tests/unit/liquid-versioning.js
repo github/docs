@@ -8,7 +8,7 @@ describe(liquidIfTags.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
 
   beforeAll(() => {
-    process.env.ROOT = path.join('tests', 'fixtures')
+    process.env.ROOT = path.join('src', 'fixtures', 'fixtures')
   })
 
   afterAll(() => {
@@ -39,7 +39,7 @@ describe(liquidIfVersionTags.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
 
   beforeAll(() => {
-    process.env.ROOT = path.join('tests', 'fixtures')
+    process.env.ROOT = 'src/fixtures/fixtures'
   })
 
   afterAll(() => {

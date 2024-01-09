@@ -120,11 +120,12 @@ Creating transcripts is part of the process of producing videos that can be acce
 
 You can use captions as the foundation for a transcript. Edit the captions to remove any timestamps and include the relevant information detailed below. A descriptive transcript includes a text version of both audio and visual information needed to understand the content of a video.
 
-- If a video has multiple speakers, identify the speakers in the transcript
-- Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video
-- Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`
-- Add a `product_video` property to the transcript article's YAML frontmatter. The value of the `product_video` property is the YouTube URL of the video. The video's YouTube URL will display as an external link in the transcript article
-- At the end of the transcript, link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`
+- If a video has multiple speakers, identify the speakers in the transcript.
+- If a speaker's gender is known, you can use their preferred pronouns when describing their actions. For example, `She points to the computer screen.` If the speaker's gender is unknown or irrelevant to the visual being described, you can use the singular they pronoun.
+- Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video.
+- Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`.
+- Add a `product_video` property to the transcript article's YAML frontmatter. The value of the `product_video` property is the YouTube URL of the video. The video's YouTube URL will display as an external link in the transcript article.
+- At the end of the transcript, write `End of transcript.` and link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`.
 
 See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspective-videos/captions/#transcript)" in the W3C docs for more examples of audio and visual transcriptions.
 
@@ -148,7 +149,7 @@ Titles should be descriptive and follow the guidelines for titles in the content
 
 ## Versioning
 
-If a video is only relevant for specific {% data variables.product.prodname_dotcom %} products (Free, Pro and Team; {% data variables.product.prodname_ghe_server %}; {% data variables.product.prodname_ghe_managed %}; and {% data variables.product.prodname_ghe_cloud %}), the video must be versioned for those products. Use Liquid conditional statements to version the videos appropriately. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or {% data variables.product.prodname_enterprise %} release. For more information about liquid conditional statements and versioning, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
+If a video is only relevant for specific {% data variables.product.prodname_dotcom %} products (Free, Pro and Team; {% data variables.product.prodname_ghe_server %}; and {% data variables.product.prodname_ghe_cloud %}), the video must be versioned for those products. Use Liquid conditional statements to version the videos appropriately. The Liquid conditional versioning may need to be added when the content is initially created, or may need to be added when the content is updated for a feature update or {% data variables.product.prodname_enterprise %} release. For more information about liquid conditional statements and versioning, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
 
 ## Video hosting
 

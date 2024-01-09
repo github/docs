@@ -4,6 +4,131 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>AcceptTopicSuggestionInput.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Input field <code>AcceptTopicSuggestionInput.repositoryId</code> changed type from <code>ID!</code> to <code>ID</code></p>",
+          "<p>Input field <code>DeclineTopicSuggestionInput.name</code> changed type from <code>String!</code> to <code>String</code></p>",
+          "<p>Input field <code>DeclineTopicSuggestionInput.reason</code> changed type from <code>TopicSuggestionDeclineReason!</code> to <code>TopicSuggestionDeclineReason</code></p>",
+          "<p>Input field <code>DeclineTopicSuggestionInput.repositoryId</code> changed type from <code>ID!</code> to <code>ID</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>AcceptTopicSuggestionInput.name</code>:<code>name</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>AcceptTopicSuggestionInput.repositoryId</code>:<code>repositoryId</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>AcceptTopicSuggestionPayload.topic</code>:<code>topic</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>DeclineTopicSuggestionInput.name</code>:<code>name</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>DeclineTopicSuggestionInput.reason</code>:<code>reason</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>DeclineTopicSuggestionInput.repositoryId</code>:<code>repositoryId</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>DeclineTopicSuggestionPayload.topic</code>:<code>topic</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>TopicSuggestionDeclineReason.NOT_RELEVANT</code>:<code>NOT_RELEVANT</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>TopicSuggestionDeclineReason.PERSONAL_PREFERENCE</code>:<code>PERSONAL_PREFERENCE</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>TopicSuggestionDeclineReason.TOO_GENERAL</code>:<code>TOO_GENERAL</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>",
+          "<p>On member <code>TopicSuggestionDeclineReason.TOO_SPECIFIC</code>:<code>TOO_SPECIFIC</code> will be removed. <strong>Effective 2024-04-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2024-01-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>CreateUserListInput</code> was added</p>",
+          "<p>Type <code>CreateUserListPayload</code> was added</p>",
+          "<p>Type <code>DeleteUserListInput</code> was added</p>",
+          "<p>Type <code>DeleteUserListPayload</code> was added</p>",
+          "<p>Type <code>UpdateUserListInput</code> was added</p>",
+          "<p>Type <code>UpdateUserListPayload</code> was added</p>",
+          "<p>Type <code>UpdateUserListsForItemInput</code> was added</p>",
+          "<p>Type <code>UpdateUserListsForItemPayload</code> was added</p>",
+          "<p>Type <code>UserList</code> was added</p>",
+          "<p>Type <code>UserListConnection</code> was added</p>",
+          "<p>Type <code>UserListEdge</code> was added</p>",
+          "<p>Type <code>UserListItems</code> was added</p>",
+          "<p>Type <code>UserListItemsConnection</code> was added</p>",
+          "<p>Type <code>UserListItemsEdge</code> was added</p>",
+          "<p>Type <code>UserListSuggestion</code> was added</p>",
+          "<p>Field <code>createUserList</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteUserList</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateUserList</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateUserListsForItem</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>lists</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>suggestedListNames</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>UnsubscribeFromNotificationsInput</code> was added</p>",
+          "<p>Type <code>UnsubscribeFromNotificationsPayload</code> was added</p>",
+          "<p>Field <code>unsubscribeFromNotifications</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>UpdatePatreonSponsorabilityInput</code> was added</p>",
+          "<p>Type <code>UpdatePatreonSponsorabilityPayload</code> was added</p>",
+          "<p>Field <code>updatePatreonSponsorability</code> was added to object type <code>Mutation</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-18"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>MemberFeatureRequestNotification</code> was added</p>",
+          "<p>Field <code>paymentSource</code> was added to object type <code>SponsorsActivity</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SponsorshipPaymentSource</code> was added</p>",
+          "<p>Field <code>paymentSource</code> was added to object type <code>Sponsorship</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-11-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AbortRepositoryMigrationInput</code> was added</p>",
           "<p>Type <code>AbortRepositoryMigrationPayload</code> was added</p>",
           "<p>Field <code>abortRepositoryMigration</code> was added to object type <code>Mutation</code></p>",

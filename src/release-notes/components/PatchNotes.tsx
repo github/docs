@@ -1,6 +1,6 @@
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 
 const SectionToLabelMap: Record<string, string> = {
   features: 'Features',
@@ -24,7 +24,7 @@ export function PatchNotes({ patch }: Props) {
         return (
           <div key={key}>
             <HeadingLink as="h3" slug={sectionSlug}>
-              {`${patch.version}: ${SectionToLabelMap[key]}` || 'INVALID SECTION'}
+              {`${patch.version}: ${SectionToLabelMap[key] || 'INVALID SECTION'}`}
             </HeadingLink>
 
             <ul>

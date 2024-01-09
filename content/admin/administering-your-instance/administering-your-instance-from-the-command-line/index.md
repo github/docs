@@ -8,6 +8,7 @@ topics:
   - Enterprise
 children:
   - /accessing-the-administrative-shell-ssh
+  - /administering-your-instance-using-the-github-cli
   - /command-line-utilities
 shortTitle: Command line
 ---

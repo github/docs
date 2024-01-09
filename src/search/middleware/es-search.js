@@ -20,12 +20,14 @@ function getClient() {
     node: ELASTICSEARCH_URL,
     // The default is 30,000ms but we noticed that the median time is about
     // 100-150ms with some occasional searches taking multiple seconds.
-    // The default `maxRetries` is 5 which is a sensible number.
+    // The default `maxRetries` is 3 which is a sensible number.
     // If a query gets stuck, it's better to (relatively) quickly give up
     // and retry. So if it takes longer than this time here, we're banking on
     // that it was just bad luck and that it'll work if we simply try again.
     // See internal issue #2318.
-    requestTimeout: 1000,
+    requestTimeout: 1900,
+    // It's important that requestTimeout * maxRetries is less than 10 seconds.
+    maxRetries: 5,
   })
 }
 
@@ -183,8 +185,8 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   const BOOST_EXPLICIT = 3.5
   // Number doesn't matter so much but just make sure it's
   // boosted low. Because we only really want this to come into
-  // play if nothing else matches. E.g. a search for `Acions`
-  // which wouldn't find anythig else anyway.
+  // play if nothing else matches. E.g. a search for `AcIons`
+  // which wouldn't find anything else anyway.
   const BOOST_FUZZY = 0.1
 
   const matchQueries = []

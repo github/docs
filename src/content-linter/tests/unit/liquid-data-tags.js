@@ -10,7 +10,7 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
 
   beforeAll(() => {
-    process.env.ROOT = path.join('tests', 'fixtures')
+    process.env.ROOT = path.join('src', 'fixtures', 'fixtures')
   })
 
   afterAll(() => {
@@ -23,8 +23,8 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
       '{% data variables.no-file %}',
       // Variables even when they exist can't be nested
       '{% data variables.location.foo.bar %}',
-      '{% data resuables.gated-features.empty %}',
-      '{% data resuables.no-file %}',
+      '{% data reusables.gated-features.empty %}',
+      '{% data reusables.no-file %}',
       '{% data ui.not-there %}',
       '{% data ui.nested.nested.not-there %}',
       '{% data some.random.path %}',

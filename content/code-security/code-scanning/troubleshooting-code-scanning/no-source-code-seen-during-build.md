@@ -1,5 +1,5 @@
 ---
-title: 'Error: "No source code was seen during the build" or "The process ''/opt/hostedtoolcache/CodeQL/0.0.0-20200630/x64/codeql/codeql'' failed with exit code 32"'
+title: 'Error: "No source code was seen during the build"'
 shortTitle: 'No source code seen during build'
 intro: 'When {% data variables.product.prodname_codeql %} fails to find any source code, you need to resolve this problem to unblock {% data variables.product.prodname_code_scanning %} analysis.'
 allowTitleToDifferFromFilename: true

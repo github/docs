@@ -9,7 +9,7 @@ RSA keys (`ssh-rsa`) with a `valid_after` before November 2, 2021 may continue t
 
 {% endnote %}
 
-{% elsif ghes = 3.6 or ghes = 3.7 or ghes = 3.8 %}
+{% elsif ghes = 3.7 or ghes = 3.8 %}
 
 {% note %}
 

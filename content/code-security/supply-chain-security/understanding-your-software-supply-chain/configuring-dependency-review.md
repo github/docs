@@ -135,8 +135,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - name: Dependency Review
          uses: actions/dependency-review-action@v3
          with:
-         # Possible values: "critical", "high", "moderate", "low"
-         fail-on-severity: critical
+           # Possible values: "critical", "high", "moderate", "low"
+           fail-on-severity: critical
 
            {% ifversion dependency-review-action-licenses %}
            # You can only include one of these two options: `allow-licenses` and `deny-licenses`

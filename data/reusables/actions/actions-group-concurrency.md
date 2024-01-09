@@ -9,25 +9,84 @@ When a concurrent job or workflow is queued, if another job or workflow using th
 
 {% endnote %}
 
-### Examples: Using concurrency and the default behavior
+### Example: Using concurrency and the default behavior
+
+The default behavior of {% data variables.product.prodname_actions %} is to allow multiple jobs or workflow runs to run concurrently. The `concurrency` keyword allows you to control the concurrency of workflow runs.
+
+For example, you can use the `concurrency` keyword immediately after where trigger conditions are defined to limit the concurrency of entire workflow runs for a specific branch:
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: {% raw %}${{ github.workflow }}-${{ github.ref }}{% endraw %}
+  cancel-in-progress: true
+```
+
+You can also limit the concurrency of jobs within a workflow by using the `concurrency` keyword at the job level:
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: example-group
+      cancel-in-progress: true
+```
+
+### Example: Concurrency groups
+
+Concurrency groups provide a way to manage and limit the execution of workflow runs or jobs that share the same concurrency key.
+
+The `concurrency` key is used to group workflows or jobs together into a concurrency group. When you define a `concurrency` key, {% data variables.product.prodname_actions %} ensures that only one workflow or job with that key runs at any given time. If a new workflow run or job starts with the same `concurrency` key, {% data variables.product.prodname_actions %} will cancel any workflow or job already running with that key. The `concurrency` key can be a hard-coded string, or it can be a dynamic expression that includes context variables.
+
+It is possible to define concurrency conditions in your workflow so that the workflow or job is part of a concurrency group.
+
+This means that when a workflow run or job starts, GitHub will cancel any workflow runs or jobs that are already in progress in the same concurrency group. This is useful in scenarios where you want to prevent parallel runs for a certain set of a workflows or jobs, such as the ones used for deployments to a staging environment, in order to prevent actions that could cause conflicts or consume more resources than necessary.
+
+In this example, `job-1` is part of a concurrency group named `staging_environment`. This means that if a new run of `job-1` is triggered, any runs of the same job in the `staging_environment` concurrency group that are already in progress will be cancelled.
 
 {% raw %}
 
 ```yaml
-concurrency: staging_environment
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: staging_environment
+      cancel-in-progress: true
 ```
 
 {% endraw %}
 
+Alternatively, using a dynamic expression such as `{% raw %}concurrency: ci-${{ github.ref }}{% endraw %}` in your workflow means that the workflow or job would be part of a concurrency group named `ci-` followed by the reference of the branch or tag that triggered the workflow. In this example, if a new commit is pushed to the main branch while a previous run is still in progress, the previous run will be cancelled and the new one will start:
+
 {% raw %}
 
 ```yaml
-concurrency: ci-${{ github.ref }}
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 ```
 
 {% endraw %}
 
 ### Example: Using concurrency to cancel any in-progress job or run
+
+To use concurrency to cancel any in-progress job or run in {% data variables.product.prodname_actions %}, you can use the `concurrency` key with the `cancel-in-progress` option set to `true`:
 
 {% raw %}
 
@@ -38,6 +97,8 @@ concurrency:
 ```
 
 {% endraw %}
+
+Note that in this example, without defining a particular concurrency group, {% data variables.product.prodname_actions %} will cancel _any_ in-progress run of the job or workflow.
 
 ### Example: Using a fallback value
 

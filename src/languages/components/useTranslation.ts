@@ -1,5 +1,5 @@
-import type { UIStrings } from 'components/context/MainContext'
-import { useMainContext } from 'components/context/MainContext'
+import type { UIStrings } from 'src/frame/components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 
 class TranslationNamespaceError extends Error {}
 class UngettableError extends Error {}
@@ -7,7 +7,7 @@ class UngettableError extends Error {}
 // Used to pull translation UI strings from the page props into
 // React components. When you instantiate the hook you can pass
 // the name or names of the namespaces you want to use. Then, when
-// refererring to specific keys you don't have to say the namespace
+// referring to specific keys you don't have to say the namespace
 // (or which of the namespaces) you refer to.
 // Example use:
 //
@@ -67,7 +67,7 @@ export const useTranslation = (namespaces: string | Array<string>) => {
         continue
       }
       try {
-        return carefuleGet(deeper, path)
+        return carefulGet(deeper, path)
       } catch (error) {
         if (!(error instanceof UngettableError)) {
           throw error
@@ -75,7 +75,7 @@ export const useTranslation = (namespaces: string | Array<string>) => {
       }
     }
 
-    return carefuleGet(loadedData, path)
+    return carefulGet(loadedData, path)
   }
 
   return {
@@ -90,7 +90,7 @@ export const useTranslation = (namespaces: string | Array<string>) => {
   }
 }
 
-function carefuleGet(uiData: UIStrings, dottedPath: string) {
+function carefulGet(uiData: UIStrings, dottedPath: string) {
   const splitPath = dottedPath.split('.')
   const start = splitPath[0]
   if (!(start in uiData)) {
@@ -103,7 +103,7 @@ function carefuleGet(uiData: UIStrings, dottedPath: string) {
     if (typeof deeper === 'string') {
       throw new Error(`Namespace "${start}" is a string, not an object`)
     }
-    return carefuleGet(deeper, splitPath.slice(1).join('.'))
+    return carefulGet(deeper, splitPath.slice(1).join('.'))
   } else {
     if (!(start in uiData)) {
       throw new UngettableError(`Key "${start}" not found in loaded data`)

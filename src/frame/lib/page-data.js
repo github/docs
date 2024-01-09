@@ -6,6 +6,7 @@ import createTree from './create-tree.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import readFileContents from './read-file-contents.js'
 import Page from './page.js'
+import Permalink from './permalink.js'
 import frontmatterSchema from './frontmatter.js'
 import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
 
@@ -42,6 +43,7 @@ export async function loadUnversionedTree(languagesOnly = null) {
   }
   const unversionedTree = {}
   unversionedTree.en = await createTree(path.join(languages.en.dir, 'content'))
+  setCategoryApplicableVersions(unversionedTree.en)
 
   const languagesValues = Object.entries(languages)
     .filter(([language]) => {
@@ -65,6 +67,52 @@ export async function loadUnversionedTree(languagesOnly = null) {
   )
 
   return unversionedTree
+}
+
+function setCategoryApplicableVersions(tree) {
+  // Now that the tree has been fully computed, we can for any node that
+  // is a category page, re-set its `.applicableVersions` and `.permalinks`
+  // based on the union set of all its immediate children's
+  // `.applicableVersions`.
+  for (const childPage of tree.childPages) {
+    if (childPage.page.relativePath.endsWith('index.md')) {
+      const combinedApplicableVersions = []
+      let moreThanOneChild = false
+      for (const childChildPage of childPage.childPages || []) {
+        for (const version of childChildPage.page.applicableVersions) {
+          if (!combinedApplicableVersions.includes(version)) {
+            combinedApplicableVersions.push(version)
+          }
+        }
+        setCategoryApplicableVersions(childPage)
+        moreThanOneChild = true
+      }
+      if (
+        // Some landing pages have no children at all.
+        // For example the search/index.md page. With no children,
+        // the combined applicableVersions would be [].
+        moreThanOneChild &&
+        !equalSets(
+          new Set(childPage.page.applicableVersions),
+          new Set(combinedApplicableVersions),
+        ) &&
+        !childPage.page.relativePath.startsWith('early-access')
+      ) {
+        const newPermalinks = Permalink.derive(
+          childPage.page.languageCode,
+          childPage.page.relativePath,
+          childPage.page.title,
+          combinedApplicableVersions,
+        )
+        childPage.page.permalinks = newPermalinks
+        childPage.page.applicableVersions = combinedApplicableVersions
+      }
+    }
+  }
+}
+
+function equalSets(setA, setB) {
+  return setA.size === setB.size && [...setA].every((x) => setB.has(x))
 }
 
 async function translateTree(dir, langObj, enTree) {

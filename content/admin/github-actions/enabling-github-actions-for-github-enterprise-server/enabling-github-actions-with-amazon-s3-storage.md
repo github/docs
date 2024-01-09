@@ -19,8 +19,6 @@ shortTitle: Amazon S3 storage
 
 {% ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-storage-about-oidc %}
-
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
 {% endif %}
 
 ## Prerequisites
@@ -42,8 +40,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% ifversion ghes-actions-storage-oidc %}
 
 ## Enabling {% data variables.product.prodname_actions %} with Amazon S3 using OIDC (recommended)
-
-{% data reusables.actions.ghes-storage-oidc-beta-note %}
 
 To configure {% data variables.product.prodname_ghe_server %} to use OIDC with an Amazon S3 bucket, you must first create an Amazon OIDC provider, then create an Identity and Access Management (IAM) role, and finally configure {% data variables.product.prodname_ghe_server %} to use the provider and role to access your S3 bucket.
 

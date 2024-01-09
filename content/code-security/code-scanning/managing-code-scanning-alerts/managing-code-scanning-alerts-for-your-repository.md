@@ -200,6 +200,10 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
 
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
 
+## Re-opening dismissed alerts
+
+If you dismiss an alert but later realize that you need to fix the alert, you can re-open it and fix the problem with the code. Display the list of closed alerts, find the alert, display it, and reopen it. You can then fix the alert in the same way as any other alert.
+
 {% ifversion remove-code-scanning-configurations %}
 
 ## Removing stale configurations and alerts from a branch

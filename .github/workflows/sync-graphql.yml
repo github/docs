@@ -13,24 +13,11 @@ permissions:
   contents: write
   pull-requests: write
 
-# **IMPORTANT:** Do not change the FREEZE environment variable set here!
-# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
-# during a docs deployment freeze), add an Actions Secret to the repo settings
-# called `FREEZE` with a value of `true`. To re-enable GraphQL updates, simply
-# delete that Secret from the repo settings. The environment variable here
-# will duplicate that Secret's value for later evaluation.
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 jobs:
   update_graphql_files:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
       - name: Checkout
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       - uses: ./.github/actions/node-npm-setup
@@ -68,12 +55,10 @@ jobs:
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
         run: node src/workflows/enable-automerge.js
 
-      - if: ${{ failure() && env.FREEZE != 'true'}}
+      - if: ${{ failure() }}
         name: Delete remote branch (if previous steps failed)
-        uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branches: graphql-schema-update
+        run: git push origin --delete graphql-schema-update
+
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
         uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91

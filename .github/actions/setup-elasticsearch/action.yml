@@ -1,6 +1,6 @@
 name: Set up local Elasticsearch
 
-description: Install a local Elasticseach with version that matches prod
+description: Install a local Elasticsearch with version that matches prod
 
 inputs:
   token:

@@ -62,7 +62,7 @@ As an organization owner, you can delete any codespace in your organization. For
 
 {% note %}
 
-**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+**Note:** Codespaces are automatically deleted after they have been stopped and have remained inactive for a user-definable number of days. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)." As an organization owner, you can set the maximum retention period for codespaces owned by your organization. This will override a user's personal retention setting. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
 {% endnote %}
 

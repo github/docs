@@ -2,7 +2,7 @@ import { jest, test } from '@jest/globals'
 import { readFile } from 'fs/promises'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { categoriesWithoutSubcategories } from '#src/rest/lib/index.js'
 import { getAppsData } from '#src/github-apps/lib/index.js'
 

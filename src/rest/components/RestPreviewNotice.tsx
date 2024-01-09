@@ -1,3 +1,5 @@
+import { Alert } from 'src/frame/components/ui/Alert'
+
 type Props = {
   slug: string
   previews: Array<string>
@@ -11,11 +13,7 @@ export function RestPreviewNotice({ slug, previews, heading }: Props) {
         <a href={`#${slug}-preview-notices`}>{heading}</a>
       </h3>
       {previews.map((preview, index) => (
-        <div
-          className="ghd-spotlight ghd-spotlight-note border rounded-1 mb-6 p-3 color-border-accent-emphasis color-bg-accent f5"
-          dangerouslySetInnerHTML={{ __html: preview }}
-          key={JSON.stringify(preview) + index}
-        />
+        <Alert type="NOTE" html={preview} key={JSON.stringify(preview) + index} />
       ))}
     </>
   )

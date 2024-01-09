@@ -75,6 +75,8 @@ Alternatively, once logged into one account, access the account switcher to log 
 - Brazilian Portuguese
 - Simplified Chinese
 - Spanish
+- German
+- Korean
 
 If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
 

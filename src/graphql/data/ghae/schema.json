@@ -338,7 +338,7 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
-          "description": "<p>The search string to look for.</p>"
+          "description": "<p>The search string to look for. GitHub search syntax is supported. For more\ninformation, see \"<a href=\"https://docs.github.com/search-github/searching-on-github\">Searching on\nGitHub</a>,\"\n\"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax\">Understanding the search syntax</a>,\"\nand \"<a href=\"https://docs.github.com/search-github/getting-started-with-searching-on-github/sorting-search-results\">Sorting search results</a>.\".</p>"
         },
         {
           "name": "type",
@@ -1986,7 +1986,7 @@
       "kind": "mutations",
       "id": "createenterpriseorganization",
       "href": "/graphql/reference/mutations#createenterpriseorganization",
-      "description": "<p>Creates an organization as part of an enterprise account.</p>",
+      "description": "<p>Creates an organization as part of an enterprise account. A personal access\ntoken used to create an organization is implicitly permitted to update the\norganization it created, if the organization is part of an enterprise that has\nSAML enabled or uses Enterprise Managed Users. If the organization is not part\nof such an enterprise, and instead has SAML enabled for it individually, the\ntoken will then require SAML authorization to continue working against that organization.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -2490,6 +2490,48 @@
           "description": "<p>The new comment.</p>",
           "isDeprecated": true,
           "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "createUserList",
+      "kind": "mutations",
+      "id": "createuserlist",
+      "href": "/graphql/reference/mutations#createuserlist",
+      "description": "<p>Creates a new user list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateUserListInput!",
+          "id": "createuserlistinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createuserlistinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "list",
+          "type": "UserList",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist",
+          "description": "<p>The list that was just created.</p>"
+        },
+        {
+          "name": "viewer",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user who created the list.</p>"
         }
       ]
     },
@@ -3108,6 +3150,74 @@
       ]
     },
     {
+      "name": "deleteUserList",
+      "kind": "mutations",
+      "id": "deleteuserlist",
+      "href": "/graphql/reference/mutations#deleteuserlist",
+      "description": "<p>Deletes a user list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteUserListInput!",
+          "id": "deleteuserlistinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteuserlistinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The owner of the list that will be deleted.</p>"
+        }
+      ]
+    },
+    {
+      "name": "dequeuePullRequest",
+      "kind": "mutations",
+      "id": "dequeuepullrequest",
+      "href": "/graphql/reference/mutations#dequeuepullrequest",
+      "description": "<p>Remove a pull request from the merge queue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DequeuePullRequestInput!",
+          "id": "dequeuepullrequestinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#dequeuepullrequestinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "mergeQueueEntry",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry",
+          "description": "<p>The merge queue entry of the dequeued pull request.</p>"
+        }
+      ]
+    },
+    {
       "name": "disablePullRequestAutoMerge",
       "kind": "mutations",
       "id": "disablepullrequestautomerge",
@@ -3256,6 +3366,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequest",
           "description": "<p>The pull request auto-merge was enabled on.</p>"
+        }
+      ]
+    },
+    {
+      "name": "enqueuePullRequest",
+      "kind": "mutations",
+      "id": "enqueuepullrequest",
+      "href": "/graphql/reference/mutations#enqueuepullrequest",
+      "description": "<p>Add a pull request to the merge queue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "EnqueuePullRequestInput!",
+          "id": "enqueuepullrequestinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#enqueuepullrequestinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "mergeQueueEntry",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry",
+          "description": "<p>The merge queue entry for the enqueued pull request.</p>"
         }
       ]
     },
@@ -4968,6 +5112,40 @@
       ]
     },
     {
+      "name": "unsubscribeFromNotifications",
+      "kind": "mutations",
+      "id": "unsubscribefromnotifications",
+      "href": "/graphql/reference/mutations#unsubscribefromnotifications",
+      "description": "<p>Unsubscribes from notifications.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UnsubscribeFromNotificationsInput!",
+          "id": "unsubscribefromnotificationsinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "success",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "description": "<p>Did the operation succeed?.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateBranchProtectionRule",
       "kind": "mutations",
       "id": "updatebranchprotectionrule",
@@ -5436,7 +5614,7 @@
       "kind": "mutations",
       "id": "updateenterprisememberscanmakepurchasessetting",
       "href": "/graphql/reference/mutations#updateenterprisememberscanmakepurchasessetting",
-      "description": "<p>Sets whether or not an organization admin can make purchases.</p>",
+      "description": "<p>Sets whether or not an organization owner can make purchases.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -6809,6 +6987,90 @@
           "description": "<p>The updated repository.</p>"
         }
       ]
+    },
+    {
+      "name": "updateUserList",
+      "kind": "mutations",
+      "id": "updateuserlist",
+      "href": "/graphql/reference/mutations#updateuserlist",
+      "description": "<p>Updates an existing user list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateUserListInput!",
+          "id": "updateuserlistinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateuserlistinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "list",
+          "type": "UserList",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist",
+          "description": "<p>The list that was just updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateUserListsForItem",
+      "kind": "mutations",
+      "id": "updateuserlistsforitem",
+      "href": "/graphql/reference/mutations#updateuserlistsforitem",
+      "description": "<p>Updates which of the viewer's lists an item belongs to.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateUserListsForItemInput!",
+          "id": "updateuserlistsforiteminput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateuserlistsforiteminput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "item",
+          "type": "UserListItems",
+          "id": "userlistitems",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#userlistitems",
+          "description": "<p>The item that was added.</p>"
+        },
+        {
+          "name": "lists",
+          "type": "[UserList!]",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist",
+          "description": "<p>The lists to which this item belongs.</p>"
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user who owns the lists.</p>"
+        }
+      ]
     }
   ],
   "objects": [
@@ -6862,6 +7124,70 @@
       ]
     },
     {
+      "name": "AddedToMergeQueueEvent",
+      "kind": "objects",
+      "id": "addedtomergequeueevent",
+      "href": "/graphql/reference/objects#addedtomergequeueevent",
+      "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enqueuer",
+          "description": "<p>The user who added this Pull Request to the merge queue.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the AddedToMergeQueueEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue where this pull request was added to.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
       "name": "AddedToProjectEvent",
       "kind": "objects",
       "id": "addedtoprojectevent",
@@ -6901,7 +7227,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AddedToProjectEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7048,7 +7374,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the App object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7224,7 +7550,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AssignedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7282,7 +7608,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoMergeDisabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7354,7 +7680,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoMergeEnabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7475,7 +7801,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoRebaseEnabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7531,7 +7857,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutoSquashEnabledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7579,7 +7905,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutomaticBaseChangeFailedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7643,7 +7969,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the AutomaticBaseChangeSucceededEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7723,7 +8049,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BaseRefChangedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7787,7 +8113,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BaseRefDeletedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7851,7 +8177,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BaseRefForcePushedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -7986,7 +8312,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Blob object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -8096,7 +8422,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Bot object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -8391,7 +8717,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BranchProtectionRule object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -8399,7 +8725,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -8916,7 +9242,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BypassForcePushAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9022,7 +9348,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the BypassPullRequestAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9153,7 +9479,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CWE object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -9556,7 +9882,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CheckRun object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10104,7 +10430,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CheckSuite object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10387,7 +10713,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ClosedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10443,7 +10769,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CodeOfConduct object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -10531,7 +10857,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CommentDeletedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -11096,7 +11422,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Commit object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -11546,7 +11872,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CommitComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -11963,7 +12289,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CommitCommentThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -12375,7 +12701,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Comparison object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -12472,7 +12798,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConnectedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -13519,7 +13845,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConvertToDraftEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -13591,7 +13917,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConvertedNoteToIssueEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -13738,7 +14064,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ConvertedToDiscussionEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -14457,7 +14783,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the CrossReferencedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -14553,7 +14879,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DemilestonedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -14953,7 +15279,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DependencyGraphManifest object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -15107,7 +15433,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeployKey object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -15261,7 +15587,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeployedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -15357,7 +15683,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Deployment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -15593,7 +15919,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeploymentEnvironmentChangedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -16005,7 +16331,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeploymentReview object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -16241,7 +16567,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DeploymentStatus object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -16371,7 +16697,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DisconnectedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -16647,7 +16973,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Discussion object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17080,7 +17406,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DiscussionCategory object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17333,7 +17659,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the DiscussionComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -17924,7 +18250,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Enterprise object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -18300,7 +18626,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseAdministratorInvitation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -18739,7 +19065,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseIdentityProvider object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -20934,7 +21260,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseRepositoryInfo object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -21072,7 +21398,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerInstallation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -21382,7 +21708,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerUserAccount object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -21536,7 +21862,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerUserAccountEmail object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -21674,7 +22000,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseServerUserAccountsUpload object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -21909,7 +22235,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the EnterpriseUserAccount object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -22069,7 +22395,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Environment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -22225,7 +22551,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ExternalIdentity object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -22775,7 +23101,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Gist object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -23044,7 +23370,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the GistComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -23695,7 +24021,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the HeadRefDeletedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -23759,7 +24085,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the HeadRefForcePushedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -23815,7 +24141,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the HeadRefRestoredEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -23880,7 +24206,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the IpAllowListEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -24318,7 +24644,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Issue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -25163,7 +25489,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the IssueComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26055,7 +26381,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Label object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26399,7 +26725,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the LabeledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26447,7 +26773,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Language object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26601,7 +26927,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the License object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26730,7 +27056,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the LinkedBranch object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26844,7 +27170,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the LockedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -26946,7 +27272,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Mannequin object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27100,7 +27426,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MarkedAsDuplicateEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27113,6 +27439,54 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "MemberFeatureRequestNotification",
+      "kind": "objects",
+      "id": "memberfeaturerequestnotification",
+      "href": "/graphql/reference/objects#memberfeaturerequestnotification",
+      "description": "<p>Represents a member feature request notification.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "body",
+          "description": "<p>Represents member feature request body containing organization name and the number of feature requests.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MemberFeatureRequestNotification object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "title",
+          "description": "<p>Represents member feature request notification title.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -27235,7 +27609,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MembersCanDeleteReposClearAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27434,7 +27808,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MembersCanDeleteReposDisableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27633,7 +28007,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MembersCanDeleteReposEnableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27753,11 +28127,368 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MentionedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueue",
+      "kind": "objects",
+      "id": "mergequeue",
+      "href": "/graphql/reference/objects#mergequeue",
+      "description": "<p>The queue of pull request entries to be merged into a protected branch in a repository.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "configuration",
+          "description": "<p>The configuration for this merge queue.</p>",
+          "type": "MergeQueueConfiguration",
+          "id": "mergequeueconfiguration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueconfiguration"
+        },
+        {
+          "name": "entries",
+          "description": "<p>The entries in the queue.</p>",
+          "type": "MergeQueueEntryConnection",
+          "id": "mergequeueentryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MergeQueue object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "nextEntryEstimatedTimeToMerge",
+          "description": "<p>The estimated time in seconds until a newly added entry would be merged.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "repository",
+          "description": "<p>The repository this merge queue belongs to.</p>",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this merge queue.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this merge queue.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueConfiguration",
+      "kind": "objects",
+      "id": "mergequeueconfiguration",
+      "href": "/graphql/reference/objects#mergequeueconfiguration",
+      "description": "<p>Configuration for a MergeQueue.</p>",
+      "fields": [
+        {
+          "name": "checkResponseTimeout",
+          "description": "<p>The amount of time in minutes to wait for a check response before considering it a failure.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "maximumEntriesToBuild",
+          "description": "<p>The maximum number of entries to build at once.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "maximumEntriesToMerge",
+          "description": "<p>The maximum number of entries to merge at once.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "mergeMethod",
+          "description": "<p>The merge method to use for this queue.</p>",
+          "type": "PullRequestMergeMethod",
+          "id": "pullrequestmergemethod",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestmergemethod"
+        },
+        {
+          "name": "mergingStrategy",
+          "description": "<p>The strategy to use when merging entries.</p>",
+          "type": "MergeQueueMergingStrategy",
+          "id": "mergequeuemergingstrategy",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeuemergingstrategy"
+        },
+        {
+          "name": "minimumEntriesToMerge",
+          "description": "<p>The minimum number of entries required to merge at once.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "minimumEntriesToMergeWaitTime",
+          "description": "<p>The amount of time in minutes to wait before ignoring the minumum number of\nentries in the queue requirement and merging a collection of entries.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueEntry",
+      "kind": "objects",
+      "id": "mergequeueentry",
+      "href": "/graphql/reference/objects#mergequeueentry",
+      "description": "<p>Entries in a MergeQueue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "baseCommit",
+          "description": "<p>The base commit for this entry.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "enqueuedAt",
+          "description": "<p>The date and time this entry was added to the merge queue.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enqueuer",
+          "description": "<p>The actor that enqueued this entry.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "estimatedTimeToMerge",
+          "description": "<p>The estimated time in seconds until this entry will be merged.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "headCommit",
+          "description": "<p>The head commit for this entry.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the MergeQueueEntry object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "jump",
+          "description": "<p>Whether this pull request should jump the queue.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue that this entry belongs to.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
+        },
+        {
+          "name": "position",
+          "description": "<p>The position of this entry in the queue.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>The pull request that will be added to a merge group.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "solo",
+          "description": "<p>Does this pull request need to be deployed on its own.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "state",
+          "description": "<p>The state of this entry in the queue.</p>",
+          "type": "MergeQueueEntryState!",
+          "id": "mergequeueentrystate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#mergequeueentrystate"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueEntryConnection",
+      "kind": "objects",
+      "id": "mergequeueentryconnection",
+      "href": "/graphql/reference/objects#mergequeueentryconnection",
+      "description": "<p>The connection type for MergeQueueEntry.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[MergeQueueEntryEdge]",
+          "id": "mergequeueentryedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentryedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[MergeQueueEntry]",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueEntryEdge",
+      "kind": "objects",
+      "id": "mergequeueentryedge",
+      "href": "/graphql/reference/objects#mergequeueentryedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry"
         }
       ]
     },
@@ -27806,7 +28537,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MergedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27870,7 +28601,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MigrationSource object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -27976,7 +28707,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Milestone object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -28352,7 +29083,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MilestonedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -28416,7 +29147,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the MovedColumnsInProjectEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -28667,7 +29398,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OauthApplicationCreateAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -28877,7 +29608,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgAddBillingManagerAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29055,7 +29786,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgAddMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29265,7 +29996,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgBlockUserAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29435,7 +30166,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgConfigDisableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29605,7 +30336,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgConfigEnableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29783,7 +30514,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgCreateAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -29953,7 +30684,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgDisableOauthAppRestrictionsAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30131,7 +30862,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgDisableSamlAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30325,7 +31056,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgDisableTwoFactorRequirementAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30495,7 +31226,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgEnableOauthAppRestrictionsAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30673,7 +31404,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgEnableSamlAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -30867,7 +31598,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgEnableTwoFactorRequirementAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31045,7 +31776,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgInviteMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31252,7 +31983,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgInviteToBusinessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31427,7 +32158,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessApprovedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31626,7 +32357,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessBlockedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -31825,7 +32556,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessDeniedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32024,7 +32755,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessRequestedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32223,7 +32954,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgOauthAppAccessUnblockedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32417,7 +33148,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRemoveBillingManagerAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32595,7 +33326,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRemoveMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32781,7 +33512,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRemoveOutsideCollaboratorAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -32967,7 +33698,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgRestoreMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33369,7 +34100,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUnblockUserAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33539,7 +34270,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateDefaultRepositoryPermissionAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33725,7 +34456,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -33919,7 +34650,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateMemberRepositoryCreationPermissionAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34105,7 +34836,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrgUpdateMemberRepositoryInvitationPermissionAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -34508,7 +35239,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Organization object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36210,7 +36941,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrganizationIdentityProvider object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36290,7 +37021,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrganizationInvitation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36534,7 +37265,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the OrganizationMigration object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -36997,7 +37728,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PinnedDiscussion object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37143,7 +37874,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PinnedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37191,7 +37922,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PinnedIssue object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37413,7 +38144,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PrivateRepositoryForkingDisableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37649,7 +38380,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PrivateRepositoryForkingEnableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -37960,7 +38691,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Project object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -38172,7 +38903,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectCard object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -38394,7 +39125,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectColumn object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -38687,7 +39418,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PublicKey object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -39397,7 +40128,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequest object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -39637,6 +40368,14 @@
           "id": "commit",
           "kind": "objects",
           "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "mergeQueueEntry",
+          "description": "<p>The merge queue entry of the pull request in the base branch's merge queue.</p>",
+          "type": "MergeQueueEntry",
+          "id": "mergequeueentry",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeueentry"
         },
         {
           "name": "mergeStateStatus",
@@ -40701,7 +41440,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestCommit object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -40812,7 +41551,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestCommitCommentThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -41299,7 +42038,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestReview object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -41776,7 +42515,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestReviewComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -42441,7 +43180,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestReviewThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -42793,7 +43532,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PullRequestThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43085,7 +43824,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Push object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43165,7 +43904,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the PushAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43410,7 +44149,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Reaction object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43762,7 +44501,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReadyForReviewEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -43938,7 +44677,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Ref object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -44082,7 +44821,7 @@
       "kind": "objects",
       "id": "refupdaterule",
       "href": "/graphql/reference/objects#refupdaterule",
-      "description": "<p>A ref update rules for a viewer.</p>",
+      "description": "<p>Branch protection rules that are enforced on the viewer.</p>",
       "fields": [
         {
           "name": "allowsDeletions",
@@ -44230,7 +44969,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReferencedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -44328,7 +45067,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Release object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -44697,7 +45436,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReleaseAsset object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -44886,6 +45625,86 @@
       ]
     },
     {
+      "name": "RemovedFromMergeQueueEvent",
+      "kind": "objects",
+      "id": "removedfrommergequeueevent",
+      "href": "/graphql/reference/objects#removedfrommergequeueevent",
+      "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "beforeCommit",
+          "description": "<p>Identifies the before commit SHA for the<code>removed_from_merge_queue</code>event.</p>",
+          "type": "Commit",
+          "id": "commit",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enqueuer",
+          "description": "<p>The user who removed this Pull Request from the merge queue.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the RemovedFromMergeQueueEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue where this pull request was removed from.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "reason",
+          "description": "<p>The reason this pull request was removed from the queue.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RemovedFromProjectEvent",
       "kind": "objects",
       "id": "removedfromprojectevent",
@@ -44925,7 +45744,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RemovedFromProjectEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45039,7 +45858,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RenamedTitleEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45103,7 +45922,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReopenedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45214,7 +46033,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45429,7 +46248,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoAddMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45649,7 +46468,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoAddTopicAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -45872,7 +46691,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoArchivedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46087,7 +46906,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoChangeMergeSettingAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46310,7 +47129,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46517,7 +47336,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46724,7 +47543,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableContributorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -46931,7 +47750,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigDisableSockpuppetDisallowedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -47138,7 +47957,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -47345,7 +48164,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableCollaboratorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -47552,7 +48371,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableContributorsOnlyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -47759,7 +48578,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigEnableSockpuppetDisallowedAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -47966,7 +48785,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigLockAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -48173,7 +48992,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoConfigUnlockAnonymousGitAccessAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -48396,7 +49215,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoCreateAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -48611,7 +49430,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoDestroyAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -48826,7 +49645,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoRemoveMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -49046,7 +49865,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepoRemoveTopicAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -50252,7 +51071,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Repository object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -50749,6 +51568,26 @@
           "id": "mergecommittitle",
           "kind": "enums",
           "href": "/graphql/reference/enums#mergecommittitle"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue for a specified branch, otherwise the default branch if not provided.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue",
+          "arguments": [
+            {
+              "name": "branch",
+              "description": "<p>The name of the branch to get the merge queue for. Case sensitive.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "milestone",
@@ -52415,7 +53254,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryInvitation object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -52582,7 +53421,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryMigration object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -52753,7 +53592,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryRule object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -52982,7 +53821,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryRuleset object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53114,7 +53953,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryRulesetBypassActor object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53122,7 +53961,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>This actor represents the ability for an organization admin to bypass.</p>",
+          "description": "<p>This actor represents the ability for an organization owner to bypass.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -53307,7 +54146,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryTopic object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53524,7 +54363,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryVisibilityChangeDisableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53723,7 +54562,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryVisibilityChangeEnableAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -53896,7 +54735,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryVulnerabilityAlert object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54189,7 +55028,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewDismissalAllowance object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54324,7 +55163,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewDismissedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54412,7 +55251,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewRequest object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54534,7 +55373,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewRequestRemovedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54590,7 +55429,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ReviewRequestedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -54694,7 +55533,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SavedReply object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -55004,7 +55843,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SecurityAdvisory object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -55964,7 +56803,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Status object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56079,7 +56918,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the StatusCheckRollup object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56275,7 +57114,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the StatusContext object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56517,7 +57356,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SubscribedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -56611,7 +57450,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Tag object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57040,7 +57879,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Team object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57682,7 +58521,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamAddMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -57902,7 +58741,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamAddRepositoryAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -58149,7 +58988,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamChangeParentTeamAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -58601,7 +59440,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamDiscussion object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -58627,7 +59466,7 @@
         },
         {
           "name": "isPrivate",
-          "description": "<p>Whether or not the discussion is only visible to team members and org admins.</p>",
+          "description": "<p>Whether or not the discussion is only visible to team members and organization owners.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -59045,7 +59884,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamDiscussionComment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -59625,7 +60464,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamRemoveMemberAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -59845,7 +60684,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TeamRemoveRepositoryAuditEntry object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60158,7 +60997,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Topic object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60421,7 +61260,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the TransferredEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60490,7 +61329,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Tree object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60691,7 +61530,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnassignedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60813,7 +61652,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnlabeledEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60869,7 +61708,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnlockedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60933,7 +61772,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnmarkedAsDuplicateEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -60981,7 +61820,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnpinnedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -61029,7 +61868,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UnsubscribedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -61650,7 +62489,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the User object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -61885,6 +62724,56 @@
           "id": "profileitemshowcase",
           "kind": "objects",
           "href": "/graphql/reference/objects#profileitemshowcase"
+        },
+        {
+          "name": "lists",
+          "description": "<p>A user-curated list of repositories.</p>",
+          "type": "UserListConnection!",
+          "id": "userlistconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
         },
         {
           "name": "location",
@@ -63041,6 +63930,14 @@
           "href": "/graphql/reference/objects#userstatus"
         },
         {
+          "name": "suggestedListNames",
+          "description": "<p>Suggested names for user lists.</p>",
+          "type": "[UserListSuggestion!]!",
+          "id": "userlistsuggestion",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistsuggestion"
+        },
+        {
           "name": "suspendedAt",
           "description": "<p>Identifies the date and time when the user was suspended.</p>",
           "type": "DateTime",
@@ -63334,7 +64231,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UserBlockedEvent object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63455,7 +64352,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UserContentEdit object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63596,6 +64493,301 @@
       ]
     },
     {
+      "name": "UserList",
+      "kind": "objects",
+      "id": "userlist",
+      "href": "/graphql/reference/objects#userlist",
+      "description": "<p>A user-curated list of repositories.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of this list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the UserList object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not this list is private.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "items",
+          "description": "<p>The items associated with this list.</p>",
+          "type": "UserListItemsConnection!",
+          "id": "userlistitemsconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistitemsconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "lastAddedAt",
+          "description": "<p>The date and time at which this list was created or last had items added to it.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of this list.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "slug",
+          "description": "<p>The slug of this list.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user to which this list belongs.</p>",
+          "type": "User!",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "UserListConnection",
+      "kind": "objects",
+      "id": "userlistconnection",
+      "href": "/graphql/reference/objects#userlistconnection",
+      "description": "<p>The connection type for UserList.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[UserListEdge]",
+          "id": "userlistedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[UserList]",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "UserListEdge",
+      "kind": "objects",
+      "id": "userlistedge",
+      "href": "/graphql/reference/objects#userlistedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "UserList",
+          "id": "userlist",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlist"
+        }
+      ]
+    },
+    {
+      "name": "UserListItemsConnection",
+      "kind": "objects",
+      "id": "userlistitemsconnection",
+      "href": "/graphql/reference/objects#userlistitemsconnection",
+      "description": "<p>The connection type for UserListItems.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[UserListItemsEdge]",
+          "id": "userlistitemsedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#userlistitemsedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[UserListItems]",
+          "id": "userlistitems",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#userlistitems"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "UserListItemsEdge",
+      "kind": "objects",
+      "id": "userlistitemsedge",
+      "href": "/graphql/reference/objects#userlistitemsedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "UserListItems",
+          "id": "userlistitems",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#userlistitems"
+        }
+      ]
+    },
+    {
+      "name": "UserListSuggestion",
+      "kind": "objects",
+      "id": "userlistsuggestion",
+      "href": "/graphql/reference/objects#userlistsuggestion",
+      "description": "<p>Represents a suggested user list.</p>",
+      "fields": [
+        {
+          "name": "id",
+          "description": "<p>The ID of the suggested user list.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the suggested user list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "UserStatus",
       "kind": "objects",
       "id": "userstatus",
@@ -63643,7 +64835,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the UserStatus object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -63834,7 +65026,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Workflow object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64094,7 +65286,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the WorkflowRun object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64279,7 +65471,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the WorkflowRunFile object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64742,7 +65934,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Comment object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -64972,7 +66164,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the GitObject object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65290,7 +66482,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Migration object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65507,7 +66699,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProfileOwner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65700,7 +66892,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the ProjectOwner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -65849,7 +67041,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Reactable object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66487,7 +67679,7 @@
         },
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the RepositoryOwner object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66728,7 +67920,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Starrable object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66821,7 +68013,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the Subscribable object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -66854,7 +68046,7 @@
       "fields": [
         {
           "name": "id",
-          "description": "",
+          "description": "<p>The Node ID of the SubscribableThread object.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -67875,7 +69067,7 @@
         },
         {
           "name": "NO_POLICY",
-          "description": "<p>Organization administrators choose whether to allow members to create repositories.</p>"
+          "description": "<p>Organization owners choose whether to allow members to create repositories.</p>"
         },
         {
           "name": "PRIVATE",
@@ -68619,6 +69811,52 @@
       ]
     },
     {
+      "name": "MergeQueueEntryState",
+      "kind": "enums",
+      "id": "mergequeueentrystate",
+      "href": "/graphql/reference/enums#mergequeueentrystate",
+      "description": "<p>The possible states for a merge queue entry.</p>",
+      "values": [
+        {
+          "name": "AWAITING_CHECKS",
+          "description": "<p>The entry is currently waiting for checks to pass.</p>"
+        },
+        {
+          "name": "LOCKED",
+          "description": "<p>The entry is currently locked.</p>"
+        },
+        {
+          "name": "MERGEABLE",
+          "description": "<p>The entry is currently mergeable.</p>"
+        },
+        {
+          "name": "QUEUED",
+          "description": "<p>The entry is currently queued.</p>"
+        },
+        {
+          "name": "UNMERGEABLE",
+          "description": "<p>The entry is currently unmergeable.</p>"
+        }
+      ]
+    },
+    {
+      "name": "MergeQueueMergingStrategy",
+      "kind": "enums",
+      "id": "mergequeuemergingstrategy",
+      "href": "/graphql/reference/enums#mergequeuemergingstrategy",
+      "description": "<p>The possible merging strategies for a merge queue.</p>",
+      "values": [
+        {
+          "name": "ALLGREEN",
+          "description": "<p>Entries only allowed to merge if they are passing.</p>"
+        },
+        {
+          "name": "HEADGREEN",
+          "description": "<p>Failing Entires are allowed to merge if they are with a passing entry.</p>"
+        }
+      ]
+    },
+    {
       "name": "MergeStateStatus",
       "kind": "enums",
       "id": "mergestatestatus",
@@ -68944,7 +70182,7 @@
       "values": [
         {
           "name": "ADMIN",
-          "description": "<p>Organization administrators have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization admins can delete the organization\nand all of its repositories.</p>"
+          "description": "<p>Organization owners have full access and can change several settings,\nincluding the names of repositories that belong to the Organization and Owners\nteam membership. In addition, organization owners can delete the organization\nand all of its repositories.</p>"
         },
         {
           "name": "BILLING_MANAGER",
@@ -69740,6 +70978,10 @@
       "description": "<p>The possible item types found in a timeline.</p>",
       "values": [
         {
+          "name": "ADDED_TO_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents an<code>added_to_merge_queue</code>event on a given pull request.</p>"
+        },
+        {
           "name": "ADDED_TO_PROJECT_EVENT",
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
@@ -69902,6 +71144,10 @@
         {
           "name": "REFERENCED_EVENT",
           "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_MERGE_QUEUE_EVENT",
+          "description": "<p>Represents a<code>removed_from_merge_queue</code>event on a given pull request.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
@@ -72567,6 +73813,11 @@
       "description": "<p>An item in a pull request timeline.</p>",
       "possibleTypes": [
         {
+          "name": "AddedToMergeQueueEvent",
+          "id": "addedtomergequeueevent",
+          "href": "/graphql/reference/objects#addedtomergequeueevent"
+        },
+        {
           "name": "AddedToProjectEvent",
           "id": "addedtoprojectevent",
           "href": "/graphql/reference/objects#addedtoprojectevent"
@@ -72770,6 +74021,11 @@
           "name": "ReferencedEvent",
           "id": "referencedevent",
           "href": "/graphql/reference/objects#referencedevent"
+        },
+        {
+          "name": "RemovedFromMergeQueueEvent",
+          "id": "removedfrommergequeueevent",
+          "href": "/graphql/reference/objects#removedfrommergequeueevent"
         },
         {
           "name": "RemovedFromProjectEvent",
@@ -73130,6 +74386,20 @@
           "name": "StatusContext",
           "id": "statuscontext",
           "href": "/graphql/reference/objects#statuscontext"
+        }
+      ]
+    },
+    {
+      "name": "UserListItems",
+      "kind": "unions",
+      "id": "userlistitems",
+      "href": "/graphql/reference/unions#userlistitems",
+      "description": "<p>Types that can be added to a user list.</p>",
+      "possibleTypes": [
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/objects#repository"
         }
       ]
     }
@@ -75058,7 +76328,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -76483,7 +77753,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization owners. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -76502,6 +77772,47 @@
           "name": "title",
           "description": "<p>The title of the discussion. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>title</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
           "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CreateUserListInput",
+      "kind": "inputObjects",
+      "id": "createuserlistinput",
+      "href": "/graphql/reference/input-objects#createuserlistinput",
+      "description": "<p>Autogenerated input type of CreateUserList.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of the list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not the list is private.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the new list.</p>",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -77019,6 +78330,32 @@
       ]
     },
     {
+      "name": "DeleteUserListInput",
+      "kind": "inputObjects",
+      "id": "deleteuserlistinput",
+      "href": "/graphql/reference/input-objects#deleteuserlistinput",
+      "description": "<p>Autogenerated input type of DeleteUserList.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "listId",
+          "description": "<p>The ID of the list to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DeploymentOrder",
       "kind": "inputObjects",
       "id": "deploymentorder",
@@ -77040,6 +78377,32 @@
           "id": "deploymentorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#deploymentorderfield"
+        }
+      ]
+    },
+    {
+      "name": "DequeuePullRequestInput",
+      "kind": "inputObjects",
+      "id": "dequeuepullrequestinput",
+      "href": "/graphql/reference/input-objects#dequeuepullrequestinput",
+      "description": "<p>Autogenerated input type of DequeuePullRequest.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The ID of the pull request to be dequeued.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -77310,6 +78673,48 @@
         {
           "name": "pullRequestId",
           "description": "<p>ID of the pull request to enable auto-merge on.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "EnqueuePullRequestInput",
+      "kind": "inputObjects",
+      "id": "enqueuepullrequestinput",
+      "href": "/graphql/reference/input-objects#enqueuepullrequestinput",
+      "description": "<p>Autogenerated input type of EnqueuePullRequest.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expectedHeadOid",
+          "description": "<p>The expected head OID of the pull request.</p>",
+          "type": "GitObjectID",
+          "id": "gitobjectid",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#gitobjectid"
+        },
+        {
+          "name": "jump",
+          "description": "<p>Add the pull request to the front of the queue.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "pullRequestId",
+          "description": "<p>The ID of the pull request to enqueue.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -79387,7 +80792,7 @@
         },
         {
           "name": "organizationAdmin",
-          "description": "<p>For org admin bupasses, true.</p>",
+          "description": "<p>For organization owner bypasses, true.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -80561,6 +81966,33 @@
       ]
     },
     {
+      "name": "UnsubscribeFromNotificationsInput",
+      "kind": "inputObjects",
+      "id": "unsubscribefromnotificationsinput",
+      "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput",
+      "description": "<p>Autogenerated input type of UnsubscribeFromNotifications.</p>",
+      "isDeprecated": false,
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ids",
+          "description": "<p>The NotificationThread IDs of the objects to unsubscribe from.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "UpdateBranchProtectionRuleInput",
       "kind": "inputObjects",
       "id": "updatebranchprotectionruleinput",
@@ -80634,7 +82066,7 @@
         },
         {
           "name": "isAdminEnforced",
-          "description": "<p>Can admins overwrite branch protection.</p>",
+          "description": "<p>Can admins override branch protection.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -83012,6 +84444,100 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateUserListInput",
+      "kind": "inputObjects",
+      "id": "updateuserlistinput",
+      "href": "/graphql/reference/input-objects#updateuserlistinput",
+      "description": "<p>Autogenerated input type of UpdateUserList.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "description",
+          "description": "<p>A description of the list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not the list is private.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "listId",
+          "description": "<p>The ID of the list to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the list.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateUserListsForItemInput",
+      "kind": "inputObjects",
+      "id": "updateuserlistsforiteminput",
+      "href": "/graphql/reference/input-objects#updateuserlistsforiteminput",
+      "description": "<p>Autogenerated input type of UpdateUserListsForItem.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "itemId",
+          "description": "<p>The item to add to the list.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "listIds",
+          "description": "<p>The lists to which this item should belong.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "suggestedListIds",
+          "description": "<p>The suggested lists to create and add this item to.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

@@ -1,6 +1,6 @@
 import cx from 'classnames'
 
-import { MarkdownContent } from 'components/ui/MarkdownContent'
+import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
 import { GHAEReleaseNotesContextT } from './types'
 import { GHAEReleaseNotePatch } from './GHAEReleaseNotePatch'
 

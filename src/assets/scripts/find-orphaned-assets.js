@@ -17,6 +17,7 @@ import languages from '#src/languages/lib/languages.js'
 
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',
+  'assets/images/site/favicon.svg',
   'assets/images/site/apple-touch-icon.png',
   'assets/images/site/apple-touch-icon-114x114.png',
   'assets/images/site/apple-touch-icon-120x120.png',
@@ -95,7 +96,7 @@ async function main(opts) {
     }
   }
 
-  const roots = ['tests', 'components', 'contributing', 'src', 'assets']
+  const roots = ['contributing', 'src', 'assets']
 
   for (const root of roots) {
     sourceFiles.push(
@@ -111,7 +112,7 @@ async function main(opts) {
     )
   }
   // Add exceptions
-  sourceFiles.push('CONTRIBUTING.md')
+  sourceFiles.push('.github/CONTRIBUTING.md')
   sourceFiles.push('README.md')
   verbose && console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
 

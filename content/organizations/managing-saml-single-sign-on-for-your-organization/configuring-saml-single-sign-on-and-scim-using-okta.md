@@ -56,6 +56,13 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 {% data reusables.saml.okta-enable-api-integration %}
 1. Click **Authenticate with {% data variables.product.prodname_ghe_cloud %} - Organization**.
 1. To the right of your organization's name, click **Grant**.
+
+   {% note %}
+
+   **Note:** If you cannot see your organization, this may be because {% data variables.product.prodname_oauth_app %} access restrictions are enabled for the organization. To continue, you will need to approve the "OKTA SCIM Integration" app for the organization. For more information, see "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization)."
+
+   {% endnote %}
+
 1. Click **Authorize OktaOAN**.
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}

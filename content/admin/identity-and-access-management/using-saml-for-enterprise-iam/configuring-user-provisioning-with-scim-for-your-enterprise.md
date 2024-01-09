@@ -53,7 +53,7 @@ If there is no existing account with a matching username on the instance, the us
 
 {% ifversion scim-for-ghes %}
 
-During SAML authentication, some environments may use a value other than `NameID` as the unique identifying claim. If your environment does not use `NameID` to identify users, a site administrator can configure custom user attributes for the instance. {% data variables.product.product_name %} will respect this mapping when SCIM is configured. {% ifversion ghes = 3.6 or ghes = 3.7 %} Custom mappings are supported in {% data variables.product.product_name %} 3.6.5 or 3.7.2 and later.{% endif %} For more information about mapping user attributes, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
+During SAML authentication, some environments may use a value other than `NameID` as the unique identifying claim. If your environment does not use `NameID` to identify users, a site administrator can configure custom user attributes for the instance. {% data variables.product.product_name %} will respect this mapping when SCIM is configured. {% ifversion ghes = 3.7 %} Custom mappings are supported in {% data variables.product.product_name %} 3.6.5 or 3.7.2 and later.{% endif %} For more information about mapping user attributes, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
 
 {% endif %}
 

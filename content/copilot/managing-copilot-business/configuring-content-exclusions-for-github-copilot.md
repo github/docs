@@ -2,10 +2,6 @@
 title: Configuring content exclusions for GitHub Copilot
 shortTitle: Excluding content
 intro: 'You can prevent specified files from being used to inform code completion suggestions made by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} will not be available in excluded files.'
-product: 'This feature is available for organizations{% ifversion ghec %} and enterprise accounts{% endif %} with a {% data variables.product.prodname_copilot_business_short %} subscription.'
-permissions: 'Repository administrators and organization owners can manage the content exclusion settings for {% data variables.product.prodname_copilot %}.
-<br><br>
-People with the "Maintain" role for a repository can view the content exclusion settings for a repository, but can''t change these settings. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."'
 layout: inline
 topics:
   - Copilot
@@ -13,7 +9,11 @@ versions:
   feature: copilot
 ---
 
-{% data reusables.copilot.content-exclusion-note %}
+{% warning %}
+
+**Important**: This feature is currently unavailable. It will be reintroduced in the near future. For more information, see "[Copilot content exclusions – Temporary rollback and upcoming fix](https://github.blog/changelog/2023-11-20-copilot-content-exclusions-temporary-rollback-and-upcoming-fix/)" in the {% data variables.product.prodname_dotcom %} changelog.
+
+{% endwarning %}
 
 ## About configuring content exclusions
 

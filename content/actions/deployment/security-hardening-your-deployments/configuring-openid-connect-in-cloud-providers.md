@@ -33,6 +33,8 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 If your cloud provider doesn't yet offer an official action, you can update your workflows to perform these steps manually.
 
+{% data reusables.actions.oidc-deployment-protection-rules %}
+
 ### Adding permissions settings
 
  {% data reusables.actions.oidc-permissions-token %}

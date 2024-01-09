@@ -51,7 +51,7 @@ For more information about authenticating with {% data variables.product.prodnam
    brew install --cask git-credential-manager
    ```
 
-  For MacOS, you don't need to run `git config` because GCM automatically configures Git for you.
+  For macOS, you don't need to run `git config` because GCM automatically configures Git for you.
 
 {% data reusables.gcm-core.next-time-you-clone %}
 

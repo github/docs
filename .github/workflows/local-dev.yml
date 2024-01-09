@@ -28,6 +28,9 @@ jobs:
       # Note that we don't check out docs-early-access, Elasticsearch,
       # or any remote translations. Nothing fancy here!
 
+      - name: Disable Next.js telemetry
+        run: npx next telemetry disable
+
       - name: Start server in the background
         run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &
 
@@ -38,7 +41,7 @@ jobs:
           curl --fail --retry-connrefused --retry 5 http://localhost:4000/
 
       - name: Run basic tests
-        run: node src/workflows/test-local-dev.js
+        run: npm run test-local-dev
 
       - if: ${{ failure() }}
         name: Debug server outputs on errors

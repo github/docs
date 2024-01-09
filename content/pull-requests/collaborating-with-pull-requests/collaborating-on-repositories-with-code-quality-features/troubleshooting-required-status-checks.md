@@ -17,6 +17,12 @@ shortTitle: Required status checks
 ---
 If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[AUTOTITLE](/rest/checks)."
 
+{% note %}
+
+**Note:** To be required, status checks must have completed successfully within the chosen repository during the past seven days.
+
+{% endnote %}
+
 After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
 
 {% note %}

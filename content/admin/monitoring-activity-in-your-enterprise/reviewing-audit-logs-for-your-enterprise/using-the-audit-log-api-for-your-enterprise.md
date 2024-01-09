@@ -17,14 +17,23 @@ topics:
 
 ## Using the audit log API
 
-You can interact with the audit log using the REST API.{% ifversion read-audit-scope %} You can use the `read:audit_log` scope to access the audit log via the API.{% endif %}
+{% note %}
+
+**Note:**  {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
+
+{% endnote %}
+
+You can maintain compliance for your enterprise and secure your intellectual property by interacting with the audit log using the REST API. For more information about the specific events that you can access via the audit log API, see the following articles.
+
+- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+
+{% data reusables.audit_log.retention-periods %}
 
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](https://en.wikipedia.org/wiki/Unix_time).
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
-{% data reusables.audit_log.audited-data-list %}
-
-{% data reusables.audit_log.retention-periods %}
+{% ifversion read-audit-scope %}You can use the `read:audit_log` scope to access the audit log via the API.{% endif %}
 
 {% ifversion ghec %}Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)" and "[AUTOTITLE](/rest/guides/best-practices-for-integrators)."{% endif %}
 
