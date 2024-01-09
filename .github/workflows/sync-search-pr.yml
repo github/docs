@@ -103,7 +103,7 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./src/search/scripts/index-elasticsearch.js /tmp/records \
+          npm run index-elasticsearch -- /tmp/records \
             --language en \
             --version dotcom
 
