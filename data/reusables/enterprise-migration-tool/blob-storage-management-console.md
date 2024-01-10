@@ -7,6 +7,13 @@ After you set up an AWS S3 storage bucket or Azure Blob Storage storage account,
 1. In the top navigation bar, click **Settings**.
 1. Under **Migrations**, click **Enable {% data variables.product.company_short %} Migrations**.
 1. Optionally, to import storage settings you configured for {% data variables.product.prodname_actions %}, select **Copy Storage settings from Actions**. For more information see, "[Enabling GitHub Actions with Azure Blob storage]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage)" and "[Enabling GitHub Actions with Amazon S3 storage]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage)."
+
+   {% note %}
+
+   **Note**: After copying your storage settings, you may still need to update the configuration of your cloud storage account to work with {% data variables.product.prodname_importer_proper_name %}. In particular, you must ensure that {% data variables.product.prodname_dotcom %}'s IP addresses are allowlisted. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#configuring-ip-allow-lists-for-migrations)."
+
+   {% endnote %}
+
 1. If you do not import storage settings from {% data variables.product.prodname_actions %}, select either **Azure Blob Storage** or **Amazon S3** and fill in the required details.
 
    {% note %}
