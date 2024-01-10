@@ -129,7 +129,10 @@ You can configure the maximum job concurrency, which allows you to control your 
 
 {% note %}
 
-**Note:** Assigning static IP addresses to runners is only available for {% data variables.actions.hosted_runner %}s with Linux or Windows operating systems.
+**Notes:**
+
+- Assigning static IP addresses to runners is only available for {% data variables.actions.hosted_runner %}s with Linux or Windows operating systems.
+- {% data reusables.actions.static-ip-limitation-vnet %} For more information about private networking for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-using-github-hosted-runners-in-your-azure-virtual-network)."
 
 {% endnote %}
 
