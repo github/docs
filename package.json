@@ -257,7 +257,7 @@
     "express-rate-limit": "7.0.0",
     "express-timeout-handler": "^2.2.2",
     "fastest-levenshtein": "1.0.16",
-    "file-type": "18.7.0",
+    "file-type": "19.0.0",
     "flat": "^6.0.1",
     "github-slugger": "^2.0.0",
     "glob": "10.0.0",
