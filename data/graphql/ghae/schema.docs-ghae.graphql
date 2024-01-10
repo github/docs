@@ -25489,9 +25489,17 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -36403,9 +36411,17 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -38424,9 +38440,17 @@ interface RepositoryOwner {
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -44517,9 +44541,17 @@ type Topic implements Node & Starrable {
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -48567,9 +48599,17 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -48958,9 +48998,17 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
