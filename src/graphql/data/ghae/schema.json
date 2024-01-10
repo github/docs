@@ -37057,6 +37057,16 @@
           "type": "User!",
           "id": "user",
           "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>inviter</code> will be removed. <code>inviter</code> will be replaced by <code>inviterActor</code>. Removal on 2024-07-01 UTC.</p>"
+        },
+        {
+          "name": "inviterActor",
+          "description": "<p>The user who created the invitation.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
           "href": "/graphql/reference/objects#user"
         },
         {
@@ -44714,6 +44724,66 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        },
+        {
+          "name": "rules",
+          "description": "<p>A list of rules from active Repository and Organization rulesets that apply to this ref.</p>",
+          "type": "RepositoryRuleConnection",
+          "id": "repositoryruleconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for repository rules.</p>",
+              "type": {
+                "name": "RepositoryRuleOrder",
+                "id": "repositoryruleorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#repositoryruleorder"
+              }
+            }
+          ]
         },
         {
           "name": "target",
@@ -71690,6 +71760,27 @@
       ]
     },
     {
+      "name": "RepositoryRuleOrderField",
+      "kind": "enums",
+      "id": "repositoryruleorderfield",
+      "href": "/graphql/reference/enums#repositoryruleorderfield",
+      "description": "<p>Properties by which repository rule connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order repository rules by created time.</p>"
+        },
+        {
+          "name": "TYPE",
+          "description": "<p>Order repository rules by type.</p>"
+        },
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order repository rules by updated time.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRuleType",
       "kind": "enums",
       "id": "repositoryruletype",
@@ -80764,6 +80855,31 @@
           "id": "repositoryruletype",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryruletype"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleOrder",
+      "kind": "inputObjects",
+      "id": "repositoryruleorder",
+      "href": "/graphql/reference/input-objects#repositoryruleorder",
+      "description": "<p>Ordering options for repository rules.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order repository rules by.</p>",
+          "type": "RepositoryRuleOrderField!",
+          "id": "repositoryruleorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryruleorderfield"
         }
       ]
     },

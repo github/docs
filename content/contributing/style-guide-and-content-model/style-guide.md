@@ -1101,7 +1101,7 @@ If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
 For tables that use symbols:
 
 - Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE]/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
+- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
 - Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
 - Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 

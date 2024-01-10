@@ -84,6 +84,10 @@ You must ensure that Git is in the PATH variable on any self-hosted runners you 
 
 {% ifversion ghes %}
 
+### Provisioning a runner scale set
+
+You can use {% data variables.product.prodname_actions_runner_controller %} to create a dedicated runner scale set for your {% data variables.product.prodname_ghe_server %} instance. For more information, see "[AUTOTITLE](/enterprise-server@latest/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-arc-with-dependabot-and-code-scanning)."
+
 ### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
 
 {% ifversion ghes %}

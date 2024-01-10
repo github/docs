@@ -189,7 +189,7 @@ jobs:
           # not exist.
           VERSION: ${{ inputs.version }}
         run: |
-          ./src/search/scripts/index-elasticsearch.js /tmp/records \
+          npm run index-elasticsearch -- /tmp/records \
             --language ${{ matrix.language }} \
             --stagger-seconds 5 \
             --retries 5
