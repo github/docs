@@ -104,11 +104,16 @@ We recommend creating a test organization to use as a destination for your trial
 
 {% data reusables.enterprise-migration-tool.follow-up-tasks-intro %}
 
+- [Checking the migration status](#checking-the-migration-status)
 - [Reviewing the migration log](#reviewing-the-migration-log)
 - [Setting repository visibility](#setting-repository-visibility)
 - [Configuring permissions](#configuring-permissions)
 - [Reclaiming mannequins](#reclaiming-mannequins)
 - [Configuring IP allow lists](#configuring-ip-allow-lists)
+
+### Checking the migration status
+
+{% data reusables.enterprise-migration-tool.checking-the-migration-status %}
 
 ### Reviewing the migration log
 

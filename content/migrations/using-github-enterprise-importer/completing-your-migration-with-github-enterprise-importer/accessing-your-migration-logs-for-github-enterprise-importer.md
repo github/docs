@@ -1,7 +1,7 @@
 ---
 title: Accessing your migration logs for GitHub Enterprise Importer
 shortTitle: Access migration logs
-intro: 'To review a record of events and errors that occurred during a repository migration, you can access the migration log on {% data variables.product.prodname_dotcom %} or using the {% data variables.product.prodname_cli %}.'
+intro: "After running a migration, you should review the migration log to check for data that didn't migrate as expected."
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,12 +13,14 @@ redirect_from:
 
 ## About migration logs
 
-Each time you run a migration with {% data variables.product.prodname_importer_proper_name %}, a migration log is created. The migration log lists the steps that were completed as part of the migration and includes additional information.
+Each time you run a migration with {% data variables.product.prodname_importer_proper_name %}, a migration log is created. You should check the migration log after every migration to review any migration warnings.
 
+The migration log lists the steps that were completed as part of the migration and includes additional information.
+
+- Migration warnings, representing data (such as issues, pull requests, or comments) that didn't migrate as expected
 - Who ran the migration
 - The source of the migration
 - How long the migration took
-- Any resources that didn't migrate as expected
 
 You can access the migration log for a repository migration in multiple ways.
 
@@ -27,7 +29,7 @@ You can access the migration log for a repository migration in multiple ways.
 
 When you run an organization migration, {% data variables.product.prodname_importer_proper_name %} additionally creates a repository named `gei-migration-results` in the destination organization. This repository contains information about the migration of organization-level data and duplicates the information in the "Migration Log" issues for each migrated repository.
 
-For more information about interpreting error messages in your migration log, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#troubleshooting-successful-migrations)."
+For more information about interpreting warnings in your migration log, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#understanding-migration-log-warnings)."
 
 ## Viewing a repository migration log on {% data variables.product.prodname_dotcom %}
 

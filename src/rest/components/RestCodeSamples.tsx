@@ -224,7 +224,9 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h3 className="mt-0 pt-0 h4" id={`${slug}--code-samples`}>
         <a href={`#${slug}--code-samples`}>{heading}</a>
       </h3>
-
+      <h4 className="mt-3 mb-3 h5">
+        {isSingleExample ? t('request_example') : t('request_examples')}
+      </h4>
       {/* Display an example selector if more than one example */}
       {!isSingleExample && (
         <div className="pb-5 pt-2">

@@ -129,6 +129,7 @@ For repository migrations, we recommend creating a test organization to use as a
 
 {% data reusables.enterprise-migration-tool.follow-up-tasks-intro %}
 
+- [Checking the migration status](#checking-the-migration-status)
 - [Reviewing the migration log](#reviewing-the-migration-log)
 - [Migrating {% data variables.large_files.product_name_short %} objects](#migrating-git-lfs-objects)
 - [Setting repository visibility](#setting-repository-visibility)
@@ -139,6 +140,10 @@ For repository migrations, we recommend creating a test organization to use as a
 - [Reinstalling {% data variables.product.prodname_github_apps %}](#reinstalling-github-apps)
 - [Recreating teams](#recreating-teams)
 - [Reclaiming mannequins](#reclaiming-mannequins)
+
+### Checking the migration status
+
+{% data reusables.enterprise-migration-tool.checking-the-migration-status %}
 
 ### Reviewing the migration log
 
