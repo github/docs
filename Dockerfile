@@ -90,7 +90,7 @@ COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node src ./src
 COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
-COPY --chown=node:node .pageinfo-cache.json* ./.pageinfo-cache.json
+COPY --chown=node:node .pageinfo-cache.json.br* ./.pageinfo-cache.json.br
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 
