@@ -1092,9 +1092,11 @@ To add row headers for a Markdown table, wrap the table in the Liquid tags `{% r
 
 ### Include a value for every cell
 
-Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+Every cell in a table must contain a value.
 
-If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+For cells with no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+For tables with row headers, the first cell (cell "A1") should describe the row headers to help people understand the whole table. However, if doing this would make the table less clear or add redundant information, you can leave this cell empty. For example, in the article "[AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-powershell#powershell-module-locations)," the first cell could be labeled as "Modules", but since each row header already includes the word "module", this header would repeat information that does not add descriptive value to understanding the table as a whole.
 
 ### Use clear, consistent symbols and labels
 
