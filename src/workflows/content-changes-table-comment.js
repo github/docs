@@ -63,7 +63,6 @@ async function main(owner, repo, baseSHA, headSHA) {
   })
 
   const { files } = response.data
-
   const markdownTableHead = [
     '| **Source** | **Preview** | **Production** | **What Changed** |',
     '|:----------- |:----------- |:----------- |:----------- |',
