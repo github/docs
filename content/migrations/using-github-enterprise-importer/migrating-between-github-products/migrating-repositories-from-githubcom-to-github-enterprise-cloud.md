@@ -214,6 +214,12 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
 
+{% data reusables.enterprise-migration-tool.abort-migration %}
+
+```shell copy
+gh gei abort-migration --migration-id MIGRATION-ID
+```
+
 ## Step 6: Validate your migration and check the error log
 
 {% data reusables.enterprise-migration-tool.validate-migration-logs %}
