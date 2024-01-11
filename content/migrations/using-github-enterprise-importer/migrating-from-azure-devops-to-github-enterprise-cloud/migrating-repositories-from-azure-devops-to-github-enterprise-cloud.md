@@ -237,6 +237,12 @@ gh ado2gh migrate-repo --ado-org SOURCE --ado-team-project TEAM-PROJECT --ado-re
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
 TEAM-PROJECT | Name of the team project of the repository you want to migrate
 
+{% data reusables.enterprise-migration-tool.abort-migration %}
+
+```shell copy
+gh ado2gh abort-migration --migration-id MIGRATION-ID
+```
+
 ## Step 6: Validate your migration and check the error log
 
 {% data reusables.enterprise-migration-tool.validate-migration-logs %}

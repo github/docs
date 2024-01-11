@@ -489,6 +489,12 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 {% data reusables.enterprise-migration-tool.azure-storage-connection-string-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
 
+{% data reusables.enterprise-migration-tool.abort-migration %}
+
+```shell copy
+gh gei abort-migration --migration-id MIGRATION-ID
+```
+
 ## Step 7: Validate your migration and check the error log
 
 {% data reusables.enterprise-migration-tool.validate-migration-logs %}
