@@ -12,7 +12,7 @@
 
 **Notes**:
 
-{% ifversion ghes < 3.8 or ghae < 3.8 %}
+{% ifversion ghae < 3.8 %}
 - {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.{% endif %}{% ifversion codeql-swift-beta %}
 - {% data variables.product.prodname_codeql %} analysis for Swift is currently in beta. During the beta, analysis of Swift will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages. Additionally, Swift 5.8 is not yet supported.{% endif %}
 {% ifversion codeql-kotlin-beta %}
