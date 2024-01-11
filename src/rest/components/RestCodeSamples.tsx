@@ -40,6 +40,14 @@ function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
 }
 
+function highlightElement(element: HTMLElement) {
+  element.className = 'hljs'
+  // If the element was already highlighted, remove the dataset property
+  // otherwise the `hljs.highlightElement` function will not highlight.
+  delete element.dataset.highlighted
+  hljs.highlightElement(element)
+}
+
 export function RestCodeSamples({ operation, slug, heading }: Props) {
   const { t } = useTranslation(['rest_reference'])
   const { isEnterpriseServer } = useVersion()
@@ -147,8 +155,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
       handleResponseResize()
     }
   }, [selectedLanguage])
@@ -168,8 +175,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
   }, [selectedResponse])
 
@@ -178,14 +184,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   useEffect(() => {
     const reqElem = requestCodeExample.current
     if (reqElem) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
 
     const resElem = responseCodeExample.current
     if (resElem) {
-      resElem.className = 'hljs'
-      hljs.highlightElement(resElem)
+      highlightElement(resElem)
     }
   }, [selectedExample])
 
