@@ -1,5 +1,5 @@
 ---
-title: "{% ifversion ghes %}Configuring code scanning for your appliance{% elsif default-setup-self-hosted-runners-GHEC %}Configuring self-hosted runners for code scanning in your enterprise{% endif %}"
+title: '{% ifversion ghes %}Configuring code scanning for your appliance{% elsif default-setup-self-hosted-runners-GHEC %}Configuring self-hosted runners for code scanning in your enterprise{% endif %}'
 shortTitle: Configuring code scanning
 intro: 'You can enable, configure, and disable {% data variables.product.prodname_code_scanning %} for {% data variables.product.product_name %}{% ifversion default-setup-self-hosted-runners-GHEC %} without {% data variables.product.prodname_dotcom %}-hosted runners{% endif %}. {% data variables.product.prodname_code_scanning_caps %} allows users to scan code for vulnerabilities and errors.'
 allowTitleToDifferFromFilename: true
@@ -74,7 +74,7 @@ If you are using default setup for {% data variables.product.prodname_code_scann
 
 You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
 
-{% ifversion default-setup-self-hosted-runners-GHEC or ghes > 3.7 or ghae > 3.7 %}
+{% ifversion default-setup-self-hosted-runners-GHEC or ghes or ghae > 3.7 %}
 {% note %}
 
 **Note:** If you use {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} to analyze code written in Python in your enterprise, you must make sure that your self-hosted runner has Python 3 installed.
