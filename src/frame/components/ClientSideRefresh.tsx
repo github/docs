@@ -22,7 +22,7 @@ export default function ClientSideRefresh() {
       // and it means that the `useSWR` hook will make a listener on the
       // the Page Visibility API.
       // https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
-      // It effectly means that the callback of this hook will run every
+      // It effectively means that the callback of this hook will run every
       // time the browser window is put back to being visible.
 
       // The `revalidateOnMount` is crucial because it means that we don't

@@ -23,7 +23,7 @@ We currently only support migrating the following repository data from Azure Dev
 - User history for pull requests
 - Work item links on pull requests
 - Attachments on pull requests
-- Branch protections for the repository (user-scoped branch protections not included)
+- Branch policies for the repository (user-scoped branch policies and cross-repo branch policies are not included)
 
 If you want to migrate Azure Pipelines to {% data variables.product.prodname_actions %}, contact your {% data variables.product.prodname_dotcom %} account manager.
 

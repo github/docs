@@ -412,7 +412,7 @@ function initHoverEvent() {
   })
 
   // Doesn't matter which link you hovered on that triggered a timer,
-  // you're clearly not hovering over it any more.
+  // you're clearly not hovering over it anymore.
   document.documentElement.addEventListener('mouseout', () => {
     if (timer) {
       window.clearTimeout(timer)

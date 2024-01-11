@@ -36,7 +36,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
+    "description": "An API request was made to a security-significant endpoint for the enterprise. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests"
   },
   {
@@ -148,6 +148,16 @@
     "action": "business.advanced_security_repo_admin_enablement_policy_update",
     "description": "N/A",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.audit_log_export",
+    "description": "An export of the enterprise audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
+    "docs_reference_links": "admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise"
+  },
+  {
+    "action": "business.audit_log_git_event_export",
+    "description": "An export of the enterprise's Git events was created.",
+    "docs_reference_links": "admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise"
   },
   {
     "action": "business.cancel_admin_invitation",

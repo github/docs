@@ -285,11 +285,6 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
   },
   {
-    "action": "org.audit_log_export",
-    "description": "An export of the organization audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
-    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log"
-  },
-  {
     "action": "org.billing_signup_error",
     "description": "N/A",
     "docs_reference_links": "N/A"

@@ -560,11 +560,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "user.audit_log_export",
-    "description": "Audit log entries were exported.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "user.block_user",
     "description": "A user was blocked by another user.",
     "docs_reference_links": "N/A"

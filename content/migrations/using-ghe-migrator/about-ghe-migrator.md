@@ -34,7 +34,7 @@ There are three types of migrations you can perform:
 
 With ghe-migrator, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository _and_ the organization, as well as any users, teams, issues, and pull requests associated with the repository.
 
-The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
+The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data cannot be migrated, including {% data variables.large_files.product_name_short %} assets.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 

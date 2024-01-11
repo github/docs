@@ -94,7 +94,7 @@ Then, use the open-source tool, `git-sizer`, to get this data for your repositor
 ### Prerequisites
 
 1. Install `git-sizer`. For more information, see the [github/git-sizer](https://github.com/github/git-sizer#getting-started) repository.
-1. To verify that that `git-sizer` is installed, run `git-sizer –version`. If you see output like `git-sizer release 1.5.0`, installation was successful.
+1. To verify that `git-sizer` is installed, run `git-sizer –version`. If you see output like `git-sizer release 1.5.0`, installation was successful.
 1. Install `jq`. For more information, see [Download jq](https://stedolan.github.io/jq/download/) in the `jq` documentation.
 1. To verify that `jq` is installed, run `jq –-version`. If you see output like `jq-1.6`, installation was successful.
 

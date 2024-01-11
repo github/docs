@@ -20,7 +20,7 @@ To show forks in repository search results, add `fork:true` or `fork:only` to yo
 
 {% note %}
 
-**Note:** Searching for commits is not supported for forks.
+**Note:**  Forks can only be included in repository and code searches.
 
 {% endnote %}
 

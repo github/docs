@@ -48,3 +48,6 @@ assets/images/help/writing/unordered-list-rendered (1).png
 
 # Used by getRemoteJSON()
 .remotejson-cache/
+
+# Used by precompute-pageinfo
+.pageinfo-cache.json.br

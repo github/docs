@@ -102,4 +102,12 @@ Runner groups can only have [{% data variables.actions.hosted_runner %}s](/actio
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
 
+{% ifversion ghec or ghes %}
+
+#### Example: using prefixes to differentiate runner groups
+
+{% data reusables.actions.using-prefixes-to-differentiate-runner-groups %}
+
+{% endif %}
+
 {% endif %}

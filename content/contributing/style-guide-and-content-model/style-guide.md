@@ -561,6 +561,17 @@ When linking to an external site, choose the most useful resource for the contex
 
 It's not necessary to link to an external product’s website when we mention an external product.
 
+### Adding anchors to preserve links
+
+If you know that there are links to a specific section of an article, you can add an anchor to the section to preserve the link. For example, if an external resource links to a specific section of an article, you could add an anchor so that the link directs to the correct section even if the section title changes.
+
+Use this format for link anchors. The anchor name should be the section name that is being preserved. Use an HTML comment to explain why you are adding the anchor.
+
+```markdown
+<!-- Anchor to maintain the current example link. -->
+<a name="SECTION-TITLE-THAT-MIGHT-CHANGE"></a>
+```
+
 ## Lists
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
@@ -620,7 +631,7 @@ Examples:
 
 ## Product names
 
-Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses).
+Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses). Product names are never possessive.
 
 Use product name variables to render product names - do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the data directory of the github/docs repository.
 
@@ -628,14 +639,16 @@ Product names are always singular.
 - **Use:** {% data variables.product.prodname_actions %} helps you automate your software development workflows.
 - **Avoid:** {% data variables.product.prodname_actions %} help you automate your software development workflows.
 
-Take care to distinguish between product names and product elements.
+Take care to distinguish between product names and product features. Product features are always lowercase.
 
-| Product | Element |
+| Product | Feature |
 | --- | --- |
 | {% data variables.product.prodname_actions %} | an action |
 | {% data variables.product.prodname_github_codespaces %} | a codespace |
 | {% data variables.product.prodname_registry %} | a package |
 | {% data variables.product.prodname_pages %} | a GitHub Pages site |
+
+Do not capitalize commonly used features like pull requests, topics, or issues.
 
 ## Product-specific conventions
 
@@ -1079,16 +1092,18 @@ To add row headers for a Markdown table, wrap the table in the Liquid tags `{% r
 
 ### Include a value for every cell
 
-Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+Every cell in a table must contain a value.
 
-If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+For cells with no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+For tables with row headers, the first cell (cell "A1") should describe the row headers to help people understand the whole table. However, if doing this would make the table less clear or add redundant information, you can leave this cell empty. For example, in the article "[AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-powershell#powershell-module-locations)," the first cell could be labeled as "Modules", but since each row header already includes the word "module", this header would repeat information that does not add descriptive value to understanding the table as a whole.
 
 ### Use clear, consistent symbols and labels
 
 For tables that use symbols:
 
 - Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE]/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
+- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
 - Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
 - Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 

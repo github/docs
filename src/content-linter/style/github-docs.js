@@ -109,6 +109,11 @@ const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'image-no-gif': {
+    // GHD036
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {

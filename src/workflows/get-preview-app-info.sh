@@ -14,7 +14,12 @@
 
 PREVIEW_ENV_LOCATION="eastus"
 
-REPO_NAME="${GITHUB_REPOSITORY#*\/}"
+# If a CUSTOM_GITHUB_REPOSITORY variable was set, use that.
+# Otherwise, use the default GITHUB_REPOSITORY value.
+# (This allows us to call this script from another repo.)
+REPO_NAME_WITH_OWNER="${CUSTOM_GITHUB_REPOSITORY:-$GITHUB_REPOSITORY}"
+
+REPO_NAME="${REPO_NAME_WITH_OWNER#*\/}"
 echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
 
 DEPLOYMENT_NAME="${REPO_NAME}-pr-${PR_NUMBER}"
@@ -31,5 +36,5 @@ echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 APP_URL="https://${REPO_NAME}-${PR_NUMBER}-${APP_SHA}.preview.ghdocs.com"
 echo "APP_URL=${APP_URL}" >> $GITHUB_ENV
 
-IMAGE_REPO="${GITHUB_REPOSITORY}/pr-${PR_NUMBER}"
+IMAGE_REPO="${REPO_NAME_WITH_OWNER}/pr-${PR_NUMBER}"
 echo "IMAGE_REPO=${IMAGE_REPO}" >> $GITHUB_ENV
