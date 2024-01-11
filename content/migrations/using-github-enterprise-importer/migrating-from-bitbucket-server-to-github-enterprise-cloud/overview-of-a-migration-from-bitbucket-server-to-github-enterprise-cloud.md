@@ -59,12 +59,12 @@ To migrate a repository, you must be an organization owner for the destination o
 You must also have required permissions and access to your Bitbucket Server instance:
 
 - Admin or super admin permissions
-- If your Bitbucket Server instance runs Linux, SFTP access to the instance, using a supported SSH private key (see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#required-permissions-for-bitbucket-server)")
+- If your Bitbucket Server instance runs Linux, SFTP access to the instance, using a supported SSH private key (see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-permissions-for-bitbucket-server)")
 - If your Bitbucket Server instance runs Windows, file sharing (SMB) access to the instance
 
 1. Decide whether you want an organization owner of the destination organization to perform your migrations, or whether you need to grant the migrator role to someone else.
 {% data reusables.enterprise-migration-tool.grant-migrator-tasks %}
-{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %}
+{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)."
 1. Confirm the migrator has admin or super admin permissions and SFTP access for your Bitbucket Server instance.
 
 ### What organizational structure do we want in {% data variables.product.prodname_dotcom %}?
@@ -89,7 +89,7 @@ We recommend creating a test organization to use as a destination for your trial
 
 1. Create a test organization for your trial migrations.
 {% data reusables.enterprise-migration-tool.trial-migrations-tasks %}
-{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %}
+{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#configuring-ip-allow-lists-for-migrations)."
 1. Run your production migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud)."
 {% data reusables.enterprise-migration-tool.delete-test-organization %}
 
@@ -134,4 +134,4 @@ To give access to migrated repositories, you can create teams and give each team
 
 If you added the IP ranges for {% data variables.product.prodname_importer_proper_name %} to the IP allow list for your destination organization, you can remove those entries. {% data reusables.enterprise-migration-tool.reenable-idp-ip-restrictions %}
 
-For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#configuring-ip-allow-lists-for-migrations)."
+For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#configuring-ip-allow-lists-for-migrations)."

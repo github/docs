@@ -22,7 +22,12 @@ If you're unable to resolve your issue after trying the troubleshooting steps fo
 Before you investigate further, try these troubleshooting steps that commonly resolve a variety of issues.
 
 1. Verify that you're using the latest version of the {% data variables.product.prodname_cli %} extension you're using to migrate. If you're not, upgrade to the latest version.
-1. Verify that you meet all the access requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
+1. Verify that you meet all the access requirements. For more information, see the appropriate article for your migration path.
+
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products)"
+
 1. Try running the migration again. Some migrations issues are transient, and a second attempt may work.
 1. Try running a migration on a different repository with similar data. This will help determine whether the issue is unique to the repository or represents a broader data shape problem.
 
@@ -60,7 +65,11 @@ This error indicates that a {% data variables.product.pat_generic %} you provide
 
 ### `401 Unauthorized` response
 
-Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided for both your source and destination organizations. For more information about required scopes, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#required-scopes-for-github-enterprise-importer)."
+Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided. For more information about required scopes, see the appropriate article for your migration path.
+
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)"
 
 ### `404 Not Found` response
 
@@ -81,7 +90,7 @@ If that doesn't work, we'd recommend upgrading to {% data variables.product.prod
 
 ### `cipher name is not supported` error
 
-If you're migrating from Bitbucket Server and receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about supported ciphers, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#required-permissions-for-bitbucket-server)."
+If you're migrating from Bitbucket Server and receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about supported ciphers, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-permissions-for-bitbucket-server)."
 
 To generate a new, compatible SSH keypair, run the following command:
 
