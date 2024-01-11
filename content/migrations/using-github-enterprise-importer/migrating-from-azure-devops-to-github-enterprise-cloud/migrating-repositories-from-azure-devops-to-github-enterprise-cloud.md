@@ -128,6 +128,8 @@ mutation startRepositoryMigration (
 {% data reusables.enterprise-migration-tool.startRepositoryMigration-table-ec %}
 | `sourceRepositoryUrl` | The URL of your source repository, using the format `https://dev.azure.com/{organization}/_git/{repository}`.
 
+For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
+
 {% data reusables.enterprise-migration-tool.next-check-status %}
 
 ## Step 4: Check the status of your migration
@@ -169,7 +171,8 @@ gh extension upgrade github/gh-ado2gh
 
 Before you can use the {% data variables.product.prodname_ado2gh_cli_short %} to migrate to {% data variables.product.prodname_ghe_cloud %}, you must create {% data variables.product.pat_generic %}s that can access the source and destination organizations, then set the {% data variables.product.pat_generic %}s as environment variables.
 
-{% data reusables.enterprise-migration-tool.create-pats %}
+1. Create and record a {% data variables.product.pat_v1 %} that will authenticate for the destination organization on {% data variables.product.prodname_ghe_cloud %}, making sure that the token meets all requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#creating-a-personal-access-token-for-github)."
+1. Create and record a {% data variables.product.pat_generic %} that will authenticate for the source organization on Azure DevOps, making sure that this token meets all requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#personal-access-tokens-for-azure-devops)."
 1. Set environment variables for the {% data variables.product.pat_generic %}s, replacing TOKEN in the commands below with the {% data variables.product.pat_generic %}s you recorded above. Use `GH_PAT` for the destination organization and `ADO_PAT` for the source organization.
 
    - If you're using Terminal, use the `export` command.

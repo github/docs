@@ -239,7 +239,7 @@ If you're using {% data variables.product.prodname_ghe_server %} 3.7 or lower, y
 
 If you're using {% data variables.product.prodname_ghe_server %} 3.8 or higher, your instance uploads the archives and generates the URLs for you. The `Location` header in the previous step will return the short-lived URL.
 
-You may need to allowlist {% data variables.product.company_short %}'s IP ranges. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#configuring-ip-allow-lists-for-migrations)."
+You may need to allowlist {% data variables.product.company_short %}'s IP ranges. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 
 ## Step 7: Start your repository migration
 
@@ -289,6 +289,8 @@ mutation startRepositoryMigration (
 `gitArchiveUrl` | A {% data variables.product.prodname_ghe_cloud %}-accessible URL for your Git source archive.
 `metadataArchiveUrl` | A {% data variables.product.prodname_ghe_cloud %}-accessible URL for your metadata archive.
 `sourceRepositoryUrl` | The URL for your repository on your {% data variables.product.prodname_ghe_server %} instance. This is required, but {% data variables.product.prodname_ghe_cloud %} will not communicate directly with your {% data variables.product.prodname_ghe_server %} instance.
+
+For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 {% data reusables.enterprise-migration-tool.next-check-status %}
 

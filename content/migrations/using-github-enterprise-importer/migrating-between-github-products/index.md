@@ -9,6 +9,7 @@ versions:
 children:
   - /about-migrations-between-github-products
   - /overview-of-a-migration-between-github-products
+  - /managing-access-for-a-migration-between-github-products
   - /migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud
   - /migrating-repositories-from-githubcom-to-github-enterprise-cloud
   - /migrating-organizations-from-githubcom-to-github-enterprise-cloud

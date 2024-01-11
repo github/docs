@@ -65,7 +65,7 @@ To migrate a repository, you must be an organization owner for the destination o
 
 1. Decide whether you want an organization owner of the destination organization to perform your migrations, or whether you need to grant the migrator role to someone else.
 {% data reusables.enterprise-migration-tool.grant-migrator-tasks %}
-{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %}
+{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
 
 ### What organizational structure do we want in {% data variables.product.prodname_dotcom %}?
 
@@ -96,7 +96,7 @@ We recommend creating a test organization to use as a destination for your trial
 
 1. Create a test organization for your trial migrations.
 {% data reusables.enterprise-migration-tool.trial-migrations-tasks %}
-{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %}
+{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#configuring-ip-allow-lists-for-migrations)."
 1. Run your production migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud)."
 {% data reusables.enterprise-migration-tool.delete-test-organization %}
 
@@ -149,4 +149,4 @@ If you aren't using the ADO2GH CLI, or if you require a permissions configuratio
 
 If you added the IP ranges for {% data variables.product.prodname_importer_proper_name %} to the IP allow list for your destination organization, you can remove those entries. {% data reusables.enterprise-migration-tool.reenable-idp-ip-restrictions %}
 
-For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#configuring-ip-allow-lists-for-migrations)."
+For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#configuring-ip-allow-lists-for-migrations)."
