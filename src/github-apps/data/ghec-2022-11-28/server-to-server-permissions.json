@@ -49,6 +49,28 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "list-enterprise-consumed-licenses",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/consumed-licenses",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-license-sync-status",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/license-sync-status",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "get-github-actions-billing-for-an-enterprise",
         "subcategory": "billing",
         "verb": "get",
