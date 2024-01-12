@@ -20,11 +20,13 @@ on:
         description: 'Head SHA (latest sha of the PR)'
         type: string
         required: true
-    push:
-      paths:
-        - 'content/**'
   # Required in lieu of `pull_request` so that the content changes tables can be posts to PRs opened from a fork.
   pull_request_target:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - 'content/**'
 
 permissions:
   contents: read
