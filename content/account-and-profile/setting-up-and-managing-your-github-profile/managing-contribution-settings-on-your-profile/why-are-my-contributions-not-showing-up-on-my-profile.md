@@ -22,6 +22,12 @@ Your profile contributions graph is a record of contributions you've made to rep
 
 If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
 
+## Finding the Contribution Graph on Your Profile
+
+ * Go to your GitHub profile page.
+ * Look for the “Contributions” tab on your profile page. It should be located below your profile picture and bio.
+ * Click on the “Contributions” tab to view your contribution graph.
+
 ## Contributions that are counted
 
 ### Issues, pull requests and discussions
