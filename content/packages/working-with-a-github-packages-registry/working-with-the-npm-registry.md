@@ -225,7 +225,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your _.npmrc_ file, replacing {% ifversion ghes or ghae %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your `_.npmrc_ file`, replacing {% ifversion ghes or ghae %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -250,5 +250,5 @@ If your instance has subdomain isolation disabled:
 
 ## Using the official npm registry
 
-{% data variables.product.prodname_registry %} allows you to access the official npm registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official npm registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+{% data variables.product.prodname_registry %} allows you to access the official npm registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official `npm registry`](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
