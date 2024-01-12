@@ -15,7 +15,7 @@ shortTitle: View blocked users in account
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.blocked_users %}
-3. Under "Blocked users", review the list of users you've blocked from your account.
+1. Under "Blocked users", review the list of users you've blocked from your account.
 
 ## Further reading
 

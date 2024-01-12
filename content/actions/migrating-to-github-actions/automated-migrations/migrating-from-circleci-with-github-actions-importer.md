@@ -50,7 +50,7 @@ Certain CircleCI constructs must be migrated manually. These include:
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with CircleCI and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
 
    Your token must have the `workflow` scope.
 
@@ -86,6 +86,7 @@ The `configure` CLI command is used to set required credentials and options for 
    ✔ CircleCI organization name: mycircleciorganization
    Environment variables successfully updated.
    ```
+
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
@@ -299,7 +300,7 @@ gh actions-importer audit circle-ci --output-dir ./output/ --include-from reposi
 
 The file supplied for this parameter must be a a line-delimited list of repositories, for example:
 
-```txt
+```text
 repository_one
 repository_two
 repository_three

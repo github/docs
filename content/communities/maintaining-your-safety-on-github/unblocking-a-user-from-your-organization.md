@@ -33,7 +33,6 @@ If you selected a specific amount of time to block the user, they will be automa
 
 ## Unblocking a user in the organization settings
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}

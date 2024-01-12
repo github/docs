@@ -11,6 +11,7 @@ topics:
   - GitHub Apps
 redirect_from:
   - /apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events
+layout: inline
 ---
 ## Introduction
 
@@ -101,20 +102,6 @@ This tutorial uses Smee.io to forward webhooks from {% data variables.product.co
 
 1. In a terminal, navigate to the directory where your clone is stored.
 1. Run `npm init --yes` to create a `package.json` file using the npm defaults.
-
-   The `--type module` option will add `type: module` to the resulting `package.json` file to indicate that the project uses ES modules. The `--yes` option accepts all other defaults.
-1. In the `package.json` file that was created in the previous step, add a top level key `type` with the value `module`. For example:
-
-   ```json
-      {
-       ...rest of the JSON object,
-       "version": "1.0.0",
-       "description": "",
-       "type": "module",
-       ...rest of the JSON object,
-     }
-   ```
-
 1. Run `npm install octokit`.
 1. Run `npm install dotenv`.
 1. Run `npm install smee-client --save-dev`. Since you will only use Smee.io to forward webhooks while you are developing your app, this is a dev dependency.
@@ -131,7 +118,7 @@ Make sure that you are on a secure machine before performing these steps since y
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
 1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
-   ```{:copy}
+   ```text copy
    APP_ID="YOUR_APP_ID"
    WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
    PRIVATE_KEY_PATH="YOUR_PRIVATE_KEY_PATH"{% ifversion ghes or ghae %}
@@ -148,276 +135,33 @@ Make sure that you are on a secure machine before performing these steps since y
 
 ### Add code to respond to webhook events
 
-These steps lead you through writing code to make an API request in response to webhook events. To skip ahead to the final code, see "[Full code example](#full-code-example)."
+At the top level of the directory where your clone is stored, create a JavaScript file to hold the code for your app. This tutorial will name the file `app.js`.
 
-1. In your terminal, navigate to the directory where your clone is stored.
-1. At the top level of this directory, create a JavaScript file to hold the code for your app. This tutorial will name the file `app.js`.
-1. To the `scripts` object in your `package.json` file, add a script called `server` that runs `node app.js`. For example:
+Add the following code to `app.js`. The code includes annotations that explain each part.
 
-   ```json{:copy}
-   "scripts": {
-     "server": "node app.js"
-   }
-   ```
-
-   Your `package.json` file should look something like this. The `name` and version numbers under `dependencies` and `devDependencies` may differ for you.
-
-   ```json
-      {
-     "name": "github-app-webhook-tutorial",
-     "version": "1.0.0",
-     "description": "",
-     "main": "index.js",
-     "type": "module",
-     "scripts": {
-       "server": "node app.js"
-     },
-     "keywords": [],
-     "author": "",
-     "license": "ISC",
-     "dependencies": {
-       "dotenv": "^16.0.3",
-       "octokit": "^2.0.14"
-     },
-     "devDependencies": {
-       "smee-client": "^1.2.3"
-     }
-   }
-   ```
-
-1. At the top of `app.js`, add these dependencies:
-
-   ```javascript{:copy}
-   import dotenv from "dotenv";
-   import {App} from "octokit";
-   import {createNodeMiddleware} from "@octokit/webhooks";
-   import fs from "fs";
-   import http from "http";
-   ```
-
-   You installed the `dotenv` and `octokit` modules earlier. The `@octokit/webhooks` is a dependency of the `octokit` module, so you don't need to install it separately. The `fs` and `http` dependencies are built-in Node.js modules.
-
-1. Add the following code to `app.js`. This will read your `.env` file and add the variables from that file to the `process.env` object in Node.js.
-
-   ```javascript{:copy}
-   dotenv.config();
-   ```
-
-1. Add the following code to `app.js` to read the values of your environment variables.
-
-   ```javascript{:copy}
-   const appId = process.env.APP_ID;
-   const webhookSecret = process.env.WEBHOOK_SECRET;
-   const privateKeyPath = process.env.PRIVATE_KEY_PATH;{% ifversion ghes or ghae %}
-   const enterpriseHostname = process.env.ENTERPRISE_HOSTNAME;{% endif %}
-   ```
-
-1. Add the following code to `app.js` to read the contents of your private key file.
-
-   ```javascript{:copy}
-   const privateKey = fs.readFileSync(privateKeyPath, "utf8");
-   ```
-
-1. Add the following code to `app.js` to create a new instance of the Octokit App class.
-
-   ```javascript{:copy}
-   const app = new App({
-     appId: appId,
-     privateKey: privateKey,
-     webhooks: {
-       secret: webhookSecret
-     },{% ifversion ghes or ghae %}
-     Octokit: Octokit.defaults({
-       baseUrl: `https://${enterpriseHostname}/api/v3`,
-     }),{% endif %}
-   });
-   ```
-
-1. Optionally, check your progress:
-   1. Add the following code to `app.js` to make an API request and log the app's name:
-
-      ```javascript{:copy}
-      try {
-        const {data} = await app.octokit.request("/app");
-        console.log(`Authenticated as '${data.name}'`);
-      } catch (error) {
-        if (error.response) {
-          console.error(`Error! Status: ${error.response.status}. Message: ${error.response.data.message}`)
-        }
-        console.error(error)
-      }
-      ```
-
-   1. Verify that `app.js` now looks like this:
-
-      ```javascript{:copy}
-      import dotenv from "dotenv";
-      import {App} from "octokit";
-      import {createNodeMiddleware} from "@octokit/webhooks";
-      import fs from "fs";
-      import http from "http";
-      
-      dotenv.config();
-      
-      const appId = process.env.APP_ID;
-      const webhookSecret = process.env.WEBHOOK_SECRET;
-      const privateKeyPath = process.env.PRIVATE_KEY_PATH;{% ifversion ghes or ghae %}
-      const enterpriseHostname = process.env.ENTERPRISE_HOSTNAME;{% endif %}
-
-      const privateKey = fs.readFileSync(privateKeyPath, "utf8");
-      
-      const app = new App({
-        appId: appId,
-        privateKey: privateKey,
-        webhooks: {
-          secret: webhookSecret
-        },{% ifversion ghes or ghae %}
-        Octokit: Octokit.defaults({
-          baseUrl: `https://${enterpriseHostname}/api/v3`,
-        }),{% endif %}
-      });
-
-      try {
-        const {data} = await app.octokit.request("/app");
-        console.log(`Authenticated as '${data.name}'`);
-      } catch (error) {
-        if (error.response) {
-          console.error(`Error! Status: ${error.response.status}. Message: ${error.response.data.message}`)
-        }
-        console.error(error)
-      }
-      ```
-
-   1. In your terminal, from the directory where `app.js` is stored, run `npm run server`. This will execute the `server` script that you added to your `package.json` file earlier.
-   1. In your terminal, you should see output like this, where `YOUR-APP-NAME` is the name of your app.
-
-      ```
-      Authenticated as 'YOUR-APP-NAME'
-      ```
-
-   1. Delete the following code from `app.js`, which you added for testing purposes:
-
-      ```javascript{:copy}
-      try {
-        const {data} = await app.octokit.request("/app");
-        console.log(`Authenticated as '${data.name}'`);
-      } catch (error) {
-        if (error.response) {
-          console.error(`Error! Status: ${error.response.status}. Message: ${error.response.data.message}`)
-        }
-        console.error(error)
-      }
-      ```
-
-1. Add the following code to `app.js` to define the message that your app will post to pull requests.
-
-   ```javascript{:copy}
-   const messageForNewPRs = "Thanks for opening a new PR! Please follow our contributing guidelines to make your PR easier to review.";
-   ```
-
-1. Add the following code to `app.js`.
-
-   This code adds an event handler that you will call later. When this event handler is called, it will log the event to the console. Then, it will use {% data variables.product.company_short %}'s REST API to add a comment to the pull request that triggered the event.
-
-   ```javascript{:copy}
-   async function handlePullRequestOpened({octokit, payload}) {
-     console.log(`Received a pull request event for #${payload.pull_request.number}`);
-
-     try {
-       await octokit.request("POST /repos/{owner}/{repo}/issues/{issue_number}/comments", {
-         owner: payload.repository.owner.login,
-         repo: payload.repository.name,
-         issue_number: payload.pull_request.number,
-         body: messageForNewPRs,{% ifversion api-date-versioning %}
-         headers: {
-           "x-github-api-version": "{{ allVersions[currentVersion].latestApiVersion }}",
-         },{% endif %}
-       });
-     } catch (error) {
-       if (error.response) {
-         console.error(`Error! Status: ${error.response.status}. Message: ${error.response.data.message}`)
-       }
-       console.error(error)
-     }
-   };
-   ```
-
-1. Add the following code to `app.js`.
-
-   This code sets up a webhook event listener. When your app receives a webhook event from {% data variables.product.company_short %} with a `X-GitHub-Event` header value of `pull_request` and an `action` payload value of `opened`, it calls the `handlePullRequestOpened` event handler that you added in the previous step.
-
-   ```javascript{:copy}
-   app.webhooks.on("pull_request.opened", handlePullRequestOpened);
-   ```
-
-1. Add the following code to `app.js` to handle errors.
-
-   ```javascript{:copy}
-   app.webhooks.onError((error) => {
-     if (error.name === "AggregateError") {
-       console.error(`Error processing request: ${error.event}`);
-     } else {
-       console.error(error);
-     }
-   });
-   ```
-
-1. Add the following code to `app.js` to determine where your server will listen:
-
-   ```javascript{:copy}
-   const port = 3000;
-   const host = 'localhost';
-   const path = "/api/webhook";
-   const localWebhookUrl = `http://${host}:${port}${path}`;
-   ```
-
-   For local development, your server will listen to port 3000 on `localhost`. When you deploy your app, you will change these values. For more information, see "[Deploy your app](#deploy-your-app)."
-
-1. Add the following code to `app.js` to set up a middleware function to handle incoming webhook events:
-
-   ```javascript{:copy}
-   const middleware = createNodeMiddleware(app.webhooks, {path});
-   ```
-
-   Octokit's `createNodeMiddleware` function takes care of generating this middleware function for you. The resulting middleware function will:
-
-   - Check the signature of the incoming webhook event to make sure that it matches your webhook secret. This verifies that the incoming webhook event is a valid {% data variables.product.company_short %} event.
-   - Parse the webhook event payload and identify the type of event.
-   - Trigger the corresponding webhook event handler.
-
-1. Add the following code to `app.js`:
-
-   ```javascript{:copy}
-   http.createServer(middleware).listen(port, () => {
-     console.log(`Server is listening for events at: ${localWebhookUrl}`);
-     console.log('Press Ctrl + C to quit.')
-   });
-   ```
-
-   This code creates a Node.js server that listens for incoming HTTP requests (including webhook payloads from {% data variables.product.company_short %}) on the specified port. When the server receives a request, it executes the `middleware` function that you defined earlier. Once the server is running, it logs messages to the console to indicate that it is listening.
-
-1. Check your code against the full code example in the next section. You can test your code by following the steps outlined in the "[Testing](#testing)" section below the full code example.
-
-## Full code example
-
-This is the full code example that was outlined in the previous section. In addition to this code, you must also create a `.env` file with your app's credentials. For more information, see "[Store your app's identifying information and credentials](#store-your-apps-identifying-information-and-credentials)."
-
-```javascript{:copy}
+```javascript copy annotate
+// These are the dependencies for this file.
+//
+// You installed the `dotenv` and `octokit` modules earlier. The `@octokit/webhooks` is a dependency of the `octokit` module, so you don't need to install it separately. The `fs` and `http` dependencies are built-in Node.js modules.
 import dotenv from "dotenv";
-import {App} from "octokit";
+import {App{% ifversion ghes or ghae %}, Octokit{% endif %}} from "octokit";
 import {createNodeMiddleware} from "@octokit/webhooks";
 import fs from "fs";
 import http from "http";
 
+// This reads your `.env` file and adds the variables from that file to the `process.env` object in Node.js.
 dotenv.config();
 
+// This assigns the values of your environment variables to local variables.
 const appId = process.env.APP_ID;
 const webhookSecret = process.env.WEBHOOK_SECRET;
 const privateKeyPath = process.env.PRIVATE_KEY_PATH;{% ifversion ghes or ghae %}
 const enterpriseHostname = process.env.ENTERPRISE_HOSTNAME;{% endif %}
 
+// This reads the contents of your private key file.
 const privateKey = fs.readFileSync(privateKeyPath, "utf8");
 
+// This creates a new instance of the Octokit App class.
 const app = new App({
   appId: appId,
   privateKey: privateKey,
@@ -429,8 +173,10 @@ const app = new App({
   }),{% endif %}
 });
 
+// This defines the message that your app will post to pull requests.
 const messageForNewPRs = "Thanks for opening a new PR! Please follow our contributing guidelines to make your PR easier to review.";
 
+// This adds an event handler that your code will call later. When this event handler is called, it will log the event to the console. Then, it will use {% data variables.product.company_short %}'s REST API to add a comment to the pull request that triggered the event.
 async function handlePullRequestOpened({octokit, payload}) {
   console.log(`Received a pull request event for #${payload.pull_request.number}`);
 
@@ -452,8 +198,10 @@ async function handlePullRequestOpened({octokit, payload}) {
   }
 };
 
+// This sets up a webhook event listener. When your app receives a webhook event from {% data variables.product.company_short %} with a `X-GitHub-Event` header value of `pull_request` and an `action` payload value of `opened`, it calls the `handlePullRequestOpened` event handler that is defined above.
 app.webhooks.on("pull_request.opened", handlePullRequestOpened);
 
+// This logs any errors that occur.
 app.webhooks.onError((error) => {
   if (error.name === "AggregateError") {
     console.error(`Error processing request: ${error.event}`);
@@ -462,17 +210,77 @@ app.webhooks.onError((error) => {
   }
 });
 
+// This determines where your server will listen.
+//
+// For local development, your server will listen to port 3000 on `localhost`. When you deploy your app, you will change these values. For more information, see "[Deploy your app](#deploy-your-app)."
 const port = 3000;
 const host = 'localhost';
 const path = "/api/webhook";
 const localWebhookUrl = `http://${host}:${port}${path}`;
 
+// This sets up a middleware function to handle incoming webhook events.
+//
+// Octokit's `createNodeMiddleware` function takes care of generating this middleware function for you. The resulting middleware function will:
+//
+//    - Check the signature of the incoming webhook event to make sure that it matches your webhook secret. This verifies that the incoming webhook event is a valid {% data variables.product.company_short %} event.
+//    - Parse the webhook event payload and identify the type of event.
+//    - Trigger the corresponding webhook event handler.
 const middleware = createNodeMiddleware(app.webhooks, {path});
 
+// This creates a Node.js server that listens for incoming HTTP requests (including webhook payloads from {% data variables.product.company_short %}) on the specified port. When the server receives a request, it executes the `middleware` function that you defined earlier. Once the server is running, it logs messages to the console to indicate that it is listening.
 http.createServer(middleware).listen(port, () => {
   console.log(`Server is listening for events at: ${localWebhookUrl}`);
   console.log('Press Ctrl + C to quit.')
 });
+```
+
+### Add a script to run the code for your app
+
+1. To the `scripts` object in your `package.json` file, add a script called `server` that runs `node app.js`. For example:
+
+   ```json copy
+   "scripts": {
+     "server": "node app.js"
+   }
+   ```
+
+   If you called the file that holds your app's code something other than `app.js`, replace `app.js` with the relative path to the file that holds your app's code.
+
+1. In your `package.json` file, add a top level key `type` with the value `module`. For example:
+
+   ```jsonc
+      {
+       // rest of the JSON object,
+       "version": "1.0.0",
+       "description": "",
+       "type": "module",
+       // rest of the JSON object,
+     }
+   ```
+
+Your `package.json` file should look something like this. The `name` value and the version numbers under `dependencies` and `devDependencies` may differ for you.
+
+```json
+  {
+  "name": "github-app-webhook-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "server": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "octokit": "^2.0.14"
+  },
+  "devDependencies": {
+    "smee-client": "^1.2.3"
+  }
+}
 ```
 
 ## Testing
@@ -500,7 +308,7 @@ For testing, you will use your computer or codespace as a server. Your app will 
 
    You should see output that looks like this, where `WEBHOOK_PROXY_URL` is your webhook proxy URL:
 
-   ```
+   ```shell
    Forwarding WEBHOOK_PROXY_URL to http://localhost:3000/api/webhook
    Connected WEBHOOK_PROXY_URL
    ```
@@ -551,7 +359,7 @@ When you deploy your app, you will want to change the host and port where your s
 
 For example, you can set a `PORT` environment variable on your server to indicate the port where your server should listen. You can set a `NODE_ENV` environment variable on your server to `production`. Then, you can update the place where your code defines the `port` and `host` constants so that your server listens to all available network interfaces (`0.0.0.0`) instead of the local network interface (`localhost`) on your deployment port:
 
-```javascript{:copy}
+```javascript copy
 const port = process.env.PORT || 3000;
 const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
 ```

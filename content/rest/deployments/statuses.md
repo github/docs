@@ -1,7 +1,7 @@
 ---
 title: Deployment statuses
 intro: Use the REST API to manage deployment statuses.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

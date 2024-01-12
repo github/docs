@@ -17,6 +17,7 @@ You can filter the view to show activity for a particular branch, a particular u
 For each activity, you can view the exact changes by clicking "Compare changes."
 
 ## Using the activity view to see changes to a repository
+
 {% data reusables.repositories.navigate-to-repo %}
 1. There are two ways to enter the activity view:
    - On the main page of the repository, to the right of the list of files, click **{% octicon "pulse" aria-hidden="true" %} Activity**.

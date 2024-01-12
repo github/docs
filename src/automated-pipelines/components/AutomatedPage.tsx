@@ -1,13 +1,13 @@
-import { DefaultLayout } from 'components/DefaultLayout'
-import { ArticleTitle } from 'components/article/ArticleTitle'
-import { MarkdownContent } from 'components/ui/MarkdownContent'
-import { Lead } from 'components/ui/Lead'
-import { PermissionsStatement } from 'components/ui/PermissionsStatement'
-import { ArticleGridLayout } from '../../../components/article/ArticleGridLayout'
-import { MiniTocs } from 'components/ui/MiniTocs'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
+import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
+import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
+import { Lead } from 'src/frame/components/ui/Lead'
+import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
+import { ArticleGridLayout } from 'src/frame/components/article/ArticleGridLayout'
+import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
 import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
-import { ClientSideHighlight } from 'components/ClientSideHighlight'
-import { Callout } from 'components/ui/Callout'
+import { ClientSideHighlight } from 'src/frame/components/ClientSideHighlight'
+import { Alert } from 'src/frame/components/ui/Alert'
 
 type Props = {
   children: React.ReactNode
@@ -34,13 +34,7 @@ export const AutomatedPage = ({ children }: Props) => {
 
               {permissions && <PermissionsStatement permissions={permissions} />}
 
-              {product && (
-                <Callout
-                  variant="success"
-                  className="mb-4"
-                  dangerouslySetInnerHTML={{ __html: product }}
-                />
-              )}
+              {product && <Alert className="mb-4" html={product} />}
             </>
           }
           toc={miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}

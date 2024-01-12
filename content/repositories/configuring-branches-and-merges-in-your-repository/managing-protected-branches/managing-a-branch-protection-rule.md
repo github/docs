@@ -55,6 +55,12 @@ For more information about each of the available branch protection settings, see
 
 When you create a branch rule, the branch you specify doesn't have to exist yet in the repository.
 
+{% note %}
+
+**Note:** Actors may only be added to bypass lists when the repository belongs to an organization.
+
+{% endnote %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
@@ -81,14 +87,8 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally, select **Require conversation resolution before merging**.
 1. Optionally, select **Require signed commits**.
 1. Optionally, select **Require linear history**.
-{%- ifversion fpt or ghec %}
+{%- ifversion merge-queue %}
 1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
-
-  {% tip %}
-
-  **Tip:** The pull request merge queue feature is currently in public beta and subject to change.
-
-  {% endtip %}
 {%- endif %}
 {%- ifversion required-deployments %}
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.

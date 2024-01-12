@@ -34,12 +34,13 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.days-dropdown %}
 {% data reusables.reminders.times-dropdowns %}
 1. Optionally, to receive scheduled reminders for reviews you've been assigned to, select **Review requests assigned to you**.
-2. Optionally, to receive scheduled reminders for reviews assigned to a team you're a member of, select **Review requests assigned to your team**.
+1. Optionally, to receive scheduled reminders for reviews assigned to a team you're a member of, select **Review requests assigned to your team**.
 {% data reusables.reminders.real-time-alerts %}
 {% data reusables.reminders.create-reminder %}
 {% data reusables.reminders.test-reminder %}
 
 ## Managing scheduled reminders for your personal account
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Next to the organization you'd like to edit scheduled reminders for, click {% octicon "pencil" aria-label="Edit reminder" %}.
@@ -51,6 +52,7 @@ You can set scheduled reminders for personal or team-level review requests for p
 {% data reusables.reminders.test-reminder %}
 
 ## Deleting scheduled reminders for your personal account
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Next to the organization you'd like to delete reminders for, click {% octicon "pencil" aria-label="Edit reminder" %}.

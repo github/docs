@@ -34,7 +34,7 @@ You can see which branch a commit is on by looking at the labels beneath the com
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
 {% data reusables.repositories.navigate-to-commit %}
-2. To see what branch the commit is on, check the label below the commit message.
+1. To see what branch the commit is on, check the label below the commit message.
 
    ![Screenshot of a commit summary. A branch icon and "main" are highlighted with an orange outline.](/assets/images/help/commits/commit-branch-indicator.png)
 
@@ -67,4 +67,5 @@ You can use the file tree to navigate between files in a commit.
 {% endif %}
 
 ## Further reading
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#about-commits)" on {% data variables.product.prodname_desktop %}
+
+- "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#about-commits)" on {% data variables.product.prodname_desktop %}

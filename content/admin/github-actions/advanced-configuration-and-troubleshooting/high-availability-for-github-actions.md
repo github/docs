@@ -20,8 +20,8 @@ shortTitle: HA for GitHub Actions
 
 We strongly recommend that you configure your {% data variables.product.prodname_actions %} external storage to use data redundancy or replication. For more information, refer to your storage provider's documentation:
 
-* [Azure Storage redundancy documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
-* [Amazon S3 replication documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
+- [Azure Storage redundancy documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)
+- [Amazon S3 replication documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html)
 
 ## High availability replicas
 

@@ -56,7 +56,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    gh release create TAG
    ```
 
-2. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
+1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
 
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a beta release" --prerelease
@@ -73,13 +73,19 @@ If you @mention any {% data variables.product.product_name %} users in the notes
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% data reusables.releases.edit-release %}
-4. Edit the details for the release in the form, then click **Update release**. If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.
+1. Edit the details for the release in the form, then click **Update release**. If you add or remove any @mentions of GitHub users in the description, those users will be added or removed from the avatar list in the **Contributors** section of the release.
 
 {% endwebui %}
 
 {% cli %}
 
-Releases cannot currently be edited with {% data variables.product.prodname_cli %}.
+1. To edit a release, use the `gh release edit` subcommand. Replace `TAG` with the tag representing the release you wish to edit. For example, to edit the title for a release, use the following code, replacing `NEW-TITLE` with the updated title:
+
+   ```shell
+   gh release edit TAG -t "NEW-TITLE"
+   ```
+
+   For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_edit).
 
 {% endcli %}
 
@@ -89,10 +95,10 @@ Releases cannot currently be edited with {% data variables.product.prodname_cli 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="Delete" %}.
+1. On the right side of the page, next to the release you want to delete, click {% octicon "trash" aria-label="Delete" %}.
 
    ![Screenshot of a release in the releases list. A trash icon is highlighted with an orange outline.](/assets/images/help/releases/delete-release-trash.png)
-5. Click **Delete this release**.
+1. Click **Delete this release**.
 
 {% endwebui %}
 

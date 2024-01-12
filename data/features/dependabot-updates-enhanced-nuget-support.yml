@@ -1,0 +1,5 @@
+# Reference: #12731 - Improvements to NuGet Support for Dependabot Updates - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.11'

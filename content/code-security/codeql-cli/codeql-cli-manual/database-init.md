@@ -1,6 +1,6 @@
 ---
 title: database init
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database init --source-root=<dir> [--language=<lang>[,<lang>...]] [--github-auth-stdin] [--github-url=<url>] [--extractor-option=<extractor-option-name=value>] <options>... -- <database>
 ```
 
@@ -41,15 +41,17 @@ language pack and store it in the database metadata, such that it won't
 need to be redone at each extraction command. It is not valid to switch
 extractors in the middle of an extraction operation anyway.)
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database to create. This directory will
-be created, and *must not* already exist (but its parent must).
+be created, and _must not_ already exist (but its parent must).
 
 If the `--db-cluster` option is given, this will not be a database
-itself, but a directory that will *contain* databases for several
+itself, but a directory that will _contain_ databases for several
 languages built from the same source root.
 
 It is important that this directory is not in a location that the build
@@ -74,8 +76,8 @@ as it may recursively delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning). To run queries from this file in a
-later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
+to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
+this file in a later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
 
@@ -99,14 +101,6 @@ analyse. Note that to be able to do this, a GitHub PAT token must be
 supplied either in the environment variable GITHUB\_TOKEN or via standard
 input using the `--github-auth-stdin` option.
 
-#### `--[no-]calculate-baseline`
-
-\[Advanced] Calculate baseline information about the code being
-analyzed and add it to the database. By default, this is enabled unless
-the source root is the root of a filesystem. This flag can be used to
-either disable, or force the behavior to be enabled even in the root of
-the filesystem.
-
 #### `--[no-]allow-missing-source-root`
 
 \[Advanced] Proceed even if the specified source root does not exist.
@@ -117,7 +111,27 @@ the filesystem.
 build tracing," which allows integration into existing build workflows
 when an explicit build command is not available. For information about
 when and how to use this feature, please refer to our documentation at
-[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases).
+[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis).
+
+### Baseline calculation options
+
+#### `--[no-]calculate-baseline`
+
+\[Advanced] Calculate baseline information about the code being
+analyzed and add it to the database. By default, this is enabled unless
+the source root is the root of a filesystem. This flag can be used to
+either disable, or force the behavior to be enabled even in the root of
+the filesystem.
+
+#### `--[no-]sublanguage-file-coverage`
+
+\[GitHub.com and GitHub Enterprise Server v3.12.0+ only] Use
+sub-language file coverage information. This calculates, displays, and
+exports separate file coverage information for languages which share a
+CodeQL extractor like C and C++, Java and Kotlin, and JavaScript and
+TypeScript.
+
+Available since `v2.15.2`.
 
 ### Extractor selection options
 
@@ -176,16 +190,16 @@ registry, you can instead authenticate using the simpler
 parent process of the CodeQL CLI whose name matches this argument. If
 more than one parent process has this name, the one lowest in the
 process tree will be selected. This option overrides
-`--trace-process-level`, so if both are used passed only this option
-will be used.
+`--trace-process-level`, so if both are passed, only this option will be
+used.
 
 #### `--trace-process-level=<process-level>`
 
 \[Windows only] When initializing tracing, inject the tracer this many
 parents above the current process, with 0 corresponding to the process
-that is invoking the CodeQL CLI. The CLI's default behaviour if no
+that is invoking the CodeQL CLI. The CLI's default behavior if no
 arguments are passed is to inject into the parent of the calling
-process.
+process, with some special cases for GitHub Actions and Azure Pipelines.
 
 ### Options to configure indirect build tracing
 
@@ -291,3 +305,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

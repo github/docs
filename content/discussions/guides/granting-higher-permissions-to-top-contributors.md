@@ -23,7 +23,7 @@ The most helpful contributors for the past 30 days are highlighted on the {% dat
 
 People with triage permissions for a repository can help moderate that repository's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, people with triage permissions for the source repository for organization discussions can moderate the organization's discussions. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions)."
 
-For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+For more information about repository permission levels and {% data variables.product.prodname_discussions %}, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 ## Step 3: Change permissions levels for top contributors
 

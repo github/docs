@@ -54,7 +54,7 @@ You can use templates to quickly set up a new {% data variables.projects.project
 | Template | Description |
 | --- | --- |
 | Basic kanban | Track your tasks with To do, In progress, and Done columns |
-| Automated kanban | Cards automatically move between To do, In progress, and Done columns | 
+| Automated kanban | Cards automatically move between To do, In progress, and Done columns |
 | Automated kanban with review | Cards automatically move between To do, In progress, and Done columns, with additional triggers for pull request review status |
 | Bug triage | Triage and prioritize bugs with To do, High priority, Low priority, and Closed columns |
 
@@ -69,4 +69,4 @@ For more information on automation for {% data variables.product.prodname_projec
 - "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/copying-a-project-board)"{% endif %}
 - "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
 - "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)"
-- "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#project-boards)"
+- "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#project-boards)"

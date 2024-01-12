@@ -15,10 +15,26 @@ versions:
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
 
-## Assigning permissions to a specific job
+## Defining access for the `GITHUB_TOKEN` scopes
+
+{% data reusables.actions.github-token-available-permissions %}
+
+### Changing the permissions in a forked repository
+
+{% data reusables.actions.forked-write-permission %}
+
+## Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
+
+You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow.
+
+### Example: Setting the `GITHUB_TOKEN` permissions for an entire workflow
+
+{% data reusables.actions.jobs.setting-permissions-all-jobs-example %}
+
+## Setting the `GITHUB_TOKEN` permissions for a specific job
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
 
-### Example: Setting permissions for a specific job
+### Example: Setting the `GITHUB_TOKEN` permissions for one job in a workflow
 
 {% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}

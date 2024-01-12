@@ -23,17 +23,13 @@ topics:
 
 ## Prerequisites
 
-To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. For information on how to create an account, see "[AUTOTITLE](/get-started/signing-up-for-github)." For information on how to create a repository, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% data variables.product.prodname_dotcom %} account and a repository. {% ifversion fpt or ghec %}For information on how to create an account, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."{% elsif ghes or ghae %}For more information, contact your site administrator.{% endif %} For information on how to create a repository, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)."{% ifversion fpt or ghec %} For information on how to find an existing repository to contribute to, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ## Following {% data variables.product.prodname_dotcom %} flow
 
 {% tip %}
 
-{% ifversion fpt or ghec %}
-**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through {% data variables.product.prodname_dotcom %} web interface, command line and [{% data variables.product.prodname_cli %}](https://cli.github.com), or [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop).
-{% else %}
-**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through {% data variables.product.prodname_dotcom %} web interface or through the command line and [{% data variables.product.prodname_cli %}](https://cli.github.com).
-{% endif %}
+**Tip:** You can complete all steps of {% data variables.product.prodname_dotcom %} flow through the {% data variables.product.prodname_dotcom %} web interface, command line and [{% data variables.product.prodname_cli %}](https://cli.github.com), or [{% data variables.product.prodname_desktop %}](/free-pro-team@latest/desktop). For more information about the tools you can use to connect to {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
 
 {% endtip %}
 
@@ -80,7 +76,6 @@ If your repository has checks configured to run on pull requests, you will see a
 Reviewers should leave questions, comments, and suggestions. Reviewers can comment on the whole pull request or add comments to specific lines{% ifversion pull-request-comment-on-file %} or files{% endif %}. You and reviewers can insert images or code suggestions to clarify comments. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests)."
 
 You can continue to commit and push changes in response to the reviews. Your pull request will update automatically.
-
 
 ### Merge your pull request
 

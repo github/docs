@@ -25,7 +25,7 @@ shortTitle: Activate optional features
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
-3. Click **Edit** next to the {% data variables.product.prodname_github_app %} you want to enable an optional feature for.
+1. Click **Edit** next to the {% data variables.product.prodname_github_app %} you want to enable an optional feature for.
 {% data reusables.apps.optional_feature_activation %}
 
 ## Further reading

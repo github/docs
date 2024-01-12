@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs/promises'
 
-import { getContents } from '../../../script/helpers/git-utils.js'
+import { getContents } from '#src/workflows/git-utils.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
@@ -30,11 +30,11 @@ async function main() {
   let rawDates = []
   try {
     rawDates = JSON.parse(
-      await getContents('github', 'enterprise-releases', 'master', 'releases.json')
+      await getContents('github', 'enterprise-releases', 'master', 'releases.json'),
     )
   } catch {
     console.log(
-      'Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.'
+      'Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.',
     )
     process.exit(1)
   }

@@ -27,13 +27,13 @@ the Pro Git book.
 As an example, if you wanted to commit a change to a file in your
 repository, you would:
 
-* Get the current commit object
-* Retrieve the tree it points to
-* Retrieve the content of the blob object that tree has for that particular file path
-* Change the content somehow and post a new blob object with that new content, getting a blob SHA back
-* Post a new tree object with that file path pointer replaced with your new blob SHA getting a tree SHA back
-* Create a new commit object with the current commit SHA as the parent and the new tree SHA, getting a commit SHA back
-* Update the reference of your branch to point to the new commit SHA
+- Get the current commit object
+- Retrieve the tree it points to
+- Retrieve the content of the blob object that tree has for that particular file path
+- Change the content somehow and post a new blob object with that new content, getting a blob SHA back
+- Post a new tree object with that file path pointer replaced with your new blob SHA getting a tree SHA back
+- Create a new commit object with the current commit SHA as the parent and the new tree SHA, getting a commit SHA back
+- Update the reference of your branch to point to the new commit SHA
 
 It might seem complex, but it's actually pretty simple when you understand
 the model and it opens up a ton of things you could potentially do with the API.
@@ -51,5 +51,5 @@ A consuming API needs to explicitly request a pull request to create a _test_ me
 If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
 
 1. Receive the pull request webhook.
-2. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to start a background job for creating the merge commit candidate.
-3. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.
+1. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to start a background job for creating the merge commit candidate.
+1. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.

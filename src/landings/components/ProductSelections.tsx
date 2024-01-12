@@ -1,11 +1,11 @@
 import React from 'react'
 
-import type { ProductT } from 'components/context/MainContext'
+import type { ProductT } from 'src/frame/components/context/MainContext'
 import { ProductSelectionCard } from './ProductSelectionCard'
 
 export type ProductGroupT = {
   name: string
-  icon: string
+  icon?: string
   octicon: string
   children: Array<ProductT>
 }
@@ -20,7 +20,7 @@ export const ProductSelections = ({ productGroups }: Props) => {
       <div className="">
         <div className="d-flex flex-wrap gutter gutter-xl-spacious">
           {productGroups.map((group) => {
-            return <ProductSelectionCard key={group.name} name={group.name} group={group} />
+            return <ProductSelectionCard key={group.name} group={group} />
           })}
         </div>
       </div>

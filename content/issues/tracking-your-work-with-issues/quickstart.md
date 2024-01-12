@@ -40,11 +40,14 @@ You can use markdown to add formatting, links, emojis, and more. For more inform
 
 ![Screenshot of the new issue form, with a title and body filled in.](/assets/images/help/issues/issue-title-body.png)
 
+{% ifversion task-lists-v1 %}
+
 ## Adding a task list
 
 It can be helpful to break large issues into smaller tasks, or to track multiple related issues in a single larger issue. Add a task list to your issue by prefacing list items with `[ ]`. Reference existing issues by issue number or URL. You can use plain text to track tasks that don't have a corresponding issue and convert them to issues later. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 
 ![Screenshot of the new issue form, with the title and body filled in. The body includes the Markdown for a task list.](/assets/images/help/issues/issue-task-list-raw.png)
+{% endif %}
 
 ## Adding labels
 
@@ -80,7 +83,7 @@ Click **Submit new issue** to create your issue. You can edit any of the above f
 
 After your issue is created, continue the conversation by adding comments to the issue. You can @mention collaborators or teams to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. For more information, see "[AUTOTITLE](/get-started/writing-on-github)."
 
-![Screenshot of an issue comment. The header says "octocat commented now" and the body says "@hubot Do we also need to update the rocket logic?".](/assets/images/help/issues/issue-comment.png)
+![Screenshot of an issue comment. The header says "octocat commented now" and the body says "@hubot Do we also need to update the rocket logic?"](/assets/images/help/issues/issue-comment.png)
 
 ## Next steps
 

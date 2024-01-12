@@ -12,7 +12,7 @@ versions:
 
 {% data variables.product.prodname_classroom %} is a teaching tool that lets teachers and school administrators create and manage digital classrooms and assignments. You can create assignments for individual students or groups of students, set due dates, and track assignments on your teacher dashboard. Additionally, {% data variables.product.prodname_classroom %} has many features that simplify tasks like providing feedback, grading assignments, and integrating your existing teaching tools.
 
-## {% data variables.product.prodname_classroom %} features 
+## {% data variables.product.prodname_classroom %} features
 
 {% data variables.product.prodname_classroom %} offers a variety of features to simplify both teaching and learning.
 

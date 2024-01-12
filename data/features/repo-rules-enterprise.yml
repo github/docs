@@ -3,4 +3,4 @@
 # Feature flag for enterprise-only features (metadata restrictions, setting rulesets at org level, ruleset insights)
 versions:
   ghec: '*'
-  ghes: '>3.9'
+  ghes: '>3.10'

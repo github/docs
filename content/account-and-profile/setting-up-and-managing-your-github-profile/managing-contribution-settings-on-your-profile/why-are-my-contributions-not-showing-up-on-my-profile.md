@@ -61,7 +61,7 @@ You can check the email address used for a commit by adding `.patch` to the end 
 
 [https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch](https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch)
 
-```
+```text
 From 67c0afc1da354d8571f51b6f0af8f2794117fd10 Mon Sep 17 00:00:00 2001
 From: The Octocat <octocat@nowhere.com>
 Date: Sun, 27 Apr 2014 15:36:39 +0530
@@ -100,7 +100,7 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 
 Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
 - [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the parent repository.
-- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.contact_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, state whether the forks should move with your repository into a new network or remain in the current network. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 ## Further reading
 

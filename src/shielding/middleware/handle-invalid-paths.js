@@ -1,14 +1,27 @@
-import { defaultCacheControl } from '../../../middleware/cache-control.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 
-// When a *whole* path is considerered junk.
+// We'll check if the current request path is one of these, or ends with
+// one of these.
+// These are clearly intentional "guesses" made by some sort of
+// pen-testing bot.
+const JUNK_ENDS = [
+  '/package.json',
+  '/package-lock.json',
+  '/etc/passwd',
+  '/Gemfile',
+  '/Gemfile.lock',
+  '/WEB-INF/web.xml',
+  '/WEB-INF/web.xml%C0%80.jsp',
+]
 const JUNK_PATHS = new Set([
+  ...JUNK_ENDS,
   '/env',
   '/xmlrpc.php',
   '/wp-login.php',
   '/README.md',
   '/server.js',
-  '/package.json',
   '/.git',
+  '/_next',
 ])
 
 // Basename is the last token of the path when split by `/`.
@@ -21,6 +34,12 @@ const JUNK_BASENAMES = new Set([
 function isJunkPath(path) {
   if (JUNK_PATHS.has(path)) return true
 
+  for (const junkPath of JUNK_ENDS) {
+    if (path.endsWith(junkPath)) {
+      return true
+    }
+  }
+
   const basename = path.split('/').pop()
   // E.g. `/billing/.env.local` or `/billing/.env_sample`
   if (/^\.env(.|_)[\w.]+/.test(basename)) return true
@@ -28,6 +47,13 @@ function isJunkPath(path) {
 
   // Prevent various malicious injection attacks targeting Next.js
   if (path.match(/^\/_next[^/]/) || path === '/_next/data' || path === '/_next/data/') {
+    return true
+  }
+
+  // We currently don't use next/image for any images.
+  // This could change in the future but right now can just 404 on these
+  // so we don't have to deal with any other errors.
+  if (path.startsWith('/_next/image')) {
     return true
   }
 

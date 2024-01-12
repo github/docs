@@ -24,7 +24,7 @@ introLinks:
 featuredLinks:
   startHere:
     - /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-    - /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+    - /authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
     - /authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication
     - '{% ifversion ghae %}/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials{% endif %}'
   popular:
@@ -52,6 +52,7 @@ topics:
 children:
   - /keeping-your-account-and-data-secure
   - /securing-your-account-with-two-factor-authentication-2fa
+  - /authenticating-with-a-passkey
   - /authenticating-with-saml-single-sign-on
   - /connecting-to-github-with-ssh
   - /troubleshooting-ssh

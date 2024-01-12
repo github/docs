@@ -1,8 +1,9 @@
-```YAML{:copy}
+```yaml copy
 name: Bug Report
 description: File a bug report
 title: "[Bug]: "
-labels: ["bug", "triage"]
+labels: ["bug", "triage"]{% ifversion projects-in-issue-forms %}
+projects: ["octo-org/1", "octo-org/44"]{% endif %}
 assignees:
   - octocat
 body:
@@ -34,7 +35,8 @@ body:
       description: What version of our software are you running?
       options:
         - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - 1.0.3 (Edge){% ifversion issue-form-dropdown-defaults %}
+      default: 0{% endif %}
     validations:
       required: true
   - type: dropdown

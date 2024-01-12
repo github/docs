@@ -1,0 +1,6 @@
+# Issue 12727
+# Attach files to a comment with the paperclip icon in the formatting bar
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.12'

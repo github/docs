@@ -1,7 +1,7 @@
 ---
 title: Watching
 intro: Use the REST API to subscribe to notifications for activity in a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

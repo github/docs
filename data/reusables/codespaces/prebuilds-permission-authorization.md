@@ -8,6 +8,6 @@
 
    {% note %}
 
-   **Note**: Users who create codespaces using this prebuild will also be asked to grant these permisssions.
+   **Note**: Users who create codespaces using this prebuild will also be asked to grant these permissions.
 
    {% endnote %}

@@ -1,4 +1,4 @@
-The name for each audit log entry is composed of the `action` object or category qualifier, followed by an operation type. For example, the `repo.create` entry refers to the `create` operation on the `repo` category.
+{% data reusables.audit_log.category-operation-notation %}
 
 Each audit log entry shows applicable information about an event, such as:
 
@@ -9,6 +9,12 @@ Each audit log entry shows applicable information about an event, such as:
 - The action that was performed
 - Which country the action took place in
 - The date and time the action occurred
+{%- ifversion ghec %}
+- The SAML SSO identity of the user (actor) who performed the action (public beta)
+{%- endif %}
+{%- ifversion token-audit-log %}
+- For actions outside of the web UI, how the user (actor) authenticated
+{%- endif %}
 {%- ifversion enterprise-audit-log-ip-addresses %}
 - Optionally, the source IP address for the user (actor) who performed the action
 {%- endif %}

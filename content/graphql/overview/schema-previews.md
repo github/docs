@@ -25,5 +25,4 @@ To access a schema preview, you'll need to provide a custom [media type](/rest/o
 
 {% endnote %}
 
-
 <!-- Content after this section is automatically generated -->

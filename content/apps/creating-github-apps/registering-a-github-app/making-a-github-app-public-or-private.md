@@ -21,7 +21,7 @@ topics:
 shortTitle: Visibility
 ---
 
-## About visibility for {% data variables.product.prodname_github_app %}s
+## About visibility for {% data variables.product.prodname_github_apps %}
 
 You can make your {% data variables.product.prodname_github_app %} registration public or private. {% ifversion fpt %}If you set your {% data variables.product.prodname_github_app %} registration to public, any user on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_cloud %} can install it. If you set your {% data variables.product.prodname_github_app %} registration to private, it can only be installed on the account that owns the app.
 
@@ -33,7 +33,7 @@ You can make your {% data variables.product.prodname_github_app %} registration 
 
 If you want to make your app available to {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} instances, then you need to take additional steps. For more information, see "[AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server)."
 
-If it is important for {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} users to be able to use your tool, consider using {% data variables.product.prodname_actions %} instead of a {% data variables.product.prodname_github_app %}. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with GitHub Connect. For more information, see "[AUTOTITLE](/github-ae@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" and "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+If it is important for {% ifversion ghes %}other {% endif %}{% data variables.product.prodname_ghe_server %} users to be able to use your tool, consider using {% data variables.product.prodname_actions %} instead of a {% data variables.product.prodname_github_app %}. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with GitHub Connect. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" and "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
 For information about changing the visibility of a {% data variables.product.prodname_github_app %} registration, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 

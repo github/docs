@@ -4,7 +4,7 @@ import path from 'path'
 import { mkdirp } from 'mkdirp'
 
 import { updateRestFiles } from './update-markdown.js'
-import { allVersions } from '../../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { createOperations, processOperations } from './get-operations.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 
@@ -12,7 +12,7 @@ import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 //  Ex: 'api.github.com', 'ghec', 'ghes-3.6', 'ghes-3.5',
 // 'ghes-3.4', 'ghes-3.3', 'ghes-3.2', 'github.ae'
 const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
-  (elem) => allVersions[elem].openApiVersionName
+  (elem) => allVersions[elem].openApiVersionName,
 )
 
 export async function syncRestData(sourceDirectory, restSchemas) {
@@ -28,7 +28,7 @@ export async function syncRestData(sourceDirectory, restSchemas) {
         await processOperations(operations)
       } catch (error) {
         throw new Error(
-          "🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help."
+          "🐛 Whoops! It looks like the script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.",
         )
       }
       const formattedOperations = await formatRestData(operations)
@@ -37,7 +37,7 @@ export async function syncRestData(sourceDirectory, restSchemas) {
 
       if (Object.keys(formattedOperations).length === 0) {
         throw new Error(
-          `Generating REST data failed for ${sourceDirectory}/${schemaName}. The generated data file was empty.`
+          `Generating REST data failed for ${sourceDirectory}/${schemaName}. The generated data file was empty.`,
         )
       }
       if (!existsSync(targetDirectoryPath)) {
@@ -46,7 +46,7 @@ export async function syncRestData(sourceDirectory, restSchemas) {
       const targetPath = path.join(targetDirectoryPath, REST_SCHEMA_FILENAME)
       await writeFile(targetPath, JSON.stringify(formattedOperations, null, 2))
       console.log(`✅ Wrote ${targetPath}`)
-    })
+    }),
   )
   await updateRestFiles()
   await updateRestConfigData(restSchemas)
@@ -95,7 +95,7 @@ async function formatRestData(operations) {
       operationsByCategory[category][subcategory] = {}
 
       const subcategoryOperations = categoryOperations.filter(
-        (operation) => operation.subcategory === subcategory
+        (operation) => operation.subcategory === subcategory,
       )
 
       operationsByCategory[category][subcategory] = subcategoryOperations
@@ -140,7 +140,7 @@ export async function getOpenApiSchemaFiles(schemas) {
   const schemaNames = schemas.map((schema) => path.basename(schema, '.json'))
 
   const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
-    (elem) => allVersions[elem].openApiVersionName
+    (elem) => allVersions[elem].openApiVersionName,
   )
 
   for (const schema of schemaNames) {

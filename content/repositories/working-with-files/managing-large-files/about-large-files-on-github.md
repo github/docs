@@ -44,9 +44,10 @@ To track files beyond this limit, you must use {% data variables.large_files.pro
 
 If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
 
-Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using [Dropbox](https://www.dropbox.com/).
+Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using a file sharing service.
 
 {% ifversion fpt or ghec or ghae %}
+
 ### Repository size limits
 
 We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. {% ifversion ghae %}The maximum size for a repository on {% data variables.product.product_name %} is 100 GB. {% endif %}Smaller repositories are faster to clone and easier to work with and maintain. If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
@@ -57,6 +58,7 @@ Git is not designed to serve as a backup tool. However, there are many solutions
 {% endif %}
 
 {% ifversion ghes %}
+
 ### Repository size recommendations
 
 We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain.
@@ -78,19 +80,24 @@ If the file was added with your most recent commit, and you have not pushed to {
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
-3. To remove the file, enter `git rm --cached`:
+1. To remove the file, enter `git rm --cached`:
+
    ```shell
    $ git rm --cached GIANT_FILE
    # Stage our giant file for removal, but leave it on disk
    ```
-4. Commit this change using `--amend -CHEAD`:
+
+1. Commit this change using `--amend -CHEAD`:
+
    ```shell
    $ git commit --amend -CHEAD
    # Amend the previous commit with your change
    # Simply making a new commit won't work, as you need
    # to remove the file from the unpushed history as well
    ```
-5. Push your commits to {% data variables.location.product_location %}:
+
+1. Push your commits to {% data variables.location.product_location %}:
+
    ```shell
    $ git push
    # Push our rewritten, smaller commit

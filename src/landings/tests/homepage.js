@@ -1,6 +1,6 @@
 import { expect, jest } from '@jest/globals'
 
-import { getDOM } from '../../../tests/helpers/e2etest.js'
+import { getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('rendering the home page(s)', () => {
   jest.setTimeout(5 * 60 * 1000)

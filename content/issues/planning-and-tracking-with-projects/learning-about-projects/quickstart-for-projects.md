@@ -59,8 +59,8 @@ Next, create an iteration field so you can plan and track your work over repeati
 
 {% data reusables.projects.new-field %}
 1. Select **Iteration**
-3. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
-4. Click **Save**.
+1. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
+1. Click **Save**.
 
 ## Creating a field to track priority
 
@@ -74,7 +74,7 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 
 Specify a priority for all issues in your project.
 
-![Example priorities.](/assets/images/help/projects/priority_example.png)
+![Screenshot showing a list of issues, each with a priority of "Low," "Medium," or "High" in the "Priority" field.](/assets/images/help/projects/priority-example.png)
 
 ## Grouping issues by priority
 
@@ -87,7 +87,7 @@ Next, group all of the items in your project by priority to make it easier to fo
 Now, move issues between groups to change their priority.
 
 1. Choose an issue.
-2. Drag and drop the issue into a different priority group. When you do this, the priority of the issue will change to be the priority of its new group.
+1. Drag and drop the issue into a different priority group. When you do this, the priority of the issue will change to be the priority of its new group.
 
 ## Saving the priority view
 

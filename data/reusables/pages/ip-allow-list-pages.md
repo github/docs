@@ -1,0 +1,3 @@
+If you use a custom {% data variables.product.prodname_actions %} workflow as a publishing source for your {% data variables.product.prodname_pages %} site, to permit the runner to connect and build the site, you must configure a rule for your IP allow list.
+
+If you don't use a custom workflow, the build runner will have access to the repository for the {% data variables.product.prodname_pages %} site by default. For more information about publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."

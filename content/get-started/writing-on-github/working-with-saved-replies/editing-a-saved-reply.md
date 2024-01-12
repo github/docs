@@ -14,10 +14,10 @@ versions:
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.saved_replies %}
-3. Under "Saved replies," next to the saved reply you want to edit, click {% octicon "pencil" aria-label="The pencil" %}.  
+1. Under "Saved replies," next to the saved reply you want to edit, click {% octicon "pencil" aria-label="The pencil" %}.  
 ![Screenshot of {% data variables.product.prodname_dotcom %} settings for "Saved replies." To the right of the saved reply "Ship squirrel," an edit button with a pencil icon is outlined in dark orange.](/assets/images/help/writing/saved-replies-edit-existing.png)
 1. Under "Edit saved reply," edit the title or content of the saved reply.
-2. Click **Update saved reply**.
+1. Click **Update saved reply**.
 
 ## Further reading
 

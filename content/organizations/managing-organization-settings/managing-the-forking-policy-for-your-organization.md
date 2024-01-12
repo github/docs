@@ -29,13 +29,13 @@ If you allow forking of private{% ifversion ghes or ghec or ghae %} and internal
 {% data reusables.profile.org_member_privileges %}
 1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
 {%- ifversion org-owners-limit-forks-creation %}
-2. Optionally, if your organization is owned by an enterprise account, select a policy for where users are allowed to fork repositories.
+1. Optionally, if your organization is owned by an enterprise account, select a policy for where users are allowed to fork repositories.
 
    If repository forking policy is configured at the enterprise level, you won't be able to select a more permissive policy in your organization settings.
 {%- endif %}
-3. Click **Save**.
+1. Click **Save**.
 
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"

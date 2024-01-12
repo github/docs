@@ -1,0 +1,1 @@
+For information about how you can try {% data variables.product.prodname_GH_advanced_security %} for free, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."

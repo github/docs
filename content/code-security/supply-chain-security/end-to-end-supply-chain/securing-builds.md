@@ -30,9 +30,9 @@ There are several security capabilities a build system should have:
 
 1. The build steps should be clear and repeatable.
 
-2. You should know exactly what was running during the build process.
+1. You should know exactly what was running during the build process.
 
-3. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
+1. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
 
 {% data variables.product.prodname_actions %} can help you meet these capabilities. Build instructions are stored in your repository, alongside your code. You choose what environment your build runs on, including Windows, Mac, Linux, or runners you host yourself. Each build starts with a fresh runner image, making it difficult for an attack to persist in your build environment.
 

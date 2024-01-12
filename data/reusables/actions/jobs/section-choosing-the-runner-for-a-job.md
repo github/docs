@@ -8,14 +8,18 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
   - a single string
   - a single variable containing a string
   - an array of strings, variables containing strings, or a combination of both
+  - a `key: value` pair using the `group` or `label` keys
 - If you specify an array of strings or variables, your workflow will execute on any runner that matches all of the specified `runs-on` values. For example, here the job will only run on a self-hosted runner that has the labels `linux`, `x64`, and `gpu`:
+
   ```yaml
   runs-on: [self-hosted, linux, x64, gpu]
   ```
+
   For more information, see "[Choosing self-hosted runners](#choosing-self-hosted-runners)."
 - You can mix strings and variables in an array. For example:
 
   {% raw %}
+
   ```yaml
   on:
     workflow_dispatch:
@@ -29,13 +33,20 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
   jobs:
     test:
-      runs-on: [self-hosted, "${{ github.event.inputs.chosen-os }}"]
+      runs-on: [self-hosted, "${{ inputs.chosen-os }}"]
       steps:
       - run: echo Hello world!
   ```
+
   {% endraw %}
 
 - If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
+
+{% note %}
+
+**Note:** Quotation marks are not required around simple strings like `self-hosted`, but they are required for expressions like {% raw %} `"${{ inputs.chosen-os }}"`{% endraw %}.
+
+{% endnote %}
 
 {% ifversion fpt or ghec or ghes %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -58,7 +69,9 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/abou
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ### Choosing self-hosted runners
+
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
@@ -88,5 +101,13 @@ Runner groups can only have [{% data variables.actions.hosted_runner %}s](/actio
 #### Example: Combining groups and labels
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
+
+{% ifversion ghec or ghes %}
+
+#### Example: using prefixes to differentiate runner groups
+
+{% data reusables.actions.using-prefixes-to-differentiate-runner-groups %}
+
+{% endif %}
 
 {% endif %}

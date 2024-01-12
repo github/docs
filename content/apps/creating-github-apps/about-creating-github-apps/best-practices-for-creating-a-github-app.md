@@ -23,7 +23,7 @@ When your {% data variables.product.prodname_github_app %} creates an installati
 
 Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
-Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#conditional-requests)."
+Consider using conditional requests to help you stay within the rate limit. For more information about conditional requests, see "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)."
 
 If possible, consider using consolidated GraphQL queries instead of REST API requests to help you stay within rate limits. For more information, see "[AUTOTITLE](/rest/overview/about-githubs-apis)" and "[AUTOTITLE](/graphql)."
 
@@ -65,7 +65,7 @@ If your app is a native client, client-side app, or runs on a user device (as op
 
 ## Use the appropriate token type
 
-{% data variables.product.prodname_github_app %}s can generate installation access tokens or user access tokens in order to make authenticated API requests.
+{% data variables.product.prodname_github_apps %} can generate installation access tokens or user access tokens in order to make authenticated API requests.
 
 Installation access tokens will attribute activity to your app. These are useful for automations that act independently of users.
 
@@ -81,7 +81,7 @@ When you use a user access token, you should track which organizations the token
 
 ## Expire tokens
 
-{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to reenable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
+{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to re-enable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
 
 Installation access tokens expire after one hour, expiring user access tokens expire after eight hours, and refresh tokens expire after six months. However, you can also revoke tokens as soon as you no longer need them. For more information, see "[AUTOTITLE](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
 
@@ -133,11 +133,11 @@ When you update permissions, you should consider making your app backwards compa
 
 If your {% data variables.product.prodname_github_app %} is available to other users or organizations, you should give users and organization owners a way to delete their data. Users should not need to email or call a support person in order to delete their data.
 
-{% ifversion fpt or ghec %}
-
 ## Further reading
 
+{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
 - "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
-
 {% endif %}
+- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+- "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"

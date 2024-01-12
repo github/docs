@@ -11,8 +11,7 @@ topics:
   - Enterprise
 children:
   - /reviewing-audit-logs-for-your-enterprise
-  - /exploring-user-activity
+  - /exploring-user-activity-in-your-enterprise
   - /analyzing-how-your-team-works-with-server-statistics
-shortTitle: Monitor activity
+shortTitle: Monitor user activity
 ---
-

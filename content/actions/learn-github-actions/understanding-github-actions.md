@@ -15,8 +15,9 @@ versions:
 type: overview
 topics:
   - Fundamentals
+layout: inline
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -57,7 +58,7 @@ For more information about workflows, see "[AUTOTITLE](/actions/using-workflows)
 
 ### Events
 
-An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository.  You can also trigger a workflow to run on a schedule, by [posting to a REST API](/rest/repos#create-a-repository-dispatch-event), or manually.
+An event is a specific activity in a repository that triggers a workflow run. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone creates a pull request, opens an issue, or pushes a commit to a repository.  You can also trigger a workflow to run on a [schedule](/actions/using-workflows/events-that-trigger-workflows#schedule), by [posting to a REST API](/rest/repos#create-a-repository-dispatch-event), or manually.
 
 For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows).
 
@@ -89,11 +90,8 @@ For more information, see "[AUTOTITLE](/actions/creating-actions)."
 
 {% data reusables.actions.onboarding-next-steps %}
 
-## Contacting support
-
-{% data reusables.actions.contacting-support %}
-
 {% ifversion ghec or ghes or ghae %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"

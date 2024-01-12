@@ -1,10 +1,10 @@
 1. Copy the SSH public key to your clipboard.
 
    If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
-{% mac %}
+   {% mac %}
 
    ```shell
-   $ pbcopy &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+   $ pbcopy < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
    # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
    ```
 
@@ -13,21 +13,29 @@
    **Tip:** If `pbcopy` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
    {% endtip %}
-{% endmac %}
-{% windows %}
+   {% endmac %}
+   {% windows %}
 
    ```shell
-   $ clip &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+   $ clip < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
    # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
    ```
 
-   {% tip %}
+   {% note %}
 
-   **Tip:** With Windows Subsystem for Linux (WSL), you can use `clip.exe`. Otherwise if `clip` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
+   **Notes:**
 
-   {% endtip %}
-{% endwindows %}
-{% linux %}
+   - With Windows Subsystem for Linux (WSL), you can use `clip.exe`. Otherwise if `clip` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
+   - On newer versions of Windows that use the Windows Terminal, or anywhere else that uses the PowerShell command line, you may receive a `ParseError` stating that `The '&lt;' operator is reserved for future use.` In this case, the following alternative `clip` command should be used:
+
+   ```shell
+   $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub | clip
+   # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
+   ```
+
+   {% endnote %}
+   {% endwindows %}
+   {% linux %}
 
    ```shell
    $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
@@ -40,4 +48,4 @@
    **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
    {% endtip %}
-{% endlinux %}
+   {% endlinux %}

@@ -40,6 +40,6 @@ You can choose how you want to receive future notifications for a specific issue
 
    ![Screenshot of the "Notifications" element on an issue or pull request. A link, titled "Customize", is highlighted with an orange outline.](/assets/images/help/notifications-v2/customize-notifications-for-specific-thread.png)
 
-2. In the dialog box, select **Custom**, then choose when you'd like to receive a notification update for this thread. For example, you can choose to receive an update when the pull request has been merged, closed, or reopened. You will be subscribed again if you participate in the thread, your username is @mentioned, or a team you're a member of is @mentioned.
+1. In the dialog box, select **Custom**, then choose when you'd like to receive a notification update for this thread. For example, you can choose to receive an update when the pull request has been merged, closed, or reopened. You will be subscribed again if you participate in the thread, your username is @mentioned, or a team you're a member of is @mentioned.
 
-3. Click **Save**.
+1. Click **Save**.

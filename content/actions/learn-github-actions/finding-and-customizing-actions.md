@@ -16,7 +16,7 @@ type: how_to
 topics:
   - Fundamentals
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -50,15 +50,7 @@ You can add an action to your workflow by referencing the action in your workflo
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-
-{% note %}
-
-**Note:** To enhance security, {% data variables.product.prodname_actions %} is deprecating redirects for actions. This means that when the owner or name of an action's repository is changed, any workflows using that action with the previous name will fail.
-
-{% endnote %}
-
-{% endif %}
+{% data reusables.actions.actions-redirects-workflows %}
 
 ### Adding an action from {% data variables.product.prodname_marketplace %}
 
@@ -79,30 +71,7 @@ An action's listing page includes the action's version and the workflow syntax r
 
 If an action is defined in the same repository where your workflow file uses the action, you can reference the action with either the ‌`{owner}/{repo}@{ref}` or `./path/to/dir` syntax in your workflow file.
 
-Example repository file structure:
-
-```
-|-- hello-world (repository)
-|   |__ .github
-|       └── workflows
-|           └── my-first-workflow.yml
-|       └── actions
-|           |__ hello-world-action
-|               └── action.yml
-```
-
-Example workflow file:
-
-```yaml
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # This step checks out a copy of your repository.
-      - uses: {% data reusables.actions.action-checkout %}
-      # This step references the directory that contains the action.
-      - uses: ./.github/actions/hello-world-action
-```
+{% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 
 The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
@@ -134,7 +103,6 @@ jobs:
 
 For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
 
-
 ## Using release management for your custom actions
 
 The creators of a community action have the option to use tags, branches, or SHA values to manage releases of the action. Similar to any dependency, you should indicate the version of the action you'd like to use based on your comfort with automatically accepting updates to the action.
@@ -143,7 +111,7 @@ You will designate the version of the action in your workflow file. Check the ac
 
 {% note %}
 
-**Note:** We recommend that you use a SHA value when using third-party actions. For more information, see [Security hardening for GitHub Actions](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)
+**Note:** We recommend that you use a SHA value when using third-party actions. However, it's important to note {% data variables.product.prodname_dependabot %} will only create {% data variables.product.prodname_dependabot_alerts %} for vulnerable {% data variables.product.prodname_actions %} that use semantic versioning. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" and "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
 {% endnote %}
 

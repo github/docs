@@ -2,8 +2,8 @@ import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from 'src/rest/components/types'
-import { useVersion } from 'components/hooks/useVersion'
-import { useMainContext } from 'components/context/MainContext'
+import { useVersion } from 'src/versions/components/useVersion'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 
 type CodeExamples = Record<string, any>
 
@@ -49,7 +49,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   if (codeSample?.request?.bodyParameters) {
     requestBodyParams = `-d '${JSON.stringify(codeSample.request.bodyParameters).replace(
       /'/g,
-      "'\\''"
+      "'\\''",
     )}'`
 
     const contentType = codeSample.request.contentType
@@ -62,7 +62,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
       if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
         const paramNames = Object.keys(bodyParameters)
         paramNames.forEach((elem) => {
-          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${bodyParameters[elem]}"`
+          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${bodyParameters[elem]}'`
         })
       } else {
         requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${bodyParameters}"`
@@ -70,22 +70,34 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
-  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
-  if (operation.subcategory === 'management-console') {
+  let authHeader
+  let apiVersionHeader
+
+  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
     authHeader = '-u "api_key:your-password"'
+    apiVersionHeader = ''
+  } else {
+    authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+
+    apiVersionHeader =
+      allVersions[currentVersion].apiVersions.length > 0 &&
+      allVersions[currentVersion].latestApiVersion
+        ? ` \\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+        : ''
   }
 
-  const apiVersionHeader =
-    allVersions[currentVersion].apiVersions.length > 0 &&
-    allVersions[currentVersion].latestApiVersion
-      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
-      : ''
-
+  let urlArg = `${operation.serverUrl}${requestPath}`
+  // If the `requestPath` contains a `?` character, if you need to escape
+  // the whole URL otherwise, when you paste it into your terminal, it
+  // will fail because the `?` is a bash control character.
+  if (requestPath.includes('?')) {
+    urlArg = `"${urlArg}"`
+  }
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
     `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
     contentTypeHeader,
-    `${operation.serverUrl}${requestPath}`,
+    urlArg,
     requestBodyParams,
   ].filter(Boolean)
   return `curl -L \\\n  ${args.join(' \\\n  ')}`
@@ -126,20 +138,26 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   // and the type is a string.
   const { bodyParameters } = codeSample.request
   if (bodyParameters) {
-    if (typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
+    if (typeof bodyParameters === 'object') {
       const bodyParamValues = Object.values(codeSample.request.bodyParameters)
-      // GitHub CLI does not support sending Objects and arrays using the -F or
+      // GitHub CLI does not support sending Objects using the -F or
       // -f flags. That support may be added in the future. It is possible to
       // use gh api --input to take a JSON object from standard input
       // constructed by jq and piped to gh api. However, we'll hold off on adding
       // that complexity for now.
-      if (bodyParamValues.some((elem) => typeof elem === 'object')) {
+      if (bodyParamValues.some((elem) => typeof elem === 'object' && !Array.isArray(elem))) {
         return undefined
       }
       requestBodyParams = Object.keys(codeSample.request.bodyParameters)
         .map((key) => {
           if (typeof codeSample.request.bodyParameters[key] === 'string') {
             return `-f ${key}='${codeSample.request.bodyParameters[key]}' `
+          } else if (Array.isArray(codeSample.request.bodyParameters[key])) {
+            let cliLine = ''
+            for (const value of codeSample.request.bodyParameters[key]) {
+              cliLine += `${typeof value === 'string' ? '-f' : '-F'} "${key}[]=${value}" `
+            }
+            return cliLine
           } else {
             return `-F ${key}=${codeSample.request.bodyParameters[key]} `
           }
@@ -159,7 +177,7 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestBodyParams,
   ].filter(Boolean)
   return `# GitHub CLI api\n# https://cli.github.com/manual/gh_api\n\ngh api \\\n  ${args.join(
-    ' \\\n  '
+    ' \\\n  ',
   )}`
 }
 

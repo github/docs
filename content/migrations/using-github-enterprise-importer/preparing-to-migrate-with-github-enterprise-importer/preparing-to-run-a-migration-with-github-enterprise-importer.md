@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About trial migrations
 
 We recommend you follow these best practices for running a trial migration, to help uncover problems that might be unique to your enterprise during and after the migration.

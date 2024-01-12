@@ -4,7 +4,7 @@ intro: >-
   Use the REST API to manage connections between {% data
   variables.product.product_name %} teams and external identity provider (IdP)
   groups.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
 topics:
   - API
@@ -23,6 +23,5 @@ You can manage {% data variables.product.product_name %} team members through yo
 **Note:** These endpoints cannot be used with {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.enterprise.prodname_emu_org %}, see "[AUTOTITLE](/enterprise-cloud@latest/rest/teams/external-groups)".
 
 {% endnote %}
-
 
 <!-- Content after this section is automatically generated -->

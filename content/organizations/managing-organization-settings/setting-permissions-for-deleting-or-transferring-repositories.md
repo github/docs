@@ -18,6 +18,10 @@ shortTitle: Set repo management policy
 
 Owners can set permissions for deleting or transferring repositories in an organization.
 
+{% ifversion fpt or ghec or ghes %}
+Limiting the ability to delete or transfer repositories helps prevent sensitive information from being exposed. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}

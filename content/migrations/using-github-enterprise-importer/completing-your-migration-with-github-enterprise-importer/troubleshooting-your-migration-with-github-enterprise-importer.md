@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About troubleshooting steps for {% data variables.product.prodname_importer_proper_name %}
 
 If your migration fails or produces unexpected results, try the first steps for troubleshooting below, which commonly resolve a variety of issues. If these first steps do not resolve your issue, check for error messages in the logs for your migration. Then, locate the error message in this article and try the steps for resolution.
@@ -24,7 +22,12 @@ If you're unable to resolve your issue after trying the troubleshooting steps fo
 Before you investigate further, try these troubleshooting steps that commonly resolve a variety of issues.
 
 1. Verify that you're using the latest version of the {% data variables.product.prodname_cli %} extension you're using to migrate. If you're not, upgrade to the latest version.
-1. Verify that you meet all the access requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
+1. Verify that you meet all the access requirements. For more information, see the appropriate article for your migration path.
+
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products)"
+
 1. Try running the migration again. Some migrations issues are transient, and a second attempt may work.
 1. Try running a migration on a different repository with similar data. This will help determine whether the issue is unique to the repository or represents a broader data shape problem.
 
@@ -62,7 +65,11 @@ This error indicates that a {% data variables.product.pat_generic %} you provide
 
 ### `401 Unauthorized` response
 
-Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided for both your source and destination organizations. For more information about required scopes, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#required-scopes-for-github-enterprise-importer)."
+Failures that include a `401` status code usually indicate that the {% data variables.product.pat_generic %} you provided to the {% data variables.product.prodname_cli %} does not have the required scopes. Verify the scopes on the {% data variables.product.pat_generic %}s you provided. For more information about required scopes, see the appropriate article for your migration path.
+
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)"
+   - "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)"
 
 ### `404 Not Found` response
 
@@ -70,7 +77,7 @@ Failures that include a `404` status code usually indicate a typo in one of your
 
 ### `Archive generation failed` response
 
-If you receive a `Archive generation failed...` response when migrating from {% data variables.product.prodname_ghe_server %}, your repository is probably too large. For more information about repository size limits, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer#:~:text=Different%20size%20limits%20per%20repository%20apply%20depending%20on%20your%20GHES%20version.)."
+If you receive a `Archive generation failed...` response when migrating from {% data variables.product.prodname_ghe_server %}, your repository is probably too large. For more information about repository size limits, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products#data-that-is-migrated-from-github-enterprise-server)."
 
 First, try excluding releases from the migration by using the `--skip-releases` flag with the `migrate-repo` command.
 
@@ -83,11 +90,11 @@ If that doesn't work, we'd recommend upgrading to {% data variables.product.prod
 
 ### `cipher name is not supported` error
 
-If you're migrating from Bitbucket Server and receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about supported ciphers, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#required-permissions-for-bitbucket-server)."
+If you're migrating from Bitbucket Server and receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about supported ciphers, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-permissions-for-bitbucket-server)."
 
 To generate a new, compatible SSH keypair, run the following command:
 
-```shell{:copy}
+```shell copy
 ssh-keygen -t ed25519 -Z aes256-cbc -C "your_email@example.com"
 ```
 
@@ -115,7 +122,7 @@ If you're running Bitbucket Data Center in cluster mode with multiple notes, you
 
 ### `Repository rule violations found` error
 
-If you receive a `Repository rule violations found` error, such as `GH013: Repository rule violations found for refs/heads/main`, data in the origin repository conflicts with rulesets (public beta) configured on the destination organization. For more information, see "[AUTOTITLE]({% ifversion repo-rules %}{% else %}/enterprise-cloud@latest{% endif %}/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+If you receive a `Repository rule violations found` error, such as `GH013: Repository rule violations found for refs/heads/main`, data in the origin repository conflicts with rulesets configured on the destination organization. For more information, see "[AUTOTITLE]({% ifversion repo-rules %}{% else %}/enterprise-cloud@latest{% endif %}/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
 You can temporarily disable your rulesets during your migration, or you can use bypass mode or the bypass list to exempt your migration from configured rules. For more information, see "[AUTOTITLE]({% ifversion repo-rules-enterprise %}{% else %}/enterprise-cloud@latest{% endif %}/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)."
 
@@ -123,24 +130,26 @@ You can temporarily disable your rulesets during your migration, or you can use 
 
 If you receive a `Git source migration failed` error with `GH007: Your push would publish a private email address`,  the Git source you're trying to migrate includes commits authored by an email address that you have blocked from being pushed to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE]({% ifversion not fpt or ghec %}/enterprise-cloud@latest{% endif %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address){% ifversion fpt or ghec %}."{% else %}" in the  {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
-To resolve this error, you can either rewrite the Git history to remove the email address, or you can disable the "Block command line pushes that expose my email" setting. 
+To resolve this error, you can either rewrite the Git history to remove the email address, or you can disable the "Block command line pushes that expose my email" setting.
 
-## Troubleshooting successful migrations
+## Understanding migration log warnings
 
-If your migration succeeds but produces unexpected results, review the migration log for error messages. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer)."
+Even if your migration succeeds, you should still review the migration log to check for warnings.
+
+Warnings in the migration log point to specific items within the repository which could not be migrated. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer)."
 
 {% data reusables.enterprise-migration-tool.migration-log-errors-okay %}
 
-- [Repository metadata too big to migrate](#repository-metadata-too-big-to-migrate)
-- [Comment not in diff](#comment-not-in-diff)
-- [Pull request review thread not migrated in pull request](#pull-request-review-thread-not-migrated-in-pull-request)
+- [Warning: "Repository metadata too big to migrate"](#warning-repository-metadata-too-big-to-migrate)
+- [Warning: "Comment not in diff"](#warning-comment-not-in-diff)
+- [Warning: "Pull Request Review...could not be imported due to REVIEW_THREAD_MISSING_END_COMMIT_OID error"](#warning-pull-request-reviewcould-not-be-imported-due-to-review_thread_missing_end_commit_oid-error)
 - [Team references are broken after an organization migration](#team-references-are-broken-after-an-organization-migration)
 
-### Repository metadata too big to migrate
+### Warning: "Repository metadata too big to migrate"
 
 If you see "Repository metadata too big to migrate" in the "Migration Log" issue or the {% data variables.product.prodname_cli %}, your repository exceeds the maximum archive size of 10 GB. This is often caused by large release assets. Try excluding releases from the migration with the `--skip-releases` flag for the `migrate-repo` command.
 
-### Comment not in diff
+### Warning: "Comment not in diff"
 
 If you're migrating from Azure DevOps, pull request comments on lines that were never changed in the pull request cannot be migrated to {% data variables.product.prodname_dotcom %}. You'll see this warning for every comment that cannot be migrated for this reason.
 
@@ -152,17 +161,13 @@ If you're migrating from Azure DevOps, pull request comments on lines that were 
 
 Be aware that the affected comments will not be in the migrated repository, but these warnings do not require further action from you.
 
-### Pull request review thread not migrated in pull request
+### Warning: "Pull Request Review...could not be imported due to REVIEW_THREAD_MISSING_END_COMMIT_OID error"
 
-This warning is a more generic form of "Comment not in diff." If you see this warning, a comment on a file in a pull request couldn’t be migrated for a different reason than the one described above. Most often, the comment was on a line that was changed at one point in the pull request history, but then the pull request changed so that this was no longer the case.
+This warning occurs where a pull request review could not be migrated because the commit that the review is attached to no longer exists.
 
-- The comment is on a file that was deleted later in the pull request history.
-- The comment was on code that was changed at one point in the pull request history, but the author later decided to remove the change.
-- The pull request was squash merged into a single commit, which prevents {% data variables.product.company_short %} from being able to properly construct the pull request history to properly place the comment.
+This usually happens where commits have been removed with a force push, or a branch has been deleted.
 
-This problem most frequently impacts closed pull requests.
-
-Be aware that the affected comments will not be in the migrated repository, but these warnings do not require further action from you.
+In this case, the comments are not lost, but are migrated as inline pull request comments to preserve history, rather than as a review attached to a specific commit.
 
 ### Team references are broken after an organization migration
 
@@ -171,6 +176,21 @@ Be aware that the affected comments will not be in the migrated repository, but 
 You can either update these references after the migration, or you can preserve your team names by renaming the source organization so that you can use the original name for your destination organization.
 
 For example, if your source organization is `@octo-org`, and your `CODEOWNERS` file includes a reference to the team `@octo-org/octo-team`, you could rename the source organization to `@octo-org-temp` before your migration, allowing you to use `@octo-org` as the name of the new organization. Then, the migrated team would be called `@octo-org/octo-team`, and the `CODEOWNERS` file in the migrated repository will work as expected.
+
+## Locked repositories
+
+After a migration, you may find that your source or destination repositories are locked, disabling access to the repository's code and all of its resources, such as issues and pull requests. For more information about locked repositories, see "[AUTOTITLE](/migrations/overview/about-locked-repositories)."
+
+The process for unlocking a repository depends on the {% data variables.product.prodname_dotcom %} product where the repository is stored.
+
+- If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+- If the locked repository is on {% data variables.product.prodname_dotcom_the_website %}, you can contact {% data variables.contact.contact_support %} to unlock the repository.
+
+{% note %}
+
+**Note:** If your migration failed, not all of your data was migrated. If you choose to unlock and use the repository, there will be data loss. Deleting the locked repository and retrying the migration may be a better option.
+
+{% endnote %}
 
 ## Contacting {% data variables.contact.github_support %}
 

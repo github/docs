@@ -28,17 +28,22 @@ The best way to explain subtree merges is to show by example. We will:
 ## Setting up the empty repository for a subtree merge
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a new directory and navigate to it.
+1. Create a new directory and navigate to it.
+
    ```shell
-   $ mkdir test
-   $ cd test
+   mkdir test
+   cd test
    ```
-3. Initialize a new Git repository.
+
+1. Initialize a new Git repository.
+
    ```shell
    $ git init
    > Initialized empty Git repository in /Users/octocat/tmp/test/.git/
    ```
-4. Create and commit a new file.
+
+1. Create and commit a new file.
+
    ```shell
    $ touch .gitignore
    $ git add .gitignore
@@ -51,6 +56,7 @@ The best way to explain subtree merges is to show by example. We will:
 ## Adding a new repository as a subtree
 
 1. Add a new remote URL pointing to the separate project that we're interested in.
+
    ```shell
    $ git remote add -f spoon-knife https://github.com/octocat/Spoon-Knife.git
    > Updating spoon-knife
@@ -63,25 +69,32 @@ The best way to explain subtree merges is to show by example. We will:
    > From https://github.com/octocat/Spoon-Knife
    >  * [new branch]      main     -> Spoon-Knife/main
    ```
-2. Merge the `Spoon-Knife` project into the local Git project. This doesn't change any of your files locally, but it does prepare Git for the next step.
+
+1. Merge the `Spoon-Knife` project into the local Git project. This doesn't change any of your files locally, but it does prepare Git for the next step.
 
    If you're using Git 2.9 or above:
+
    ```shell
    $ git merge -s ours --no-commit --allow-unrelated-histories spoon-knife/main
    > Automatic merge went well; stopped before committing as requested
    ```
 
    If you're using Git 2.8 or below:
+
    ```shell
    $ git merge -s ours --no-commit spoon-knife/main
    > Automatic merge went well; stopped before committing as requested
    ```
-3. Create a new directory called **spoon-knife**, and copy the Git history of the `Spoon-Knife` project into it.
+
+1. Create a new directory called **spoon-knife**, and copy the Git history of the `Spoon-Knife` project into it.
+
    ```shell
    $ git read-tree --prefix=spoon-knife/ -u spoon-knife/main
    > fatal: refusing to merge unrelated histories
    ```
-4. Commit the changes to keep them safe.
+
+1. Commit the changes to keep them safe.
+
    ```shell
    $ git commit -m "Subtree merged in spoon-knife"
    > [main fe0ca25] Subtree merged in spoon-knife
@@ -100,13 +113,13 @@ Although we've only added one subproject, any number of subprojects can be incor
 When a subproject is added, it is not automatically kept in sync with the upstream changes. You will need to update the subproject with the following command:
 
 ```shell
-$ git pull -s subtree REMOTE-NAME BRANCH-NAME
+git pull -s subtree REMOTE-NAME BRANCH-NAME
 ```
 
 For the example above, this would be:
 
 ```shell
-$ git pull -s subtree spoon-knife main
+git pull -s subtree spoon-knife main
 ```
 
 ## Further reading

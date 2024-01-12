@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-export type FeaturedTrack = {
+export type LearningTrack = {
   trackName: string
   trackProduct: string
   title: string
@@ -20,10 +20,8 @@ export type ArticleGuide = {
 export type ProductGuidesContextT = {
   title: string
   intro: string
-  featuredTrack?: FeaturedTrack
-  learningTracks?: Array<FeaturedTrack>
+  learningTracks?: Array<LearningTrack>
   includeGuides?: Array<ArticleGuide>
-  allTopics?: Array<string>
 }
 
 export const ProductGuidesContext = createContext<ProductGuidesContextT | null>(null)
@@ -33,7 +31,7 @@ export const useProductGuidesContext = (): ProductGuidesContextT => {
 
   if (!context) {
     throw new Error(
-      '"useProductGuidesContext" may only be used inside "ProductGuidesContext.Provider"'
+      '"useProductGuidesContext" may only be used inside "ProductGuidesContext.Provider"',
     )
   }
 
@@ -44,15 +42,7 @@ export const getProductGuidesContextFromRequest = (req: any): ProductGuidesConte
   const page = req.context.page
 
   return {
-    ...pick(page, ['title', 'intro', 'allTopics']),
-    featuredTrack: page.featuredTrack
-      ? {
-          ...pick(page.featuredTrack, ['title', 'description', 'trackName', 'trackProduct']),
-          guides: (page.featuredTrack?.guides || []).map((guide: any) => {
-            return pick(guide, ['title', 'intro', 'href', 'page.type'])
-          }),
-        }
-      : null,
+    ...pick(page, ['title', 'intro']),
     learningTracks: (page.learningTracks || []).map((track: any) => ({
       ...pick(track, ['title', 'description', 'trackName', 'trackProduct']),
       guides: (track.guides || []).map((guide: any) => {

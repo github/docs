@@ -21,7 +21,7 @@ You can add personal information about yourself in your bio, like previous place
 
 {% data reusables.profile.profile-readme %}
 
-![Profile README file displayed on profile.](/assets/images/help/repository/profile-with-readme.png)
+![Screenshot of the profile page for @octocato. In the top-right corner, a profile README greets the viewer and lists information about the user's work.](/assets/images/help/repository/profile-with-readme.png)
 
 {% endif %}
 

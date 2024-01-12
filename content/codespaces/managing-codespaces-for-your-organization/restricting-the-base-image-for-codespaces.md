@@ -1,7 +1,7 @@
 ---
 title: Restricting the base image for codespaces
 shortTitle: Restrict base image
-intro: You can specify which base images can be used for new codespaces created within your organization.
+intro: You can specify which base images can be used to create the dev container for new codespaces created within your organization.
 permissions: 'To manage image constraints for an organization''s codespaces, you must be an owner of the organization.'
 versions:
   fpt: '*'
@@ -14,29 +14,30 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 ## Overview
 
-When you create a codespace, a Docker container is automatically created on a remote virtual machine. The Docker container is created from a Docker image. The image is effectively a template for Docker containers and it determines many aspects of the resulting environment provided by the codespace.
+When you create a codespace, a development container is automatically created on a remote virtual machine. This dev container is created from a Docker image. The image is effectively a template for Docker containers and it determines many aspects of the resulting environment provided by the codespace. For more information, see "[AUTOTITLE](/codespaces/overview#what-is-a-codespace)."
 
 You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
 
-```json{:copy}
+```json copy
 "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
 ```
 
 For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/) on the Development Containers website.
 
-If you don't specify an image in the dev container configuration for a repository, the default image is used. The default image contains a number of runtime versions for popular languages and commonly used tools. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)."
+If you don't specify an image in the dev container configuration for a repository, the default dev container image is used. The default image contains a number of runtime versions for popular languages and commonly used tools. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)."
 
-As an organization owner, you can add a policy to restrict which images can be used for codespaces created within your organization.
+As an organization owner, you can add a policy to restrict which dev container images can be used for codespaces created within your organization.
 
 If the image specified in the dev container configuration does not match one of the allowed images, the following message is displayed when someone tries to create a codespace for the repository:
 
-> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization administrator.
+> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization owner.
 
 {% note %}
 
 **Notes**:
-* The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)."
-* The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
+- The dev container base image should not be confused with the host image. The host image is the image used to build the virtual machine on which the dev container runs. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)."
+- The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle#rebuilding-a-codespace)."
+- The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
 
 {% endnote %}
 
@@ -67,12 +68,15 @@ For example, you could create an organization-wide policy that restricts the bas
 
 1. Click {% octicon "plus" aria-label="Add button" %} to add the value.
 1. If required, repeat the previous two steps to add more image URLs.
+1. Click outside of the dialog box to close it.
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+
 1. After you've finished adding constraints to your policy, click **Save**.
 
 The policy is applied when anyone attempts to create a new codespace that is billable to your organization. The base image constraint does not affect existing codespaces, either active or stopped.
@@ -81,7 +85,7 @@ The policy is applied when anyone attempts to create a new codespace that is bil
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
 1. Click the name of the policy you want to edit.
 1. Beside the "Base images" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Add or remove image URLs.
@@ -89,5 +93,5 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 ## Deleting a policy
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
+1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
 {% data reusables.codespaces.delete-codespace-policy %}

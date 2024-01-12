@@ -56,7 +56,7 @@ Within the blame view, you can view the line-by-line revision history for an ent
 {% else %}
 1. In the upper-right corner of the file view, click **Blame** to open the blame view.
 
-   ![Screenshot showing the header for a file. The "Blame" button is emphasized.](/assets/images/enterprise/repository/blame-button.png)
+   ![Screenshot showing the header for a file. The "Blame" button is outlined in dark orange.](/assets/images/enterprise/repository/blame-button.png)
 1. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="View blame prior to this change" %} until you've found the changes you're interested in viewing.
 
    ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/enterprise/repository/git-blame.png)
@@ -69,9 +69,9 @@ Within the blame view, you can view the line-by-line revision history for an ent
 All revisions specified in the `.git-blame-ignore-revs` file, which must be in the root directory of your repository, are hidden from the blame view using Git's `git blame --ignore-revs-file` configuration setting. For more information, see [`git blame --ignore-revs-file`](https://git-scm.com/docs/git-blame#Documentation/git-blame.txt---ignore-revs-fileltfilegt) in the Git documentation.
 
 1. In the root directory of your repository, create a file named `.git-blame-ignore-revs`.
-2. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
+1. Add the commit hashes you want to exclude from the blame view to that file. We recommend the file to be structured as follows, including comments:
 
-    ```ini
+    ```shell
     # .git-blame-ignore-revs
     # Removed semi-colons from the entire codebase
     a8940f7fbddf7fad9d7d50014d4e8d46baf30592
@@ -79,7 +79,7 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
     69d029cec8337c616552756310748c4a507bd75a
     ```
 
-3. Commit and push the changes.
+1. Commit and push the changes.
 
 Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
 

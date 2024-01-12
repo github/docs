@@ -43,7 +43,7 @@ Certain Azure DevOps constructs must be migrated manually from Azure DevOps into
 - Environments
 - Pre-deployment approvals
 
-For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manual-migrations/migrating-from-azure-pipelines-to-github-actions)."
+For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions)."
 
 #### Unsupported tasks
 
@@ -62,7 +62,7 @@ For more information on manual migrations, see "[AUTOTITLE](/actions/migrating-t
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with Azure DevOps and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
 
    Your token must have the `workflow` scope.
 
@@ -78,7 +78,7 @@ The `configure` CLI command is used to set required credentials and options for 
    - Variable Groups: `Read`
 
    After creating the token, copy it and save it in a safe location for later use.
-2. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
 
    ```shell
    gh actions-importer configure
@@ -98,17 +98,18 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    $ gh actions-importer configure
-  ✔ Which CI providers are you configuring?: Azure DevOps
-  Enter the following values (leave empty to omit):
-  ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
-  ✔ Base url of the GitHub instance: https://github.com
-  ✔ {% data variables.product.pat_generic_caps %} for Azure DevOps: ***************
-  ✔ Base url of the Azure DevOps instance: https://dev.azure.com
-  ✔ Azure DevOps organization name: :organization
-  ✔ Azure DevOps project name: :project
-  Environment variables successfully updated.
+   ✔ Which CI providers are you configuring?: Azure DevOps
+   Enter the following values (leave empty to omit):
+   ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
+   ✔ Base url of the GitHub instance: https://github.com
+   ✔ {% data variables.product.pat_generic_caps %} for Azure DevOps: ***************
+   ✔ Base url of the Azure DevOps instance: https://dev.azure.com
+   ✔ Azure DevOps organization name: :organization
+   ✔ Azure DevOps project name: :project
+   Environment variables successfully updated.
    ```
-3. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
+
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
    gh actions-importer update
@@ -274,7 +275,7 @@ By default, {% data variables.product.prodname_actions_importer %} fetches pipel
 For example:
 
 ```shell
-gh actions-importer dry-run azure-devops --output-dir ./output/ --source-file-path ./path/to/azure_devops/pipeline.yml
+gh actions-importer dry-run azure-devops pipeline --output-dir ./output/ --source-file-path ./path/to/azure_devops/pipeline.yml
 ```
 
 #### `--config-file-path`
@@ -289,7 +290,7 @@ The `--config-file-path` argument can also be used to specify which repository a
 
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file as the source file to perform an audit.
 
-```bash
+```shell
 gh actions-importer audit azure-devops pipeline --output-dir ./output/ --config-file-path ./path/to/azure_devops/config.yml
 ```
 
@@ -311,7 +312,7 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 
 The pipeline is selected by matching the `repository_slug` in the configuration file to the value of the `--azure-devops-organization` and `--azure-devops-project` option. The `path` is then used to pull the specified source file.
 
-```bash
+```shell
 gh actions-importer dry-run azure-devops pipeline --output-dir ./output/ --config-file-path ./path/to/azure_devops/config.yml 
 ```
 
@@ -321,7 +322,7 @@ gh actions-importer dry-run azure-devops pipeline --output-dir ./output/ --confi
 
 To begin, you should run an audit without the `--config-file-path` argument:
 
-```bash
+```shell
 gh actions-importer audit azure-devops --output-dir ./output/
 ```
 
@@ -341,7 +342,7 @@ composite_actions:
 
 You can use this file to specify which repository and ref a reusable workflow or composite action should be added to. You can then use the `--config-file-path` argument to provide the `config.yml` file to {% data variables.product.prodname_actions_importer %}. For example, you can use this file when running a `migrate` command to open a pull request for each unique repository defined in the config file:
 
-```bash
+```shell
 gh actions-importer migrate azure-devops pipeline  --config-file-path config.yml --target-url https://github.com/my-org/my-repo
 ```
 
@@ -440,7 +441,7 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 {% data variables.product.prodname_actions_importer %} is able to transform Azure DevOps templates with some limitations.
 
 - Azure DevOps templates used under the `stages`, `deployments`, and `jobs` keys are converted into reusable workflows in {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
--  Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)."
+- Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)."
 - If you currently have job templates that reference other job templates, {% data variables.product.prodname_actions_importer %} converts the templates into reusable workflows. Because reusable workflows cannot reference other reusable workflows, this is invalid syntax in {% data variables.product.prodname_actions %}. You must manually correct nested reusable workflows.
 - If a template references an external Azure DevOps organization or {% data variables.product.prodname_dotcom %} repository, you must use the `--credentials-file` option to provide credentials to access this template. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings#using-a-credentials-file-for-authentication)."
 - You can dynamically generate YAML using `each` expressions with the following caveats:
@@ -467,7 +468,6 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 | Conditional insertion         | `if` conditions on job/steps          | Partially supported |
 | Iterative insertion           | Not applicable                        | Partially supported |
 | Templates with parameters     | Varies                                | Partially supported |
-
 
 #### Template file path names
 
@@ -534,7 +534,6 @@ steps:
 | deploymentList        | `job`                                       | Partially supported |
 | stage                 | `job`                                       | Partially supported |
 | stageList             | `job`                                       | Partially supported |
-
 
 {% note %}
 

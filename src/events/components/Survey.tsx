@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
-import { useTranslation } from 'components/hooks/useTranslation'
-import { Link } from 'components/Link'
+import { useTranslation } from 'src/languages/components/useTranslation'
+import { Link } from 'src/frame/components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './Survey.module.scss'
@@ -36,7 +36,7 @@ export const Survey = () => {
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
-          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`
+          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`,
         )
         ?.focus()
     }
@@ -79,14 +79,20 @@ export const Survey = () => {
   }
 
   return (
-    <form className="f5" onSubmit={submit} ref={formRef} data-testid="survey-form">
-      <h3 className="f4 mb-3">{t`able_to_find`}</h3>
+    <form
+      className="f5"
+      onSubmit={submit}
+      ref={formRef}
+      data-testid="survey-form"
+      aria-live="polite"
+    >
+      <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
-      <input type="text" className="d-none" name="survey-token" aria-hidden="true" />
+      <input type="text" className="d-none" name="survey-token" />
 
       {state !== ViewState.END && (
-        <div className="radio-group mb-2">
+        <div className="radio-group mb-2" role="radiogroup" aria-labelledby="survey-title">
           <input
             className={cx(styles.visuallyHidden, styles.customRadio)}
             id="survey-yes"
@@ -100,10 +106,11 @@ export const Survey = () => {
           <label
             className={cx(
               'btn mr-1 color-border-accent-emphasis',
-              state === ViewState.YES && 'color-bg-accent-emphasis'
+              state === ViewState.YES && 'color-bg-accent-emphasis',
             )}
             htmlFor="survey-yes"
           >
+            <span className="visually-hidden">{t`yes`}</span>
             <ThumbsupIcon size={16} className={state === ViewState.YES ? '' : 'color-fg-muted'} />
           </label>
           <input
@@ -119,10 +126,11 @@ export const Survey = () => {
           <label
             className={cx(
               'btn color-border-accent-emphasis',
-              state === ViewState.NO && 'color-bg-danger-emphasis'
+              state === ViewState.NO && 'color-bg-danger-emphasis',
             )}
             htmlFor="survey-no"
           >
+            <span className="visually-hidden">{t`no`}</span>
             <ThumbsdownIcon size={16} className={state === ViewState.NO ? '' : 'color-fg-muted'} />
           </label>
         </div>

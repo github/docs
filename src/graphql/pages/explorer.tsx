@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { useEffect, useRef } from 'react'
 
 type Props = {
@@ -33,8 +33,9 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
             className="border width-full"
             scrolling="no"
             src={graphqlExplorerUrl}
+            title="GitHub GraphQL API"
           >
-            <p>You must have iframes enabled to use this feature.</p>
+            You must have iframes enabled to use this feature.
           </iframe>
         </div>
       </DefaultLayout>

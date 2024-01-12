@@ -24,7 +24,7 @@ export interface BodyParameter {
 export interface ChildParameter {
   name: string
   description: string
-  type: string
+  type?: string
   isRequired?: boolean
   enum?: Array<string | null>
   default?: string | boolean | number | undefined | string[]

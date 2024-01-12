@@ -13,14 +13,14 @@
 
 import { jest, test, expect } from '@jest/globals'
 
-import { describeIfElasticsearchURL } from '../../../tests/helpers/conditional-runs.js'
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
+import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
     'None of the API search middleware tests are run because ' +
-      "the environment variable 'ELASTICSEARCH_URL' is currently not set."
+      "the environment variable 'ELASTICSEARCH_URL' is currently not set.",
   )
 }
 
@@ -131,5 +131,12 @@ describeIfElasticsearchURL('search rendering page', () => {
   test("don't convert q= to query= if query= already present", async () => {
     const res = await get('/en/search?q=pulls&query=pushes')
     expect(res.statusCode).toBe(200)
+  })
+
+  test('more that one search query', async () => {
+    const $ = await getDOM('/en/search?query=foo&query=bar')
+    expect($('[data-testid="search-results"]').text()).toMatch('Cannot have multiple values')
+    const results = $('[data-testid="search-result"]')
+    expect(results.length).toBe(0)
   })
 })

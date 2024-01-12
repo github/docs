@@ -19,11 +19,11 @@ type: how_to
 
 {% data reusables.cli.cli-learn-more %}
 
-{% data variables.product.prodname_cli %} is preinstalled on all {% data variables.product.prodname_dotcom %}-hosted runners. For each step that uses {% data variables.product.prodname_cli %}, you must set an environment variable called `GITHUB_TOKEN` to a token with the required scopes.
+{% data variables.product.prodname_cli %} is preinstalled on all {% data variables.product.prodname_dotcom %}-hosted runners. For each step that uses {% data variables.product.prodname_cli %}, you must set an environment variable called `GH_TOKEN` to a token with the required scopes.
 
 You can execute any {% data variables.product.prodname_cli %} command. For example, this workflow uses the `gh issue comment` subcommand to add a comment when an issue is opened.
 
-```yaml{:copy}
+```yaml copy
 name: Comment when opened
 on:
   issues:
@@ -35,13 +35,13 @@ jobs:
     steps:
       - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
         env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           ISSUE: {% raw %}${{ github.event.issue.html_url }}{% endraw %}
 ```
 
 You can also execute API calls through {% data variables.product.prodname_cli %}. For example, this workflow first uses the `gh api` subcommand to query the GraphQL API and parse the result. Then it stores the result in an environment variable that it can access in a later step. In the second step, it uses the `gh issue create` subcommand to create an issue containing the information from the first step.
 
-```yaml{:copy}
+```yaml copy
 name: Report remaining open issues
 on: 
   schedule: 
@@ -64,11 +64,11 @@ jobs:
 
           echo 'NUM_OPEN_ISSUES='$numOpenIssues >> $GITHUB_ENV
         env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           OWNER: {% raw %}${{ github.repository_owner }}{% endraw %}
           REPO: {% raw %}${{ github.event.repository.name }}{% endraw %}
       - run: |
           gh issue create --title "Issue report" --body "$NUM_OPEN_ISSUES issues remaining" --repo $GITHUB_REPOSITORY
         env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```

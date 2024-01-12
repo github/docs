@@ -10,17 +10,16 @@
 
 import path from 'path'
 import fs from 'fs'
-import { execSync } from 'child_process'
 import scrape from 'website-scraper'
 import { program } from 'commander'
 import { rimraf } from 'rimraf'
 import http from 'http'
 
-import createApp from '../../../lib/app.js'
-import EnterpriseServerReleases from '../../../lib/enterprise-server-releases.js'
-import loadRedirects from '../../../lib/redirects/precompile.js'
-import { loadPageMap } from '../../../lib/page-data.js'
-import { languageKeys } from '../../../lib/languages.js'
+import createApp from '#src/frame/lib/app.js'
+import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import loadRedirects from '#src/redirects/lib/precompile.js'
+import { loadPageMap } from '#src/frame/lib/page-data.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
 
 const port = '4001'
 const host = `http://localhost:${port}`
@@ -29,22 +28,24 @@ const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterpri
 
 program
   .description(
-    'Scrape HTML of the oldest supported Enterprise version and add it to a temp output directory.'
+    'Scrape HTML of the oldest supported Enterprise version and add it to a temp output directory.',
   )
   .option(
     '-o, --output <PATH>',
-    `output directory to place scraped HTML files and redirects. By default, this temp directory is named 'tmpArchivalDir_<VERSION_TO_DEPRECATE>'`
+    `output directory to place scraped HTML files and redirects. By default, this temp directory is named 'tmpArchivalDir_<VERSION_TO_DEPRECATE>'`,
   )
+  .option('-l, --local-dev', 'Do not rewrite asset paths to enable testing scraped content locally')
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
   .option(
     '-p, --page <PATH>',
-    'Note: this option is only used to re-scrape a page after the version was deprecated. Redirects will not be re-created because most of the deprecated content is already removed. This option scrapes a specific page in all languages. Pass the relative path to the page without a version or language prefix. ex: /admin/release-notes'
+    'Note: this option is only used to re-scrape a page after the version was deprecated. Redirects will not be re-created because most of the deprecated content is already removed. This option scrapes a specific page in all languages. Pass the relative path to the page without a version or language prefix. ex: /admin/release-notes',
   )
   .parse(process.argv)
 
 const output = program.opts().output
 const dryRun = program.opts().dryRun
 const singlePage = program.opts().page
+const localDev = program.opts().localDev
 const tmpArchivalDirectory = output
   ? path.join(process.cwd(), output)
   : path.join(process.cwd(), `tmpArchivalDir_${version}`)
@@ -67,19 +68,30 @@ class RewriteAssetPathsPlugin {
 
       // Get the text contents of the resource
       const text = resource.getText()
-      let newBody = ''
+      let newBody = text
 
       // Rewrite HTML asset paths. Example:
       // ../assets/images/foo/bar.png ->
       // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
+
       if (resource.isHtml()) {
-        newBody = text.replace(
-          /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
-          (match, attribute, basepath) => {
-            const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
-            return `${attribute}="${replaced}`
-          }
+        // Remove nextjs scripts and manifest.json link
+        newBody = newBody.replace(
+          /<script\ssrc="(\.\.\/)*_next\/static\/[\w]+\/(_buildManifest|_ssgManifest).js?".*?><\/script>/g,
+          '',
         )
+        newBody = newBody.replace(/<link href=".*manifest.json".*?>/g, '')
+
+        if (!localDev) {
+          // Rewrite asset paths
+          newBody = newBody.replace(
+            /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
+            (match, attribute, basepath) => {
+              const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
+              return `${attribute}="${replaced}`
+            },
+          )
+        }
       }
 
       // Rewrite CSS asset paths. Example
@@ -88,29 +100,29 @@ class RewriteAssetPathsPlugin {
       // url(../../../assets/cb-303/images/octicons/search-24.svg) ->
       // url(https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/cb-303/images/octicons/search-24.svg)
       if (resource.isCss()) {
-        newBody = text.replace(
-          /(?<attribute>url)(?<paren>\("|\()(?:\.\.\/)*(?<basepath>_next\/static|assets\/fonts|assets\/images|assets\/cb-\d+\/images)/g,
-          (match, attribute, paren, basepath) => {
-            const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
-            return `${attribute}${paren}${replaced}`
-          }
-        )
+        if (!localDev) {
+          newBody = newBody.replace(
+            /(?<attribute>url)(?<paren>\("|\()(?:\.\.\/)*(?<basepath>_next\/static|assets\/fonts|assets\/images|assets\/cb-\d+\/images)/g,
+            (match, attribute, paren, basepath) => {
+              const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
+              return `${attribute}${paren}${replaced}`
+            },
+          )
+        }
       }
 
       const filePath = path.join(this.tempDirectory, resource.getFilename())
-      await fs.promises.writeFile(filePath, newBody, 'binary')
+      await fs.promises.writeFile(filePath, newBody, resource.encoding)
     })
   }
 }
 
 async function main() {
   // Build the production assets, to simulate a production deployment
-  console.log('Running `npm run build` for production assets')
-  execSync('npm run build', { stdio: 'inherit' })
   console.log('Finish building production assets')
   if (dryRun) {
     console.log(
-      '\nThis is a dry run! Creating HTML for redirects and scraping the first 10 pages only.'
+      '\nThis is a dry run! Creating HTML for redirects and scraping the first 10 pages only.',
     )
   }
   if (singlePage) {
@@ -163,7 +175,7 @@ async function main() {
 
       fs.renameSync(
         path.join(tmpArchivalDirectory, `/localhost_${port}`),
-        path.join(tmpArchivalDirectory, version)
+        path.join(tmpArchivalDirectory, version),
       )
 
       console.log(`\n\ndone scraping! added files to ${tmpArchivalDirectory}\n`)
@@ -172,7 +184,7 @@ async function main() {
         await createRedirectsFile(
           permalinksPerVersion,
           pageMap,
-          path.join(tmpArchivalDirectory, version)
+          path.join(tmpArchivalDirectory, version),
         )
         console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
       } else {
@@ -209,7 +221,7 @@ async function createRedirectsFile(permalinks, pageMap, outputDirectory) {
 
   fs.writeFileSync(
     path.join(outputDirectory, 'redirects.json'),
-    JSON.stringify(redirectsPerVersion, null, 2)
+    JSON.stringify(redirectsPerVersion, null, 2),
   )
   console.log(`Wrote ${outputDirectory}/redirects.json`)
 }

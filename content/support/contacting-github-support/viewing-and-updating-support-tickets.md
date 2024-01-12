@@ -1,6 +1,6 @@
 ---
 title: Viewing and updating support tickets
-intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.support_portal %}.'
+intro: 'You can view your support tickets{% ifversion ghes or ghec %}, collaborate with colleagues on tickets,{% endif %} and respond to {% data variables.contact.github_support %} using the {% data variables.contact.landing_page_portal %}.'
 shortTitle: View and update tickets
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ topics:
 
 You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
-Your capabilities in the {% data variables.contact.support_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
+Your capabilities in the {% data variables.contact.landing_page_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
 
 {% data reusables.enterprise-accounts.support-entitlements %}
 {% endif %}
@@ -42,7 +42,7 @@ You can only view archived tickets for an enterprise account.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
+   ![Screenshot showing the "My Tickets" dropdown menu highlighted in dark orange.](/assets/images/help/support/ticket-context.png)
 1. Under the "My tickets" table, click **View archived tickets**.
 
 {% endif %}
@@ -51,8 +51,8 @@ You can only view archived tickets for an enterprise account.
 
 {% data reusables.support.view-open-tickets %}
 1. Optionally, if the issue is resolved, under the text box, click **Close ticket**.
-2. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
-![Screenshot of the "Add a comment" text field.](/assets/images/help/support/new-comment-field.png)
+1. To respond to GitHub Support and add a new comment to the ticket, type your response in the text box.
+![Screenshot of the "Add a comment" text field, highlighted in dark orange.](/assets/images/help/support/new-comment-field.png)
 1. To add your comment to the ticket, under the text box, click **Comment**.
 
 {% ifversion ghec or ghes %}
