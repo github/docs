@@ -35,7 +35,7 @@ export default async function createTree(originalPath, rootPath, previousTree) {
       }
       // Throw an error if we can't find a content file associated with the children: entry.
       // But don't throw an error if the user is running the site locally and hasn't cloned the Early Access repo.
-      if (originalPath === path.join('content', 'early-access')) {
+      if (originalPath === 'content/early-access') {
         return
       }
       throw new Error(
