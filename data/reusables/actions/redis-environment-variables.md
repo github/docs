@@ -1,1 +1,0 @@
-The _client.js_ script looks for the `REDIS_HOST` and `REDIS_PORT` environment variables to create the client. The workflow sets those two environment variables as part of the "Connect to Redis" step to make them available to the _client.js_ script. For more information about the script, see "[Testing the Redis service container](#testing-the-redis-service-container)."

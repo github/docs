@@ -1,1 +1,0 @@
-After you add or change content exclusions it can take up to 30 minutes for this to take effect in {% data variables.product.prodname_vscode_shortname %}. You can apply changes immediately by reloading the window in {% data variables.product.prodname_vscode_shortname %}.

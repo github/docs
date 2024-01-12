@@ -1,1 +1,0 @@
-You can audit the actions taken in response to {% data variables.product.prodname_code_scanning %} alerts using {% data variables.product.prodname_dotcom %} tools. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."

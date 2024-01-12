@@ -1,5 +1,0 @@
-# Reference: #8461
-# SBOMs available for GitHub-hosted runner images.
-versions:
-  fpt: '*'
-  ghec: '*'

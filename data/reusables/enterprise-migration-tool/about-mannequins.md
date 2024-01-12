@@ -1,1 +1,0 @@
-After you run a migration with {% data variables.product.prodname_importer_proper_name %}, all user activity in the migrated repository (except Git commits) is attributed to placeholder identities called mannequins.

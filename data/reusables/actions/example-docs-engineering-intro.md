@@ -1,1 +1,0 @@
-The following workflow was created by the {% data variables.product.prodname_dotcom %} Docs Engineering team. To review the latest version of this file in the [`github/docs`](https://github.com/github/docs) repository, see

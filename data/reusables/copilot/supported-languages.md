@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot %} provides suggestions for numerous languages and a wide variety of frameworks, but works especially well for Python, JavaScript, TypeScript, Ruby, Go, C# and C++. {% data variables.product.prodname_copilot %} can also assist in query generation for databases.

@@ -1,6 +1,0 @@
-# Issue 11303
-# Support for showing underlines on links
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.11'

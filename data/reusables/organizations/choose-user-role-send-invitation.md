@@ -1,1 +1,0 @@
-1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose a role for the user and optionally add them to some teams, then click {% ifversion fpt or ghec %}**Send invitation**{% else %}**Add member**{% endif %}.

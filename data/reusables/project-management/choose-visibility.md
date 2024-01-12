@@ -1,1 +1,0 @@
-1. Under "Visibility", choose to make your project board {% ifversion ghae %}internal{% else %}public{% endif %} or private. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
