@@ -3,7 +3,45 @@ import { allPlatforms } from '#src/tools/lib/all-platforms.js'
 
 export const tags = Object.keys(allTools).concat(allPlatforms).concat(['rowheaders'])
 
-const template = '<div class="ghd-tool {{ tagName }}">{{ output }}</div>'
+// The trailing newline is important. Without it, the line immediately after
+// the `</div>` will be considered part of the previous block, which means the Markdown following the `</div>` will not be rendered to HTML correctly. For example:
+//
+//    <div>Here's some stuff</div>
+//    And *here* us also some stuff.
+//
+//    Another **sentence** here.
+//
+// Will yield:
+//
+//    <div>Here's some stuff</div>
+//    And *here* us also some stuff.
+//
+//    <p>Another <b>sentence</b> here.</p>
+//
+// when rendering this template with unified.
+// If you instead inject an extra newline after the `</div>`, you
+// go from:
+//
+//    <div>Here's some stuff</div>
+//
+//    And *here* us also some stuff.
+//
+//    Another **sentence** here.
+//
+// which yields:
+//
+//    <div>Here's some stuff</div>
+//
+//    <p>And <i>here</i> us also some stuff.</p>
+//
+//    <p>Another <b>sentence</b> here.</p>
+//
+// The Tool Liquid tags are a little bit fragile because we hope and assume
+// that the author of the Liquid+Markdown *don't* do this:
+//
+//    {% vscode %}Bla bla.{% endvscode %}Next stuff here...
+//
+const template = '<div class="ghd-tool {{ tagName }}">{{ output }}</div>\n'
 
 export const Tool = {
   type: 'block',

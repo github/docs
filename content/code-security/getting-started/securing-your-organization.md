@@ -104,7 +104,7 @@ On this view, you can use checkboxes to select specific repositories, or you can
 {% endif %}
 
 {% ifversion ghec or ghes %}
-If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)." {% ifversion ghec %}When you use the "Security coverage" view, you can can see the number of active committers for the repositories you select, and therefore the number of {% data variables.product.prodname_GH_advanced_security %} licenses that enabling a feature will consume.{% endif %}
+If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)." {% ifversion ghec %}When you use the "Security coverage" view, you can see the number of active committers for the repositories you select, and therefore the number of {% data variables.product.prodname_GH_advanced_security %} licenses that enabling a feature will consume.{% endif %}
 {% endif %}
 
 {% data reusables.security-overview.settings-limitations %}

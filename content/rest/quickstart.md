@@ -182,7 +182,7 @@ jobs:
           TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-The following is an example Javascript script with the file path `.github/actions-scripts/use-the-api.mjs`.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
+The following is an example JavaScript script with the file path `.github/actions-scripts/use-the-api.mjs`.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
 ```javascript
 import { Octokit } from "octokit"

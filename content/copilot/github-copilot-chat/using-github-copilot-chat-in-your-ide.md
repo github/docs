@@ -26,7 +26,33 @@ shortTitle: Using Copilot Chat
 
 - To use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %}, you must be signed into {% data variables.product.prodname_vscode %} with the same {% data variables.product.prodname_dotcom %} ID that has access to {% data variables.product.prodname_copilot %}.
 
-{% data reusables.copilot.enabling-copilot-chat-beta %}
+## Enabling or disabling {% data variables.product.prodname_copilot_chat %}
+
+{% note %}
+
+**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to {% data variables.product.prodname_copilot_chat %}.
+
+{% endnote %}
+
+{% data variables.product.prodname_copilot_chat %} is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
+
+If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
+
+### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
+1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then click **Enabled** or **Disabled**.
+
+### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the enterprise level
+
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.copilot-tab %}
+1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then choose the appropriate option.
+    - Click **Allowed** to enable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
+    - Click **Blocked** to disable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
+    - Click **No policy** to allow each organization under your enterprise to set their own policy.
 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vscode %}
 
@@ -41,7 +67,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} extension in the Extensions Marketplace.](/assets/images/help/copilot/vscode-extension-search.png)
 
 1. In the {% data variables.product.prodname_vscode %} window, click **Reload required** to update {% data variables.product.prodname_vscode %}.
-1. If you are prompted to sign in by a toast notification in the bottom right corner of {% data variables.product.prodname_vscode %}, click **Sign in to {% data variables.product.prodname_dotcom %}** and sign in with the same {% data variables.product.prodname_dotcom %} ID that has been granted access to the {% data variables.product.prodname_copilot_chat %} limited public beta.
+1. If you are prompted to sign in by a toast notification in the bottom right corner of {% data variables.product.prodname_vscode %}, click **Sign in to {% data variables.product.prodname_dotcom %}**. Sign in with the same {% data variables.product.prodname_dotcom %} ID that has a license for {% data variables.product.prodname_copilot %}, or is assigned a seat for {% data variables.product.prodname_copilot %} through an organization.
 1. Follow the prompts in {% data variables.product.prodname_vscode %} and on {% data variables.product.prodname_dotcom %} in your browser to complete the sign in and authentication process.
 1. To confirm that {% data variables.product.prodname_copilot_chat %} has been successfully installed, in the activity bar on the left side of the {% data variables.product.prodname_vscode %} window, click the **{% data variables.product.prodname_copilot_chat %}** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
 
@@ -107,7 +133,6 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)"
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement)"{% endif %}
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
@@ -128,7 +153,33 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 - To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has access to {% data variables.product.prodname_copilot %}.
 
-{% data reusables.copilot.enabling-copilot-chat-beta %}
+## Enabling or disabling {% data variables.product.prodname_copilot_chat %}
+
+{% note %}
+
+**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to {% data variables.product.prodname_copilot_chat %}.
+
+{% endnote %}
+
+{% data variables.product.prodname_copilot_chat %} is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
+
+If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
+
+### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
+1. To the right of **{% data variables.product.prodname_copilot_chat %} in the IDE**, select the dropdown menu, and then click **Enabled** or **Disabled**.
+
+### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the enterprise level
+
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.copilot-tab %}
+1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then choose the appropriate option.
+    - Click **Allowed** to enable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
+    - Click **Blocked** to disable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
+    - Click **No policy** to allow each organization under your enterprise to set their own policy.
 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}
 
@@ -183,14 +234,13 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Further reading
 
-- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
 - [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot){% ifversion ghec %}
 - [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement){% endif %}
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvisualstudio %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## About {% data variables.product.prodname_copilot_chat %} and JetBrains
 
@@ -305,4 +355,4 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement) "{% endif %}
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

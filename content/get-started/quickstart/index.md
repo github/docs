@@ -14,9 +14,10 @@ topics:
 children:
   - /creating-an-account-on-github
   - /hello-world
+  - /finding-inspiration-on-github
+  - /downloading-files-from-github
   - /set-up-git
   - /github-flow
-  - /be-social
   - /communicating-on-github
   - /github-glossary
   - /git-cheatsheet

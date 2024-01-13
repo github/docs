@@ -58,7 +58,7 @@ If you still have too many results, check how many queries you are using to anal
 
 Sometimes a single query reports many results because the codebase has a specific coding style, or because the analysis does not understand a particular library. You can review the results file in a SARIF viewer to see the distribution of results. For example, https://microsoft.github.io/sarif-web-component/.
 
-   - Check if the results are dominated by alerts identfied by a single query. Try excluding that query from analysis. You can reintroduce it when other alerts are fixed. For more information about {% data variables.product.prodname_codeql %} query configuration, see "[Excluding a query from analysis](#excluding-a-query-from-analysis)."
+   - Check if the results are dominated by alerts identified by a single query. Try excluding that query from analysis. You can reintroduce it when other alerts are fixed. For more information about {% data variables.product.prodname_codeql %} query configuration, see "[Excluding a query from analysis](#excluding-a-query-from-analysis)."
    - Check if there are dataflow queries with many deep paths. Try omitting dataflow paths from the output. For more information about {% data variables.product.prodname_codeql %} analysis configuration, see "[Omitting dataflow paths from the output](#omitting-dataflow-paths-from-the-output)."
 
 ## Fixing the problem

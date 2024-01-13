@@ -115,7 +115,7 @@ For information about permissions, see "[Permission to view data in security ove
 
 {% endif %}
 
-{% ifversion ghes < 3.8 or ghae < 3.8 %}
+{% ifversion ghae < 3.8 %}
 
 ## About security overview for teams
 

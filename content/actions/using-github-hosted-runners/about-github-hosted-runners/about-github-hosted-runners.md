@@ -96,12 +96,6 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 ## Viewing available runners for a repository
 
-{% note %}
-
-**Note:** This feature is currently in beta and subject to change.
-
-{% endnote %}
-
 {% data reusables.actions.about-viewing-runner-list %}
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -10,4 +10,5 @@ children:
   - /overview
   - /copilot-chat-in-github
   - /copilot-pull-request-summaries
+  - /copilot-docset-management
 ---

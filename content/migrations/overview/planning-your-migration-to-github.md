@@ -58,11 +58,7 @@ You should build a migration inventory with a list of all of the repositories in
 
 If you’re migrating from {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}, you can obtain this data with the `gh-repo-stats` extension for the {% data variables.product.prodname_cli %}. With just a few commands, `gh-repo-stats` will connect with your migration origin's API and create a CSV with all of the recommended fields. For more information, see the [mona-actions/gh-repo-stats](https://github.com/mona-actions/gh-repo-stats/) repository.
 
-{% note %}
-
-**Note:** `gh-repo-stats` is a third-party open-source tool which is not supported by GitHub Support. If you need help with this tool, [open an issue](https://github.com/mona-actions/gh-repo-stats/issues) in its repository.
-
-{% endnote %}
+{% data reusables.enterprise-migration-tool.gh-repo-stats-not-supported %}
 
 If you’re migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. For more information about how to install the {% data variables.product.prodname_ado2gh_cli %}, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud)."
 
@@ -94,7 +90,7 @@ Then, use the open-source tool, `git-sizer`, to get this data for your repositor
 ### Prerequisites
 
 1. Install `git-sizer`. For more information, see the [github/git-sizer](https://github.com/github/git-sizer#getting-started) repository.
-1. To verify that that `git-sizer` is installed, run `git-sizer –version`. If you see output like `git-sizer release 1.5.0`, installation was successful.
+1. To verify that `git-sizer` is installed, run `git-sizer –version`. If you see output like `git-sizer release 1.5.0`, installation was successful.
 1. Install `jq`. For more information, see [Download jq](https://stedolan.github.io/jq/download/) in the `jq` documentation.
 1. To verify that `jq` is installed, run `jq –-version`. If you see output like `jq-1.6`, installation was successful.
 

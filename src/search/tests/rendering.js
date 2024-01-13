@@ -135,7 +135,7 @@ describeIfElasticsearchURL('search rendering page', () => {
 
   test('more that one search query', async () => {
     const $ = await getDOM('/en/search?query=foo&query=bar')
-    expect($('[data-testid="search-results"]').text()).toMatch('Can not have multiple values')
+    expect($('[data-testid="search-results"]').text()).toMatch('Cannot have multiple values')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
   })

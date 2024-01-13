@@ -39,7 +39,7 @@ describe(liquidIfVersionTags.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
 
   beforeAll(() => {
-    process.env.ROOT = path.join('src', 'fixtures', 'fixtures')
+    process.env.ROOT = 'src/fixtures/fixtures'
   })
 
   afterAll(() => {
