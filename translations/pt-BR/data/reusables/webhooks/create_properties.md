@@ -1,6 +1,0 @@
-| Tecla           | Tipo     | Descrição                                                                                                                                                                                         |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`           | `string` | O recurso [`ref do git`](/rest/reference/git#get-a-reference).                                                                                                                                    |
-| `ref_type`      | `string` | O tipo de objeto de ref do Git criado no repositório. Pode ser `branch` ou `tag`.                                                                                                                 |
-| `master_branch` | `string` | O nome do branch-padrão do repositório (normalmente {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 3" %}`principal`{% else %}`mestre`{% endif %}). |
-| `descrição`     | `string` | Descrição atual do repositório.                                                                                                                                                                   |

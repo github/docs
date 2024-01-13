@@ -1,1 +1,0 @@
-- Solicite o [{% data variables.product.prodname_team %}](/articles/github-s-products) grátis, que permite usuários e repositórios privados ilimitados. Para obter mais informações, consulte "[Aplicar um desconto para educador ou pesquisador](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)".

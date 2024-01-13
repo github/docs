@@ -1,1 +1,0 @@
-Team同期を有効化すると、チームメンテナとOrganizationのオーナーは、{% data variables.product.prodname_dotcom %}上で、あるいはAPIを通じてTeamをIdPグループに接続できます。 For more information, see "[Synchronizing a team with an identity provider group](/github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group)" and "[Team synchronization](/rest/reference/teams#team-sync)."

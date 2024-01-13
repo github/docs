@@ -1,0 +1,7 @@
+# Issue 9059
+# API for org admins to review/manage PATv2s and requests for PATvs
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'
+  ghae: '>=3.10'

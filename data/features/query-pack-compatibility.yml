@@ -1,0 +1,7 @@
+# Reference: #8683
+# Documentation for stable precompiled query packs
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

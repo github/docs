@@ -1,1 +1,0 @@
-1. Wählen Sie bei einem Upgrade von {% data variables.product.prodname_free_team %} ein Produkt unter „Upgrading to“ (Upgrade auf) aus. ![Schaltfläche „Upgrade“](/assets/images/help/billing/upgrade-to-product.png)

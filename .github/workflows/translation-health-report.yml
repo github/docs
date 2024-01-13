@@ -1,0 +1,137 @@
+name: Translation health report
+
+# **What it does**: Provides errors and summary statistics on rendering translated content.
+# **Why we have it**: To improve our translations by having clearer visibility.
+# **Who does it impact**: Docs engineering, Microsoft translators.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+
+jobs:
+  create-translation-health-report:
+    name: Create translation health report
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
+    # This sets a maximum execution time of 300 minutes (5 hours)
+    # to prevent the workflow from running longer than necessary.
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: zh
+            language_dir: translations/zh-cn
+            language_repo: github/docs-internal.zh-cn
+
+          - language: es
+            language_dir: translations/es-es
+            language_repo: github/docs-internal.es-es
+
+          - language: pt
+            language_dir: translations/pt-br
+            language_repo: github/docs-internal.pt-br
+
+          - language: ru
+            language_dir: translations/ru-ru
+            language_repo: github/docs-internal.ru-ru
+
+          - language: ja
+            language_dir: translations/ja-jp
+            language_repo: github/docs-internal.ja-jp
+
+          - language: fr
+            language_dir: translations/fr-fr
+            language_repo: github/docs-internal.fr-fr
+
+          - language: de
+            language_dir: translations/de-de
+            language_repo: github/docs-internal.de-de
+
+          - language: ko
+            language_dir: translations/ko-kr
+            language_repo: github/docs-internal.ko-kr
+    steps:
+      - name: Checkout the docs-internal repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          repository: github/docs-internal.popular-pages
+          # This works because user `docs-bot` has read access to that private repo.
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: popular-pages
+
+      - name: Checkout the language-specific repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          repository: ${{ matrix.language_repo }}
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+          path: ${{ matrix.language_dir }}
+
+      - name: Get language SHA
+        run: |
+          gitref=$(cd ${{ matrix.language_dir }} && git rev-parse --short HEAD)
+          echo "gitref=$gitref" >> $GITHUB_ENV
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Create translation health report
+        env:
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
+        run: |
+          npm run create-translation-health-report -- \
+            --language ${{ matrix.language }} \
+            --gitref ${{ env.gitref }} \
+            >> $GITHUB_WORKSPACE/translation-health-report.json
+
+      - name: View report in workflow
+        run: cat $GITHUB_WORKSPACE/translation-health-report.json
+
+      - name: Log in to Azure
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
+        with:
+          creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
+
+      # https://learn.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload
+      # https://github.com/marketplace/actions/azure-cli-action
+      - name: Upload latest to Azure blob storage
+        uses: azure/CLI@b0e31ae20280d899279f14c36e877b4c6916e2d3 # pin @v1.0.8
+        with:
+          inlineScript: |
+            az storage blob upload \
+              --name "${{ matrix.language }}-latest.json" \
+              --file $GITHUB_WORKSPACE/translation-health-report.json \
+              --account-name githubdocs \
+              --account-key ${{ secrets.AZURE_GITHUBDOCS_STORAGE_KEY }} \
+              --container-name translation-health-reports \
+              --overwrite true
+
+      - name: Upload date formatted to Azure blob storage
+        uses: azure/CLI@b0e31ae20280d899279f14c36e877b4c6916e2d3 # pin @v1.0.8
+        with:
+          inlineScript: |
+            # Write a date formatted for historical reference
+            az storage blob upload \
+              --name "${{ matrix.language }}-$(date +%Y-%m-%d).json" \
+              --file $GITHUB_WORKSPACE/translation-health-report.json \
+              --account-name githubdocs \
+              --account-key ${{ secrets.AZURE_GITHUBDOCS_STORAGE_KEY }} \
+              --container-name translation-health-reports \
+              --overwrite true
+
+      - name: Log out from Azure
+        if: always()
+        run: |
+          az logout
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

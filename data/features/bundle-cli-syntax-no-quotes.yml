@@ -1,0 +1,5 @@
+# Reference: #10290
+# Improved syntax for specifying log intervals for collection when using the ghe-support-bundle and ghe-cluster-support-bundle CLI utilities
+
+versions:
+  ghes: '>=3.9'

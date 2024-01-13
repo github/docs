@@ -1,0 +1,6 @@
+# TOTP and mobile challenge for sudo mode prompt.
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.7'

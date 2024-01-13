@@ -1,0 +1,7 @@
+# Issue 9210
+# Users can enable default setup for code scanning for all eligible repositories in an organization
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.8'
+  ghae: '>3.8'

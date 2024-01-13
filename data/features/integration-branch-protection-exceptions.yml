@@ -1,0 +1,7 @@
+# Reference: #6665
+# GitHub Apps are supported as actors in all types of exceptions to branch protections
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.6'
+  ghae: '>= 3.6'

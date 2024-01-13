@@ -1,0 +1,1 @@
+As a customer under a Microsoft Enterprise Agreement, you need to connect your Azure subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."

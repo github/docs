@@ -1,1 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}A user or organization can own up to 100 GitHub Apps.{% endif %}
+{% ifversion fpt or ghec %}A user or organization can register up to 100 {% data variables.product.prodname_github_apps %}, but there is no limit to how many {% data variables.product.prodname_github_apps %} can be installed on an account.{% endif %}

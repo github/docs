@@ -1,1 +1,0 @@
-Este archivo puede ubicarse en la raíz del repositorio o en una carpeta que se llame `.devcontainer`. Si el archivo se ubica en la raíz del repositorio, el nombre del archivo debe comenzar con un punto: `.devcontainer.json`.

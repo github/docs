@@ -1,0 +1,5 @@
+# Issue 8445
+# Option to hide user's existing comments when blocking from org via Discussions
+versions:
+  fpt: '*'
+  ghec: '*'

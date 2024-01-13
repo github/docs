@@ -1,3 +1,3 @@
-If a repository has any protected branches, you can't edit or upload files in the protected branch using {% data variables.product.prodname_dotcom %}. For more information, see "[About protected branches](/articles/about-protected-branches)."
+If a repository has any protected branches, you can't edit or upload files in the protected branch using {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
-You can use {% data variables.product.prodname_desktop %} to move your changes to a new branch and commit them. For more information, see "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."
+You can use {% data variables.product.prodname_desktop %} to move your changes to a new branch and commit them. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)."

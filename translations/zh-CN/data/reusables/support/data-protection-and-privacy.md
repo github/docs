@@ -1,1 +1,0 @@
-使用 {% data variables.product.prodname_dotcom %} 的支持服务时，<a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} 隐私声明</a>和 <a href="/github/site-policy/github-supplemental-terms-for-microsoft-volume-licensing" class="dotcom-only">{% data variables.product.prodname_dotcom %} 数据保护附录</a>适用。

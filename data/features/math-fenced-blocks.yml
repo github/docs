@@ -1,0 +1,7 @@
+# Reference: #7471.
+# Documentation for fenced math blocks in markdown.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>= 3.8'

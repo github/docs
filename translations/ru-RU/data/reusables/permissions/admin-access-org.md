@@ -1,1 +1,0 @@
-You must authenticate using an access token with the `admin:org` scope to use this endpoint.

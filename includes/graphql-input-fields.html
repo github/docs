@@ -1,9 +1,0 @@
-<h4>{% data ui.products.graphql.reference.input_fields %}</h4>
-{% for inputField in inputFields %}
-<ul>
-<li><code>{{ inputField.name }}</code> (<code><a href="/{{ currentLanguage }}{{ inputField.href }}">{{ inputField.type }}</a></code>)</li>
-</ul>
-{% assign item = inputField %}
-{% include graphql-preview %}
-{% include graphql-deprecation %}
-{% endfor %}

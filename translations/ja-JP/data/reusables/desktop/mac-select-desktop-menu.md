@@ -1,1 +1,0 @@
-1. In the menu bar, use the **{% data variables.product.prodname_desktop %}** drop-down menu, then click **Preferences**. ![{% data variables.product.prodname_desktop %}のドロップダウンメニュー内の環境設定値](/assets/images/help/desktop/mac-choose-preferences.png)

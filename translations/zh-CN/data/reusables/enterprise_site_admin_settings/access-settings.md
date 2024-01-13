@@ -1,1 +1,0 @@
-1. 从 {% data variables.product.product_name %} 上的管理帐户，点击任何页面右上角的 {% octicon "rocket" aria-label="The rocket ship" %}。 ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

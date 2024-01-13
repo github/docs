@@ -1,1 +1,0 @@
-Antes de solicitar um desconto individual, verifique se sua comunidade de estudos já não é nossa parceira como uma escola {% data variables.product.prodname_education %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education/about-github-education)".

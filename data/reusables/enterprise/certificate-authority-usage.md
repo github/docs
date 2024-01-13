@@ -1,0 +1,1 @@
+Each certificate authority can only be uploaded to one account on {% data variables.product.prodname_dotcom_the_website %}. If an SSH certificate authority has been added to an organization or enterprise account, you cannot add the same certificate authority to another organization or enterprise account on {% data variables.product.prodname_dotcom_the_website %}.

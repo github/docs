@@ -1,0 +1,7 @@
+# Reference: Issue #2499 in the codeql-core repository, and issue #7626 in the docs-content repository
+# We have added one-click re-running in debug mode for code scanning CodeQL.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.6'
+  ghae: '>= 3.7'

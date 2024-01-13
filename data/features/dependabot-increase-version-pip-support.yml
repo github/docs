@@ -1,0 +1,7 @@
+# Reference: issue  #8372
+# Adding pip support for increase-if-necessary and increase versioning strategies for Dependabot version updates
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'
+  ghae: '>= 3.8'

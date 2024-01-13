@@ -1,0 +1,4 @@
+# Ability to create new repository level classic projects
+versions:
+  ghes: '*'
+  ghae: '*'

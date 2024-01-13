@@ -1,1 +1,0 @@
-1. リポジトリ名の下で{% octicon "issue-opened" aria-label="The issues icon" %} **Issues**あるいは{% octicon "git-pull-request" aria-label="The pull request icon" %}**Pull requests（プルリクエスト）**をクリックしてください。 ![Issue とプルリクエストのタブの選択](/assets/images/help/repository/repo-settings-issues-pull-requests.png)

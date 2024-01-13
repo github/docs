@@ -1,0 +1,1 @@
+To use {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, you need to install the {% data variables.product.prodname_codespaces %} extension.

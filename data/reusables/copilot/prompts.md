@@ -1,0 +1,1 @@
+A Prompt refers to the contextual information that the {% data variables.product.prodname_copilot %} extension sends when you pause typing while working on a file, or when you open the {% data variables.product.prodname_copilot %} pane.

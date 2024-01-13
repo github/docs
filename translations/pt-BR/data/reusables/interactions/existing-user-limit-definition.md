@@ -1,1 +1,0 @@
-**Usuários existentes:** Quando você limitar as interações para `existing_users`, novos usuários com contas com menos de 24 horas de idade, que não tenham contribuído anteriormente e que não sejam colaboradores, estarão temporariamente restritos

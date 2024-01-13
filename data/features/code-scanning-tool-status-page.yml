@@ -1,0 +1,6 @@
+# Reference: #8882 for the new page and #10029 for CodeQL CLI information
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.9'
+  ghae: '>= 3.9'

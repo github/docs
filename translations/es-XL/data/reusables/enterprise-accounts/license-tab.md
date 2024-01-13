@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, haz clic en **License** (Licencia). ![Pestaña de licencia en la barra lateral de configuración de enterprise server](/assets/images/enterprise/business-accounts/license-tab.png)

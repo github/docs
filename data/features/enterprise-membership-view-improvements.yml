@@ -1,0 +1,6 @@
+# Refers to the filtering options found in the sidebar under "People" in an enterprise's settings
+
+versions:
+  ghec: '*'
+  ghes: '>=3.6'
+  ghae: '>= 3.6'

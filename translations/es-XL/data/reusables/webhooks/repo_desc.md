@@ -1,1 +1,0 @@
-`repository` | `object` | El [`repositorio`](/v3/repos/#get-a-repository) en donde ocurrió el evento.

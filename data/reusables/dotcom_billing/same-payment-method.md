@@ -1,1 +1,1 @@
-When you update your payment method for your account's {% data variables.product.prodname_dotcom %} subscription, your new payment method is automatically added to your other subscriptions for paid products.
+When you update the payment method for your account's plan, your new payment method is automatically added to your other subscriptions and usage-based billing.

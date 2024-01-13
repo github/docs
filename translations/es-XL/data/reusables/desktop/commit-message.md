@@ -1,1 +1,0 @@
-1. En la parte inferior de la lista de cambios, en el campo Summary (Resumen), escribe un mensaje de confirmación corto y significativo. De forma opcional, puedes añadir más información sobre el cambio en el campo Description (Descripción).

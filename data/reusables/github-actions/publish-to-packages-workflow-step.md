@@ -1,1 +1,0 @@
-Runs the `mvn --batch-mode deploy` command to publish to {% data variables.product.prodname_registry %}. The `GITHUB_TOKEN` environment variable will be set with the contents of the `GITHUB_TOKEN` secret.

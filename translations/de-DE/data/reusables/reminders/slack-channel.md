@@ -1,1 +1,0 @@
-1. Gib unter "Slack channel" den Namen des Slack-Kanal ein, in dem Du Benachrichtigungen erhalten möchtest. ![Feld „Slack channel" (Slack-Kanal)](/assets/images/help/settings/scheduled-reminders-slack-channel.png)

@@ -1,1 +1,0 @@
-1. Revise as informações sobre seu novo plano e informações de cobrança, clique em **Issue plan changes** (Alterações no plano de problemas). ![Resumo de seu antigo plano, novo plano e informações de cobrança, e botão Issue plano de alterações](/assets/images/help/marketplace/marketplace-issue-plan-changes.png)

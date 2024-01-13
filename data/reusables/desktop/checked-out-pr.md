@@ -1,0 +1,1 @@
+When you have opened a pull request branch, you can view the contents of the branch in an editor, view the diff and commit history of the contributor's updates, and view and re-run checks. For more information, see "[Working with a pull request in {% data variables.product.prodname_desktop %}](#working-with-a-pull-request-in-github-desktop)."

@@ -1,0 +1,5 @@
+# Reference: Issue #9709 -  Dependabot Updates can keep Gradle Version Catalogs up to date - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.8'

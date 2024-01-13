@@ -1,0 +1,1 @@
+In rare circumstances, a small instance with both high availability and GitHub Actions configured may report that MSSQL replication is unhealthy after many upgrades with full upgrade packages. If you encounter this issue, [contact GitHub Support](https://support.github.com/contact).

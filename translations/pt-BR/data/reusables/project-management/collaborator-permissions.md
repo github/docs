@@ -1,1 +1,0 @@
-11. Opcionalmente, ao lado do nome do novo colaborador, use o menu suspenso e clique no nível de permissão desejado: **Leitura**, **Gravação** ou **Administrador**. ![Permissões de colaborador menu suspenso com opções de leitura, gravação e administração](/assets/images/help/projects/org-project-collaborators-choose-permissions.png)

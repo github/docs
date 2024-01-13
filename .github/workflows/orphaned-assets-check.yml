@@ -1,0 +1,77 @@
+name: 'Orphaned assets check'
+
+# **What it does**: Checks that there are no files in ./assets/ that aren't mentioned in any source file.
+# **Why we have it**: To avoid orphans into the repo.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: read
+
+jobs:
+  orphaned-assets-check:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout English repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      # It's important because translations are often a bit behind.
+      # So if a translation is a bit behind, it might still be referencing
+      # an asset even though none of the English content does.
+      - name: Clone all translations
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check for orphaned assets
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: |
+          set -e
+
+          # The `-s` is to make npm run silent and not print verbose
+          # information about the npm script alias.
+          filesToRemove=`npm run -s find-orphaned-assets`
+          [ -z "$filesToRemove" ] && exit 0
+
+          echo $filesToRemove | xargs git rm
+
+          git status
+
+          # If nothing to commit, exit now. It's fine. No orphans.
+          git status -- ':!translations*' | grep 'nothing to commit' && exit 0
+
+          # Replicated from the translation pipeline PR-maker Action
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+          date=$(date '+%Y-%m-%d-%H-%M')
+          branchname=orphaned-assets-$date-$GITHUB_RUN_ID
+
+          git checkout -b $branchname
+          git commit -m "Delete orphaned assets $date"
+          git push origin $branchname
+
+          gh pr create \
+            --title "Delete orphaned assets ($date)" \
+            --body "Found with the 'npm run find-orphaned-assets' script.\n\nFor more info see https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md" \
+            --repo github/docs-internal \
+            --label docs-content-fr
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,1 +1,0 @@
-You must use an access token with the `security_events` scope to use this endpoint.

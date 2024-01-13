@@ -1,0 +1,1 @@
+ You can allow all of the defined registries to be used by setting `registries` to `"*"`. Alternatively, you can list the registries that the update can use. To do this, use the name of the registry as defined in the top-level `registries` section of the `dependabot.yml` file.

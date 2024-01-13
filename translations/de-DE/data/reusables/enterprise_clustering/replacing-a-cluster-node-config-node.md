@@ -1,1 +1,0 @@
-1. Führe auf demselben Knoten den Befehl `ghe-cluster-config-apply` aus. Dadurch wird die Konfigurationsdatei validiert, auf jeden Knoten im Cluster kopiert und jeder Knoten entsprechend der geänderten Datei `cluster.conf` konfiguriert.

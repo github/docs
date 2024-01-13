@@ -1,0 +1,7 @@
+# Issues 9337
+# Organization-level templates for Projects
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'
+  ghae: '>=3.10'

@@ -1,0 +1,5 @@
+# Reference: #10312
+# Documentation for the enterprise-level security "Risk" and "Coverage" views
+versions:
+  ghes: '> 3.9'
+  ghec: '*'

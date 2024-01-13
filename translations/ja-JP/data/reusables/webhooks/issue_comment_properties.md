@@ -1,1 +1,0 @@
-`changes`|`object` | The changes to the comment if the action was `edited`. `changes[body][from]` |`string` | アクションが`edited`だった場合の、以前のバージョンのbody。 `issue`|`object` | The [issue](/rest/reference/issues) the comment belongs to. `comment`|`object` | The [comment](/rest/reference/issues#comments) itself.

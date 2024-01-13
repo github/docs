@@ -1,1 +1,0 @@
-{% data variables.product.prodname_insights %} se encuentra disponible con {% data variables.product.prodname_ghe_one %}. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/articles/githubs-products)".

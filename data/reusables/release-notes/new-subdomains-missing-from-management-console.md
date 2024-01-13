@@ -1,0 +1,1 @@
+When validating domain settings on an instance with TLS and subdomain isolation enabled, the Management Console does not display GitHub Enterprise Server 3.7's two new subdomains, `http(s)://notebooks.HOSTNAME` and `http(s)://viewscreen.HOSTNAME`, in the list of domains.

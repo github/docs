@@ -1,0 +1,1 @@
+{% ifversion codeql-language-identifiers-311 %}`c-cpp`, `csharp`, `go`, `java-kotlin`, `javascript-typescript`, `python`, {% ifversion codeql-swift-beta %}`ruby`, and `swift`{% else %}and `ruby`{% endif %}{% else %}`cpp`, `csharp`, `go`, `java`, `javascript`, `python`, {% ifversion codeql-swift-beta %}`ruby`, and `swift`{% else %}and `ruby`{% endif %}{% endif %}

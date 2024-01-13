@@ -1,1 +1,0 @@
-Os proprietários da organização sempre podem criar qualquer tipo de repositório e os colaboradores externos nunca podem criar qualquer tipo de repositório. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."

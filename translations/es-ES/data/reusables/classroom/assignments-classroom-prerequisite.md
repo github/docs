@@ -1,1 +1,0 @@
-Debes crear un aula antes de que puedas crear una tarea. Para obtener más información, consulta la sección "[Administrar las aulas](/education/manage-coursework-with-github-classroom/manage-classrooms)".

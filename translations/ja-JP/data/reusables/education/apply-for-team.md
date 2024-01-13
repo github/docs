@@ -1,1 +1,0 @@
-- 無料の[{% data variables.product.prodname_team %}](/articles/github-s-products)に応募してください。{% data variables.product.prodname_team %}では、無制限のユーザとプライベートリポジトリが利用できます。 For more information, see "[Apply for an educator or researcher discount](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)."

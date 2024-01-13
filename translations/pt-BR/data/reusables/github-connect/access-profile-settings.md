@@ -1,1 +1,0 @@
-1. No canto superior direito de qualquer página do {% data variables.product.product_location_enterprise %}, clique na sua foto do perfil e em **Settings** (Configurações). ![Ícone Settings (Configurações) na barra de usuário](/assets/images/help/settings/userbar-account-settings.png)

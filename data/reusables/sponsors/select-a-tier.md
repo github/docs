@@ -1,2 +1,3 @@
-1. On the right side of the page, under "Select a tier", review the sponsorship tiers available. Then, to the right of the tier you want, click **Select**.
-  ![Select a tier box](/assets/images/help/sponsors/select-a-tier-box.png)
+1. To the right of the tier you want, click **Select**.
+
+   Alternatively, if you want to select a custom amount, enter the sponsorship amount in the text field provided, then click **Select**.

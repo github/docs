@@ -1,0 +1,7 @@
+# Reference: Issue #6207.
+# We have added support for Elixir advisories to the Advisory Database.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'
+  ghae: '>=3.10'

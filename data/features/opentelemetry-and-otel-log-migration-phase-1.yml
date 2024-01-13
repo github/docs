@@ -1,0 +1,5 @@
+# Reference: #9558
+# First batch of migrations to semantic log emission for monolith
+
+versions:
+  ghes: '>=3.9'

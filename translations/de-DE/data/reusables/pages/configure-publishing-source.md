@@ -1,1 +1,0 @@
-1. Configure your publishing source. Weitere Informationen findest Du unter „[Eine Veröffentlichungsquelle für Deine {% data variables.product.prodname_pages %}-Website konfigurieren](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).“

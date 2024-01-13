@@ -1,0 +1,26 @@
+.parameterTable {
+  // this is for the child parameter table row that contains the top level
+  // properties details toggle element because we want it to match the
+  // background color of the top level parameter rows.  We need the !important
+  // because the child parameter rows (the nested expanded properties) otherwise
+  // have the same background color.
+  & > tbody > tr {
+    background: var(--color-canvas-default) !important;
+  }
+
+  // also for the top level child parameter table row, we want the details toggle
+  // to align with the top level parameter rows.  Child parameter rows have some
+  // left padding so they can indent as they nest but we don't want that in
+  // this case.  We need the !important to override general default markdown
+  // article styling.
+  & > tbody > tr > td > details {
+    padding-left: 0px !important;
+    margin-bottom: 4px !important;
+  }
+
+  & > tbody > tr > td > * {
+    width: auto;
+    display: block;
+    word-break: break-word;
+  }
+}

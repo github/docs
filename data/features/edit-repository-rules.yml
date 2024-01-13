@@ -1,0 +1,7 @@
+# Issue: 9290
+# Description: Allows for creating, editing and deleting branch protection rules.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

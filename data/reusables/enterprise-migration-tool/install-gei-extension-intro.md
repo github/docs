@@ -1,0 +1,1 @@
+If this is your first migration, you'll need to install the {% data variables.product.prodname_gei_cli %}. For more information about the {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."

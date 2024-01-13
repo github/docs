@@ -1,0 +1,3 @@
+- {% data reusables.enterprise-migration-tool.link-to-support-limitations %}
+- We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial run best practices, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/preparing-to-run-a-migration-with-github-enterprise-importer)."
+- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}

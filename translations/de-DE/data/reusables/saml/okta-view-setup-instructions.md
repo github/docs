@@ -1,1 +1,0 @@
-1. Klicke unter „SIGN ON METHODS" (Anmeldemethoden) auf **View Setup Instructions** (Setup-Anweisungen anzeigen). ![Schaltfläche "View Setup Instructions" (Setup-Anweisungen anzeigen) in der Registerkarte "Sign On" (Anmelden) der Okta-Anwendung](/assets/images/help/saml/okta-view-setup-instructions.png)

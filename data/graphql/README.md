@@ -1,7 +1,7 @@
 # GraphQL
 
 The files in this directory are kept in sync with their counterparts on `github/github`
-by [automation](../script/graphql/README.md). These files **should not** be edited by humans.
+by [automation](../src/graphql/README.md). These files **should not** be edited by humans.
 
 Dotcom source files:
 ```

@@ -1,0 +1,7 @@
+# Reference: #8288
+# Documentation for locking branch with protected branch rule.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>= 3.8'

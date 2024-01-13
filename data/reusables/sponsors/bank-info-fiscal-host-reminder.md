@@ -1,0 +1,1 @@
+Note that you can only set up your fiscal host information at the time you sign up for {% data variables.product.prodname_sponsors %}. If you originally chose to use a Stripe Connect account when you signed up for your profile, but would like to switch to using a fiscal host, please contact us through the {% data variables.contact.contact_support_portal %}.

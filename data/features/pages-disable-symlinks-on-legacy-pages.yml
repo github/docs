@@ -1,0 +1,6 @@
+# Issue 9540
+# Disable symlinks on legacy pages build infrastructure
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'

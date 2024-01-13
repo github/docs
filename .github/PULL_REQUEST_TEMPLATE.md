@@ -1,26 +1,22 @@
 <!--
-Thank you for contributing to this project! You must fill out the information below before we can review this pull request. By explaining why you're making a change (or linking to a pull request) and what changes you've made, we can triage your pull request to the best possible team for review.
-
-See our [CONTRIBUTING.md](/main/CONTRIBUTING.md) for information how to contribute.
-
-For changes to content in [site policy](https://github.com/github/docs/tree/main/content/github/site-policy), see the [CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
-
-We cannot accept changes to our translated content right now. See the [contributing.md](/main/CONTRIBUTING.md#earth_asia-translations) for more information.
-
-Thanks again!
+Thank you for contributing to this project! You must fill out the information below before we can review this pull request. By explaining why you're making a change (or linking to an issue) and what changes you've made, we can triage your pull request to the best possible team for review.
 -->
 
 ### Why:
 
-<!-- 
-- If there's an existing issue for your change, please link to it.
-- If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
+Closes: 
 
-### What's being changed:
+<!-- If there's an existing issue for your change, please link to it above.
+If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
 
-<!-- Share artifacts of the changes, be they code snippets, GIFs or screenshots; whatever shares the most context. -->
+### What's being changed (if available, include any code snippets, screenshots, or gifs):
+
+<!-- Let us know what you are changing. Share anything that could provide the most context.
+If you made changes to the `content` directory, a table will populate in a comment below with links to the preview and current production articles. -->
 
 ### Check off the following:
-- [ ] I have reviewed my changes in staging. (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**)
-- [ ] For content changes, I have reviewed the [localization checklist](https://github.com/github/docs/blob/main/contributing/localization-checklist.md)
-- [ ] For content changes, I have reviewed the [Content style guide for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
+
+- [ ] I have reviewed my changes in staging, available via the **View deployment** link in this PR's timeline (this link will be available after opening the PR).
+
+  - For content changes, you will also see an automatically generated comment with links directly to pages you've modified. The comment won't appear if your PR only edits files in the `data` directory.
+- [ ] For content changes, I have completed the [self-review checklist](https://docs.github.com/en/contributing/collaborating-on-github-docs/self-review-checklist).

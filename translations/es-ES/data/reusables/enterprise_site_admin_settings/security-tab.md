@@ -1,1 +1,0 @@
-1. En la esquina superior derecha de la página, haz clic en {% octicon "shield" aria-label="The shield" %} **Security (Seguridad)**. ![Pestaña de seguridad](/assets/images/enterprise/site-admin-settings/repo/repo-security-top-tab.png)

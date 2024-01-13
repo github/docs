@@ -1,1 +1,0 @@
-1. Colete o nome e o endereço de e-mail de cada coautor.{% if currentVersion == "free-pro-team@latest" %} Se uma pessoa escolher manter seu endereço de e-mail privado, você deverá usar o seu e-mail `no-reply` fornecido por {% data variables.product.product_name %} para proteger a sua privacidade.{% endif %}

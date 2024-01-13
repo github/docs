@@ -1,1 +1,0 @@
-1. Para importar os dados de migração arquivados para uma instância do {% data variables.product.prodname_ghe_server %} consulte "[Importing migration data to {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/)".

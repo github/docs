@@ -1,0 +1,5 @@
+# Reference: #8225
+# Hide individual achievements on profile
+versions:
+  fpt: '*'
+  ghec: '*'

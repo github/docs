@@ -1,1 +1,0 @@
-Quando mais de uma configuração padrão é definida com o mesmo nome, {% data variables.product.prodname_dotcom %} usa a configuração padrão mais específica. Por exemplo, uma configuração padrão definida em uma tarefa irá substituir uma configuração padrão que tem o mesmo nome definido em um fluxo de trabalho.

@@ -1,49 +1,36 @@
-## GitHub Docs <!-- omit in toc -->
+# GitHub Docs <!-- omit in toc -->
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-In this article:
-
-- [Contributing](#contributing)
-- [READMEs](#readmes)
-- [License](#license)
+Use the table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to navigate to a specific section quickly.
 
 ## Contributing
 
-### Start contributing right now:
+We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs)."
 
-We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
-#### Click **make a contribution** from docs
+### Ways to contribute
+On the GitHub Docs site, you can contribute by clicking the **Make a contribution** button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
 
-As you're using GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
+You can also contribute by creating a local environment or opening a Codespace. For more information, see "[Setting up your environment to work on GitHub Docs](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs)."
 
-<img src="./assets/images/contribution_cta.png" width="400">
+<img src="./contributing/images/contribution_cta.png" width="400">
 
-#### Open an issue
+For more complex contributions, please open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 
-If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
+If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work. 
 
-#### Solve an issue
+### Join us in discussions
 
-If you have a solution to one of the open issues, you will need to fork the repository and submit a pull request using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md).
+We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
 
-#### Join us in discussions
+### And that's it!
 
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
+If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
 
-#### And that's it!
-
-That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
-
-If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
-
-There are a few more things to know when you're getting started with this repo:
-
-1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
-2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
+That's how you can easily become a member of the GitHub Docs community. :sparkles:
 
 ## READMEs
 
@@ -56,20 +43,16 @@ In addition to the README you're reading right now, this repo includes other REA
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
-- [includes/liquid-tags/README.md](includes/liquid-tags/README.md)
-- [includes/README.md](includes/README.md)
-- [javascripts/README.md](javascripts/README.md)
-- [layouts/README.md](layouts/README.md)
-- [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
-- [middleware/README.md](middleware/README.md)
-- [script/README.md](script/README.md)
-- [stylesheets/README.md](stylesheets/README.md)
-- [tests/README.md](tests/README.md)
+- [src/README.md](src/README.md)
 
 ## License
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
-All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
+All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+
+## Thanks :purple_heart:
+
+Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!

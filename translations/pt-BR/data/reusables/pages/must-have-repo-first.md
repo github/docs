@@ -1,1 +1,0 @@
-Antes de criar seu site, você deve ter um repositório para seu site no {% data variables.product.product_name %}. Se você não estiver criando o site em um repositório existente, consulte "[Criar um repositório para o site](#creating-a-repository-for-your-site)".

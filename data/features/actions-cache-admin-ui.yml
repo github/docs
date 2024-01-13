@@ -1,0 +1,6 @@
+# Reference: #8112
+# Documentation for GitHub Actions cache admin settings for repositories, organizations, and enterprises
+# Related feature flags include actions-cache-org-ui and actions-cache-ui
+# All features released at the same time, but have different versions
+versions:
+  ghes: '>= 3.8'

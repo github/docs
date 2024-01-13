@@ -1,2 +1,4 @@
-1. At the bottom of the page, type a short, meaningful commit message that describes the change you made to the file. You can attribute the commit to more than one author in the commit message. For more information, see "[Creating a commit with multiple co-authors](/articles/creating-a-commit-with-multiple-authors)."
-![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+{% ifversion code-search-code-view %}
+1. Click **Commit changes...**
+{% endif %}
+1. In the "Commit message" field, type a short, meaningful commit message that describes the change you made to the file. You can attribute the commit to more than one author in the commit message. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."

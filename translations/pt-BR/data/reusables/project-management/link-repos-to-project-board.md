@@ -1,1 +1,0 @@
-Você pode vincular até vinte e cinco repositórios à sua organização ou ao quadro de projetos pertencente ao usuário. Vincular repositórios facilita a adição de problemas e pull requests desses repositórios ao seu quadro de projeto usando **{% octicon "plus" aria-label="The Plus icon" %} Cartões de adição de ** ou na barra lateral de problemas ou pull requests.

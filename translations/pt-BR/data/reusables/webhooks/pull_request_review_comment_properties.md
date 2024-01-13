@@ -1,1 +1,0 @@
-`alterações`|`objeto`| As alterações no comentário se a ação foi `editada`. `alterações[body][from]`|`string` | A versão anterior do texto se a ação foi `editada`. `pull_request`|`objeto` | O [pull request](/rest/reference/pulls) ao qual o comentário pertence. `comentário`|`objeto` | O próprio [comentário](/rest/reference/pulls#comments).

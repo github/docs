@@ -1,0 +1,4 @@
+# Reference: Issue #10331 - Repository Properties
+
+versions:
+  ghec: '*'

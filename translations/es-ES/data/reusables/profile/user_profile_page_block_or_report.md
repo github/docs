@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, debajo de la foto de perfil del usuario, da clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego en **Bloquear o reportar usuario**. ![Enlace para reportar o bloquear usuario](/assets/images/help/profile/profile-block-or-report-button.png)

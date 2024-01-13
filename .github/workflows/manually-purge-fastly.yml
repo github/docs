@@ -1,0 +1,30 @@
+name: Manually purge Fastly
+
+# **What it does**: Sends a soft-purge for the 'manual' Fastly surrogate key.
+# **Why we have it**: When something is overly cached in the Fastly CDN and want to purge it.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+
+    if: github.repository == 'github/docs-internal'
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Soft-purge Fastly cache
+        env:
+          FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
+          FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
+          FASTLY_SURROGATE_KEY: 'manual-purge'
+        run: src/workflows/purge-fastly-edge-cache.js

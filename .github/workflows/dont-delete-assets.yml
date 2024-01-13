@@ -1,0 +1,65 @@
+name: Don't delete assets
+
+# **What it does**:
+#   If the PR (against main) involves deletion of assets, if any of
+#   them are deletions or renames, post a comment, and ultimately
+#   fail the check.
+# **Why we have it**:
+#    If you delete the reference to an image, the English content is fine
+#    because it no longer tries to serve an image that doesn't exist.
+#    But this is not the case for translations.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'assets/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dont-delete-assets:
+    # It's 'docs-bot' that creates those PR from "Delete orphaned assets"
+    if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Get comment markdown
+        id: comment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: src/assets/scripts/deleted-assets-pr-comment.js
+
+      - name: Find possible previous comment
+        if: ${{ steps.comment.outputs.markdown != '' }}
+        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
+        id: findComment
+        with:
+          issue-number: ${{ github.event.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- DELETED_ASSETS -->'
+
+      - name: Update comment
+        if: ${{ steps.comment.outputs.markdown != '' }}
+        uses: peter-evans/create-or-update-comment@3383acd359705b10cb1eeef05c0e88c056ea4666
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event.number }}
+          body: ${{ steps.comment.outputs.markdown }}
+          edit-mode: replace
+
+      - name: Ultimately fail the workflow for attention
+        if: ${{ steps.comment.outputs.markdown != '' }}
+        run: |
+          echo "More than 1 asset image was deleted as part of this PR."
+          echo "See posted PR commented about how to get them back."
+          exit 1

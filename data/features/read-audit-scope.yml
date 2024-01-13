@@ -1,0 +1,6 @@
+# Issue 8432
+# read:audit_log scope
+versions:
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>= 3.8'

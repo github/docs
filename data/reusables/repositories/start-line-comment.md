@@ -1,2 +1,3 @@
-1. Hover over the line of code where you'd like to add a comment, and click the blue comment icon.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} To add a comment on multiple lines, click and drag to select the range of lines, then click the blue comment icon.{% endif %}
-![Blue comment icon](/assets/images/help/commits/hover-comment-icon.gif)
+1. Hover over the line of code where you'd like to add a comment, and click the blue comment icon. To add a comment on multiple lines, click and drag to select the range of lines, then click the blue comment icon.
+
+   ![Screenshot of a diff in a pull request. Next to a line number, a blue plus icon is highlighted with an orange outline.](/assets/images/help/commits/hover-comment-icon.png)

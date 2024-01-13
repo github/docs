@@ -1,1 +1,1 @@
-To set up automatic workflows for a repository project board, you must have write access to the repository. Organization owners and members can configure automatic workflows on an organization-wide project board.
+To set up automatic workflows for a repository {% data variables.projects.projects_v1_board %}, you must have write access to the repository. Organization owners and members can configure automatic workflows on an organization-wide {% data variables.projects.projects_v1_board %}.

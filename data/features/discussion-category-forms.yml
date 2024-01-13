@@ -1,0 +1,7 @@
+# Issues 8484
+# Discussions Category Forms - [Public Beta]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

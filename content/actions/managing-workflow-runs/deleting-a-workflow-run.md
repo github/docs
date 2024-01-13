@@ -1,13 +1,14 @@
 ---
 title: Deleting a workflow run
+shortTitle: Delete a workflow run
 intro: 'You can delete a workflow run that has been completed, or is more than two weeks old.'
-product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-write %}
@@ -15,9 +16,8 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. To delete a workflow run, use the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, and select **Delete workflow run**.
+1. To delete a workflow run, select {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Delete workflow run**.
 
-    ![Deleting a workflow run](/assets/images/help/settings/workflow-delete-run.png)
-2. Review the confirmation prompt and click **Yes, permanently delete this workflow run**.
+   ![Screenshot of a list of workflow runs. To the right of a run, an icon of three horizontal dots is highlighted with an orange outline.](/assets/images/help/settings/workflow-delete-run.png)
 
-    ![Deleting a workflow run confirmation](/assets/images/help/settings/workflow-delete-run-confirmation.png)
+1. Review the confirmation prompt and click **Yes, permanently delete this workflow run**.

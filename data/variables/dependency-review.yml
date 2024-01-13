@@ -1,0 +1,4 @@
+# Variables used in the dependency review docs that are not product names
+
+# Dependency review action
+action_name: 'dependency review action'

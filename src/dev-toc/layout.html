@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="{{currentLanguage}}">
+<head>
+<meta charset="utf-8" />
+<title>Docs TOC</title>
+<link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
+</head>
+
+<body class="dev-toc p-3 m-3">
+<main class="width-full">
+
+<h3>Versions</h3>
+<ul class="versions-list" style="list-style-type:none;">
+{% for version in allVersions %}
+<li style="margin: 3px 0 0 0;"><a href="../{{ version[0] }}/index.html">{{ version[1].versionTitle }}</a>
+{% endfor %}
+</ul>
+
+{% assign docsRoot = "https://docs.github.com" %}
+
+{% if allVersions[currentVersion] %}
+<h2 class="mt-3 mb-3"><abbr>TOC</abbr> for {{ allVersions[currentVersion].versionTitle }}</h2>
+
+<button class="btn mb-3 js-expand" type="button">Expand All</button>
+<div/>
+
+{% for productPage in currentEnglishTree.childPages %}
+{% assign productId = productPage.page.relativePath | replace: "/index.md", "" %}
+{% if defaultOpenSections contains productId %}
+<details open class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
+{% else %}
+<details class="mb-1"><summary>{{productPage.renderedFullTitle}}</summary>
+{% endif %}
+<ul class="products-list">
+<li title="{{productPage.renderedFullTitle}}" style="margin: 3px 0 0 30px;">
+  <a title="{{ productPage.page.documentType }}" href="{{ docsRoot }}{{productPage.href}}">{{ productPage.renderedFullTitle }}</a>
+  {% for categoryPage in productPage.childPages %}
+  <ul>
+  <li style="margin: 3px 0 0 30px;">
+    <a title="{{ categoryPage.page.documentType }}" href="{{ docsRoot }}{{ categoryPage.href }}">{{ categoryPage.renderedFullTitle }}</a>
+      <ul>
+        {% for maptopicPage in categoryPage.childPages %}
+            <li style="margin: 3px 0 0 30px;">
+              <a title="{{ maptopicPage.page.documentType }}" href="{{ docsRoot }}{{ maptopicPage.href }}">{{ maptopicPage.renderedFullTitle }}</a>
+              <ul>
+                {% for articlePage in maptopicPage.childPages %}
+                <li style="margin: 3px 0 0 30px;">
+                  <a title="{{ articlePage.page.documentType }}" href="{{ docsRoot }}{{ articlePage.href }}">{{ articlePage.renderedFullTitle }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+        {% endfor %}
+      </ul>
+  </li>
+  {% endfor %}
+</ul>
+</li>
+</ul>
+</details>
+{% endfor %}
+{% endif %}
+
+<script src="../../index.js"></script>
+</main>
+</body>
+</html>

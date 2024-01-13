@@ -1,1 +1,0 @@
-Você pode publicar pacotes em um repositório público (pacotes públicos) para compartilhar com {% if currentVersion == "free-pro-team@latest" %}tudo de {% data variables.product.prodname_dotcom %}{% else %}todos na sua instância{% endif %}, ou em um repositório privado (pacotes privados) para compartilhar com os colaboradores ou uma organização.

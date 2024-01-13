@@ -1,1 +1,0 @@
-1. 変更を保存するには**Update reminder（リマインダーを更新）**をクリックしてください。 あるいは変更の更新に際して変更をテストしたいなら、**Update and test reminder（リマインダーを更新してテスト）**をクリックしてください。 ![更新ボタン](/assets/images/help/settings/scheduled-reminders-update-buttons.png)
