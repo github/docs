@@ -9,10 +9,10 @@ redirect_from:
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages
   - /packages/guides/configuring-apache-maven-for-use-with-github-packages
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '**'
+  ghes: '**'
+  ghae: '**'
+  ghec: '**'
 shortTitle: Apache Maven registry
 ---
 
