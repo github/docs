@@ -23,7 +23,7 @@ shortTitle: Add a new SSH key
 
 After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
 
-## Prerequisites
+## Pre-requisites
 
 Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, complete the following steps.
 
@@ -87,7 +87,7 @@ gh ssh-key add ~/.ssh/id_ed25519.pub
 
 {% ifversion fpt or ghec %}
 
-## Further reading
+## Further Reading :
 
 - "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"
 {% endif %}
