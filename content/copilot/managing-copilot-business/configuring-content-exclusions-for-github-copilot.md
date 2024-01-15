@@ -253,31 +253,45 @@ If you are an organization owner, you can check any changes that have been made 
 
 When you change {% data variables.product.prodname_copilot_short %}'s content exclusions you can check that the setting blocks {% data variables.product.prodname_copilot_short %} from suggesting code in the specified files.
 
-1. In {% data variables.product.prodname_vscode_shortname %}, open a file that you expect to be affected by your content exclusions.
+To confirm that {% data variables.product.prodname_copilot_short %} is disabled for a file, open the file in the editor and start typing a line of code, such as a comment. Normally you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. If {% data variables.product.prodname_copilot_short %} is disabled by a content exclusion, code completion suggestions will not be offered, and the contents of the file will not be used to generate suggestions in other files.
+
+### Checking settings changes in your IDE
+
+If you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, the {% data variables.product.prodname_copilot_short %} icon indicates when {% data variables.product.prodname_copilot_short %} has been disabled by a content exclusion.
+
+1. Open a file that you expect to be affected by your content exclusions.
 
    If a {% data variables.product.prodname_copilot_short %} content exclusion applies to this file, the {% data variables.product.prodname_copilot_short %} icon in the status bar has a diagonal line through it.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} disabled icon in the {% data variables.product.prodname_vscode_shortname %} toolbar.](/assets/images/help/copilot/copilot-disabled-for-repo.png)
+1. Hover over this icon. A popup message tells you whether an organization or the parent repository disabled {% data variables.product.prodname_copilot_short %} for this file.
 
-1. Click the icon to see a dropdown menu with information about the content exclusions that apply to this file.
+   ![Screenshot of the {% data variables.product.prodname_copilot_short %} disabled popup in the {% data variables.product.prodname_vscode_shortname %} toolbar.](/assets/images/help/copilot/copilot-disabled-for-repo.png)
 
-   ![Screenshot of the dropdown menu showing why a file has been excluded from {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/copilot-disabled-for-this-file.png)
+{% note %}
 
-   {% note %}
+**Note**: In {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode_shortname %} you can display the log for the {% data variables.product.prodname_copilot_short %} extension to see details of content exclusions without having to hover over the {% data variables.product.prodname_copilot_short %} icon. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment?tool=vscode)."
 
-   **Note**: Clicking **Open logs** in this menu displays the log for {% data variables.product.prodname_copilot %} in which details of all excluded files you open are recorded.
+{% endnote %}
 
-   {% endnote %}
+### Propagating content exclusion changes to your IDE
 
-1. You can confirm that {% data variables.product.prodname_copilot_short %} is disabled for this file by starting to type a line of code, such as a comment. Normally you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. However, if this file is affected by a content exclusions setting you will not see any suggestions.
+If you are working in neovim, content exclusions are fetched from {% data variables.product.prodname_dotcom %} each time you open a file. However, if you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, you may have to wait up to 30 minutes to see the effect of a settings change. Alternatively, you can manually reload the content exclusion settings into your IDE.
 
-### Propagating content exclusion changes to {% data variables.product.prodname_vscode_shortname %}
+To reload content exclusions into {% data variables.product.prodname_vs %}, close and reopen the application.
 
-If you opened a file in {% data variables.product.prodname_vscode_shortname %} before you changed the content exclusions, you may need to reload the window in {% data variables.product.prodname_vscode_shortname %} to see the effect of the settings change.
+To reload content exclusions into {% data variables.product.prodname_vscode_shortname %}:
 
 1. Access the Command Palette. For example, by pressing <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 1. Type: `reload`.
 1. Select **Developer: Reload Window**.
+
+To reload content exclusions into your JetBrains IDE, either close and reopen the application, or log out of {% data variables.product.prodname_dotcom %} and then log back in, as follows.
+
+1. Click the {% data variables.product.prodname_copilot_short %} icon in the status bar and select **Logout from {% data variables.product.prodname_dotcom %}**.
+1. The {% data variables.product.prodname_copilot_short %} icon in the status bar will now have a diagonal line through it. Click it and select **Login to {% data variables.product.prodname_dotcom %}**.
+1. The "Sign in to {% data variables.product.prodname_dotcom %}" message is displayed showing a device code. Click **Copy and Open**.
+1. On the "Device Activation" page, paste in the device code and click **Continue**.
+1. On the next page, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 
 ## Further reading
 
