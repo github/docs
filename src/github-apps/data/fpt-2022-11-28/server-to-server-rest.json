@@ -3775,6 +3775,12 @@
       "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
     {
+      "slug": "create-or-update-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
       "slug": "get-rules-for-a-branch",
       "subcategory": "rules",
       "verb": "get",
