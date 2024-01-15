@@ -39725,7 +39725,7 @@ type Release implements Node & Reactable & UniformResourceLocatable {
     last: Int
 
     """
-    A list of names to filter the assets by.
+    A name to filter the assets by.
     """
     name: String
   ): ReleaseAssetConnection!
