@@ -35,7 +35,14 @@ When a file is affected by a content exclusion setting, {% data variables.produc
 
 {% data reusables.copilot.content-exclusions-delay %} For more information, see "[AUTOTITLE](/copilot/managing-copilot-business/configuring-content-exclusions-for-github-copilot#checking-the-affect-of-a-settings-change)."
 
-{% data reusables.copilot.content-exclusion-note %}
+{% note %}
+
+**Notes:**
+
+- {% data reusables.copilot.content-exclusion-note %}
+{% data reusables.copilot.content-exclusion-limitations %}
+
+{% endnote %}
 
 ## Error: "{% data variables.product.prodname_copilot %} could not connect to server. Extension activation failed"
 

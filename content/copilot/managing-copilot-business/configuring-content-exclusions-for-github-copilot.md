@@ -2,6 +2,10 @@
 title: Configuring content exclusions for GitHub Copilot
 shortTitle: Excluding content
 intro: 'You can prevent specified files from being used to inform code completion suggestions made by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} will not be available in excluded files.'
+product: 'This feature is available for organizations{% ifversion ghec %} and enterprise accounts{% endif %} with a {% data variables.product.prodname_copilot_business_short %} subscription.'
+permissions: 'Repository administrators and organization owners can manage the content exclusion settings for {% data variables.product.prodname_copilot %}.
+<br><br>
+People with the "Maintain" role for a repository can view the content exclusion settings for that repository, but can''t change these settings. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."'
 layout: inline
 topics:
   - Copilot
@@ -9,11 +13,13 @@ versions:
   feature: copilot
 ---
 
-{% warning %}
+{% note %}
 
-**Important**: This feature is currently unavailable. It will be reintroduced in the near future. For more information, see "[Copilot content exclusions – Temporary rollback and upcoming fix](https://github.blog/changelog/2023-11-20-copilot-content-exclusions-temporary-rollback-and-upcoming-fix/)" in the {% data variables.product.prodname_dotcom %} changelog.
+**Note:**
 
-{% endwarning %}
+{% data reusables.copilot.content-exclusion-note %}
+
+{% endnote %}
 
 ## About configuring content exclusions
 
@@ -26,11 +32,49 @@ When you specify content exclusions it has two effects:
 
 {% data reusables.copilot.content-exclusions-delay %} For more information, see "[Propagating content exclusion changes to {% data variables.product.prodname_vscode_shortname %}](#propagating-content-exclusion-changes-to-vs-code)."
 
-### Who is affected by content exclusion settings?
+### Limitations
+
+{% data reusables.copilot.content-exclusion-limitations %}
+
+### What can you exclude?
+
+When you specify content exclusion in the settings for a repository, you can only exclude files in that repository.
+
+When you specify content exclusion in the settings for an organization, you can exclude files in any Git-based repository hosted on {% data variables.product.prodname_dotcom_the_website %} or anywhere that can be accessed using any of the following syntaxes:
+
+```text
+http[s]://host.xz[:port]/path/to/repo.git/
+
+git://host.xz[:port]/path/to/repo.git/
+
+[user@]host.xz:path/to/repo.git/
+
+ssh://[user@]host.xz[:port]/path/to/repo.git/
+```
+
+{% note %}
+
+**Note**: It's important to be aware that content can be excluded by the settings of any {% data variables.product.prodname_dotcom %} organization with a {% data variables.product.prodname_copilot_for_business %} subscription. Excluded files may be in a repository that is not owned by the organization in which the exclusion was defined. The excluded files may also be located in a Git-based repository that is not hosted on {% data variables.product.prodname_dotcom %}.
+
+{% endnote %}
+
+### Who is affected by a content exclusion setting?
 
 {% data reusables.copilot.content-exclusions-scope %}
 
-All exclusions, whether they are defined in repository settings or in organization settings, apply to all members of the {% ifversion fpt %}organization{% else %}enterprise{% endif %} who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription. {% ifversion ghec %}This means, for example, that if you are an admin of Organization A, that belongs to Enterprise X, you can set up an exclusion for files in any repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to all {% data variables.product.prodname_copilot_business_short %} users who belong to an organization in Enterprise X. However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository, or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.{% endif %}
+{% ifversion fpt %}All exclusions, whether they are defined in repository settings or in organization settings, apply to all members of the organization who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription.{% endif %}
+
+{% ifversion ghec %}
+You can't specify content exclusions in the settings for an enterprise. However, all content exclusions defined in organization or repository settings apply to all members of the enterprise who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription.
+
+This means, for example, that if you are an admin of organization that belongs to Enterprise X, you can set up an exclusion for files in any Git-based repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to anyone who gets their {% data variables.product.prodname_copilot_business_short %} license from any organization in Enterprise X.
+
+However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository, or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.
+{% endif %}
+
+### Data sent to {% data variables.product.prodname_dotcom %}
+
+After you configure content exclusion, the client (for example, the {% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_vscode_shortname %}) sends the current repository URL to the {% data variables.product.prodname_dotcom %} server so that the server can send the correct policy back to the client. URLs sent to the server in this way are not logged anywhere.
 
 ## Configuring content exclusions for your repository
 
