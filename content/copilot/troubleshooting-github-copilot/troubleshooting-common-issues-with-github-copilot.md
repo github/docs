@@ -39,7 +39,7 @@ When a file is affected by a content exclusion setting, {% data variables.produc
 
 **Notes:**
 
-- {% data reusables.copilot.content-exclusion-note %}
+{% data reusables.copilot.content-exclusion-note %}
 {% data reusables.copilot.content-exclusion-limitations %}
 
 {% endnote %}
