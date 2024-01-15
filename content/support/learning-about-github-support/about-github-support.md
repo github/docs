@@ -60,14 +60,9 @@ For more information, see "[AUTOTITLE](/support/learning-about-github-support/ab
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghae %}
+{% ifversion fpt or ghec %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on
-{%- ifversion fpt or ghec %}
-[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
-{%- elsif ghae %}
-[{% data variables.product.product_name %} Status](https://ghestatus.com/)
-{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
+Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on [{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/). For more information, see "[About GitHub status](#about-github-status)."
 
 {% endif %}
 
@@ -109,7 +104,7 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
+You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% endif %}).
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
 
