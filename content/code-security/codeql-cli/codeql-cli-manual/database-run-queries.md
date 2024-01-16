@@ -105,7 +105,7 @@ during database creation from a Code Scanning configuration file.
 
 A list of threat models to enable or disable.
 
-The argument is the name of a threat model, optionally preceeded by a
+The argument is the name of a threat model, optionally preceded by a
 '!'. If no '!' is present, the named threat model and all of its
 descendants are enabled. If a '!' is present, the named threat model
 and all of its descendants are disabled.
@@ -249,7 +249,13 @@ expense of making it much less human readable.
 
 #### `-M, --ram=<MB>`
 
-Set total amount of RAM the query evaluator should be allowed to use.
+The query evaluator will try hard to keep its total memory footprint
+below this value. (However, for large databases it is possible that the
+threshold may be broken by file-backed memory maps, which can be swapped
+to disk in case of memory pressure).
+
+The value should be at least 2048 MB; smaller values will be
+transparently rounded up.
 
 ### Options to control QL compilation
 
