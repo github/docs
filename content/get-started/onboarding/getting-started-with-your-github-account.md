@@ -4,7 +4,6 @@ intro: 'With a personal account on {% data variables.product.prodname_dotcom %},
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
