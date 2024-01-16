@@ -54644,7 +54644,7 @@
             },
             {
               "name": "name",
-              "description": "<p>A list of names to filter the assets by.</p>",
+              "description": "<p>A name to filter the assets by.</p>",
               "type": {
                 "name": "String",
                 "id": "string",

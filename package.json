@@ -30,7 +30,7 @@
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
     "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
     "index-elasticsearch": "node src/search/scripts/index-elasticsearch.js",
-    "index-test-fixtures": "npm run index-elasticsearch -- -l en -l ja -V ghae -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
+    "index-test-fixtures": "npm run index-elasticsearch -- -l en -l ja -V ghec -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
     "lint-content": "node src/content-linter/scripts/lint-content.js",
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src/content-linter/tests/lint-files.js",
