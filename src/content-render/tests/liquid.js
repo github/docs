@@ -198,17 +198,5 @@ describe('liquid template parser', () => {
       const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
       expect(outputFpt.includes('placeholder content')).toBe(true)
     })
-
-    test('renders in GHAE because feature is available in GHAE', async () => {
-      req.context = {
-        currentVersion: 'github-ae@latest',
-        page: {},
-        allVersions,
-        enterpriseServerReleases,
-      }
-      await featureVersionsMiddleware(req, null, () => {})
-      const outputFpt = await liquid.parseAndRender(featureVersionsTemplate, req.context)
-      expect(outputFpt.includes('placeholder content')).toBe(true)
-    })
   })
 })

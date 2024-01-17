@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /granting-the-migrator-role-for-github-enterprise-importer
   - /preparing-to-run-a-migration-with-github-enterprise-importer
 redirect_from:
   - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer

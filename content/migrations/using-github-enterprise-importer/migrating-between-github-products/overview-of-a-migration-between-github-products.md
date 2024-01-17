@@ -78,7 +78,7 @@ To migrate an organization, you must be an organization owner for the source org
 Additionally, you must be an enterprise owner on the destination enterprise account. You cannot grant the migrator role for enterprise accounts.
 
 1. Confirm that the person who will run your migrations is an enterprise owner of the destination enterprise account.
-1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 {% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 #### Deciding who will run repository migrations
@@ -86,7 +86,7 @@ Additionally, you must be an enterprise owner on the destination enterprise acco
 To migrate a repository, you must be an organization owner for both the source organization and the destination organization, or an organization owner must grant you the migrator role for each organization where you're not an owner.
 
 1. Decide whether you want an organization owner to perform your migrations, or whether you need to grant the migrator role to someone else.
-{% data reusables.enterprise-migration-tool.grant-migrator-tasks %}
+{% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 
    {% note %}
 
