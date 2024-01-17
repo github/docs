@@ -26,7 +26,11 @@ You can only grant the migrator role for an organization on {% data variables.pr
 
 {% endnote %}
 
-After you grant the migrator role, make sure the migrator uses a {% data variables.product.pat_generic %} that meets all the requirements for running migrations. For the details of those requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
+After you grant the migrator role, make sure the migrator uses a {% data variables.product.pat_generic %} that meets all the requirements for running migrations. For the details of those requirements, see the appropriate article for your migration path.
+
+- "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)"
+- "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)"
+- "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)"
 
 {% cli %}
 
@@ -34,6 +38,7 @@ After you grant the migrator role, make sure the migrator uses a {% data variabl
 
 ## Granting the migrator role with the {% data variables.product.prodname_ado2gh_cli_short %}
 
+1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For a full list of requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#creating-a-personal-access-token-for-github)."
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh ado2gh grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 
@@ -43,6 +48,7 @@ After you grant the migrator role, make sure the migrator uses a {% data variabl
 
 ## Granting the migrator role with the {% data variables.product.prodname_bbs2gh_cli_short %}
 
+1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For a full list of requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#creating-a-personal-access-token-for-github-enterprise-importer)."
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh bbs2gh grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 
@@ -58,6 +64,7 @@ After you grant the migrator role, make sure the migrator uses a {% data variabl
 
 {% endnote %}
 
+1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For a full list of requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#creating-a-personal-access-token-for-github-enterprise-importer)."
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh gei grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 
@@ -75,7 +82,11 @@ After you grant the migrator role, make sure the migrator uses a {% data variabl
 
 You can use the `grantMigratorRole` GraphQL mutation to assign the migrator role and the `revokeMigratorRole` mutation to revoke the migrator role.
 
-You must use a {% data variables.product.pat_generic %} (PAT) that meets all access requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
+You must use a {% data variables.product.pat_generic %} (PAT) that meets all access requirements. For more information, see the appropriate article for your migration path.
+
+- "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)"
+- "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)"
+- "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)"
 
 ### `grantMigratorRole` mutation
 

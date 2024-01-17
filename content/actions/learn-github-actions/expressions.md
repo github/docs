@@ -8,7 +8,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About expressions
@@ -236,7 +236,7 @@ Returns a pretty-print JSON representation of `value`. You can use this function
 
 `fromJSON(value)`
 
-Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert environment variables from a string.
+Returns a JSON object or JSON data type for `value`. You can use this function to provide a JSON object as an evaluated expression or to convert any data type that can be represented in JSON or JavaScript, such as strings, booleans, null values, arrays, and objects.
 
 #### Example returning a JSON object
 
@@ -274,8 +274,6 @@ jobs:
 
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
-{% raw %}
-
 ```yaml
 name: print
 on: push
@@ -286,12 +284,14 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - continue-on-error: ${{ fromJSON(env.continue) }}
-        timeout-minutes: ${{ fromJSON(env.time) }}
+      - continue-on-error: {% raw %}${{ fromJSON(env.continue) }}{% endraw %}
+        timeout-minutes: {% raw %}${{ fromJSON(env.time) }}{% endraw %}
         run: echo ...
 ```
 
-{% endraw %}
+This example workflow sets environment variables: `continue` is set to a boolean value `true`, `time` is set to an integer value `3`.
+
+The workflow uses the `fromJSON()` function to convert the environment variable `continue` from a string to a boolean, allowing it to determine whether to continue-on-error or not. Similarly, it converts the `time` environment variable from a string to an integer, setting the timeout for the job in minutes.
 
 ### hashFiles
 

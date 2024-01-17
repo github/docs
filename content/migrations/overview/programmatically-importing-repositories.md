@@ -9,7 +9,7 @@ type: tutorial
 
 ## About programmatic import of repositories
 
-In the following guide, you can learn how to programatically run "source and history" migrations of Git repositories to {% data variables.product.prodname_dotcom_the_website %}. Different options are available depending on where the repository is stored.
+In the following guide, you can learn how to programmatically run "source and history" migrations of Git repositories to {% data variables.product.prodname_dotcom_the_website %}. Different options are available depending on where the repository is stored.
 
 To learn more about "source and history" and other types of migrations, see "[AUTOTITLE](/migrations/overview/planning-your-migration-to-github)."
 
@@ -38,7 +38,7 @@ If the source repository is on {% data variables.product.prodname_dotcom_the_web
 
 To use repository templates, you must either have read access to an existing repository that's a template, or you must have access to create a template.
 
-You can programatically create a repository from a repository template using the REST API. For more information, see "[AUTOTITLE](/rest/repos/repos)" in the REST API documentation.
+You can programmatically create a repository from a repository template using the REST API. For more information, see "[AUTOTITLE](/rest/repos/repos)" in the REST API documentation.
 
 ## Using {% data variables.product.prodname_importer_proper_name %}
 
@@ -48,7 +48,7 @@ In addition to your source and version control history, {% data variables.produc
 
 To use {% data variables.product.prodname_importer_proper_name %}, you must have admin access to the source repository.
 
-You can programatically import repositories with {% data variables.product.prodname_importer_proper_name %} using the GraphQL API.
+You can programmatically import repositories with {% data variables.product.prodname_importer_proper_name %} using the GraphQL API.
 
 ## Using the Git CLI
 

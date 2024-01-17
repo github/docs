@@ -52,7 +52,7 @@ jobs:
         run: node src/links/scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
         with:
           name: artifacts
           path: ./artifacts

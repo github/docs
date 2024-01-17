@@ -6,6 +6,7 @@ export type SearchResultHitT = {
   highlights: {
     title?: string[]
     content?: string[]
+    content_explicit?: string[]
   }
   score?: number
   popularity?: number

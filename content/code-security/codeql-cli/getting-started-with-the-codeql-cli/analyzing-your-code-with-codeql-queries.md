@@ -75,6 +75,7 @@ You must specify `<database>`, `--format`, and `--output`. You can specify addit
 | <code><span style="white-space: nowrap;">--download</span></code> | {% octicon "x" aria-label="Optional" %}  | Use if some of your {% data variables.product.prodname_codeql %} query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
 | <code><span style="white-space: nowrap;">--threads</span></code> | {% octicon "x" aria-label="Optional" %}  | Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`.
 | <code><span style="white-space: nowrap;">--verbose</span></code> | {% octicon "x" aria-label="Optional" %}  | Use to get more detailed information about the analysis process and diagnostic data from the database creation process.
+| <code><span style="white-space: nowrap;">--threat-model</span></code> | {% octicon "x" aria-label="Optional" %}  | (Beta) Use to add threat models to configure additional sources in your {% data variables.product.prodname_codeql %} analysis. During the beta, threat models are supported only by Java analysis. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze#--threat-modelname)." |
 
 {% note %}
 
@@ -295,6 +296,24 @@ suite files automatically, and you don’t have to specify the full path on the 
 For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)."
 
 For information about creating custom query suites, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)."
+
+{% ifversion codeql-cli-threat-models-java %}
+
+### Including model packs to add potential sources of tainted data
+
+{% data reusables.code-scanning.beta-threat-models-cli %}
+
+You can configure threat models in a {% data variables.product.prodname_code_scanning %} analysis. For more information, see "[Customizing library models for Java and Kotlin](https://codeql.github.com/docs/codeql-language-guides/customizing-library-models-for-java-and-kotlin)" in the {% data variables.product.prodname_codeql %} documentation.
+
+```shell
+$ codeql database analyze /codeql-dbs/my-company --format=sarif-latest \
+  --threat-model=local \
+  --output=/temp/my-company.sarif codeql/java-queries
+```
+
+In this example, the relevant queries in the standard query pack `codeql/java-queries` will use the `local` threat model as well as the default threat model for `remote` dataflow sources. You should use the `local` threat model if you consider data from local sources (for example: file systems, command-line arguments, databases, and environment variables) to be potential sources of tainted data for your codebase.
+
+{% endif %}
 
 ## Results
 

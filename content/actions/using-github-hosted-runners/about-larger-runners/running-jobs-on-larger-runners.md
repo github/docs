@@ -52,12 +52,6 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 ## Viewing available runners for a repository
 
-{% note %}
-
-**Note:** This feature is currently in beta and subject to change.
-
-{% endnote %}
-
 {% data reusables.actions.about-viewing-runner-list %}
 
 {% data reusables.repositories.navigate-to-repo %}

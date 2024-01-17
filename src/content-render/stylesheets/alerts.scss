@@ -11,10 +11,17 @@ $colors: "default", "muted", "subtle", "accent", "success", "attention",
   border-left: 0.25em solid
     var(--borderColor-default, var(--color-border-default));
   margin-bottom: 1rem;
-}
 
-.ghd-alert > :last-child {
-  margin-bottom: 0;
+  p:last-child,
+  ul:last-child,
+  ol:last-child {
+    margin-bottom: 0;
+  }
+
+  pre {
+    background: transparent;
+    padding: 0.5rem;
+  }
 }
 
 .ghd-alert-title {
@@ -32,4 +39,15 @@ $colors: "default", "muted", "subtle", "accent", "success", "attention",
       color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
     }
   }
+
+  // Temporary: so that the existing "notes" "callouts" etc color the first word
+  .ghd-spotlight-#{$color} {
+    p:first-child {
+      strong:first-child,
+      b:first-child {
+        color: var(--fgColor-#{$color}, var(--color-#{$color}-fg));
+      }
+    }
+  }
+  // End temporary
 }

@@ -65,6 +65,23 @@ jobs:
               console.log('Closed existing pull requests')
             }
 
+            try {
+              const { data } = await github.rest.repos.compareCommits({
+                owner,
+                repo,
+                head,
+                base,
+              })
+              const { files } = data
+              console.log(`File changes between ${head} and ${base}:`, files)
+              if (!files.length) {
+                console.log('No files changed, bailing')
+                return
+              }
+            } catch (err) {
+              console.error(`Unable to compute the files difference between ${head} and ${base}`, err.message)
+            }
+
             console.log('Creating a new pull request')
             const body = `
             This is an automated pull request to sync changes between the public and private repos.

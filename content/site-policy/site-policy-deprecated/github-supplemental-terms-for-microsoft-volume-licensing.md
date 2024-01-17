@@ -178,7 +178,7 @@ If GitHub has reason to believe the Content of a Private Repository is in violat
 
 #### 2.5.1 GitHub's Rights to Content.
 
-The look and feel of the Service is copyright © GitHub, Inc. All rights reserved. Customer may not duplicate, copy, or reuse any portion of the HTML/CSS, Javascript, or visual design elements or concepts without express written permission from GitHub.
+The look and feel of the Service is copyright © GitHub, Inc. All rights reserved. Customer may not duplicate, copy, or reuse any portion of the HTML/CSS, JavaScript, or visual design elements or concepts without express written permission from GitHub.
 
 #### 2.5.2 Copyright Infringement and DMCA Policy.
 

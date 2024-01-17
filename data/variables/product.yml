@@ -37,10 +37,13 @@ prodname_github_connect: 'GitHub Connect'
 # GitHub Enterprise Importer
 prodname_importer_proper_name: 'GitHub Enterprise Importer'
 prodname_importer_secondary_name: Importer
+prodname_gei: GEI
 prodname_gei_cli_short: GEI extension
 prodname_gei_cli: GEI extension of the GitHub CLI
+prodname_ado2gh: ADO2GH
 prodname_ado2gh_cli: ADO2GH extension of the GitHub CLI
 prodname_ado2gh_cli_short: ADO2GH extension
+prodname_bbs2gh: BBS2GH
 prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
 
@@ -91,13 +94,13 @@ codeql_cli_ghes_recommended_version: >-
 # Projects v2
 prodname_projects_v2: '{% ifversion ghes = 3.8 or ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
 prodname_projects_v1: >-
-  {% ifversion ghes < 3.8 or ghae %}project boards{% else %}projects (classic){% endif %}
+  {% ifversion ghae %}project boards{% else %}projects (classic){% endif %}
 prodname_projects_v1_caps: >-
-  {% ifversion ghes < 3.8 or ghae %}Project boards{% else %}Projects (classic){% endif %}
+  {% ifversion ghae %}Project boards{% else %}Projects (classic){% endif %}
 prodname_project_v1: >-
-  {% ifversion ghes < 3.8 or ghae %}project board{% else %}project (classic){% endif %}
+  {% ifversion ghae %}project board{% else %}project (classic){% endif %}
 prodname_project_v1_caps: >-
-  {% ifversion ghes < 3.8 or ghae %}Project board{% else %}Project (classic){% endif %}
+  {% ifversion ghae %}Project board{% else %}Project (classic){% endif %}
 
 # Personal access tokens
 pat_generic: 'personal access token'
@@ -246,8 +249,8 @@ prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub.com'
 prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub.com'
 prodname_copilot_cli: 'GitHub Copilot in the CLI'
 prodname_copilot_cli_short: 'Copilot in the CLI'
-prodname_copilot_for_docs: 'Copilot documentation search'
-prodname_copilot_docs_short: 'documentation search'
+prodname_copilot_for_docs: 'Copilot docset management'
+prodname_copilot_docs_short: 'docset management'
 prodname_copilot_for_prs: 'Copilot pull request summaries'
 prodname_copilot_prs_short: 'pull request summaries'
 prodname_copilot_customization: 'Copilot Customization'

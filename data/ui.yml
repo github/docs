@@ -139,6 +139,8 @@ rest_reference:
   notes: Notes
   parameters: Parameters for "{{ RESTOperationTitle }}"
   response: Response
+  request_example: Request example
+  request_examples: Request examples
   example_response: Example response
   status_code: Status code
   http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
@@ -245,3 +247,9 @@ scroll_button:
 popovers:
   role_description: hover card
   keyboard_shortcut_description: Press alt+up to activate
+alerts:
+  NOTE: Note
+  IMPORTANT: Important
+  WARNING: Warning
+  TIP: Tip
+  CAUTION: Caution

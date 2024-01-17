@@ -14,6 +14,7 @@ children:
   - /configuring-github-pages-for-your-enterprise
   - /configuring-rate-limits
   - /configuring-web-commit-signing
+  - /configuring-interactive-maps
   - /managing-github-mobile-for-your-enterprise
   - /verifying-or-approving-a-domain-for-your-enterprise
 

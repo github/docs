@@ -49,9 +49,9 @@ This token must have the `security_events` scope.
 
 \[Mandatory] Path to the SARIF file to upload. This should be the
 output of [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) (or [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results)) with `--format sarif-latest` for upload to github.com or
-GitHub AE, or the appropriate supported format tag for GitHub Enterprise
-Server instances (see [AUTOTITLE](/enterprise-server@latest/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)
-for SARIF versions supported by your release).
+the appropriate supported format tag for GitHub Enterprise Server
+instances (see [AUTOTITLE](/enterprise-server@latest/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning) for
+SARIF versions supported by your release).
 
 #### `-r, --repository=<repository-name>`
 

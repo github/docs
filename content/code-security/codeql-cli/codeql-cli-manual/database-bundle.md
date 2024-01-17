@@ -48,6 +48,12 @@ that results, logs, TRAP, or similar should be included.
 
 \[Mandatory] The output file, typically with the extension ".zip".
 
+#### `--include-diagnostics`
+
+Include diagnostics in the bundle.
+
+Available since `v2.16.0`.
+
 #### `--include-results`
 
 Include any precomputed query results in the bundle.

@@ -14,16 +14,4 @@ src/ghes-releases/lib/enterprise-dates.json @github/docs-content-enterprise
 content/actions/deployment/security-hardening-your-deployments/** @github/oidc
 
 # RAI - CELA
-data/reusables/copilot/about-copilot-chat.md @github/legal-product
-content/copilot/github-copilot-in-the-cli/about-github-copilot-in-the-cli.md @github/legal-product
-
-content/code-security/secret-scanning/about-the-regular-expression-generator-for-custom-patterns @github/legal-product
-data/reusables/secret-scanning/beta-custom-pattern-regular-expression-generator.md @github/legal-product
-
-content/code-security/secret-scanning/about-the-detection-of-generic-secrets-with-secret-scanning.md @github/legal-product
-data/reusables/secret-scanning/generic-secret-detection-ai.md @github/legal-product
-
-content/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning.md @github/legal-product
-data/reusables/rai/ @github/legal-product
-
-content/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries.md @github/legal-product
+data/reusables/rai/** @github/legal-product

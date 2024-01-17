@@ -30,9 +30,9 @@ When {% data variables.projects.projects_v1_boards %} are disabled, you will no 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
-1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under **Projects{% ifversion ghes = 3.7 %} (classic){% endif %}**:
-    - To disable {% data variables.projects.projects_v2_and_v1 %}, unselect **Enable Projects{% ifversion ghes = 3.7 %} (classic){% endif %} for the organization**.
-    - To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects{% ifversion ghes = 3.7 %} (classic){% endif %} for the organization**.
+1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under **Projects**:
+    - To disable {% data variables.projects.projects_v2_and_v1 %}, unselect **Enable Projects for the organization**.
+    - To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects for the organization**.
 1. Click **Save**.
 
 If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any {% data variables.projects.projects_v2_and_v1 %} that were previously added will be available.
@@ -46,7 +46,7 @@ You can control whether organization members can create {% data variables.projec
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
-1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under **{%ifversion ghes > 3.7 or ghae > 3.7 or ghec or fpt %}Projects (classic) only{% elsif ghes = 3.7 %}Repository projects{% else %}Projects{% endif %}**:
+1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under **Projects (classic) only**:
     - To enable project boards in repositories, select **Allow members to enable Projects (classic) for all repositories**.
     - To disable project boards in repositories, unselect **Allow members to enable Projects (classic) for all repositories**.
 1. Click **Save**.

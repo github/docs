@@ -14,7 +14,7 @@ topics:
 
 <!--Note on the versioning above ^. This article is visible to free, pro, team users for transparency. They cannot use the feature so `fpt` is not included in the feature definition.-->
 
-{% data reusables.secret-scanning.generic-secret-detection-ai %}
+{% data reusables.rai.secret-scanning.generic-secret-detection-ai %}
 
 ## About generic secret detection for {% data variables.product.prodname_secret_scanning %}
 

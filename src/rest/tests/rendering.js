@@ -2,7 +2,7 @@ import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
 
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
-import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
+import { isApiVersioned, allVersions, allTestableVersions } from '#src/versions/lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
 import getRest from '#src/rest/lib/index.js'
 
@@ -13,7 +13,7 @@ describe('REST references docs', () => {
   // in sync. It checks that every version of the /rest/checks
   // page has every operation defined in the openapi schema.
   test('loads schema data for all versions', async () => {
-    for (const version in allVersions) {
+    for (const version of allTestableVersions) {
       const calendarDate = allVersions[version].latestApiVersion
       const checksRestOperations = await getRest(version, calendarDate, 'checks', 'runs')
       const $ = await getDOM(`/en/${version}/rest/checks/runs?restVersion=${calendarDate}`)
@@ -99,7 +99,7 @@ describe('REST references docs', () => {
   })
 
   test('REST pages show the correct versions in the api version picker', async () => {
-    for (const version in allVersions) {
+    for (const version of allTestableVersions) {
       if (isApiVersioned(version)) {
         for (const apiVersion of allVersions[version].apiVersions) {
           const $ = await getDOM(`/en/${version}/rest?apiVersion=${apiVersion}`)
