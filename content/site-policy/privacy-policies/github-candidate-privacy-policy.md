@@ -56,7 +56,7 @@ GitHub will share your Candidate Personal Information with those who have a legi
 1. To comply with our legal obligations, regulations or contracts, or to respond to a court order, administrative or judicial process (such as subpoena, government audit or search warrant) or, in response to lawful requests by public authorities (such as national security or law enforcement);
 1. As necessary to establish, exercise, or defend against potential or pending litigation;
 1. Where necessary to protect GitHub, your vital interests (such as safety and security), or those of another person; or
-1. With your consent (such to contact your referees). It is your responsibility to obtain consent from referees before providing their personal information to GitHub.
+1. With your consent (such to contact your references). It is your responsibility to obtain consent from references before providing their personal information to GitHub.
 
 ## Your rights to your Candidate Personal Information
 
