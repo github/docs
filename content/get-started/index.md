@@ -31,7 +31,6 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
     - /get-started/onboarding/getting-started-with-github-enterprise-server
-    - /get-started/onboarding/getting-started-with-github-ae
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
     - /get-started/quickstart/creating-an-account-on-github

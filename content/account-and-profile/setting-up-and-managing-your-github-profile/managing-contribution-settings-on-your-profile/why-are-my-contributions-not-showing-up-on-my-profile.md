@@ -98,9 +98,7 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 
 ### Commit was made in a fork
 
-Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
-- [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the parent repository.
-- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, state whether the forks should move with your repository into a new network or remain in the current network. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
 
 ## Further reading
 

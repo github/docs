@@ -173,5 +173,57 @@ export function correctTranslatedContentStrings(content, englishContent, context
     })
   }
 
+  // We *used* to mention this key within an English sentence. But that
+  // whole sentence is removed (from the English) and thus we need to remove
+  // same sentence from the translations as well.
+  // Ideally, the translators immediately notice the change but we can't
+  // guarantee that turnaround time. So we string replace it with an
+  // empty string.
+  // NOTE! By late 2024 all translations *should* have caught up with
+  // English translation (which removed the sentence). Then we can
+  // delete all of this code.
+  // See internal issue docs-content#13361
+  if (
+    context.relativePath ===
+    'authentication/managing-commit-signature-verification/about-commit-signature-verification.md'
+  ) {
+    const keyString = '5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23'
+    const translatedSentences = [
+      // ru
+      'Полный отпечаток ключа — `' + keyString + '`.',
+      // ko
+      `키의 전체 지문은 \`${keyString}\`입니다.`,
+      // es
+      `La huella digital completa de la clave es \`${keyString}\`.`,
+      // zh
+      `密钥的完整指纹是 \`${keyString}\`。`,
+      // pt
+      `A impressão digital completa da chave é \`${keyString}\`.`,
+      // ja
+      `キーの完全な指紋は、\`${keyString}\` です。`,
+      // fr
+      `L’empreinte digitale complète de la clé est \`${keyString}\`.`,
+      // de
+      `Der vollständige Fingerabdruck des Schlüssels ist \`${keyString}\`.`,
+    ]
+    for (const translatedSentence of translatedSentences) {
+      if (content.includes(translatedSentence)) {
+        content = content.replace(translatedSentence, '')
+        break
+      }
+    }
+    if (content.includes(keyString)) {
+      // NOTE! These lines are for debugging and we can delete them once
+      // we're confident the keyString is no longer present in any
+      // translation.
+      // for (const line of content.split('\n')) {
+      //   if (line.includes(keyString)) {
+      //     console.log({ [context.code]: line })
+      //   }
+      // }
+      // throw new Error('Key string is still in there!')
+      content = content.replace(keyString, '[redacted in translation]')
+    }
+  }
   return content
 }

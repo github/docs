@@ -21,7 +21,7 @@ At this time, migrating from Bitbucket Server with the {% data variables.product
 ## Prerequisites
 
 {% data reusables.enterprise-migration-tool.migration-prerequisites %}
-- For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+- For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role)."
 - You need the username and password for a Bitbucket Server account with admin or super admin permissions.
 
 ## Step 1: Install the {% data variables.product.prodname_bbs2gh_cli %}

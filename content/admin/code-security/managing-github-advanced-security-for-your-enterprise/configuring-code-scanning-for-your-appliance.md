@@ -57,7 +57,9 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 {% note %}
 
-**Note:** If your enterprise uses {% data variables.product.prodname_dotcom %}-hosted runners with {% data variables.product.prodname_actions %}, proceed directly to configuring {% data variables.product.prodname_code_scanning %} through {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."
+**Notes:**
+  - If your enterprise uses {% data variables.product.prodname_dotcom %}-hosted runners with {% data variables.product.prodname_actions %}, proceed directly to configuring {% data variables.product.prodname_code_scanning %} through {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale)."
+  - With the exception of Swift analysis, default setup can now run on {% data variables.actions.hosted_runners %}. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/about-larger-runners)" and "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup)."
 
 {% endnote %}
 

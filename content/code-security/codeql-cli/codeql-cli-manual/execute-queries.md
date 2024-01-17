@@ -88,7 +88,7 @@ stored in the output location.
 
 A list of threat models to enable or disable.
 
-The argument is the name of a threat model, optionally preceeded by a
+The argument is the name of a threat model, optionally preceded by a
 '!'. If no '!' is present, the named threat model and all of its
 descendants are enabled. If a '!' is present, the named threat model
 and all of its descendants are disabled.

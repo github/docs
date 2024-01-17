@@ -7,12 +7,10 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:
   - /getting-started-with-github-actions-for-your-enterprise
-  - /using-github-actions-in-github-ae
   - /enabling-github-actions-for-github-enterprise-server
   - /managing-access-to-actions-from-githubcom
   - /advanced-configuration-and-troubleshooting

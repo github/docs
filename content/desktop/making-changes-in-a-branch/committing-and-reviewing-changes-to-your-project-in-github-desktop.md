@@ -130,6 +130,10 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
    ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
 
+## Managing your commit history
+
+If you need to undo a commit or revise your commit history (to make it easier for a reviewer to follow your changes), {% data variables.product.prodname_desktop %} provides a number of options for managing your commit history. For more information, see "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)."
+
 ## Further reading
 
 - "[AUTOTITLE](/get-started/using-git)"
