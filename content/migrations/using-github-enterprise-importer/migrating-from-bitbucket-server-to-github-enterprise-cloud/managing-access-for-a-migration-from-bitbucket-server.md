@@ -21,9 +21,13 @@ To migrate a repository from Bitbucket Server to GitHub, you need sufficient acc
 
 Additionally, if you use IP allow lists in the destination organization, you may need to configure the allow lists to allow access by {% data variables.product.prodname_importer_proper_name %}.
 
+## About the migrator role
+
+{% data reusables.enterprise-migration-tool.about-the-migrator-role %}
+
 ## Required roles for {% data variables.product.company_short %}
 
-For the destination organization on {% data variables.product.prodname_dotcom %}, different roles are required for different tasks. For some tasks, you can grant the migrator role to a user or team. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+For the destination organization on {% data variables.product.prodname_dotcom %}, different roles are required for different tasks.
 
 {% data reusables.enterprise-migration-tool.gei-required-roles %}
 
@@ -65,6 +69,31 @@ If your Bitbucket Server instance runs on Linux, you must use an SSH key that me
   - `aes192-ctr`
 
 If you receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about how to generate a compatible private key, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
+
+## Granting the migrator role
+
+To allow someone other than an organization owner to run a migration or download migration logs, you can grant the migrator role to a user or team. For more information, see "[About the migrator role](#about-the-migrator-role)."
+
+You can grant the migrator role using either the {% data variables.product.prodname_bbs2gh_cli %} or the GraphQL API.
+
+- "[Granting the migrator role with the {% data variables.product.prodname_bbs2gh_cli_short %}](#granting-the-migrator-role-with-the-bbs2gh-extension)"
+- "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
+
+### Granting the migrator role with the {% data variables.product.prodname_bbs2gh_cli_short %}
+
+To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_bbs2gh_cli %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud#step-1-install-the-bbs2gh-extension-of-the-github-cli)."
+
+1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}](#creating-a-personal-access-token-for-github-enterprise-importer)."
+{% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
+1. Use the `gh bbs2gh grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
+
+   ```shell copy
+   gh bbs2gh grant-migrator-role --github-org ORGANIZATION --actor ACTOR --actor-type TYPE
+   ```
+
+### Granting the migrator role with the GraphQL API
+
+{% data reusables.enterprise-migration-tool.grant-migrator-role-graphql %}
 
 ## Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}
 

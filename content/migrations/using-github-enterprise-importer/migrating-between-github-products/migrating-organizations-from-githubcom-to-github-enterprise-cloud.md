@@ -27,7 +27,7 @@ redirect_from:
 ## Prerequisites
 
 {% data reusables.enterprise-migration-tool.migration-prerequisites %}
-- For the source organization, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+- For the source organization, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 - For the destination enterprise account, you must be an enterprise owner.
 
 {% api %}
