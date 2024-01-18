@@ -12,6 +12,7 @@ topics:
   - Notifications
   - Accounts
 children:
+  - /about-github-and-git
   - /creating-an-account-on-github
   - /hello-world
   - /finding-inspiration-on-github
