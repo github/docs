@@ -50,9 +50,6 @@ When {% data variables.product.prodname_dependabot %} is blocked from creating a
 There are several reasons why an alert may have no pull request link:
 
 1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
-{% ifversion GH-advisory-db-supports-malware %}
-1. The alert is for malware and there is no secure version of the package.
-{% endif %}
 1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
 1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
 
