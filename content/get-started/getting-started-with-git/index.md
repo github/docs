@@ -13,6 +13,7 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /set-up-git
   - /setting-your-username-in-git
   - /caching-your-github-credentials-in-git
   - /why-is-git-always-asking-for-my-password
@@ -23,5 +24,5 @@ children:
   - /associating-text-editors-with-git
   - /configuring-git-to-handle-line-endings
   - /ignoring-files
+  - /git-cheatsheet
 ---
-

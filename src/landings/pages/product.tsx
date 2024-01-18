@@ -101,9 +101,11 @@ const GlobalPage = ({
   } else {
     // In local dev, when Next.js needs the initial compiled version
     // it will request `/_next/static/webpack/$HASH.webpack.hot-update.json`
-    // and then we just let the `content` be undefined.
-    if (!router.asPath.startsWith('/_next/static/')) {
-      throw new Error('No context provided to page')
+    // or `/_next/webpack-hmr` and then we just let the `content` be undefined.
+    if (
+      !(router.asPath.startsWith('/_next/static/') || router.asPath.startsWith('/_next/webpack'))
+    ) {
+      throw new Error(`No context provided to page (${router.asPath})`)
     }
   }
 

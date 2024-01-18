@@ -48,6 +48,10 @@ async function main() {
   await testSiteSearch()
 
   await testViewingPages()
+
+  // Next.js uses just-in-time compilation to compile pages on demand.
+  // But once the server is up it should *not crash* to request these things.
+  await testNextJsSpecialURLs()
 }
 
 async function testEditingPage() {
@@ -147,4 +151,17 @@ async function testViewingPages() {
   // console.log(res.body)
   const $ = cheerio.load(res.body)
   assert(/It looks like this page doesn't exist./.test($('article').text()))
+}
+
+async function testNextJsSpecialURLs() {
+  // _next/webpack-hmr
+  {
+    const res = await get('/_next/webpack-hmr')
+    assert(res.statusCode === 200)
+  }
+  // _next/static/webpack/HASH.webpack.hot-update.json
+  {
+    const res = await get('/_next/static/webpack/deadbeefdeadbeef.webpack.hot-update.json')
+    assert(res.statusCode === 200)
+  }
 }

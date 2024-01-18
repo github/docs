@@ -1,6 +1,6 @@
 ---
 title: About the GitHub Advisory database
-intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, {% endif %}grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.'
+intro: 'The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities {% ifversion GH-advisory-db-supports-malware %}and malware, grouped in three categories: {% data variables.product.company_short %}-reviewed advisories, unreviewed advisories, and malware advisories.{% else %} grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.{% endif %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -24,8 +24,6 @@ Security advisories are published as JSON files in the Open Source Vulnerability
 
 ## About types of security advisories
 
-{% data reusables.advisory-database.beta-malware-advisories %}
-
 Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}.
 
 {% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
@@ -38,7 +36,7 @@ In contrast, malicious software, or malware, is code that is intentionally desig
 
 ### {% data variables.product.company_short %}-reviewed advisories
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support. We carefully review each advisory for validity and ensure that they have a full description, and contain both ecosystem and package information.
+{% data reusables.advisory-database.github-reviewed-overview %}
 
 Generally, we name our supported ecosystems after the software programming language's associated package registry. We review advisories if they are for a vulnerability in a package that comes from a supported registry.
 
@@ -58,13 +56,27 @@ Generally, we name our supported ecosystems after the software programming langu
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} for a package you depend on. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory reports a vulnerability for a package you depend on. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
 ### Unreviewed advisories
 
-Unreviewed advisories are security vulnerabilities that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
+{% data reusables.advisory-database.unreviewed-overview %}
 
 {% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+
+{% ifversion GH-advisory-db-supports-malware %}
+
+### Malware advisories
+
+{% data reusables.advisory-database.beta-malware-advisories %}
+
+{% data reusables.advisory-database.malware-overview %}
+
+{% data variables.product.prodname_dependabot %} doesn't generate alerts when malware is detected as most of the vulnerabilities cannot be resolved by downstream users. You can view malware advisories by searching for `type:malware` in the {% data variables.product.prodname_advisory_database %}.
+
+Our malware advisories are mostly about substitution attacks. During this type of attack, an attacker publishes a package to the public registry with the same name as a dependency that users rely on from a third party or private registry, with the hope that the malicious version is consumed. {% data variables.product.prodname_dependabot %} doesn’t look at project configurations to determine if the packages are coming from a private registry, so we aren't sure if you're using the malicious version or a non-malicious version. Users who have their dependencies appropriately scoped should not be affected by malware.
+
+{% endif %}
 
 ## About information in security advisories
 
