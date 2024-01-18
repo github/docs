@@ -254,7 +254,29 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
 
-Use H2 for headers and H3 for subheaders. If an article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be text content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
+- **Use:**
+
+  ```markdown
+  ## HEADER (H2)
+  TEXT
+
+  ### SUBHEADER (H3)
+  TEXT
+
+  #### SUBHEADER (H4)
+  TEXT
+  ```
+
+- **Avoid:**
+
+  ```markdown
+  ## HEADER (H2)
+
+  #### SUBHEADER (H4)
+  ```
+
+When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
