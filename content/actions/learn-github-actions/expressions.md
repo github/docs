@@ -255,7 +255,15 @@ jobs:
     steps:
       - id: set-matrix{% endraw %}
 {%- ifversion actions-save-state-set-output-envs %}
-        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+        run: |
+          cat <<EOF >> $GITHUB_OUTPUT
+          matrix={
+            "include": [
+              {"project": "foo", "config": "Debug"},
+              {"project": "bar", "config": "Release"}
+            ]
+          }
+          EOF
 {%- else %}
         run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
 {%- endif %}{% raw %}
