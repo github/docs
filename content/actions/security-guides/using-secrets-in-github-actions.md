@@ -13,10 +13,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About secrets
