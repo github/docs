@@ -42,12 +42,6 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 
 ## Viewing available runners for a repository
 
-{% note %}
-
-**Note:** This feature is currently in beta and subject to change.
-
-{% endnote %}
-
 {% data reusables.actions.about-viewing-runner-list %}
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -27,7 +27,7 @@ redirect_from:
 ## Prerequisites
 
 {% data reusables.enterprise-migration-tool.migration-prerequisites %}
-- You must be either an organization owner or be granted the migrator role for both the source and destination organizations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+- In both the source and destination organization, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 
 {% api %}
 
@@ -128,6 +128,8 @@ mutation startRepositoryMigration (
 {% data reusables.enterprise-migration-tool.startRepositoryMigration-table-ec %}
 | `sourceRepositoryUrl` | The URL of your source repository, using the format `https://github.com/{organization}/{repository}`.
 
+For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
+
 {% data reusables.enterprise-migration-tool.next-check-status %}
 
 ## Step 4: Check the status of your migration
@@ -211,6 +213,12 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 {% data reusables.enterprise-migration-tool.skip-releases %}
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
+
+{% data reusables.enterprise-migration-tool.abort-migration %}
+
+```shell copy
+gh gei abort-migration --migration-id MIGRATION-ID
+```
 
 ## Step 6: Validate your migration and check the error log
 

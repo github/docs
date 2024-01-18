@@ -21,7 +21,6 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
-      # - uses: ./.github/actions/node-npm-setup
       - name: Install dependencies
         run: npm install
 
@@ -30,6 +29,20 @@ jobs:
 
       - name: Disable Next.js telemetry
         run: npx next telemetry disable
+
+      # The Playwright test, with the env vars we set here, takes care of
+      # starting a server and shutting it down when it's done.
+      # That's why it's important this step comes before the `npm start &`
+      # step below.
+      - name: Run Playwright tests
+        env:
+          # This is what local dev contributors are expected to do.
+          PLAYWRIGHT_START_SERVER_COMMAND: 'npm start'
+          # This is so that timeouts aren't retried, which can lead to
+          # tests not exiting at the end with a non-zero. Otherwise,
+          # by default failures are marked as "flaky" instead of "failed".
+          PLAYWRIGHT_RETRIES: 0
+        run: npm run playwright-test -- playwright-local-dev
 
       - name: Start server in the background
         run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &

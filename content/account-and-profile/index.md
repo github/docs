@@ -7,9 +7,7 @@ introLinks:
 featuredLinks:
   startHere:
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username
-    - '{% ifversion ghae %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard{% endif %}'
     - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
-    - '{% ifversion ghae %}/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile{% endif %}'
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications
   popular:
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
@@ -40,4 +38,3 @@ children:
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
 ---
-

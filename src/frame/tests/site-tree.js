@@ -67,7 +67,7 @@ function validate(currentPage) {
 
     expect(isValid, errors).toBe(true)
 
-    // Run recurisvely until we run out of child pages
+    // Run recursively until we run out of child pages
     validate(childPage)
   })
 }

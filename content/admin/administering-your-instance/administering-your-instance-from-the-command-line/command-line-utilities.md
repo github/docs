@@ -307,8 +307,8 @@ ghe-saml-mapping-csv -d
 
 After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.7%}3.7{% endif %} your instance is running.
 
-- In version 3.{% ifversion ghes = 3.7%}7.7{% elsif ghes = 3.8 %}8.0{% endif %}{% ifversion ghes < 3.8 %} and earlier{% endif %}, the utility writes the file to `/tmp`.
-- In version 3.{% ifversion ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later,
+- In version 3.{% ifversion ghes = 3.8 %}8.0{% endif %}, the utility writes the file to `/tmp`.
+- In version 3.{% ifversion ghes = 3.8 %}8.1{% endif %} and later,
 
 {%- elsif ghes > 3.8 %}By default,{% endif %} the utility writes the file to `/data/user/tmp`.
 
@@ -672,30 +672,16 @@ This utility creates a support bundle tarball containing important logs from eac
 
 By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
-{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
-
 To create a standard bundle:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
-To create a standard bundle including data from the last 3 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
-```
-
 To create a standard bundle including data from the last 2 days:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
-```
-
-To create a standard bundle including data from the last 4 days and 8 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -973,7 +959,7 @@ This utility starts {% data variables.product.prodname_actions %} on {% data var
 
 {% endnote %}
 
-If your system is configured correctly, you'll see the following ouput:
+If your system is configured correctly, you'll see the following output:
 
 ```shell
 Actions was enabled!
@@ -1127,30 +1113,16 @@ This utility creates a support bundle tarball containing important logs from you
 
 By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
-{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
-
 To create a standard bundle:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
-To create a standard bundle including data from the last 3 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
-```
-
 To create a standard bundle including data from the last 2 days:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
-```
-
-To create a standard bundle including data from the last 4 days and 8 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:

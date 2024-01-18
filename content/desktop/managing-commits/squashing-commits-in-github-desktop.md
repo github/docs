@@ -44,3 +44,7 @@ When you squash commits, you may see one of the following notifications or error
 - A notification states that the requested change to the branch will require a force push to update the remote branch. Force pushing alters the commit history of the branch and will affect other collaborators who are working in that branch.  Select **Begin Squash** to start the squash, and then click **Force push origin** to push your changes.
 - An error states that the squash failed because there is a merge commit among the squashed commits.
 - A notification is shown indicating that there are uncommitted changes present on your current branch. Select **Stash Changes and Continue** to store the changes and proceed, or select **Close** to dismiss the message and commit the changes. When there are no longer any uncommitted changes you can squash your commits.
+
+## Further reading
+
+- "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"

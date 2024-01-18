@@ -207,7 +207,7 @@ function getNewHref(node, languageCode, version) {
     newHref = path.posix.join('/', languageCode, href)
   } else if (firstLinkSegment.includes('@')) {
     // This could mean a bad typo!
-    // This can happend if you have something
+    // This can happen if you have something
     // like `/enterprise-servr@3.9/foo/bar` which is a typo. I.e.
     // `enterprise-servr` is not a valid plan, but it has a `@` character  in it.
     console.warn(

@@ -34,6 +34,7 @@ Active webhooks | **X** | **X** |
 Branch protections | **X** | **X** |
 {% data variables.product.prodname_pages %} settings | **X** | **X** |
 User history for the above data | **X** | **X** |
+Attachments (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)") | **X** | **X** |
 Releases | | **X** |
 
 Different size limits per repository apply depending on your GHES version.
@@ -104,6 +105,7 @@ When you migrate a repository, either directly or as part of an organization mig
     - Allow rebase merging
 - Releases (up to 10 GB per repository)
 - User history for the above data
+- Attachments (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)")
 
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
 - User access to the repository

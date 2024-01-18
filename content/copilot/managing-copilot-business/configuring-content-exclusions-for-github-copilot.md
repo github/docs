@@ -2,6 +2,10 @@
 title: Configuring content exclusions for GitHub Copilot
 shortTitle: Excluding content
 intro: 'You can prevent specified files from being used to inform code completion suggestions made by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} will not be available in excluded files.'
+product: 'This feature is available for organizations{% ifversion ghec %} and enterprise accounts{% endif %} with a {% data variables.product.prodname_copilot_business_short %} subscription.'
+permissions: 'Repository administrators and organization owners can manage the content exclusion settings for {% data variables.product.prodname_copilot %}.
+<br><br>
+People with the "Maintain" role for a repository can view the content exclusion settings for that repository, but can''t change these settings. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."'
 layout: inline
 topics:
   - Copilot
@@ -9,11 +13,13 @@ versions:
   feature: copilot
 ---
 
-{% warning %}
+{% note %}
 
-**Important**: This feature is currently unavailable. It will be reintroduced in the near future. For more information, see "[Copilot content exclusions – Temporary rollback and upcoming fix](https://github.blog/changelog/2023-11-20-copilot-content-exclusions-temporary-rollback-and-upcoming-fix/)" in the {% data variables.product.prodname_dotcom %} changelog.
+**Note:**
 
-{% endwarning %}
+{% data reusables.copilot.content-exclusion-note %}
+
+{% endnote %}
 
 ## About configuring content exclusions
 
@@ -26,11 +32,49 @@ When you specify content exclusions it has two effects:
 
 {% data reusables.copilot.content-exclusions-delay %} For more information, see "[Propagating content exclusion changes to {% data variables.product.prodname_vscode_shortname %}](#propagating-content-exclusion-changes-to-vs-code)."
 
-### Who is affected by content exclusion settings?
+### Limitations
+
+{% data reusables.copilot.content-exclusion-limitations %}
+
+### What can you exclude?
+
+When you specify content exclusion in the settings for a repository, you can only exclude files in that repository.
+
+When you specify content exclusion in the settings for an organization, you can exclude files in any Git-based repository hosted on {% data variables.product.prodname_dotcom_the_website %} or anywhere that can be accessed using any of the following syntaxes:
+
+```text
+http[s]://host.xz[:port]/path/to/repo.git/
+
+git://host.xz[:port]/path/to/repo.git/
+
+[user@]host.xz:path/to/repo.git/
+
+ssh://[user@]host.xz[:port]/path/to/repo.git/
+```
+
+{% note %}
+
+**Note**: It's important to be aware that content can be excluded by the settings of any {% data variables.product.prodname_dotcom %} organization with a {% data variables.product.prodname_copilot_for_business %} subscription. Excluded files may be in a repository that is not owned by the organization in which the exclusion was defined. The excluded files may also be located in a Git-based repository that is not hosted on {% data variables.product.prodname_dotcom %}.
+
+{% endnote %}
+
+### Who is affected by a content exclusion setting?
 
 {% data reusables.copilot.content-exclusions-scope %}
 
-All exclusions, whether they are defined in repository settings or in organization settings, apply to all members of the {% ifversion fpt %}organization{% else %}enterprise{% endif %} who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription. {% ifversion ghec %}This means, for example, that if you are an admin of Organization A, that belongs to Enterprise X, you can set up an exclusion for files in any repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to all {% data variables.product.prodname_copilot_business_short %} users who belong to an organization in Enterprise X. However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository, or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.{% endif %}
+{% ifversion fpt %}All exclusions, whether they are defined in repository settings or in organization settings, apply to all members of the organization who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription.{% endif %}
+
+{% ifversion ghec %}
+You can't specify content exclusions in the settings for an enterprise. However, all content exclusions defined in organization or repository settings apply to all members of the enterprise who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription.
+
+This means, for example, that if you are an admin of organization that belongs to Enterprise X, you can set up an exclusion for files in any Git-based repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to anyone who gets their {% data variables.product.prodname_copilot_business_short %} license from any organization in Enterprise X.
+
+However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository, or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.
+{% endif %}
+
+### Data sent to {% data variables.product.prodname_dotcom %}
+
+After you configure content exclusion, the client (for example, the {% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_vscode_shortname %}) sends the current repository URL to the {% data variables.product.prodname_dotcom %} server so that the server can send the correct policy back to the client. URLs sent to the server in this way are not logged anywhere.
 
 ## Configuring content exclusions for your repository
 
@@ -209,31 +253,45 @@ If you are an organization owner, you can check any changes that have been made 
 
 When you change {% data variables.product.prodname_copilot_short %}'s content exclusions you can check that the setting blocks {% data variables.product.prodname_copilot_short %} from suggesting code in the specified files.
 
-1. In {% data variables.product.prodname_vscode_shortname %}, open a file that you expect to be affected by your content exclusions.
+To confirm that {% data variables.product.prodname_copilot_short %} is disabled for a file, open the file in the editor and start typing a line of code, such as a comment. Normally you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. If {% data variables.product.prodname_copilot_short %} is disabled by a content exclusion, code completion suggestions will not be offered, and the contents of the file will not be used to generate suggestions in other files.
+
+### Checking settings changes in your IDE
+
+If you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, the {% data variables.product.prodname_copilot_short %} icon indicates when {% data variables.product.prodname_copilot_short %} has been disabled by a content exclusion.
+
+1. Open a file that you expect to be affected by your content exclusions.
 
    If a {% data variables.product.prodname_copilot_short %} content exclusion applies to this file, the {% data variables.product.prodname_copilot_short %} icon in the status bar has a diagonal line through it.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} disabled icon in the {% data variables.product.prodname_vscode_shortname %} toolbar.](/assets/images/help/copilot/copilot-disabled-for-repo.png)
+1. Hover over this icon. A popup message tells you whether an organization or the parent repository disabled {% data variables.product.prodname_copilot_short %} for this file.
 
-1. Click the icon to see a dropdown menu with information about the content exclusions that apply to this file.
+   ![Screenshot of the {% data variables.product.prodname_copilot_short %} disabled popup in the {% data variables.product.prodname_vscode_shortname %} toolbar.](/assets/images/help/copilot/copilot-disabled-for-repo.png)
 
-   ![Screenshot of the dropdown menu showing why a file has been excluded from {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/copilot-disabled-for-this-file.png)
+{% note %}
 
-   {% note %}
+**Note**: In {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode_shortname %} you can display the log for the {% data variables.product.prodname_copilot_short %} extension to see details of content exclusions without having to hover over the {% data variables.product.prodname_copilot_short %} icon. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment?tool=vscode)."
 
-   **Note**: Clicking **Open logs** in this menu displays the log for {% data variables.product.prodname_copilot %} in which details of all excluded files you open are recorded.
+{% endnote %}
 
-   {% endnote %}
+### Propagating content exclusion changes to your IDE
 
-1. You can confirm that {% data variables.product.prodname_copilot_short %} is disabled for this file by starting to type a line of code, such as a comment. Normally you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. However, if this file is affected by a content exclusions setting you will not see any suggestions.
+If you are working in neovim, content exclusions are fetched from {% data variables.product.prodname_dotcom %} each time you open a file. However, if you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, you may have to wait up to 30 minutes to see the effect of a settings change. Alternatively, you can manually reload the content exclusion settings into your IDE.
 
-### Propagating content exclusion changes to {% data variables.product.prodname_vscode_shortname %}
+To reload content exclusions into {% data variables.product.prodname_vs %}, close and reopen the application.
 
-If you opened a file in {% data variables.product.prodname_vscode_shortname %} before you changed the content exclusions, you may need to reload the window in {% data variables.product.prodname_vscode_shortname %} to see the effect of the settings change.
+To reload content exclusions into {% data variables.product.prodname_vscode_shortname %}:
 
 1. Access the Command Palette. For example, by pressing <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 1. Type: `reload`.
 1. Select **Developer: Reload Window**.
+
+To reload content exclusions into your JetBrains IDE, either close and reopen the application, or log out of {% data variables.product.prodname_dotcom %} and then log back in, as follows.
+
+1. Click the {% data variables.product.prodname_copilot_short %} icon in the status bar and select **Logout from {% data variables.product.prodname_dotcom %}**.
+1. The {% data variables.product.prodname_copilot_short %} icon in the status bar will now have a diagonal line through it. Click it and select **Login to {% data variables.product.prodname_dotcom %}**.
+1. The "Sign in to {% data variables.product.prodname_dotcom %}" message is displayed showing a device code. Click **Copy and Open**.
+1. On the "Device Activation" page, paste in the device code and click **Continue**.
+1. On the next page, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
 
 ## Further reading
 

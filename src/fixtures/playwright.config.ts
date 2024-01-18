@@ -6,6 +6,15 @@ import { defineConfig, devices } from '@playwright/test'
  */
 // require('dotenv').config();
 
+const PLAYWRIGHT_START_SERVER_COMMAND =
+  process.env.PLAYWRIGHT_START_SERVER_COMMAND || 'npm run start-for-playwright'
+
+const RETRIES = process.env.PLAYWRIGHT_RETRIES
+  ? Number(process.env.PLAYWRIGHT_RETRIES)
+  : process.env.CI
+    ? 2
+    : 0
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -25,7 +34,7 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: RETRIES,
   /* Opt out of parallel tests on CI. */
   workers: process.env.PLAYWRIGHT_WORKERS
     ? JSON.parse(process.env.PLAYWRIGHT_WORKERS)
@@ -102,7 +111,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run start-for-playwright',
+    command: PLAYWRIGHT_START_SERVER_COMMAND,
     port: 4000,
   },
 })

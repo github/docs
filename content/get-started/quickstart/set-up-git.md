@@ -35,7 +35,6 @@ If you do not need to work with files locally, {% data variables.product.product
 - [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)
 - [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
 - [Managing files](/repositories/working-with-files/managing-files)
-- [Being social](/get-started/quickstart/be-social)
 
 ## Setting up Git
 

@@ -141,10 +141,10 @@ Notice that all of the examples use a short version number for the action (`v3`)
            {% ifversion dependency-review-action-licenses %}
            # You can only include one of these two options: `allow-licenses` and `deny-licenses`
            # ([String]). Only allow these licenses (optional)
-           # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+           # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
            allow-licenses: GPL-3.0, BSD-3-Clause, MIT
            # ([String]). Block the pull request on these licenses (optional)
-           # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+           # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
            deny-licenses: LGPL-2.0, BSD-2-Clause
            {% endif %}
            # ([String]). Skip these {% data variables.product.prodname_advisory_database %} IDs during detection (optional)
@@ -205,13 +205,13 @@ Notice that all of the examples use a short version number for the action (`v3`)
    {% ifversion dependency-review-action-licenses %}
      # You can only include one of these two options: `allow-licenses` and `deny-licenses`
      # ([String]). Only allow these licenses (optional)
-     # Possible values: Any `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+     # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
      allow-licenses:
        - GPL-3.0
        - BSD-3-Clause
        - MIT
       # ([String]). Block the pull request on these licenses (optional)
-      # Possible values: Any  `spdx_id` value(s) from https://docs.github.com/en/rest/licenses
+      # Possible values: Any SPDX-compliant license identifiers or expressions from https://spdx.org/licenses/
      deny-licenses:
        - LGPL-2.0
        - BSD-2-Clause

@@ -5,7 +5,6 @@ intro: 'You can centrally manage {% ifversion ghes or ghae %}accounts and {% end
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise
@@ -25,8 +24,6 @@ children:
   - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /disabling-saml-single-sign-on-for-your-enterprise
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
-  - /configuring-authentication-and-provisioning-for-your-enterprise-using-okta
-  - /mapping-okta-groups-to-teams
   - /enabling-encrypted-assertions
   - /updating-a-users-saml-nameid
   - /switching-your-saml-configuration-from-an-organization-to-an-enterprise-account

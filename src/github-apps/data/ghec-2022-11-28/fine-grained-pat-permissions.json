@@ -41,6 +41,24 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "list-enterprise-consumed-licenses",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/consumed-licenses",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-license-sync-status",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/license-sync-status",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "get-github-actions-billing-for-an-enterprise",
         "subcategory": "billing",
         "verb": "get",
@@ -444,6 +462,15 @@
         "requestPath": "/orgs/{org}/interaction-limits",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
+        "subcategory": "custom-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/repository-fine-grained-permissions",
+        "additional-permissions": [],
+        "access": "read"
       },
       {
         "category": "orgs",
@@ -855,6 +882,15 @@
         "requestPath": "/orgs/{org}/fine_grained_permissions",
         "additional-permissions": [],
         "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
+        "subcategory": "custom-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/repository-fine-grained-permissions",
+        "additional-permissions": [],
+        "access": "read"
       }
     ]
   },
@@ -901,6 +937,42 @@
         "subcategory": "copilot-business",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-users-from-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-business-seat-assignment-details-for-a-user",
+        "subcategory": "copilot-business",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/members/{username}/copilot",
         "additional-permissions": [],
         "access": "write"
       }
@@ -2237,6 +2309,17 @@
           "metadata"
         ],
         "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "metadata"
+        ],
+        "access": "write"
       }
     ]
   },
@@ -2754,6 +2837,15 @@
         "subcategory": "protection-rules",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "deployments",
+        "slug": "get-a-custom-deployment-protection-rule",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
         "additional-permissions": [],
         "access": "read"
       }
@@ -3329,6 +3421,15 @@
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-a-code-scanning-default-setup-configuration",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup",
+        "additional-permissions": [],
+        "access": "read"
       },
       {
         "category": "code-scanning",
@@ -4933,6 +5034,21 @@
       }
     ]
   },
+  "repository_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Repository permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "additional-permissions": [],
+        "access": "write"
+      }
+    ]
+  },
   "vulnerability_alerts": {
     "title": "Dependabot alerts",
     "displayTitle": "Repository permissions for \"Dependabot alerts\"",
@@ -5799,6 +5915,17 @@
         "slug": "add-selected-repository-to-an-organization-variable",
         "subcategory": "variables",
         "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "organization_actions_variables"
+        ],
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
         "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
         "additional-permissions": [
           "organization_actions_variables"

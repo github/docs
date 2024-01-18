@@ -18,7 +18,7 @@ Go modules     | `gomod`          | v1               | {% octicon "check" aria-l
 [Gradle](#gradle)         | `gradle`         | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [Maven](#maven)       | `maven`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 npm            | `npm`            | v6, v7, v8, v9   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-[NuGet](#nuget-cli)          | `nuget`          | {% ifversion dependabot-updates-enhanced-nuget-support %}<= 6.7.0{% else %}<= 4.8{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+[NuGet](#nuget-cli)          | `nuget`          | {% ifversion dependabot-updates-v680-nuget-support %}<=6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% ifversion dependabot-PEP621-support %}[pip](#pip-and-pip-compile){% else %}pip{% endif %} | `pip`            | v21.1.2          | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 pipenv         | `pip`            | <= 2021-05-29    | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% ifversion dependabot-PEP621-support %}[pip-compile](#pip-and-pip-compile){% else %}pip-compile{% endif %}   | `pip`            | 6.1.0            | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -88,7 +88,7 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 
 #### NuGet CLI
 
-{% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version {% ifversion dependabot-updates-enhanced-nuget-support %}6.7.0{% else %}4.8{% endif %}.
+{% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version {% ifversion dependabot-updates-v680-nuget-support %}6.8.0{% elsif ghes = 3.12 %}6.7.0{% else %}4.8{% endif %}.
 
 {% ifversion dependabot-PEP621-support %}
 

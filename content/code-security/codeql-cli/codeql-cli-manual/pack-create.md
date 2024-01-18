@@ -32,8 +32,7 @@ codeql pack create [--output=<output>] [--threads=<num>] [--ram=<MB>] <options>.
 
 ## Description
 
-\[Experimental] \[Plumbing] Builds the contents of a QL package from
-source code.
+\[Plumbing] Builds the contents of a QL package from source code.
 
 This command builds the complete contents of a QL package, including the
 original source code, library dependencies, compiled queries, and

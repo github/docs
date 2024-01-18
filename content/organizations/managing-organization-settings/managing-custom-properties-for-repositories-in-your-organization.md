@@ -21,6 +21,13 @@ Custom properties allow you to decorate your repositories with information such 
 
 You can use repository properties to determine which repositories to target with a ruleset. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#targeting-repositories-by-properties-in-your-organization)."
 
+## Allowed characters
+
+Custom property names and values may only contain certain characters:
+
+- Names: `a-z`, `A-Z`, `0-9`, `_`, `-`, `$`, `#`.
+- Values: All printable ASCII characters except `"`.
+
 ## Adding custom properties
 
 You can add custom properties to your organization and set values for those properties for repositories in your organization.
