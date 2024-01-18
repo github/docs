@@ -20,11 +20,13 @@ layout: product-landing
 versions:
   feature: copilot
 children:
+  - /about-github-copilot
   - /quickstart
-  - /overview-of-github-copilot
   - /using-github-copilot
-  - /managing-copilot-business
+  - /copilot-individual
+  - /copilot-business
   - /github-copilot-enterprise
+  - /managing-github-copilot-in-your-organisation
   - /github-copilot-chat
   - /github-copilot-in-the-cli
   - /configuring-github-copilot

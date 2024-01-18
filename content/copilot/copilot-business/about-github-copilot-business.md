@@ -4,6 +4,8 @@ intro: 'With {% data variables.product.prodname_copilot_for_business %} you can 
 product: '{% data reusables.gated-features.copilot-billing %}'
 redirect_from:
   - /copilot/overview-of-github-copilot/about-github-copilot-for-business
+  - /copilot/overview-of-github-copilot/about-github-copilot-business
+
 versions:
   feature: copilot
 topics:
@@ -31,7 +33,7 @@ With {% data variables.product.prodname_copilot_business_short %}, you can manag
 
 To use {% data variables.product.prodname_copilot_business_short %}, you need to set up a subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise)."
 
-After setting up a subscription, you can enable {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. For more information, see "[AUTOTITLE](/copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-business)."
+After setting up a subscription, you can enable {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. For more information, see "[AUTOTITLE](/copilot/copilot-business/enabling-and-setting-up-github-copilot-business)."
 
 ## About billing for {% data variables.product.prodname_copilot_business_short %}
 

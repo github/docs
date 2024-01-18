@@ -2,6 +2,8 @@
 title: About GitHub Copilot Enterprise
 shortTitle: About Copilot Enterprise
 intro: 'Learn about GitHub Copilot Enterprise and the features available with it.'
+redirect_from:
+  - /copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise
 versions:
   feature: copilot
 topics:
