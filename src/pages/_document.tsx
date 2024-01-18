@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html
-        // These values are always the SSR rendereding defaults.
+        // These values are always the SSR rendering defaults.
         // The will get updated later in a useEffect hook, in the client,
         // in the MyApp component.
         data-color-mode={defaultCSSTheme.colorMode}

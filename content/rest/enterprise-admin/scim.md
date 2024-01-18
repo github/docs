@@ -118,7 +118,7 @@ To authenticate API requests, the person who configures SCIM on the IdP must use
 
 The {% data variables.product.product_name %} instance links each user who authenticates successfully with SAML SSO to a SCIM identity. To link the identities successfully, the SAML IdP and the SCIM integration must use matching SAML `NameID` and SCIM `userName` values for each user.
 
-{% ifversion ghes > 3.7 %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** If the {% data variables.product.product_name %} uses Azure AD as a SAML IdP, {% data variables.product.product_name %} will also check the SCIM `externalId` claim and SAML `http://schemas.microsoft.com/identity/claims/objectidentifier` claim to match users first, instead of using `NameID` and `userName`.

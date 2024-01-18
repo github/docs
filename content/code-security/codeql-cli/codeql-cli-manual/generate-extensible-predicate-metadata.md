@@ -29,8 +29,8 @@ codeql generate extensible-predicate-metadata <options>... -- <pack-root-dir>
 
 ## Description
 
-\[Experimental] \[Deep plumbing] Report the extensible predicates
-found in the given pack.
+\[Deep plumbing] Report the extensible predicates found in the given
+pack.
 
 ## Options
 

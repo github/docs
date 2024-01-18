@@ -144,7 +144,7 @@ export function getSearchFromRequest(req, force = {}) {
     }
     if (!multiple && Array.isArray(value)) {
       validationErrors.push({
-        error: format('Can not have multiple values (%O) for key %O', value, key),
+        error: format('Cannot have multiple values (%O) for key %O', value, key),
         key,
       })
     }

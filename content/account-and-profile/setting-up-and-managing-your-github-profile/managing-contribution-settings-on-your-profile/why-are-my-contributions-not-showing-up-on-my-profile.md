@@ -68,7 +68,7 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/quickstart/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
+The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/getting-started-with-git/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
 If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
@@ -98,9 +98,7 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 
 ### Commit was made in a fork
 
-Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
-- [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the parent repository.
-- To detach the fork and turn it into a standalone repository on {% data variables.location.product_location %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, state whether the forks should move with your repository into a new network or remain in the current network. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
+Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
 
 ## Further reading
 

@@ -221,17 +221,7 @@ You can set a total cache storage size for your repository up to the maximum siz
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-{% data reusables.actions.change-cache-size-limit  %}
-
-{% elsif ghes < 3.8 %}
-
-The repository settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
-
-- To view the current cache storage limit for a repository, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)."
-- To change the cache storage limit for a repository, see "[AUTOTITLE](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)."
-
-{% data reusables.actions.cache-no-org-policy %}
+{% data reusables.actions.change-cache-size-limit %}
 
 {% endif %}
-
 {% endif %}

@@ -6,6 +6,7 @@ name: Sync search - PR
 # **Who does it impact**: Docs engineering
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'src/search/**'
@@ -103,7 +104,7 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./src/search/scripts/index-elasticsearch.js /tmp/records \
+          npm run index-elasticsearch -- /tmp/records \
             --language en \
             --version dotcom
 

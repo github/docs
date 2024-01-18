@@ -58,7 +58,7 @@ describe('dynamic assets', () => {
     expect(height).toBe(448)
   })
 
-  test("can't set set max-width indicator on the PNG that is already on disk", async () => {
+  test("can't set max-width indicator on the PNG that is already on disk", async () => {
     const res = await get(`/assets/images/mw-1000/_fixtures/screenshot.png`)
     expect(res.statusCode).toBe(404)
   })

@@ -62,7 +62,7 @@ router.get(
       res.status(200).json({ meta, hits })
     } catch (error) {
       // If getSearchResult() throws an error that might be 404 inside
-      // elasticsearch, if we don't capture that here, it will propgate
+      // elasticsearch, if we don't capture that here, it will propagate
       // to the next middleware.
       await handleGetSearchResultsError(req, res, error, options)
     }
@@ -79,7 +79,7 @@ async function handleGetSearchResultsError(req, res, error, options) {
     const reports = FailBot.report(error, Object.assign({ url: req.url }, options))
     // It might be `undefined` if no backends are configured which
     // is likely when using production NODE_ENV on your laptop
-    // where you might not have a HATSTACK_URL configured.
+    // where you might not have a HAYSTACK_URL configured.
     if (reports) await Promise.all(reports)
   }
   res.status(500).json({ error: error.message })

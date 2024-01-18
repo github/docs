@@ -1,0 +1,1 @@
+1. On any page on {% data variables.product.prodname_dotcom_the_website %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the top right of the page.

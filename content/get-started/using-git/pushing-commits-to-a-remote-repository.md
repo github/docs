@@ -115,7 +115,7 @@ For more information on working with forks, see "[AUTOTITLE](/pull-requests/coll
 
 - [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/ch5-2.html)
 - [`git remote` main page](https://git-scm.com/docs/git-remote.html)
-- "[AUTOTITLE](/get-started/quickstart/git-cheatsheet)"
+- "[AUTOTITLE](/get-started/getting-started-with-git/git-cheatsheet)"
 - "[AUTOTITLE](/get-started/getting-started-with-git/git-workflows)"
 - "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"{% endif %}

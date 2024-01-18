@@ -37,7 +37,7 @@ const translatableFrontmatterKeys = Object.entries(frontmatterSchema.schema.prop
  * first since it's the most expensive work. This gets us a nested object with pages attached that we can use
  * as the basis for the siteTree after we do some versioning. We can also use it to derive the pageList.
  */
-export async function loadUnversionedTree(languagesOnly = null) {
+export async function loadUnversionedTree(languagesOnly = []) {
   if (languagesOnly && !Array.isArray(languagesOnly)) {
     throw new Error("'languagesOnly' has to be an array")
   }
@@ -47,7 +47,7 @@ export async function loadUnversionedTree(languagesOnly = null) {
 
   const languagesValues = Object.entries(languages)
     .filter(([language]) => {
-      return !languagesOnly || languagesOnly.includes(language)
+      return !languagesOnly.length || languagesOnly.includes(language)
     })
     .map(([, data]) => {
       return data
@@ -295,7 +295,7 @@ export async function versionPages(obj, version, langCode) {
 }
 
 // Derive a flat array of Page objects in all languages.
-export async function loadPageList(unversionedTree, languagesOnly = null) {
+export async function loadPageList(unversionedTree, languagesOnly = []) {
   if (languagesOnly && !Array.isArray(languagesOnly)) {
     throw new Error("'languagesOnly' has to be an array")
   }
@@ -303,7 +303,7 @@ export async function loadPageList(unversionedTree, languagesOnly = null) {
   const pageList = []
 
   await Promise.all(
-    (languagesOnly || Object.keys(languages)).map(async (langCode) => {
+    ((languagesOnly.length && languagesOnly) || Object.keys(languages)).map(async (langCode) => {
       await addToCollection(rawTree[langCode], pageList)
     }),
   )
@@ -335,7 +335,7 @@ export function createMapFromArray(pageList) {
   return pageMap
 }
 
-export async function loadPageMap(pageList, languagesOnly = null) {
+export async function loadPageMap(pageList, languagesOnly = []) {
   const pages = pageList || (await loadPageList(languagesOnly))
   const pageMap = createMapFromArray(pages)
   return pageMap

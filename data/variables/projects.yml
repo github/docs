@@ -4,13 +4,13 @@ project_v2: 'project'
 project_v2_caps: 'Project'
 
 projects_v1_board: >-
-  {% ifversion ghes < 3.8 or ghae %}project board{% else %}classic project{% endif %}
+  classic project
 projects_v1_board_caps: >-
-  {% ifversion ghes < 3.8 or ghae %}Project board{% else %}Classic project{% endif %}
+  Classic project
 projects_v1_boards: >-
-  {% ifversion ghes < 3.8 or ghae %}project boards{% else %}classic projects{% endif %}
+  classic projects
 projects_v1_boards_caps: >-
-  {% ifversion ghes < 3.8 or ghae %}Project boards{% else %}Classic projects{% endif %}
+  Classic projects
 
 command-palette-shortcut: '<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux)'
 
