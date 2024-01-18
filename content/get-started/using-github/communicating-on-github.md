@@ -7,6 +7,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/about-conversations-on-github
   - /github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github
   - /github/getting-started-with-github/quickstart/communicating-on-github
+  - /get-started/quickstart/communicating-on-github
 versions:
   fpt: '*'
   ghes: '*'

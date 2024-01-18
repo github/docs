@@ -88,7 +88,7 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 ## Making decisions as a team
 
-You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/quickstart/communicating-on-github#which-discussion-tool-should-i-use)."
+You can use issues and discussions to communicate and make decisions as a team on planned improvements or priorities for your project. Issues are useful when you create them for discussion of specific details, such as bug or performance reports, planning for the next quarter, or design for a new initiative. Discussions are useful for open-ended brainstorming or feedback, outside the codebase and across repositories. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github#which-discussion-tool-should-i-use)."
 
 As a team, you can also communicate updates on day-to-day tasks within issues so that everyone knows the status of work. For example, you can create an issue for a large feature that multiple people are working on, and each team member can add updates with their status or open questions in that issue.
 

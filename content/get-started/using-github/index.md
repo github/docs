@@ -10,11 +10,12 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /github-flow
   - /connecting-to-github
+  - /communicating-on-github
   - /exploring-early-access-releases-with-feature-preview
   - /supported-browsers
   - /github-mobile
   - /allowing-access-to-githubs-services-from-a-restricted-network
   - /troubleshooting-connectivity-problems
 ---
-
