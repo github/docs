@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
@@ -18,7 +17,7 @@ shortTitle: Missing contributions
 
 ## About your contribution graph
 
-Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.location.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
+Your profile contributions graph is a record of contributions you've made to repositories on {% data variables.location.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
 
 If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
 
@@ -70,7 +69,7 @@ Subject: [PATCH] updated index for better welcome message
 
 The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/getting-started-with-git/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
-If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, {% ifversion ghae %}change the email address used to author commits in Git. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
+If the email address used for the commit is not connected to your account on {% data variables.location.product_location %}, you must [add the email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to your account on {% data variables.location.product_location %}. Your contributions graph will be rebuilt automatically when you add the new address.
 
 {% ifversion fpt or ghec %}
 {% note %}

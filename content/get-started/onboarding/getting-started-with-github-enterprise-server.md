@@ -30,17 +30,17 @@ To get started with {% data variables.product.product_name %}, you will need to 
 
 ### 3. Using the {% data variables.enterprise.management_console %}
 
-You will use the {% data variables.enterprise.management_console %} to walk through the initial setup process when first launching {% data variables.location.product_location %}. You can also use the  {% data variables.enterprise.management_console %} to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."
+You will use the {% data variables.enterprise.management_console %} to walk through the initial setup process when first launching {% data variables.location.product_location %}. You can also use the  {% data variables.enterprise.management_console %} to manage instance settings such as the license, domain, authentication, and TLS. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui)."
 
 ### 4. Configuring {% data variables.location.product_location %}
 
-In addition to the {% data variables.enterprise.management_console %}, you can use the site admin dashboard and the administrative shell (SSH) to manage {% data variables.location.product_location %}. For example, you can configure applications and rate limits, view reports, use command-line utilities. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."
+In addition to the {% data variables.enterprise.management_console %}, you can use the site admin dashboard and the administrative shell (SSH) to manage {% data variables.location.product_location %}. For example, you can configure applications and rate limits, view reports, use command-line utilities. For more information, see "[AUTOTITLE](/admin/configuration)."
 
 You can use the default network settings used by {% data variables.product.product_name %} via the dynamic host configuration protocol (DHCP), or you can also configure the network settings using the virtual machine console. You can also configure a proxy server or firewall rules. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings)."
 
 ### 5. Configuring high availability
 
-You can configure {% data variables.location.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability)."
+You can configure {% data variables.location.product_location %} for high availability to minimize the impact of hardware failures and network outages. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-high-availability)."
 
 ### 6. Setting up a staging instance
 
@@ -48,7 +48,7 @@ You can set up a staging instance to test modifications, plan for disaster recov
 
 ### 7. Designating backups and disaster recovery
 
-To protect your production data, you can configure automated backups of {% data variables.location.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
+To protect your production data, you can configure automated backups of {% data variables.location.product_location %} with {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see "[AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance)."
 
 ### 8. Managing billing for your enterprise
 
@@ -88,9 +88,9 @@ To increase the security of {% data variables.location.product_location %}, you 
 
 ### 1. Authenticating enterprise members
 
-You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an external authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+You can use {% data variables.product.product_name %}'s built-in authentication method, or you can choose between an external authentication provider, such as CAS, LDAP, or SAML, to integrate your existing accounts and centrally manage user access to {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management)."
 
-You can also require two-factor authentication for each of your organizations. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)."
+You can also require two-factor authentication for each of your organizations. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)."
 
 ### 2. Staying in compliance
 
@@ -116,7 +116,7 @@ You can customize and automate work in organizations in your enterprise with {% 
 
 ### 1. Building {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}
 
-You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, such as {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_apps %}, for use in organizations in your enterprise to complement and extend your workflows. For more information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)."
 
 ### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 
@@ -153,7 +153,7 @@ Your enterprise members can learn more about Git and {% data variables.product.p
 
 ### 1. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
 
-You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
+You can read documentation that reflects the features available with {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs)."
 
 {% data reusables.enterprise.best-practices %}
 
