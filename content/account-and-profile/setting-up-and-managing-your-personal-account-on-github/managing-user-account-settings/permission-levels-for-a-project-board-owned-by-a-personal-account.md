@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -29,7 +28,7 @@ There are three levels of permissions for project board collaborators:
 The project board owner and collaborators with admin access have full control of the project board. In addition to all the permissions allowed by project board collaborators, a project board owner and collaborator with admin access can:
 
 - [Manage, view, and add collaborators](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)
-- [Configure a project board as {% ifversion ghae %}internal{% else %}public{% endif %} or private](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)
+- [Configure a project board as public or private](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)
 - [Delete a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)
 - [Close a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
 - [Reopen a closed project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)
@@ -58,7 +57,7 @@ Collaborators with write access to a user-owned project board can:
 
 ## Project board visibility
 
-You can change the project board's visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. By default, user-owned project boards are private. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
+You can change the project board's visibility from private to public and back again. By default, user-owned project boards are private. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
 
 ## Further reading
 
