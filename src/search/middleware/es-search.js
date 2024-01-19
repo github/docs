@@ -1,6 +1,9 @@
 import { Client } from '@elastic/elasticsearch'
 
-export const POSSIBLE_HIGHLIGHT_FIELDS = ['title', 'content', 'headings']
+export const POSSIBLE_HIGHLIGHT_FIELDS = ['title', 'content']
+// This needs to match what we *use* in the `<SearchResults>` component.
+// For example, if we don't display "headings" we shouldn't request
+// highlights for it either.
 export const DEFAULT_HIGHLIGHT_FIELDS = ['title', 'content']
 
 const ELASTICSEARCH_URL = process.env.ELASTICSEARCH_URL
@@ -87,7 +90,11 @@ export async function getSearchResults({
     matchQuery.bool.filter = topicsFilter
   }
 
-  const highlightFields = highlights || DEFAULT_HIGHLIGHT_FIELDS
+  const highlightFields = Array.from(highlights || DEFAULT_HIGHLIGHT_FIELDS)
+  // These acts as an alias convenience
+  if (highlightFields.includes('content')) {
+    highlightFields.push('content_explicit')
+  }
   const highlight = getHighlightConfiguration(query, highlightFields)
 
   const searchQuery = {
@@ -182,7 +189,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
   const BOOST_HEADINGS = 3.0
   const BOOST_CONTENT = 1.0
   const BOOST_AND = 2.5
-  const BOOST_EXPLICIT = 3.5
+  const BOOST_EXPLICIT = 6.5
   // Number doesn't matter so much but just make sure it's
   // boosted low. Because we only really want this to come into
   // play if nothing else matches. E.g. a search for `AcIons`
@@ -419,9 +426,6 @@ function getHighlightConfiguration(query, highlights) {
       number_of_fragments: 1,
     }
   }
-  if (highlights.includes('headings')) {
-    fields.headings = { fragment_size: 150, number_of_fragments: 2 }
-  }
   if (highlights.includes('content')) {
     // The 'no_match_size' is so we can display *something* for the
     // preview if there was no highlight match at all within the content.
@@ -429,7 +433,7 @@ function getHighlightConfiguration(query, highlights) {
       // Fast Vector Highlighter
       // Using this requires that you first index these fields
       // with {term_vector: 'with_positions_offsets'}
-      type: 'fvh', //
+      type: 'fvh',
       fragment_size: 150,
       number_of_fragments: 1,
       no_match_size: 150,
@@ -437,6 +441,23 @@ function getHighlightConfiguration(query, highlights) {
       highlight_query: {
         match_phrase_prefix: {
           content: {
+            query,
+          },
+        },
+      },
+    }
+    fields.content_explicit = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh',
+      fragment_size: 150,
+      number_of_fragments: 1,
+      no_match_size: 0,
+
+      highlight_query: {
+        match_phrase_prefix: {
+          content_explicit: {
             query,
           },
         },

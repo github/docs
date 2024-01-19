@@ -4,7 +4,6 @@ shortTitle: About upgrades
 intro: '{% ifversion ghae %}Your enterprise on {% data variables.product.product_name %} is updated with the latest features and bug fixes on a regular basis by {% data variables.product.company_short %}.{% else %}You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.{% endif %}'
 versions:
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Enterprise

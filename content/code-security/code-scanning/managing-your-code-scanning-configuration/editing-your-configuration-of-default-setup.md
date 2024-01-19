@@ -54,6 +54,16 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. To update your configuration of default setup, click **Enable {% data variables.product.prodname_codeql %}**.
 {% endif %}
 
+## Defining the alert severities that cause a check failure for a pull request
+
+{% data reusables.code-scanning.pull-request-checks %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %} {% ifversion fpt or ghec %}
+1. Under "{% data variables.product.prodname_code_scanning_caps %}", in the "Protection rules" section, use the drop-down menu to define which alerts should cause a check failure. Choose one level for alerts of type "Security" and one level for all other alerts.{% else %}
+1. Under "{% data variables.product.prodname_code_scanning_caps %}", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.{% endif %}
+
 {% ifversion codeql-threat-models-java %}
 
 ## Including local sources of tainted data in default setup

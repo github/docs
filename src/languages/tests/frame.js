@@ -86,11 +86,11 @@ describe('release notes', () => {
   // Return an array of tuples for each language and each first version
   // per plan. E.g. ...
   //   [
+  //      ['ja', 'enterprise-server@3.9'],
+  //      ['pt', 'enterprise-server@3.9'],
+  //      ...
   //      ['ja', 'enterprise-server@3.8'],
   //      ['pt', 'enterprise-server@3.8'],
-  //      ...
-  //      ['ja', 'github-ae@latest'],
-  //      ['pt', 'github-ae@latest'],
   //      ...
   //
   // This is useful because if we test every single individual version of
@@ -99,6 +99,14 @@ describe('release notes', () => {
     const combinations = []
     const prefixes = []
     for (const version of page.applicableVersions) {
+      // Like a chicken-and-egg problem, we can't entirely remove
+      // github-ae from the list of versions because first we
+      // have to stop depending on it and clean up all front matter
+      // and all Liquid. But we also shouldn't depend on testing it
+      // any more since it always redirects to enterprise-cloud.
+      if (version === 'github-ae@latest') {
+        continue
+      }
       const prefix = version.split('@')[0]
       if (prefixes.includes(prefix)) {
         continue

@@ -41,6 +41,24 @@
       },
       {
         "category": "enterprise-admin",
+        "slug": "list-enterprise-consumed-licenses",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/consumed-licenses",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-license-sync-status",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/license-sync-status",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
         "slug": "get-github-actions-billing-for-an-enterprise",
         "subcategory": "billing",
         "verb": "get",
@@ -5013,6 +5031,21 @@
         "requestPath": "/repos/{owner}/{repo}/zipball/{ref}",
         "additional-permissions": [],
         "access": "read"
+      }
+    ]
+  },
+  "repository_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Repository permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "additional-permissions": [],
+        "access": "write"
       }
     ]
   },

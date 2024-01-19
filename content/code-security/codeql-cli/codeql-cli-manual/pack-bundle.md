@@ -30,7 +30,7 @@ codeql pack bundle [--output=<file.tgz>] [--threads=<num>] [--ram=<MB>] <options
 
 ## Description
 
-\[Experimental] \[Plumbing] Bundle a QL library pack.
+\[Plumbing] Bundle a QL library pack.
 
 This command bundles a QL library pack from the contents of the current
 directory.

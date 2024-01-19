@@ -35979,12 +35979,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -45361,7 +45371,7 @@
             },
             {
               "name": "name",
-              "description": "<p>A list of names to filter the assets by.</p>",
+              "description": "<p>A name to filter the assets by.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -51073,12 +51083,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -61202,12 +61222,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -63491,12 +63521,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -64241,12 +64281,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]
@@ -67883,12 +67933,22 @@
             },
             {
               "name": "privacy",
-              "description": "<p>If non-null, filters repositories according to privacy.</p>",
+              "description": "<p>If non-null, filters repositories according to privacy. Internal\nrepositories are considered private; consider using the visibility argument\nif only internal repositories are needed. Cannot be combined with the\nvisibility argument.</p>",
               "type": {
                 "name": "RepositoryPrivacy",
                 "id": "repositoryprivacy",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#repositoryprivacy"
+              }
+            },
+            {
+              "name": "visibility",
+              "description": "<p>If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.</p>",
+              "type": {
+                "name": "RepositoryVisibility",
+                "id": "repositoryvisibility",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvisibility"
               }
             }
           ]

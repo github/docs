@@ -24,7 +24,7 @@ If there's a particular topic that interests you, visit `github.com/topics/<topi
 
 If you've been active on {% data variables.location.product_location %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore).
 
-Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)."
+Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard)."
 
 {% data reusables.support.ask-and-answer-forum %}
 

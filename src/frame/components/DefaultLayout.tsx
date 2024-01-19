@@ -17,8 +17,8 @@ const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false')
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
+  const mainContext = useMainContext()
   const {
-    page,
     error,
     isHomepageVersion,
     currentPathWithoutLanguage,
@@ -27,10 +27,10 @@ export const DefaultLayout = (props: Props) => {
     relativePath,
     fullUrl,
     status,
-  } = useMainContext()
+  } = mainContext
+  const page = mainContext.page!
   const { t } = useTranslation(['meta', 'scroll_button'])
   const router = useRouter()
-  const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
   const { languages } = useLanguages()
 
   // This is only true when we do search indexing which renders every page
@@ -54,6 +54,8 @@ export const DefaultLayout = (props: Props) => {
       </div>
     )
   }
+
+  const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
   return (
     <>

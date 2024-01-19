@@ -376,7 +376,6 @@ describe('Page class', () => {
       // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<3.0`.
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
-      expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)
       expect(page.applicableVersions.includes('feature')).toBe(false)
       expect(page.applicableVersions.includes('placeholder')).toBe(false)
     })

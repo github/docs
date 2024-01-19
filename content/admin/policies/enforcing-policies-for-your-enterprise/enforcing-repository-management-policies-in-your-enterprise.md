@@ -287,26 +287,7 @@ If you have [enabled private mode](/admin/configuration/configuring-your-enterpr
 
 Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.product.product_name %}) will have read access to the repository without authentication.
 
-Anonymous Git read access is disabled by default.{% ifversion ghes = 3.7 %} When you upgrade to {% data variables.product.product_name %} 3.6 or later, anonymous Git read access is automatically disabled at the application level, and `git://` connections on port 9418 will return the following error.
-
-```text
-The unauthenticated git protocol on port 9418 is no longer supported.
-```
-
-{% ifversion ghes %}
-
-If you wish to support the unauthenticated Git protocol in your environment, you must manually re-enable the feature. Run the following commands after your upgrade:
-
-```shell
-sudo ghe-config app.gitauth.git-protocol true
-sudo ghe-config-apply
-```
-
-{% endif %}
-
-Anonymous Git read access will be entirely removed in a future release of {% data variables.product.prodname_ghe_server %}. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. For more information about this change, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
-
-{% endif %}
+Anonymous Git read access is disabled by default.
 
 If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on your enterprise by locking the repository's access settings. After you lock a repository's Git read access setting, only a site administrator can change the setting.
 

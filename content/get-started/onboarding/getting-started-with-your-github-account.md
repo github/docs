@@ -4,7 +4,6 @@ intro: 'With a personal account on {% data variables.product.prodname_dotcom %},
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -73,11 +72,11 @@ To best use {% data variables.product.product_name %}, you'll need to set up Git
 
 ### 1. Learning Git
 
-{% data variables.product.prodname_dotcom %}'s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update using Git. For more information about Git, see the "[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/quickstart/github-flow)."
+{% data variables.product.prodname_dotcom %}'s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update using Git. For more information about Git, see the "[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/using-github/github-flow)."
 
 ### 2. Setting up Git
 
-If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
 If you prefer to use a visual interface, you can download and use {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} comes packaged with Git, so there is no need to install Git separately. For more information, see "[AUTOTITLE](/desktop/overview/getting-started-with-github-desktop)."
 
@@ -133,7 +132,7 @@ If you have existing projects you'd like to move over to {% data variables.produ
 
 You can collaborate on your project with others using your repository's issues, pull requests, and project boards. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
 
-You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)."
+You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository)."
 
 ### 4. Managing repository settings
 

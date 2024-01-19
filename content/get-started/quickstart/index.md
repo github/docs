@@ -12,16 +12,13 @@ topics:
   - Notifications
   - Accounts
 children:
+  - /about-github-and-git
   - /creating-an-account-on-github
   - /hello-world
   - /finding-inspiration-on-github
-  - /set-up-git
-  - /github-flow
-  - /communicating-on-github
-  - /github-glossary
-  - /git-cheatsheet
+  - /downloading-files-from-github
   - /git-and-github-learning-resources
+  - /github-glossary
 redirect_from:
   - /github/getting-started-with-github/quickstart
 ---
-

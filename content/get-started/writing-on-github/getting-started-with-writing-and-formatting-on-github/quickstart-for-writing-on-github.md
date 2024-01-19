@@ -57,7 +57,7 @@ If you already have a profile README, you can edit it from your profile page.
 
 You can include images in your communication on {% data variables.product.prodname_dotcom %}. Here, you'll add a responsive image, such as a banner, to the top of your {% ifversion ghae %}gist{% else %}profile README{% endif %}.
 
-By using the HTML `<picture>` element with the `prefers-color-scheme` media feature, you can add an image that changes depending on whether a visitor is using light or dark mode. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+By using the HTML `<picture>` element with the `prefers-color-scheme` media feature, you can add an image that changes depending on whether a visitor is using light or dark mode. For more information, see "[AUTOTITLE](/get-started/accessibility/managing-your-theme-settings)."
 
 1. Copy and paste the following markup into your {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} file.
 
@@ -245,4 +245,4 @@ Committing directly to the `main` branch will make your changes visible to any v
 ## Next steps
 
 - Continue to learn about advanced formatting features. For example, see {% ifversion fpt or ghec %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)" and {% endif %}"[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
-- Use your new skills as you communicate across GitHub, in issues, pull requests, and discussions. For more information, see "[AUTOTITLE](/get-started/quickstart/communicating-on-github)."
+- Use your new skills as you communicate across GitHub, in issues, pull requests, and discussions. For more information, see "[AUTOTITLE](/get-started/using-github/communicating-on-github)."

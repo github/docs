@@ -51,6 +51,7 @@
 | [Insecure Bean Validation](https://codeql.github.com/codeql-query-help/java/java-insecure-bean-validation/) | 094 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Insecure JavaMail SSL Configuration](https://codeql.github.com/codeql-query-help/java/java-insecure-smtp-ssl/) | 297 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Insecure LDAP authentication](https://codeql.github.com/codeql-query-help/java/java-insecure-ldap-auth/) | 522, 319 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Insecure randomness](https://codeql.github.com/codeql-query-help/java/java-insecure-randomness/) | 330, 338 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Insertion of sensitive information into log files](https://codeql.github.com/codeql-query-help/java/java-sensitive-log/) | 532 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Intent URI permission manipulation](https://codeql.github.com/codeql-query-help/java/java-android-intent-uri-permission-manipulation/) | 266, 926 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [JNDI lookup with user-controlled name](https://codeql.github.com/codeql-query-help/java/java-jndi-injection/) | 074 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

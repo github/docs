@@ -32,8 +32,8 @@ codeql pack packlist <options>... -- <dir>
 
 ## Description
 
-\[Experimental] \[Plumbing] Compute the set of files to be included in
-a QL query pack or library pack.
+\[Plumbing] Compute the set of files to be included in a QL query pack
+or library pack.
 
 This command determines the set of files to be included in the pack
 based on the patterns specified in any `.gitignore` files present in the

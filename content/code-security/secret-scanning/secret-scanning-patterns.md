@@ -155,7 +155,7 @@ Push protection and validity checks are not supported for non-provider patterns.
 {% endif %}
 
 <!-- GHES 3.5 to GHES 3.8 table -->
-{% ifversion ghes = 3.7 or ghes = 3.8 %}
+{% ifversion ghes = 3.8 %}
 
 | Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
 |----|:----|:----:|:----:|
@@ -172,28 +172,6 @@ Push protection and validity checks are not supported for non-provider patterns.
 |----|:----|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
-{% endif %}
-
-<!-- GHAE < 3.5 table -->
-{% ifversion ghae < 3.5 %}
-
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert |
-|----|:----|:----:|
-{%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
-{% endif %}
-
-<!-- GHAE > 3.5+ table -->
-{% ifversion ghae = 3.5 or ghae > 3.5 %}
-
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
-|----|:----|:----:|:----:|
-{%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}

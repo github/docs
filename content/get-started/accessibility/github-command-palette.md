@@ -146,7 +146,7 @@ These commands are available from all scopes.
 |`New organization`|Create a new organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
 |`New project`|Create a new project board. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."  |
 |`New repository`|Create a new repository from scratch. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |
-|`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)." |
+|`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[AUTOTITLE](/get-started/accessibility/managing-your-theme-settings)." |
 
 ### Organization commands
 

@@ -254,7 +254,29 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
 
-Use H2 for headers and H3 for subheaders. If an article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be text content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
+- **Use:**
+
+  ```markdown
+  ## HEADER (H2)
+  TEXT
+
+  ### SUBHEADER (H3)
+  TEXT
+
+  #### SUBHEADER (H4)
+  TEXT
+  ```
+
+- **Avoid:**
+
+  ```markdown
+  ## HEADER (H2)
+
+  #### SUBHEADER (H4)
+  ```
+
+When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
@@ -1092,9 +1114,11 @@ To add row headers for a Markdown table, wrap the table in the Liquid tags `{% r
 
 ### Include a value for every cell
 
-Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+Every cell in a table must contain a value.
 
-If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+For cells with no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+For tables with row headers, the first cell (cell "A1") should describe the row headers to help people understand the whole table. However, if doing this would make the table less clear or add redundant information, you can leave this cell empty. For example, in the article "[AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-powershell#powershell-module-locations)," the first cell could be labeled as "Modules", but since each row header already includes the word "module", this header would repeat information that does not add descriptive value to understanding the table as a whole.
 
 ### Use clear, consistent symbols and labels
 

@@ -40,8 +40,8 @@ Stratocaster,stratocaster_timeline_processor_group_id,gh.stratocaster.timeline_p
 Stratocaster,stratocaster_timeline_processor_subscribe_to,gh.stratocaster.timeline_processor.subscribe_to
 Audit Log,org_id,gh.org.id
 Audit Log,org_name,gh.org.name
-Audit Log,busines_id,gh.business.id
-Audit Log,busines_name,gh.business.name
+Audit Log,business_id,gh.business.id
+Audit Log,business_name,gh.business.name
 Profile,actor,gh.actor.login
 Profile,notes,gh.rename.notes
 Profile,reason,gh.rename.reason

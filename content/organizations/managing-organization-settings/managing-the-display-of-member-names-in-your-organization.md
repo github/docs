@@ -28,5 +28,5 @@ You may not be able to configure this setting for your organization, if an enter
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-1. Under "Admin repository permissions", select or deselect **Allow members to see comment author's profile name in private repositories**.
+1. Under "Repository Comments", select or deselect **Allow members to see comment author's profile name in private repositories**.
 1. Click **Save**.

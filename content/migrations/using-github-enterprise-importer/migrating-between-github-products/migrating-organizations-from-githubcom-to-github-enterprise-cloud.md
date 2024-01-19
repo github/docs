@@ -27,7 +27,7 @@ redirect_from:
 ## Prerequisites
 
 {% data reusables.enterprise-migration-tool.migration-prerequisites %}
-- For the source organization, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+- For the source organization, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 - For the destination enterprise account, you must be an enterprise owner.
 
 {% api %}
@@ -85,7 +85,7 @@ mutation startOrganizationMigration (
 `sourceOrgUrl` | The URL of the source organization, such as `https://github.com/octo-org`.
 `targetOrgName` | The name you want the new organization to have. Must be unique on {% data variables.product.prodname_dotcom_the_website %}.
 `targetEnterpriseId` | The ID of the enterprise that you want to create the new organization in, returned by step 2.
-`sourceAccessToken` | Your {% data variables.product.pat_v1 %} for the source organization. For requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
+`sourceAccessToken` | Your {% data variables.product.pat_v1 %} for the source organization. For requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 `targetAccessToken` | Your {% data variables.product.pat_v1 %} for the destination enterprise.
 
 In the next step, you'll use the migration ID returned from the `startOrganizationMigration` mutation to check the migration status.
@@ -139,7 +139,7 @@ query (
 
 Before you can use the {% data variables.product.prodname_gei_cli_short %} to migrate to {% data variables.product.prodname_ghe_cloud %}, you must create {% data variables.product.pat_v1_plural %} that can access the source organization and destination enterprise, then set the {% data variables.product.pat_v1_plural %} as environment variables.
 
-1. Create and record a {% data variables.product.pat_generic %} that meets all the requirements to authenticate for the source organization for organization migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#creating-a-personal-access-token-for-github-enterprise-importer)."
+1. Create and record a {% data variables.product.pat_generic %} that meets all the requirements to authenticate for the source organization for organization migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#creating-a-personal-access-token-for-github-enterprise-importer)."
 1. Create and record a {% data variables.product.pat_v1 %} that meets all the requirements to authenticate for the destination enterprise for organization migrations.
 1. Set environment variables for the {% data variables.product.pat_v1_plural %}, replacing TOKEN in the commands below with the {% data variables.product.pat_v1_plural %} you recorded above. Use `GH_PAT` for the destination enterprise and `GH_SOURCE_PAT` for the source organization.
 
