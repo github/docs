@@ -16,8 +16,15 @@ import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import searchSync from './sync.js'
 
+const availableVersions = Object.fromEntries(
+  Object.entries(allVersions)
+    // GHAE is deprecated and not yet entirely deleted from all-versions
+    // Until so, we manually filter it out.
+    .filter(([version]) => version !== 'github-ae@latest')
+    .map(([key, value]) => [key, value]),
+)
 const shortNames = Object.fromEntries(
-  Object.values(allVersions).map((info) => {
+  Object.values(availableVersions).map((info) => {
     const shortName = info.hasNumberedReleases
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
@@ -25,7 +32,7 @@ const shortNames = Object.fromEntries(
   }),
 )
 
-const allVersionKeys = [...Object.keys(shortNames), ...Object.keys(allVersions)]
+const allVersionKeys = [...Object.keys(shortNames), ...Object.keys(availableVersions)]
 
 program
   .description('Creates search records by scraping')
@@ -133,9 +140,9 @@ async function main(opts, args) {
   const options = {
     language,
     notLanguage,
-    version: indexVersion,
     outDirectory,
     config,
+    versionsToBuild: indexVersion ? [indexVersion] : Object.keys(availableVersions),
   }
   await searchSync(options)
 }
