@@ -79,7 +79,7 @@ For more information about how to authenticate to {% data variables.product.prod
 | **{% data variables.product.prodname_desktop %}** | You want to work with files locally, and would prefer a visual interface to use Git, visualize changes, and interact with {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)." | Desktop |
 | **IDE or text editor**  | You're working with more complex files and projects and want everything in one place. | Desktop |
 | **Command-line Git and {% data variables.product.prodname_cli %}** | You're used to working from the command line and want to avoid switching context, or you need to access a complex Git command that isn't integrated into visual interfaces. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)." | Desktop |
-| **{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API** | You want to automate common tasks such as backing up your data, or create integrations that extend {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/rest/overview/about-githubs-apis)." | Browser or desktop |
+| **{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API** | You want to automate common tasks such as backing up your data, or create integrations that extend {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api)." | Browser or desktop |
 
 ## Further reading
 

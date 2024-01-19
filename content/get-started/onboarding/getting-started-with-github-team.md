@@ -117,7 +117,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 ### 3. Reading about {% data variables.product.prodname_team %} on {% data variables.product.prodname_docs %}
 
-You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
+You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs)."
 
 ### 4. Learning with {% data variables.product.prodname_learning %}
 
