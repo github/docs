@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
@@ -57,16 +56,6 @@ To send enterprise contributions from {% data variables.product.prodname_ghe_ser
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}
 1. Review the resources that {% data variables.product.prodname_ghe_server %} will access from your {% data variables.product.prodname_dotcom_the_website %} account, then click **Authorize**.
-{% data reusables.github-connect.send-contribution-counts-to-githubcom %}
-
-{% elsif ghae %}
-
-1. Sign in to {% data variables.product.prodname_ghe_managed %} and {% data variables.product.prodname_dotcom_the_website %}.
-1. On {% data variables.product.prodname_ghe_managed %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-   ![Screenshot of a user's account menu on {% data variables.product.prodname_dotcom %}. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings.png)
-{% data reusables.github-connect.github-connect-tab-user-settings %}
-{% data reusables.github-connect.connect-dotcom-and-enterprise %}
-{% data reusables.github-connect.authorize-connection %}
 {% data reusables.github-connect.send-contribution-counts-to-githubcom %}
 
 {% endif %}
