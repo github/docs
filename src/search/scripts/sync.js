@@ -12,9 +12,9 @@ import { writeIndexRecords } from './search-index-records.js'
 // e.g. `github-docs-dotcom-en.json` and `github-docs-2.14-ja.json`
 export default async function syncSearchIndexes({
   language,
-  version,
   notLanguage,
   outDirectory,
+  versionsToBuild,
   config = {},
 }) {
   const t0 = new Date()
@@ -24,14 +24,9 @@ export default async function syncSearchIndexes({
     notLanguage ? notLanguage !== lang : language ? language === lang : true,
   )
 
-  // build indices for a specific version if provided; otherwise build indices for all versions
-  const versionsToBuild = Object.keys(allVersions).filter((ver) =>
-    version ? version === ver : true,
-  )
-
   console.log(
     `Building indices for ${chalk.yellow(language || 'all languages')} and ${chalk.yellow(
-      version || 'all versions',
+      versionsToBuild.length === 1 ? versionsToBuild[0] : 'all versions',
     )}.\n`,
   )
 
