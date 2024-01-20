@@ -5,14 +5,14 @@ This repository contains the documentation website code and Markdown source file
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
 
-### And that's it!
+### Isabel Schoeps Thiel 
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
+If you're having trouble with your GitHub account, contact [isabelschoeps.github.com](https://support.github.com).
 
 That's how you can easily become a member of the GitHub Docs community. :## READMEs
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-## COPYRIGHT License
+## COPYRIGHT License 
 
-The GitHub product documentation in the assets, content, and data folders are licensed
+The GitHub product documentation in the assets, content, and data folders are licensed. 
