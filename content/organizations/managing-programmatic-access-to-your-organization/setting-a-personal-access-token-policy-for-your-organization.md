@@ -48,10 +48,4 @@ Organization owners can prevent {% data variables.product.pat_v1_plural %} from 
 
 {% ifversion ghec or ghes or ghae %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_v1_plural %}, then you cannot override the policy in your organization. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise)."{% endif %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**.
-1. Under **{% data variables.product.pat_v1_caps %}**, select the option that meets your needs:
-   - **Allow access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} can access resources owned by the organization.
-   - **Restrict access via {% data variables.product.pat_v1_plural %}**: {% data variables.product.pat_v1_caps_plural %} cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_v1_plural %} will continue to work.
-1. Click **Save**.
+{%
