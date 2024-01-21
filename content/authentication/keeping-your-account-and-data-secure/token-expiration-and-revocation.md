@@ -59,6 +59,6 @@ The owner of an {% data variables.product.prodname_oauth_app %} can revoke an ac
 
 {% data reusables.apps.oauth-token-limit %}
 
-## User token revoked due to {% data variables.product.prodname_github_app %} configuration
+## User token expired due to {% data variables.product.prodname_github_app %} configuration
 
-User access tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default. Owners of {% data variables.product.prodname_github_apps %} can optionally change the default expiration period for their user access tokens, or configure the tokens to never expire. For more information about configuring your {% data variables.product.prodname_dotcom %} App's user access tokens, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
+User access tokens created by a {% data variables.product.prodname_github_app %} will expire after eight hours by default, and then must be regenerated using the included refresh token. Owners of {% data variables.product.prodname_github_apps %} can optionally configure these tokens to never expire instead, but this is not recommended due to the security implications. For more information about configuring your {% data variables.product.prodname_github_app %}'s user access tokens, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
