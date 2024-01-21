@@ -74,7 +74,7 @@ If you are a site administrator for {% data variables.location.product_location 
    {% windows %}
 
    ```powershell
-   > Enter a file in which to save the key (c:\Users\YOU\.ssh\id_ALGORITHM):[Press enter]
+   > Enter file in which to save the key (/c/Users/YOU/.ssh/id_ALGORITHM):[Press enter]
    ```
 
    {% endwindows %}
@@ -169,7 +169,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
    ```powershell
-   ssh-add c:\Users\YOU\.ssh\id_ed25519
+   ssh-add c:/Users/YOU/.ssh/id_ed25519
    ```
 
 {% data reusables.ssh.add-public-key-to-github %}
