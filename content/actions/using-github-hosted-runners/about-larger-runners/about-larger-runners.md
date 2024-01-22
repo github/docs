@@ -29,8 +29,8 @@ The following machines sizes are available for macOS {% data variables.actions.h
 
 | Runner Size | Architecture| Processor (CPU)| Memory (RAM)  | Storage (SSD) | YAML workflow label |
 | --------------| --------------| -------------- | ------------- | ------------- | --------------------- |
-| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large </code>, <code>macos-13-large</code>[Beta] |
-| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>[Beta], <code>macos-13-xlarge</code>[Beta]   |
+| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large [latest] </code>, <code>macos-13-large</code>, <code>macos-14-large</code>[Beta] |
+| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>, <code>macos-13-xlarge</code>[latest], <code>macos-14-xlarge</code>[Beta] |
 
 #### Limitations for macOS {% data variables.actions.hosted_runners %}
 
