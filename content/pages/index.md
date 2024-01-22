@@ -1,7 +1,7 @@
 ---
 title: "{% data variables.product.prodname_pages %} documentation"
 shortTitle: "{% data variables.product.prodname_pages %}"
-intro: 'Learn how to create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. Explore website building tools like Jekyll and troubleshoot issues with your {% data variables.product.prodname_pages %} site.'
+intro: 'Learn how to create a website directly from a repository on {% data variables.location.product_location %}. Explore website building tools like Jekyll and troubleshoot issues with your {% data variables.product.prodname_pages %} site.'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages

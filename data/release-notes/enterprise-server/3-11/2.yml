@@ -4,14 +4,6 @@ sections:
     - When an instance is upgraded with a hotpatch, the instance may lose network connectivity after a reboot.
   known_issues:
     - |
-      An upgrade to GitHub Enterprise Server 3.11 may fail, hanging on the "Reloading system services" screen. The following error will appear in `/var/log/syslog`.
-
-      ```text
-      agent: Error starting agent: error="Failed to start Consul server: Failed to start Raft: failed to load any existing snapshots"
-      ```
-
-      To address this issue, [contact GitHub Support](https://support.github.com/contact).
-    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
