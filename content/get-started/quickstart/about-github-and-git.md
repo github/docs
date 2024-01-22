@@ -56,7 +56,7 @@ Git figures out how to intelligently merge this flow of changes, and {% data var
 
 ## Where do I start?
 
-If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar with Git, we recommend working through the articles in the "[Quickstart](/get-started/quickstart)" category, which will help you to:
+If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar with Git, we recommend working through the articles in the "[AUTOTITLE](/get-started/quickstart)" category, which will help you to:
 
 - **Create an account** on {% data variables.product.prodname_dotcom %}.
 - **Learn the "{% data variables.product.prodname_dotcom %} Flow"**, and the key principles of collaborative working (branches, commits, pull requests, merges).

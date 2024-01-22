@@ -122,53 +122,6 @@ jobs:
           lfs: {% raw %}${{ matrix.test-group == 'content' }}{% endraw %}
           persist-credentials: 'false'
 
-# If the current repository is the `github/docs-internal` repository, this step uses the `actions/github-script` action to run a script to check if there is a branch called `docs-early-access`.
-      - name: Figure out which docs-early-access branch to checkout, if internal repo
-        if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
-        id: check-early-access
-        uses: {% data reusables.actions.action-github-script %}
-        env:
-          BRANCH_NAME: {% raw %}${{ github.head_ref || github.ref_name }}{% endraw %}
-        with:
-          github-token: {% raw %}${{ secrets.DOCUBOT_REPO_PAT }}{% endraw %}
-          result-encoding: string
-          script: |
-            const { BRANCH_NAME } = process.env
-            try {
-              const response = await github.repos.getBranch({
-                owner: 'github',
-                repo: 'docs-early-access',
-                BRANCH_NAME,
-              })
-              console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)
-              return BRANCH_NAME
-            } catch (err) {
-              if (err.status === 404) {
-                console.log(`There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`)
-                return 'main'
-              }
-              throw err
-            }
-
-# If the current repository is the `github/docs-internal` repository, this step checks out the branch from the `github/docs-early-access` that was identified in the previous step.
-      - name: Check out docs-early-access too, if internal repo
-        if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
-        uses: {% data reusables.actions.action-checkout %}
-        with:
-          repository: github/docs-early-access
-          token: {% raw %}${{ secrets.DOCUBOT_REPO_PAT }}{% endraw %}
-          path: docs-early-access
-          ref: {% raw %}${{ steps.check-early-access.outputs.result }}{% endraw %}
-
-# If the current repository is the `github/docs-internal` repository, this step uses the `run` keyword to execute shell commands to move the `docs-early-access` repository's folders into the main repository's folders.
-      - name: Merge docs-early-access repo's folders
-        if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
-        run: |
-          mv docs-early-access/assets assets/images/early-access
-          mv docs-early-access/content content/early-access
-          mv docs-early-access/data data/early-access
-          rm -r docs-early-access
-
 # This step runs a command to check out large file storage (LFS) objects from the repository.
       - name: Checkout LFS objects
         run: git lfs checkout

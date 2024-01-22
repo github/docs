@@ -80,7 +80,7 @@ If you plan to use Git locally on your computer, whether through the command lin
 
 If you prefer to use a visual interface, you can download and use {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} comes packaged with Git, so there is no need to install Git separately. For more information, see "[AUTOTITLE](/desktop/overview/getting-started-with-github-desktop)."
 
-Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
+Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% data variables.location.product_location %} from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
 
 ### 3. Choosing how to interact with {% data variables.product.product_name %}
 
@@ -132,7 +132,7 @@ If you have existing projects you'd like to move over to {% data variables.produ
 
 You can collaborate on your project with others using your repository's issues, pull requests, and project boards. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
 
-You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)."
+You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository)."
 
 ### 4. Managing repository settings
 
@@ -159,7 +159,7 @@ Notifications provide updates about the activity on {% data variables.product.pr
 
 ### 8. Working with {% data variables.product.prodname_pages %}
 
-You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)."
+You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)."
 
 {% ifversion discussions %}
 
