@@ -181,6 +181,8 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 
 {% data reusables.actions.about-oidc-short-overview %}
 
+{% data reusables.actions.oidc-custom-claims-aws-restriction %}
+
 {% endif %}
 
 ## Using third-party actions
