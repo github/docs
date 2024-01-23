@@ -529,6 +529,12 @@ You can use these additional options with the utility:
 ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 ```
 
+To apply the configuration, run the following command. During a configuration run, services on {% data variables.location.product_location %} may restart, which can cause brief downtime for users.
+
+```shell copy
+ghe-config-apply
+```
+
 ### ghe-ssl-certificate-setup
 
 This utility allows you to update an SSL certificate for {% data variables.location.product_location %}.
