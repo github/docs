@@ -28,9 +28,9 @@ shortTitle: npm registry
 
 If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
 
-In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
+In the future, to improve the performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
 
-If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)" or "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support)."
+If you reach this limit, consider deleting package versions or contacting support for help. When this limit is enforced, our documentation will be updated with a way to work around it. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)" or "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support)."
 {% endif %}
 
 ## Authenticating to {% data variables.product.prodname_registry %}
@@ -142,7 +142,7 @@ You can use an _.npmrc_ file to configure the scope mapping for your project. In
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Verify the name of your package in your project's `package.json`. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your `package.json` should be `@my-org/test`.
+1. Verify the name of your package in your project's `package.json`. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing it to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your `package.json` should be `@my-org/test`.
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
