@@ -14,9 +14,10 @@
 
 PREVIEW_ENV_LOCATION="eastus"
 
-# If a CUSTOM_GITHUB_REPOSITORY variable was set, use that.
-# Otherwise, use the default GITHUB_REPOSITORY value.
-# (This allows us to call this script from another repo.)
+# GITHUB_REPOSITORY is a default env variable and cannot be overwritten.
+# Use CUSTOM_GITHUB_REPOSITORY to specify a repo owner/name
+# other than the repo owner/name where this script was called from.
+# If CUSTOM_GITHUB_REPOSITORY is not specified, fall back to GITHUB_REPOSITORY.
 REPO_NAME_WITH_OWNER="${CUSTOM_GITHUB_REPOSITORY:-$GITHUB_REPOSITORY}"
 
 REPO_NAME="${REPO_NAME_WITH_OWNER#*\/}"
