@@ -146,8 +146,6 @@ You can use an _.npmrc_ file to configure the scope mapping for your project. In
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-
-
 ### Publishing a package using `publishConfig` in the `package.json` file
 
 You can use `publishConfig` element in the `package.json` file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
