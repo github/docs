@@ -40,7 +40,7 @@ For more information on all of {% data variables.product.prodname_dotcom %}'s pl
 To ensure you can use all the features in your {% data variables.product.product_name %} plan, verify your email address after signing up for a new account. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."
 {% endif %}
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 ### 1. Accessing your account
 
@@ -145,7 +145,7 @@ To encourage collaborators in your repository, you need a community that encoura
 
 By adding files like contributing guidelines, a code of conduct, and a license to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
 {% endif %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 By adding files like contributing guidelines, a code of conduct, and support resources to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
 {% endif %}
 

@@ -30,7 +30,7 @@ For more information, see "[AUTOTITLE](/webhooks/about-webhooks)."
 
 You can create webhooks in a repository to subscribe to events that occur in that repository. You must be a repository owner or have admin access in the repository to create and manage webhooks in a repository. You cannot create, edit, or delete webhooks in a repository where you do not have the required permissions.
 
-You can create multiple webhooks in a single repository. However, you can only create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks that subscribe to each individual event type. For example, in a single repository you could only create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} different webhooks that each subscribe to the `push` event.
+You can create multiple webhooks in a single repository. However, you can only create up to {% ifversion ghes %}250{% else %}20{% endif %} webhooks that subscribe to each individual event type. For example, in a single repository you could only create up to {% ifversion ghes %}250{% else %}20{% endif %} different webhooks that each subscribe to the `push` event.
 
 You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to manage repository webhooks. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-a-repository-webhook)," "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-a-repository-webhook)," and "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-a-repository-webhook)." For more information about using the REST API to manage repository webhooks, see "[AUTOTITLE](/rest/webhooks)."
 
@@ -40,7 +40,7 @@ You can create webhooks in an organization to subscribe to events that occur in 
 
 You must be an organization owner to create and manage webhooks in an organization.
 
-You can create multiple webhooks in a single organization. However, you can only create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks that subscribe to each individual event type. For example, in a single organization you could only create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} different webhooks that each subscribe to the `push` event.
+You can create multiple webhooks in a single organization. However, you can only create up to {% ifversion ghes %}250{% else %}20{% endif %} webhooks that subscribe to each individual event type. For example, in a single organization you could only create up to {% ifversion ghes %}250{% else %}20{% endif %} different webhooks that each subscribe to the `push` event.
 
 You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to manage organization webhooks. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-an-organization-webhook)," "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-an-organization-webhook)," and "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-an-organization-webhook)." For more information about using the REST API to manage organization webhooks, see "[AUTOTITLE](/rest/orgs/webhooks)."
 
@@ -50,7 +50,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 Enterprise owners can create global webhooks to subscribe to events that occur within their enterprise or within organizations and repositories owned by the enterprise.
 
-You can create multiple webhooks in a single enterprise. However, you can only create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks that subscribe to each individual event type. For example, in a single enterprise you could only create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} different webhooks that each subscribe to the `membership` event.
+You can create multiple webhooks in a single enterprise. However, you can only create up to {% ifversion ghes %}250{% else %}20{% endif %} webhooks that subscribe to each individual event type. For example, in a single enterprise you could only create up to {% ifversion ghes %}250{% else %}20{% endif %} different webhooks that each subscribe to the `membership` event.
 
 You can use the {% data variables.product.prodname_dotcom %} web interface to manage global webhooks. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-a-global-webhook-for-a-github-enterprise)," "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-a-global-webhook-for-a-github-enterprise)," and "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-a-global-webhook-for-a-github-enterprise)." {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
@@ -68,7 +68,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface to ma
 
 ## {% data variables.product.prodname_sponsors %} webhooks
 
-You can create webhooks to subscribe to events relating to {% data variables.product.prodname_sponsors %}. You can only create up to {% ifversion ghes or ghae %}250{% else %}20{% endif %} webhooks for a {% data variables.product.prodname_sponsors %} account.
+You can create webhooks to subscribe to events relating to {% data variables.product.prodname_sponsors %}. You can only create up to {% ifversion ghes %}250{% else %}20{% endif %} webhooks for a {% data variables.product.prodname_sponsors %} account.
 
 You must be an account owner or have admin access in the sponsored account to manage sponsorship webhooks.
 

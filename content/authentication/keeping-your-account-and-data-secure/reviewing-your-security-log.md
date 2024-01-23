@@ -47,7 +47,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 | `project` | Contains all activities related to {% data variables.projects.projects_v1_boards %}.
 | `public_key` | Contains all activities related to [your public SSH keys](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 | `repo`| Contains all activities related to the repositories you own.{% ifversion fpt or ghec %}
-| `sponsors` | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% ifversion ghes or ghae %}
+| `sponsors` | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)" and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% ifversion ghes %}
 | `team` | Contains all activities related to teams you are a part of.{% endif %}{% ifversion not ghae %}
 | `two_factor_authentication` | Contains all activities related to [two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
 | `user` | Contains all activities related to your account.

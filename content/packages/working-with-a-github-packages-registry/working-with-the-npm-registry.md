@@ -52,7 +52,7 @@ This registry supports granular permissions. {% data reusables.package_registry.
 
 You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user _~/.npmrc_ file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
 
-To authenticate by adding your {% data variables.product.pat_v1 %} to your _~/.npmrc_ file, edit the _~/.npmrc_ file for your project to include the following line, replacing {% ifversion ghes or ghae %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new _~/.npmrc_ file if one doesn't exist.
+To authenticate by adding your {% data variables.product.pat_v1 %} to your _~/.npmrc_ file, edit the _~/.npmrc_ file for your project to include the following line, replacing {% ifversion ghes %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new _~/.npmrc_ file if one doesn't exist.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -225,7 +225,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your _.npmrc_ file, replacing {% ifversion ghes or ghae %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your _.npmrc_ file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
