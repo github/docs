@@ -40,7 +40,7 @@ If you don't have private mode enabled, the migration script will have no effect
 ## Running the migration
 
 1. Connect to the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 1. Run the migration command.
 
    ```shell

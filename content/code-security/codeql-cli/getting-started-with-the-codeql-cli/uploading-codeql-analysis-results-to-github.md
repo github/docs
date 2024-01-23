@@ -47,14 +47,14 @@ When you have decided on the most secure and reliable method for your configurat
 <call-to-retrieve-secret> | codeql github upload-results \
     --repository=<repository-name> \
     --ref=<ref> --commit=<commit> \
-    --sarif=<file> {% ifversion ghes or ghae %}--github-url=<URL> \
+    --sarif=<file> {% ifversion ghes %}--github-url=<URL> \
     {% endif %}--github-auth-stdin
 
 # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available in GITHUB_TOKEN
 codeql github upload-results \
     --repository=<repository-name> \
     --ref=<ref> --commit=<commit> \
-    --sarif=<file> {% ifversion ghes or ghae %}--github-url=<URL> \
+    --sarif=<file> {% ifversion ghes %}--github-url=<URL> \
     {% endif %}
 ```
 
@@ -63,7 +63,7 @@ codeql github upload-results \
 | <code><span style="white-space: nowrap;">--repository</span></code> | {% octicon "check" aria-label="Required" %} | Specify the _OWNER/NAME_ of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
 | <code><span style="white-space: nowrap;">--ref</span></code> | {% octicon "check" aria-label="Required" %} | Specify the name of the `ref` you checked out and analyzed so that the results can be matched to the correct code. For a branch use: `refs/heads/BRANCH-NAME`, for the head commit of a pull request use `refs/pull/NUMBER/head`, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use `refs/pull/NUMBER/merge`.
 | <code><span style="white-space: nowrap;">--commit</span></code> | {% octicon "check" aria-label="Required" %} | Specify the full SHA of the commit you analyzed.
-| <code><span style="white-space: nowrap;">--sarif</span></code> | {% octicon "check" aria-label="Required" %} | Specify the SARIF file to load.{% ifversion ghes or ghae %}
+| <code><span style="white-space: nowrap;">--sarif</span></code> | {% octicon "check" aria-label="Required" %} | Specify the SARIF file to load.{% ifversion ghes %}
 | <code><span style="white-space: nowrap;">--github-url</span></code> | {% octicon "check" aria-label="Required" %} | Specify the URL for {% data variables.product.product_name %}.{% endif %}
 | <code><span style="white-space: nowrap;">--github-auth-stdin</span></code> | {% octicon "x" aria-label="Optional" %}  | Pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API from your secret store via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
@@ -83,7 +83,7 @@ The following example uploads results from the SARIF file `temp/example-repo-js.
 codeql github upload-results \
     --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
-    --sarif=/temp/example-repo-js.sarif {% ifversion ghes or ghae %}--github-url={% data variables.command_line.git_url_example %} \
+    --sarif=/temp/example-repo-js.sarif {% ifversion ghes %}--github-url={% data variables.command_line.git_url_example %} \
     {% endif %}
 ```
 
@@ -119,7 +119,7 @@ You can make this diagnostic information available on the {% data variables.code
 codeql github upload-results \
     --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
-    --sarif=/temp/example-repo-js.sarif {% ifversion ghes or ghae %}--github-url={% data variables.command_line.git_url_example %} \
+    --sarif=/temp/example-repo-js.sarif {% ifversion ghes %}--github-url={% data variables.command_line.git_url_example %} \
     {% endif %}
 ```
 

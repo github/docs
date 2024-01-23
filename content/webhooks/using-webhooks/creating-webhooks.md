@@ -71,7 +71,7 @@ After you create a new webhook, {% data variables.product.prodname_dotcom %} wil
 
 Enterprise owners can create a global webhook to subscribe to events that occur within their enterprise.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 You can use the {% data variables.product.company_short %} web interface or the REST API to create a global webhook. For more information about using the REST API to create a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
 

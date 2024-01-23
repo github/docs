@@ -58,7 +58,7 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 You must replace:
 - `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your {% data variables.product.pat_v1 %}.
-- `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.{% ifversion ghes or ghae %}
+- `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.{% ifversion ghes %}
 - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
 {% ifversion ghes %}If your instance has subdomain isolation enabled:
@@ -156,7 +156,7 @@ When publishing, {% ifversion packages-nuget-v2 %}if you are linking your packag
 
    - `1.0.0` with the version number of the package.
    - `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
-   - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes or ghae %}
+   - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes %}
    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
    ``` xml

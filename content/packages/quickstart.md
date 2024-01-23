@@ -22,7 +22,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 1. Clone the repository to your local machine.
 
     ```shell
-    git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    git clone https://{% ifversion ghes %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
     cd YOUR-REPOSITORY
     ```
 
@@ -40,7 +40,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       package name: @YOUR-USERNAME/YOUR-REPOSITORY
       ...
       test command: exit 0
-      ...    
+      ...
     ```
 
 1. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
@@ -53,7 +53,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     ```
 
 1. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
-1. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
+1. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
 
     ```yaml copy
     name: Node.js Package
@@ -84,7 +84,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
           - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 16
-              registry-url: {% ifversion ghes or ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
+              registry-url: {% ifversion ghes %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
             env:

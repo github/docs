@@ -119,7 +119,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    git commit -m 'Initial GitHub pages site with Jekyll'
    ```
 
-1. Add your repository on {% data variables.location.product_location %} as a remote, replacing {% ifversion ghes or ghae %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and REPOSITORY with the name of the repository.
+1. Add your repository on {% data variables.location.product_location %} as a remote, replacing {% ifversion ghes %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes %},{% endif %} and REPOSITORY with the name of the repository.
 
    ```shell
    {% ifversion fpt or ghec %}
