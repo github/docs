@@ -114,7 +114,7 @@ To manage and moderate your enterprise, you can set policies for organizations w
 
 ### 1. Managing policies for organizations in your enterprise account
 
-You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies)."
+You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, projects, and team policies. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies)."
 
 ### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
 

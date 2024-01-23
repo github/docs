@@ -132,7 +132,7 @@ For information on linking a published package with a repository, see "[AUTOTITL
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple gems to the same repository, you can include the URL to the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% ifversion ghes or ghae %} Replace HOSTNAME with the host name of {% data variables.location.product_location %}.{% endif %}
+To publish multiple gems to the same repository, you can include the URL to the {% data variables.product.prodname_dotcom %} repository in the `github_repo` field in `gem.metadata`. If you include this field, {% data variables.product.prodname_dotcom %} matches the repository based on this value, instead of using the gem name.{% ifversion ghes %} Replace HOSTNAME with the host name of {% data variables.location.product_location %}.{% endif %}
 
 ```ruby
 gem.metadata = { "github_repo" => "ssh://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY" }

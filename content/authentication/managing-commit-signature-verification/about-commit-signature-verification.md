@@ -23,7 +23,7 @@ You can sign commits and tags locally, to give other people confidence about the
 
 ![Screenshot of a commit in the commit list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/verified-commit.png)
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 If a commit or tag has a signature that can't be verified, {% data variables.product.product_name %} marks the commit or tag "Unverified."
 {% endif %}
 

@@ -31,7 +31,7 @@ Only organization members with the _owner_ or _billing manager_ role can access 
 
 ## Part 2: Adding members and setting up teams
 
-After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, project boards, and apps.
+After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, projects, and apps.
 
 ### 1. Managing members of your organization
 
@@ -49,7 +49,7 @@ After creating your organization, you can invite members and set permissions and
 
 {% data reusables.getting-started.managing-team-settings %}
 
-### 5. Giving people and teams access to repositories, project boards and apps
+### 5. Giving people and teams access to repositories, projects, and apps
 
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
 

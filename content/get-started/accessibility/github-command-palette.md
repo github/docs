@@ -144,7 +144,7 @@ These commands are available from all scopes.
 |`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer)."  |
 |`New gist`|Open a new gist. For more information, see "[AUTOTITLE](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
 |`New organization`|Create a new organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
-|`New project`|Create a new project board. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."  |
+|`New project`|Create a new project. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."  |
 |`New repository`|Create a new repository from scratch. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |
 |`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[AUTOTITLE](/get-started/accessibility/managing-your-theme-settings)." |
 

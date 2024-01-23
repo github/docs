@@ -43,7 +43,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
    {% data reusables.actions.actions-use-policy-settings %}
 
-   {%- ifversion ghes or ghae %}
+   {%- ifversion ghes %}
    {% note %}
 
    **Note:** To enable access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.location.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."

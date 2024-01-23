@@ -17,7 +17,7 @@ topics:
 
 {% ifversion ghec %}You can disable a webhook that was previously enabled for a repository, organization, {% data variables.product.prodname_enterprise %}, {% data variables.product.prodname_marketplace %} account, {% data variables.product.prodname_sponsors %} account, or {% data variables.product.prodname_github_app %}.{% endif %}
 
-{% ifversion ghes or ghae %}You can disable a webhook that was previously enabled for a repository, organization, {% data variables.product.prodname_enterprise %}, or {% data variables.product.prodname_github_app %}.{% endif %}
+{% ifversion ghes %}You can disable a webhook that was previously enabled for a repository, organization, {% data variables.product.prodname_enterprise %}, or {% data variables.product.prodname_github_app %}.{% endif %}
 
 To disable a webhook, you can choose to deactivate or delete it. When you deactivate a webhook, the webhook deliveries will stop, and you can choose to reactivate the webhook at a later time. When you delete a webhook, it cannot be restored.
 
@@ -52,7 +52,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 Enterprise owners can disable a global webhook in an {% data variables.product.prodname_enterprise %}.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 You can use the {% data variables.product.company_short %} web interface or the REST API to disable a global webhook. For more information about using the REST API to disable a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
 

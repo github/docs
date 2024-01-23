@@ -34,7 +34,7 @@ Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only s
 
 We recommend reviewing the following caveats before you change the visibility of a repository.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 {% warning %}
 

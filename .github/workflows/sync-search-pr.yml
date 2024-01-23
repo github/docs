@@ -13,6 +13,8 @@ on:
       - 'package*.json'
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
+      # Make sure we run this if the composite action changes
+      - .github/actions/setup-elasticsearch/action.yml
 
 permissions:
   contents: read
