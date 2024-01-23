@@ -106,7 +106,7 @@ With {% data variables.product.product_name %}, you can create, edit, move and d
 
 ## Part 3: Collaborating on {% data variables.product.product_name %}
 
-Any number of people can work together in repositories across {% data variables.product.product_name %}. You can configure settings, create project boards, and manage your notifications to encourage effective collaboration.
+Any number of people can work together in repositories across {% data variables.product.product_name %}. You can configure settings, create projects, and manage your notifications to encourage effective collaboration.
 
 ### 1. Working with repositories
 
@@ -130,7 +130,7 @@ If you have existing projects you'd like to move over to {% data variables.produ
 
 ### 3. Managing collaborators and permissions
 
-You can collaborate on your project with others using your repository's issues, pull requests, and project boards. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
+You can collaborate on your project with others using your repository's issues, pull requests, and {% data variables.projects.projects_v1_boards %}. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
 
 You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository)."
 
@@ -149,9 +149,9 @@ By adding files like contributing guidelines, a code of conduct, and a license t
 By adding files like contributing guidelines, a code of conduct, and support resources to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
 {% endif %}
 
-### 6. Using GitHub Issues and project boards
+### 6. Using {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_projects_v2 %}
 
-You can use GitHub Issues to organize your work with issues and pull requests and manage your workflow with project boards. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)" and "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+You can use {% data variables.product.prodname_github_issues %} to organize your work with issues and pull requests and manage your workflow with {% data variables.product.prodname_projects_v2 %}. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
 ### 7. Managing notifications
 

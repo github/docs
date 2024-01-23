@@ -25,7 +25,7 @@ allowTitleToDifferFromFilename: true
 
 {% endnote %}
 
-1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
+1. Navigate to the {% data variables.projects.projects_v1_board %} you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.choose-visibility %}

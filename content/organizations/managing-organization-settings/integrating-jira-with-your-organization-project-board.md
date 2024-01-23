@@ -1,5 +1,5 @@
 ---
-title: Integrating Jira with your organization project board
+title: 'Integrating Jira with your organization {% data variables.projects.projects_v1_board %}'
 intro: 'You can integrate Jira Cloud with your organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues.'
 redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
@@ -8,6 +8,7 @@ versions:
   ghes: '*'
   ghae: '*'
 shortTitle: Integrate Jira
+allowTitleToDifferFromFilename: true
 ---
 
 {% ifversion ghes or ghae %}

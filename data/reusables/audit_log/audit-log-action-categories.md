@@ -106,7 +106,7 @@
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
 {%- ifversion fpt or ghec or ghes %}
 | `organization_domain` | Contains activities related to verified organization domains.
-| `organization_projects_change` | Contains activities related to organization-wide project boards in an enterprise.
+| `organization_projects_change` | Contains activities related to organization-wide {% data variables.projects.projects_v1_boards %} in an enterprise.
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `pages_protected_domain` | Contains activities related to verified custom domains for {% data variables.product.prodname_pages %}.
@@ -124,9 +124,9 @@
 {%- ifversion fpt or ghec %}
 | `profile_picture`   | Contains activities related to an organization's profile picture.
 {%- endif %}
-| `project` | Contains activities related to project boards.
-| `project_field` | Contains activities related to field creation and deletion in a project board.
-| `project_view` | Contains activities related to view creation and deletion in a project board.
+| `project` | Contains activities related to projects.
+| `project_field` | Contains activities related to field creation and deletion in a project.
+| `project_view` | Contains activities related to view creation and deletion in a project.
 | `protected_branch` | Contains activities related to protected branches.
 | `public_key` | Contains activities related to SSH keys and deploy keys.
 | `pull_request` | Contains activities related to pull requests.
