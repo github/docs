@@ -9,7 +9,8 @@ Package manager | YAML value      | Supported versions | Private repositories | 
 Bundler        | `bundler`        | v1, v2           | {% octicon "x" aria-label="Not supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 [Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 Composer       | `composer`       | v1, v2           | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-{% ifversion dependabot-version-updates-enhanced-docker-support %}[Docker](#docker){% else %}Docker{% endif %}         | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+{% ifversion dependabot-version-updates-devcontainer-support %}[Dev containers](#dev-containers) | `devcontainers`         | Not applicable               | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+{% endif %}{% ifversion dependabot-version-updates-enhanced-docker-support %}[Docker](#docker){% else %}Docker{% endif %}         | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 Hex            | `mix`            | v1               | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 elm-package    | `elm`            | v0.19            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 git submodule  | `gitsubmodule`   | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
@@ -39,6 +40,18 @@ pipenv         | `pip`            | <= 2021-05-29    | {% octicon "x" aria-label
 #### Cargo
 
 Private registry support applies to git registries, and doesn't include cargo registries.
+
+{% ifversion dependabot-version-updates-devcontainer-support %}
+
+#### Dev containers
+
+You can use `devcontainers` as a `package-ecosystem` in your `dependabot.yml` file to update Features in your `devcontainer.json` configuration files. Dev containers are used in several tools and services, including {% data variables.product.prodname_codespaces %}. For more information about Features and the supported services, see [Features](https://containers.dev/implementors/features/) and [Supporting tools and services](https://containers.dev/supporting) in the Dev Containers' documentation, respectively.
+
+This updater ensures Features are pinned to the latest `major` version in the associated `devcontainer.json` file.  If a dev container has a lockfile, that file will also be updated. For more information about lockfile specifications, see [Lockfiles](https://github.com/devcontainers/spec/blob/main/docs/specs/devcontainer-lockfile.md) in the `devcontainers/spec` repository.
+
+Features in any valid dev container location will be updated in a single pull request. For more information about the dev container specification, see [Specification](https://containers.dev/implementors/spec/#devcontainerjson) in the Dev Containers' documentation.
+
+{% endif %}
 
 {% ifversion dependabot-version-updates-enhanced-docker-support %}
 
