@@ -3,6 +3,6 @@
 
 1. In the list of enterprises, click the enterprise you want to view.
 
-{%- elsif ghes or ghae %}
+{%- elsif ghes %}
 {% data reusables.enterprise-accounts.access-enterprise-ghes %}
 {%- endif %}

@@ -9,7 +9,7 @@ import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
 import { ArticleList } from 'src/landings/components/ArticleList'
 import { ArticleGridLayout } from 'src/frame/components/article/ArticleGridLayout'
-import { Callout } from 'src/frame/components/ui/Callout'
+import { Alert } from 'src/frame/components/ui/Alert'
 import { Lead } from 'src/frame/components/ui/Lead'
 import { LearningTrackNav } from 'src/learning-track/components/article/LearningTrackNav'
 import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
@@ -46,7 +46,7 @@ export const TocLanding = () => {
 
           {intro && <Lead data-search="lead">{intro}</Lead>}
 
-          {productCallout && <Callout dangerouslySetInnerHTML={{ __html: productCallout }} />}
+          {productCallout && <Alert html={productCallout} />}
 
           <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-2 mb-xl-2" />
 

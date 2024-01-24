@@ -49,7 +49,7 @@ jobs:
         run: src/early-access/scripts/merge-early-access.sh
 
       - name: Restore disk-cache file for external link checking
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
+        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
         with:
           path: external-link-checker-db.json
           key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.js') }}
@@ -79,7 +79,7 @@ jobs:
         run: node src/links/scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
         with:
           name: artifacts
           path: ./artifacts

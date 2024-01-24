@@ -97,7 +97,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
   - Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_secret_scanning %}.
   - Includes high confidence tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which usually have a higher ratio of false positives.
   - For {% data variables.product.prodname_secret_scanning %} to scan for non-provider patterns, the detection of non-provider patterns must be enabled for the repository or the organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)."
-  {% data reusables.secret-scanning.non-provider-patterns-beta %}{% endif %}{% endif %}{% ifversion ghes or ghae %}
+  {% data reusables.secret-scanning.non-provider-patterns-beta %}{% endif %}{% endif %}{% ifversion ghes %}
 - **{% data variables.product.prodname_secret_scanning_caps %} alert**—token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
   - Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} are enabled.
   - Includes high confidence tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% else %} Applies to private repositories where {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% endif %}
@@ -155,7 +155,7 @@ Push protection and validity checks are not supported for non-provider patterns.
 {% endif %}
 
 <!-- GHES 3.5 to GHES 3.8 table -->
-{% ifversion ghes = 3.7 or ghes = 3.8 %}
+{% ifversion ghes = 3.8 %}
 
 | Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
 |----|:----|:----:|:----:|
@@ -172,28 +172,6 @@ Push protection and validity checks are not supported for non-provider patterns.
 |----|:----|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
-{% endif %}
-
-<!-- GHAE < 3.5 table -->
-{% ifversion ghae < 3.5 %}
-
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert |
-|----|:----|:----:|
-{%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
-{% endif %}
-
-<!-- GHAE > 3.5+ table -->
-{% ifversion ghae = 3.5 or ghae > 3.5 %}
-
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
-|----|:----|:----:|:----:|
-{%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
 
 {% endif %}

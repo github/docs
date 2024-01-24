@@ -262,17 +262,6 @@
 /enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization
 - /organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
 
-# The initializing-github-ae.md article is referenced in these code files:
-# - lib/github/private_instance_bootstrapper/internal_support_contact.rb
-# - lib/github/private_instance_bootstrapper/saml_idp_configuration.rb
-# - lib/github/private_instance_bootstrapper/policies_configuration.rb
-# This redirect ensures that the links don't resolve to the non-GHAE version
-# of the docs as this article only exists in the GHAE docs.
-
-/github-ae@latest/admin/overview/initializing-github-ae
-- /admin/configuration/configuring-your-enterprise/initializing-github-ae
-- /enterprise-server@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae
-
 # FPT versioning for these files were removed as part of github/docs-content#4511
 
 /enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization

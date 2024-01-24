@@ -75,7 +75,7 @@ Use a wait timer to delay a job for a specific amount of time after the job is i
 Use deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} to restrict which branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} can deploy to the environment. Below are the options for deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} for an environment:
 
 {% ifversion deployment-protections-tag-patterns %}
-- **No restriction**: No restriction on which branch or tag can deploy to the enviornment.
+- **No restriction**: No restriction on which branch or tag can deploy to the environment.
 {%- else %}
 - **All branches**: All branches in the repository can deploy to the environment.
 {%- endif %}

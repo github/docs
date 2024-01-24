@@ -17,7 +17,7 @@ redirect_from:
 
 ## About custom footers for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.product.product_name %}{% endif %}
 
-You can configure the web UI for {% data variables.product.product_name %} to display a custom footer with up to five additional links. The custom footer appears above the default {% data variables.product.prodname_dotcom %} footer{% ifversion ghes or ghae %}, to all users and on all pages{% elsif ghec %} to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
+You can configure the web UI for {% data variables.product.product_name %} to display a custom footer with up to five additional links. The custom footer appears above the default {% data variables.product.prodname_dotcom %} footer{% ifversion ghes %}, to all users and on all pages{% elsif ghec %} to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
 
 ## Configuring custom footers
 

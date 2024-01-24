@@ -26,7 +26,7 @@ Restricting who has the ability to change the visibility of repositories in your
 
 {% warning %}
 
-**Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. For more information about restricting the visibility of repositories during creation, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
+**Warning**: If this setting is enabled, individuals or {% data variables.product.prodname_github_apps %} with admin access can _modify_ the visibility of an existing repository even if the ability to _create_ a repository with that specific visibility has been disabled. For more information about restricting the visibility of repositories during creation, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
 
 {% endwarning %}
 

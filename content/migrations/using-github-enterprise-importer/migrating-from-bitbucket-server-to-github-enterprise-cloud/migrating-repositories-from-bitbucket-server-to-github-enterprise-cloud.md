@@ -21,12 +21,14 @@ At this time, migrating from Bitbucket Server with the {% data variables.product
 ## Prerequisites
 
 {% data reusables.enterprise-migration-tool.migration-prerequisites %}
-- For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+- For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role)."
 - You need the username and password for a Bitbucket Server account with admin or super admin permissions.
 
 ## Step 1: Install the {% data variables.product.prodname_bbs2gh_cli %}
 
 If this is your first migration, you'll need to install the {% data variables.product.prodname_bbs2gh_cli %}. For more information about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+
+{% data reusables.enterprise-migration-tool.bbs2gh-binary %}
 
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 1. Install the {% data variables.product.prodname_bbs2gh_cli_short %}.
@@ -51,7 +53,7 @@ Before you can use the {% data variables.product.prodname_bbs2gh_cli_short %} to
 
 You'll also need to set environment variables for your Bitbucket Server username and password and, if your Bitbucket Server instance runs on Windows, your SMB password.
 
-1. Create and record a {% data variables.product.pat_v1 %} that will authenticate for the destination organization on {% data variables.product.prodname_ghe_cloud %}, making sure that the token meets all requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#creating-a-personal-access-token-for-github-enterprise-importer)."
+1. Create and record a {% data variables.product.pat_v1 %} that will authenticate for the destination organization on {% data variables.product.prodname_ghe_cloud %}, making sure that the token meets all requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#creating-a-personal-access-token-for-github-enterprise-importer)."
 1. Set environment variables, replacing TOKEN with the {% data variables.product.pat_generic %} you recorded above, USERNAME with the username of a Bitbucket Server account that has admin or super admin permissions, and PASSWORD with the password for the Bitbucket Server account.
 
    - If you're using Terminal, use the `export` command.
@@ -207,6 +209,14 @@ gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
 {% data reusables.enterprise-migration-tool.current-name-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
 
+### Cancelling a migration
+
+{% data reusables.enterprise-migration-tool.abort-migration %}
+
+```shell copy
+gh bb2gh abort-migration --migration-id MIGRATION-ID
+```
+
 ## Step 6: Validate your migration and check the error log
 
 {% data reusables.enterprise-migration-tool.validate-migration-logs %}
@@ -250,6 +260,8 @@ After you generate the script, review the file and, optionally, edit the script.
 
 - If there are any repositories you don't want to migrate, delete or comment out the corresponding lines.
 - By default, repository names in {% data variables.product.prodname_dotcom %} will follow a `projectKey-repositoryName` convention. For example, a Bitbucket Server repository named `airports` that is part of the `open-source` project, which has the key `OS`, would be called `OS-airports` in {% data variables.product.prodname_dotcom %}. If you want any repositories to have a different name on {% data variables.product.prodname_dotcom %}, update the value for the corresponding `--github-repo` flag.
+
+{% data reusables.enterprise-migration-tool.bbs2gh-binary-generate-script %}
 
 ### Running your migration script
 

@@ -14,7 +14,6 @@ children:
   - /listing-the-codespaces-in-your-organization
   - /managing-the-cost-of-github-codespaces-in-your-organization
   - /managing-development-environment-secrets-for-your-repository-or-organization
-  - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-github-codespaces
   - /restricting-access-to-machine-types
   - /restricting-the-number-of-organization-billed-codespaces-a-user-can-create

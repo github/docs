@@ -57,7 +57,20 @@ Select output format. Choices include:
 
 #### `-M, --ram=<MB>`
 
-Set total amount of RAM the query evaluator should be allowed to use.
+The query evaluator will try hard to keep its total memory footprint
+below this value. (However, for large databases it is possible that the
+threshold may be broken by file-backed memory maps, which can be swapped
+to disk in case of memory pressure).
+
+The value should be at least 2048 MB; smaller values will be
+transparently rounded up.
+
+#### `--dataset=<directory>`
+
+\[Advanced] Tune the RAM settings appropriately for querying the given
+dataset, taking into account components of RAM usage that scale with the
+size of the database. If this is not given, a generic default size will
+be assumed.
 
 ### Common options
 

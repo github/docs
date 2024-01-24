@@ -106,7 +106,7 @@ The second name in the `names` array is the readable name, which also matches th
 
 ### `description`
 
-When writing the `description` for your rule, choose a succint one-sentence description that describes the high-level violation you are trying to avoid. There is an opportunity to provide more detail when setting the error message in the rule's function. Avoid using end punctuation in the `description`.
+When writing the `description` for your rule, choose a succinct one-sentence description that describes the high-level violation you are trying to avoid. There is an opportunity to provide more detail when setting the error message in the rule's function. Avoid using end punctuation in the `description`.
 
 ### `tags`
 

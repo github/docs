@@ -7,9 +7,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github
   - /get-started/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.13'
 shortTitle: Properties supported by GitHub
 ---
 {% data reusables.subversion.sunset %}

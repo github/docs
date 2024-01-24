@@ -1,6 +1,6 @@
 ---
 title: Link rewriting
-intro: 'When rendered, links are rewritting to perfection for viewing'
+intro: 'When rendered, links are rewriting to perfection for viewing'
 versions:
   fpt: '*'
   ghes: '*'

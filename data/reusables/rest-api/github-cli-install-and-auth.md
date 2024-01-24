@@ -1,5 +1,5 @@
 1. Install {% data variables.product.prodname_cli %} on macOS, Windows, or Linux. For more information, see [Installation](https://github.com/cli/cli#installation) in the {% data variables.product.prodname_cli %} repository.
-1. Authenticate with {% data variables.product.company_short %} by running this command from your terminal.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. For example, `octo-inc.ghe.com`.{% endif %}
+1. Authenticate with {% data variables.product.company_short %} by running this command from your terminal.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. For example, `octo-inc.ghe.com`.{% endif %}
 
    {%- ifversion fpt or ghec %}
 

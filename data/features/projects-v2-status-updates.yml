@@ -1,0 +1,6 @@
+# Issue 12678
+# Status updates
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.13'

@@ -1,1 +1,1 @@
-After you add or change content exclusions it can take up to 30 minutes for this to take effect in {% data variables.product.prodname_vscode_shortname %}. You can apply changes immediately by reloading the window in {% data variables.product.prodname_vscode_shortname %}.
+After you add or change content exclusions it can take up to 30 minutes for this to take effect in IDEs where the settings are already loaded. You can apply changes to your own IDE forcing it to reload the content exclusion settings.

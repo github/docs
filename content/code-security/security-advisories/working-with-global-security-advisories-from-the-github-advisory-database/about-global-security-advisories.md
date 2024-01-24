@@ -20,9 +20,26 @@ redirect_from:
 
 {% ifversion fpt or ghec %}There are two types of advisories: global security advisories and repository security advisories. For more information about repository security advisories, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."{% endif %}
 
-Global security advisories are grouped into two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
-- {% data variables.product.company_short %}-reviewed advisories are security vulnerabilities{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} that have been mapped to packages in ecosystems we support.
-- Unreviewed advisories are security vulnerabilities that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
+Global security advisories are grouped into these categories: {% data variables.product.company_short %}-reviewed advisories,{% ifversion GH-advisory-db-supports-malware %} unreviewed advisories, and malware advisories{% else %} and unreviewed advisories{% endif %}.
+- {% data reusables.advisory-database.github-reviewed-overview %}
+- {% data reusables.advisory-database.unreviewed-overview %}{% ifversion GH-advisory-db-supports-malware %}
+- {% data reusables.advisory-database.malware-overview %}
+
+{% note %}
+
+**Note:** {% data variables.product.prodname_dependabot %} doesn't generate {% data variables.product.prodname_dependabot_alerts %} for unreviewed and malware advisories.
+
+{% endnote %}
+
+{% else %}
+
+{% note %}
+
+**Note:** {% data variables.product.prodname_dependabot %} doesn't generate {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories.
+
+{% endnote %}
+
+{% endif %}
 
 For more information about the {% data variables.product.prodname_advisory_database %}, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database)."
 

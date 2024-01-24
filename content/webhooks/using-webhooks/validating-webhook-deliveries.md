@@ -169,7 +169,7 @@ function hexToBytes(hex) {
 }
 ```
 
-#### Typescript example
+#### TypeScript example
 
 For example, you can define the following `verify_signature` function and call it when you receive a webhook payload:
 

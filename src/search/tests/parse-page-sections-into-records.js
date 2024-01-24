@@ -41,7 +41,7 @@ describe('search parsePageSectionsIntoRecords module', () => {
       objectID: '/example/href',
       breadcrumbs: 'GitHub Actions / actions learning path',
       title: 'I am the page title',
-      headings: 'First heading Second heading Table heading',
+      headings: 'First heading\nSecond heading\nTable heading',
       content:
         'This is an introduction to the article.\n' +
         "In this article\nThis won't be ignored.\nFirst heading\n" +

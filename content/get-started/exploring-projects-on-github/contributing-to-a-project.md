@@ -104,7 +104,7 @@ gh repo fork REPOSITORY --clone=true
 
 ## Creating a branch to work on
 
-Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[AUTOTITLE](/get-started/quickstart/github-flow#following-github-flow)."
+Before making changes to the project, you should create a new branch and check it out. By keeping changes in their own branch, you follow GitHub Flow and ensure that it will be easier to contribute to the same project again in the future. For more information, see "[AUTOTITLE](/get-started/using-github/github-flow#following-github-flow)."
 
 {% webui %}
 

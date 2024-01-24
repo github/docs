@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -215,7 +214,7 @@ Checking in your `node_modules` directory can cause problems. As an alternative,
 
 Now you're ready to test your action out in a workflow.
 
-Public actions can be used by workflows in any repository. When an action is in a private{% ifversion ghec or ghes or ghae%} or internal{% endif %} repository, the repository settings dictate whether the action is available only within the same repository or also to other repositories owned by the same {% ifversion ghec or ghes or ghae %}organization or enterprise{% else %}user or organization{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
+Public actions can be used by workflows in any repository. When an action is in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, the repository settings dictate whether the action is available only within the same repository or also to other repositories owned by the same {% ifversion ghec or ghes %}organization or enterprise{% else %}user or organization{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 

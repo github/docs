@@ -71,14 +71,14 @@ describe('developer redirects', () => {
     expect(res.headers.location).toBe(expectedFinalPath)
 
     // REST subresources like activity notifications don't have their own page
-    // any more, so redirect to an anchor on the resource page
+    // anymore, so redirect to an anchor on the resource page
     res = await get('/en/v3/activity')
     expect(res.statusCode).toBe(301)
     expectedFinalPath = '/en/rest/activity'
     expect(res.headers.location).toBe(expectedFinalPath)
 
     // REST subresources like activity notifications don't have their own page
-    // any more, so redirect to an anchor on the resource page
+    // anymore, so redirect to an anchor on the resource page
     res = await get('/en/v3/activity/notifications')
     expect(res.statusCode).toBe(301)
     expectedFinalPath = '/en/rest/activity/notifications'

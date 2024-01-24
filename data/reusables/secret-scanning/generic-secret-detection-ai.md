@@ -1,3 +1,4 @@
+<!--This reusable is an intentional duplicate of data/reusables/rai/secret-scanning/generic-secret-detection-ai.md. The duplicate is necessary to enforce legal review of Responsible AI content. If you are updating this content, you may also want to update data/reusables/rai/secret-scanning/generic-secret-detection-ai.md. -->
 {% note %}
 
 **Note:** {% ifversion secret-scanning-ai-generic-secret-detection %}

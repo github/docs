@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -20,7 +19,7 @@ topics:
 
 ## About creating webhooks
 
-You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}.
+You can create webhooks to subscribe to specific events on {% data variables.product.prodname_dotcom %} that occur in a repository, organization, {% ifversion ghes or ghec %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}.
 
 For more information about the different types of webhooks, see "[AUTOTITLE](/webhooks/types-of-webhooks)."
 
@@ -71,7 +70,7 @@ After you create a new webhook, {% data variables.product.prodname_dotcom %} wil
 
 Enterprise owners can create a global webhook to subscribe to events that occur within their enterprise.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 You can use the {% data variables.product.company_short %} web interface or the REST API to create a global webhook. For more information about using the REST API to create a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
 

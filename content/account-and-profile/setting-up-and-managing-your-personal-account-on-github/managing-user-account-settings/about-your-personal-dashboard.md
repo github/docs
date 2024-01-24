@@ -44,7 +44,7 @@ In the left sidebar of your dashboard, you can access the top repositories and t
 
 The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list 1 year after you last interacted with them.
 
-You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
+You can also find a list of your recently visited repositories, teams, and projects when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
 
 ## Staying updated with activity from the community
 
@@ -86,7 +86,7 @@ This feed shows activity from repositories and users you have shown a direct int
 - Forks a public repository.
 - Publishes a new release.
 
-For more information about following people and watching repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/quickstart/be-social)."
+For more information about following people and starring repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
 ### For you feed
 

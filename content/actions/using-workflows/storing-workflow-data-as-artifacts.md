@@ -180,15 +180,15 @@ Jobs that are dependent on a previous job's artifacts must wait for the dependen
 
 Job 1 performs these steps:
 - Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework_pre`.
 
 Job 2 uses the result in the previous job:
-- Downloads the `homework` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
+- Downloads the `homework_pre` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
 - Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- Uploads the `math-homework.txt` file. This upload overwrites the previously uploaded artifact because they share the same name.
+- Uploads the `math-homework.txt` file. As artifacts are considered immutable in `v4`, the artifact is passed a different input, `homework_final`, as a name.
 
 Job 3 displays the result uploaded in the previous job:
-- Downloads the `homework` artifact.
+- Downloads the `homework_final` artifact from Job 2.
 - Prints the result of the math equation to the log.
 
 The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
@@ -209,7 +209,7 @@ jobs:
       - name: Upload math result for job 1
         uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: homework
+          name: homework_pre
           path: math-homework.txt
 
   job_2:
@@ -220,7 +220,7 @@ jobs:
       - name: Download math result for job 1
         uses: {% data reusables.actions.action-download-artifact %}
         with:
-          name: homework
+          name: homework_pre
       - shell: bash
         run: |
           value=`cat math-homework.txt`
@@ -228,7 +228,7 @@ jobs:
       - name: Upload math result for job 2
         uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: homework
+          name: homework_final
           path: math-homework.txt
 
   job_3:
@@ -239,7 +239,7 @@ jobs:
       - name: Download math result for job 2
         uses: {% data reusables.actions.action-download-artifact %}
         with:
-          name: homework
+          name: homework_final
       - name: Print the final result
         shell: bash
         run: |
