@@ -32,7 +32,7 @@ From least access to most access, the roles for an organization repository are:
 
 {% ifversion fpt %}
 If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can create custom repository roles. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
-{% elsif ghec or ghes or ghae %}
+{% elsif ghec or ghes %}
 You can create custom repository roles. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
 {% endif %}
 

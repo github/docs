@@ -113,9 +113,9 @@ You can use the organization settings page for "Code security and analysis" to e
 
 ## Enabling push protection for a custom pattern
 
-You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes or ghae %}the enterprise, organization, or repository level{% else%} the organization or repository level{% endif %}.
+You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes %}the enterprise, organization, or repository level{% else%} the organization or repository level{% endif %}.
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ### Enabling push protection for a custom pattern stored in an enterprise
 

@@ -27,7 +27,7 @@ If you allow forking of private{% ifversion ghes or ghec or ghae %} and internal
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.profile.org_member_privileges %}
-1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
+1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes %}and internal {% endif %}repositories**.
 {%- ifversion org-owners-limit-forks-creation %}
 1. Optionally, if your organization is owned by an enterprise account, select a policy for where users are allowed to fork repositories.
 

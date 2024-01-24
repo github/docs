@@ -110,7 +110,7 @@ For more information on starter workflows, see "[AUTOTITLE](/code-security/code-
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Further reading
 

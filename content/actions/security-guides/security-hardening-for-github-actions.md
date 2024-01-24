@@ -389,7 +389,7 @@ If you are using {% data variables.product.prodname_actions %} to deploy to a cl
 
 ## Auditing {% data variables.product.prodname_actions %} events
 
-You can use the security log to monitor activity for your user account and the audit log to monitor activity in your organization{% ifversion ghec or ghes or ghae %} or enterprise{% endif %}. The security and audit log records the type of action, when it was run, and which personal account performed the action.
+You can use the security log to monitor activity for your user account and the audit log to monitor activity in your organization{% ifversion ghec or ghes %} or enterprise{% endif %}. The security and audit log records the type of action, when it was run, and which personal account performed the action.
 
 For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets.
 
