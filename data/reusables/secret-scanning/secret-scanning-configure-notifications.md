@@ -2,7 +2,6 @@ When a new secret is detected, {% data variables.product.product_name %} notifie
 - Repository administrators
 - Security managers
 - Users with custom roles with read/write access
-- Organization owners and enterprise owners, if they are administrators of repositories where secrets were leaked
 
 {% note %}
 
