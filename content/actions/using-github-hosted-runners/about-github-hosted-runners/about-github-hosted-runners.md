@@ -159,7 +159,7 @@ You can also view a software bill of materials (SBOM) for each build of the Wind
 ### Using preinstalled software
 
 We recommend using actions to interact with the software installed on runners. This approach has several benefits:
-- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- Usually, actions provide more flexible functionality like version selection, ability to pass arguments, and parameters
 - It ensures the tool versions used in your workflow will remain the same regardless of software updates
 
 If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). This repository also contains announcements about all major software updates on runners.
