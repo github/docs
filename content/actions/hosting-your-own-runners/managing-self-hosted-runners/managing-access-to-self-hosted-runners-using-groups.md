@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 ---
@@ -104,7 +103,7 @@ For runner groups in an organization, you can change what repositories in the or
 
 ## Changing the name of a runner group
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 You can edit the name of your runner groups at the enterprise and organization levels.
 
 - [Changing the name of an organization runner group](#changing-the-name-of-an-organization-runner-group)
@@ -117,7 +116,7 @@ You can edit the name of your runner groups at the enterprise and organization l
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ### Changing the name of an enterprise runner group
 
@@ -132,7 +131,7 @@ You can edit the name of your runner groups at the enterprise and organization l
 ## Moving a self-hosted runner to a group
 
 {% data reusables.actions.about-moving-a-runner-to-a-group %}
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 - [Moving an organization runner to a group](#moving-an-organization-runner-to-a-group)
 - [Moving an enterprise runner to a group](#moving-an-enterprise-runner-to-a-group)
@@ -146,7 +145,7 @@ You can edit the name of your runner groups at the enterprise and organization l
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.moving-a-runner-to-a-group %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ### Moving an enterprise runner to a group
 
@@ -160,7 +159,7 @@ You can edit the name of your runner groups at the enterprise and organization l
 ## Removing a self-hosted runner group
 
 {% data reusables.actions.about-removing-a-runner-group %}
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 - [Removing a runner group from an organization](#removing-a-runner-group-from-an-organization)
 - [Removing a runner group from an enterprise](#removing-a-runner-group-from-an-enterprise)
@@ -172,7 +171,7 @@ You can edit the name of your runner groups at the enterprise and organization l
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.removing-a-runner-group %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ### Removing a runner group from an enterprise
 

@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -63,7 +62,7 @@ You can use security overview to find a set of repositories and enable or disabl
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 {% note %}
 
 **Note:** If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
