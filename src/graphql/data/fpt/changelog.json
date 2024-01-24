@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>id</code> was added to object type <code>UnpinIssuePayload</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>visibility: RepositoryVisibility</code> added to field <code>Organization.repositories</code></p>",
           "<p>Argument <code>visibility: RepositoryVisibility</code> added to field <code>Repository.forks</code></p>",
           "<p>Argument <code>visibility: RepositoryVisibility</code> added to field <code>RepositoryOwner.repositories</code></p>",

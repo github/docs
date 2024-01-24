@@ -6985,6 +6985,14 @@
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
         },
         {
+          "name": "id",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The id of the pinned issue that was unpinned.</p>"
+        },
+        {
           "name": "issue",
           "type": "Issue",
           "id": "issue",
