@@ -46,7 +46,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 {% data reusables.webhooks.sidebar_webhooks %}
 {% data reusables.webhooks.disable_webhook %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Disabling a global webhook for a {% data variables.product.prodname_enterprise %}
 

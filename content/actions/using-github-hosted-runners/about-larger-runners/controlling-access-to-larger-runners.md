@@ -40,7 +40,7 @@ For example, the following diagram has a runner group named `grp-ubuntu-20.04-16
 {% data reusables.actions.hosted-runner-security-admonition %}
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Creating a runner group for an enterprise
 

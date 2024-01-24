@@ -13,7 +13,7 @@ topics:
   - Teams
 shortTitle: Disable or limit actions
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your organization
@@ -26,7 +26,7 @@ Alternatively, you can enable {% data variables.product.prodname_actions %} for 
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
-You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
+You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes %}enterprise{% else %}organization{% endif %}.
 
 {% note %}
 
@@ -176,7 +176,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 ### Configuring the default `GITHUB_TOKEN` permissions
 
 {% ifversion actions-default-workflow-permissions-restrictive %}
-By default, when you create a new organization,{% ifversion ghec or ghes or ghae %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes.{% endif %}
+By default, when you create a new organization,{% ifversion ghec or ghes %} the setting is inherited from what is configured in the enterprise settings.{% else %} `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes.{% endif %}
 {% endif %}
 
 {% data reusables.profile.access_profile %}

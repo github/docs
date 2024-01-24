@@ -36,7 +36,7 @@ You must host your own Linux, Windows, or macOS virtual machines to run workflow
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
 
@@ -90,7 +90,7 @@ For more information, see "[AUTOTITLE](/actions/creating-actions)."
 
 {% data reusables.actions.onboarding-next-steps %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Further reading
 

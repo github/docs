@@ -35,7 +35,7 @@ Some security features have prerequisites. For example, {% data variables.produc
 
 Some features are {% ifversion fpt or ghec %}enabled by default in public repositories. In private repositories, some features are {% endif %}only available to enterprises that use {% data variables.product.prodname_GH_advanced_security %} and have enabled {% data variables.product.prodname_advanced_security %} as a feature for repositories. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security#about-advanced-security-features)."
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 {% note %}
 
@@ -59,7 +59,7 @@ When you have decided to enable a security feature, the next step is to decide h
 
 When you have decided how to enable a feature for your organization's existing repositories, you must also decide how to handle any new repositories that are created in your organization in the future. For more information, see "[Enabling a feature for new repositories](#enabling-a-feature-for-future-repositories)."
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 For more information about creating a strategy for rolling out security features across a large organization or enterprise, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
 {% endif %}
 
@@ -138,7 +138,7 @@ You can use various tools to monitor the actions that your organization's member
 To help users report security vulnerabilities, you can create a default security policy that will display in any of your organization's public repositories that do not have their own security policy. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 Once your organization's security setup is in place, you may want to prevent users from changing the security settings in a repository. An enterprise owner can prevent repository administrators from enabling or disabling features in a repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 {% endif %}
 
