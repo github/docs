@@ -3380,7 +3380,19 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
+    },
+    {
+      "slug": "get-the-status-of-a-github-pages-deployment",
+      "subcategory": "pages",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}"
+    },
+    {
+      "slug": "cancel-a-github-pages-deployment",
+      "subcategory": "pages",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel"
     },
     {
       "slug": "get-a-dns-health-check-for-github-pages",
