@@ -8,12 +8,6 @@ topics:
   - Copilot
 ---
 
-{% note %}
-
-{% data variables.product.prodname_copilot_enterprise %} is in beta, and functionality and documentation are subject to change. You can nominate an organization or enterprise for the beta using the [{% data variables.product.prodname_copilot_enterprise_short %} waitlist form](https://github.com/github-copilot/copilot_enterprise_waitlist_signup/join).
-
-{% endnote %}
-
 ## About {% data variables.product.prodname_copilot_enterprise_short %} features
 
 To use {% data variables.product.prodname_copilot_enterprise %} features, you can nominate an organization or enterprise that you're a member of for the [{% data variables.product.prodname_copilot_enterprise_short %} waitlist](https://github.com/github-copilot/copilot_enterprise_waitlist_signup/join). To join the waitlist, the organization or enterprise must use {% data variables.product.prodname_ghe_cloud %} and have an active {% data variables.product.prodname_copilot_for_business %} subscription. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
