@@ -2,8 +2,6 @@
 title: Enabling GitHub Copilot Enterprise
 shortTitle: Enabling Copilot Enterprise
 intro: 'Learn how to enable the features available with the {% data variables.product.prodname_copilot_enterprise %} beta.'
-redirect_from:
-  - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise
 versions:
   ghec: '*'
 topics:
