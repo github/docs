@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -24,7 +23,7 @@ topics:
 **Warnings**:
 
 - Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
-- Deleting a private{% ifversion ghes or ghec or ghae %} or internal{% endif %} repository will delete all forks of the repository.
+- Deleting a private{% ifversion ghes or ghec %} or internal{% endif %} repository will delete all forks of the repository.
 
 {% endwarning %}
 

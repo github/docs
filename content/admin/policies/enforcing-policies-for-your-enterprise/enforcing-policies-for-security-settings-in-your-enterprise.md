@@ -13,7 +13,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -127,6 +126,6 @@ To prevent confusion from your developers, you can change this behavior so that 
 {%- ifversion ghec %}
 - "[AUTOTITLE](/admin/overview/accessing-compliance-reports-for-your-enterprise)"
 {%- endif %}
-{%- ifversion ghec or ghae %}
+{%- ifversion ghec %}
 - "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
 {%- endif %}

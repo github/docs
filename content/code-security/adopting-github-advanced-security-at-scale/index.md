@@ -19,4 +19,3 @@ children:
   - /phase-5-rollout-and-scale-code-scanning
   - /phase-6-rollout-and-scale-secret-scanning
 ---
-

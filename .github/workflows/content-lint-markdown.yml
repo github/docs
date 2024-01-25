@@ -47,4 +47,4 @@ jobs:
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           CHANGED_FILES: |-
             ${{ steps.changed-files.outputs.all_changed_files }}
-        run: npm run lint-content -- --errors-only --paths "$CHANGED_FILES"
+        run: npm run lint-content -- --errors-only --paths $CHANGED_FILES

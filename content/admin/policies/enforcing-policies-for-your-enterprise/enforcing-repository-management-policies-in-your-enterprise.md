@@ -135,8 +135,8 @@ Across all organizations owned by your enterprise, you can allow members to invi
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", select the dropdown menu and click a policy.
+1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes %}invitations{% endif %}", select the dropdown menu and click a policy.
 
 ## Enforcing a policy for the default branch name
 
