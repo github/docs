@@ -4,6 +4,26 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>SponsorAndLifetimeValue</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueConnection</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueEdge</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueOrder</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueOrderField</code> was added</p>",
+          "<p>Field <code>lifetimeReceivedSponsorshipValues</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>lifetimeReceivedSponsorshipValues</code> was added to interface <code>Sponsorable</code></p>",
+          "<p>Field <code>lifetimeReceivedSponsorshipValues</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>id</code> was added to object type <code>UnpinIssuePayload</code></p>"
         ]
       }
