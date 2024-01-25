@@ -101,7 +101,7 @@ export async function getBodyParams(schema, topLevel = false) {
       }
       keyParam.childParamsGroups.push(...(await getBodyParams(param.additionalProperties, false)))
       childParamsGroups.push(keyParam)
-    } else if (paramType && paramType.includes('array')) {
+    } else if (paramType && paramType.includes('array') && param.items) {
       if (param.items && param.items.oneOf) {
         if (param.items.oneOf.every((object) => object.type === 'object')) {
           paramType.splice(paramType.indexOf('array'), 1, `array of objects`)
