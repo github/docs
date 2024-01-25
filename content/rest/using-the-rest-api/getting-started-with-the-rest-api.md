@@ -13,6 +13,9 @@ redirect_from:
   - /rest/initialize-the-repo
   - /rest/overview/resources-in-the-rest-api
   - /rest/using-the-rest-api/resources-in-the-rest-api
+  - /v3/media
+  - /rest/overview/media-types
+  - /rest/using-the-rest-api/media-types
 ---
 
 ## Introduction
