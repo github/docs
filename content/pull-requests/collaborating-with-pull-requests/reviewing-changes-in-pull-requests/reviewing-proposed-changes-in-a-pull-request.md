@@ -65,6 +65,8 @@ You can use [{% data variables.product.prodname_github_codespaces %}](/codespace
 
    ![Screenshot of a comment being added, reading "Yes, I agree, this is clearer." The "Start Review" button is shown below the comment.](/assets/images/help/codespaces/start-review.png)
 
+{% data reusables.codespaces.reviewing-a-pr %}
+
 1. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
 
    ![Screenshot of the side bar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)
