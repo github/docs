@@ -27,6 +27,7 @@
 | [Uncontrolled format string](https://codeql.github.com/codeql-query-help/swift/swift-uncontrolled-format-string/) | 134 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Unsafe WebView fetch](https://codeql.github.com/codeql-query-help/swift/swift-unsafe-webview-fetch/) | 079, 095, 749 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of a broken or weak cryptographic hashing algorithm on sensitive data](https://codeql.github.com/codeql-query-help/swift/swift-weak-sensitive-data-hashing/) | 327, 328 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Use of an inappropriate cryptographic hashing algorithm on passwords](https://codeql.github.com/codeql-query-help/swift/swift-weak-password-hashing/) | 327, 328, 916 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of constant salts](https://codeql.github.com/codeql-query-help/swift/swift-constant-salt/) | 760 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
