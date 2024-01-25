@@ -22,7 +22,7 @@ This guide describes the highest impact changes you can make to increase account
 
 ## What's the risk?
 
-Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec or ghae %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
 
 {% ifversion ghec or ghes %}
 

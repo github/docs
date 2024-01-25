@@ -5,7 +5,6 @@ permissions: Enterprise owners can configure a custom footer.
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '>= 3.4'
 type: how_to
 topics:
   - Enterprise
@@ -15,7 +14,7 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-custom-footers
 ---
 
-## About custom footers for {% ifversion ghec or ghae %}your enterprise{% elsif ghes %}{% data variables.product.product_name %}{% endif %}
+## About custom footers for {% ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.product.product_name %}{% endif %}
 
 You can configure the web UI for {% data variables.product.product_name %} to display a custom footer with up to five additional links. The custom footer appears above the default {% data variables.product.prodname_dotcom %} footer{% ifversion ghes %}, to all users and on all pages{% elsif ghec %} to all enterprise members and collaborators, on all repository and organization pages for repositories and organizations that belong to the enterprise{% endif %}.
 

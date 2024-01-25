@@ -6,7 +6,6 @@ shortTitle: Dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -44,7 +43,7 @@ For more information on supply chain features available on {% data variables.pro
 The dependency review feature becomes available when you enable the dependency graph. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
 {% endif %}
 
-{% ifversion fpt or ghec or ghes or ghae > 3.5 %}
+{% ifversion fpt or ghec or ghes %}
 
 ## Dependency review enforcement
 

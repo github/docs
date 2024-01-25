@@ -3,7 +3,6 @@ title: Managing your theme settings
 intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
 versions:
   fpt: '*'
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 topics:
@@ -21,7 +20,7 @@ For choice and flexibility in how and when you use {% data variables.product.pro
 
 You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
 
-If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% ifversion fpt or ghae or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
+If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% ifversion fpt or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
 
 {% endif %}
 

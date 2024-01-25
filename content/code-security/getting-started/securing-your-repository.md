@@ -85,7 +85,7 @@ Dependency review is a {% data variables.product.prodname_GH_advanced_security %
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
 1. Click **Security & analysis**.
-1. {% ifversion ghec %}If dependency graph is not already enabled, click **Enable**.{% elsif ghes or ghae %}Check that dependency graph is configured for your enterprise.{% endif %}
+1. {% ifversion ghec %}If dependency graph is not already enabled, click **Enable**.{% elsif ghes %}Check that dependency graph is configured for your enterprise.{% endif %}
 1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
 
 {% endif %}

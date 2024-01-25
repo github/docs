@@ -1,11 +1,10 @@
 ---
 title: SAML configuration reference
 shortTitle: SAML reference
-intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
+intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: reference
 topics:
   - Accounts
@@ -19,7 +18,7 @@ redirect_from:
 
 ## About SAML configuration
 
-To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.location.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods)."
+To use SAML single sign-on (SSO) for authentication to {% data variables.product.product_name %}, you must configure both your external SAML identity provider (IdP) and {% ifversion ghes %}{% data variables.location.product_location %}{% elsif ghec %}your enterprise or organization on {% data variables.location.product_location %}{% endif %}. In a SAML configuration, {% data variables.product.product_name %} functions as a SAML service provider (SP). For more information about authentication for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management#authentication-methods)."
 
  {% data variables.product.product_name %} provides integration according to the SAML 2.0 specification. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
@@ -63,16 +62,6 @@ The SP metadata for {% data variables.location.product_location %} is available 
 | SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `http(s)://HOSTNAME/saml/consume` |
 | SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `http(s)://HOSTNAME/sso` |
 
-{% elsif ghae %}
-
-The SP metadata for your enterprise on {% data variables.product.product_name %} is available at `https://HOSTNAME/saml/metadata`, where **HOSTNAME** is the hostname for your enterprise on {% data variables.product.product_name %}. {% data variables.product.product_name %} uses the `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` binding.
-
-| Value | Other names | Description | Example |
-| :- | :- | :- | :- |
-| SP Entity ID | SP URL, audience restriction | Your top-level URL for {% data variables.product.product_name %} | `https://HOSTNAME` |
-| SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `https://HOSTNAME/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://HOSTNAME/sso` |
-
 {% endif %}
 
 ## SAML attributes
@@ -82,7 +71,7 @@ The following SAML attributes are available for {% data variables.product.produc
 | Name | Required | Description |
 | :- | :- | :- |
 | `NameID` | {% octicon "check" aria-label="Required" %} | A persistent user identifier. Any persistent name identifier format may be used. {% ifversion ghec %}If you use an enterprise with {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} will normalize the `NameID` element to use as a username unless one of the alternative assertions is provided. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."<br><br>{% note %}**Note:** It's important to use a human-readable, persistent identifier. Using a transient identifier format like `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` will result in re-linking of accounts on every sign-in, which can be detrimental to authorization management.{% endnote %}  |
-| `SessionNotOnOrAfter` | {% octicon "x" aria-label="Optional" %} | The date that {% data variables.product.product_name %} invalidates the associated session. After invalidation, the person must authenticate once again to access {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Session duration and timeout](#session-duration-and-timeout)." |
+| `SessionNotOnOrAfter` | {% octicon "x" aria-label="Optional" %} | The date that {% data variables.product.product_name %} invalidates the associated session. After invalidation, the person must authenticate once again to access {% ifversion ghec %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. For more information, see "[Session duration and timeout](#session-duration-and-timeout)." |
 {%- ifversion ghes %}
 | `administrator` | {% octicon "x" aria-label="Optional" %} | When the value is `true`, {% data variables.product.product_name %} will automatically promote the user to be a {% ifversion ghes %}site administrator{% elsif ghae %}enterprise owner{% endif %}. Setting this attribute to anything but `true` will result in demotion, as long as the value is not blank. Omitting this attribute or leaving the value blank will not change the role of the user. |
 | `username` | {% octicon "x" aria-label="Optional" %} | The username for {% data variables.location.product_location %}. |
@@ -136,9 +125,9 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 ## Session duration and timeout
 
-To prevent a person from authenticating with your IdP and staying authorized indefinitely, {% data variables.product.product_name %} periodically invalidates the session for each user account with access to {% ifversion ghec or ghae %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. After invalidation, the person must authenticate with your IdP once again.
+To prevent a person from authenticating with your IdP and staying authorized indefinitely, {% data variables.product.product_name %} periodically invalidates the session for each user account with access to {% ifversion ghec %}your enterprise's resources{% elsif ghes %}{% data variables.location.product_location %}{% endif %}. After invalidation, the person must authenticate with your IdP once again.
 
-By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes or ghae %}one week{% endif %} after successful authentication with your IdP.
+By default, if your IdP does not assert a value for the `SessionNotOnOrAfter` attribute, {% data variables.product.product_name %} invalidates a session {% ifversion ghec %}24 hours{% elsif ghes %}one week{% endif %} after successful authentication with your IdP.
 
 {% data variables.product.product_name %} will support a customized session duration if your IdP provides the option to configure a `SessionNotOnOrAfter` attribute and value{% ifversion ghes %}, and if this attribute is included in SAML responses. If your IdP does not allow a `SessionNotOnOrAfter` attribute, a site administrator can configure a custom SAML session timeout for all users on your instance by using the `ghe-config saml.default-session-expiration [seconds]` command in the administrative shell{% endif %}.
 

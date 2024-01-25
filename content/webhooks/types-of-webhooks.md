@@ -43,7 +43,7 @@ You can create multiple webhooks in a single organization. However, you can only
 
 You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to manage organization webhooks. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-an-organization-webhook)," "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-an-organization-webhook)," and "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-an-organization-webhook)." For more information about using the REST API to manage organization webhooks, see "[AUTOTITLE](/rest/orgs/webhooks)."
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Global webhooks for {% data variables.product.prodname_enterprise %}
 

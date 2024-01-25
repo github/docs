@@ -1,11 +1,10 @@
 ---
 title: About identity and access management
 shortTitle: About IAM
-intro: 'Administrators for {% ifversion ghec or ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %} must decide how users will access {% ifversion ghec or ghae %}the enterprise''s resources{% ifversion ghec %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% elsif ghes %} the instance{% endif %}.'
+intro: 'Administrators for {% ifversion ghec %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %} must decide how users will access {% ifversion ghec %}the enterprise''s resources{% ifversion ghec %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% elsif ghes %} the instance{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise

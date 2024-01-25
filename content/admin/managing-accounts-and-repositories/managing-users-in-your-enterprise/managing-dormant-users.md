@@ -8,11 +8,10 @@ redirect_from:
   - /admin/user-management/managing-dormant-users
   - /admin/user-management/managing-users-in-your-enterprise/managing-dormant-users
 intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
-permissions: "{% ifversion ghec or ghae %}Enterprise owners can manage dormant users for an enterprise.{% elsif ghes %}Site administrators can manage dormant users on a {% data variables.product.product_name %} instance.{% endif %}"
+permissions: "{% ifversion ghec %}Enterprise owners can manage dormant users for an enterprise.{% elsif ghes %}Site administrators can manage dormant users on a {% data variables.product.product_name %} instance.{% endif %}"
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Accounts
@@ -28,7 +27,7 @@ topics:
 When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant.
 {% endif %}
 
-A user account is considered to be dormant if the user {% ifversion ghec or ghae %} hasn't performed any of the previous activities in the past 90 days.{% elsif ghes %} meets the following criteria:
+A user account is considered to be dormant if the user {% ifversion ghec %} hasn't performed any of the previous activities in the past 90 days.{% elsif ghes %} meets the following criteria:
 
 - The user's account has existed for longer than the dormancy threshold {% data variables.location.product_location %}.
 - The user hasn't performed any of the previous activities within the dormancy threshold.

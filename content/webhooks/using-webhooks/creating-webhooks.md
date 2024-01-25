@@ -64,7 +64,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 After you create a new webhook, {% data variables.product.prodname_dotcom %} will send you a simple `ping` event to let you know you've set up the webhook correctly. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#ping)."
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Creating a global webhook for a {% data variables.product.prodname_enterprise %}
 
