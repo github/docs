@@ -7,9 +7,7 @@ topics:
 versions:
   feature: copilot
 children:
-  - /about-github-copilot-enterprise
-  - /github-copilot-enterprise-feature-set
-  - /enabling-github-copilot-enterprise
+  - /overview
   - /copilot-chat-in-github
   - /copilot-pull-request-summaries
   - /copilot-docset-management
