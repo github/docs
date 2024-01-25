@@ -25,12 +25,4 @@ below). For more information, see the REST API "[AUTOTITLE](/rest/activity/watch
 
 In responses from the REST API, `watchers`, `watchers_count`, and `stargazers_count` correspond to the number of users that have starred a repository, whereas `subscribers_count` corresponds to the number of watchers.
 
-### Custom media types for starring
-
-There is one supported custom media type for these endpoints. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
-
-    application/vnd.github.star+json
-
-For more information about media types, see "[AUTOTITLE](/rest/overview/media-types)."
-
 <!-- Content after this section is automatically generated -->

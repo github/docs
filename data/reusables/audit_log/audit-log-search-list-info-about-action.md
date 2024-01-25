@@ -2,7 +2,7 @@
 
 Each audit log entry shows applicable information about an event, such as:
 
-- The {% ifversion ghec or ghes or ghae %}enterprise or {% endif %}organization an action was performed in
+- The {% ifversion ghec or ghes %}enterprise or {% endif %}organization an action was performed in
 - The user (actor) who performed the action
 - The user affected by the action
 - Which repository an action was performed in

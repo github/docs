@@ -18,6 +18,7 @@ If {% data variables.product.prodname_copilot_enterprise_short %} is enabled for
 
 - {% data variables.product.prodname_copilot_chat_short %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat)")
 - {% data variables.product.prodname_copilot_for_prs %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)")
+- {% data variables.product.prodname_copilot_for_docs %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management)")
 
 These features are in beta and subject to change. Additional features will be added to the {% data variables.product.prodname_copilot_enterprise_short %} offering over time. If you're taking part in the beta, you'll be notified when new features are added.
 

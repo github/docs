@@ -66,7 +66,7 @@ http(s)://HOSTNAME/
 ```
 
 {% endif %}
-{% ifversion ghae or ghes %}
+{% ifversion ghes %}
 
 ## Authentication
 
@@ -78,7 +78,7 @@ These endpoints are only accessible to authenticated {% data variables.product.p
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes %}
 
 ## Version information
 

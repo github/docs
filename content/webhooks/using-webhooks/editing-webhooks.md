@@ -5,7 +5,6 @@ intro: 'After creating a webhook, you can make changes to it.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -41,7 +40,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 {% data reusables.webhooks.edit_webhook_make_changes %}
 {% data reusables.webhooks.update_webhook %}
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Editing a global webhook for a {% data variables.product.prodname_enterprise %}
 

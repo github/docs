@@ -9,7 +9,6 @@ permissions: Anyone with write permissions for a repository can publish a packag
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -30,7 +29,7 @@ If a new version of a package fixes a security vulnerability, you should publish
 
 {% data reusables.package_registry.packages-classic-pat-only %}
 
-You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghae or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
+You can publish a package to {% data variables.product.prodname_registry %} using any {% ifversion fpt or ghec %}supported package client{% else %}package type enabled for your instance{% endif %} by following the same general guidelines.
 
 1. Create or use an existing {% data variables.product.pat_v1 %} with the appropriate scopes for the task you want to accomplish. For more information, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 1. Authenticate to {% data variables.product.prodname_registry %} using your {% data variables.product.pat_v1 %} and the instructions for your package client.
