@@ -67,18 +67,28 @@ export default class Operation {
   }
 
   async renderDescription() {
-    this.descriptionHTML = await renderContent(this.#operation.description)
-    return this
+    try {
+      this.descriptionHTML = await renderContent(this.#operation.description)
+      return this
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering description for ${this.verb} ${this.requestPath}`)
+    }
   }
 
   async codeExamples() {
     this.codeExamples = await getCodeSamples(this.#operation)
-    return await Promise.all(
-      this.codeExamples.map(async (codeExample) => {
-        codeExample.response.description = await renderContent(codeExample.response.description)
-        return codeExample
-      }),
-    )
+    try {
+      return await Promise.all(
+        this.codeExamples.map(async (codeExample) => {
+          codeExample.response.description = await renderContent(codeExample.response.description)
+          return codeExample
+        }),
+      )
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error generating code examples for ${this.verb} ${this.requestPath}`)
+    }
   }
 
   async renderStatusCodes() {
@@ -86,38 +96,49 @@ export default class Operation {
     const responseKeys = Object.keys(responses)
     if (responseKeys.length === 0) return []
 
-    this.statusCodes = await Promise.all(
-      responseKeys.map(async (responseCode) => {
-        const response = responses[responseCode]
-        const httpStatusCode = responseCode
-        const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode), 'HTTP/2')
-        // The OpenAPI should be updated to provide better descriptions, but
-        // until then, we can catch some known generic descriptions and replace
-        // them with the default http status message.
-        const responseDescription =
-          response.description.toLowerCase() === 'response'
-            ? await renderContent(httpStatusMessage)
-            : await renderContent(response.description)
+    try {
+      this.statusCodes = await Promise.all(
+        responseKeys.map(async (responseCode) => {
+          const response = responses[responseCode]
+          const httpStatusCode = responseCode
+          const httpStatusMessage = httpStatusCodes.getMessage(Number(responseCode), 'HTTP/2')
+          // The OpenAPI should be updated to provide better descriptions, but
+          // until then, we can catch some known generic descriptions and replace
+          // them with the default http status message.
+          const responseDescription =
+            response.description.toLowerCase() === 'response'
+              ? await renderContent(httpStatusMessage)
+              : await renderContent(response.description)
 
-        return {
-          httpStatusCode,
-          description: responseDescription,
-        }
-      }),
-    )
+          return {
+            httpStatusCode,
+            description: responseDescription,
+          }
+        }),
+      )
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering status codes for ${this.verb} ${this.requestPath}`)
+    }
   }
 
   async renderParameterDescriptions() {
-    return Promise.all(
-      this.parameters.map(async (param) => {
-        param.description = await renderContent(param.description)
-        return param
-      }),
-    )
+    try {
+      return Promise.all(
+        this.parameters.map(async (param) => {
+          param.description = await renderContent(param.description)
+          return param
+        }),
+      )
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering parameter descriptions for ${this.verb} ${this.requestPath}`)
+    }
   }
 
   async renderBodyParameterDescriptions() {
     if (!this.#operation.requestBody) return []
+
     // There is currently only one operation with more than one content type
     // and the request body parameter types are the same for both.
     // Operation Id: markdown/render-raw
@@ -129,26 +150,40 @@ export default class Operation {
     }
     // Merges any instances of allOf in the schema using a deep merge
     const mergedAllofSchema = mergeAllOf(schema)
-    this.bodyParameters = isPlainObject(schema) ? await getBodyParams(mergedAllofSchema, true) : []
+    try {
+      this.bodyParameters = isPlainObject(schema)
+        ? await getBodyParams(mergedAllofSchema, true)
+        : []
+    } catch (error) {
+      console.error(error)
+      throw new Error(
+        `Error rendering body parameter descriptions for ${this.verb} ${this.requestPath}`,
+      )
+    }
   }
 
   async renderPreviewNotes() {
     const previews = get(this.#operation, 'x-github.previews', [])
-    this.previews = await Promise.all(
-      previews.map(async (preview) => {
-        const note = preview.note
-          // remove extra leading and trailing newlines
-          .replace(/```\n\n\n/gm, '```\n')
-          .replace(/```\n\n/gm, '```\n')
-          .replace(/\n\n\n```/gm, '\n```')
-          .replace(/\n\n```/gm, '\n```')
+    try {
+      this.previews = await Promise.all(
+        previews.map(async (preview) => {
+          const note = preview.note
+            // remove extra leading and trailing newlines
+            .replace(/```\n\n\n/gm, '```\n')
+            .replace(/```\n\n/gm, '```\n')
+            .replace(/\n\n\n```/gm, '\n```')
+            .replace(/\n\n```/gm, '\n```')
 
-          // convert single-backtick code snippets to fully fenced triple-backtick blocks
-          // example: This is the description.\n\n`application/vnd.github.machine-man-preview+json`
-          .replace(/\n`application/, '\n```\napplication')
-          .replace(/json`$/, 'json\n```')
-        return await renderContent(note)
-      }),
-    )
+            // convert single-backtick code snippets to fully fenced triple-backtick blocks
+            // example: This is the description.\n\n`application/vnd.github.machine-man-preview+json`
+            .replace(/\n`application/, '\n```\napplication')
+            .replace(/json`$/, 'json\n```')
+          return await renderContent(note)
+        }),
+      )
+    } catch (error) {
+      console.error(error)
+      throw new Error(`Error rendering preview notes for ${this.verb} ${this.requestPath}`)
+    }
   }
 }

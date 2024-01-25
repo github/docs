@@ -1,6 +1,6 @@
 ---
 title: Types of webhooks
-intro: 'You can create webhooks to subscribe to events that occur in a specific repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}.'
+intro: 'You can create webhooks to subscribe to events that occur in a specific repository, organization, {% ifversion ghes or ghec %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}.'
 redirect_from:
   - /webhooks-and-events/webhooks/about-webhooks-for-repositories
   - /webhooks/webhooks/about-webhooks-for-repositories
@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -16,7 +15,7 @@ topics:
 
 ## About webhook types
 
-A webhook can only access events that are available in the repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %} where it is installed.
+A webhook can only access events that are available in the repository, organization, {% ifversion ghes or ghec %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %} where it is installed.
 
 You cannot create webhooks for individual user accounts, or for events that are specific to user resources, like personal notifications or mentions.
 
@@ -44,7 +43,7 @@ You can create multiple webhooks in a single organization. However, you can only
 
 You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to manage organization webhooks. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-an-organization-webhook)," "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-an-organization-webhook)," and "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-an-organization-webhook)." For more information about using the REST API to manage organization webhooks, see "[AUTOTITLE](/rest/orgs/webhooks)."
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Global webhooks for {% data variables.product.prodname_enterprise %}
 

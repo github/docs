@@ -187,7 +187,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Resolving and closing support tickets
 
