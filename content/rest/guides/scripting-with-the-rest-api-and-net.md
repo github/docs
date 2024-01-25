@@ -96,7 +96,7 @@ var github = new GitHubClient(new ProductHeaderValue("YourApp"));
 
 ## Making Requests
 
-The .NET Octokit SDK supports two ways to make requests. You can either use the `Connection.{verb}` method or you can use predefined classes.   
+The .NET Octokit SDK supports two ways to make requests. You can either use the `Connection.{verb}` method or you can use predefined classes.
 
 ### Using the Connection.{verb} Method
 
@@ -275,19 +275,28 @@ Console.WriteLine($"The title of the first issue is: {issues[0].Title}");
 
 ## Example script
 
-Here is a full example script that uses Octokit.net. The script imports `Octokit` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you would import and instantiate `App` instead of `Octokit`. For more information, see "[Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app)" in this guide.
+Here is a full example script that uses Octokit.net. The script imports `Octokit` and creates a new instance of `Octokit`. If you want to authenticate with a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %}, you need to create a GitHubApp instance and use a JWT (JSON Web Token) for authentication. For more information, see "[Authenticating with a {% data variables.product.prodname_github_app %}](#authenticating-with-a-github-app)." in this guide.
 
 ```csharp
 using Octokit;
+using Octokit.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 class Program
 {
     static async Task Main(string[] args)
     {
-        var github = new GitHubClient(new ProductHeaderValue("YourApp"));
+        var appId = "your_app_id"; 
+        var privateKey = "your_private_key"; 
+
+        var github = new GitHubClient(new ProductHeaderValue("YourApp"))
+        {
+            Credentials = new Credentials(GetJwtToken(appId, privateKey), AuthenticationType.Bearer)
+        };
 
         var owner = "github";
         var repo = "docs";
@@ -301,6 +310,20 @@ class Program
             var commentUrl = await CommentIfDataFilesChanged(github, owner, repo, pullNumber);
             Console.WriteLine($"Comment added at: {commentUrl}");
         }
+    }
+
+    static string GetJwtToken(string appId, string privateKey)
+    {
+        var generator = new GitHubJwtFactory(
+            new StringPrivateKeySource(privateKey),
+            new GitHubJwtFactoryOptions
+            {
+                AppIntegrationId = int.Parse(appId), 
+                ExpirationSeconds = 600 
+            }
+        );
+
+        return generator.CreateEncodedJwtToken();
     }
 
     static async Task<IReadOnlyList<string>> GetChangedFiles(GitHubClient github, string owner, string repo, int pullNumber)
@@ -353,4 +376,3 @@ class Program
 ## Next steps
 
 - To learn more about Octokit.net see [the .NET Octokit SDK documentation](https://github.com/octokit/octokit.net).
-
