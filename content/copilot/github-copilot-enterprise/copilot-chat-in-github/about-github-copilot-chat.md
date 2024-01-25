@@ -4,7 +4,7 @@ shortTitle: About Copilot Chat
 intro: '{% data variables.product.prodname_copilot_chat %} can help you by providing answers to coding related questions directly within {% data variables.product.prodname_dotcom_the_website %} or a supported IDE.'
 product: '{% data reusables.gated-features.copilot-chat-in-github %}
 <br><br>
-Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.product.prodname_copilot_enterprise %} subscription can decide whether to grant access to the {% data variables.product.prodname_copilot_enterprise_short %} functionality for an organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)."'
+Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.product.prodname_copilot_enterprise %} subscription can decide whether to grant access to the {% data variables.product.prodname_copilot_enterprise_short %} functionality for an organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/enabling-github-copilot-enterprise)."'
 versions:
   feature: 'copilot-on-dotcom'
   fpt: '*'

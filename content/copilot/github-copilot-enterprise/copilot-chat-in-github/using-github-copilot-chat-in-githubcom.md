@@ -32,7 +32,7 @@ The following limitations apply to this beta release of {% data variables.produc
 ## Prerequisites
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
-- To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have been granted access to {% data variables.product.prodname_copilot_chat %} as part of {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)."
+- To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have been granted access to {% data variables.product.prodname_copilot_chat %} as part of {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/enabling-github-copilot-enterprise)."
 
 ## Asking a general question about software development
 
