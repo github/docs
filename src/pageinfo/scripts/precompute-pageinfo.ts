@@ -13,7 +13,7 @@
  * Why cache?: Despite being a fast computation (3 Liquid + Markdown renders),
  * it still adds up. And it's safe and cheap to precompute in advance.
  *
- * Why only the English?: To make the file not too large.
+ * Why only the English by default?: To make the file not too large.
  * Given how good these things compress, we might consider, in the
  * future, to do all languages.
  *
@@ -29,20 +29,55 @@
 import fs from 'fs'
 import { brotliCompressSync } from 'zlib'
 
-import { loadPages, loadUnversionedTree } from '#src/frame/lib/page-data.js'
+import chalk from 'chalk'
+import { program, Option } from 'commander'
+
+import { languageKeys } from 'src/languages/lib/languages.js'
+import { loadPages, loadUnversionedTree } from 'src/frame/lib/page-data.js'
 import { CACHE_FILE_PATH, getPageInfo } from '../middleware.js'
 
-main()
+program
+  .description('Generates a JSON file with precompute pageinfo data by pathname')
+  .addOption(
+    new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on')
+      .choices(languageKeys)
+      .default(['en']),
+  )
+  .option('-o, --output-file <path>', 'path to output file', CACHE_FILE_PATH)
+  .parse(process.argv)
+
+type Options = {
+  outputFile: string
+  languages: string[]
+}
+const opts = program.opts()
+
+main({
+  outputFile: opts.outputFile,
+  languages: opts.language,
+})
 
 const CI = Boolean(JSON.parse(process.env.CI || 'false'))
 
-async function main() {
-  const unversionedTree = await loadUnversionedTree(['en'])
-  const pageList = await loadPages(unversionedTree, ['en'])
+type PageInfo = {
+  title: string
+  intro: string
+  product: string
+}
+
+async function main(options: Options) {
+  const { outputFile, languages } = options
+  if (outputFile !== CACHE_FILE_PATH) {
+    console.warn(chalk.yellow(`Writing to ${outputFile} instead of ${CACHE_FILE_PATH}`))
+  }
+  const unversionedTree = await loadUnversionedTree(languages)
+  const pageList = await loadPages(unversionedTree, languages)
 
   let label = `Compute pageinfos for ${pageList.length.toLocaleString()} pages`
   console.time(label)
-  const pageinfos = {}
+  const pageinfos: {
+    [pathname: string]: PageInfo
+  } = {}
   for (const page of pageList) {
     const pathname = page.permalinks[0].href
     try {
@@ -57,14 +92,20 @@ async function main() {
   }
   console.timeEnd(label)
 
-  label = `Serialize, compress, and write to ${CACHE_FILE_PATH}`
+  label = `Serialize, compress, and write to ${outputFile}`
   console.time(label)
   const payload = CI ? JSON.stringify(pageinfos) : JSON.stringify(pageinfos, null, 2)
-  const payloadBuffer = Buffer.from(payload, 'utf-8')
-  const payloadCompressed = brotliCompressSync(payloadBuffer)
-  fs.writeFileSync(CACHE_FILE_PATH, payloadCompressed)
+  if (outputFile.endsWith('.json')) {
+    fs.writeFileSync(outputFile, payload)
+  } else {
+    const payloadBuffer = Buffer.from(payload, 'utf-8')
+    const payloadCompressed = brotliCompressSync(payloadBuffer)
+    fs.writeFileSync(outputFile, payloadCompressed)
+  }
   console.timeEnd(label)
   console.log(
-    `Wrote ${Object.keys(pageinfos).length.toLocaleString()} pageinfos to ${CACHE_FILE_PATH}`,
+    chalk.green(
+      `Wrote ${Object.keys(pageinfos).length.toLocaleString()} pageinfos to ${outputFile}`,
+    ),
   )
 }

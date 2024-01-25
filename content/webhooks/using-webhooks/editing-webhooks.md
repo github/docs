@@ -47,7 +47,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 Enterprise owners can edit a global webhook to change any of the settings that were selected when the webhook was initially created.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 You can use the {% data variables.product.company_short %} web interface or the REST API to edit a global webhook. For more information about using the REST API to edit a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
 

@@ -22,7 +22,7 @@ const router = express.Router()
 // Note that if the file does not exist, it will be ignored and
 // every pageinfo is computed every time.
 // Note! The only reason this variable is exported is so that
-// it can be imported by the script scripts/precompute-pageinfo.js
+// it can be imported by the script scripts/precompute-pageinfo.ts
 export const CACHE_FILE_PATH = '.pageinfo-cache.json.br'
 
 const validationMiddleware = (req, res, next) => {

@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 {% for glossary in glossaries %}
@@ -16,7 +15,7 @@ versions:
 ## {{ glossary.term }}
 
   {{ glossary.description }}
-  
+
 {% endfor %}
 
 ---

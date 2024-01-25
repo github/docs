@@ -39,7 +39,7 @@ After someone reports a security vulnerability in your project, you can use {% d
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
 {% endif %}

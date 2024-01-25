@@ -10,12 +10,6 @@ topics:
   - Copilot
 ---
 
-{% note %}
-
-{% data variables.product.prodname_copilot_enterprise %} is in beta, and functionality and documentation are subject to change. You can nominate an organization or enterprise for the beta using the [{% data variables.product.prodname_copilot_enterprise_short %} waitlist form](https://github.com/github-copilot/copilot_enterprise_waitlist_signup/join).
-
-{% endnote %}
-
 ## About the {% data variables.product.prodname_copilot_enterprise_short %} beta
 
 {% data variables.product.prodname_copilot_enterprise %} is a {% data variables.product.prodname_copilot_short %} plan available for enterprises that use {% data variables.product.prodname_ghe_cloud %}. {% data variables.product.prodname_copilot_enterprise_short %} is currently in beta and available to a limited number of customers.

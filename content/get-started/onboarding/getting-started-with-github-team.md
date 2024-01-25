@@ -31,7 +31,7 @@ Only organization members with the _owner_ or _billing manager_ role can access 
 
 ## Part 2: Adding members and setting up teams
 
-After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, project boards, and apps.
+After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, projects, and apps.
 
 ### 1. Managing members of your organization
 
@@ -49,7 +49,7 @@ After creating your organization, you can invite members and set permissions and
 
 {% data reusables.getting-started.managing-team-settings %}
 
-### 5. Giving people and teams access to repositories, project boards and apps
+### 5. Giving people and teams access to repositories, projects, and apps
 
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
 
@@ -117,7 +117,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 ### 3. Reading about {% data variables.product.prodname_team %} on {% data variables.product.prodname_docs %}
 
-You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
+You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs)."
 
 ### 4. Learning with {% data variables.product.prodname_learning %}
 

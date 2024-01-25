@@ -12,6 +12,7 @@ redirect_from:
   - /articles/set-up-git
   - /github/getting-started-with-github/set-up-git
   - /github/getting-started-with-github/quickstart/set-up-git
+  - /get-started/quickstart/set-up-git
 intro: 'At the heart of {% data variables.product.prodname_dotcom %} is an open-source version control system (VCS) called Git. Git is responsible for everything {% data variables.product.prodname_dotcom %}-related that happens locally on your computer.'
 versions:
   fpt: '*'

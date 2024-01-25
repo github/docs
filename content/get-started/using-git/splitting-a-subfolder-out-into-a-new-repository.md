@@ -14,13 +14,13 @@ versions:
   ghec: '*'
 shortTitle: Splitting a subfolder
 ---
- 
+
 {% note %}
 
 **Note:** You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
 
 {% endnote %}
-  
+
 If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.  However, note that the new repository won't have the branches and tags of the original repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -51,7 +51,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    {% endtip %}
 
    {% endwindows %}
-  
+
    ```shell
    $ git filter-repo --path FOLDER-NAME/
    # Filter the specified branch in your directory and remove empty commits
@@ -68,7 +68,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
 1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
 
-1. At the top of your new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+1. At the top of your new repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 

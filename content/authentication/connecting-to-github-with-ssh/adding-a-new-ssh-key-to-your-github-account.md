@@ -1,6 +1,6 @@
 ---
 title: Adding a new SSH key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
+intro: 'To configure your account on {% data variables.location.product_location %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
@@ -25,7 +25,7 @@ After you generate an SSH key pair, you must add the public key to {% ifversion 
 
 ## Prerequisites
 
-Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, complete the following steps.
+Before adding a new SSH key to your account on {% data variables.location.product_location %}, complete the following steps.
 
 1. Check for existing SSH keys. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)."
 1. Generate a new SSH key and add it to your machine's SSH agent. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
@@ -34,7 +34,7 @@ Before adding a new SSH key to your account on {% ifversion ghae %}{% data varia
 
 You can add an SSH key and use it for authentication, or commit signing, or both. If you want to use the same SSH key for both authentication and signing, you need to upload it twice.
 
-After adding a new SSH authentication key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-https-to-ssh)."
+After adding a new SSH authentication key to your account on {% data variables.location.product_location %}, you can reconfigure any local repositories to use SSH. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-https-to-ssh)."
 
 {% data reusables.ssh.key-type-support %}
 

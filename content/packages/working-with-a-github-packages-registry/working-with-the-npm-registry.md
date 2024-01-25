@@ -28,9 +28,9 @@ shortTitle: npm registry
 
 If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
 
-In the future, to improve performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
+In the future, to improve the performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
 
-If you reach this limit, consider deleting package versions or contact Support for help. When this limit is enforced, our documentation will be updated with a way to work around this limit. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)" or "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support)."
+If you reach this limit, consider deleting package versions or contacting support for help. When this limit is enforced, our documentation will be updated with a way to work around it. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)" or "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support)."
 {% endif %}
 
 ## Authenticating to {% data variables.product.prodname_registry %}
@@ -52,7 +52,7 @@ This registry supports granular permissions. {% data reusables.package_registry.
 
 You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user _~/.npmrc_ file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
 
-To authenticate by adding your {% data variables.product.pat_v1 %} to your _~/.npmrc_ file, edit the _~/.npmrc_ file for your project to include the following line, replacing {% ifversion ghes or ghae %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new _~/.npmrc_ file if one doesn't exist.
+To authenticate by adding your {% data variables.product.pat_v1 %} to your _~/.npmrc_ file, edit the _~/.npmrc_ file for your project to include the following line, replacing {% ifversion ghes %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new _~/.npmrc_ file if one doesn't exist.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -142,7 +142,7 @@ You can use an _.npmrc_ file to configure the scope mapping for your project. In
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Verify the name of your package in your project's `package.json`. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your `package.json` should be `@my-org/test`.
+1. Verify the name of your package in your project's `package.json`. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing it to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your `package.json` should be `@my-org/test`.
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
@@ -225,7 +225,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your _.npmrc_ file, replacing {% ifversion ghes or ghae %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your _.npmrc_ file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:

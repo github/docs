@@ -24,7 +24,7 @@ allowTitleToDifferFromFilename: true
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 1. Click **Delete project**.
-1. To confirm that you want to delete the project board, click **OK**.
+1. To confirm that you want to delete the {% data variables.projects.projects_v1_board %}, click **OK**.
 
 ## Further reading
 

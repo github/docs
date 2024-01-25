@@ -33,7 +33,8 @@ export const listFirstWordCapitalization = {
       const firstWord = content.trim().split(' ')[0]
 
       // Liquid is considered a text node but we don't want to capitalize it
-      if (/^[{%|{{]/.test(content)) return
+      if (firstWord.startsWith('[{%') || firstWord.startsWith('{%') || firstWord.startsWith('{{'))
+        return
       // If the first letter is capitalized, it's not an error
       if (/[A-Z]/.test(firstWord[0])) return
       // There are items that start with a number or words that contain numbers

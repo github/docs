@@ -56034,6 +56034,11 @@ type UnpinIssuePayload {
   clientMutationId: String
 
   """
+  The id of the pinned issue that was unpinned
+  """
+  id: ID
+
+  """
   The issue that was unpinned
   """
   issue: Issue

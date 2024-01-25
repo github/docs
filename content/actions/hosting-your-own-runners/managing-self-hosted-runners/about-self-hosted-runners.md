@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 type: overview
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About self-hosted runners
@@ -232,7 +232,7 @@ You can also use self-hosted runners with a proxy server. For more information, 
 
 For more information about troubleshooting common network connectivity issues, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity)."
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 ## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
 
