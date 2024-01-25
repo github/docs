@@ -65,8 +65,8 @@ jobs:
           git push origin $branchname
 
           body=$(cat <<-EOM
-            Found with the `npm run find-orphaned-assets` script.
-            The orphaned assets workflow file `.github/workflows/orphaned-assets-check.yml`
+            Found with the npm run find-orphaned-assets script.
+            The orphaned assets workflow file .github/workflows/orphaned-assets-check.yml
             runs every Monday at 16:20 UTC / 8:20 PST.
             The first responder should just spot-check some of the unused assets
             to make sure they aren't referenced anywhere
