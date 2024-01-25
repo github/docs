@@ -13,7 +13,6 @@ permissions: '{% data reusables.enterprise-accounts.emu-permission-fork %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -61,11 +60,11 @@ You might fork a project to propose changes to the upstream repository. In this 
 1. In the top-right corner of the page, click **Fork**.
 
    ![Screenshot of the main page of repository. A button, labeled with a fork icon and "Fork 59.3k," is outlined in dark orange.](/assets/images/help/repository/fork-button.png)
-{%- ifversion fpt or ghec or ghes or ghae > 3.5 %}
+{%- ifversion fpt or ghec or ghes %}
 1. Under "Owner," select the dropdown menu and click an owner for the forked repository.
 1. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
 1. Optionally, in the "Description" field, type a description of your fork.
-{%- ifversion fpt or ghec or ghes or ghae > 3.6 %}
+{%- ifversion fpt or ghec or ghes %}
 1. Optionally, select **Copy the DEFAULT branch only**.
 
    For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. If you do not select this option, all branches will be copied into the new fork.

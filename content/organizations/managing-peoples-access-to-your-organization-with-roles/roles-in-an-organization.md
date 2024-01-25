@@ -156,7 +156,7 @@ Some of the features listed below are limited to organizations using {% data var
 
 {% endrowheaders %}
 
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 <!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
 
 {% rowheaders %}
