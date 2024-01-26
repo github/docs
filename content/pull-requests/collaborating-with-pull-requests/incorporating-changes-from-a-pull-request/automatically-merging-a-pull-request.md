@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -48,7 +47,7 @@ People with write permissions to a repository can enable auto-merge for a pull r
 
    {% endnote %}
   {% endif %}
-  {% ifversion ghes or ghae or ghec %}
+  {% ifversion ghes or ghec %}
 1. If you chose the merge or squash and merge methods, type a commit message and description.
    {% endif %}
 1. Click **Confirm auto-merge**.

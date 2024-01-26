@@ -35,7 +35,7 @@ If you are not receiving the webhook deliveries that you expect, you should iden
 
 ## Cannot have more than {% ifversion ghes %}250{% else %}20{% endif %} webhooks
 
-You can create up to {% ifversion ghes %}250{% else %}20{% endif %} {% ifversion ghec or ghes or ghae %} repository, organization, or global {% else %} repository or organization {% endif %}webhooks for each event type. If you attempt to create more, you will receive an error stating that you cannot have more than {% ifversion ghes %}250{% else %}20{% endif %} webhooks.
+You can create up to {% ifversion ghes %}250{% else %}20{% endif %} {% ifversion ghec or ghes %} repository, organization, or global {% else %} repository or organization {% endif %}webhooks for each event type. If you attempt to create more, you will receive an error stating that you cannot have more than {% ifversion ghes %}250{% else %}20{% endif %} webhooks.
 
 If you require more than {% ifversion ghes %}250{% else %}20{% endif %} webhooks, you can run a proxy that receives webhooks from {% data variables.product.company_short %} and forwards them to an unlimited number of destination URLs.
 

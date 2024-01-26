@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -60,7 +59,7 @@ If a private repository is made public and then deleted, its private forks will 
 
 {% endif %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ## Changing the visibility of an internal repository
 

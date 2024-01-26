@@ -26,7 +26,7 @@ redirect_from:
 
 ## About filtering security overview
 
-You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes or ghae %} and whether you are viewing data at the enterprise or organization level{% endif %}.
+You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes %} and whether you are viewing data at the enterprise or organization level{% endif %}.
 
 {% ifversion security-overview-displayed-alerts %}
 {% note %}
