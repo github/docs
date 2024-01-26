@@ -46,12 +46,7 @@ If you use Gravatar, and your Gravatar image is associated with the email you us
 ### Setting a profile picture
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Upload a photo...**.
-
-   ![Screenshot of the "Public profile" section of a user account's settings. A button, labeled with a pencil icon and "Edit", is outlined in dark orange.](/assets/images/help/profile/edit-profile-photo.png)
-1. Select an image, then click **Upload**.
-1. Crop your picture.
-1. Click **Set new profile picture**.
+{% data reusables.accounts.set-profile-picture %}
 
 ### Resetting your profile picture to the identicon
 
@@ -109,7 +104,7 @@ For a longer-form and more prominent way of displaying customized information ab
 
 ## Adding pronouns to your profile
 
-Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. Your pronouns will only be visible to users that are signed in to {% data variables.product.product_name %}.
+Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. {% data reusables.profile.pronouns-visibility %}
 
 {% data reusables.user-settings.access_settings %}
 1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
