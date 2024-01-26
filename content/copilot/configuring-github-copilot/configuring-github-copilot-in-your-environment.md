@@ -69,19 +69,19 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
     ![Screenshot of the bottom panel in a JetBrains IDE. The {% data variables.product.prodname_copilot %} status icon is outlined in dark orange.](/assets/images/help/copilot/status-icon-jetbrains.png)
 
-1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
+1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally or for the language of the file you are currently editing. To disable it globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
 
     ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE.](/assets/images/help/copilot/disable-copilot-global-or-language-jetbrains.png)
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
-You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
+You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
 
 {% data reusables.copilot.jetbrains-settings %}
 {% data reusables.copilot.jetbrains-languages-and-frameworks %}
 1. Edit the settings according to your personal preferences.
-   - To adjust the behavior and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
-   - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
+   - To adjust the behaviour and appearance of code suggestions and whether to automatically check for updates, select or deselect the corresponding checkboxes.
+   - If you have selected to receive automatic updates, you can choose whether to receive stable but less frequent updates or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates or **Nightly** for nightly updates.
 
 ## Configuring language settings for {% data variables.product.prodname_copilot %}
 
@@ -125,7 +125,7 @@ Alternatively, you can create the file manually and save it in the location for 
 
 ### Example language configurations
 
-The default configuration of the `github-copilot.xml` file, which enables {% data variables.product.prodname_copilot %} for all languages is as follows:
+The default configuration of the `github-copilot.xml` file enables {% data variables.product.prodname_copilot %} for all languages is as follows:
 
 ```xml copy
 <application>
@@ -169,7 +169,7 @@ To specify languages individually, add an entry for each language you want to ac
 </application>
 ```
 
-You can also add a configuration to make the `languageAllowList` readonly in the IDE's settings. This will prevent you from changing the language settings in the IDE. For example:
+You can also add a configuration to make the `languageAllowList` read only in the IDE's settings. This will prevent you from changing the language settings in the IDE. For example:
 
 ```xml copy
 <application>
@@ -219,7 +219,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
    ![Screenshot of the {% data variables.product.prodname_vs %} menu bar. The "Tools" menu is expanded, and the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
 
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
-1. Under "Show commands containing:", search for the command you want to rebind.
+1. Under "Show commands containing:", search for the command you want to rebound.
 
    ![Screenshot of the "Show commands containing" search bar. The string "tools.next" is entered in the search field.](/assets/images/help/copilot/vs-show-commands-containing.png)
 
@@ -330,7 +330,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
    ![Screenshot of the menu bar in {% data variables.product.prodname_vscode %}, with the "File" menu expanded. In the "Preferences" sub-menu, the "Keyboard Shortcuts" option is highlighted with an orange outline.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
-1. Next to the command you want to change, click the pencil icon.
+1. Click the pencil icon Next to the command you want to change.
 
    ![Screenshot of "Keyboard Shortcuts" editor. Next to a command labeled "Accept Inline Suggestion," a pencil icon is highlighted with an orange outline.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
 
