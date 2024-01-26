@@ -15,7 +15,7 @@ versions:
 
 You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
-Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `truthy` (in [JavaScript sense](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)), the step will run. All values are `truthy` except for `false`, `0`, `-0`, `0n`, `""`, `''`, `null`, `undefined`, `NaN`. You can evaluate an `!!<expression>` (e.g., in your browser console) to check whether the `<expression>` is `truthy`. For example, `!!"false"` produces `true`, so `"false"` is `truthy`.
+Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
 {% data reusables.actions.expressions-syntax-evaluation %}
 
