@@ -640,6 +640,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "codespaces.start_environment",
+    "description": "A codespace was started.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "codespaces.suspend_environment",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -661,22 +666,22 @@
   },
   {
     "action": "copilot.cfb_enterprise_org_enablement_changed",
-    "description": "The Copilot for Business enablement policy changed at the enterprise level or for an organization within the enterprise.",
+    "description": "The Copilot Business enablement policy changed at the enterprise level or for an organization within the enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_enterprise_settings_changed",
-    "description": "Settings for Copilot for Business were changed at the enterprise level.",
+    "description": "Settings for Copilot Business were changed at the enterprise level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_org_settings_changed",
-    "description": "Settings for Copilot for Business were changed at the organization level.",
+    "description": "Settings for Copilot Business were changed at the organization level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_added",
-    "description": "A seat was added to the Copilot for Business subscription for a user and they have received access to GitHub Copilot.",
+    "description": "A seat was added to the Copilot Business subscription for a user and they have received access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
@@ -701,17 +706,17 @@
   },
   {
     "action": "copilot.cfb_seat_cancelled",
-    "description": "A seat was canceled from the Copilot for Business subscription and the user no longer has access to GitHub Copilot.",
+    "description": "A seat was canceled from the Copilot Business subscription and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "A seat was canceled from the Copilot for Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
+    "description": "A seat was canceled from the Copilot Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_management_changed",
-    "description": "The seat management setting was changed for the Copilot for Business subscription.",
+    "description": "The seat management setting was changed for the Copilot Business subscription.",
     "docs_reference_links": "N/A"
   },
   {
