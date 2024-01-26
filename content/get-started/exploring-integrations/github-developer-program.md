@@ -23,9 +23,8 @@ Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to re
 
 ## Have an integration that works with GitHub?
 
-Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:
+Awesome! Here’s how you can spread the word:
 
-- Contact {% data variables.contact.contact_support %} and let us know about your integration.
 - Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub.
 - Post a video or a blog on your website about your integration.
 
