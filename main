@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   IPTV Live Channel
+  </title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Custom CSS -->
+  <meta content="noindex, nofollow" name="robots"/>
+ </head>
+ <body>
+  <div class="container">
+   <h1>
+    IPTV Live Channel
+   </h1>
+   <ul class="channel-list">
+    <li class="channel-item" data-target="#channelModal1" data-toggle="modal">
+     <img alt="Channel 1" src="channel1.jpg"/>
+    </li>
+    <li class="channel-item" data-target="#channelModal2" data-toggle="modal">
+     <img alt="Channel 2" src="channel2.jpg"/>
+    </li>
+    <li class="channel-item" data-target="#channelModal3" data-toggle="modal">
+     <img alt="Channel 3" src="channel3.jpg"/>
+    </li>
+    <li class="channel-item" data-target="#channelModal4" data-toggle="modal">
+     <img alt="Channel 4" src="channel4.jpg"/>
+    </li>
+    <li class="channel-item" data-target="#channelModal5" data-toggle="modal">
+     <img alt="Channel 5" src="channel5.jpg"/>
+    </li>
+    <li class="channel-item" data-target="#channelModal6" data-toggle="modal">
+     <img alt="Channel 6" src="channel6.jpg"/>
+    </li>
+   </ul>
+  </div>
+  <!-- Channel Modals -->
+  <div aria-hidden="true" aria-labelledby="channelModal1Label" class="modal fade" id="channelModal1" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="channelModal1Label">
+       Channel 1
+      </h5>
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <img alt="Channel 1" src="channel1.jpg"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="channelModal2Label" class="modal fade" id="channelModal2" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="channelModal2Label">
+       Channel 2
+      </h5>
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <img alt="Channel 2" src="channel2.jpg"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="channelModal3Label" class="modal fade" id="channelModal3" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="channelModal3Label">
+       Channel 3
+      </h5>
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <img alt="Channel 3" src="channel3.jpg"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="channelModal4Label" class="modal fade" id="channelModal4" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="channelModal4Label">
+       Channel 4
+      </h5>
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <img alt="Channel 4" src="channel4.jpg"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="channelModal5Label" class="modal fade" id="channelModal5" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="channelModal5Label">
+       Channel 5
+      </h5>
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <img alt="Channel 5" src="channel5.jpg"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div aria-hidden="true" aria-labelledby="channelModal6Label" class="modal fade" id="channelModal6" role="dialog" tabindex="-1">
+   <div class="modal-dialog" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="channelModal6Label">
+       Channel 6
+      </h5>
+      <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+       <span aria-hidden="true">
+        ×
+       </span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <img alt="Channel 6" src="channel6.jpg"/>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!-- Bootstrap & jQuery JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+  </script>
+ </body>
+</html>
+ 
