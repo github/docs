@@ -76,7 +76,7 @@ In this step, we'll edit your project's `README.md` using Markdown so that it in
 
 {% data reusables.files.preview_change %}
 1. Take a look at how the file will render once we save our changes, then toggle back to "Edit".
-1. Continue to edit and preview the text until your happy with the content of your README.
+1. Continue to edit and preview the text until you're happy with the content of your README.
 1. In the top right, click **Commit changes**.
 1. In the dialog box that opens, a commit message has been pre-filled for you ("Update README.md") and, by default, the option to "Commit directly to the `main` branch" has been selected. Leave these options as they are and go ahead and click **Commit changes**.
 
