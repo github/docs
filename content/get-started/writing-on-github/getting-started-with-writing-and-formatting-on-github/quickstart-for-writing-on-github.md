@@ -47,9 +47,7 @@ If you don't already have a profile README, you can add one.
 If you already have a profile README, you can edit it from your profile page.
 
 {% data reusables.profile.navigating-to-profile %}
-1. Click the {% octicon "pencil" aria-label="Edit this file" %} next to your profile README.
-
-   ![Screenshot of @octocat's profile README. A pencil icon is outlined in dark orange.](/assets/images/help/profile/edit-profile-readme.png)
+{% data reusables.profile.edit-profile-readme %}
 
 {% endif %}
 
