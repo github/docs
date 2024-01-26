@@ -15,6 +15,7 @@ children:
   - /about-github-and-git
   - /creating-an-account-on-github
   - /hello-world
+  - /setting-up-your-profile
   - /finding-inspiration-on-github
   - /downloading-files-from-github
   - /uploading-a-project-to-github
