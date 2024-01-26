@@ -1192,15 +1192,13 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
-{% data reusables.dependabot.dependabot-updates-path-match %}
-
 {% raw %}
 
 ```yaml
 registries:
   nuget-example:
     type: nuget-feed
-    url: https://nuget.pkg.github.com/my-org
+    url: https://nuget.example.com/v3/index.json
     username: octocat@example.com
     password: ${{secrets.MY_NUGET_PASSWORD}}
 ```
@@ -1213,7 +1211,7 @@ registries:
 registries:
   nuget-azure-devops:
     type: nuget-feed
-    url: https://pkgs.dev.azure.com
+    url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
     username: octocat@example.com
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
