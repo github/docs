@@ -39,13 +39,11 @@ This matrix produces 4 jobs with corresponding contexts.
 ```yaml
 - matrix.os: ubuntu-latest
   matrix.node.version: 14
-  matrix.node.env: ''
 - matrix.os: ubuntu-latest
   matrix.node.version: 20
   matrix.node.env: NODE_OPTIONS=--openssl-legacy-provider
 - matrix.os: macos-latest
   matrix.node.version: 14
-  matrix.node.env: ''
 - matrix.os: macos-latest
   matrix.node.version: 20
   matrix.node.env: NODE_OPTIONS=--openssl-legacy-provider
