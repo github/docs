@@ -52,7 +52,7 @@ For a summary of all the available emojis and their codes, see "[Emoji cheat she
 
 ## Now it's time to make your profile beautiful and impressive
 
-This "[repository](https://github.com/rzashakeri/beautify-github-profile)" will assist you in creating a more beautiful and appealing GitHub profile, and you will have access to a comprehensive range of tools and tutorials for beautifying your GitHub profile. 
+This "[repository](https://github.com/rzashakeri/beautify-github-profile)" will assist you in creating a more beautiful and appealing GitHub profile, and you will have access to a comprehensive range of tools and tutorials for beautifying your GitHub profile.
 
 ## Removing a profile README
 
