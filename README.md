@@ -1,37 +1,37 @@
-# GitHub Dogs <!-- omit in toc -->
-[![Build GitHub Dogs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
+# GitHub Docs <!-- omit in toc -->
+[![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
-This repository contains the documentation website code and Markdown source files for [dogs.github.com](https://dogs.github.com).
+This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
-GitHub's Dogs team works on pre-production content in a private repo that regularly syncs with this public repo.
+GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
 Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to navigate to a specific section quickly.
 
 ## Contributing
 
-We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to GitHub Dogs](https://dogs.github.com/en/contributing/collaborating-on-github-dogs/about-contributing-to-github-dogs)."
+We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs)."
 
 ### Ways to contribute
 
-On the GitHub Dogs site, you can contribute by clicking the **Make a contribution** button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
+On the GitHub Docs site, you can contribute by clicking the **Make a contribution** button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
 
-You can also contribute by creating a local environment or opening a Codespace. For more information, see "[Setting up your environment to work on GitHub Dogs](https://dogs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-dogs)."
+You can also contribute by creating a local environment or opening a Codespace. For more information, see "[Setting up your environment to work on GitHub Docs](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs)."
 
 <img alt="Contribution call-to-action" src="./contributing/images/contribution_cta.png" width="400">
 
-For more complex contributions, please open an issue using the most appropriate [issue template](https://github.com/github/dogs/issues/new/choose) to describe the changes you'd like to see.
+For more complex contributions, please open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 
-If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/dogs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work.
+If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work.
 
 ### Join us in discussions
 
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our dogs, join us in the [discussions](https://github.com/github/dogs/discussions).
+We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
 
 ### And that's it!
 
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
 
-That's how you can easily become a member of the GitHub Dogs community. :sparkles:
+That's how you can easily become a member of the GitHub Docs community. :sparkles:
 
 ## READMEs
 
