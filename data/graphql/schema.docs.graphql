@@ -12480,6 +12480,11 @@ type Enterprise implements AnnouncementBanner & Node {
   ): URI!
 
   """
+  The enterprise's billing email.
+  """
+  billingEmail: String
+
+  """
   Enterprise billing information visible to enterprise billing managers.
   """
   billingInfo: EnterpriseBillingInfo
