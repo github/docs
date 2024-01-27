@@ -50,6 +50,12 @@ You can format text and include emoji, images, and GIFs in your profile README b
 
 For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)."
 
+
+## Now it's time to make your profile beautiful and impressive
+
+This "[repository](https://github.com/rzashakeri/beautify-github-profile)" will assist you in creating a more beautiful and appealing GitHub profile, and you will have access to a comprehensive range of tools and tutorials for beautifying your GitHub profile. 
+
+
 ## Removing a profile README
 
 The profile README will be removed from your {% data variables.product.prodname_dotcom %} profile if any of the following apply:
