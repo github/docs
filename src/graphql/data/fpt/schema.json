@@ -20958,6 +20958,14 @@
           ]
         },
         {
+          "name": "billingEmail",
+          "description": "<p>The enterprise's billing email.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "billingInfo",
           "description": "<p>Enterprise billing information visible to enterprise billing managers.</p>",
           "type": "EnterpriseBillingInfo",
