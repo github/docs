@@ -37,4 +37,4 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 {% data reusables.enterprise-accounts.security-tab %}
 1. Deselect **Require OIDC single sign-on**.
 1. Click **Save**.
-1. Configure SAML authentication and SCIM provisioning. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with GitHub Enterprise Managed User](https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) in Microsoft Learn.
+1. Configure SAML authentication and SCIM provisioning. For more information, see [Tutorial: Microsoft Entra ID single sign-on (SSO) integration with GitHub Enterprise Managed User](https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) in Microsoft Learn.

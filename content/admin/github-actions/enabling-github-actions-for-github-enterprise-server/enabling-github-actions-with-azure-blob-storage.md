@@ -43,12 +43,12 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 
 ## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage using OIDC (recommended)
 
-To configure {% data variables.product.prodname_ghe_server %} to use OIDC with an Azure storage account, you must first register an Azure Active Directory application with OIDC credentials, then configure your storage account, and finally configure {% data variables.product.prodname_ghe_server %} to access the storage container using the Azure Active Directory application.
+To configure {% data variables.product.prodname_ghe_server %} to use OIDC with an Azure storage account, you must first register a Microsoft Entra ID application with OIDC credentials, then configure your storage account, and finally configure {% data variables.product.prodname_ghe_server %} to access the storage container using the Microsoft Entra ID application.
 
-### 1. Register an Azure Active Directory application
+### 1. Register a Microsoft Entra ID application
 
 1. Log in to the Azure portal.
-1. Register a new application in Azure Active Directory. For more information, see [Register an application](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) in the Azure documentation.
+1. Register a new application in Microsoft Entra ID. For more information, see [Register an application](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) in the Azure documentation.
 1. In your Azure application, under "Essentials", take note of the values for "Application (client) ID" and "Directory (tenant) ID". These values are used later.
 
    ![Screenshot of the "Overview" page in Azure. The first four items in the "Essentials" section are highlighted with an orange outline.](/assets/images/azure/azure-aad-app-storage-ids.png)

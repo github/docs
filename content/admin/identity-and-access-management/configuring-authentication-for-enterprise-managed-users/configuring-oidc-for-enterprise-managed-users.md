@@ -36,7 +36,7 @@ You can adjust the lifetime of a session, and how often a {% data variables.ente
 
 ## Identity provider support
 
-Support for OIDC is available for customers using Azure Active Directory (Azure AD).
+Support for OIDC is available for customers using Microsoft Entra ID.
 
 Each Azure AD tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Azure AD to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 

@@ -57,7 +57,7 @@ When you provision a new user from your identity provider, the new {% data varia
 
 | Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
 |-----------------------------------|----------------------|
-| Azure Active Directory (Azure AD) | IDP-USERNAME is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
+| Microsoft Entra ID | IDP-USERNAME is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
 | Okta                              | IDP-USERNAME is the normalized username attribute provided by the IdP.               |
 
 These rules may result in your IdP providing the same IDP-USERNAME for multiple users. For example, for Azure AD, the following UPNs will result in the same username:
@@ -157,11 +157,11 @@ To resolve username problems in Azure AD, either modify the User Principal Name 
 1. In Azure AD, open the {% data variables.product.prodname_emu_idp_application %} application.
 1. In the left sidebar, click **Provisioning**.
 1. Click **Edit Provisioning**.
-1. Expand **Mappings**, then click **Provision Azure Active Directory Users**.
+1. Expand **Mappings**, then click **Provision Microsoft Entra ID Users**.
 1. Click the {% data variables.product.prodname_dotcom %} `userName` attribute mapping.
 1. Change the attribute mapping.
    - To map an existing attribute in Azure AD to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
-   - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) in Microsoft Docs.
+   - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Microsoft Entra ID](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) in Microsoft Docs.
 
 ### Resolving username problems with Okta
 

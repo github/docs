@@ -134,7 +134,7 @@ Team | Access to migrated repositories
 TEAM-PROJECT</em>-Maintainers | Maintainer
 TEAM-PROJECT</em>-Admins | Admin
 
-To give access to migrated repositories, you can add people to these teams. You can do this manually on {% data variables.product.prodname_dotcom %}, or if you chose to link the teams to Azure Active Directory (AAD) groups during your migration, by managing group membership in AAD. For more information about manually managing team membership, see "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
+To give access to migrated repositories, you can add people to these teams. You can do this manually on {% data variables.product.prodname_dotcom %}, or if you chose to link the teams to Microsoft Entra ID groups during your migration, by managing group membership in AAD. For more information about manually managing team membership, see "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
 
 If you aren't using the ADO2GH CLI, or if you require a permissions configuration that is more advanced than this default, configure permissions for your migrated repositories. You can modify the migration script to suit your needs, or you can manually configure permissions after your migration. For more information about managing access to repositories on {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 

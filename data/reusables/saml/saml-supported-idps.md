@@ -4,12 +4,12 @@
 
 {% ifversion fpt or ghec or ghes %}
 - Active Directory Federation Services (AD FS)
-- Azure Active Directory (Azure AD)
+- Microsoft Entra ID
 - Okta
 - OneLogin
 - PingOne
 - Shibboleth
 {% elsif ghae %}
-- Azure Active Directory (Azure AD)
+- Microsoft Entra ID
 - Okta (beta)
 {% endif %}

@@ -108,4 +108,4 @@ If you don't use a partner IdP, you can integrate with {% data variables.product
 
 {% data reusables.enterprise-managed.assigning-roles %}
 
-Azure AD does not support provisioning nested groups. For more information, see [How Application Provisioning works in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works#assignment-based-scoping) in Microsoft Docs.
+Azure AD does not support provisioning nested groups. For more information, see [How Application Provisioning works in Microsoft Entra ID](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works#assignment-based-scoping) in Microsoft Docs.

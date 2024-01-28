@@ -21,7 +21,7 @@ sections:
     - heading: Manage teams from your identity provider (IdP)
       notes:
         - |
-          Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Azure Active Directory with {% data variables.product.company_short %} teams.  Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group.
+          Customers using SCIM (System for Cross-domain Identity Management) can now sync security groups in Microsoft Entra ID with {% data variables.product.company_short %} teams.  Once a team has been linked to a security group, membership will be automatically updated in {% data variables.product.product_name %} when a user is added or removed from their assigned security group.
 
     - heading: IP allow lists beta
       notes:

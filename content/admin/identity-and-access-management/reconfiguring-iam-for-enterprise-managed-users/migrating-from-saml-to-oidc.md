@@ -18,7 +18,7 @@ redirect_from:
 
 ## About migration of an {% data variables.enterprise.prodname_emu_enterprise %} from SAML to OIDC
 
-If your {% data variables.enterprise.prodname_emu_enterprise %} uses SAML SSO to authenticate with Azure Active Directory (Azure AD), you can migrate to OIDC. {% data reusables.enterprise-accounts.emu-cap-validates %}
+If your {% data variables.enterprise.prodname_emu_enterprise %} uses SAML SSO to authenticate with Microsoft Entra ID, you can migrate to OIDC. {% data reusables.enterprise-accounts.emu-cap-validates %}
 
 When you migrate from SAML to OIDC, {% data variables.enterprise.prodname_managed_users %} and groups that were previously provisioned for SAML but are not provisioned by the {% data variables.product.prodname_emu_idp_oidc_application %} application will have "(SAML)" appended to their display names.
 
