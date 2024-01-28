@@ -1,4 +1,4 @@
----
+~~~
 title: Requesting an archive of your personal account’s data
 redirect_from:
   - /articles/requesting-an-archive-of-your-personal-account-s-data
@@ -42,4 +42,4 @@ You can disable the download link sent to your email before an export expires by
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-1. In the "Export account data" section, next to the data export download you want to disable, click **Delete**.
+1. In the "Export account data" section, next to the data export download you want to disable, </confirm>**Delete**</peterbe>all branch.patch
