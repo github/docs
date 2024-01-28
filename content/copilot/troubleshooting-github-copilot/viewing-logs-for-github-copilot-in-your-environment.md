@@ -93,7 +93,7 @@ If you're using a custom certificate, ensure the certificate is installed correc
 ## Viewing logs in {% data variables.product.prodname_vs %}
 
 The log files for the {% data variables.product.prodname_copilot%} extension are stored in the standard log location for {% data variables.product.prodname_vs %} extensions.
-1. Open the the **View** menu in {% data variables.product.prodname_vs %}.
+1. Open the **View** menu in {% data variables.product.prodname_vs %}.
 1. Click **Output**.
 1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot%}** from the dropdown menu.
 
@@ -138,25 +138,6 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 **Note:** If your error is related to certificates, it helps to check these logs for the `Custom Certificates:` line. If this line says `disabled`, you are not using {% data variables.product.prodname_copilot_for_business %}, so custom certificates are not supported. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-business)."
 
 {% endnote %}
-
-## Enabling debug mode
-
-If you find the log file doesn't contain enough information to resolve an issue, it may help to temporarily enable debug logging. This can be especially helpful for debugging network-related issues.
-
-1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} by pressing <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `settings`, then click **Preferences: Open User Settings (JSON)**.
-1. In the JSON object, insert the following content as a top-level property, then save the file.
-
-   ```json copy
-   "github.copilot.advanced": {
-      "debug.overrideLogLevels": {
-         "*": "DEBUG"
-      }
-   },
-   ```
-
-1. Keep using your IDE until you encounter the issue again, then collect the log file as described in "[Viewing and collecting log files](#viewing-and-collecting-log-files)."
-1. When you have the information you need, disable debug mode by removing the content you added to your settings.
 
 ## Viewing Electron logs
 

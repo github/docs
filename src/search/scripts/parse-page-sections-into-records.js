@@ -57,7 +57,7 @@ export default function parsePageSectionsIntoRecords(page) {
   const headings = $sections
     .map((i, el) => $(el).text())
     .get()
-    .join(' ')
+    .join('\n')
     .trim()
 
   const intro = $('[data-search=lead] p').text().trim()

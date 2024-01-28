@@ -38,7 +38,7 @@ HTTP POST payloads that are delivered to your webhook's configured URL endpoint 
 
 - `X-GitHub-Hook-ID`: The unique identifier of the webhook.
 - `X-GitHub-Event`: The name of the event that triggered the delivery.
-- `X-GitHub-Delivery`: A globally unique identifier (GUID) to identify the delivery.{% ifversion ghes or ghae %}
+- `X-GitHub-Delivery`: A globally unique identifier (GUID) to identify the delivery.{% ifversion ghes %}
 - `X-GitHub-Enterprise-Version`: The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
 - `X-GitHub-Enterprise-Host`: The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
 - `X-Hub-Signature`: This header is sent if the webhook is configured with a `secret`. This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`. `X-Hub-Signature` is provided for compatibility with existing integrations. We recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}
@@ -56,7 +56,7 @@ You can choose to have payloads delivered in JSON format (`application/json`) or
 ```shell
 > POST /payload HTTP/2
 
-> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% ifversion ghes or ghae %}
+> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% ifversion ghes %}
 > X-GitHub-Enterprise-Version: 2.15.0
 > X-GitHub-Enterprise-Host: example.com{% endif %}{% ifversion not ghae %}
 > X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}

@@ -21,7 +21,7 @@ For assignments with complex setup environments, teachers can customize the dev 
 
 {% note %}
 
-**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+**Note**: Individual codespaces are automatically deleted if they are stopped and left unused for a prolonged period. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 
 {% endnote %}
 

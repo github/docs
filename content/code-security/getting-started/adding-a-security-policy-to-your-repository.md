@@ -24,7 +24,7 @@ shortTitle: Add a security policy
 To give people instructions for reporting security vulnerabilities in your project,{% ifversion fpt or ghes or ghec %} you can add a `SECURITY.md` file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a `SECURITY.md` file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
 
 {% ifversion not ghae %}
-<!-- no public repos in GHAE -->
+<!-- no public repositories in GHAE -->
 You can create a default security policy for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 {% endif %}
 
@@ -39,7 +39,7 @@ After someone reports a security vulnerability in your project, you can use {% d
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 By making security reporting instructions clearly available, you make it easy for your users to report any security vulnerabilities they find in your repository using your preferred communication channel.
 {% endif %}

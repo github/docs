@@ -79,6 +79,16 @@ To enable secret scanning for your {% data variables.product.prodname_ghe_server
 
 You need to enable secret scanning for each pilot project, either by enabling the feature for each repository or for all repositories in any organizations taking part in the project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
+Next, enable push protection for each pilot project.
+
+If you plan to configure a link to a resource in the message that's displayed when a developer attempts to push a blocked secret, now would be a good time to test and start to refine the guidance that you plan to make available.
+
+{%- ifversion security-overview-push-protection-metrics-page %}
+
+Start to review activity using the push protection metrics page in security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+
+{%- endif %}
+
 If you have collated any custom patterns specific to your enterprise, especially any related to the projects piloting {% data variables.product.prodname_secret_scanning %}, you can configure those. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
 To learn how to view and close alerts for secrets checked into your repository, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."

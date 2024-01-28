@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:20-alpine@sha256:002b6ee25b63b81dc4e47c9378ffe20915c3fa0e98e834c46584438468b1d0b5 as base
+FROM node:20-alpine@sha256:8e6a472eb9742f4f486ca9ef13321b7fc2e54f2f60814f339eeda2aff3037573 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -47,6 +47,8 @@ FROM all_deps as builder
 COPY src ./src
 # The star is because it's an optional directory
 COPY .remotejson-cache* ./.remotejson-cache
+# The star is because it's an optional file
+COPY .pageinfo-cache.json.br* ./.pageinfo-cache.json.br
 # Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
@@ -88,6 +90,7 @@ COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node src ./src
 COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
+COPY --chown=node:node .pageinfo-cache.json.br* ./.pageinfo-cache.json.br
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 

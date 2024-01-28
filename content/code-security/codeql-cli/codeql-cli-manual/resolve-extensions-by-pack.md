@@ -30,9 +30,8 @@ codeql resolve extensions-by-pack <options>... -- <pack>...
 
 ## Description
 
-\[Experimental] \[Deep plumbing] Determine accessible extensions for
-the given paths to pack roots. This includes machine learning models and
-data extensions.
+\[Deep plumbing] Determine accessible extensions for the given paths to
+pack roots. This includes machine learning models and data extensions.
 
 This plumbing command resolves the set of data extensions and
 GitHub-created machine learning models that are available to the paths
@@ -86,6 +85,30 @@ actions will add this option on the fly, overriding any configured
 value.
 
 (Note: On Windows the path separator is `;`).
+
+#### `--threat-model=<name>...`
+
+A list of threat models to enable or disable.
+
+The argument is the name of a threat model, optionally preceded by a
+'!'. If no '!' is present, the named threat model and all of its
+descendants are enabled. If a '!' is present, the named threat model
+and all of its descendants are disabled.
+
+The 'default' threat model is enabled by default, but can be disabled
+by specifying '--threat-model !default'.
+
+The 'all' threat model can be used to enable or disable all threat
+models.
+
+The --threat-model options are processed in order. For example,
+'--threat-model local --threat-model !environment' enables all of
+the threat models in the 'local' group except for the 'environment'
+threat model.
+
+This option only has an effect for languages that support threat models.
+
+Available since `v2.15.3`.
 
 ### Options for configuring the CodeQL package manager
 

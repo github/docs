@@ -963,12 +963,6 @@
       "requestPath": "/user/repository_invitations"
     },
     {
-      "slug": "accept-a-repository-invitation",
-      "subcategory": "invitations",
-      "verb": "patch",
-      "requestPath": "/user/repository_invitations/{invitation_id}"
-    },
-    {
       "slug": "decline-a-repository-invitation",
       "subcategory": "invitations",
       "verb": "delete",
@@ -2285,6 +2279,14 @@
       "subcategory": "pulls",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
+    }
+  ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
     }
   ],
   "reactions": [

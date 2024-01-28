@@ -4,7 +4,7 @@ describe('map topics', () => {
   test('get-started/quickstart map-topic', async () => {
     const $ = await getDOM('/get-started/quickstart')
     const lead = $('[data-search=lead]').text()
-    expect(lead).toMatch('Get started using GitHub to manage Git repositories')
+    expect(lead).toMatch('Get started using HubGit to manage Git repositories')
 
     const links = $('[data-testid=table-of-contents] a[href]')
     expect(links.length).toBeGreaterThan(0)
@@ -19,7 +19,7 @@ describe('map topics', () => {
   test('actions/category/map-topic map-topic has its articles intro', async () => {
     const $ = await getDOM('/actions/category/map-topic')
     const lead = $('[data-search=lead]').text()
-    expect(lead).toMatch("Here's the intro for GitHub Actions.")
+    expect(lead).toMatch("Here's the intro for HubGit Actions.")
 
     const links = $('[data-testid=table-of-contents] a[href]')
     const hrefs = links.map((i, el) => $(el).attr('href')).get()

@@ -15,13 +15,13 @@ topics:
   - Identity
   - Access management
 ---
-When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
+When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% data variables.location.product_location %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** You must [verify your email address](/get-started/signing-up-for-github/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+**Tip:** You must [verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
 
 {% endtip %}
 

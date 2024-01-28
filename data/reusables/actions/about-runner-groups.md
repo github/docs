@@ -1,4 +1,4 @@
-To control access to runners at the organization{% ifversion ghec or ghes or ghae %} and/or enterprise levels, enterprise and organization owners can use runner groups.{% else %} level, organizations using the {% data variables.product.prodname_team %} plan can use runner groups. {% endif %}
+To control access to runners at the organization{% ifversion ghec or ghes %} and/or enterprise levels, enterprise and organization owners can use runner groups.{% else %} level, organizations using the {% data variables.product.prodname_team %} plan can use runner groups. {% endif %}
 
 Runner groups are used to collect sets of runners and create a security boundary around them. You can then decide which organizations or repositories are permitted to run jobs on those sets of machines.
 

@@ -459,7 +459,7 @@ on:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a project board, not a column or card on the project board, is edited. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Note**: {% data reusables.developer-site.multiple_activity_types %} The `edited` activity type refers to when a {% data variables.projects.projects_v1_board %}, not a column or card on the {% data variables.projects.projects_v1_board %}, is edited. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#project)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -479,7 +479,7 @@ on:
 {% endnote %}
 {% endif %}
 
-Runs your workflow when a project board is created or modified. For activity related to cards or columns in a project board, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about project boards, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project board APIs, see "[AUTOTITLE](/graphql/reference/objects#project)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects)" in the REST API documentation.
+Runs your workflow when a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to cards or columns in a {% data variables.projects.projects_v1_board %}, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about {% data variables.projects.projects_v1_boards %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the {% data variables.projects.projects_v1_board %} APIs, see "[AUTOTITLE](/graphql/reference/objects#project)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects)" in the REST API documentation.
 
 For example, you can run a workflow when a project has been `created` or `deleted`.
 
@@ -517,7 +517,7 @@ on:
 {% endnote %}
 {% endif %}
 
-Runs your workflow when a card on a project board is created or modified. For activity related to project boards or columns in a project board, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about project boards, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project card APIs, see "[AUTOTITLE](/graphql/reference/objects#projectcard)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects#cards)" in the REST API documentation.
+Runs your workflow when a card on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or columns in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project card APIs, see "[AUTOTITLE](/graphql/reference/objects#projectcard)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects#cards)" in the REST API documentation.
 
 For example, you can run a workflow when a project card has been `created` or `deleted`.
 
@@ -555,7 +555,7 @@ on:
 {% endnote %}
 {% endif %}
 
-Runs your workflow when a column on a project board is created or modified. For activity related to project boards or cards in a project board, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about project boards, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project column APIs, see "[AUTOTITLE](/graphql/reference/objects#projectcolumn)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects#columns)" in the REST API documentation.
+Runs your workflow when a column on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or cards in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)." For information about the project column APIs, see "[AUTOTITLE](/graphql/reference/objects#projectcolumn)" in the GraphQL API documentation or "[AUTOTITLE](/rest/projects#columns)" in the REST API documentation.
 
 For example, you can run a workflow when a project column has been `created` or `deleted`.
 
@@ -586,7 +586,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `milestoned` <br/>- `demilestoned` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `locked`<br/>- `unlocked`<br/>{% ifversion fpt or ghec %}- `enqueued`<br/>- `dequeued`<br/>{% endif %}- `milestoned`<br/>- `demilestoned`<br/>- `ready_for_review`<br/>- `review_requested`<br/>- `review_request_removed`<br/>- `auto_merge_enabled`<br/>- `auto_merge_disabled` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/PULL_REQUEST_NUMBER/merge` |
 
 {% note %}
 
@@ -598,6 +598,8 @@ on:
   Conversely, workflows with the `pull_request_target` event will run even if the pull request has a merge conflict. Before using the `pull_request_target` trigger, you should be aware of the security risks. For more information, see [`pull_request_target`](#pull_request_target).
 
 - The `pull_request` webhook event payload is empty for merged pull requests and pull requests that come from forked repositories.
+
+- The value of `GITHUB_REF` varies for a closed pull request depending on whether the pull request has been merged or not. If a pull request was closed but not merged, it will be `refs/pull/PULL_REQUEST_NUMBER/merge`. If a pull request was closed as a result of being merged, it will be the fully qualified `ref` of the branch it was merged into, for example `/refs/heads/main`.
 
 {% endnote %}
 
@@ -733,7 +735,7 @@ To run your workflow when a comment on a pull request (not on a pull request's d
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/PULL_REQUEST_NUMBER/merge` |
 
 {% note %}
 
@@ -774,7 +776,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`pull_request_review_comment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/:prNumber/merge` |
+| [`pull_request_review_comment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted`| Last merge commit on the `GITHUB_REF` branch | PR merge branch `refs/pull/PULL_REQUEST_NUMBER/merge` |
 
 {% note %}
 

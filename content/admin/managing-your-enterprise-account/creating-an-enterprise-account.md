@@ -20,7 +20,7 @@ redirect_from:
 
 If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization and do not have any coupons or discounts applied, you can create an enterprise account through your billing page. If you need Enterprise Managed Users, {% data variables.product.prodname_ghe_server %}, or invoicing support, please contact {% data variables.contact.contact_enterprise_sales %}.
 
-You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)".
+You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)".
 
 When you create an enterprise account that owns your existing organization on {% data variables.product.product_name %}, the organization's resources remain accessible to members at the same URLs. After you add your organization to the enterprise account, the following changes will apply to the organization.
 
@@ -44,3 +44,7 @@ To create an enterprise account, your organization must be using {% data variabl
 ## Next steps
 
 After your enterprise account is created, we recommend learning more about how enterprise accounts work and configuring settings and policies. For more information, follow the "[AUTOTITLE](/admin/guides#get-started-with-your-enterprise-account)" learning path.
+
+## Further reading
+
+- "[AUTOTITLE](/admin/managing-your-enterprise-account/changing-the-url-for-your-enterprise)"

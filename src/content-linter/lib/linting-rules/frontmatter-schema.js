@@ -15,7 +15,7 @@ export const frontmatterSchema = {
     if (!fm) return
 
     // Check that frontmatter does not contain any deprecated keys
-    // Currently we only deprecate top-level properties and historcially
+    // Currently we only deprecate top-level properties and historically
     // tests have only checked top-level properties. But, if more properties
     // are deprecated in the future, we'll need to do a deep check.
     const deprecatedKeys = intersection(Object.keys(fm), deprecatedProperties)

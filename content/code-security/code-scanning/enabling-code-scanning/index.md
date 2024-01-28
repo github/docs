@@ -11,5 +11,6 @@ topics:
   - CodeQL
 children:
   - /configuring-default-setup-for-code-scanning
+  - /evaluating-default-setup-for-code-scanning
   - /configuring-default-setup-for-code-scanning-at-scale
 ---

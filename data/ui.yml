@@ -139,6 +139,8 @@ rest_reference:
   notes: Notes
   parameters: Parameters for "{{ RESTOperationTitle }}"
   response: Response
+  request_example: Request example
+  request_examples: Request examples
   example_response: Example response
   status_code: Status code
   http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
@@ -225,10 +227,6 @@ product_guides:
   load_more: Load more guides
   all_guides_title: 'All {{ name }} guides'
   filter_instructions: Filter the guide list using these controls
-  filters:
-    type: Type
-    topic: Topic
-    all: All
   guides_found:
     multiple: '{n} guides found'
     one: 1 guide found
@@ -249,3 +247,9 @@ scroll_button:
 popovers:
   role_description: hover card
   keyboard_shortcut_description: Press alt+up to activate
+alerts:
+  NOTE: Note
+  IMPORTANT: Important
+  WARNING: Warning
+  TIP: Tip
+  CAUTION: Caution

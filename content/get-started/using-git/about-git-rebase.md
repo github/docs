@@ -108,4 +108,4 @@ Breaking this information, from top to bottom, we see that:
 - [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[AUTOTITLE](/desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- "[AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation

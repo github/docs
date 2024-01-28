@@ -22,7 +22,7 @@ shortTitle: Convert organization to user
 
  {% endnote %}
 
-1. [Sign up](/get-started/signing-up-for-github/signing-up-for-a-new-github-account) for a new account on GitHub.
+1. [Sign up](/get-started/quickstart/creating-an-account-on-github) for a new account on GitHub.
 1. [Have the user's role changed to an owner](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization).
 1. {% data variables.product.signin_link %} to the new personal account.
 1. [Transfer each organization repository](/repositories/creating-and-managing-repositories/transferring-a-repository) to the new personal account.

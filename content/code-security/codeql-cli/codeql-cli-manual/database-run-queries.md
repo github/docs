@@ -87,6 +87,44 @@ used.
 Omit evaluation of queries that already seem to have a BQRS result
 stored in the output location.
 
+#### `--no-database-extension-packs`
+
+\[Advanced] Omit extension packs stored in the database during database
+creation, either from a Code Scanning configuration file or from
+extension files stored in the 'extensions' directory of the analyzed
+codebase.
+
+#### `--no-database-threat-models`
+
+\[Advanced] Omit threat model configuration stored in the database
+during database creation from a Code Scanning configuration file.
+
+### Options to control the threat models to be used
+
+#### `--threat-model=<name>...`
+
+A list of threat models to enable or disable.
+
+The argument is the name of a threat model, optionally preceded by a
+'!'. If no '!' is present, the named threat model and all of its
+descendants are enabled. If a '!' is present, the named threat model
+and all of its descendants are disabled.
+
+The 'default' threat model is enabled by default, but can be disabled
+by specifying '--threat-model !default'.
+
+The 'all' threat model can be used to enable or disable all threat
+models.
+
+The --threat-model options are processed in order. For example,
+'--threat-model local --threat-model !environment' enables all of
+the threat models in the 'local' group except for the 'environment'
+threat model.
+
+This option only has an effect for languages that support threat models.
+
+Available since `v2.15.3`.
+
 ### Options to control the query evaluator
 
 #### `--[no-]tuple-counting`
@@ -211,7 +249,13 @@ expense of making it much less human readable.
 
 #### `-M, --ram=<MB>`
 
-Set total amount of RAM the query evaluator should be allowed to use.
+The query evaluator will try hard to keep its total memory footprint
+below this value. (However, for large databases it is possible that the
+threshold may be broken by file-backed memory maps, which can be swapped
+to disk in case of memory pressure).
+
+The value should be at least 2048 MB; smaller values will be
+transparently rounded up.
 
 ### Options to control QL compilation
 
@@ -268,6 +312,11 @@ Don't check embedded query metadata in QLDoc comments for validity.
 
 \[Advanced] Override the default maximum size for a compilation cache
 directory.
+
+#### `--fail-on-ambiguous-relation-name`
+
+\[Advanced] Fail compilation if an ambiguous relation name is generated
+during compilation.
 
 ### Options to set up compilation environment
 

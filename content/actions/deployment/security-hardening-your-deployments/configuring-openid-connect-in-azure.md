@@ -58,6 +58,8 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 1. Add permissions settings for the token.
 1. Use the [`azure/login`](https://github.com/Azure/login) action to exchange the OIDC token (JWT) for a cloud access token.
 
+{% data reusables.actions.oidc-deployment-protection-rules %}
+
 ### Adding permissions settings
 
  {% data reusables.actions.oidc-permissions-token %}

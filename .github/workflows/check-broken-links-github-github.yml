@@ -19,7 +19,6 @@ jobs:
     env:
       # need to use a token from a user with access to github/github for this step
       GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-      FIRST_RESPONDER_PROJECT: Docs content first responder
       REPORT_AUTHOR: docs-bot
       REPORT_LABEL: github github broken link report
       REPORT_REPOSITORY: github/docs-content
@@ -52,7 +51,7 @@ jobs:
 
       - name: Run broken github/github link check
         run: |
-          src/links/scripts/check-github-github-links.js broken_github_github_links.md
+          npm run check-github-github-links -- broken_github_github_links.md
 
       - name: Get title for issue
         # If the file 'broken_github_github_links.md' got created,

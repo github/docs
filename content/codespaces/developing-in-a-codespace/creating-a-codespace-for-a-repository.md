@@ -60,7 +60,7 @@ For more information on what happens when you create a codespace, see "[AUTOTITL
 
 For more information on the lifecycle of a codespace, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)."
 
-If you want to use Git hooks for your codespace, then you should set up hooks using the `devcontainer.json` lifecycle scripts, such as `postCreateCommand`. These get executed during step 4, above. For information about the lifecycle scripts, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website. Since your codespace container is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the container image will not apply to your codespace. Hooks must instead be installed after the codespace is created.
+If you want to use Git hooks for your codespace, then you should set up hooks using the `devcontainer.json` lifecycle scripts, such as `postCreateCommand`. These get executed during step 4, above. For information about the lifecycle scripts, see the [dev containers specification](https://containers.dev/implementors/json_reference/#lifecycle-scripts) on the Development Containers website. Since the dev container for your codespace is created after the repository is cloned, any [git template directory](https://git-scm.com/docs/git-init#_template_directory) configured in the dev container image will not apply to your codespace. Hooks must instead be installed after the codespace is created.
 
 {% data reusables.codespaces.use-visual-studio-features %}
 
@@ -117,17 +117,17 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 ## Recommended secrets
 
-The names of user-defined secrets may be displayed on the advanced options page when you create a codespace. This will happen if recommended secrets have been specified in the dev container configuration you have selected.
+The names of user-defined secrets may be displayed on the advanced options page when you create a codespace. This will happen if recommended secrets have been specified in the dev container configuration you have selected. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/specifying-recommended-secrets-for-a-repository)."
 
 <img src="/assets/images/help/codespaces/recommended-secrets.png" style="max-height:50rem"  alt='Screenshot of the "Create codespace" page with four recommended secrets highlighted with a dark orange outline.' />
 
-Entering values for these secrets, when you're prompted to do so, is recommended because it's likely your project will need values for these secrets. However, supplying values is not required for you to create a codespace. You can set these secrets within the codespace if you prefer.
+Entering values for these development environment secrets, when you're prompted to do so, is recommended because it's likely your project will need values for these secrets. However, supplying values is not required for you to create a codespace. You can set these secrets within the codespace if you prefer.
 
 If you enter a value for a recommended secret, the secret will available in the new codespace. When you click **Create codespace**, the secret is also added to your personal settings for {% data variables.product.prodname_codespaces %}, so you will not need to enter a value for the secret in future when you create a codespace for this repository.
 
 If the name of a secret is shown with a checkbox that is unavailable for selection, and no input box, this is because you already have a secret of this name configured in your personal settings for {% data variables.product.prodname_codespaces %}, and you have associated it with this repository. If you've created a secret of this name but have not associated it with this repository, the checkbox will be available to select and by doing so you can update your settings to add the association.
 
-If you want to change the value of a preselected secret you can do so from your personal settings for {% data variables.product.prodname_codespaces %} at [github.com/settings/codespaces](https://github.com/settings/codespaces). For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
+If you want to change the value of a preselected secret you can do so from your personal settings for {% data variables.product.prodname_codespaces %} at [github.com/settings/codespaces](https://github.com/settings/codespaces). For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces)."
 
 {% endwebui %}
 

@@ -18,6 +18,8 @@ topics:
 
 ## About pull requests
 
+A pull request is a proposal to merge a set of changes from one branch into another. In a pull request, collaborators can review and discuss the proposed set of changes before they integrate the changes into the main codebase. Pull requests display the differences, or diffs, between the content in the source branch and the content in the target branch.
+
 {% note %}
 
 **Note:** When working with pull requests, keep the following in mind:

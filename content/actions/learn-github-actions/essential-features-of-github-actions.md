@@ -25,6 +25,7 @@ topics:
 ```yaml
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Connect to PostgreSQL
         run: node client.js
@@ -97,6 +98,7 @@ For example, you can create a file and then upload it as an artifact.
 jobs:
   example-job:
     name: Save output
+    runs-on: ubuntu-latest
     steps:
       - shell: bash
         run: |
@@ -113,6 +115,7 @@ To download an artifact from a separate workflow run, you can use the `actions/d
 ```yaml
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Download a single artifact
         uses: {% data reusables.actions.action-download-artifact %}

@@ -1,8 +1,8 @@
 [
   {
     "action": "business.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories"
   },
   {
     "action": "business.set_actions_retention_limit",
@@ -80,21 +80,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "integration.manager_added",
-    "description": "A member of an enterprise or organization was added as an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.manager_removed",
-    "description": "A member of an enterprise or organization was removed from being an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.transfer",
-    "description": "Ownership of an integration was transferred to another user or organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "integration_installation.create",
     "description": "An integration was installed.",
     "docs_reference_links": "N/A"
@@ -117,6 +102,21 @@
   {
     "action": "integration_installation.version_updated",
     "description": "Permissions for an integration were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_added",
+    "description": "A member of an enterprise or organization was added as an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_removed",
+    "description": "A member of an enterprise or organization was removed from being an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.transfer",
+    "description": "Ownership of an integration was transferred to another user or organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -186,8 +186,8 @@
   },
   {
     "action": "org.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
   },
   {
     "action": "org.set_actions_retention_limit",
@@ -416,8 +416,8 @@
   },
   {
     "action": "repo.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories"
   },
   {
     "action": "repo.set_actions_retention_limit",
@@ -557,11 +557,6 @@
   {
     "action": "user.async_delete",
     "description": "An asynchronous job was started to destroy a user account, eventually triggering a user.delete event.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user.audit_log_export",
-    "description": "Audit log entries were exported.",
     "docs_reference_links": "N/A"
   },
   {

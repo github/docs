@@ -78,6 +78,10 @@ jobs:
         with:
           restore-only: true
 
+      - uses: ./.github/actions/precompute-pageinfo
+        with:
+          restore-only: true
+
       - uses: ./.github/actions/clone-translations
         with:
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}

@@ -1,1 +1,1 @@
-actions/upload-artifact@v3
+actions/upload-artifact@v4

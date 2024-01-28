@@ -60,7 +60,7 @@ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@{% data varia
 
 {% endwarning %}
 
-To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for USERNAME-1 for the user's account for {% data variables.product.prodname_ghe_cloud %}, and USERNAME-2 for the user's account on {% data variables.product.prodname_ghe_managed %} or {% data variables.product.prodname_ghe_server %} at HOSTNAME.
+To issue a certificate for someone who uses SSH to access multiple {% data variables.product.company_short %} products, you can include two login extensions to specify the username for each product. For example, the following command would issue a certificate for USERNAME-1 for the user's account for {% data variables.product.prodname_ghe_cloud %}, and USERNAME-2 for the user's account on {% data variables.product.prodname_ghe_server %} at HOSTNAME.
 
 ```shell
 ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:login@github.com=USERNAME-1 extension:login@HOSTNAME=USERNAME-2 ./user-key.pub

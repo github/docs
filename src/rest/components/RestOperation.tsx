@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import { CheckCircleFillIcon } from '@primer/octicons-react'
@@ -37,8 +38,23 @@ export function RestOperation({ operation }: Props) {
   const hasCodeSamples = operation.codeExamples.length > 0
   const hasParameters = operation.parameters.length > 0 || operation.bodyParameters.length > 0
 
+  const anchorRef = useRef<null | HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (router.asPath.includes('#')) {
+      const routerAnchor = router.asPath.split('#')[1]
+      if (routerAnchor === titleSlug) {
+        anchorRef?.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        })
+      }
+    }
+  }, [])
+
   return (
-    <div className="pb-8">
+    <div className="pb-8" ref={anchorRef}>
       <HeadingLink as="h2" slug={titleSlug}>
         {operation.title}
       </HeadingLink>

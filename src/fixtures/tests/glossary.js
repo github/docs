@@ -33,7 +33,7 @@ describe('glossary', () => {
         .map((_, el) => $(el).text())
         .get()
         .join('\n')
-      expect(paragraphTexts).toContain('status check on GitHub.')
+      expect(paragraphTexts).toContain('status check on HubGit.')
     }
 
     // ghes
@@ -44,7 +44,7 @@ describe('glossary', () => {
         .map((_, el) => $(el).text())
         .get()
         .join('\n')
-      expect(paragraphTexts).toContain('status check on GitHub Enterprise Server.')
+      expect(paragraphTexts).toContain('status check on HubGit Enterprise Server.')
     }
   })
 })

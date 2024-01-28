@@ -38,8 +38,8 @@ Use the labels in the table below to run your workflows on the corresponding mac
 
 | Runner Size | Architecture| Processor (CPU)| Memory (RAM)  | Storage (SSD) | OS (YAML workflow label) |
 | --------------| --------------| -------------- | ------------- | ------------- | --------------------- |
-| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large </code>, <code>macos-13-large</code>[Beta] |
-| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>[Beta], <code>macos-13-xlarge</code>[Beta]   |
+| Large | Intel| 12             | 30 GB         | 14 GB         | <code>macos-latest-large</code>, <code>macos-12-large [latest] </code>, <code>macos-13-large</code>, <code>macos-14-large</code>[Beta] |
+| XLarge| arm64 (M1)|6 CPU and 8 GPU| 14 GB         | 14 GB        | <code>macos-latest-xlarge</code>, <code>macos-13-xlarge</code> [latest], <code>macos-14-xlarge</code>[Beta]  |
 {% note %}
 
 **Note:** For macOS {% data variables.actions.hosted_runner %}s, the `-latest` runner label uses the macOS 12 runner image. For macOS Xlarge, the `-latest` runner label uses the macOS 13 runner image
@@ -51,12 +51,6 @@ Use the labels in the table below to run your workflows on the corresponding mac
 {% ifversion repository-actions-runners %}
 
 ## Viewing available runners for a repository
-
-{% note %}
-
-**Note:** This feature is currently in beta and subject to change.
-
-{% endnote %}
 
 {% data reusables.actions.about-viewing-runner-list %}
 
@@ -143,19 +137,17 @@ To run your workflows on macOS {% data variables.actions.hosted_runner %}s, set 
 In this example, the workflow uses a label that is associated with macOS XL runners, which is `macos-latest-xl -arm64`. The `runs-on` key sends the job to any available runner with a matching label:
 
 ```yaml
-name: learn-github-actions
+name: learn-github-actions-testing
 on: [push]
 jobs:
-  check-bats-version:
-    runs-on:
-      labels: macos-latest-xlarge -arm64
+  build:
+    runs-on: macos-13-xlarge
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '16'
-      - run: npm install -g bats
-      - run: bats -v
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
 ```
 
 {% endmac %}

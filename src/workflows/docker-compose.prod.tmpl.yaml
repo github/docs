@@ -23,10 +23,11 @@ services:
     restart: always
 
   datadog-agent:
-    image: 'ghdocsprod.azurecr.io/datadog/dogstatsd:7.32.4'
+    image: 'ghdocsprod.azurecr.io/datadog/dogstatsd:7.49.1'
     ports:
       - '8125:8125'
     environment:
       DD_API_KEY: ${DD_API_KEY}
       DD_AGENT_HOST: datadog-agent
       DD_HISTOGRAM_PERCENTILES: 0.99 0.95 0.50
+      DD_HOSTNAME_TRUST_UTS_NAMESPACE: true

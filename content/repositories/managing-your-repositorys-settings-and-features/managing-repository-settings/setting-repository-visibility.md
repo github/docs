@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -34,7 +33,7 @@ Members of an {% data variables.enterprise.prodname_emu_enterprise %} can only s
 
 We recommend reviewing the following caveats before you change the visibility of a repository.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 {% warning %}
 
@@ -52,7 +51,7 @@ We recommend reviewing the following caveats before you change the visibility of
 
 {% ifversion fpt or ghes or ghec %}
 - {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.{% endif %}
-{%- ifversion ghes or ghec or ghae %}
+{%- ifversion ghes or ghec %}
 - If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. {% ifversion fpt or ghes or ghec %}The visibility of any forks will also change to private.{% elsif ghae %}If the internal repository has any forks, the visibility of the forks is already private.{% endif %} For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
 {%- endif %}
 {%- ifversion fpt %}
@@ -66,7 +65,7 @@ We recommend reviewing the following caveats before you change the visibility of
 - Anonymous Git read access is no longer available. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository)."
 {%- endif %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ### Making a repository internal
 
@@ -81,9 +80,6 @@ We recommend reviewing the following caveats before you change the visibility of
 - {% data variables.product.product_name %} will detach private forks and turn them into a standalone private repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"{% ifversion fpt or ghec %}
 - If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
 - The repository will automatically gain access to {% data variables.product.prodname_GH_advanced_security %} features.
-{%- ifversion fpt or ghec %}
-- Attachments uploaded to the repository's issues and pull requests will become inaccessible until the repository is made private again or the attachments are reuploaded. This is a temporary limitation that {% data variables.product.company_short %} is working to resolve.
-{%- endif %}
 
 For information about improving repository security, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."{% endif %}
 

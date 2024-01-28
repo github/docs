@@ -82,6 +82,32 @@ human-readable representation of the results to standard output.
 Omit evaluation of queries that already seem to have a BQRS result
 stored in the output location.
 
+### Options to control the threat models to be used
+
+#### `--threat-model=<name>...`
+
+A list of threat models to enable or disable.
+
+The argument is the name of a threat model, optionally preceded by a
+'!'. If no '!' is present, the named threat model and all of its
+descendants are enabled. If a '!' is present, the named threat model
+and all of its descendants are disabled.
+
+The 'default' threat model is enabled by default, but can be disabled
+by specifying '--threat-model !default'.
+
+The 'all' threat model can be used to enable or disable all threat
+models.
+
+The --threat-model options are processed in order. For example,
+'--threat-model local --threat-model !environment' enables all of
+the threat models in the 'local' group except for the 'environment'
+threat model.
+
+This option only has an effect for languages that support threat models.
+
+Available since `v2.15.3`.
+
 ### Options to control the query evaluator
 
 #### `--[no-]tuple-counting`
@@ -257,6 +283,11 @@ Don't check embedded query metadata in QLDoc comments for validity.
 
 \[Advanced] Override the default maximum size for a compilation cache
 directory.
+
+#### `--fail-on-ambiguous-relation-name`
+
+\[Advanced] Fail compilation if an ambiguous relation name is generated
+during compilation.
 
 ### Options to set up compilation environment
 

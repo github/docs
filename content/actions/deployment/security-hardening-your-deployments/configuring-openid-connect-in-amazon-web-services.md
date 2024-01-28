@@ -10,7 +10,7 @@ type: tutorial
 topics:
   - Security
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -18,6 +18,8 @@ topics:
 OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
 
 This guide explains how to configure AWS to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) that uses tokens to authenticate to AWS and access resources.
+
+{% data reusables.actions.oidc-custom-claims-aws-restriction %}
 
 ## Prerequisites
 
@@ -65,11 +67,7 @@ Edit the trust policy, adding the `sub` field to the validation conditions. For 
 
 If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:OWNER/REPOSITORY:environment:NAME`. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
 
-{% note %}
-
-**Note**: When using an environment in a workflow it is strongly recommend to protect access by configuring deployment protection rules. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules)."
-
-{% endnote %}
+{% data reusables.actions.oidc-deployment-protection-rules %}
 
 ```json copy
 "Condition": {
@@ -132,7 +130,7 @@ on:
 env:
   BUCKET_NAME : "<example-bucket-name>"
   AWS_REGION : "<example-aws-region>"
-# permission can be added at job level or workflow level    
+# permission can be added at job level or workflow level
 permissions:
   id-token: write   # This is required for requesting the JWT
   contents: read    # This is required for actions/checkout

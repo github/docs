@@ -55,7 +55,7 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await page.goto('/')
   await page.getByTestId('site-search-input').click()
   await page.getByTestId('site-search-input').fill('serve playwright')
-  await page.getByRole('button', { name: 'Search' }).click()
+  await page.keyboard.press('Enter')
   await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
   await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
 
@@ -186,7 +186,7 @@ test.describe('hover cards', () => {
     await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
     await expect(
       page.getByText(
-        'Get started using GitHub to manage Git repositories and collaborate with others.',
+        'Get started using HubGit to manage Git repositories and collaborate with others.',
       ),
     ).toBeVisible()
 
@@ -216,11 +216,11 @@ test.describe('hover cards', () => {
 
     // links in the article intro have a hovercard
     await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
-    await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+    await expect(page.getByText('You can use HubGit Pages to showcase')).toBeVisible()
     // this page's intro has two links; one in-page and one internal
     await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
     await expect(
-      page.getByText('Follow this Hello World exercise to get started with GitHub.'),
+      page.getByText('Follow this Hello World exercise to get started with HubGit.'),
     ).toBeVisible()
 
     // same page anchor links have a hovercard
@@ -228,11 +228,11 @@ test.describe('hover cards', () => {
       .locator('#article-contents')
       .getByRole('link', { name: 'introduction', exact: true })
       .hover()
-    await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+    await expect(page.getByText('You can use HubGit Pages to showcase')).toBeVisible()
 
     // links with formatted text need to work too
     await page.locator('#article-contents').getByRole('link', { name: 'Bold is strong' }).hover()
-    await expect(page.getByText('The most basic of fixture data for GitHub')).toBeVisible()
+    await expect(page.getByText('The most basic of fixture data for HubGit')).toBeVisible()
     await page.locator('#article-contents').getByRole('link', { name: 'bar' }).hover()
     await expect(page.getByText("This page doesn't really have an intro")).toBeVisible()
   })
@@ -252,7 +252,7 @@ test.describe('hover cards', () => {
     await page.keyboard.press('Alt+ArrowUp')
     await expect(
       page.getByText(
-        'Get started using GitHub to manage Git repositories and collaborate with others.',
+        'Get started using HubGit to manage Git repositories and collaborate with others.',
       ),
     ).toBeVisible()
 
@@ -533,7 +533,7 @@ test.describe('rest API reference pages', () => {
     await expect(page).toHaveURL(/\/en\/rest\?apiVersion=/)
     await page.getByTestId('sidebar').getByText('Actions').click()
     await page.getByTestId('sidebar').getByLabel('Artifacts').click()
-    await page.getByLabel('About artifacts in GitHub Actions').click()
+    await page.getByLabel('About artifacts in HubGit Actions').click()
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })

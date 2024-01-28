@@ -30,12 +30,21 @@ jobs:
 
       - name: Get changed content/data files
         id: changed-files
-        uses: tj-actions/changed-files@40526807ee1e208a1a8c1bbe6bd2d1b044ef6368 # v40.0.2
+        uses: tj-actions/changed-files@ae82ed4ae04587b665efad2f206578aa6f0e8539 # v42.0.0
         with:
+          # No need to escape the file names because we make the output of
+          # tj-actions/changed-files be set as an environment variable. Not
+          # as a direct input to the line of bash that uses it.
+          safe_output: false
           files: |
             content/**
             data/**
 
       - name: Run content linter if changed content/data files
         if: steps.changed-files.outputs.any_changed == 'true'
-        run: npm run lint-content -- --errors-only --paths ${{ steps.changed-files.outputs.all_changed_files }}
+        env:
+          # Make it an environment variable so that its value doesn't need to be escaped.
+          # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
+          CHANGED_FILES: |-
+            ${{ steps.changed-files.outputs.all_changed_files }}
+        run: npm run lint-content -- --errors-only --paths $CHANGED_FILES

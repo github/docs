@@ -2,14 +2,14 @@
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/quickstart/set-up-git
+    - /get-started/getting-started-with-git/set-up-git
     - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
+    - /copilot/using-github-copilot/getting-started-with-github-copilot
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -169,4 +169,3 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
-

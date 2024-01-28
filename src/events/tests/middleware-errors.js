@@ -1,17 +1,13 @@
-import Ajv from 'ajv'
-import addFormats from 'ajv-formats'
+import { validateJson } from '#src/tests/lib/validate-json-schema.js'
 import { formatErrors } from '../lib/middleware-errors.js'
 import { schemas } from '../lib/schema.js'
 
-const ajv = new Ajv()
-addFormats(ajv)
-
 expect.extend({
   toMatchSchema(data, schema) {
-    const isValid = ajv.validate(schema, data)
+    const { isValid, errors } = validateJson(schema, data)
     return {
       pass: isValid,
-      message: () => (isValid ? '' : ajv.errorsText()),
+      message: () => (isValid ? '' : errors.message),
     }
   },
 })
@@ -19,8 +15,9 @@ expect.extend({
 describe('formatErrors', () => {
   it('should produce objects that match the validation spec', () => {
     // Produce an error
-    ajv.validate({ type: 'string' }, 0)
-    for (const formatted of formatErrors(ajv.errors, '')) {
+    const { errors } = validateJson({ type: 'string' }, 0)
+    const formattedErrors = formatErrors(errors, '')
+    for (const formatted of formattedErrors) {
       expect(formatted).toMatchSchema(schemas.validation)
     }
   })

@@ -3,7 +3,6 @@ import path from 'path'
 
 import express from 'express'
 
-import instrument from '#src/observability/lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
 import timeout from './timeout.js'
@@ -46,6 +45,7 @@ import currentProductTree from './context/current-product-tree.js'
 import genericToc from './context/generic-toc.js'
 import breadcrumbs from './context/breadcrumbs.js'
 import glossaries from './context/glossaries.js'
+import renderProductMap from './context/render-product-map.js'
 import features from '#src/versions/middleware/features.js'
 import productExamples from './context/product-examples.js'
 import productGroups from './context/product-groups.js'
@@ -118,7 +118,7 @@ export default function (app) {
   // Put this early to make it as fast as possible because it's used,
   // and used very often, by the Azure load balancer to check the
   // health of each node.
-  app.use('/healthz', instrument(healthz, './healthz'))
+  app.use('/healthz', healthz)
 
   // Must appear before static assets and all other requests
   // otherwise we won't be able to benefit from that functionality
@@ -126,11 +126,7 @@ export default function (app) {
   app.use(setDefaultFastlySurrogateKey)
 
   // archivedEnterpriseVersionsAssets must come before static/assets
-  app.use(
-    asyncMiddleware(
-      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets'),
-    ),
-  )
+  app.use(asyncMiddleware(archivedEnterpriseVersionsAssets))
 
   app.use(favicons)
 
@@ -164,14 +160,14 @@ export default function (app) {
       fallthrough: true,
     }),
   )
-  app.use(asyncMiddleware(instrument(dynamicAssets, './dynamic-assets')))
+  app.use(asyncMiddleware(dynamicAssets))
   app.use(
     '/public/',
     express.static('data/graphql', {
       index: false,
       etag: false,
       maxAge: '7 days', // A bit longer since releases are more sparse
-      // See note about about use of 'fallthrough'
+      // See note about the use of 'fallthrough'
       fallthrough: false,
     }),
   )
@@ -191,7 +187,7 @@ export default function (app) {
         etag: false,
         maxAge: '365 days',
         immutable: true,
-        // See note about about use of 'fallthrough'
+        // See note about the use of 'fallthrough'
         fallthrough: false,
       }),
     )
@@ -199,7 +195,7 @@ export default function (app) {
 
   // *** Early exits ***
   app.use(shielding)
-  app.use(instrument(handleNextDataPath, './handle-next-data-path'))
+  app.use(handleNextDataPath)
 
   // *** Security ***
   app.use(helmet)
@@ -218,34 +214,34 @@ export default function (app) {
   app.set('etag', false) // We will manage our own ETags if desired
 
   // *** Config and context for redirects ***
-  app.use(instrument(detectLanguage, './detect-language')) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
-  app.use(asyncMiddleware(instrument(reloadTree, './reload-tree'))) // Must come before context
-  app.use(asyncMiddleware(instrument(context, './context'))) // Must come before early-access-*, handle-redirects
-  app.use(instrument(shortVersions, './contextualizers/short-versions')) // Support version shorthands
+  app.use(detectLanguage) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
+  app.use(asyncMiddleware(reloadTree)) // Must come before context
+  app.use(asyncMiddleware(context)) // Must come before early-access-*, handle-redirects
+  app.use(shortVersions) // Support version shorthands
 
   // Must come before handleRedirects.
   // This middleware might either redirect to serve something.
-  app.use(asyncMiddleware(instrument(archivedEnterpriseVersions, './archived-enterprise-versions')))
+  app.use(asyncMiddleware(archivedEnterpriseVersions))
 
   // *** Redirects, 3xx responses ***
   // I ordered these by use frequency
-  app.use(instrument(trailingSlashes, './redirects/trailing-slashes'))
-  app.use(instrument(languageCodeRedirects, './redirects/language-code-redirects')) // Must come before contextualizers
-  app.use(instrument(handleRedirects, './redirects/handle-redirects')) // Must come before contextualizers
+  app.use(trailingSlashes)
+  app.use(languageCodeRedirects) // Must come before contextualizers
+  app.use(handleRedirects) // Must come before contextualizers
 
   // *** Config and context for rendering ***
-  app.use(asyncMiddleware(instrument(findPage, './find-page'))) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
-  app.use(instrument(blockRobots, './block-robots'))
+  app.use(asyncMiddleware(findPage)) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(blockRobots)
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, 2xx responses ***
-  app.use('/api', instrument(api, './api'))
-  app.get('/_ip', instrument(remoteIP, './remoteIP'))
-  app.get('/_build', instrument(buildInfo, './buildInfo'))
-  app.use('/producticons', instrument(productIcons, './product-icons'))
-  app.use('/manifest.json', asyncMiddleware(instrument(manifestJson, './manifest')))
+  app.use('/api', api)
+  app.get('/_ip', remoteIP)
+  app.get('/_build', buildInfo)
+  app.use('/producticons', productIcons)
+  app.use('/manifest.json', asyncMiddleware(manifestJson))
 
   // Things like `/api` sets their own Fastly surrogate keys.
   // Now that the `req.language` is known, set it for the remaining endpoints
@@ -254,16 +250,10 @@ export default function (app) {
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
-  app.use(instrument(robots, './robots'))
-  app.use(
-    /(\/.*)?\/early-access$/,
-    instrument(earlyAccessLinks, './contextualizers/early-access-links'),
-  )
-  app.use(
-    '/categories.json',
-    asyncMiddleware(instrument(categoriesForSupport, './categories-for-support')),
-  )
-  app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
+  app.use(robots)
+  app.use(/(\/.*)?\/early-access$/, earlyAccessLinks)
+  app.use('/categories.json', asyncMiddleware(categoriesForSupport))
+  app.get('/_500', asyncMiddleware(triggerError))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
@@ -273,21 +263,22 @@ export default function (app) {
   app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
-  app.use(asyncMiddleware(instrument(secretScanning, './contextualizers/secret-scanning')))
-  app.use(asyncMiddleware(instrument(ghesReleaseNotes, './contextualizers/ghes-release-notes')))
-  app.use(asyncMiddleware(instrument(ghaeReleaseNotes, './contextualizers/ghae-release-notes')))
-  app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
-  app.use(instrument(layout, './contextualizers/layout'))
-  app.use(instrument(features, './contextualizers/features')) // needs to come before product tree
-  app.use(asyncMiddleware(instrument(currentProductTree, './contextualizers/current-product-tree')))
-  app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
-  app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
-  app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
-  app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
-  app.use(asyncMiddleware(instrument(glossaries, './contextualizers/glossaries')))
-  app.use(asyncMiddleware(instrument(contextualizeSearch, './search/middleware/contextualize')))
-  app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
-  app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
+  app.use(asyncMiddleware(secretScanning))
+  app.use(asyncMiddleware(ghesReleaseNotes))
+  app.use(asyncMiddleware(ghaeReleaseNotes))
+  app.use(asyncMiddleware(whatsNewChangelog))
+  app.use(layout)
+  app.use(features) // needs to come before product tree
+  app.use(asyncMiddleware(currentProductTree))
+  app.use(asyncMiddleware(genericToc))
+  app.use(breadcrumbs)
+  app.use(asyncMiddleware(productExamples))
+  app.use(asyncMiddleware(productGroups))
+  app.use(asyncMiddleware(glossaries))
+  app.use(asyncMiddleware(contextualizeSearch))
+  app.use(asyncMiddleware(featuredLinks))
+  app.use(asyncMiddleware(learningTrack))
+  app.use(asyncMiddleware(renderProductMap))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.
@@ -297,13 +288,13 @@ export default function (app) {
   }
 
   // handle serving NextJS bundled code (/_next/*)
-  app.use(instrument(next, './next'))
+  app.use(next)
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, must go almost last ***
-  app.get('/*', asyncMiddleware(instrument(renderPage, './render-page')))
+  app.get('/*', asyncMiddleware(renderPage))
 
   // *** Error handling, must go last ***
   app.use(handleErrors)

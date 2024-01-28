@@ -61,13 +61,13 @@
   },
   {
     "action": "business.set_actions_fork_pr_approvals_policy",
-    "description": "The setting for requiring approvals for workflows from public forks was changed for an enterprise.",
+    "description": "The policy for requiring approvals for workflows from public forks was changed for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise"
   },
   {
     "action": "business.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories"
   },
   {
     "action": "business.set_actions_retention_limit",
@@ -76,23 +76,18 @@
   },
   {
     "action": "business.set_default_workflow_permissions",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The default permissions granted to the GITHUB_TOKEN when running workflows were changed for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise"
   },
   {
     "action": "business.set_fork_pr_workflows_policy",
-    "description": "The policy for fork pull requests is changed.",
+    "description": "The policy for fork pull request workflows was changed for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise"
   },
   {
-    "action": "business.set_public_fork_pr_workflows_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "business.set_workflow_permission_can_approve_pr",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for allowing GitHub Actions to create and approve pull requests was changed for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
   {
     "action": "checks.auto_trigger_disabled",
@@ -140,6 +135,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "codespaces.start_environment",
+    "description": "A codespace was started.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "codespaces.suspend_environment",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -151,7 +151,7 @@
   },
   {
     "action": "copilot.cfb_seat_added",
-    "description": "A seat was added to the Copilot for Business subscription for a user and they have received access to GitHub Copilot.",
+    "description": "A seat was added to the Copilot Business subscription for a user and they have received access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
@@ -176,12 +176,12 @@
   },
   {
     "action": "copilot.cfb_seat_cancelled",
-    "description": "A seat was canceled from the Copilot for Business subscription and the user no longer has access to GitHub Copilot.",
+    "description": "A seat was canceled from the Copilot Business subscription and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "A seat was canceled from the Copilot for Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
+    "description": "A seat was canceled from the Copilot Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
@@ -320,6 +320,16 @@
     "docs_reference_links": "/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules"
   },
   {
+    "action": "git_signing_ssh_public_key.create",
+    "description": "An SSH key was added to a user account as a Git commit signing key.",
+    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
+  },
+  {
+    "action": "git_signing_ssh_public_key.delete",
+    "description": "An SSH key was removed from a user account as a Git commit signing key.",
+    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
+  },
+  {
     "action": "github_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -333,16 +343,6 @@
     "action": "github_hosted_runner.update",
     "description": "N/A",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "git_signing_ssh_public_key.create",
-    "description": "An SSH key was added to a user account as a Git commit signing key.",
-    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
-  },
-  {
-    "action": "git_signing_ssh_public_key.delete",
-    "description": "An SSH key was removed from a user account as a Git commit signing key.",
-    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
   },
   {
     "action": "gpg_key.create",
@@ -395,36 +395,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "integration.manager_added",
-    "description": "A member of an enterprise or organization was added as an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.manager_removed",
-    "description": "A member of an enterprise or organization was removed from being an integration manager.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.remove_client_secret",
-    "description": "A client secret for an integration was removed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.revoke_all_tokens",
-    "description": "All user tokens for an integration were requested to be revoked.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.revoke_tokens",
-    "description": "Token(s) for an integration were revoked.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "integration.transfer",
-    "description": "Ownership of an integration was transferred to another user or organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "integration_installation.create",
     "description": "An integration was installed.",
     "docs_reference_links": "N/A"
@@ -460,6 +430,36 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "integration.manager_added",
+    "description": "A member of an enterprise or organization was added as an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_removed",
+    "description": "A member of an enterprise or organization was removed from being an integration manager.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.remove_client_secret",
+    "description": "A client secret for an integration was removed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.revoke_all_tokens",
+    "description": "All user tokens for an integration were requested to be revoked.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.revoke_tokens",
+    "description": "Token(s) for an integration were revoked.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.transfer",
+    "description": "Ownership of an integration was transferred to another user or organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "marketplace_agreement_signature.create",
     "description": "The GitHub Marketplace Developer Agreement was signed.",
     "docs_reference_links": "N/A"
@@ -485,16 +485,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "marketplace_listing.redraft",
-    "description": "A listing was sent back to draft state.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "marketplace_listing.reject",
-    "description": "A listing was not accepted for inclusion in GitHub Marketplace.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "marketplace_listing_plan.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -512,6 +502,16 @@
   {
     "action": "marketplace_listing_plan.update",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "marketplace_listing.redraft",
+    "description": "A listing was sent back to draft state.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "marketplace_listing.reject",
+    "description": "A listing was not accepted for inclusion in GitHub Marketplace.",
     "docs_reference_links": "N/A"
   },
   {
@@ -666,8 +666,8 @@
   },
   {
     "action": "org.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
   },
   {
     "action": "org.set_actions_retention_limit",
@@ -676,8 +676,8 @@
   },
   {
     "action": "org.set_default_workflow_permissions",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The default permissions granted to the GITHUB_TOKEN when running workflows were changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization"
   },
   {
     "action": "org.set_fork_pr_workflows_policy",
@@ -686,8 +686,8 @@
   },
   {
     "action": "org.set_workflow_permission_can_approve_pr",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for allowing GitHub Actions to create and approve pull requests was changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
   {
     "action": "org.update_member",
@@ -855,6 +855,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "project_field.create",
+    "description": "A field was created in a project board.",
+    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields"
+  },
+  {
+    "action": "project_field.delete",
+    "description": "A field was deleted in a project board.",
+    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields/deleting-custom-fields"
+  },
+  {
     "action": "project.link",
     "description": "A repository was linked to a project board.",
     "docs_reference_links": "N/A"
@@ -888,16 +898,6 @@
     "action": "project.update_user_permission",
     "description": "A user was added to or removed from a project board or had their permission level changed.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "project_field.create",
-    "description": "A field was created in a project board.",
-    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields"
-  },
-  {
-    "action": "project_field.delete",
-    "description": "A field was deleted in a project board.",
-    "docs_reference_links": "/issues/planning-and-tracking-with-projects/understanding-fields/deleting-custom-fields"
   },
   {
     "action": "project_view.create",
@@ -1161,8 +1161,8 @@
   },
   {
     "action": "repo.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories"
   },
   {
     "action": "repo.set_actions_retention_limit",
@@ -1171,8 +1171,8 @@
   },
   {
     "action": "repo.set_default_workflow_permissions",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The default permissions granted to the GITHUB_TOKEN when running workflows were changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository"
   },
   {
     "action": "repo.set_fork_pr_workflows_policy",
@@ -1181,8 +1181,8 @@
   },
   {
     "action": "repo.set_workflow_permission_can_approve_pr",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for allowing GitHub Actions to create and approve pull requests was changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
   {
     "action": "repo.staff_unlock",
@@ -1325,6 +1325,31 @@
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository"
   },
   {
+    "action": "sponsors.sponsor_sponsorship_cancel",
+    "description": "A sponsorship was canceled.",
+    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_create",
+    "description": "A sponsorship was created, by sponsoring an account.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_payment_complete",
+    "description": "After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_preference_change",
+    "description": "The option to receive email updates from a sponsored account was changed.",
+    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship"
+  },
+  {
+    "action": "sponsors.sponsor_sponsorship_tier_change",
+    "description": "A sponsorship was upgraded or downgraded.",
+    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship, /billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
+  },
+  {
     "action": "sponsors.sponsored_developer_approve",
     "description": "A GitHub Sponsors account was approved.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
@@ -1373,31 +1398,6 @@
     "action": "sponsors.sponsors_patreon_user_destroy",
     "description": "A Patreon account for use with GitHub Sponsors was unlinked from a user account.",
     "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/unlinking-your-patreon-account-from-your-github-account"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_cancel",
-    "description": "A sponsorship was canceled.",
-    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_create",
-    "description": "A sponsorship was created, by sponsoring an account.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_payment_complete",
-    "description": "After you sponsor an account and a payment has been processed, the sponsorship payment was marked as complete.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_preference_change",
-    "description": "The option to receive email updates from a sponsored account was changed.",
-    "docs_reference_links": "/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship"
-  },
-  {
-    "action": "sponsors.sponsor_sponsorship_tier_change",
-    "description": "A sponsorship was upgraded or downgraded.",
-    "docs_reference_links": "/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship, /billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship"
   },
   {
     "action": "sponsors.update_tier_repository",
@@ -1710,6 +1710,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "user_session.country_change",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "user.show_private_contributions_count",
     "description": "A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now shown.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile"
@@ -1723,6 +1728,16 @@
     "action": "user.sign_in_from_unrecognized_device_and_location",
     "description": "A user signed in from an unrecognized device and location.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_status.destroy",
+    "description": "Triggered when you clear the status on your profile.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_status.update",
+    "description": "Triggered when you set or change the status on your profile.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status"
   },
   {
     "action": "user.suspend",
@@ -1788,21 +1803,6 @@
     "action": "user.update_new_repository_default_branch_setting",
     "description": "N/A",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_session.country_change",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_status.destroy",
-    "description": "Triggered when you clear the status on your profile.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_status.update",
-    "description": "Triggered when you set or change the status on your profile.",
-    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status"
   },
   {
     "action": "workflows.approve_workflow_job",

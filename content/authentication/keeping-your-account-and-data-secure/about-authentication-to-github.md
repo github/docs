@@ -84,6 +84,14 @@ If you need to use multiple accounts on {% data variables.location.product_locat
 
 {% endif %}
 
+### Session cookies
+
+{% data variables.product.company_short %} uses cookies to provide services and secure {% data variables.location.product_location %}. {% ifversion fpt or ghec %}You can review details about {% data variables.product.company_short %}'s cookies in the [privacy/cookies repository](https://github.com/privacy/cookies).{% endif %}
+
+- The gist.{% ifversion fpt or ghec %}github.com{% elsif ghes %}HOSTNAME domain{% endif %} and {% ifversion fpt or ghec %}github.com domains{% elsif ghes %}base domain for your instance{% endif %} use separate cookies.
+- {% data variables.product.product_name %} typically marks a user session for deletion after two weeks of inactivity.
+- {% data variables.product.product_name %} does not immediately delete a session when you sign out. Periodically, {% data variables.product.product_name %} automatically deletes expired sessions.
+
 ## Authenticating with {% data variables.product.prodname_desktop %}
 
 You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
@@ -126,9 +134,9 @@ If you authenticate without {% data variables.product.prodname_cli %}, you must 
 
 You can work with all repositories on {% data variables.product.product_name %} over SSH, although firewalls and proxies might refuse to allow SSH connections.
 
-If you authenticate with {% data variables.product.prodname_cli %}, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. Then, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+If you authenticate with {% data variables.product.prodname_cli %}, the CLI will find SSH public keys on your machine and will prompt you to select one for upload. If {% data variables.product.prodname_cli %} does not find a SSH public key for upload, it can generate a new SSH public/private keypair and upload the public key to your account on {% data variables.location.product_location %}. Then, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
+If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
 
 {% ifversion fpt or ghec %}
 

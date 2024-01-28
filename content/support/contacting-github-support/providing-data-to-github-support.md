@@ -90,13 +90,15 @@ After you submit your support request, we may ask you to share a support bundle 
 - `babeld-logs/babeld.log`: Git proxy logs
 - `system-logs/haproxy.log`: HAProxy logs
 - `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
-- `configuration-logs/ghe-config.log`: {% data variables.product.prodname_ghe_server %} configuration logs
+- `configuration-logs/{% ifversion unique-config-run-logs %}{% else %}ghe-config.log{% endif %}`: {% data variables.product.prodname_ghe_server %} configuration logs
+{%- ifversion unique-config-run-logs %}
+{%- endif %}
 - `collectd/logs/collectd.log`: Collectd logs
 - `mail-logs/mail.log`: SMTP email delivery logs
 
 For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
-Support bundles include logs from the past two days by default. You can specify an exact duration in hours or days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
+Support bundles include logs from the past two days by default. You can specify an exact duration in days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
 
 {% tip %}
 

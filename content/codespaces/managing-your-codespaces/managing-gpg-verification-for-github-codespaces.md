@@ -24,7 +24,7 @@ By default, GPG verification is disabled for codespaces you create. If you enabl
 
 {% data reusables.codespaces.settings-sync-and-gpg %}
 
-For more information about managing your preferences for Settings Sync, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#managing-your-preferences-for-settings-sync)."
+For more information about managing your preferences for Settings Sync, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#managing-your-preferences-for-settings-sync)."
 
 {% note %}
 
@@ -40,3 +40,8 @@ For more information about managing your preferences for Settings Sync, see "[AU
 {% data reusables.codespaces.trusted-repos-step %}
 
 {% data reusables.codespaces.gpg-in-active-codespaces %}
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/setting-your-user-preferences)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace)"

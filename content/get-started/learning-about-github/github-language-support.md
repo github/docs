@@ -44,7 +44,7 @@ Some features are supported for additional languages or package managers. If you
 
 {% note %}
 
-{% ifversion ghae or ghes = 3.6 %}
+{% ifversion ghae %}
 **Note:** PHP{% ifversion ghae %}, Ruby,{% endif %} and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
 {% else %}
 **Notes:**

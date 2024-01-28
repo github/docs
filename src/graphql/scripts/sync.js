@@ -11,11 +11,9 @@ import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 
-const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
-const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
-const dataFilenames = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './src/graphql/scripts/utils/data-filenames.json')),
-)
+const graphqlDataDir = 'data/graphql'
+const graphqlStaticDir = 'src/graphql/data'
+const dataFilenames = JSON.parse(await fs.readFile('src/graphql/scripts/utils/data-filenames.json'))
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {

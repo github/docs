@@ -30,7 +30,7 @@ shortTitle: Manage Dependabot PRs
 When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository.
 {% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."{% endif %}
 
-If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. {% ifversion dependabot-version-updates-groups %} You may also want to group sets of dependencies together, so that multiple dependencies are updated in a single pull request.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates)."
+If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. {% ifversion dependabot-version-updates-groups %} You may also want to group sets of dependencies together, so that multiple dependencies are updated in a single pull request.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates){% ifversion dependabot-grouped-security-updates %} and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."{% else %}."{% endif %}
 
 {% ifversion dependabot-updates-paused %}
 
@@ -87,6 +87,12 @@ For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-vers
 ### Managing {% data variables.product.prodname_dependabot %} pull requests for grouped version updates with comment commands
 
 In {% data variables.product.prodname_dependabot %} pull requests for grouped version updates, you can use comment commands to ignore and un-ignore updates for specific dependencies and versions. You can use any of the following commands to manage ignore conditions for grouped version updates.
+
+{% ifversion dependabot-grouped-security-updates %}{% note %}
+
+**Note:** The following comment commands do not work for grouped {% data variables.product.prodname_dependabot_security_updates %}.
+
+{% endnote %}{% endif %}
 
 - `@dependabot ignore DEPENDENCY_NAME` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from updating this dependency.
 - `@dependabot ignore DEPENDENCY_NAME major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from updating this dependency's major version.

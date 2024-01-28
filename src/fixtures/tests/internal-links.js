@@ -110,3 +110,20 @@ describe('link-rewriting', () => {
     )
   })
 })
+
+describe('map-topic links', () => {
+  test('no free-pro-team prefix', async () => {
+    const $ = await getDOM('/rest/actions')
+    const links = $('[data-testid="table-of-contents"] a[href]')
+    links.each((i, element) => {
+      expect($(element).attr('href')).not.toContain('/free-pro-team@latest')
+    })
+  })
+  test('enterprise-server prefix', async () => {
+    const $ = await getDOM('/enterprise-server@latest/rest/actions')
+    const links = $('[data-testid="table-of-contents"] a[href]')
+    links.each((i, element) => {
+      expect($(element).attr('href')).toMatch(/\/enterprise-server@\d/)
+    })
+  })
+})

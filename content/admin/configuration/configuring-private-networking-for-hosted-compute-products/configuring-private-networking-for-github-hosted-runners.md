@@ -113,53 +113,12 @@ You will use a script to automate configuring your Azure resources.
             direction: 'Outbound'
             destinationAddressPrefixes: [
               '140.82.112.0/20'
-              '142.250.0.0/15'
               '143.55.64.0/20'
-              '192.30.252.0/22'
               '185.199.108.0/22'
+              '192.30.252.0/22'
             ]
           }
-        }
-        {
-          name: 'AllowInternetOutBoundMicrosoft'
-          properties: {
-            protocol: 'TCP'
-            sourcePortRange: '*'
-            destinationPortRange: '443'
-            sourceAddressPrefix: '*'
-            access: 'Allow'
-            priority: 230
-            direction: 'Outbound'
-            destinationAddressPrefixes: [
-              '13.64.0.0/11'
-              '13.96.0.0/13'
-              '13.104.0.0/14'
-              '20.33.0.0/16'
-              '20.34.0.0/15'
-              '20.36.0.0/14'
-              '20.40.0.0/13'
-              '20.48.0.0/12'
-              '20.64.0.0/10'
-              '20.128.0.0/16'
-              '52.224.0.0/11'
-              '204.79.197.200'
-            ]
-          }
-        }
-      {
-          name: 'AllowInternetOutBoundCannonical'
-          properties: {
-            protocol: 'TCP'
-            sourcePortRange: '*'
-            destinationPortRange: '443'
-            sourceAddressPrefix: '*'
-            destinationAddressPrefix: '185.125.188.0/22'
-            access: 'Allow'
-            priority: 240
-            direction: 'Outbound'
-            destinationAddressPrefixes: []
-          }
-        }
+        }        
       ]
     }
   }
@@ -169,7 +128,7 @@ You will use a script to automate configuring your Azure resources.
 
 You can use the following GraphQL query to retrieve your enterprise `databaseId`. You will use the enterprise `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
 
-{% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
+{% data reusables.enterprise_migrations.retrieve-enterprise-id-graphql %}
 
 ```graphql
 query(
@@ -212,6 +171,8 @@ To use the script, fill in the placeholder environment variable values with the 
 
 - Run the following script in the same directory where you saved the `actions-nsg-deployment.bicep` file.
 - When setting the `YOUR_AZURE_LOCATION` environment variable, use your region’s name. This value is different than your region’s display name. To see a list of names and display names, use `az account list-locations -o table`.
+- When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
+- If you customize this script to use network resources in existing subnets, you must ensure any existing network interfaces (NICs) connected to the subnet are deleted before the subnet is delegated to the {% data variables.product.prodname_actions %} service. Otherwise, the service will fail to apply the service association link to the subnet.
 
 {% endnote %}
 
@@ -222,7 +183,7 @@ To use the script, fill in the placeholder environment variable values with the 
 # - Resource group
 # - Network Security Group rules
 # - Virtual network (vnet) and subnet
-# - Network Settings with specified subnet and GitHub Enterprise databse ID
+# - Network Settings with specified subnet and GitHub Enterprise database ID
 #
 # It also registers the `GitHub.Network` resource provider with the subscription,
 # delegates the created subnet to the Actions service via the `GitHub.Network/NetworkSettings`
@@ -335,4 +296,25 @@ Once the network configuration is associated with a runner group, all runners in
 1. In the left sidebar, click **Hosted compute networking**.
 1. To edit a network configuration, to the right of the network configuration, click {% octicon "pencil" aria-label="Edit a network configuration" %}. Then click **Edit configuration**.
 1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Disable**.
-1. To disable a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.
+1. To delete a network configuration, to the right of the network configuration, click {% octicon "kebab-horizontal" aria-label="Menu" %}. Then click **Delete**.
+
+## Deleting a subnet
+
+When you create the network settings resource, a service association link is applied to the subnet that you provide. This link prevents accidental deletion of the subnet while in use by the {% data variables.product.prodname_actions %} service.
+
+To delete the subnet, this service association link needs to be removed first. The service association link is safely removed automatically once the network settings resource is deleted.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+1. In the left sidebar, click **Hosted compute networking**.
+1. Open the network configuration that is using the subnet that you want to delete.
+1. Review the list of runner groups using the network configuration.
+1. In the top-right corner, click the "{% octicon "kebab-horizontal" aria-label="Menu" %}" button. Then click **Delete configuration**.
+1. To delete the network settings resource and remove the service association link, use your own inputs with following commands with the Azure CLI. For more information, see the [Azure Command-Line Interface (CLI)](https://learn.microsoft.com/en-us/cli/azure/) documentation.
+
+   ```bash copy
+   az account set --subscription $SUBSCRIPTION_ID
+   az resource delete -g $RESOURCE_GROUP_NAME --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type 'GitHub.Network/networkSettings' --api-version '2023-11-01-preview'
+   ```
+
+1. Delete the subnet in Azure. For more information, see [Delete a subnet](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#delete-a-subnet) in the Azure documentation.

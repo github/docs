@@ -1,6 +1,6 @@
 ---
 title: About enterprise accounts
-intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes or ghae %}give{% endif %} administrators a single point of visibility and management.'
+intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to {% ifversion ghec %}enable collaboration between your organizations, while giving{% elsif ghes %}give{% endif %} administrators a single point of visibility and management.'
 redirect_from:
   - /articles/about-github-business-accounts
   - /articles/about-enterprise-accounts
@@ -12,7 +12,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -26,7 +25,7 @@ topics:
 
 Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
 
-{% elsif ghes or ghae %}
+{% elsif ghes %}
 
 The enterprise account on {% ifversion ghes %}{% data variables.location.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} allows you to manage the organizations{% ifversion ghes %} on{% elsif ghae %} owned by{% endif %} your {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise{% endif %}.
 
@@ -48,7 +47,7 @@ Your enterprise account allows you to manage and enforce policies for all the or
 
 ## About administration of your enterprise account
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
@@ -92,7 +91,7 @@ For more information about the differences between {% data variables.product.pro
 
 ## About billing for your enterprise account
 
-The bill for your enterprise account includes the monthly cost for each member of your enterprise. The bill includes {% ifversion ghec %}any paid licenses in organizations outside of your enterprise account, subscriptions to apps in {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion ghec or ghae %}additional paid services for your enterprise{% ifversion ghec %} like data packs for {% data variables.large_files.product_name_long %},{% endif %} and{% endif %} usage for {% data variables.product.prodname_GH_advanced_security %}.
+The bill for your enterprise account includes the monthly cost for each member of your enterprise. The bill includes {% ifversion ghec %}any paid licenses in organizations outside of your enterprise account, subscriptions to apps in {% data variables.product.prodname_marketplace %}, {% endif %}{% ifversion ghec %}additional paid services for your enterprise{% ifversion ghec %} like data packs for {% data variables.large_files.product_name_long %},{% endif %} and{% endif %} usage for {% data variables.product.prodname_GH_advanced_security %}.
 
 {% ifversion ghec %}
 

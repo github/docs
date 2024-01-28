@@ -109,7 +109,7 @@ Kerberos is an authentication protocol that allows users and services to prove t
 
 Kerberos uses a service principal name (SPN) to uniquely identify a service instance. By default, the SPN is derived from the proxy URL. For example, if the proxy URL is `http://proxy.example.com:3128`, the SPN is `HTTP/proxy.example.com`.
 
-If the default SPN isn't correct for your proxy, you can override the SPN in {% data variables.product.prodname_vscode_shortname %} and in JetBrains IDEs. You cannot currently override the default SPN in {% data variables.product.prodname_vs %}.
+If the default SPN isn't correct for your proxy, you can override the SPN in {% data variables.product.prodname_vscode_shortname %} and in JetBrains IDEs. You cannot currently override the default SPN in {% data variables.product.prodname_vs %}. However, you can use the environment variable `AGENT_KERBEROS_SERVICE_PRINCIPAL` to override the SPN for {% data variables.product.prodname_vs %} and JetBrains IDEs.
 
 {% vscode %}
 

@@ -1,6 +1,6 @@
 ---
 title: Rebuilding the container in a codespace
-intro: 'You can rebuild a container to apply configuration changes to the codespaces you are working in. From time to time, you may want to perform a full rebuild.'
+intro: 'You can rebuild the dev container of a codespace you are working in to apply configuration changes. From time to time, you may want to perform a full rebuild.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,11 +13,11 @@ redirect_from:
   - /codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace
 ---
 
-## About rebuilding a container
+## About rebuilding the dev container
 
 When you work in a codespace, your development environment is a Docker container that runs on a virtual machine. If you make changes to your dev container configuration from within a codespace, and you want to apply those changes to the current codespace, you need to rebuild the container.
 
-By default, when you rebuild a container, {% data variables.product.prodname_github_codespaces %} will speed up the build process by reusing cached images from previous builds of the container. This is usually the quickest way to implement changes to your dev container configuration, for the following reasons.
+By default, when you rebuild the dev container, {% data variables.product.prodname_github_codespaces %} will speed up the build process by reusing cached images from previous builds of the container. This is usually the quickest way to implement changes to your dev container configuration, for the following reasons.
 - {% data variables.product.prodname_github_codespaces %} can reuse images in your cache rather than repulling them from container registries.
 - The parts of your dev container configuration that define how the container is built, such as dev container features and Dockerfile instructions, may have already been implemented in image layers in your cache, so you won't need to wait for these processes to run again. (However, commands in your configuration that run after the container is built, such as `onCreateCommand`, will run again.)
 

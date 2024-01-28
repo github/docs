@@ -22,7 +22,6 @@ export type ProductGuidesContextT = {
   intro: string
   learningTracks?: Array<LearningTrack>
   includeGuides?: Array<ArticleGuide>
-  allTopics?: Array<string>
 }
 
 export const ProductGuidesContext = createContext<ProductGuidesContextT | null>(null)
@@ -43,7 +42,7 @@ export const getProductGuidesContextFromRequest = (req: any): ProductGuidesConte
   const page = req.context.page
 
   return {
-    ...pick(page, ['title', 'intro', 'allTopics']),
+    ...pick(page, ['title', 'intro']),
     learningTracks: (page.learningTracks || []).map((track: any) => ({
       ...pick(track, ['title', 'description', 'trackName', 'trackProduct']),
       guides: (track.guides || []).map((guide: any) => {

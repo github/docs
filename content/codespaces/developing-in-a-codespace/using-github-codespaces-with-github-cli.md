@@ -125,7 +125,7 @@ For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/del
 ### Rename a codespace
 
 ```shell
-gh codespace edit -c CODESPACE-NAME -d DISPLAY-NAME
+gh codespace edit -c CODESPACE-NAME -d 'DISPLAY-NAME'
 ```
 
 For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/renaming-a-codespace?tool=cli)."

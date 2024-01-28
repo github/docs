@@ -58,7 +58,7 @@ describe('translations', () => {
       const $ = await getDOM('/ja/get-started/foo/table-with-ifversions')
 
       const paragraph = $('#article-contents p').text()
-      expect(paragraph).toMatch('mention of GitHub in Liquid')
+      expect(paragraph).toMatch('mention of HubGit in Liquid')
 
       const tds = $('#article-contents td')
         .map((i, element) => $(element).text())
@@ -71,7 +71,7 @@ describe('translations', () => {
       const $ = await getDOM('/ja/enterprise-server@latest/get-started/foo/table-with-ifversions')
 
       const paragraph = $('#article-contents p').text()
-      expect(paragraph).toMatch('mention of GitHub Enterprise Server in Liquid')
+      expect(paragraph).toMatch('mention of HubGit Enterprise Server in Liquid')
 
       const tds = $('#article-contents td')
         .map((i, element) => $(element).text())

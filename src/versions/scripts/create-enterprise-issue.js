@@ -9,7 +9,7 @@ const enterpriseDates = JSON.parse(
 )
 
 const acceptedMilestones = ['release', 'deprecation']
-const teamsToCC = '/cc @github/docs-content @github/docs-engineering'
+const teamsToCC = '/cc @github/docs-engineering'
 
 // Adjust these values as needed.
 const numberOfdaysBeforeReleaseToOpenIssue = 30

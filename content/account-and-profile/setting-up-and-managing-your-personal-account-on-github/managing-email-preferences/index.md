@@ -1,6 +1,6 @@
 ---
 title: Managing email preferences
-intro: 'You can add or change the email addresses associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. You can also manage emails you receive from {% data variables.product.product_name %}.'
+intro: 'You can add or change the email addresses associated with your account on {% data variables.location.product_location %}. You can also manage emails you receive from {% data variables.product.product_name %}.'
 redirect_from:
   - /categories/managing-email-preferences
   - /articles/managing-email-preferences
@@ -17,6 +17,7 @@ topics:
 children:
   - /adding-an-email-address-to-your-github-account
   - /changing-your-primary-email-address
+  - /verifying-your-email-address
   - /setting-a-backup-email-address
   - /setting-your-commit-email-address
   - /blocking-command-line-pushes-that-expose-your-personal-email-address
@@ -25,4 +26,3 @@ children:
   - /managing-marketing-emails-from-github
 shortTitle: Manage email preferences
 ---
-
