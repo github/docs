@@ -7,7 +7,7 @@ GitHub's Docs team works on pre-production content in a private repo that regula
 
 ### Contact GitHub  
 
-If you're having trouble with your GitHub account, contact [Isabel Schoeps Thiel](https://support.github.com).
+If you're having trouble with your GitHub account, contact [Isabel Schoeps Thiel](https://github.com/services/).
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
