@@ -62,7 +62,7 @@ The exact command you need to use depends on which extension of the {% data vari
 
 If your migration source is a {% data variables.product.prodname_dotcom %} product, you can reclaim mannequins with the {% data variables.product.prodname_gei_cli %}.
 
-{% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %}
+{% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 
@@ -95,7 +95,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 If your migration source is Azure DevOps, you can reclaim mannequins with the {% data variables.product.prodname_ado2gh_cli %}.
 
-{% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %}
+{% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 

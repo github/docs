@@ -574,7 +574,7 @@ When you set the `containerMode` in the `values.yaml` file for the [`gha-runner-
 
 Depending on which value you set for the `containerMode`, a configuration will automatically be injected into the `template` section of the `values.yaml` file for the `gha-runner-scale-set` helm chart.
 - See the [`dind` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L110).
-- See the [`kuberbetes` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L160).
+- See the [`kubernetes` configuration](https://github.com/actions/actions-runner-controller/blob/5347e2c2c80fbc45be7390eab117e861d30776d1/charts/gha-runner-scale-set/values.yaml#L160).
 
 To customize the spec, comment out or remove `containerMode`, and append the configuration you want in the `template` section.
 
@@ -774,24 +774,25 @@ The following table shows the metrics emitted by the controller-manager and list
 
 {% endnote %}
 
-| Owner              | Metric                         | Type      | Description                                                                                                 |
-| ------------------ | ------------------------------ | --------- | ----------------------------------------------------------------------------------------------------------- |
-| controller-manager | pending_ephemeral_runners      | gauge     | Number of ephemeral runners in a pending state                                                              |
-| controller-manager | running_ephemeral_runners      | gauge     | Number of ephemeral runners in a running state                                                              |
-| controller-manager | failed_ephemeral_runners       | gauge     | Number of ephemeral runners in a failed state                                                               |
-| listener           | assigned_jobs                  | gauge     | Number of jobs assigned to the runner scale set                                                             |
-| listener           | running_jobs                   | gauge     | Number of jobs running or queued to run                                                                     |
-| listener           | registered_runners             | gauge     | Number of runners registered by the runner scale set                                                        |
-| listener           | busy_runners                   | gauge     | Number of registered runners currently running a job                                                        |
-| listener           | min_runners                    | gauge     | Minimum number of runners configured for the runner scale set                                               |
-| listener           | max_runners                    | gauge     | Maximum number of runners configured for the runner scale set                                               |
-| listener           | desired_runners                | gauge     | Number of runners desired (scale up / down target) by the runner scale set                                  |
-| listener           | idle_runners                   | gauge     | Number of registered runners not running a job                                                              |
-| listener           | started_jobs_total             | counter   | Total number of jobs started since the listener became ready [1]                                            |
-| listener           | completed_jobs_total           | counter   | Total number of jobs completed since the listener became ready [1]                                          |
-| listener           | job_queue_duration_seconds     | histogram | Number of seconds spent waiting for workflow jobs to get assigned to the runner scale set after queueing    |
-| listener           | job_startup_duration_seconds   | histogram | Number of seconds spent waiting for workflow job to get started on the runner owned by the runner scale set |
-| listener           | job_execution_duration_seconds | histogram | Number of seconds spent executing workflow jobs by the runner scale set                                     |
+| Owner              | Metric                                        | Type      | Description                                                                                                 |
+| ------------------ | --------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
+| controller-manager | gha_controller_pending_ephemeral_runners      | gauge     | Number of ephemeral runners in a pending state                                                              |
+| controller-manager | gha_controller_running_ephemeral_runners      | gauge     | Number of ephemeral runners in a running state                                                              |
+| controller-manager | gha_controller_failed_ephemeral_runners       | gauge     | Number of ephemeral runners in a failed state                                                               |
+| controller-manager | gha_controller_running_listeners              | gauge     | Number of listeners in a running state                                                                      |
+| listener           | gha_assigned_jobs                             | gauge     | Number of jobs assigned to the runner scale set                                                             |
+| listener           | gha_running_jobs                              | gauge     | Number of jobs running or queued to run                                                                     |
+| listener           | gha_registered_runners                        | gauge     | Number of runners registered by the runner scale set                                                        |
+| listener           | gha_busy_runners                              | gauge     | Number of registered runners currently running a job                                                        |
+| listener           | gha_min_runners                               | gauge     | Minimum number of runners configured for the runner scale set                                               |
+| listener           | gha_max_runners                               | gauge     | Maximum number of runners configured for the runner scale set                                               |
+| listener           | gha_desired_runners                           | gauge     | Number of runners desired (scale up / down target) by the runner scale set                                  |
+| listener           | gha_idle_runners                              | gauge     | Number of registered runners not running a job                                                              |
+| listener           | gha_started_jobs_total                        | counter   | Total number of jobs started since the listener became ready [1]                                            |
+| listener           | gha_completed_jobs_total                      | counter   | Total number of jobs completed since the listener became ready [1]                                          |
+| listener           | gha_job_queue_duration_seconds                | histogram | Number of seconds spent waiting for workflow jobs to get assigned to the runner scale set after queueing    |
+| listener           | gha_job_startup_duration_seconds              | histogram | Number of seconds spent waiting for workflow job to get started on the runner owned by the runner scale set |
+| listener           | gha_job_execution_duration_seconds            | histogram | Number of seconds spent executing workflow jobs by the runner scale set                                     |
 
 [1]: Listener metrics that have the counter type are reset when the listener pod restarts.
 

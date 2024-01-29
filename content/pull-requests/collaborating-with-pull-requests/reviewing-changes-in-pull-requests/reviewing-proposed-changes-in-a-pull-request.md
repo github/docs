@@ -41,9 +41,9 @@ You can change the format of the diff view in this tab by clicking {% octicon "g
 {% data reusables.repositories.start-file-comment %}{% endif %}
 1. When you're done, click **Start a review**. If you have already started a review, you can click **Add review comment**.
 
-Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, click **Review changes** above the changed code, then click **Cancel review**.
+Before you submit your review, your line comments are _pending_ and only visible to you. You can edit pending comments anytime before you submit your review. To cancel a pending review, including all of its pending comments, click **Review changes** above the changed code, then click **Abandon review**.
 
-![Screenshot of the comment field for a review. The "Cancel review" button is outlined in dark orange.](/assets/images/help/pull_requests/cancel-review-button.png)
+![Screenshot of the comment field for a review. The "Abandon review" button is outlined in dark orange.](/assets/images/help/pull_requests/abandon-review-button.png)
 {% endwebui %}
 
 {% ifversion fpt or ghec %}
@@ -64,6 +64,8 @@ You can use [{% data variables.product.prodname_github_codespaces %}](/codespace
 1. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
 
    ![Screenshot of a comment being added, reading "Yes, I agree, this is clearer." The "Start Review" button is shown below the comment.](/assets/images/help/codespaces/start-review.png)
+
+{% data reusables.codespaces.reviewing-a-pr %}
 
 1. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
 

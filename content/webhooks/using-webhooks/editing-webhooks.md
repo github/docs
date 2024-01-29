@@ -5,7 +5,6 @@ intro: 'After creating a webhook, you can make changes to it.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -41,13 +40,13 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 {% data reusables.webhooks.edit_webhook_make_changes %}
 {% data reusables.webhooks.update_webhook %}
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Editing a global webhook for a {% data variables.product.prodname_enterprise %}
 
 Enterprise owners can edit a global webhook to change any of the settings that were selected when the webhook was initially created.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 You can use the {% data variables.product.company_short %} web interface or the REST API to edit a global webhook. For more information about using the REST API to edit a global webhook, see "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."
 

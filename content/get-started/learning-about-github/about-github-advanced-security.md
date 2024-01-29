@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.ghas %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Security
@@ -14,6 +13,7 @@ redirect_from:
   - /github/getting-started-with-github/learning-about-github/about-github-advanced-security
 shortTitle: GitHub Advanced Security
 ---
+
 ## About {% data variables.product.prodname_GH_advanced_security %}
 
 {% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% ifversion not ghae %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a {% data variables.product.prodname_GH_advanced_security %} (GHAS){% ifversion fpt or ghec %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
@@ -36,7 +36,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 
 - **{% data variables.product.prodname_code_scanning_caps %}** - Search for potential security vulnerabilities and coding errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into {% ifversion fpt %} private repositories{% else %} the repository{% endif %}. {% ifversion fpt%}{% data variables.secret-scanning.user_alerts_caps %} and {% data variables.secret-scanning.partner_alerts %} are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% ifversion secret-scanning-push-protection %} If push protection is enabled, also detects secrets when they are pushed to your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% else %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into {% ifversion fpt %} private repositories{% else %} the repository{% endif %}. {% ifversion fpt%}{% data variables.secret-scanning.user_alerts_caps %} and {% data variables.secret-scanning.partner_alerts %} are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% ifversion secret-scanning-push-protection %} If push protection is enabled, also detects secrets when they are pushed to your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."{% else %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
 
 - **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
@@ -66,7 +66,7 @@ For information about {% data variables.product.prodname_advanced_security %} fe
 {% data variables.product.prodname_GH_advanced_security %} features are enabled for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable these features for private and internal repositories. {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security#enabling-advanced-security-features).
 {% endif %}
 
-{% ifversion ghes or ghec or ghae %}
+{% ifversion ghes or ghec %}
 
 ## Deploying GitHub Advanced Security in your enterprise
 
@@ -110,7 +110,15 @@ For more information on starter workflows, see "[AUTOTITLE](/code-security/code-
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion github-certification %}
+
+## About {% data variables.product.prodname_GH_advanced_security %} Certification
+
+You can highly your code security knowledge by earning a {% data variables.product.prodname_GH_advanced_security %} certificate with {% data variables.product.prodname_certifications %}. The certification validates your expertise in vulnerability identification, workflow security, and robust security implementation. For more information, see "[AUTOTITLE](/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications)."
+
+{% endif %}
+
+{% ifversion ghec or ghes %}
 
 ## Further reading
 

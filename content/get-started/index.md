@@ -31,12 +31,11 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
     - /get-started/onboarding/getting-started-with-github-enterprise-server
-    - /get-started/onboarding/getting-started-with-github-ae
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
     - /get-started/quickstart/creating-an-account-on-github
     - /get-started/quickstart/hello-world
-    - /get-started/quickstart/set-up-git
+    - /get-started/getting-started-with-git/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
     - /get-started/quickstart/github-glossary
     - /get-started/accessibility/keyboard-shortcuts
@@ -63,4 +62,5 @@ children:
   - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs
+  - /showcase-your-expertise-with-github-certifications
 ---

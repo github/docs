@@ -195,7 +195,7 @@ The record types match those found in the [migrated data](/migrations/using-ghe-
 | Repositories    | `repository`
 | Teams           | `team`
 | Milestones      | `milestone`
-| Project boards  | `project`
+| {% data variables.projects.projects_v1_boards_caps %}  | `project`
 | Issues          | `issue`
 | Issue comments  | `issue_comment`
 | Pull requests   | `pull_request`

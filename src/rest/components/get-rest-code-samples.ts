@@ -62,7 +62,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
       if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
         const paramNames = Object.keys(bodyParameters)
         paramNames.forEach((elem) => {
-          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${bodyParameters[elem]}"`
+          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${bodyParameters[elem]}'`
         })
       } else {
         requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${bodyParameters}"`

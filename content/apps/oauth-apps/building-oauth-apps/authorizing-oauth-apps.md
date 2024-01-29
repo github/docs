@@ -25,7 +25,7 @@ topics:
 
 Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
 
-{% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+{% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 {% endnote %}
 
@@ -127,13 +127,7 @@ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pr
 
 ## Device flow
 
-{% note %}
-
-**Note:** The device flow is in public beta and subject to change.
-
-{% endnote %}
-
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+The device flow allows you to authorize users for a headless application, such as a CLI tool or the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 
 {% ifversion device-flow-is-opt-in %}
 
@@ -217,7 +211,7 @@ The endpoint takes the following input parameters.
 Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
+`device_code` | `string` | **Required.** The `device_code` you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
 `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
 
 By default, the response takes the following form:
@@ -293,9 +287,9 @@ subdirectory of the callback URL.
 
 ### Loopback redirect urls
 
-The optional `redirect_uri` parameter can also be used for loopback URLs. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
+The optional `redirect_uri` parameter can also be used for loopback URLs, which is useful for native applications running on a desktop computer. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
 
-For the `http://127.0.0.1:1234/path` callback URL, you can use this `redirect_uri`:
+For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri` if your application is listening on port `1234`:
 
 ```http
 http://127.0.0.1:1234/path

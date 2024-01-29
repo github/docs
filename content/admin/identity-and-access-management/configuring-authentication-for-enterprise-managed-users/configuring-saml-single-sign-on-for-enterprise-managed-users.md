@@ -114,7 +114,11 @@ After you enable SAML SSO, enable provisioning. For more information, see "[AUTO
 
 ### Enabling guest collaborators
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can use the role of guest collaborator to grant limited access to vendors and contractors. Guest collaborators are provisioned by your IdP, and only have access to the specific repositories or organizations you add them to. Guest collaborators only have access to internal repositories within organizations where they are a member and private repositories they are expressly authorized to access. Guest collaborators will never see internal repositories in an organization they are not a member of. For more information, see "[AUTOTITLE](/admin/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
+{% data reusables.emus.guest-collaborators-note %}
+
+If your enterprise uses {% data variables.product.prodname_emus %}, you can use the role of guest collaborator to grant limited access to vendors and contractors. For more information, see "[AUTOTITLE](/admin/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators)."
+
+All repository access for organization members, including guest collaborators, is governed by the base permission policy for the organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
 
 If you use Azure AD or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators.
 

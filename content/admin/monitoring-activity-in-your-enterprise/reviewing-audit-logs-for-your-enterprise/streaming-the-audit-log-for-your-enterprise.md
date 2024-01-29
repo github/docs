@@ -269,7 +269,7 @@ To get a list of IP address ranges that {% data variables.product.prodname_dotco
 
    - The port on which the application accepts data.<br>
 
-     If you're using Splunk Cloud and haven't changed the port configration, `Port` should be `443`.
+     If you're using Splunk Cloud and haven't changed the port configuration, `Port` should be `443`.
 
      If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 

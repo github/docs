@@ -30,7 +30,7 @@ codeql pack publish [--dry-run] [--threads=<num>] [--ram=<MB>] [--pack=<folder> 
 
 ## Description
 
-\[Experimental] Publishes a QL library pack to a package registry.
+Publishes a QL library pack to a package registry.
 
 This command publishes a pack to a package registry. Before publishing,
 the pack is first compiled (if necessary) and bundled.

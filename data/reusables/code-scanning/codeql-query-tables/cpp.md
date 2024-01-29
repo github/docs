@@ -27,6 +27,7 @@
 | [File opened with O_CREAT flag but without mode argument](https://codeql.github.com/codeql-query-help/cpp/cpp-open-call-with-mode-argument/) | 732 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incorrect 'not' operator usage](https://codeql.github.com/codeql-query-help/cpp/cpp-incorrect-not-operator-usage/) | 480 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incorrect allocation-error handling](https://codeql.github.com/codeql-query-help/cpp/cpp-incorrect-allocation-error-handling/) | 570, 252, 755 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [Incorrect return-value check for a 'scanf'-like function](https://codeql.github.com/codeql-query-help/cpp/cpp-incorrectly-checked-scanf/) | 253 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Invalid pointer dereference](https://codeql.github.com/codeql-query-help/cpp/cpp-invalid-pointer-deref/) | 119, 125, 193, 787 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Likely overrunning write](https://codeql.github.com/codeql-query-help/cpp/cpp-very-likely-overrunning-write/) | 120, 787, 805 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Mismatching new/free or malloc/delete](https://codeql.github.com/codeql-query-help/cpp/cpp-new-free-mismatch/) | 401 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -80,6 +81,7 @@
 | [Use of expired stack-address](https://codeql.github.com/codeql-query-help/cpp/cpp-using-expired-stack-address/) | 825 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of potentially dangerous function](https://codeql.github.com/codeql-query-help/cpp/cpp-potentially-dangerous-function/) | 676 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of string after lifetime ends](https://codeql.github.com/codeql-query-help/cpp/cpp-use-of-string-after-lifetime-ends/) | 416, 664 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| [Use of unique pointer after lifetime ends](https://codeql.github.com/codeql-query-help/cpp/cpp-use-of-unique-pointer-after-lifetime-ends/) | 416, 664 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Wrong type of arguments to formatting function](https://codeql.github.com/codeql-query-help/cpp/cpp-wrong-type-format-argument/) | 686 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [XML external entity expansion](https://codeql.github.com/codeql-query-help/cpp/cpp-external-entity-expansion/) | 611 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 

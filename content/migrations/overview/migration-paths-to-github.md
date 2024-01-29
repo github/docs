@@ -94,7 +94,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 - **Tooling**: Git CLI or GitHub Importer
 - **More information**:
   - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
-  - "[AUTOTITLE]({% ifversion ghes or ghae %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"
+  - "[AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"
 
 ### Bitbucket Server or Bitbucket Data Center to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -122,7 +122,7 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
 - **Tooling**: Git CLI or GitHub Importer if the repository is accessible over the public internet
 - **More information**:
   - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
-  - "[AUTOTITLE]({% ifversion ghes or ghae %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"
+  - "[AUTOTITLE]({% ifversion ghes %}/free-pro-team@latest{% endif %}/migrations/importing-source-code/using-github-importer/about-github-importer)"
 
 ### Any Mercurial repository to {% data variables.product.prodname_dotcom_the_website %}
 

@@ -187,13 +187,13 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can view
 
 ## Viewing dormant users
 
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+You can view a list of all dormant users {% ifversion ghes %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
 
 {% ifversion filter-by-enterprise-member-type %}
 
 ## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is managed in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Under "Organizations", in the search bar, begin typing the organization's name until it appears in the search results.

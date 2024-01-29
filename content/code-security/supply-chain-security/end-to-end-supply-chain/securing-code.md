@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Dependabot
@@ -49,7 +48,7 @@ As a first step, you want to make a complete inventory of your dependencies. The
 ### Automatic detection of vulnerabilities in dependencies
 
 {% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. {% ifversion fpt or ghec or ghes %}You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"{% ifversion fpt or ghec or ghes %} and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"{% endif %}.
-{% ifversion fpt or ghec or ghes or ghae > 3.5 %}
+{% ifversion fpt or ghec or ghes %}
 
 ### Automatic detection of vulnerabilities in pull requests
 
@@ -80,7 +79,7 @@ Code often needs to communicate with other systems over a network, and requires 
 {% endif %}
 
 {% ifversion fpt %}
-You can can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
+You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
    - public repositories on {% data variables.product.prodname_dotcom_the_website %}.
    - an organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
@@ -96,7 +95,7 @@ You can configure {% data variables.product.prodname_secret_scanning %} to check
 Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_github_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)," "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)," and "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
 {% endif %}
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)."{% else %}."{% endif %}
 {% endif %}
 

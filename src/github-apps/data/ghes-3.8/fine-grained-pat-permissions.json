@@ -1397,6 +1397,17 @@
           "metadata"
         ],
         "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "metadata"
+        ],
+        "access": "write"
       }
     ]
   },
@@ -4283,6 +4294,17 @@
         "access": "read"
       },
       {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "organization_actions_variables"
+        ],
+        "access": "read"
+      },
+      {
         "category": "dependabot",
         "slug": "add-selected-repository-to-an-organization-secret",
         "subcategory": "secrets",
@@ -4645,7 +4667,7 @@
         "slug": "create-a-github-pages-deployment",
         "subcategory": "pages",
         "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages/deployment",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments",
         "additional-permissions": [],
         "access": "write"
       }

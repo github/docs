@@ -49,6 +49,10 @@ const plans = [
     openApiBaseName: 'ghes-',
     miscBaseName: 'ghes-',
   },
+  // github-ae is gone, but we need to keep it in the array
+  // for the validation of front matter when it checks the `versions`
+  // keys.
+  // All requests for github-ae@latest will be redirected in getRedirect().
   {
     plan: 'github-ae',
     planTitle: 'GitHub AE',
@@ -131,5 +135,15 @@ export function getOpenApiVersion(version) {
   }
   return allVersions[version].openApiVersionName
 }
+
+export const allTestableVersions = Object.keys(allVersions).filter(
+  // Because of the deprecation of GHAE we can't delete it from `allVersions`
+  // until ALL cleaning up is done. Since we're now always redirecting
+  // all requests for `.../github-ae@latest/...` we also shouldn't test it.
+  // Other end-to-end tests will test the redirects of that legacy.
+  // The day `github-ae@latest` is no longer in all-versions.js
+  // this filtering can be deleted.
+  (version) => version !== 'github-ae@latest',
+)
 
 export { allVersions }

@@ -256,6 +256,30 @@ upcoming_changes:
     date: '2023-10-01T00:00:00+00:00'
     criticality: breaking
     owner: aharpole
+  - location: TopicSuggestionDeclineReason.NOT_RELEVANT
+    description: '`NOT_RELEVANT` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
+  - location: TopicSuggestionDeclineReason.PERSONAL_PREFERENCE
+    description: '`PERSONAL_PREFERENCE` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
+  - location: TopicSuggestionDeclineReason.TOO_GENERAL
+    description: '`TOO_GENERAL` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
+  - location: TopicSuggestionDeclineReason.TOO_SPECIFIC
+    description: '`TOO_SPECIFIC` will be removed.'
+    reason: Suggested topics are no longer supported
+    date: '2024-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: calvinchilds
   - location: CreateTeamDiscussionCommentInput.body
     description:
       '`body` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/
@@ -320,6 +344,12 @@ upcoming_changes:
     date: '2024-07-01T00:00:00+00:00'
     criticality: breaking
     owner: deborah-digges
+  - location: OrganizationInvitation.inviter
+    description: '`inviter` will be removed. `inviter` will be replaced by `inviterActor`.'
+    reason: '`inviter` will be removed.'
+    date: '2024-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jdennes
   - location: TeamDiscussion.authorAssociation
     description:
       '`authorAssociation` will be removed. Follow the guide at https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/

@@ -35,10 +35,10 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 
 {% data reusables.repositories.create_new %}
 1. In the "Repository name" box, type `hello-world`.
-1. In the "Description" box, type a short description.
-1. Select whether your repository will be **Public** or **Private**.
-1. Select **Add a README file**.
-1. Click **Create repository**.
+{% data reusables.repositories.add-description %}
+{% data reusables.repositories.select-public-or-private %}
+{% data reusables.repositories.add-readme %}
+{% data reusables.repositories.click-create %}
 
 ## Creating a branch
 
@@ -153,4 +153,4 @@ Here's what you accomplished in this tutorial:
 
 Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
 
-For more information about the power of branches and pull requests, see "[AUTOTITLE](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
+For more information about the power of branches and pull requests, see "[AUTOTITLE](/get-started/using-github/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).

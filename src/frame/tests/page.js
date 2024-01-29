@@ -376,7 +376,6 @@ describe('Page class', () => {
       // the frontmatter GHES `*` is not being overwritten by the placeholder's GHES `<3.0`.
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
-      expect(page.applicableVersions.includes('github-ae@latest')).toBe(true)
       expect(page.applicableVersions.includes('feature')).toBe(false)
       expect(page.applicableVersions.includes('placeholder')).toBe(false)
     })
@@ -457,7 +456,7 @@ describe('catches errors thrown in Page class', () => {
     expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 
-  describe('versionining optional attributes', () => {
+  describe('versioning optional attributes', () => {
     test("re-rendering set appropriate 'product', 'permissions', 'learningTracks'", async () => {
       const page = await Page.init({
         relativePath: 'page-with-optional-attributes.md',

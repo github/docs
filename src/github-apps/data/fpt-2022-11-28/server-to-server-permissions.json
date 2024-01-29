@@ -641,6 +641,50 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-users-from-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-business-seat-assignment-details-for-a-user",
+        "subcategory": "copilot-business",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/members/{username}/copilot",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       }
     ]
   },
@@ -2033,6 +2077,19 @@
         "additional-permissions": [
           "metadata"
         ]
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "metadata"
+        ]
       }
     ]
   },
@@ -2660,6 +2717,17 @@
         "subcategory": "protection-rules",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "deployments",
+        "slug": "get-a-custom-deployment-protection-rule",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -3360,6 +3428,17 @@
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-a-code-scanning-default-setup-configuration",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -5314,6 +5393,23 @@
       }
     ]
   },
+  "repository_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Repository permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      }
+    ]
+  },
   "vulnerability_alerts": {
     "title": "Dependabot alerts",
     "displayTitle": "Repository permissions for \"Dependabot alerts\"",
@@ -6359,6 +6455,19 @@
         ]
       },
       {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_actions_variables"
+        ]
+      },
+      {
         "category": "codespaces",
         "slug": "add-selected-repository-to-an-organization-secret",
         "subcategory": "organization-secrets",
@@ -6904,7 +7013,29 @@
         "slug": "create-a-github-pages-deployment",
         "subcategory": "pages",
         "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages/deployment",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "pages",
+        "slug": "get-the-status-of-a-github-pages-deployment",
+        "subcategory": "pages",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "pages",
+        "slug": "cancel-a-github-pages-deployment",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,

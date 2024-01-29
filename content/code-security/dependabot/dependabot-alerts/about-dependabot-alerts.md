@@ -1,6 +1,6 @@
 ---
 title: About Dependabot alerts
-intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect that your repository uses a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}.'
+intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect that your repository uses a vulnerable dependency.'
 product: '{% data reusables.gated-features.dependabot-alerts %}'
 redirect_from:
   - /articles/about-security-alerts-for-vulnerable-dependencies
@@ -26,13 +26,11 @@ shortTitle: Dependabot alerts
 
 ## About {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion GH-advisory-db-supports-malware %}
-{% data reusables.advisory-database.beta-malware-advisories %}
-{% endif %}
-
 {% data variables.product.prodname_dependabot_alerts %} tell you that your code depends on a package that is insecure.
 
 If your code depends on a package with a security vulnerability, this can cause a range of problems for your project or the people who use it. You should upgrade to a secure version of the package as soon as possible.{% ifversion GH-advisory-db-supports-malware %} If your code uses malware, you need to replace the package with a secure alternative.{% endif %}
+
+{% data reusables.dependabot.no-dependabot-alerts-for-malware %}
 
 {% data reusables.dependabot.quickstart-link %}
 
@@ -74,7 +72,7 @@ As {% data variables.product.prodname_dependabot_alerts %} rely on the dependenc
 
 {% data reusables.repositories.enable-security-alerts %}
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerable dependencies and malware in _public_ repositories and displays the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Repository owners or people with admin access can enable {% data variables.product.prodname_dependabot_alerts %} for public repositories. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerable dependencies in _public_ repositories and displays the dependency graph, but does not generate {% data variables.product.prodname_dependabot_alerts %} by default. Repository owners or people with admin access can enable {% data variables.product.prodname_dependabot_alerts %} for public repositories. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
 
 You can also enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your user account or organization. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)."
 
@@ -83,7 +81,7 @@ For information about access requirements for actions related to {% data variabl
 {% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any insecure dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
 {% endif %}
 
-When {% data variables.product.product_name %} identifies a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}, we generate a {% data variables.product.prodname_dependabot %} alert and display it {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version.
+When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version.
 
 {% data variables.product.product_name %} may also notify the maintainers of affected repositories about new alerts according to their notification preferences.{% ifversion dependabot-suppressed-notifications %} When {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.product_name %} does not send notifications for all vulnerable dependencies found in your repository, only for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
 
@@ -97,7 +95,7 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 
 {% warning %}
 
-**Note**: {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
+**Note**: {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
 
 {% endwarning %}
 
