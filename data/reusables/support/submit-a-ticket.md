@@ -1,5 +1,13 @@
-1. Select the **Select personal account, enterprise account or organization** dropdown menu and click the name of the account your support ticket is regarding.
+{% ifversion fpt %}
+1. At the top of the page, under "How can we help?", choose a topic or click **open a support ticket**.
+   {% note %}
+
+   **Note:** You will only see the link to open a support ticket if your account uses a paid {% data variables.product.prodname_dotcom %} product or you are a member of an organization that uses a paid product. If you don't see the link, you can speak to {% data variables.product.prodname_dotcom %} users and staff on the {% data variables.contact.community_support_forum %} for most issues, and you can still contact {% data variables.contact.github_support %} to report account, security, and abuse issues.
+
+   {% endnote %}
+{%- endif %}
 {% ifversion ghec or ghes %}
+1. Select the **Select personal account, enterprise account or organization** dropdown menu and click the name of the account your support ticket is regarding.
    {% note %}
 
    **Notes:**
