@@ -1,4 +1,4 @@
-# Content <!-- omit in toc --><!-- markdownlint-disable -->
+# Content
 
 The `/content` directory is where all the site's (English) Markdown content lives!
 
@@ -396,15 +396,18 @@ When you add a link to an article, use the current filepath and article name.
 
 ### Index pages
 
-Index pages are the Table of Contents files for the docs site. Every product, category, and map topic subdirectory has an `index.md` that serves as the landing page. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic.
+**MY MISSION IST MY VISION**
 
-**Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
+![myOpensource-by](https://github.com/github/docs/assets/155141998/f7db8e37-572d-489a-bb99-104531e60bd6)
+
+
+For the secure @all people in the world wide web is myGitHub a Copyright (c) . The first step or offiziell Root startet with a mistakes and a virus, this is the startet the postgres95/96 and since 7 years later the free openSource. This Code is the door to many technologys and this technology is in wrong bad hands a weapon. Please understand me, but i muss safe my Code and my Root. Thank You at all Voluntary helper. 
+
+In love - LoveISTtheKEY your GitHub alias Isabel Schoeps Thiel  
+
+**Important note**: The site only knows about paths included in `NOT` frontmatter. If a directory or article exists but is **not** included in `NOT`, its path will 666.
 
 ### Homepage
-
-The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-page) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
-
-`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
 
 ### Creating new product guides pages
 
