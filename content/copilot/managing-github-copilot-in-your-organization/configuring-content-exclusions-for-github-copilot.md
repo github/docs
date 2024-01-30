@@ -6,6 +6,8 @@ product: 'This feature is available for organizations{% ifversion ghec %} and en
 permissions: 'Repository administrators and organization owners can manage the content exclusion settings for {% data variables.product.prodname_copilot %}.
 <br><br>
 People with the "Maintain" role for a repository can view the content exclusion settings for that repository, but can''t change these settings. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."'
+redirect_from:
+  - /copilot/managing-copilot-business/configuring-content-exclusions-for-github-copilot
 layout: inline
 topics:
   - Copilot

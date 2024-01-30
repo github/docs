@@ -4,6 +4,8 @@ intro: '{% data variables.product.prodname_copilot %} can help you code by offer
 redirect_from:
   - /copilot/overview-of-github-copilot/about-github-copilot-for-individuals
   - /copilot/overview-of-github-copilot/about-github-copilot
+  - /copilot/overview-of-github-copilot/about-github-copilot-individual
+
 versions:
   feature: copilot
 topics:

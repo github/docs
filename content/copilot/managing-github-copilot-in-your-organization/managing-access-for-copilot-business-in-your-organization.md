@@ -6,6 +6,7 @@ versions:
   feature: copilot
 redirect_from:
   - /copilot/managing-copilot-for-business/managing-access-for-copilot-for-business-in-your-organization
+  - /copilot/managing-copilot-business/managing-access-for-copilot-business-in-your-organization
 topics:
   - Copilot
 shortTitle: Managing access

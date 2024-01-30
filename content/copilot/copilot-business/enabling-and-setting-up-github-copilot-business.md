@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.copilot-billing %}'
 redirect_from:
   - /copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business
   - /copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-for-business
+  - /copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-business
 versions:
   feature: copilot
 topics:

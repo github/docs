@@ -4,6 +4,7 @@ intro: 'Review the audit logs for your {% data variables.product.prodname_copilo
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /copilot/managing-copilot-for-business/reviewing-your-organization-or-enterprises-audit-logs-for-copilot-for-business
+  - /copilot/managing-copilot-business/reviewing-your-organization-or-enterprises-audit-logs-for-copilot-business
 versions:
   feature: copilot
 product: '{% data reusables.gated-features.copilot-audit-logs %}'
