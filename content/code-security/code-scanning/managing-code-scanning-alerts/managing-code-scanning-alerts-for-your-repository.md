@@ -7,7 +7,6 @@ permissions: 'If you have write permission to a repository you can manage {% dat
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-from-automated-code-scanning

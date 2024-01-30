@@ -24,6 +24,12 @@ export const ArticleGridLayout = ({
   return (
     <Box className={cx(styles.containerBox, className)}>
       {topper && <Box gridArea="topper">{topper}</Box>}
+      {intro && (
+        <Box id="article-intro" gridArea="intro" className="f4">
+          {intro}
+        </Box>
+      )}
+
       {toc && (
         <Box
           data-container="toc"
@@ -32,12 +38,6 @@ export const ArticleGridLayout = ({
           className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
         >
           {toc}
-        </Box>
-      )}
-
-      {intro && (
-        <Box id="article-intro" gridArea="intro" className="f4">
-          {intro}
         </Box>
       )}
 

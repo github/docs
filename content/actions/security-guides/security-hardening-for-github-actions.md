@@ -398,6 +398,6 @@ For the full list of events that you can find in the audit log for each account 
 
 - "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
 - "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 - "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
 {%- endif %}

@@ -4,11 +4,10 @@ intro: 'You can reclaim used {% data variables.product.prodname_actions %} stora
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Remove workflow artifacts
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Deleting an artifact

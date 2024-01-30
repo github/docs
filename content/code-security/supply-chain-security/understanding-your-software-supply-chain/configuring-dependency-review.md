@@ -5,7 +5,6 @@ shortTitle: Configure dependency review
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -103,9 +102,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    jobs:
      dependency-review:
-      {% ifversion ghes %}runs-on: self-hosted
-        {% else %}runs-on: ubuntu-latest
-        {% endif %}steps:
+       runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
+       steps:
         - name: 'Checkout Repository'
           uses: {% data reusables.actions.action-checkout %}
         - name: Dependency Review
@@ -127,9 +125,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    jobs:
      dependency-review:
-     {% ifversion ghes %}runs-on: self-hosted
-       {% else %}runs-on: ubuntu-latest
-       {% endif %}steps:
+       runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
+       steps:
        - name: 'Checkout Repository'
          uses: {% data reusables.actions.action-checkout %}
        - name: Dependency Review
@@ -174,9 +171,8 @@ Notice that all of the examples use a short version number for the action (`v3`)
 
    jobs:
      dependency-review:
-       {% ifversion ghes %}runs-on: self-hosted
-       {% else %}runs-on: ubuntu-latest
-       {% endif %}steps:
+       runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
+       steps:
        - name: 'Checkout Repository'
          uses: {% data reusables.actions.action-checkout %}
        - name: Dependency Review

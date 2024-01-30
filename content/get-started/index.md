@@ -62,4 +62,5 @@ children:
   - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs
+  - /showcase-your-expertise-with-github-certifications
 ---

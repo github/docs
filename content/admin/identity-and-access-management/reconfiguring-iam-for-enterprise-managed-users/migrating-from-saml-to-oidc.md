@@ -24,6 +24,12 @@ When you migrate from SAML to OIDC, {% data variables.enterprise.prodname_manage
 
 If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up OIDC single sign-on immediately. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
 
+{% warning %}
+
+**Warning:** {% data reusables.enterprise_user_management.migration-teams-warning %}
+
+{% endwarning %}
+
 ## Prerequisites
 
 - Your enterprise on {% data variables.location.product_location %} must currently be configured to use SAML for authentication, with Azure AD as your identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."

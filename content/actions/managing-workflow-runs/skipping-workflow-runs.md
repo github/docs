@@ -4,7 +4,6 @@ intro: You can skip workflow runs triggered by the `push` and `pull_request` eve
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Skip workflow runs
 ---

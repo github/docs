@@ -298,7 +298,7 @@ For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-wi
 
 You can upload assets like images by dragging and dropping, selecting from a file browser, or pasting. You can upload assets to issues, pull requests, comments, and `.md` files in your repository.
 
-## Using emoji
+## Using emojis
 
 You can add emoji to your writing by typing `:EMOJICODE:`, a colon followed by the name of the emoji.
 
