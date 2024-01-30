@@ -4,7 +4,6 @@ intro: 'An overview of {% data variables.product.prodname_dotcom %} security fea
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -131,7 +130,7 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 
 {% else %}
 
-### Security overview for organizations{% ifversion ghes or ghae  %}, enterprises,{% endif %} and teams
+### Security overview for organizations{% ifversion ghes %}, enterprises,{% endif %} and teams
 
 Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}

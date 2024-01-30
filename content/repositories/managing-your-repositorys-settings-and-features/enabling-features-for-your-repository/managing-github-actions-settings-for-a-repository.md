@@ -74,7 +74,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 
 {% data reusables.actions.private-repository-forks-overview %}
 
-If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
+If a policy is disabled for an {% ifversion ghec or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
 
 {% data reusables.actions.private-repository-forks-options %}
 

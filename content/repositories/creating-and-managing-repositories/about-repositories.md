@@ -86,7 +86,7 @@ When you create a repository owned by your personal account, the repository is a
 {%- elsif ghae %}
 - Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 - Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {%- endif %}
 

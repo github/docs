@@ -44,7 +44,7 @@ A repository must meet all the following criteria to be eligible for default set
 - Uses {% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% else %}
 - Uses any {% data variables.product.prodname_codeql %}-supported language.{% endif %}{% ifversion fpt %}
 - Publicly visible.{%- elsif ghec %}
-- Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes or ghae %}
+- Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
 - {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
 
 {% ifversion code-scanning-default-setup-automatic-311 %}
@@ -98,7 +98,7 @@ Through security overview for your organization, you can find eligible repositor
     - `code-scanning-default-setup:eligible is:public` shows repositories that have languages suitable for default setup and are eligible because they are visible to the public.
     - `code-scanning-default-setup:eligible advanced-security:enabled` shows private or internal repositories that have languages suitable for default setup and are eligible because they have {% data variables.product.prodname_GH_advanced_security %} enabled.
     - `code-scanning-default-setup:eligible is:private,internal advanced-security:not-enabled` shows private or internal repositories that have languages suitable for default setup but do not have {% data variables.product.prodname_GH_advanced_security %} enabled. Once you enable {% data variables.product.prodname_GH_advanced_security %} for these repositories, they can also be added to default setup.
-{%- elsif ghes or ghae %}
+{%- elsif ghes %}
     - `code-scanning-default-setup:eligible advanced-security:enabled` shows which repositories can be added to default setup immediately.
     - `code-scanning-default-setup:eligible advanced-security:not-enabled` shows which repositories have languages suitable for default setup but do not have {% data variables.product.prodname_GH_advanced_security %} enabled. Once you enable {% data variables.product.prodname_GH_advanced_security %} for these repositories, they can also be added to default setup.
 {%- endif %}

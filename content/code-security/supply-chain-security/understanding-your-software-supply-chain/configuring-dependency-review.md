@@ -5,7 +5,6 @@ shortTitle: Configure dependency review
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
