@@ -1,4 +1,4 @@
-### {% data variables.product.prodname_copilot %} in the IDE
+### {% data variables.product.prodname_copilot %} in your IDE
 
 {% data variables.product.prodname_copilot %} is an AI tool that offers autocomplete-style suggestions in your IDE. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot)."
 
