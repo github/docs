@@ -18,9 +18,6 @@ featuredLinks:
     - '{% ifversion fpt or ghec or ghes %}/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates{% endif %}'
     - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning{% endif %}'
     - '{% ifversion ghes < 3.9 %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning{% endif %}'
-    - '{% ifversion ghae %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
-    - '{% ifversion ghae %}/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github{% endif %}'
-    - '{% ifversion ghae %}/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system{% endif %}'
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
@@ -29,10 +26,7 @@ featuredLinks:
     - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
     - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
     - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
-    - '{% ifversion ghae %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
     - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
-    - '{% ifversion ghae %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages{% endif %}'
-    - '{% ifversion ghae %}/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container{% endif %}'
 changelog:
   label: security-and-compliance
   versions:
