@@ -22,10 +22,12 @@ While using {% data variables.product.prodname_emus %}, you may need to migrate 
 
 {% warning %}
 
-**{% ifversion emu-public-scim-schema %}Warnings{% else %}Warning{% endif %}**:
+**Warnings**:
 
-{% ifversion emu-public-scim-schema %}-{% endif %} Migrating to a new IdP or tenant can cause disruption to integrations and automated flows in your enterprise. When your current SAML IdP is disabled, {% data variables.product.pat_generic_plural %} and SSH keys associated with {% data variables.enterprise.prodname_managed_users %} will be deleted. You should plan for a migration window after configuring your new IdP, during which you can create and deploy new keys to your integrations where necessary.
+Migrating to a new IdP or tenant can cause disruption to integrations and automated flows in your enterprise.
 
+- When your current SAML IdP is disabled, {% data variables.product.pat_generic_plural %} and SSH keys associated with {% data variables.enterprise.prodname_managed_users %} will be deleted. You should plan for a migration window after configuring your new IdP, during which you can create and deploy new keys to your integrations where necessary.
+- {% data reusables.enterprise_user_management.migration-teams-warning %}
 {%- ifversion emu-public-scim-schema %}
 - {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
 {% endif %}

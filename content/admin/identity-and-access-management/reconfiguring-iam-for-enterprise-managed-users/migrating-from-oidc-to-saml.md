@@ -22,6 +22,12 @@ Then, you will configure SAML and SCIM. At this time, users, groups, and identit
 
 If you're new to {% data variables.product.prodname_emus %} and haven't yet configured authentication for your enterprise, you do not need to migrate and can set up SAML single sign-on (SSO) immediately. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
+{% warning %}
+
+**Warning:** {% data reusables.enterprise_user_management.migration-teams-warning %}
+
+{% endwarning %}
+
 ## Prerequisites
 
 - Your enterprise on {% data variables.location.product_location %} must currently be configured to use OIDC for authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
