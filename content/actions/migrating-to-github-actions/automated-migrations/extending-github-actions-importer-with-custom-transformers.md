@@ -5,13 +5,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Migration
   - CI
   - CD
-shortTitle: 'Extending GitHub Actions Importer'
+shortTitle: Extending GitHub Actions Importer
 ---
 
 [Legal notice](#legal-notice)
@@ -103,7 +102,7 @@ You can customize the mapping between runners in your source CI/CD instance and 
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. To create custom transformers for runners:
 
 - The custom transformer file must have at least one `runner` method.
-- The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. {% ifversion not ghae %}For more information on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."{% endif %}
+- The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. For more information on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 ### Example custom transformers for runners
 
