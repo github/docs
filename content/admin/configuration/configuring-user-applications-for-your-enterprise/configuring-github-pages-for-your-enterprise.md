@@ -12,7 +12,6 @@ redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -47,16 +46,6 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 {% data reusables.enterprise_management_console.pages-tab %}
 1. Deselect **Enable Pages**.
 {% data reusables.enterprise_management_console.save-settings %}
-
-{% endif %}
-
-{% ifversion ghae %}
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.pages-tab %}
-1. Under "Pages policies", deselect **Enable {% data variables.product.prodname_pages %}**.
-{% data reusables.enterprise-accounts.pages-policies-save %}
 
 {% endif %}
 
