@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -352,9 +351,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 | `RUNNER_NAME` | {% data reusables.actions.runner-name-description %} For example, `Hosted Agent` |
 | `RUNNER_OS` | {% data reusables.actions.runner-os-description %} For example, `Windows` |
 | `RUNNER_TEMP` | {% data reusables.actions.runner-temp-directory-description %} For example, `D:\a\_temp` |
-{%- ifversion not ghae %}
 | `RUNNER_TOOL_CACHE` | {% data reusables.actions.runner-tool-cache-description %} For example, `C:\hostedtoolcache\windows` |
-{%- endif %}
 
 {% note %}
 

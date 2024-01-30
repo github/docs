@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
@@ -588,7 +587,7 @@ The `runner` context contains information about the runner that is executing the
 | `runner.os` | `string` | {% data reusables.actions.runner-os-description %} |{% ifversion actions-runner-arch-envvars %}
 | `runner.arch` | `string` | {% data reusables.actions.runner-arch-description %} |{% endif %}
 | `runner.temp` | `string` | {% data reusables.actions.runner-temp-directory-description %} |
-| `runner.tool_cache` | `string` | {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %} {% else %} {% data reusables.actions.runner-tool-cache-description %} {% endif %}|
+| `runner.tool_cache` | `string` |  {% data reusables.actions.runner-tool-cache-description %} |
 | `runner.debug` | `string` | {% data reusables.actions.runner-debug-description %} |
 
 {%- comment %}
