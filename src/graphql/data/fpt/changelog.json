@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>billingEmail</code> was added to object type <code>Enterprise</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>SponsorAndLifetimeValue</code> was added</p>",
           "<p>Type <code>SponsorAndLifetimeValueConnection</code> was added</p>",
           "<p>Type <code>SponsorAndLifetimeValueEdge</code> was added</p>",
