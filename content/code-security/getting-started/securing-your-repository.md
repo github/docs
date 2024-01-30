@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -141,7 +140,7 @@ Alternatively, you can use advanced setup, which generates a workflow file you c
 
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**.
 1. Click **Code security & analysis**.
-{% ifversion ghec or ghes or ghae%}
+{% ifversion ghec or ghes %}
 1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.{% endif %}
 1. Next to {% data variables.product.prodname_secret_scanning_caps %}, click **Enable**.
 

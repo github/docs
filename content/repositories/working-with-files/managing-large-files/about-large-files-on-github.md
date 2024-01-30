@@ -19,14 +19,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Large files
 ---
 
 ## About size limits on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec or ghae %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
+{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
 
 ### File size limits
 
@@ -46,7 +45,7 @@ If you need to distribute large files within your repository, you can create rel
 
 Git is not designed to handle large SQL files. To share large databases with other developers, we recommend using a file sharing service.
 
-{% ifversion fpt or ghec or ghae %}
+{% ifversion fpt or ghec %}
 
 ### Repository size limits
 

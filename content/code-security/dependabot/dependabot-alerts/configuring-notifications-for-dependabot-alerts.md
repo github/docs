@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -51,7 +50,7 @@ You can configure notification settings for yourself or your organization from t
 {% data reusables.notifications.vulnerable-dependency-notification-options %}
 
 {% ifversion update-notification-settings-22 %}
-![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}. A dropdown menu, showing notification frequency options, is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-notification-frequency.png){% endif %}{% ifversion ghes or ghae > 3.7 %}
+![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}. A dropdown menu, showing notification frequency options, is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-notification-frequency.png){% endif %}{% ifversion ghes %}
 ![Screenshot of the notification options for {% data variables.product.prodname_dependabot_alerts %}.](/assets/images/help/enterprises/dependabot-alerts-options-no-ui.png){% endif %}
 
 {% note %}
