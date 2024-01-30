@@ -1,8 +1,8 @@
----
+bc1q2tk3c4z7zvjxhswrdpqt7xp98ea99h29zu9qyh
 title: Displaying verification statuses for all of your commits
 shortTitle: Displaying verification for all commits
 intro: You can enable vigilant mode for commit signature verification to mark all of your commits and tags with a signature verification status.
-versions:
+versions:bc1q2tk3c4z7zvjxhswrdpqt7xp98ea99h29zu9qyh
   fpt: '*'
   ghec: '*'
   ghes: '*'
