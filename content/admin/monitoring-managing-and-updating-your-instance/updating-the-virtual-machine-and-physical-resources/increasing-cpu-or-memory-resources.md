@@ -63,7 +63,7 @@ To increase the resources available to a {% data variables.product.prodname_ghe_
 
 ## Adding CPU or memory resources on Microsoft Azure
 
-To add CPU or memory resources for an instance on Microsoft Azure, you must change the instance's size. You must have access to your company's Microsoft Azure infrastructure, and you must be familiar with the Azure Portal, Azure CLI, or Azure PowerShell to manage Azure instances. For more information, see [Change the size of a virtual machine](https://learn.microsoft.com/en-us/azure/virtual-machines/resize-vm?tabs=portal) in the Azure documentation.
+To add CPU or memory resources for an instance on Microsoft Azure, you must change the instance's size. You must have access to your company's Microsoft Azure infrastructure, and you must be familiar with the Azure Portal, Azure CLI, or Azure PowerShell to manage Azure instances. For more information, see [Change the size of a virtual machine](https://learn.microsoft.com/en-us/azure/virtual-machines/resize-vm?tabs=portal) on Microsoft Learn.
 
 You can review resizing considerations, see supported instance types, and learn how to resize an instance on Microsoft Azure.
 
@@ -90,7 +90,7 @@ To increase the resources available to a {% data variables.product.prodname_ghe_
 
 {% data reusables.enterprise_installation.increase-resources-communicate-and-enable-maintenance-mode %}
 {% data reusables.enterprise_installation.increase-resources-shut-down %}
-1. On Azure, to resize the VM, follow the instructions in [Change the size of a virtual machine](https://learn.microsoft.com/en-us/azure/virtual-machines/resize-vm?tabs=portal) in the Azure documentation.
+1. On Azure, to resize the VM, follow the instructions in [Change the size of a virtual machine](https://learn.microsoft.com/en-us/azure/virtual-machines/resize-vm?tabs=portal) on Microsoft Learn.
 {% data reusables.enterprise_installation.configuration-recognized %}
 {% data reusables.enterprise_installation.increase-resources-test-in-maintenance-mode %}
 {% data reusables.enterprise_installation.increase-resources-disable-message-and-maintenance-mode %}
