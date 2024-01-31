@@ -25,7 +25,7 @@ You can create a private docset from a single repository or a selection of repos
 
     ![Screenshot of the "Create a new docset" button at the bottom of the "Chat with Copilot" page. The button is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-create-docset-button.png)
 
-2. In the "Owner" dropdown menu, select the organization that owns the repository or repositories you want to index, and in the "Docset name" field, enter a unique name for the docset. Optionally, in the "Description" field, you can add a description for the docset.
+1. In the "Owner" dropdown menu, select the organization that owns the repository or repositories you want to index, and in the "Docset name" field, enter a unique name for the docset. Optionally, in the "Description" field, you can add a description for the docset.
 
     ![Screenshot of the "Create a new docset" page. The "Owner" dropdown menu and "Docset name" field are highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-create-docset-page.png)
 
@@ -33,11 +33,11 @@ You can create a private docset from a single repository or a selection of repos
 
     ![Screenshot of the "Select repositories" page. The "Select repositories" page is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-select-repositories-button.png)
 
-4. To select a repository or repositories, click the checkbox next to the repository name. When you're finished selecting repositories, click **Apply**.
+1. To select a repository or repositories, click the checkbox next to the repository name. When you're finished selecting repositories, click **Apply**.
 
     ![Screenshot of the "Select repositories" page.](/assets/images/help/copilot/copilot-select-repositories-page.png)
 
-5. Optionally, you can define which paths within the selected repositories to index.
+1. Optionally, you can define which paths within the selected repositories to index.
 
       - Click **Edit file paths**.
 
@@ -45,7 +45,7 @@ You can create a private docset from a single repository or a selection of repos
 
       - List the paths you want to include in the docset, one path per line. When you're finished, click **Apply**.
 
-6. Click **Save**.
+1. Click **Save**.
 
 ## Deleting a private docset
 
