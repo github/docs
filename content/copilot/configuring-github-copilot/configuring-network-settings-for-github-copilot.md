@@ -49,10 +49,10 @@ If you have configured a proxy but are still encountering connection errors, see
 ### Configuring a proxy in a JetBrains IDE
 
 1. In your JetBrains IDE, click the **File** menu (Windows) or the name of the application in the menu bar (macOS), then click **Settings**.
-2. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
-3. Select **Manual proxy configuration**, and then select **HTTP**.
-4. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
-5. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, in the left sidebar, click **Tools**, click **Server Certificates**, then select or deselect **Accept non-trusted certificates automatically**.
+1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
+1. Select **Manual proxy configuration**, and then select **HTTP**.
+1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
+1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, in the left sidebar, click **Tools**, click **Server Certificates**, then select or deselect **Accept non-trusted certificates automatically**.
 
    {% warning %}
 
@@ -74,8 +74,8 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 
 {% data reusables.copilot.vscode-settings %}
 1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
-2. In the text box under "Proxy", type the address of your proxy server, for example `http://localhost:3128`.
-3. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, under "Proxy Strict SSL", select or deselect the checkbox.
+1. In the text box under "Proxy", type the address of your proxy server, for example `http://localhost:3128`.
+1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, under "Proxy Strict SSL", select or deselect the checkbox.
 
    {% warning %}
 
