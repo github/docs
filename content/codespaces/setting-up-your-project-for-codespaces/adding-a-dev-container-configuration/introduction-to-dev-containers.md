@@ -77,26 +77,34 @@ The following example uses four instructions:
 
 `ARG` defines a build-time variable.
 
-`FROM` specifies the parent image on which the generated Docker image will be based.
+`FROM` specifies the parent image on which the generated Docker image will be based. If a base image policy has been configured, allowing only certain images to be used, the specified image must match one of the image references in the policy. If it does not, codespaces for this repository will be created in recovery mode. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)."
 
-`COPY` copies a file and adds it to the filesystem.
+`COPY` copies a file from the repository and adds it to the filesystem of the codespace.
 
 `RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
 
 ```dockerfile copy
-ARG VARIANT="16-buster"
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+ARG VARIANT="16"
+FROM mcr.microsoft.com/devcontainers/javascript-node:1-${VARIANT}
 
-# [Optional] Uncomment if you want to install an additional version of node using nvm
-# ARG EXTRA_NODE_VERSION=10
-# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends bundler
 
-# [Optional] Uncomment if you want to install more global node modules
-# RUN su node -c "npm install -g <your-package-list-here>"
+# [Optional] Uncomment if you want to install an additional version
+#  of node using nvm
+# ARG EXTRA_NODE_VERSION=18
+# RUN su node -c "source /usr/local/share/nvm/nvm.sh \
+#    && nvm install ${EXTRA_NODE_VERSION}"
 
-COPY library-scripts/github-debian.sh /tmp/library-scripts/
-RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
+COPY ./script-in-your-repo.sh /tmp/scripts/script-in-codespace.sh
+RUN apt-get update && bash /tmp/scripts/script-in-codespace.sh
 ```
+
+{% note %}
+
+**Note**: In the above example, the script that's copied to the codespace (`script-in-your-repo.sh`) must exist in your repository.
+
+{% endnote %}
 
 For more information about Dockerfile instructions, see "[Dockerfile reference](https://docs.docker.com/engine/reference/builder)" in the Docker documentation.
 

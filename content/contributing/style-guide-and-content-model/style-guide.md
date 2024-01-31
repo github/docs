@@ -1343,7 +1343,7 @@ To learn more about writing approachable content, see “[Microsoft's brand voic
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/quickstart/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/learning-about-github/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

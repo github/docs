@@ -6,10 +6,10 @@ redirect_from:
   - /articles/github-glossary
   - /github/getting-started-with-github/github-glossary
   - /github/getting-started-with-github/quickstart/github-glossary
+  - /get-started/quickstart/github-glossary
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 {% for glossary in glossaries %}
