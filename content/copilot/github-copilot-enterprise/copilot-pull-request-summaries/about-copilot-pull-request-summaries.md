@@ -45,11 +45,11 @@ For many users, it could provide more helpful context for the changes that were 
 
 ### Use {% data variables.product.prodname_copilot_for_prs %} as a tool, not a replacement
 
-The feature is intended to supplement rather than replace a human's work to add context, and we encourage you to continue adding useful context and let {% data variables.product.prodname_copilot_short %} do the busy work of parsing the code and linking to specific files. It remains your responsibility to review and assess the accuracy of information in a pull request that you create.
+The feature is intended to supplement rather than replace a human's work to add context, and we encourage you to continue adding useful context and let {% data variables.product.prodname_copilot_short %} do the busy work of parsing the code and linking to specific files. It remains your responsibility to review and assess the accuracy of the information in a pull request that you create.
 
 ### Provide feedback
 
-This feature is currently in beta. If you encounter any issues or limitations with {% data variables.product.prodname_copilot_for_prs %}, we recommend that you provide feedback through the link that appears the UI after a summary is generated. You can provide feedback through the text link which takes you to our survey.
+This feature is currently in beta. If you encounter any issues or limitations with {% data variables.product.prodname_copilot_for_prs %}, we recommend that you provide feedback through the link that appears in the UI after a summary is generated. You can provide feedback through the text link, which takes you to our survey.
 
 ## Limitations of pull request summaries
 
@@ -57,11 +57,11 @@ Currently, our team is aware that there are limitations to this feature. Many of
 
 ### Limited scope
 
-Because of capacity, we know that larger pull requests that reference 30 or more files will require more time to be processed thoroughly. We don't have an exact threshold currently, but have observed the first 30 files being accounted for and then any additional files being omitted from the summarization. We are working to address this current scope limitation.
+Because of capacity, we know that larger pull requests that reference 30 or more files will require more time to be processed thoroughly. We don't have an exact threshold currently, but we have observed the first 30 files being accounted for and then any additional files being omitted from the summarization. We are working to address this current scope limitation.
 
 ### Processing time
 
-In general, we expect a summary to be returned in 40 seconds or less after a user initiates the action. However, we have heard that this can take up to a minute, and in some cases a couple of minutes. We are working to decrease processing time and we know that users may not want to wait for this to finish before moving on to other parts of the pull request.
+In general, we expect a summary to be returned in 40 seconds or less after a user initiates the action. However, we have heard that this can take up to a minute, and in some cases, a couple of minutes. We are working to decrease processing time, and we know that users may not want to wait for this to finish before moving on to other parts of the pull request.
 
 ### Inaccurate responses
 
