@@ -51,7 +51,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
 1. {% ifversion emu-public-scim-schema %}If you use a partner IdP, to install the {% data variables.product.prodname_emu_idp_application %} application, click one of the following links.{% else %}To install the GitHub Enterprise Managed User application, click the link for your IdP below:{% endif %}
 
-    - [Azure AD application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview) in Azure Marketplace
+    - [Microsoft Entra ID application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview) in Azure Marketplace (Entra ID was previously known as Azure AD)
     - [Okta application](https://www.okta.com/integrations/github-enterprise-managed-user) in Okta's integrations directory
     - [PingFederate downloads website](https://www.pingidentity.com/en/resources/downloads/pingfederate.html)
 
@@ -59,7 +59,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
 1. To configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, read the following documentation. {% ifversion emu-public-scim-schema %}If you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.product_name %} to create and configure a generic SAML 2.0 application on your IdP.{% endif %}
 
-   - [Azure AD instructions](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) in the Azure AD documentation
+   - [Entra ID](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) on Microsoft Learn
    - [Okta instructions](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html) in the Okta documentation
    - [PingFederate instructions](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_emu_connector) in the PingIdentity documentation
    {%- ifversion emu-public-scim-schema %}
@@ -120,11 +120,11 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can use 
 
 All repository access for organization members, including guest collaborators, is governed by the base permission policy for the organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
 
-If you use Azure AD or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators.
+If you use Entra ID or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators.
 
-#### Enabling guest collaborators if you use Azure AD
+#### Enabling guest collaborators if you use Entra ID
 
-1. Sign into the Azure Portal.
+1. Sign into the Microsoft Entra admin center.
 1. Click **Identity**.
 1. Click **Applications**.
 1. Click **Enterprise applications**.
@@ -135,7 +135,7 @@ If you use Azure AD or Okta for SAML authentication, you may need to update your
 
    - If the application registration displays the "Restricted User" or "Guest Collaborator" roles, you're ready to invite guest collaborators to your enterprise.
    - If the application registration does not display the roles, proceed to the next step.
-1. In the Azure Portal, click **App registrations**.
+1. In the Microsoft Entra admin center, click **App registrations**.
 1. Click **All applications**, then use the search bar to find your application for {% data variables.product.prodname_emus %}.
 1. Click your SAML application.
 1. In the left sidebar, click **Manifest**.
