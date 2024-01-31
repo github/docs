@@ -76,8 +76,8 @@ Once you have decided on the secret types, you can do the following:
    {% endnote %}
 
 1. When you have created the process that teams will follow for revoking credentials, you can collate information about the types of secrets and other metadata associated with the leaked secrets so you can discern who to communicate the new process to.
-   {% ifversion not ghae %}
-   You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."{% endif %}
+
+   You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
    Some information you may want to collect includes:
 

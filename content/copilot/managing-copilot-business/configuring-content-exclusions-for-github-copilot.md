@@ -82,6 +82,7 @@ You can use your repository settings to specify content in your repository that 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
+
 1. In the "Code & automation" section of the side bar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
 
    If your repository inherits any exclusions from {%ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {%ifversion ghec %}one or more{% else %} a{% endif %} gray box{%ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
@@ -135,6 +136,7 @@ You can use your organization settings to specify content, in any repository, th
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
 1. In the box under "Repositories and paths to exclude," enter details of where {% data variables.product.prodname_copilot_short %} should be excluded.
 

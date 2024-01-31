@@ -69,7 +69,7 @@ To display a dollar sign as a character in the same line as a mathematical expre
 - Within a math expression, add a `\` symbol before the explicit `$`.
 
   ```text
-  This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
+  This expression uses `\$` to display a dollar sign: $`\sqrt{\$4}`$
   ```
 
   ![Screenshot of rendered Markdown showing how a backslash before a dollar sign displays the sign as part of a mathematical expression.](/assets/images/help/writing/dollar-sign-within-math-expression.png)
