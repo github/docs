@@ -7,7 +7,6 @@ intro: >-
   {% data variables.product.prodname_codeql_cli %}.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

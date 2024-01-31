@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 shortTitle: Add self-hosted runners
@@ -22,7 +21,6 @@ If you are an organization or enterprise administrator, you might want to add yo
 
 For information on supported operating systems for self-hosted runners, or using self-hosted runners with a proxy server, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 
-{% ifversion not ghae %}
 {% warning %}
 
 **Warning:** {% data reusables.actions.self-hosted-runner-security %}
@@ -30,7 +28,6 @@ For information on supported operating systems for self-hosted runners, or using
 For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
 {% endwarning %}
-{% endif %}
 
 {% ifversion fpt or ghec or ghes %}
 

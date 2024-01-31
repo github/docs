@@ -7,7 +7,6 @@ redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

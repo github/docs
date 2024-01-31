@@ -6,7 +6,6 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

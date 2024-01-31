@@ -5,7 +5,6 @@ permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
 versions:
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -175,7 +174,7 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 
 | Qualifier | Description |
 | -------- | -------- |
-{% ifversion dependabot-alerts-vulnerable-calls or ghes or ghae -%}
+{% ifversion dependabot-alerts-vulnerable-calls or ghes -%}
 |`has:patch`|Displays {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where a secure version is already available.|
 |`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot_alerts %} where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
 {% endif -%}

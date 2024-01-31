@@ -13,7 +13,6 @@ topics:
   - Organizations
   - Teams
 versions:
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 redirect_from:
