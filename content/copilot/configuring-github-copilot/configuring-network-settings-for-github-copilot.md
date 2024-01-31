@@ -17,11 +17,11 @@ versions:
 
 ## Introduction
 
-By default, {% data variables.product.prodname_copilot %} connects to {% data variables.product.prodname_dotcom %}'s server directly from your environment, via a secure HTTPS connection. You don't necessarily need to configure any additional network settings to use {% data variables.product.prodname_copilot_short %}.
+By default, {% data variables.product.prodname_copilot %} connects to {% data variables.product.prodname_dotcom %}'s server directly from your environment via a secure HTTPS connection. You don't necessarily need to configure any additional network settings to use {% data variables.product.prodname_copilot_short %}.
 
 Some networks use an HTTP proxy server to intercept Internet traffic before sending it to its intended location. Companies often use an HTTP proxy to detect suspicious traffic or restrict the content entering their networks. If you're working on a corporate network, you may need to configure {% data variables.product.prodname_copilot_short %} to connect via an HTTP proxy.
 
-If you have a license for {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine. This allows a proxy server to be identified as the intended recipient of {% data variables.product.prodname_copilot_short %}'s secure connection so network traffic can be inspected. Without a custom certificate, a company can use an HTTP proxy to monitor, route, and terminate {% data variables.product.prodname_copilot_short %}'s connection, but cannot inspect the contents of the traffic.
+If you have a license for {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine. This allows a proxy server to be identified as the intended recipient of {% data variables.product.prodname_copilot_short %}'s secure connection, so network traffic can be inspected. Without a custom certificate, a company can use an HTTP proxy to monitor, route, and terminate {% data variables.product.prodname_copilot_short %}'s connection, but cannot inspect the contents of the traffic.
 
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
@@ -38,7 +38,7 @@ If you don't configure a proxy directly in your editor, {% data variables.produc
 
 {% note %}
 
-**Note:** You can use any of these variables to store the URL of a standard HTTP proxy. In standard usage, the `http` and `https` portions of these variables refer to the type of request being made, not the URL of the proxy itself. {% data variables.product.prodname_copilot %} does not follow this convention, and uses the URL stored in the variable with the highest priority as the proxy for both HTTP and HTTPS requests.
+**Note:** You can use any of these variables to store the URL of a standard HTTP proxy. In standard usage, the `http` and `https` portions of these variables refer to the type of request being made, not the URL of the proxy itself. {% data variables.product.prodname_copilot %} does not follow this convention and uses the URL stored in the variable with the highest priority as the proxy for both HTTP and HTTPS requests.
 
 {% endnote %}
 
@@ -49,10 +49,10 @@ If you have configured a proxy but are still encountering connection errors, see
 ### Configuring a proxy in a JetBrains IDE
 
 1. In your JetBrains IDE, click the **File** menu (Windows) or the name of the application in the menu bar (macOS), then click **Settings**.
-1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
-1. Select **Manual proxy configuration**, and then select **HTTP**.
-1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
-1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, in the left sidebar, click **Tools**, click **Server Certificates**, then select or deselect **Accept non-trusted certificates automatically**.
+2. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
+3. Select **Manual proxy configuration**, and then select **HTTP**.
+4. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
+5. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, in the left sidebar, click **Tools**, click **Server Certificates**, then select or deselect **Accept non-trusted certificates automatically**.
 
    {% warning %}
 
@@ -74,8 +74,8 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 
 {% data reusables.copilot.vscode-settings %}
 1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
-1. In the text box under "Proxy", type the address of your proxy server, for example `http://localhost:3128`.
-1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, under "Proxy Strict SSL", select or deselect the checkbox.
+2. In the text box under "Proxy", type the address of your proxy server, for example `http://localhost:3128`.
+3. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, under "Proxy Strict SSL", select or deselect the checkbox.
 
    {% warning %}
 
@@ -105,7 +105,7 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 
 Kerberos is an authentication protocol that allows users and services to prove their identity to each other. When a user successfully authenticates, an authentication service grants the user a ticket that gives them access to a service for a period of time. Network administrators may prefer Kerberos to basic authentication because it is more secure and doesn't require sending unencrypted credentials.
 
-{% data variables.product.prodname_copilot %} supports authentication to a proxy with Kerberos. To use Kerberos, you must have the appropriate krb5 library for your operating system installed on your machine, and an active ticket for the proxy service (either created manually with the `kinit` command, or by another application). You can use the `klist` command to check if you have a ticket for the proxy service.
+{% data variables.product.prodname_copilot %} supports authentication to a proxy with Kerberos. To use Kerberos, you must have the appropriate krb5 library for your operating system installed on your machine and an active ticket for the proxy service (either created manually with the `kinit` command or by another application). You can use the `klist` command to check if you have a ticket for the proxy service.
 
 Kerberos uses a service principal name (SPN) to uniquely identify a service instance. By default, the SPN is derived from the proxy URL. For example, if the proxy URL is `http://proxy.example.com:3128`, the SPN is `HTTP/proxy.example.com`.
 
