@@ -43,7 +43,7 @@ If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabl
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
-1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then click **Enabled** or **Disabled**.
+2. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then click **Enabled** or **Disabled**.
 
 ### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the enterprise level
 
@@ -62,14 +62,14 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
     ![Screenshot of the extensions icon in the Activity Bar.](/assets/images/help/copilot/vsc-extensions-icon.png)
 
-1. In the "Search Extensions in Marketplace" search box, search for the `{% data variables.product.prodname_copilot_chat %}` extension, then click **Install**.
+2. In the "Search Extensions in Marketplace" search box, search for the `{% data variables.product.prodname_copilot_chat %}` extension, then click **Install**.
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} extension in the Extensions Marketplace.](/assets/images/help/copilot/vscode-extension-search.png)
 
-1. In the {% data variables.product.prodname_vscode %} window, click **Reload required** to update {% data variables.product.prodname_vscode %}.
-1. If you are prompted to sign in by a toast notification in the bottom right corner of {% data variables.product.prodname_vscode %}, click **Sign in to {% data variables.product.prodname_dotcom %}**. Sign in with the same {% data variables.product.prodname_dotcom %} ID that has a license for {% data variables.product.prodname_copilot %}, or is assigned a seat for {% data variables.product.prodname_copilot %} through an organization.
-1. Follow the prompts in {% data variables.product.prodname_vscode %} and on {% data variables.product.prodname_dotcom %} in your browser to complete the sign in and authentication process.
-1. To confirm that {% data variables.product.prodname_copilot_chat %} has been successfully installed, in the activity bar on the left side of the {% data variables.product.prodname_vscode %} window, click the **{% data variables.product.prodname_copilot_chat %}** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
+3. In the {% data variables.product.prodname_vscode %} window, click **Reload required** to update {% data variables.product.prodname_vscode %}.
+4. If you are prompted to sign in by a toast notification in the bottom right corner of {% data variables.product.prodname_vscode %}, click **Sign in to {% data variables.product.prodname_dotcom %}**. Sign in with the same {% data variables.product.prodname_dotcom %} ID that has a license for {% data variables.product.prodname_copilot %}, or is assigned a seat for {% data variables.product.prodname_copilot %} through an organization.
+5. Follow the prompts in {% data variables.product.prodname_vscode %} and on {% data variables.product.prodname_dotcom %} in your browser to complete the sign in and authentication process.
+6. To confirm that {% data variables.product.prodname_copilot_chat %} has been successfully installed, in the activity bar on the left side of the {% data variables.product.prodname_vscode %} window, click the **{% data variables.product.prodname_copilot_chat %}** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
@@ -87,12 +87,12 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
-1. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
-1. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
+2. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
+3. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
 
    If your question is outside the scope of {% data variables.product.prodname_copilot_chat %}, it will tell you and may suggest an alternative question to ask.
 
-1. Optionally, if {% data variables.product.prodname_copilot_chat %} suggests a follow-up question above the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, click the follow-up question to ask it.
+4. Optionally, if {% data variables.product.prodname_copilot_chat %} suggests a follow-up question above the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, click the follow-up question to ask it.
 
 ## Using code suggestions from {% data variables.product.prodname_copilot_chat %}
 
@@ -102,7 +102,7 @@ When {% data variables.product.prodname_copilot_chat %} provides code suggestion
 
     ![Screenshot of code suggestion options in the {% data variables.product.prodname_copilot_chat %} window.](/assets/images/help/copilot/vsc-code-suggestion-options.png)
 
-1. Choose one of the options for using the code suggestion.
+2. Choose one of the options for using the code suggestion.
     - To copy the code suggestion to your clipboard, click the **Copy** icon.
     - To insert the code suggestion into your code at the current location of your cursor, click the **Insert at Cursor** icon.
     - To view additional options, click the **...** icon.
@@ -114,7 +114,7 @@ When {% data variables.product.prodname_copilot_chat %} provides code suggestion
 {% data variables.product.prodname_copilot_chat %} can provide answers and support with a wide range of coding related topics.
 
 1. In {% data variables.product.prodname_vscode %}, open the file you want {% data variables.product.prodname_copilot_chat %} to help you with.
-1. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
+2. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
     - To generate a description of the file's purpose, ask a question like, `What does this file do?`.
     - To generate a unit test for the file, type a request like, `Write a unit test for this file`. Alternatively, highlight the code you want to generate a unit test for, then ask a question like, `Write a unit test for this code`.
     - To generate a fix for a bug in the file, type a request like, `Fix this bug`.
@@ -124,8 +124,8 @@ When {% data variables.product.prodname_copilot_chat %} provides code suggestion
 To share feedback about {% data variables.product.prodname_copilot_chat %}, you can use the **share feedback** button in the {% data variables.product.prodname_copilot_chat %} window.
 
 1. Scroll to the top of the {% data variables.product.prodname_copilot_chat %} window.
-1. Click the **share feedback** button.
-1. In your browser, in the **vscode-copilot-release** repository, create a new issue or open the {% data variables.product.prodname_copilot %} community discussion.
+2. Click the **share feedback** button.
+3. In your browser, in the **vscode-copilot-release** repository, create a new issue or open the {% data variables.product.prodname_copilot %} community discussion.
     - To open an issue to report a bug, next to **Bug report for {% data variables.product.prodname_copilot_chat %}**, click **Get started**.
     - To open an issue to request a feature, next to **Feature request for {% data variables.product.prodname_copilot_chat %}**, click **Get started**.
     - To report a security vulnerability, next to **Report a security vulnerability**, click **View policy**.
@@ -199,7 +199,7 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 {% data reusables.copilot.copilot-chat-exclusively-code-questions %}
 
 1. In the {% data variables.product.prodname_vs %} menu bar, to launch {% data variables.product.prodname_copilot_chat %}, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %}** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
+2. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %}** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
 
     {% note %}
 
@@ -207,15 +207,15 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 
     {% endnote %}
 
-1. If {% data variables.product.prodname_copilot_chat_short %} offers a code suggestion that you want to use, click the **Copy** icon to copy the code suggestion to your clipboard.
-1. Optionally, if {% data variables.product.prodname_copilot_chat %} suggests a follow-up question under your last answer, click the follow-up question to ask it.
+3. If {% data variables.product.prodname_copilot_chat_short %} offers a code suggestion that you want to use, click the **Copy** icon to copy the code suggestion to your clipboard.
+4. Optionally, if {% data variables.product.prodname_copilot_chat %} suggests a follow-up question under your last answer, click the follow-up question to ask it.
 
 ## Asking {% data variables.product.prodname_copilot_chat %} questions about your code
 
 {% data variables.product.prodname_copilot_chat %} can provide answers and support with a wide range of coding related topics.
 
 1. In {% data variables.product.prodname_vs %}, open the file you want {% data variables.product.prodname_copilot_chat %} to help you with.
-1. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
+2. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
     - To generate a description of the file's purpose, ask a question like, `What does this file do?`.
     - To generate a unit test for the file, type a request like, `Write a unit test for this file`. Alternatively, highlight the code you want to generate a unit test for, then ask a question like, `Write a unit test for this code`.
     - To generate a fix for a bug in the file, type a request like, `Fix this bug`.
@@ -228,7 +228,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
     ![Screenshot of the share feedback button in {% data variables.product.prodname_vs %}.](/assets/images/help/copilot/vs-share-feedback-button.png)
 
-1. Choose the option that best describes your feedback.
+2. Choose the option that best describes your feedback.
     - To report a bug, click **Report a problem**.
     - To request a feature, click **Suggest a feature**.
 
@@ -308,8 +308,8 @@ The following procedures will guide you through installing or updating the {% da
 
 {% data reusables.copilot.jetbrains-settings-preferences %}
 1. In the left-side menu of the **Settings/Preferences** dialog box, click **Plugins**.
-1. At the top of the **Settings/Preferences** dialog box, click **Installed**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Update**.
-1. After {% data variables.product.prodname_copilot %} is updated, quit and relaunch your JetBrains IDE.
+2. At the top of the **Settings/Preferences** dialog box, click **Installed**. In the search bar, search for **{% data variables.product.prodname_copilot %}**, then click **Update**.
+3. After {% data variables.product.prodname_copilot %} is updated, quit and relaunch your JetBrains IDE.
 
 ## Asking your first question
 
@@ -319,19 +319,19 @@ The following procedures will guide you through installing or updating the {% da
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 
-1. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for commands** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
-1. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
+2. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for commands** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
+3. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
 
    If your question is outside the scope of {% data variables.product.prodname_copilot_chat %}, it will tell you and may suggest an alternative question to ask.
 
-1. Optionally, if {% data variables.product.prodname_copilot_chat %} suggests a follow-up question above the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for commands** text box, click the follow-up question to ask it.
+4. Optionally, if {% data variables.product.prodname_copilot_chat %} suggests a follow-up question above the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for commands** text box, click the follow-up question to ask it.
 
 ## Asking {% data variables.product.prodname_copilot_chat %} questions about your code
 
 {% data variables.product.prodname_copilot_chat %} can provide answers and support with a wide range of coding-related topics.
 
 1. In your JetBrains IDE, open the file you want {% data variables.product.prodname_copilot_chat %} to help you with.
-1. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
+2. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
     - To generate a description of the file's purpose, ask a question like, `What does this file do?`.
     - To generate a unit test for the file, type a request like, `Write a unit test for this file`. Alternatively, highlight the code you want to generate a unit test for, then ask a question like, `Write a unit test for this code`.
     - To generate a fix for a bug in the file, type a request like, `Fix this bug`.
@@ -344,7 +344,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 
-1. At the top of the {% data variables.product.prodname_copilot_chat %} window, click the **share feedback** link.
+2. At the top of the {% data variables.product.prodname_copilot_chat %} window, click the **share feedback** link.
 
     ![Screenshot of the share feedback link in the {% data variables.product.prodname_copilot_chat %} window.](/assets/images/help/copilot/jetbrains-share-feedback.png)
 
