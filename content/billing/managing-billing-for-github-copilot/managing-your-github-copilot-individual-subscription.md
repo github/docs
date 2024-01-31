@@ -1,10 +1,11 @@
 ---
-title: Managing your GitHub Copilot subscription for your personal account
+title: Managing your GitHub Copilot Individual subscription
 intro: 'Set up your {% data variables.product.prodname_copilot_for_individuals %} trial for your personal account and manage your subscription.'
 product: '{% data reusables.gated-features.copilot-billing %}'
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-for-individuals-subscription
+  - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account
 versions:
   feature: copilot
 type: how_to

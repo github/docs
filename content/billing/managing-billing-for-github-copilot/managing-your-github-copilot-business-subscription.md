@@ -1,7 +1,8 @@
 ---
-title: 'Managing your GitHub Copilot subscription for your organization {% ifversion ghec%}or enterprise{% endif %}'
+title: 'Managing your GitHub Copilot Business subscription'
 intro: 'Set up {% data variables.product.prodname_copilot_for_business %} for your organization{% ifversion ghec %} or enterprise{% endif %} account and manage your subscription.'
-allowTitleToDifferFromFilename: true
+redirect_from:
+  - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise
 product: '{% data reusables.gated-features.copilot-billing %}'
 versions:
   feature: copilot
