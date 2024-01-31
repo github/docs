@@ -29,7 +29,7 @@ You can create a private docset from a single repository or a selection of repos
 
     ![Screenshot of the "Create a new docset" page. The "Owner" dropdown menu and "Docset name" field are highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-create-docset-page.png)
 
-3. Under "Docset scope", to see a full list of available repositories, click **Select repositories**.
+1. Under "Docset scope", to see a full list of available repositories, click **Select repositories**.
 
     ![Screenshot of the "Select repositories" page. The "Select repositories" page is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-select-repositories-button.png)
 
