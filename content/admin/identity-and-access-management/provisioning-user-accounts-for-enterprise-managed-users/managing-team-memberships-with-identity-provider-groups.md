@@ -47,7 +47,7 @@ You can connect a team in your enterprise to one IdP group. You can assign the s
 
 If you are connecting an existing team to an IdP group, you must first remove any members that were added manually. After you connect a team in your enterprise to an IdP group, your IdP administrator must make team membership changes through the identity provider. You cannot manage team membership on {% data variables.product.prodname_dotcom_the_website %}.
 
-If you use Azure AD as your IdP, you can only connect a team to a security group. Nested group memberships and Microsoft 365 groups are not supported.
+If you use Microsoft Entra ID (previously known as Azure AD) as your IdP, you can only connect a team to a security group. Nested group memberships and Microsoft 365 groups are not supported.
 
 ## Creating a new team connected to an IdP group
 

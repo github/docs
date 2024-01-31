@@ -43,7 +43,7 @@ After you enable SAML SSO, depending on the IdP you use, you may be able to enab
 
 {% data reusables.saml.no-scim-for-enterprises %}
 
-If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
+If you use Microsoft Entra ID (previously known as Azure AD) as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
@@ -94,7 +94,7 @@ We test and officially support the following IdPs. For SAML SSO, we offer limite
 IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
 Active Directory Federation Services (AD FS) | {% octicon "check" aria-label= "Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-Azure Active Directory (Azure AD) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+Entra ID | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 OneLogin | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 PingOne | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -111,14 +111,6 @@ If your IdP supports encrypted assertions, you can configure encrypted assertion
 {% endif %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
-
-{% elsif ghae %}
-
-The following IdPs are officially supported for integration with {% data variables.product.prodname_ghe_managed %}.
-
-{% data reusables.saml.okta-ae-sso-beta %}
-
-{% data reusables.github-ae.saml-idp-table %}
 
 {% endif %}
 
