@@ -52,14 +52,6 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 
-{% ifversion ghae %}
-
-{% data reusables.saml.assert-the-administrator-attribute %}
-
-{% data reusables.scim.after-you-configure-saml %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
-
-{% endif %}
-
 {% endif %}
 
 ## Supported identity providers
@@ -68,11 +60,11 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% ifversion ghec %}
 
-For more information about connecting Azure AD to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Cloud - Enterprise Account](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) in Microsoft Docs.
+For more information about connecting Microsoft Entra ID (previously known as Azure AD) to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Cloud - Enterprise Account](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) in Microsoft Docs.
 
 {% elsif ghes %}
 
-For more information about connecting Azure AD to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-ae-tutorial) in Microsoft Docs.
+For more information about connecting Entra ID to your enterprise, see [Tutorial: Microsoft Entra SSO integration with GitHub Enterprise Server](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-ae-tutorial) in Microsoft Docs.
 
 ## Username considerations with SAML
 
@@ -151,7 +143,7 @@ The following IdPs provide documentation about configuring SAML SSO for {% data 
 
  | IdP | More information |
  | :- | :- |
- | Azure AD | "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)" |
+ | Entra ID | "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)" |
 | Okta | "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)" |
 
 During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML service provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-metadata)."
