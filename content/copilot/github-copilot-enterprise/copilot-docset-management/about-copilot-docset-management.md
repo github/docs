@@ -51,6 +51,7 @@ We are currently in a beta phase with this product. If you encounter any issues 
 ### Limitations of {% data variables.product.prodname_copilot_for_docs %}
 
 Depending on factors such as your input question and the available project technical documentation, you may experience different levels of performance when using {% data variables.product.prodname_copilot_for_docs %}. The following information is designed to help you understand system limitations and key concepts about performance as they apply to {% data variables.product.prodname_copilot_for_docs %}. {% data variables.product.prodname_copilot_for_docs %} has been subject to RAI Red Teaming, and we will continue to monitor the efficacy and safety of the feature over time.
+
 ### Limited scope
 
 {% data variables.product.prodname_copilot_for_docs %} is only suitable for asking questions that are answerable across a project’s existing technical documentation. It should not be used for general chat. The quality of responses will also be impacted by the way a question is asked and any variables you set on the user interface.
