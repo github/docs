@@ -19,7 +19,6 @@ topics:
 shortTitle: Configure secret scans
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## Enabling {% data variables.secret-scanning.user_alerts %}

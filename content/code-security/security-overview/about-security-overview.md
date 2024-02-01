@@ -22,8 +22,6 @@ topics:
   - Teams
 ---
 
-{% data reusables.security-overview.beta %}
-
 ## About security overview
 
 {% data reusables.security-overview.about-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-security-overview).{% endif %}
