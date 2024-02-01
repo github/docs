@@ -355,7 +355,6 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
@@ -389,7 +388,6 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
