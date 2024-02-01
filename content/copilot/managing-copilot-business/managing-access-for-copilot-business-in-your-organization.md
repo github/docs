@@ -19,7 +19,7 @@ Organization{% ifversion ghec %} and enterprise{% endif %} owners can also manag
 
 ## Configuring access to {% data variables.product.prodname_copilot %} in your organization
 
-{% ifversion ghec %}Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization. {% else %}Once you have set up your {% data variables.product.prodname_copilot_business_short %} subscription, you can manage your organization members' access to {% data variables.product.prodname_copilot %}.{% endif %}
+{% ifversion ghec %}Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization. {% else %}Once you have set up your {% data variables.product.prodname_copilot_business_short %} subscription, you can manage your organization members' access to {% data variables.product.prodname_copilot %}.{% endif %} Granting access to {% data variables.product.prodname_copilot %} requires a seat for each organization member you want to include.
 
 ### Enabling access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 
