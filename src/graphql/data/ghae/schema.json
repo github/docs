@@ -40220,6 +40220,22 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "isInMergeQueue",
+          "description": "<p>Indicates whether the pull request is in a merge queue.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isMergeQueueEnabled",
+          "description": "<p>Indicates whether the pull request's base ref has a merge queue enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isReadByViewer",
           "description": "<p>Is this pull request read by the viewer.</p>",
           "type": "Boolean",
@@ -40429,6 +40445,14 @@
           "id": "commit",
           "kind": "objects",
           "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue for the pull request's base branch.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
         },
         {
           "name": "mergeQueueEntry",
@@ -84635,6 +84659,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "countMembersAlreadyRequested",
+          "description": "<p>Count any members whose review has already been requested against the required number of members assigned to review.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "enabled",
           "description": "<p>Turn on or off review assignment.</p>",
           "type": "Boolean!",
@@ -84661,8 +84693,24 @@
           "isDeprecated": false
         },
         {
+          "name": "includeChildTeamMembers",
+          "description": "<p>Include the members of any child teams when assigning.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "notifyTeam",
           "description": "<p>Notify the entire team of the PR if it is delegated.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "removeTeamRequest",
+          "description": "<p>Remove the team review request when assigning.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

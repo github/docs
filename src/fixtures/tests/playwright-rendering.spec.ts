@@ -291,6 +291,10 @@ test.describe('test nav at different viewports', () => {
     expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+
+    // breadcrumbs show up in rest reference pages
+    await page.goto('/rest/actions/artifacts')
+    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
   })
 
   test('large -> x-large viewports - 1012+', async ({ page }) => {
@@ -355,7 +359,6 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
@@ -389,7 +392,6 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
