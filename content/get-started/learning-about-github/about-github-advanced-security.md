@@ -107,7 +107,7 @@ For more information on starter workflows, see "[AUTOTITLE](/code-security/code-
 
 ## About {% data variables.product.prodname_GH_advanced_security %} Certification
 
-You can highly your code security knowledge by earning a {% data variables.product.prodname_GH_advanced_security %} certificate with {% data variables.product.prodname_certifications %}. The certification validates your expertise in vulnerability identification, workflow security, and robust security implementation. For more information, see "[AUTOTITLE](/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications)."
+You can highlight your code security knowledge by earning a {% data variables.product.prodname_GH_advanced_security %} certificate with {% data variables.product.prodname_certifications %}. The certification validates your expertise in vulnerability identification, workflow security, and robust security implementation. For more information, see "[AUTOTITLE](/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications)."
 
 {% endif %}
 
