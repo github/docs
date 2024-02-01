@@ -35374,6 +35374,16 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   isDraft: Boolean!
 
   """
+  Indicates whether the pull request is in a merge queue
+  """
+  isInMergeQueue: Boolean!
+
+  """
+  Indicates whether the pull request's base ref has a merge queue enabled.
+  """
+  isMergeQueueEnabled: Boolean!
+
+  """
   Is this pull request read by the viewer
   """
   isReadByViewer: Boolean
@@ -35482,6 +35492,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   The commit that was created when this pull request was merged.
   """
   mergeCommit: Commit
+
+  """
+  The merge queue for the pull request's base branch
+  """
+  mergeQueue: MergeQueue
 
   """
   The merge queue entry of the pull request in the base branch's merge queue
@@ -59001,6 +59016,11 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   clientMutationId: String
 
   """
+  Count any members whose review has already been requested against the required number of members assigned to review
+  """
+  countMembersAlreadyRequested: Boolean = true
+
+  """
   Turn on or off review assignment
   """
   enabled: Boolean!
@@ -59016,9 +59036,19 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   id: ID! @possibleTypes(concreteTypes: ["Team"])
 
   """
+  Include the members of any child teams when assigning
+  """
+  includeChildTeamMembers: Boolean = true
+
+  """
   Notify the entire team of the PR if it is delegated
   """
   notifyTeam: Boolean = true
+
+  """
+  Remove the team review request when assigning
+  """
+  removeTeamRequest: Boolean = true
 
   """
   The number of team members to assign
