@@ -291,6 +291,10 @@ test.describe('test nav at different viewports', () => {
     expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+
+    // breadcrumbs show up in rest reference pages
+    await page.goto('/rest/actions/artifacts')
+    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
   })
 
   test('large -> x-large viewports - 1012+', async ({ page }) => {
