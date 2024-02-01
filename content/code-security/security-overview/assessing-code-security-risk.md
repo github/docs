@@ -19,10 +19,6 @@ redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
 ---
 
-{% ifversion ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
-
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
 ## About security risks in your code

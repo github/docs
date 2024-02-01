@@ -14,7 +14,6 @@ topics:
   - Troubleshooting
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## Detection of pattern pairs
