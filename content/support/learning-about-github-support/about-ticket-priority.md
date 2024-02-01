@@ -5,7 +5,6 @@ shortTitle: Ticket priority
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Support
 ---
@@ -43,16 +42,6 @@ When you contact {% data variables.contact.github_support %}, you can choose a p
 | {% data variables.product.support_ticket_priority_high %} | {% data variables.product.prodname_ghe_server %} is failing in a production environment, but impact on your business is limited. | <ul><li>Performance degradation that reduces productivity for many users</li><li>Reduced redundancy from failure of High Availability (HA) or cluster nodes</li><li>Failure to back up instance</li><li>Failure to restore a backup to a test or staging environment that could compromise successful restoration to a production environment</li></ul> |
 | {% data variables.product.support_ticket_priority_normal %} | You're experiencing limited or moderate issues with {% data variables.product.prodname_ghe_server %}, or you have general concerns or questions about the operation of your instance. | <ul><li>Problems in a test or staging environment</li><li>Advice on using {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs and features including rate limits, or questions about configuring third-party integrations from your instance</li><li>Issues with tools for user data migration that {% data variables.product.company_short %} provides</li><li>Upgrades</li><li>Bug reports</li><li>Features not working as expected</li><li>General security questions</li></ul> |
 | {% data variables.product.support_ticket_priority_low %} | You have a question or suggestion about {% data variables.product.prodname_ghe_server %} that is not time-sensitive, or does not otherwise block the productivity of your team. | <ul><li>Feature requests</li><li>Product feedback</li><li>Requests for health checks (available for customers with a {% data variables.product.premium_support_plan %} only at this time)</li><li>Notifying {% data variables.product.company_short %} of planned maintenance on your instance</li></ul> |
-
-{% endif %}
-{% ifversion ghae %}
-
-| Priority | Description | Examples |
-| :---: | --- | --- |
-| {% data variables.product.support_ticket_priority_urgent %} - Sev A | {% data variables.product.product_name %} is inaccessible or failing entirely, and the failure directly impacts the operation of your business.<br/><br/>_After you file a support ticket, reach out to {% data variables.contact.github_support %} via phone._ | <ul><li>Errors or outages that affect core Git or web application functionality for all users</li><li>Severe network or performance degradation for majority of users</li><li>Full or rapidly filling storage</li><li>Known security incidents or a breach of access</li></ul> |
-| {% data variables.product.support_ticket_priority_high %} - Sev B | {% data variables.product.product_name %} is failing in a production environment, with limited impact to your business processes, or only affecting certain customers. | <ul><li>Performance degradation that reduces productivity for many users</li><li>Reduced redundancy concerns from failures or service degradation</li><li>Production-impacting bugs or errors</li><li>{% data variables.product.product_name %} configuration security concerns</li></ul> |
-| {% data variables.product.support_ticket_priority_normal %} - Sev C | {% data variables.product.product_name %} is experiencing limited or moderate issues and errors with {% data variables.product.product_name %}, or you have general concerns or questions about the operation of {% data variables.product.product_name %}. | <ul><li>Advice on using {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs and features including rate limits, or questions about integrating business workflows</li><li>Issues with user tools and data collection methods</li><li>Upgrades</li><li>Bug reports, general security questions, or other feature related questions</li> |
-| {% data variables.product.support_ticket_priority_low %} - Sev D| {% data variables.product.product_name %} is functioning as expected, however, you have a question or suggestion about {% data variables.product.product_name %} that is not time-sensitive, or does not otherwise block the productivity of your team. | <ul><li>Feature requests and product feedback</li><li>General questions on overall configuration or use of {% data variables.product.product_name %}</li><li>Notifying {% data variables.contact.github_support %} of any planned changes</li></ul> |
 
 {% endif %}
 
