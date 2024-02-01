@@ -49,7 +49,9 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 
 ## Prerequisites
 
-{% data reusables.enterprise-migration-tool.migration-prerequisites %}
+- {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
+- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
+- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
 - In both the source and destination organizations, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 - If you use {% data variables.product.prodname_ghe_server %} 3.8 or higher, you need access to the {% data variables.enterprise.management_console %}.
 
