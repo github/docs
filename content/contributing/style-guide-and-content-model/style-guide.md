@@ -254,7 +254,29 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
 
-Use H2 for headers and H3 for subheaders. If an article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be text content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
+- **Use:**
+
+  ```markdown
+  ## HEADER (H2)
+  TEXT
+
+  ### SUBHEADER (H3)
+  TEXT
+
+  #### SUBHEADER (H4)
+  TEXT
+  ```
+
+- **Avoid:**
+
+  ```markdown
+  ## HEADER (H2)
+
+  #### SUBHEADER (H4)
+  ```
+
+When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
@@ -1285,6 +1307,12 @@ Format radio button labels in bold and omit the words “radio button” or any 
 Use a standard format to refer to repositories. Link to repositories when helpful.
 - **Use:** in the `[account-name/repository-name](URL)` repository
 
+### Responsive elements
+
+We only document the responsive states of UI elements when they create ambiguity or confusion. If a task is unclear because of a responsive UI element, describe the interaction that someone must do to achieve the goal of the task. Do not just describe the visual state of the UI element.
+
+- **Use:** Click **Security**. If Security is not visible, click **⋮** to expand the repository menu.
+
 ### User interface text
 
 When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
@@ -1315,7 +1343,7 @@ To learn more about writing approachable content, see “[Microsoft's brand voic
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/quickstart/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/learning-about-github/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

@@ -8,7 +8,6 @@ redirect_from:
   - /code-security/security-overview/about-the-security-overview
 versions:
   fpt: '*'
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -23,13 +22,11 @@ topics:
   - Teams
 ---
 
-{% data reusables.security-overview.beta %}
-
 ## About security overview
 
 {% data reusables.security-overview.about-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-security-overview).{% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 {% note %}
 
@@ -99,7 +96,7 @@ Each repository is shown in security overview with an indicator for each type of
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## About security overview for enterprises
 
@@ -177,7 +174,7 @@ For more information about access to security alerts and related views, see "[AU
 
 ### Enterprise-level overview
 
-{% ifversion ghec or ghes or ghae > 3.5 %}
+{% ifversion ghec or ghes %}
 {% note %}
 
 **Note:** If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in both the organization-level and enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."

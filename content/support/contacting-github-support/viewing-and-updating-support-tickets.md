@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes or ghae %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
+You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived{% ifversion ghec or ghes %}, and archived tickets can only be viewed for enterprise accounts{% endif %}.
 
 Your capabilities in the {% data variables.contact.landing_page_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
 
@@ -31,7 +31,7 @@ Your capabilities in the {% data variables.contact.landing_page_portal %} depend
 
    ![Screenshot of a support ticket with the dropdown menu showing the options for translation highlighted with a dark orange outline.](/assets/images/help/support/support-ticket-translation-options.png)
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Viewing your archived support tickets
 

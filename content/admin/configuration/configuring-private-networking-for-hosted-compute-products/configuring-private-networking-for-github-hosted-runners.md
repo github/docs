@@ -36,7 +36,7 @@ You will use a script to automate configuring your Azure resources.
 
 ### Prerequisites
 
-- Use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the `GitHub.Network` resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) in the Azure documentation.
+- Use an Azure account with the Subscription Contributor role and the Network Contributor role. These roles enable you to register the `GitHub.Network` resource provider and delegate the subnet. For more information, see [Azure built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) on Microsoft Learn.
 
 - To correctly associate the subnets with the right user, Azure `NetworkSettings` resources must be created in the same subscriptions where virtual networks are created.
 
@@ -113,53 +113,12 @@ You will use a script to automate configuring your Azure resources.
             direction: 'Outbound'
             destinationAddressPrefixes: [
               '140.82.112.0/20'
-              '142.250.0.0/15'
               '143.55.64.0/20'
-              '192.30.252.0/22'
               '185.199.108.0/22'
+              '192.30.252.0/22'
             ]
           }
-        }
-        {
-          name: 'AllowInternetOutBoundMicrosoft'
-          properties: {
-            protocol: 'TCP'
-            sourcePortRange: '*'
-            destinationPortRange: '443'
-            sourceAddressPrefix: '*'
-            access: 'Allow'
-            priority: 230
-            direction: 'Outbound'
-            destinationAddressPrefixes: [
-              '13.64.0.0/11'
-              '13.96.0.0/13'
-              '13.104.0.0/14'
-              '20.33.0.0/16'
-              '20.34.0.0/15'
-              '20.36.0.0/14'
-              '20.40.0.0/13'
-              '20.48.0.0/12'
-              '20.64.0.0/10'
-              '20.128.0.0/16'
-              '52.224.0.0/11'
-              '204.79.197.200'
-            ]
-          }
-        }
-      {
-          name: 'AllowInternetOutBoundCannonical'
-          properties: {
-            protocol: 'TCP'
-            sourcePortRange: '*'
-            destinationPortRange: '443'
-            sourceAddressPrefix: '*'
-            destinationAddressPrefix: '185.125.188.0/22'
-            access: 'Allow'
-            priority: 240
-            direction: 'Outbound'
-            destinationAddressPrefixes: []
-          }
-        }
+        }        
       ]
     }
   }
@@ -358,4 +317,4 @@ To delete the subnet, this service association link needs to be removed first. T
    az resource delete -g $RESOURCE_GROUP_NAME --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type 'GitHub.Network/networkSettings' --api-version '2023-11-01-preview'
    ```
 
-1. Delete the subnet in Azure. For more information, see [Delete a subnet](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#delete-a-subnet) in the Azure documentation.
+1. Delete the subnet in Azure. For more information, see [Delete a subnet](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#delete-a-subnet) on Microsoft Learn.

@@ -4,7 +4,6 @@ intro: '{% data variables.product.prodname_dotcom %} provides a variety of tools
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:

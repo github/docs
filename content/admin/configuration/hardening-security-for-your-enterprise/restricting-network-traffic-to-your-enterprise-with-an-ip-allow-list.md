@@ -25,7 +25,7 @@ By default, authorized users can access your enterprise's resources from any IP 
 
 {% ifversion ghec %}
 
-If your enterprise uses {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature.
+If your enterprise uses {% data variables.product.prodname_emus %} with Microsoft Entra ID (previously known as Azure AD) and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature.
 
 {% elsif ghae %}
 
@@ -47,7 +47,7 @@ You can use {% data variables.product.company_short %}'s IP allow list to contro
 
 ## About your IdP's allow list
 
-If you are using {% data variables.product.prodname_emus %} with Azure AD and OIDC, you can use your IdP's allow list.
+If you are using {% data variables.product.prodname_emus %} with Entra ID and OIDC, you can use your IdP's allow list.
 
 Using your IdP's allow list deactivates the {% data variables.product.company_short %} IP allow list configurations for all organizations in your enterprise and deactivates the GraphQL APIs for enabling and managing IP allow lists.
 
@@ -123,7 +123,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 
 {% note %}
 
-**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Azure AD and OIDC.
+**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Entra ID and OIDC.
 
 {% endnote %}
 
@@ -201,10 +201,6 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
-{% ifversion not ghae %}
-
 ## Using {% data variables.product.prodname_pages %} with an IP allow list
 
 {% data reusables.pages.ip-allow-list-pages %}
-
-{% endif %}

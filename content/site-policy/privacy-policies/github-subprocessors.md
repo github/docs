@@ -23,22 +23,22 @@ To receive notifications of updates to this Subprocessor list, please follow the
 
 If you have questions about this list, please contact us at <privacy@github.com>.
 
-| Name of Subprocessor        | Description of Processing                                                      | Location of Processing | Corporate Location |
-| --------------------------- | ------------------------------------------------------------------------------ | ---------------------- | ------------------ |
-| Amazon Web Services (AWS)   | Cloud Hosted Infrastructure and Data Hosting                                   | United States          | United States      |
-| Azure (Microsoft)           | Cloud Hosted Infrastructure and Data Hosting                                   | United States          | United States      |
-| Azure Cognitive Services    | Customer support ticketing analysis                                            | United States          | United States      |
-| Cloudflare                  | Content delivery service                                                       | United States          | United States      |
-| Fastly                      | Content delivery service                                                       | United States          | United States      |
-| Google Cloud Platform (GCP) | Cloud Hosted Infrastructure                                                    | United States          | United States      |
-| Microsoft                   | Technical Services                                                             | United States          | United States      |
-| Moveworks                   | Customer support ticketing analysis                                            | United States          | United States      |
-| NexMo (aka Vonage)          | SMS notification provider for 2 Factor Authentication                          | United States          | United States      |
-| Obsidian Security           | Security management                                                            | United States          | United States      |
-| Pusher                      | Building and managing real-time infrastructure for web and mobile applications | United States          | United States      |
-| SendGrid                    | SMS notification provider for 2 Factor Authentication                          | United States          | United States      |
-| Splunk                      | Logging pipeline for security log, storage, and search                         | United States          | United States      |
-| Twilio                      | SMS notification provider for 2 Factor Authentication                          | United States          | United States      |
-| VividCortex                 | Monitor database performance, efficiency, and uptime                           | United States          | United States      |
-| Zapier                      | App infrastructure and support                                                 | United States          | United States      |
-| Zendesk                     | Customer support ticketing system                                              | United States          | United States      |
+| Name of Subprocessor        | Description of Processing                                                      | Location of Processing  | Corporate Location |
+| --------------------------- | ------------------------------------------------------------------------------ | ----------------------- | ------------------ |
+| Amazon Web Services (AWS)   | Cloud Hosted Infrastructure and Data Hosting                                   | United States                                     | United States      |
+| Azure (Microsoft)           | Cloud Hosted Infrastructure and Data Hosting                                   | United States, France,</br>Switzerland, and Japan | United States      |
+| Azure Cognitive Services    | Customer support ticketing analysis                                            | United States                                     | United States      |
+| Cloudflare                  | Content delivery service                                                       | United States                                     | United States      |
+| Fastly                      | Content delivery service                                                       | United States                                     | United States      |
+| Google Cloud Platform (GCP) | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
+| Microsoft                   | Technical Services                                                             | United States                                     | United States      |
+| Moveworks                   | Customer support ticketing analysis                                            | United States                                     | United States      |
+| NexMo (aka Vonage)          | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
+| Obsidian Security           | Security management                                                            | United States                                     | United States      |
+| Pusher                      | Building and managing real-time infrastructure for web and mobile applications | United States                                     | United States      |
+| SendGrid                    | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
+| Splunk                      | Logging pipeline for security log, storage, and search                         | United States                                     | United States      |
+| Twilio                      | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
+| VividCortex                 | Monitor database performance, efficiency, and uptime                           | United States                                     | United States      |
+| Zapier                      | App infrastructure and support                                                 | United States                                     | United States      |
+| Zendesk                     | Customer support ticketing system                                              | United States                                     | United States      |

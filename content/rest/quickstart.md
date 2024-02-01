@@ -5,7 +5,6 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
 topics:
@@ -43,7 +42,7 @@ You can also use {% data variables.product.prodname_cli %} in your {% data varia
 
 Instead of using the `gh auth login` command, pass an access token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-The following example workflow uses the "[List repository issues](/rest/issues/issues#list-repository-issues)" endpoint, and requests a list of issues in {% ifversion ghes or ghae %}a repository you specify{% else %}the `octocat/Spoon-Knife` repository{% endif %}.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
+The following example workflow uses the "[List repository issues](/rest/issues/issues#list-repository-issues)" endpoint, and requests a list of issues in {% ifversion ghes %}a repository you specify{% else %}the `octocat/Spoon-Knife` repository{% endif %}.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
 ```yaml copy
 on:
@@ -119,10 +118,10 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
 1. Install `octokit`. For example, `npm install octokit`. For other ways to install or load `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 1. Import `octokit` in your script. For example, `import { Octokit } from "octokit";`. For other ways to import `octokit`, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
-1. Create an instance of `Octokit` with your token.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `YOUR-TOKEN` with your token.
+1. Create an instance of `Octokit` with your token.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %} Replace `YOUR-TOKEN` with your token.
 
    ```javascript copy
-   const octokit = new Octokit({ {% ifversion ghes or ghae %}
+   const octokit = new Octokit({ {% ifversion ghes %}
      baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
      auth: 'YOUR-TOKEN'
    });
@@ -130,12 +129,12 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
 1. Use `octokit.request` to execute your request. Send the HTTP method and path as the first argument. Specify any path, query, and body parameters in an object as the second argument. For more information about parameters, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-parameters)."
 
-   For example, in the following request the HTTP method is `GET`, the path is `/repos/{owner}/{repo}/issues`, and the parameters are {% ifversion ghes or ghae %}`owner: "REPO-OWNER"` and `repo: "REPO-NAME"`{% else %}`owner: "octocat"` and `repo: "Spoon-Knife"`{% endif %}.{% ifversion ghes or ghae %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
+   For example, in the following request the HTTP method is `GET`, the path is `/repos/{owner}/{repo}/issues`, and the parameters are {% ifversion ghes %}`owner: "REPO-OWNER"` and `repo: "REPO-NAME"`{% else %}`owner: "octocat"` and `repo: "Spoon-Knife"`{% endif %}.{% ifversion ghes %} Replace `REPO-OWNER` with the name of the account that owns the repository, and `REPO-NAME` with the name of the repository.{% endif %}
 
    ```javascript copy
    await octokit.request("GET /repos/{owner}/{repo}/issues", {
-     owner: "{% ifversion ghes or ghae %}REPO-OWNER{% else %}octocat{% endif %}",
-     repo: "{% ifversion ghes or ghae %}REPO-NAME{% else %}Spoon-Knife{% endif %}",
+     owner: "{% ifversion ghes %}REPO-OWNER{% else %}octocat{% endif %}",
+     repo: "{% ifversion ghes %}REPO-NAME{% else %}Spoon-Knife{% endif %}",
    });
    ```
 
@@ -182,20 +181,20 @@ jobs:
           TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-The following is an example JavaScript script with the file path `.github/actions-scripts/use-the-api.mjs`.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
+The following is an example JavaScript script with the file path `.github/actions-scripts/use-the-api.mjs`.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
 ```javascript
 import { Octokit } from "octokit"
 
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
+const octokit = new Octokit({ {% ifversion ghes %}
   baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
   auth: process.env.TOKEN
 });
 
 try {
   const result = await octokit.request("GET /repos/{owner}/{repo}/issues", {
-      owner: "{% ifversion ghes or ghae %}REPO-OWNER{% else %}octocat{% endif %}",
-      repo: "{% ifversion ghes or ghae %}REPO-NAME{% else %}Spoon-Knife{% endif %}",
+      owner: "{% ifversion ghes %}REPO-OWNER{% else %}octocat{% endif %}",
+      repo: "{% ifversion ghes %}REPO-NAME{% else %}Spoon-Knife{% endif %}",
     });
 
   const titleAndAuthor = result.data.map(issue => {title: issue.title, authorID: issue.user.id})
@@ -284,7 +283,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    {% endwarning %}
 
-1. Use the `curl` command to make your request. Pass your token in an `Authorization` header.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %} Replace `YOUR-TOKEN` with your token.
+1. Use the `curl` command to make your request. Pass your token in an `Authorization` header.{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %} Replace `YOUR-TOKEN` with your token.
 
    ```shell copy
    curl --request GET \
@@ -307,7 +306,7 @@ You can also use `curl` commands in your {% data variables.product.prodname_acti
 
 {% data variables.product.prodname_dotcom %} recommends that you use the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-{% ifversion ghes or ghae %}In the following example, replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
+{% ifversion ghes %}In the following example, replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
 ```yaml copy
 on:

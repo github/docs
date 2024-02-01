@@ -177,9 +177,9 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
    - To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
 1. If you use {% data variables.actions.hosted_runner %}s, reconfigure your runners.
 
-   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
-   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
+   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
+   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 1. Re-add any encrypted secrets.
 
    - To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."

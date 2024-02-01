@@ -9,10 +9,9 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
   - /admin/configuration/configuring-your-enterprise/configuring-email-for-notifications
-permissions: '{% ifversion ghes %}Site administrators{% elsif ghae %}Enterprise owners{% endif %} can configure email for notifications.'
+permissions: 'Site administrators can configure email for notifications.'
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -24,7 +23,6 @@ shortTitle: Configure email notifications
 
 ## Configuring SMTP for your enterprise
 
-{% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.email-settings %}
 1. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
@@ -39,24 +37,6 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
     - **Email:** An internal email address.
     - **URL:** A link to an internal support site. You must include either `http://` or `https://`.
 1. [Test email delivery](#testing-email-delivery).
-{% elsif ghae %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Email**.
-1. Select **Enable email**.
-1. Type the settings for your email server.
-    - In the **Server address** field, type the address of your SMTP server.
-    - In the **Port** field, type the port that your SMTP server uses to send email.
-    - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
-    - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
-    - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
-1. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-1. Click **Test email settings**.
-1. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**.
-1. Click **Save**.
-{% endif %}
-
-{% ifversion ghes %}
 
 ## Testing email delivery
 
@@ -177,12 +157,6 @@ In order to properly process inbound emails, you must configure a valid A Record
 
 If {% data variables.location.product_location %} is behind a firewall or is being served through an AWS security group, make sure port 25 is open to all mail servers that send emails to `reply@reply.[hostname]`.
 
-{% endif %}
-
 ### Contact support
 
-{% ifversion ghes %}
 If you're still unable to resolve the problem, contact us by visiting {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
-{% elsif ghae %}
-You can contact {% data variables.contact.github_support %} for help configuring email for notifications to be sent through your SMTP server. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
-{% endif %}

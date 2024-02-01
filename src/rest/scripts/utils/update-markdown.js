@@ -102,11 +102,16 @@ async function getMarkdownContent(versions) {
     // The file path will be content/rest/<category>/<subcategory>.md
     for (const subcategory of subcategories) {
       const filepath = path.join('content/rest', category, `${subcategory}.md`)
+      // If the file already exists on disk, only the `versions` frontmatter
+      // property is updated. So the TODOCS placeholder values are only used
+      // when the file is newly created, which is the intention. When the TODOCS
+      // placeholder is added, it will fail the content linter CI test alerting
+      // the docs content reviewer to update the file before merging.
       markdownUpdates[filepath] = {
         data: {
-          title: subcategory,
-          shortTitle: subcategory,
-          intro: '',
+          title: 'TODOCS',
+          shortTitle: 'TODOCS',
+          intro: 'TODOCS',
           versions: await convertVersionsToFrontmatter(versions[category][subcategory].versions),
           ...frontmatterDefaults,
         },

@@ -5,7 +5,6 @@ intro: 'You can use SAML single sign-on (SSO) {% ifversion ghae %}and System for
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -26,7 +25,7 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-saml-for-enterprise-iam
 ---
 
-## About SAML SSO for {% ifversion ghec or ghae %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
+## About SAML SSO for {% ifversion ghec %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
 
 {% ifversion ghec %}
 
@@ -44,7 +43,7 @@ After you enable SAML SSO, depending on the IdP you use, you may be able to enab
 
 {% data reusables.saml.no-scim-for-enterprises %}
 
-If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
+If you use Microsoft Entra ID (previously known as Azure AD) as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
@@ -74,7 +73,7 @@ After you configure SAML, people who use {% data variables.location.product_loca
 
 {% endif %}
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghae or ghes %}user {% endif %}provisioning for {% data variables.location.product_location %}, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
+For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghes %}user {% endif %}provisioning for {% data variables.location.product_location %}, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
 
 {% ifversion ghae or scim-for-ghes %}
 
@@ -95,7 +94,7 @@ We test and officially support the following IdPs. For SAML SSO, we offer limite
 IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
 Active Directory Federation Services (AD FS) | {% octicon "check" aria-label= "Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-Azure Active Directory (Azure AD) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+Entra ID | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 OneLogin | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 PingOne | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -112,14 +111,6 @@ If your IdP supports encrypted assertions, you can configure encrypted assertion
 {% endif %}
 
 {% data reusables.saml.saml-single-logout-not-supported %}
-
-{% elsif ghae %}
-
-The following IdPs are officially supported for integration with {% data variables.product.prodname_ghe_managed %}.
-
-{% data reusables.saml.okta-ae-sso-beta %}
-
-{% data reusables.github-ae.saml-idp-table %}
 
 {% endif %}
 

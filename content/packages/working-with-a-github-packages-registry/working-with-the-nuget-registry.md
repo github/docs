@@ -12,13 +12,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: NuGet registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -58,7 +56,7 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 You must replace:
 - `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your {% data variables.product.pat_v1 %}.
-- `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.{% ifversion ghes or ghae %}
+- `NAMESPACE` with the name of the personal account or organization {% ifversion packages-nuget-v2 %}to which your packages are scoped{% else %}that owns the repository where your packages are hosted{% endif %}.{% ifversion ghes %}
 - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
 {% ifversion ghes %}If your instance has subdomain isolation enabled:
@@ -117,7 +115,7 @@ If you specify a `RepositoryURL` in your `nuget.config` file, the published pack
 
 ### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
 
-If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% data variables.location.product_location %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 1. Create a new project. Replace `PROJECT_NAME` with the name you'd like to give the project.
 
@@ -156,7 +154,7 @@ When publishing, {% ifversion packages-nuget-v2 %}if you are linking your packag
 
    - `1.0.0` with the version number of the package.
    - `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
-   - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes or ghae %}
+   - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes %}
    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
 
    ``` xml

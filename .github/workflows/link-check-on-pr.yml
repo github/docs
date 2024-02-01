@@ -36,7 +36,6 @@ jobs:
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Link check all pages (internal links only)
-        id: all_links
         env:
           LEVEL: 'critical'
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -52,12 +51,8 @@ jobs:
         run: node src/links/scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
+        if: ${{ always() }}
         uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
         with:
           name: artifacts
           path: ./artifacts
-
-      - name: Fail if either check has broken links in its level
-        if: ${{ steps.changed_links.outputs.has_flaws_at_level == 'true' || steps.all_links.outputs.has_flaws_at_level == 'true' }}
-        run: |
-          exit 1

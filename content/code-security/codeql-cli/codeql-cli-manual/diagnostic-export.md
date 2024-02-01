@@ -3,7 +3,6 @@ title: diagnostic export
 intro: '[Experimental] Export diagnostic information for a failed analysis.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

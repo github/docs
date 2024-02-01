@@ -71,5 +71,5 @@ Following people and organizations on {% data variables.product.product_name %} 
 
 ## Further reading
 
-- [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard){% ifversion fpt or ghec %}
+- [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard){% ifversion fpt or ghec %}
 - [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github){% endif %}

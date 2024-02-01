@@ -18,7 +18,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -43,7 +42,7 @@ When you create a webhook, you specify a URL and subscribe to events that occur 
 
 For example, you could subscribe your webhook to events that occur when code is pushed to a repository, a pull request is opened, a {% data variables.product.prodname_pages %} site is built, or a new member is added to a team. Your server could respond by deploying code to production, triggering a CI pipeline, sending a notification, or creating a {% data variables.product.company_short %} project for the new team member.
 
-You must create a webhook within a specific repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}. The webhook can only access resources that are available in the repository, organization, {% ifversion ghes or ghec or ghae %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %} where it is installed. For more information, see "[AUTOTITLE](/webhooks/types-of-webhooks)."
+You must create a webhook within a specific repository, organization, {% ifversion ghes or ghec %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %}. The webhook can only access resources that are available in the repository, organization, {% ifversion ghes or ghec %}{% data variables.product.prodname_enterprise %}, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_marketplace %} account, {% endif %} {% ifversion fpt or ghec %}{% data variables.product.prodname_sponsors %} account, {% endif %} or {% data variables.product.prodname_github_app %} where it is installed. For more information, see "[AUTOTITLE](/webhooks/types-of-webhooks)."
 
 For more information about creating webhooks, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)." For more information about the types of events you can subscribe to, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)." For more information about configuring your server to take an action in response to a payload delivery, see "[AUTOTITLE](/webhooks/using-webhooks/configuring-your-server-to-receive-payloads)."
 

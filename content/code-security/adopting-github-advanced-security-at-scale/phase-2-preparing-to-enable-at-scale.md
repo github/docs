@@ -3,7 +3,6 @@ title: 'Phase 2: Preparing to enable at scale'
 intro: 'In this phase you will prepare developers and collect data about your repositories to ensure your teams are ready and you have everything you need for pilot programs and rolling out {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}.'
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -131,7 +130,7 @@ Before you can proceed with pilot programs and rolling out {% data variables.pro
 
 {% note %}
 
-**Note:** When {% data variables.product.prodname_secret_scanning %} detects a secret in repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
+**Note:** When a secret is detected in a repository that has enabled {% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dotcom %} alerts all users with access to security alerts for the repository. {% ifversion ghec %}
 
 Secrets found in public repositories using {% data variables.secret-scanning.partner_alerts %} are reported directly to the partner, without creating an alert on {% data variables.product.product_name %}. For details about the supported partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."{% endif %}
 
@@ -149,7 +148,7 @@ If a project communicates with an external service, it might use a token or priv
 
 #### License consumption
 
-Enabling {% data variables.product.prodname_secret_scanning %} for all repositories will consume all your licenses, even if no one is using code scanning. This is fine unless you plan to increase the number of active developers in your organization. If the number of active developers is likely to increase in the coming months, you may exceed your license limit and then be unable to use {% data variables.product.prodname_GH_advanced_security %} on newly created repositories.
+Enabling {% data variables.product.prodname_secret_scanning %} for all repositories will maximize your use of {% data variables.product.prodname_GH_advanced_security %} licenses. This is fine if you have enough licenses for the current committers to all those repositories. If the number of active developers is likely to increase in the coming months, you may exceed your license limit and then be unable to use {% data variables.product.prodname_GH_advanced_security %} on newly created repositories.
 
 #### Initial high volume of detected secrets
 
@@ -170,6 +169,22 @@ If you are enabling {% data variables.product.prodname_secret_scanning %} on a l
 {% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
 
 As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+### Push protection for {% data variables.product.prodname_secret_scanning %}
+
+Push protection for organizations and repositories instructs {% data variables.product.prodname_secret_scanning %} to check pushes for supported secrets _before_ secrets are committed to the codebase. For information on which secrets are supported, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+
+If a secret is detected in a push, that push is blocked. {% data variables.product.prodname_secret_scanning_caps %} lists any secrets it detects so the author can review the secrets and remove them or, if needed, allow those secrets to be pushed. {% data reusables.secret-scanning.push-protection-custom-pattern %}
+
+Developers have the option to bypass push protection by reporting that a secret is a false positive, that it is used in tests, or that it will be fixed later.
+
+{% data reusables.secret-scanning.push-protection-bypass %}
+
+Before enabling push protection, consider whether you need to create guidance for developer teams on the acceptable conditions for bypassing push protection. You can configure a link to this resource in the message that's displayed when a developer attempts to push a blocked secret.
+
+Next, familiarize yourself with the different options for managing and monitoring alerts that are the result of a contributor bypassing push protection.
+
+For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-repositories-and-organizations)."
 
 {% note %}
 

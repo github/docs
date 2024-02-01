@@ -112,11 +112,20 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% ifversion actions-hosted-runners %}
 
+{% data variables.product.prodname_dotcom %}-hosted runners are available for use in both public and private repositories.
+
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations for Linux, Windows, and macOS virtual machines. Autoscaling is enabled by default and optional dedicated IP addresses are available for Linux and Windows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."
+**Note:** The `-latest` runner images are the latest stable images that {% data variables.product.prodname_dotcom %} provides, and might not be the most recent version of the operating system available from the operating system vendor.
 
 {% endnote %}
+
+{% warning %}
+
+**Warning:** Beta and Deprecated Images are provided "as-is", "with all faults" and "as available" and are excluded from the service level agreement and warranty. Beta Images may not be covered by customer support.
+
+{% endwarning %}
+
 {% endif %}
 
 {% data reusables.actions.supported-github-runners %}
@@ -150,7 +159,7 @@ You can also view a software bill of materials (SBOM) for each build of the Wind
 ### Using preinstalled software
 
 We recommend using actions to interact with the software installed on runners. This approach has several benefits:
-- Usually, actions provide more flexible functionality like versions selection, ability to pass arguments, and parameters
+- Usually, actions provide more flexible functionality like version selection, ability to pass arguments, and parameters
 - It ensures the tool versions used in your workflow will remain the same regardless of software updates
 
 If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). This repository also contains announcements about all major software updates on runners.
@@ -161,7 +170,11 @@ You can install additional software on {% data variables.product.prodname_dotcom
 
 ## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on `Standard_DS2_v2` virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. For more information about the `Standard_DS2_v2` resources, see "[Dv2 and DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" in the Microsoft Azure documentation. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
+{% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
+
+{% data variables.product.prodname_dotcom %} provides different Linux and Windows runners for public and private repositories.
+- For Linux and Windows runners in **public** repositories, GitHub uses `Standard_D4ads_v5` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
+- For Linux and Windows runners in **private** repositories, GitHub uses `Standard_DS2_v2` virtual machines. For more information, see [Dv2 and DSv2-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series) in the Microsoft Azure documentation.
 
 ## Workflow continuity
 

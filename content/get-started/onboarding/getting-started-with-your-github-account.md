@@ -40,7 +40,7 @@ For more information on all of {% data variables.product.prodname_dotcom %}'s pl
 To ensure you can use all the features in your {% data variables.product.product_name %} plan, verify your email address after signing up for a new account. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."
 {% endif %}
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 ### 1. Accessing your account
 
@@ -72,15 +72,15 @@ To best use {% data variables.product.product_name %}, you'll need to set up Git
 
 ### 1. Learning Git
 
-{% data variables.product.prodname_dotcom %}'s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update using Git. For more information about Git, see the "[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/quickstart/github-flow)."
+{% data variables.product.prodname_dotcom %}'s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update using Git. For more information about Git, see the "[Git Handbook](https://guides.github.com/introduction/git-handbook/)" guide. For more information about how Git is used on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/using-github/github-flow)."
 
 ### 2. Setting up Git
 
-If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
 If you prefer to use a visual interface, you can download and use {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} comes packaged with Git, so there is no need to install Git separately. For more information, see "[AUTOTITLE](/desktop/overview/getting-started-with-github-desktop)."
 
-Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
+Once you install Git, you can connect to {% data variables.product.product_name %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% data variables.location.product_location %} from Git, you'll need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
 
 ### 3. Choosing how to interact with {% data variables.product.product_name %}
 
@@ -106,7 +106,7 @@ With {% data variables.product.product_name %}, you can create, edit, move and d
 
 ## Part 3: Collaborating on {% data variables.product.product_name %}
 
-Any number of people can work together in repositories across {% data variables.product.product_name %}. You can configure settings, create project boards, and manage your notifications to encourage effective collaboration.
+Any number of people can work together in repositories across {% data variables.product.product_name %}. You can configure settings, create projects, and manage your notifications to encourage effective collaboration.
 
 ### 1. Working with repositories
 
@@ -130,9 +130,9 @@ If you have existing projects you'd like to move over to {% data variables.produ
 
 ### 3. Managing collaborators and permissions
 
-You can collaborate on your project with others using your repository's issues, pull requests, and project boards. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
+You can collaborate on your project with others using your repository's issues, pull requests, and {% data variables.projects.projects_v1_boards %}. You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)."
 
-You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)."
+You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository)."
 
 ### 4. Managing repository settings
 
@@ -145,13 +145,13 @@ To encourage collaborators in your repository, you need a community that encoura
 
 By adding files like contributing guidelines, a code of conduct, and a license to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
 {% endif %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 By adding files like contributing guidelines, a code of conduct, and support resources to your repository you can create an environment where it's easier for collaborators to make meaningful, useful contributions. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
 {% endif %}
 
-### 6. Using GitHub Issues and project boards
+### 6. Using {% data variables.product.prodname_github_issues %} and {% data variables.product.prodname_projects_v2 %}
 
-You can use GitHub Issues to organize your work with issues and pull requests and manage your workflow with project boards. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)" and "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+You can use {% data variables.product.prodname_github_issues %} to organize your work with issues and pull requests and manage your workflow with {% data variables.product.prodname_projects_v2 %}. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
 
 ### 7. Managing notifications
 
@@ -159,7 +159,7 @@ Notifications provide updates about the activity on {% data variables.product.pr
 
 ### 8. Working with {% data variables.product.prodname_pages %}
 
-You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)."
+You can use {% data variables.product.prodname_pages %} to create and host a website directly from a repository on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)."
 
 {% ifversion discussions %}
 

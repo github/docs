@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
   - /admin/enterprise-support/about-github-enterprise-support
@@ -100,7 +99,7 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
-{% ifversion ghec or fpt or ghae %}
+{% ifversion ghec or fpt %}
 
 ## About GitHub status
 
@@ -187,7 +186,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Resolving and closing support tickets
 

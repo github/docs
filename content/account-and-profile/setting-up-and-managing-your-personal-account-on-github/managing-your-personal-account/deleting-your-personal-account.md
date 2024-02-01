@@ -55,7 +55,7 @@ Before you delete your personal account, make a copy of all repositories, privat
 
 {% warning %}
 
-**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes or ghae %}an enterprise owner{% endif %} cannot restore your content.
+**Warning:** Once your personal account has been deleted, {% ifversion fpt or ghec %}{% data variables.product.company_short %}{% elsif ghes %}an enterprise owner{% endif %} cannot restore your content.
 
 {% endwarning %}
 
