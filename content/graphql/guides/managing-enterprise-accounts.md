@@ -6,7 +6,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 shortTitle: Manage enterprise accounts
@@ -164,9 +163,7 @@ variables {
 
 {% endif %}
 
-The next GraphQL query example shows how challenging it is to retrieve the number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
-
-{% ifversion not ghae %}
+The next GraphQL query example shows how challenging it is to retrieve the number of `public` repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
 
 ```graphql
 # Each organization is queried separately
@@ -190,35 +187,7 @@ fragment repositories on Organization {
 }
 ```
 
-{% else %}
-
-```graphql
-# Each organization is queried separately
-{
-  organizationOneAlias: organization(login: "name-of-organization-one") {
-    # How to use a fragment
-    ...repositories
-  }
-  organizationTwoAlias: organization(login: "name-of-organization-two") {
-    ...repositories
-  }
-  # organizationThreeAlias ... and so on up-to lets say 100
-}
-
-## How to define a fragment
-fragment repositories on Organization {
-  name
-  repositories(privacy: PRIVATE){
-    totalCount
-  }
-}
-```
-
-{% endif %}
-
 ## Query each organization separately
-
-{% ifversion not ghae %}
 
 ```graphql
 query publicRepositoriesByOrganization {
@@ -239,30 +208,6 @@ fragment repositories on Organization {
   }
 }
 ```
-
-{% else %}
-
-```graphql
-query privateRepositoriesByOrganization {
-  organizationOneAlias: organization(login: "<name-of-organization-one>") {
-    # How to use a fragment
-    ...repositories
-  }
-  organizationTwoAlias: organization(login: "<name-of-organization-two>") {
-    ...repositories
-  }
-  # organizationThreeAlias ... and so on up-to lets say 100
-}
-# How to define a fragment
-fragment repositories on Organization {
-  name
-  repositories(privacy: PRIVATE){
-    totalCount
-  }
-}
-```
-
-{% endif %}
 
 This GraphQL query requests the last 5 log entries for an enterprise organization. To customize this query, replace `<org-name>` and `<user-name>`.
 
