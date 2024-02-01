@@ -11,13 +11,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Apache Maven registry
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
@@ -160,7 +158,6 @@ For more information on creating a package, see the [maven.apache.org documentat
    </distributionManagement>
    ```{% endif %}
 
-{% data reusables.package_registry.checksum-maven-plugin %}
 1. Publish the package.
 
    ```shell
@@ -186,7 +183,6 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
    </dependencies>
    ```
 
-{% data reusables.package_registry.checksum-maven-plugin %}
 1. Install the package.
 
    ```shell
