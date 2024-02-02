@@ -71,7 +71,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
 
-    ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE.](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+    ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE.](/assets/images/help/copilot/disable-copilot-global-or-language-jetbrains.png)
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
@@ -233,8 +233,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
-1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
-   ![Screenshot of {% data variables.product.prodname_vs %} menu bar. In the "Tools" menu, the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
+1. In the {% data variables.product.prodname_vs %} menu bar, under **Extensions**, click **ReSharper**, then click **Options**.
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
 1. Under "General" select **{% data variables.product.prodname_vs %}** and then click **Save**.
 

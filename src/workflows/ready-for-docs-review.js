@@ -8,6 +8,8 @@ import {
   findFieldID,
   findSingleSelectID,
   generateUpdateProjectV2ItemFieldMutation,
+  getFeature,
+  getSize,
 } from './projects.js'
 
 async function run() {
@@ -77,51 +79,14 @@ async function run() {
   const hubberTypeID = findSingleSelectID('Hubber or partner', 'Contributor type', data)
   const docsMemberTypeID = findSingleSelectID('Docs team', 'Contributor type', data)
   const osContributorTypeID = findSingleSelectID('OS contributor', 'Contributor type', data)
-  const sizeXS = findSingleSelectID('XS', 'Size', data)
-  const sizeS = findSingleSelectID('S', 'Size', data)
-  const sizeM = findSingleSelectID('M', 'Size', data)
-  const sizeL = findSingleSelectID('L', 'Size', data)
 
   // Add the PR to the project
   const newItemID = await addItemToProject(process.env.ITEM_NODE_ID, projectID)
 
-  // If the item is a PR, determine the feature and size
-  let feature = ''
-  let sizeType = sizeS // We need to set something in case this is an issue
-  if (data.item.__typename === 'PullRequest') {
-    // Get the
-    // - number of files changed
-    // - total number of additions/deletions
-    // - affected docs sets (not considering changes to data/assets)
-    let numFiles = 0
-    let numChanges = 0
-    const features = new Set([])
-    data.item.files.nodes.forEach((node) => {
-      numFiles += 1
-      numChanges += node.additions
-      numChanges += node.deletions
-      // To determine the feature, we are only looking at `content/*` paths
-      // and then pulling out the second part of the path, which corresponds to the docs set
-      const pathComponents = node.path.split('/')
-      if (pathComponents[0] === 'content') {
-        features.add(pathComponents[1])
-      }
-    })
-
-    // Determine the size
-    if (numFiles < 5 && numChanges < 10) {
-      sizeType = sizeXS
-    } else if (numFiles < 10 && numChanges < 50) {
-      sizeType = sizeS
-    } else if (numFiles < 10 && numChanges < 250) {
-      sizeType = sizeM
-    } else {
-      sizeType = sizeL
-    }
-
-    // Set the feature
-    feature = Array.from(features).join()
-  }
+  // Determine the feature and size
+  const feature = getFeature(data)
+  const size = getSize(data)
+  const sizeType = findSingleSelectID(size, 'Size', data)
 
   // If this is the OS repo, determine if this is a first time contributor
   // If yes, set the author to 'first time contributor' instead of to the author login
@@ -179,7 +144,9 @@ async function run() {
   // Generate a mutation to populate fields for the new project item
   const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
     item: newItemID,
-    author: firstTimeContributor ? 'first time contributor' : process.env.AUTHOR_LOGIN,
+    author: firstTimeContributor
+      ? `${process.env.AUTHOR_LOGIN} (first time contributor)`
+      : process.env.AUTHOR_LOGIN,
     turnaround,
     feature,
   })

@@ -133,13 +133,21 @@ input AcceptTopicSuggestionInput {
 
   """
   The name of the suggested topic.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `name` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  name: String!
+  name: String
 
   """
   The Node ID of the repository.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `repositoryId` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+  repositoryId: ID @possibleTypes(concreteTypes: ["Repository"])
 }
 
 """
@@ -154,7 +162,7 @@ type AcceptTopicSuggestionPayload {
   """
   The accepted topic.
   """
-  topic: Topic
+  topic: Topic @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 }
 
 """
@@ -8897,18 +8905,30 @@ input DeclineTopicSuggestionInput {
 
   """
   The name of the suggested topic.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `name` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  name: String!
+  name: String
 
   """
   The reason why the suggested topic is declined.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `reason` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  reason: TopicSuggestionDeclineReason!
+  reason: TopicSuggestionDeclineReason
 
   """
   The Node ID of the repository.
+
+  **Upcoming Change on 2024-04-01 UTC**
+  **Description:** `repositoryId` will be removed.
+  **Reason:** Suggested topics are no longer supported
   """
-  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+  repositoryId: ID @possibleTypes(concreteTypes: ["Repository"])
 }
 
 """
@@ -8923,7 +8943,7 @@ type DeclineTopicSuggestionPayload {
   """
   The declined topic.
   """
-  topic: Topic
+  topic: Topic @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 }
 
 """
@@ -12458,6 +12478,11 @@ type Enterprise implements AnnouncementBanner & Node {
     """
     size: Int
   ): URI!
+
+  """
+  The enterprise's billing email.
+  """
+  billingEmail: String
 
   """
   Enterprise billing information visible to enterprise billing managers.
@@ -28243,6 +28268,37 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   itemShowcase: ProfileItemShowcase!
 
   """
+  Calculate how much each sponsor has ever paid total to this maintainer via
+  GitHub Sponsors. Does not include sponsorships paid via Patreon.
+  """
+  lifetimeReceivedSponsorshipValues(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for results returned from the connection.
+    """
+    orderBy: SponsorAndLifetimeValueOrder = {field: SPONSOR_LOGIN, direction: ASC}
+  ): SponsorAndLifetimeValueConnection!
+
+  """
   The organization's public profile location.
   """
   location: String
@@ -28706,9 +28762,17 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -29692,6 +29756,14 @@ type OrganizationInvitation implements Node {
   The user who created the invitation.
   """
   inviter: User!
+    @deprecated(
+      reason: "`inviter` will be removed. `inviter` will be replaced by `inviterActor`. Removal on 2024-07-01 UTC."
+    )
+
+  """
+  The user who created the invitation.
+  """
+  inviterActor: User
 
   """
   The organization the invite is for
@@ -34845,6 +34917,36 @@ enum ProjectV2WorkflowsOrderField {
 }
 
 """
+A property that must match
+"""
+type PropertyTargetDefinition {
+  """
+  The name of the property
+  """
+  name: String!
+
+  """
+  The values to match for
+  """
+  propertyValues: [String!]!
+}
+
+"""
+A property that must match
+"""
+input PropertyTargetDefinitionInput {
+  """
+  The name of the property
+  """
+  name: String!
+
+  """
+  The values to match for
+  """
+  propertyValues: [String!]!
+}
+
+"""
 A user's public key.
 """
 type PublicKey implements Node {
@@ -35272,6 +35374,16 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   isDraft: Boolean!
 
   """
+  Indicates whether the pull request is in a merge queue
+  """
+  isInMergeQueue: Boolean!
+
+  """
+  Indicates whether the pull request's base ref has a merge queue enabled.
+  """
+  isMergeQueueEnabled: Boolean!
+
+  """
   Is this pull request read by the viewer
   """
   isReadByViewer: Boolean
@@ -35380,6 +35492,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   The commit that was created when this pull request was merged.
   """
   mergeCommit: Commit
+
+  """
+  The merge queue for the pull request's base branch
+  """
+  mergeQueue: MergeQueue
 
   """
   The merge queue entry of the pull request in the base branch's merge queue
@@ -38403,7 +38520,11 @@ type Query {
     last: Int
 
     """
-    The search string to look for.
+    The search string to look for. GitHub search syntax is supported. For more
+    information, see "[Searching on
+    GitHub](https://docs.github.com/search-github/searching-on-github),"
+    "[Understanding the search syntax](https://docs.github.com/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax),"
+    and "[Sorting search results](https://docs.github.com/search-github/getting-started-with-searching-on-github/sorting-search-results)."
     """
     query: String!
 
@@ -39157,6 +39278,36 @@ type Ref implements Node {
   repository: Repository!
 
   """
+  A list of rules from active Repository and Organization rulesets that apply to this ref.
+  """
+  rules(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for repository rules.
+    """
+    orderBy: RepositoryRuleOrder = {field: UPDATED_AT, direction: DESC}
+  ): RepositoryRuleConnection
+
+  """
   The object the ref points to. Returns null when object does not exist.
   """
   target: GitObject
@@ -39655,7 +39806,7 @@ type Release implements Node & Reactable & UniformResourceLocatable {
     last: Int
 
     """
-    A list of names to filter the assets by.
+    A name to filter the assets by.
     """
     name: String
   ): ReleaseAssetConnection!
@@ -43481,9 +43632,17 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -45712,9 +45871,17 @@ interface RepositoryOwner {
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -45790,6 +45957,36 @@ enum RepositoryPrivacy {
 }
 
 """
+Parameters to be used for the repository_property condition
+"""
+type RepositoryPropertyConditionTarget {
+  """
+  Array of repository properties that must not match.
+  """
+  exclude: [PropertyTargetDefinition!]!
+
+  """
+  Array of repository properties that must match
+  """
+  include: [PropertyTargetDefinition!]!
+}
+
+"""
+Parameters to be used for the repository_property condition
+"""
+input RepositoryPropertyConditionTargetInput {
+  """
+  Array of repository properties that must not match.
+  """
+  exclude: [PropertyTargetDefinitionInput!]!
+
+  """
+  Array of repository properties that must match
+  """
+  include: [PropertyTargetDefinitionInput!]!
+}
+
+"""
 A repository rule.
 """
 type RepositoryRule implements Node {
@@ -45832,6 +46029,11 @@ type RepositoryRuleConditions {
   Configuration for the repository_name condition
   """
   repositoryName: RepositoryNameConditionTarget
+
+  """
+  Configuration for the repository_property condition
+  """
+  repositoryProperty: RepositoryPropertyConditionTarget
 }
 
 """
@@ -45852,6 +46054,11 @@ input RepositoryRuleConditionsInput {
   Configuration for the repository_name condition
   """
   repositoryName: RepositoryNameConditionTargetInput
+
+  """
+  Configuration for the repository_property condition
+  """
+  repositoryProperty: RepositoryPropertyConditionTargetInput
 }
 
 """
@@ -45912,6 +46119,41 @@ input RepositoryRuleInput {
   The type of rule to create.
   """
   type: RepositoryRuleType!
+}
+
+"""
+Ordering options for repository rules.
+"""
+input RepositoryRuleOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order repository rules by.
+  """
+  field: RepositoryRuleOrderField!
+}
+
+"""
+Properties by which repository rule connections can be ordered.
+"""
+enum RepositoryRuleOrderField {
+  """
+  Order repository rules by created time
+  """
+  CREATED_AT
+
+  """
+  Order repository rules by type
+  """
+  TYPE
+
+  """
+  Order repository rules by updated time
+  """
+  UPDATED_AT
 }
 
 """
@@ -48845,6 +49087,107 @@ Entities that can sponsor others via GitHub Sponsors
 union Sponsor = Organization | User
 
 """
+A GitHub account and the total amount in USD they've paid for sponsorships to a
+particular maintainer. Does not include payments made via Patreon.
+"""
+type SponsorAndLifetimeValue {
+  """
+  The amount in cents.
+  """
+  amountInCents: Int!
+
+  """
+  The amount in USD, formatted as a string.
+  """
+  formattedAmount: String!
+
+  """
+  The sponsor's GitHub account.
+  """
+  sponsor: Sponsorable!
+
+  """
+  The maintainer's GitHub account.
+  """
+  sponsorable: Sponsorable!
+}
+
+"""
+The connection type for SponsorAndLifetimeValue.
+"""
+type SponsorAndLifetimeValueConnection {
+  """
+  A list of edges.
+  """
+  edges: [SponsorAndLifetimeValueEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [SponsorAndLifetimeValue]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SponsorAndLifetimeValueEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: SponsorAndLifetimeValue
+}
+
+"""
+Ordering options for connections to get sponsor entities and associated USD amounts for GitHub Sponsors.
+"""
+input SponsorAndLifetimeValueOrder {
+  """
+  The ordering direction.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order results by.
+  """
+  field: SponsorAndLifetimeValueOrderField!
+}
+
+"""
+Properties by which sponsor and lifetime value connections can be ordered.
+"""
+enum SponsorAndLifetimeValueOrderField {
+  """
+  Order results by how much money the sponsor has paid in total.
+  """
+  LIFETIME_VALUE
+
+  """
+  Order results by the sponsor's login (username).
+  """
+  SPONSOR_LOGIN
+
+  """
+  Order results by the sponsor's relevance to the viewer.
+  """
+  SPONSOR_RELEVANCE
+}
+
+"""
 The connection type for Sponsor.
 """
 type SponsorConnection {
@@ -48942,6 +49285,37 @@ interface Sponsorable {
   True if the viewer is sponsored by this user/organization.
   """
   isSponsoringViewer: Boolean!
+
+  """
+  Calculate how much each sponsor has ever paid total to this maintainer via
+  GitHub Sponsors. Does not include sponsorships paid via Patreon.
+  """
+  lifetimeReceivedSponsorshipValues(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for results returned from the connection.
+    """
+    orderBy: SponsorAndLifetimeValueOrder = {field: SPONSOR_LOGIN, direction: ASC}
+  ): SponsorAndLifetimeValueConnection!
 
   """
   The estimated monthly GitHub Sponsors income for this user/organization in cents (USD).
@@ -54921,7 +55295,10 @@ type Topic implements Node & Starrable {
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
 
@@ -54929,6 +55306,11 @@ type Topic implements Node & Starrable {
     If true, only repositories whose owner can be sponsored via GitHub Sponsors will be returned.
     """
     sponsorableOnly: Boolean = false
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -54994,22 +55376,22 @@ enum TopicSuggestionDeclineReason {
   """
   The suggested topic is not relevant to the repository.
   """
-  NOT_RELEVANT
+  NOT_RELEVANT @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 
   """
   The viewer does not like the suggested topic.
   """
-  PERSONAL_PREFERENCE
+  PERSONAL_PREFERENCE @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 
   """
   The suggested topic is too general for the repository.
   """
-  TOO_GENERAL
+  TOO_GENERAL @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 
   """
   The suggested topic is too specific for the repository (e.g. #ruby-on-rails-version-4-2-1).
   """
-  TOO_SPECIFIC
+  TOO_SPECIFIC @deprecated(reason: "Suggested topics are no longer supported Removal on 2024-04-01 UTC.")
 }
 
 """
@@ -55903,6 +56285,11 @@ type UnpinIssuePayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
+
+  """
+  The id of the pinned issue that was unpinned
+  """
+  id: ID
 
   """
   The issue that was unpinned
@@ -58629,6 +59016,11 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   clientMutationId: String
 
   """
+  Count any members whose review has already been requested against the required number of members assigned to review
+  """
+  countMembersAlreadyRequested: Boolean = true
+
+  """
   Turn on or off review assignment
   """
   enabled: Boolean!
@@ -58644,9 +59036,19 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   id: ID! @possibleTypes(concreteTypes: ["Team"])
 
   """
+  Include the members of any child teams when assigning
+  """
+  includeChildTeamMembers: Boolean = true
+
+  """
   Notify the entire team of the PR if it is delegated
   """
   notifyTeam: Boolean = true
+
+  """
+  Remove the team review request when assigning
+  """
+  removeTeamRequest: Boolean = true
 
   """
   The number of team members to assign
@@ -59292,6 +59694,37 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   itemShowcase: ProfileItemShowcase!
 
   """
+  Calculate how much each sponsor has ever paid total to this maintainer via
+  GitHub Sponsors. Does not include sponsorships paid via Patreon.
+  """
+  lifetimeReceivedSponsorshipValues(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for results returned from the connection.
+    """
+    orderBy: SponsorAndLifetimeValueOrder = {field: SPONSOR_LOGIN, direction: ASC}
+  ): SponsorAndLifetimeValueConnection!
+
+  """
   A user-curated list of repositories
   """
   lists(
@@ -59770,9 +60203,17 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """
@@ -60460,9 +60901,17 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     ownerAffiliations: [RepositoryAffiliation] = [OWNER, COLLABORATOR]
 
     """
-    If non-null, filters repositories according to privacy
+    If non-null, filters repositories according to privacy. Internal
+    repositories are considered private; consider using the visibility argument
+    if only internal repositories are needed. Cannot be combined with the
+    visibility argument.
     """
     privacy: RepositoryPrivacy
+
+    """
+    If non-null, filters repositories according to visibility. Cannot be combined with the privacy argument.
+    """
+    visibility: RepositoryVisibility
   ): RepositoryConnection!
 
   """

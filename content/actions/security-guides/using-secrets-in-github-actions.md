@@ -13,10 +13,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About secrets
@@ -27,15 +26,11 @@ Secrets are variables that you create in an organization, repository, or reposit
 
 For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
 
-{% ifversion fpt or ghec or ghes %}
-
 {% note %}
 
 **Note**: {% data reusables.actions.about-oidc-short-overview %}
 
 {% endnote %}
-
-{% endif %}
 
 ### Naming your secrets
 
@@ -402,7 +397,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 
 1. Use `base64` to encode your file into a Base64 string. For example:
 
-   On MacOS, you could run:
+   On macOS, you could run:
 
    ```shell
    base64 -i cert.der -o cert.base64

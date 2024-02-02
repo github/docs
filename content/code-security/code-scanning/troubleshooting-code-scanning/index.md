@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -37,4 +36,3 @@ children:
   - /unclear-what-triggered-a-workflow
   - /unnecessary-step-found
 ---
-

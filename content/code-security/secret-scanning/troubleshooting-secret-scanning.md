@@ -6,7 +6,6 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -15,7 +14,6 @@ topics:
   - Troubleshooting
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## Detection of pattern pairs

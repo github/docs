@@ -31,7 +31,7 @@ A free subscription for {% data variables.product.prodname_copilot %} is availab
 
 ## Pricing for {% data variables.product.prodname_copilot_for_business %}
 
-The {% data variables.product.prodname_copilot_for_business %} subscription is available on a monthly cycle, and is billed at {% data variables.copilot.cfb_price_per_month %} per user per month. Billing for {% data variables.product.prodname_copilot_for_business %} is processed at the end of each billing cycle.
+The {% data variables.product.prodname_copilot_for_business %} subscription is available on a monthly cycle, and is billed at {% data variables.copilot.cfb_price_per_month %} per user per month. Billing for {% data variables.product.prodname_copilot_for_business %} is processed at the end of each billing cycle. For more information about setting up a {% data variables.product.prodname_copilot_for_business %} subscription, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise)."
 
 Billed users are calculated based on the number of assigned {% data variables.product.prodname_copilot %} seats. Any seat assigned part way through the billing cycle will be prorated based on the number of days remaining in the cycle. Any seat assignment removed during a billing cycle will take effect from the beginning of the next cycle. The person will still be able to use {% data variables.product.prodname_copilot %} until the end of the cycle.
 

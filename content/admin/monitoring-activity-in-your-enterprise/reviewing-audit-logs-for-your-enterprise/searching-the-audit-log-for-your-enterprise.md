@@ -63,38 +63,38 @@ Key            | Value
 -------------- | --------------------------------------------------------
 `action`       | Name of the audited action.
 `actor`        | Name of the user account that initiated the action.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `actor_id`     | ID of the user account that initiated the action.{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `actor_ip`     | IP address from which the action was initiated.{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `business` | Name of the enterprise affected by the action (if applicable).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `business_id` | ID of the enterprise affected by the action (if applicable).{% endif %}
 {%- ifversion token-audit-log %}
 `created`      | Time at which the action occurred.{% ifversion ghes %} If querying the audit log from the site admin dashboard, use `created_at` instead.{% endif %}
 `country`           | Name of the country where the actor was when performing the action.
 `country_code`      | Two-letter short code of the country where the actor was when performing the action.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `from`         | View from which the action was initiated.{% endif %}
 `hashed_token` | The token used to authenticate for the action (if applicable, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)"). {% endif %}
 `ip`                | IP address of the actor.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `note`         | Miscellaneous event-specific information (in either plain text or JSON format).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `oauth_app_id` | ID of the {% data variables.product.prodname_oauth_app %} associated with the action.{% endif %}
 `operation`         | Operation type that corresponds with the action. Operation types are `create`, `access`, `modify`, `remove`, `authentication`, `transfer`, and `restore`.
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `org`          | Name of the organization affected by the action (if applicable).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `org_id`       | ID of the organization affected by the action (if applicable).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `repo_id`      | ID of the repository affected by the action (if applicable).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `repository`        | Name with owner of the repository where the action occurred (such as `"octocat/octo-repo"`).{% endif %}
 {%- ifversion ghec %}
 `repository`        | Name with owner of the repository where the action occurred (such as `octocat/octo-repo`).{% endif %}
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 `user_id`      | ID of the user affected by the action.{% endif %}
 `user`         | Name of the user affected by the action.
 

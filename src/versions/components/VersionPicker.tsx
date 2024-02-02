@@ -15,7 +15,12 @@ type Props = {
 export const VersionPicker = ({ xs }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { allVersions, page, enterpriseServerVersions } = useMainContext()
+  const mainContext = useMainContext()
+  // Use TypeScript's "not null assertion" because  mainContext.page` should
+  // will present in mainContext if it's gotten to the stage of React
+  // rendering.
+  const page = mainContext.page!
+  const { allVersions, enterpriseServerVersions } = mainContext
   const { t } = useTranslation(['pages', 'picker'])
 
   if (page.applicableVersions && page.applicableVersions.length < 1) {

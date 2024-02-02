@@ -56,7 +56,7 @@ jobs:
 
       - name: Use the token
         env:
-          GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
         run: |
           gh api octocat
 ```

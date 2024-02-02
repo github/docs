@@ -5,7 +5,6 @@ intro: 'You can view details about webhook deliveries from the past {% data vari
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -89,7 +88,7 @@ Only the owner of the sponsored account can view deliveries for sponsorship webh
 
 {% endif %}
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Viewing deliveries for global webhooks
 

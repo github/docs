@@ -4,24 +4,20 @@ intro: You can create a continuous integration (CI) workflow to build and test y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
   - CI
 shortTitle: Build & test Go
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide shows you how to build, test, and publish a Go package.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
-{% endif %}
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Go. For a full list of up-to-date software and the preinstalled versions of Go, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
 
 ## Prerequisites
 
@@ -44,7 +40,7 @@ We recommend that you have a basic understanding of the Go language. For more in
 
    ![Screenshot of the "Choose a workflow" page. The "Configure" button on the "Go" workflow is highlighted with an orange outline.](/assets/images/help/actions/starter-workflow-go.png)
 
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
    If you don't find the "Go - by {% data variables.product.prodname_actions %}" starter workflow, copy the following workflow code to a new file called `go.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy

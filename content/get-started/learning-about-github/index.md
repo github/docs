@@ -22,4 +22,6 @@ children:
   - /access-permissions-on-github
   - /about-github-advanced-security
   - /faq-about-changes-to-githubs-plans
+  - /github-glossary
 ---
+

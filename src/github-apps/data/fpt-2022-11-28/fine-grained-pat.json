@@ -259,6 +259,12 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -1225,10 +1231,40 @@
   ],
   "classroom": [
     {
+      "slug": "get-an-assignment",
+      "subcategory": "classroom",
+      "verb": "get",
+      "requestPath": "/assignments/{assignment_id}"
+    },
+    {
+      "slug": "list-accepted-assignments-for-an-assignment",
+      "subcategory": "classroom",
+      "verb": "get",
+      "requestPath": "/assignments/{assignment_id}/accepted_assignments"
+    },
+    {
       "slug": "get-assignment-grades",
       "subcategory": "classroom",
       "verb": "get",
       "requestPath": "/assignments/{assignment_id}/grades"
+    },
+    {
+      "slug": "list-classrooms",
+      "subcategory": "classroom",
+      "verb": "get",
+      "requestPath": "/classrooms"
+    },
+    {
+      "slug": "get-a-classroom",
+      "subcategory": "classroom",
+      "verb": "get",
+      "requestPath": "/classrooms/{classroom_id}"
+    },
+    {
+      "slug": "list-assignments-for-a-classroom",
+      "subcategory": "classroom",
+      "verb": "get",
+      "requestPath": "/classrooms/{classroom_id}/assignments"
     }
   ],
   "code-scanning": [
@@ -1291,6 +1327,12 @@
       "subcategory": "code-scanning",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/code-scanning/codeql/databases/{language}"
+    },
+    {
+      "slug": "get-a-code-scanning-default-setup-configuration",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup"
     },
     {
       "slug": "update-a-code-scanning-default-setup-configuration",
@@ -1781,6 +1823,30 @@
       "subcategory": "copilot-business",
       "verb": "post",
       "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
+    },
+    {
+      "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
+    },
+    {
+      "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "remove-users-from-the-copilot-business-subscription-for-an-organization",
+      "subcategory": "copilot-business",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_users"
+    },
+    {
+      "slug": "get-copilot-business-seat-assignment-details-for-a-user",
+      "subcategory": "copilot-business",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/members/{username}/copilot"
     }
   ],
   "dependabot": [
@@ -2053,6 +2119,12 @@
       "subcategory": "protection-rules",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps"
+    },
+    {
+      "slug": "get-a-custom-deployment-protection-rule",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
     },
     {
       "slug": "disable-a-custom-protection-rule-for-an-environment",
@@ -3376,7 +3448,19 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
+    },
+    {
+      "slug": "get-the-status-of-a-github-pages-deployment",
+      "subcategory": "pages",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}"
+    },
+    {
+      "slug": "cancel-a-github-pages-deployment",
+      "subcategory": "pages",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel"
     },
     {
       "slug": "get-a-dns-health-check-for-github-pages",
@@ -3689,6 +3773,14 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
     }
   ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
+    }
+  ],
   "reactions": [
     {
       "slug": "delete-team-discussion-comment-reaction",
@@ -3905,7 +3997,7 @@
       "requestPath": "/repos/{owner}/{repo}/activity"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"
@@ -4088,6 +4180,12 @@
       "slug": "get-all-custom-property-values-for-a-repository",
       "subcategory": "custom-properties",
       "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
     {

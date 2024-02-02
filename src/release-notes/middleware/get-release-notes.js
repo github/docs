@@ -32,7 +32,7 @@ export function getReleaseNotes(prefix, langCode) {
   // then for each nested key, try to pull it from the translation.
   // If we encounter valid sections, use it. If not valid,
   // use the English ones.
-  // The output of `getDeepDataByLanguage()` is a mutatable object
+  // The output of `getDeepDataByLanguage()` is a mutable object
   // from a memoize cache, so don't mutate it to avoid confusing bugs.
   const translatedReleaseNotes = {}
 

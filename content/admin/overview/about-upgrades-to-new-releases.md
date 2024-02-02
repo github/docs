@@ -1,10 +1,9 @@
 ---
 title: About upgrades to new releases
 shortTitle: About upgrades
-intro: '{% ifversion ghae %}Your enterprise on {% data variables.product.product_name %} is updated with the latest features and bug fixes on a regular basis by {% data variables.product.company_short %}.{% else %}You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.{% endif %}'
+intro: 'You can benefit from new features and bug fixes for {% data variables.product.product_name %} by upgrading your enterprise to a newly released version.'
 versions:
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Enterprise
@@ -12,9 +11,9 @@ topics:
 ---
 
 
-{% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} is a fully managed service, so {% data variables.product.company_short %} completes the upgrade process for your enterprise.{% endif %}
+{% data reusables.enterprise.constantly-improving %}
 
-Feature releases include new functionality and feature upgrades and typically occur quarterly. {% ifversion ghae %}{% data variables.product.company_short %} will upgrade your enterprise to the latest feature release. You will be given advance notice of any planned downtime for your enterprise.{% endif %}
+Feature releases include new functionality and feature upgrades and typically occur quarterly.
 
 {% ifversion ghes %}
 
@@ -44,6 +43,4 @@ To upgrade your enterprise to a new release, see "[AUTOTITLE](/enterprise-server
 
 ## Further reading
 
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository{% ifversion ghae %}
-- [{% data variables.product.prodname_ghe_managed %} release notes](/admin/release-notes)
-{% endif %}
+- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository

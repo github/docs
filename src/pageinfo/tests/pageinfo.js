@@ -199,7 +199,7 @@ describe('pageinfo api', () => {
     const res = await get(makeURL('/en foo bar'))
     expect(res.statusCode).toBe(400)
     const { error } = JSON.parse(res.body)
-    expect(error).toBe("'pathname' can not contain whitespace")
+    expect(error).toBe("'pathname' cannot contain whitespace")
   })
 
   describe('translations', () => {

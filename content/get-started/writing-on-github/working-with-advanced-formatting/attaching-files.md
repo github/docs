@@ -78,7 +78,7 @@ We support these files:
 {%- endif %}
 - Log files (_.log_)
 - Markdown files (_.md_)
-- Microsoft Word (_.docx_), Powerpoint (_.pptx_), and Excel (_.xlsx_) documents
+- Microsoft Word (_.docx_), PowerPoint (_.pptx_), and Excel (_.xlsx_) documents
 - Text files (_.txt_)
 - PDFs (_.pdf_)
 - ZIP (_.zip_, _.gz_, _.tgz_){% ifversion fpt or ghec or ghes %}

@@ -101,7 +101,7 @@ export const getDataByLanguage = memoize((dottedPath, langCode) => {
 
     // What could happens is that a new key has only been added to
     // the English data/ui.yml but hasn't been added to Japanese, but
-    // there nevertheless exists a Japanse `data/ui.yml`.
+    // there nevertheless exists a Japanese `data/ui.yml`.
     // Since getDataByDir() uses `get(dataObject, 'dott.ed.path')` it
     // will return `undefined` if it's not present.
     // If this happens, we can't rely on `err.code === 'ENOENT'` to

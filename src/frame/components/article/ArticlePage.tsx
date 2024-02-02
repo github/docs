@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import cx from 'classnames'
 import { LinkExternalIcon } from '@primer/octicons-react'
 
-import { Callout } from 'src/frame/components/ui/Callout'
+import { Alert } from 'src/frame/components/ui/Alert'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { useArticleContext } from 'src/frame/components/context/ArticleContext'
@@ -57,13 +57,17 @@ export const ArticlePage = () => {
           {intro}
         </Lead>
       )}
+    </>
+  )
 
+  const introCalloutsProp = (
+    <>
       {permissions && <PermissionsStatement permissions={permissions} />}
 
       {includesPlatformSpecificContent && <PlatformPicker />}
       {includesToolSpecificContent && <ToolPicker />}
 
-      {product && <Callout className="mb-4" dangerouslySetInnerHTML={{ __html: product }} />}
+      {product && <Alert className="mb-4" html={product} />}
     </>
   )
 
@@ -107,6 +111,7 @@ export const ArticlePage = () => {
           supportPortalVaIframeProps={supportPortalVaIframeProps}
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={introProp}
+          introCallOuts={introCalloutsProp}
           toc={toc}
           breadcrumbs={<Breadcrumbs />}
         >
@@ -121,7 +126,12 @@ export const ArticlePage = () => {
           <ArticleGridLayout
             supportPortalVaIframeProps={supportPortalVaIframeProps}
             topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
+            intro={
+              <>
+                {introProp}
+                {introCalloutsProp}
+              </>
+            }
             toc={toc}
           >
             {articleContents}

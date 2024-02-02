@@ -4,7 +4,6 @@ intro: a secure intro
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

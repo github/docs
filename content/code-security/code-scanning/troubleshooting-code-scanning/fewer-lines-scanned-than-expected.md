@@ -1,12 +1,11 @@
 ---
 title: CodeQL scanned fewer lines than expected
 shortTitle: Fewer lines scanned than expected
-intro: 'If {% data variables.product.prodname_codeql %} analyzed less code than than you expected, you may need to use a custom build command.'
+intro: 'If {% data variables.product.prodname_codeql %} analyzed less code than you expected, you may need to use a custom build command.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected
