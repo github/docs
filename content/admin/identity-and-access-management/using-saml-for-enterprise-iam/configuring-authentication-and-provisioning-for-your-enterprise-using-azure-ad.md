@@ -4,7 +4,6 @@ shortTitle: Configure with Azure AD
 intro: 'You can use a tenant in Microsoft Entra ID (previously known as Azure AD) as an identity provider (IdP) to centrally manage authentication and user provisioning for {% data variables.location.product_location %}.'
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 versions:
-  ghae: '*'
   feature: scim-for-ghes
 type: how_to
 topics:
@@ -48,21 +47,7 @@ For more information about managing identity and access for your enterprise on {
 
 ## Configuring authentication and user provisioning with Entra ID
 
-{% ifversion ghae %}
-
-In your Entra ID tenant, add the application for {% data variables.product.product_name %}, then configure provisioning.
-
-1. In Entra ID, add the {% data variables.enterprise.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Microsoft Entra SSO integration with {% data variables.product.product_name %}](https://learn.microsoft.com/entra/identity/saas-apps/github-ae-tutorial) in the Microsoft Docs.
-
-1. In {% data variables.product.product_name %}, enter the details for your Entra ID tenant.
-
-    - {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
-
-    - If you've already configured SAML SSO for {% data variables.location.product_location %} using another IdP and you want to use Entra ID instead, you can edit your configuration. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#editing-the-saml-sso-configuration)."
-
-1. Enable user provisioning in {% data variables.product.product_name %} and configure user provisioning in Entra ID. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise#enabling-user-provisioning-for-your-enterprise)."
-
-{% elsif scim-for-ghes %}
+{% ifversion scim-for-ghes %}
 
 1. Configure SAML SSO for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
 1. Configure user provisioning with SCIM for your instance. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
