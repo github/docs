@@ -5,7 +5,6 @@ shortTitle: About supply chain security
 permissions: ''
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -13,7 +12,7 @@ topics:
   - Dependency graph
 ---
 
-You can allow users to identify their projects' dependencies by {% ifversion ghes %}enabling{% elsif ghae %}using{% endif %} the dependency graph for {% data variables.location.product_location %}. For more information, see "{% ifversion ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% elsif ghae %}[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph){% endif %}."
+You can allow users to identify their projects' dependencies by enabling the dependency graph for {% data variables.location.product_location %}. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
 
 {% data reusables.dependency-review.dependency-review-enabled-ghes %}
 

@@ -1,6 +1,6 @@
 ---
 title: Downloading files from GitHub
-shortTitle: Download files from GitHub
+shortTitle: Download files
 intro: 'Learn how to download files from {% data variables.product.prodname_dotcom %}, and understand the difference between downloading, cloning, and forking.'
 versions:
   fpt: '*'

@@ -37,7 +37,7 @@ featuredLinks:
     - /get-started/quickstart/hello-world
     - /get-started/getting-started-with-git/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
-    - /get-started/quickstart/github-glossary
+    - /get-started/learning-about-github/github-glossary
     - /get-started/accessibility/keyboard-shortcuts
   guideCards:
     - /get-started/learning-about-github/types-of-github-accounts
@@ -62,4 +62,6 @@ children:
   - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs
+  - /showcase-your-expertise-with-github-certifications
 ---
+

@@ -266,7 +266,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     featureFlags: {},
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
-    fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
   }
 
   if (req.context.currentLayoutName) {

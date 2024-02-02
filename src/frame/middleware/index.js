@@ -38,7 +38,6 @@ import categoriesForSupport from './categories-for-support.js'
 import triggerError from '#src/observability/middleware/trigger-error.js'
 import secretScanning from '#src/secret-scanning/middleware/secret-scanning.js'
 import ghesReleaseNotes from '#src/release-notes/middleware/ghes-release-notes.js'
-import ghaeReleaseNotes from '#src/release-notes/middleware/ghae-release-notes.js'
 import whatsNewChangelog from './context/whats-new-changelog.js'
 import layout from './context/layout.js'
 import currentProductTree from './context/current-product-tree.js'
@@ -265,7 +264,6 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
-  app.use(asyncMiddleware(ghaeReleaseNotes))
   app.use(asyncMiddleware(whatsNewChangelog))
   app.use(layout)
   app.use(features) // needs to come before product tree

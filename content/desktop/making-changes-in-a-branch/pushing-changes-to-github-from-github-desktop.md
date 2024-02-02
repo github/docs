@@ -46,6 +46,6 @@ If you configure {% data variables.large_files.product_name_long %} to track you
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/quickstart/github-glossary#push)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#push)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)"
 - "[AUTOTITLE](/get-started/using-git)"

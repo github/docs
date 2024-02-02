@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -21,7 +20,7 @@ You can choose whether members and {% data variables.product.prodname_github_app
 Organizations using {% data variables.product.prodname_ghe_cloud %} can also restrict members to creating private repositories only. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
 {% endif %}
 
-{% ifversion ghec or ghae or ghes %}
+{% ifversion ghec or ghes %}
 Enterprise owners can restrict the options you have available for your organization's repository creation policy. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
 {% endif %}
 

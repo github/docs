@@ -16,7 +16,6 @@ topics:
 shortTitle: Push protection for repositories
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## About push protection for repositories and organizations

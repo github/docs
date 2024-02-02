@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 shortTitle: About writing & formatting
 ---
-Markdown is an easy-to-read, easy-to-write syntax for formatting plain text.
+{% data reusables.getting-started.what-is-markdown %}
 
 We've added some custom functionality to create {% data variables.product.prodname_dotcom %} Flavored Markdown, used to format prose and code across our site.
 

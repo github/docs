@@ -300,13 +300,7 @@ sections:
 
   known_issues:
     - |
-      An upgrade to GitHub Enterprise Server 3.11.0 may fail, hanging on the "Reloading system services" screen. The following error will appear in `/var/log/syslog`.
-
-      ```text
-      agent: Error starting agent: error="Failed to start Consul server: Failed to start Raft: failed to load any existing snapshots"
-      ```
-
-      This issue is resolved in GitHub Enterprise Server 3.11.1. When upgrading to a release in the 3.11 series, upgrade to 3.11.1 or later. [Updated 2023-12-21]
+      {% data reusables.release-notes.2023-12-ghes-3-11-upgrade-reloading-system-services-error %} [Updated 2023-12-21]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
