@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -26,7 +25,7 @@ With SSH keys, if someone gains access to your computer, the attacker can gain a
 You can change the passphrase for an existing private key without regenerating the keypair by typing the following command:
 
 ```shell
-$ ssh-keygen -p -f ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}
+$ ssh-keygen -p -f ~/.ssh/id_ed25519
 > Enter old passphrase: [Type old passphrase]
 > Key has comment 'your_email@example.com'
 > Enter new passphrase (empty for no passphrase): [Type new passphrase]
