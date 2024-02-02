@@ -112,16 +112,6 @@ For information about permissions, see "[Permission to view data in security ove
 
 {% endif %}
 
-{% ifversion ghae < 3.8 %}
-
-## About security overview for teams
-
-You can find security overview on the **Security** tab for any team in an organization that's owned by an enterprise.
-
-At the team level, security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
-
-{% endif %}
-
 {% ifversion security-overview-org-risk-coverage %}
 
 ## Permission to view data in security overview
