@@ -66,7 +66,3 @@ Once you've created a {% data variables.product.prodname_marketplace %} draft li
 ## Submitting your app
 
 Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
-
-## Removing a {% data variables.product.prodname_marketplace %} listing
-
-If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.
