@@ -2293,7 +2293,7 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"
