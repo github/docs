@@ -400,12 +400,6 @@ Index pages are the Table of Contents files for the docs site. Every product, ca
 
 **Important note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will 404.
 
-### Homepage
-
-The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-page) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
-
-`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
-
 ### Creating new product guides pages
 
 To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
