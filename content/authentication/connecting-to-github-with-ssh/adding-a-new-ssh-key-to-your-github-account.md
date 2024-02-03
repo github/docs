@@ -21,7 +21,7 @@ shortTitle: Add a new SSH key
 
 {% ifversion ssh-commit-verification %}You can also use SSH to sign commits and tags. For more information about commit signing, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."{% endif %}
 
-After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
+After you generate an SSH key pair, you must add the public key to {% data variables.location.product_location %} to enable SSH access for your account.
 
 ## Prerequisites
 

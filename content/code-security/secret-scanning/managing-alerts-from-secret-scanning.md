@@ -19,8 +19,6 @@ topics:
 shortTitle: Manage secret alerts
 ---
 
-{% data reusables.secret-scanning.beta %}
-
 {% ifversion secret-scanning-non-provider-patterns %}
 
 ## Managing alerts from high confidence patterns

@@ -27,7 +27,7 @@ Your enterprise account on {% data variables.product.prodname_dotcom_the_website
 
 {% elsif ghes %}
 
-The enterprise account on {% ifversion ghes %}{% data variables.location.product_location_enterprise %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} allows you to manage the organizations{% ifversion ghes %} on{% elsif ghae %} owned by{% endif %} your {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise{% endif %}.
+The enterprise account on {% data variables.location.product_location %} allows you to manage the organizations on your instance.
 
 {% endif %}
 
@@ -49,11 +49,11 @@ Your enterprise account allows you to manage and enforce policies for all the or
 
 {% ifversion ghes %}
 
-From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
+From your enterprise account on a {% data variables.product.prodname_ghe_server %} instance, administrators can view{% ifversion remove-enterprise-members %} and manage{% endif %} enterprise membership{% ifversion enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following functionality for the instance.
 
 {% ifversion ghes %}
 - License usage{% endif %}
-- Security ({% ifversion ghae %}single sign-on, IP allow lists, {% endif %}SSH certificate authorities, two-factor authentication)
+- Security (SSH certificate authorities, two-factor authentication)
 - Enterprise policies for organizations owned by the enterprise account
 
 {% endif %}

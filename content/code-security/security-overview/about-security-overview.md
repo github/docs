@@ -22,8 +22,6 @@ topics:
   - Teams
 ---
 
-{% data reusables.security-overview.beta %}
-
 ## About security overview
 
 {% data reusables.security-overview.about-security-overview %} {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-security-overview).{% endif %}
@@ -111,16 +109,6 @@ As with security overview for organizations, security overview for enterprises h
 - Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.{% else %}You can view repositories owned by your enterprise that have security alerts, view all security alerts, or view security feature-specific alerts from across your enterprise.{% endif %}
 
 For information about permissions, see "[Permission to view data in security overview](#permission-to-view-data-in-security-overview)."
-
-{% endif %}
-
-{% ifversion ghae < 3.8 %}
-
-## About security overview for teams
-
-You can find security overview on the **Security** tab for any team in an organization that's owned by an enterprise.
-
-At the team level, security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
 
 {% endif %}
 

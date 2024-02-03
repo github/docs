@@ -16,10 +16,6 @@ topics:
   - Teams
 ---
 
-{% ifversion ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
-
 ## About enabling security features
 
 If you're a security manager, repository administrator, or organization owner, you can use security overview to enable or disable security features for multiple repositories at the same time. You can enable or disable security features for all repositories visible on the "Security coverage" view in security overview for an organization.

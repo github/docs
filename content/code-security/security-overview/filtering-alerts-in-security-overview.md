@@ -19,10 +19,6 @@ redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
 ---
 
-{% ifversion ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
-
 ## About filtering security overview
 
 You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view{% ifversion ghec or ghes %} and whether you are viewing data at the enterprise or organization level{% endif %}.
@@ -150,8 +146,6 @@ These qualifiers are available in the main summary views{% ifversion security-ov
 {% ifversion security-overview-dashboard %}
 
 ## Additional filters for security overview dashboard (beta)
-
-{% data reusables.security-overview.beta %}
 
 You can filter the "Overview" dashboard (beta) to narrow the scope of the metrics shown, so that you can view trends for specific repository or alert types. For more information on the overview dashboard, see "[AUTOTITLE](/code-security/security-overview/viewing-security-insights-for-your-organization)."
 

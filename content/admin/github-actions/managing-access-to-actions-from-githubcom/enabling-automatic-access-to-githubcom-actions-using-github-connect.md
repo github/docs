@@ -7,7 +7,6 @@ redirect_from:
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -15,7 +14,7 @@ topics:
   - GitHub Connect
 shortTitle: Use GitHub Connect for actions
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions
@@ -30,8 +29,7 @@ Alternatively, if you want stricter control over which actions are allowed in yo
 
 {% data reusables.actions.github-connect-resolution %}
 
-If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. {% ifversion ghae %}A malicious user could take advantage of this behavior to run code as part of a workflow.{% else %}For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
-{% endif %}
+If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
 
 ## Enabling automatic access to public {% data variables.product.prodname_dotcom_the_website %} actions
 

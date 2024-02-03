@@ -42,6 +42,17 @@ A NIC enables an Azure virtual machine (VM) to communicate with internet, Azure,
 1. The runner sends logs back to the {% data variables.product.prodname_actions %} service.
 1. The NIC accesses on-premise resources.
 
+## About the {% data variables.product.prodname_actions %} service permissions
+
+In order to successfully deploy a NIC and join a NIC to a subnet, the {% data variables.product.prodname_actions %} service maintains the following permissions in your Azure subscription.
+
+- Create deployments
+- Read/write/delete NICs
+- Join/read network security groups (NSGs)
+- Read/write/join public IPs
+- Read virtual networks
+- Read/write/join subnet
+
 ## Using your VNET's network policies
 
 Because the {% data variables.product.company_short %}-hosted runner's NIC is deployed into your Azure VNET, networking policies applied to the VNET also apply to the runner.
