@@ -17,6 +17,8 @@ You can either set up a {% data variables.product.prodname_copilot %} subscripti
 
 {% data reusables.copilot.tp-users-trial-eligibility %}{% endif %}
 
+{% data variables.product.prodname_copilot %} billing operates in Coordinated Universal Time (UTC), so you may need to convert this to your own time zone. For example, if you're billed through Azure and see a usage update at 7:00 PM EST on December 1st, {% data variables.product.prodname_copilot %} might show it as 12:00 AM UTC on December 2nd. Remember, if you cancel a seat, it ends in the billing cycle you request it, avoiding extra charges despite time zone differences.
+
 {% data reusables.billing.billing-info %}
 
 ## Pricing for {% data variables.product.prodname_copilot_for_individuals %}
