@@ -30,7 +30,7 @@ When you specify content exclusions it has two effects:
 - The content of the affected files will not be used by {% data variables.product.prodname_copilot %} to inform the code completion suggestions it makes in other files.
 - {% data variables.product.prodname_copilot %} code completion will not be available in the affected files.
 
-{% data reusables.copilot.content-exclusions-delay %} For more information, see "[Propagating content exclusion changes to {% data variables.product.prodname_vscode_shortname %}](#propagating-content-exclusion-changes-to-vs-code)."
+{% data reusables.copilot.content-exclusions-delay %} For more information, see "[Propagating content exclusion changes to your IDE](#propagating-content-exclusion-changes-to-your-ide)."
 
 ### Limitations
 

@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
@@ -25,11 +24,5 @@ Alternatively, you can download the latest version of the public schema here:
 {% ifversion ghes %}
 
 [{% octicon "desktop-download" aria-label="Download" %} `schema.docs-enterprise.graphql`](/public/ghes-{{ allVersions[currentVersion].currentRelease }}/schema.docs-enterprise.graphql) ({{ allVersions[currentVersion].versionTitle }})
-
-{% endif %}
-
-{% ifversion ghae %}
-
-[{% octicon "desktop-download" aria-label="Download" %} `schema.docs-ghae.graphql`](/public/ghae/schema.docs-ghae.graphql) ({{ allVersions[currentVersion].versionTitle }})
 
 {% endif %}
