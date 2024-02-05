@@ -44,7 +44,7 @@ const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
 )
 
 // Combine all the things you need to make sure the response is
-// aggresively cached.
+// aggressively cached.
 const cacheAggressively = (res) => {
   archivedCacheControl(res)
 
@@ -112,7 +112,7 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     })
     const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
     const newRedirectTo = redirectJson[withoutLanguage]
-    if (newRedirectTo) {
+    if (newRedirectTo && newRedirectTo !== withoutLanguage) {
       if (redirectCode === 302) {
         languageCacheControl(res) // call first to get `vary`
       }

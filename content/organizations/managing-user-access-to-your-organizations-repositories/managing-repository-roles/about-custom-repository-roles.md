@@ -27,10 +27,10 @@ After you create a custom role, anyone with admin access to a repository can ass
 
 You can also use the REST API to create and manage custom repository roles. For more information, see "[AUTOTITLE](/rest/orgs/custom-roles)."
 
-{% elsif ghes < 3.8 %}
+{% endif %}
 
-You can also use the REST API to list the custom repository roles available in your organization. For more information, see "[AUTOTITLE](/rest/orgs/custom-roles)."
-
+{% ifversion custom-org-roles %}
+Custom repository roles manage access to repositories in your organization. To granularly control access to your organization's administration settings, you can use custom organization roles. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
 {% endif %}
 
 ## About the inherited role

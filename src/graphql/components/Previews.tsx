@@ -2,10 +2,10 @@ import React from 'react'
 import GithubSlugger from 'github-slugger'
 import cx from 'classnames'
 
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { PreviewT } from './types'
-import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
+import styles from 'src/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 type Props = {
   schema: PreviewT[]

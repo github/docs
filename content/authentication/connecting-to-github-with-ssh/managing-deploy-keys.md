@@ -94,6 +94,8 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 1. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 1. Click **Add key**.
 
+You can also use the REST API to create deploy keys. For more information, see "[AUTOTITLE](/rest/deploy-keys/deploy-keys)."
+
 ### Using multiple repositories on one server
 
 If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
@@ -154,7 +156,7 @@ For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating
 
 ## Machine users
 
-If your server needs to access multiple repositories, you can create a new account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} and attach an SSH key that will be used exclusively for automation. Since this account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
+If your server needs to access multiple repositories, you can create a new account on {% data variables.location.product_location %} and attach an SSH key that will be used exclusively for automation. Since this account on {% data variables.location.product_location %} won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
 
 {% ifversion fpt or ghec %}
 

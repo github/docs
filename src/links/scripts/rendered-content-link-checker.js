@@ -332,6 +332,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
         )
       }
     }
+    process.exit(1)
   } else {
     // It might be that the PR got a comment about >0 flaws before,
     // and now it can update that comment to say all is well again.
@@ -578,7 +579,9 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
   try {
     html = await renderInnerHTML(page, permalink)
   } catch (error) {
-    console.warn(`The error happened trying to render ${page.relativePath}`)
+    console.warn(
+      `The error happened trying to render ${page.relativePath} (permalink: ${permalink.href})`,
+    )
     throw error
   }
   const $ = cheerio.load(html, { xmlMode: true })

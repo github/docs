@@ -1,35 +1,33 @@
 ---
 title: GitHub REST API documentation
 shortTitle: REST API
-intro: >-
-  To create integrations, retrieve data, and automate your workflows, build with
-  the {% data variables.product.prodname_dotcom %} REST API.
+intro: 'Create integrations, retrieve data, and automate your workflows with the {% data variables.product.prodname_dotcom %} REST API.'
 introLinks:
+  overview: /rest/about-the-rest-api/about-the-rest-api
   quickstart: /rest/quickstart
-  overview: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
   startHere:
-    - /rest/guides/getting-started-with-the-rest-api
-    - /rest/overview/authenticating-to-the-rest-api
-    - /rest/guides/best-practices-for-using-the-rest-api
-    - /rest/guides/using-pagination-in-the-rest-api
+    - /rest/about-the-rest-api/about-the-rest-api
+    - /rest/using-the-rest-api/getting-started-with-the-rest-api
+    - /rest/authentication/authenticating-to-the-rest-api
+    - /rest/using-the-rest-api/best-practices-for-using-the-rest-api
   popular:
-    - /rest/overview/rate-limits-for-the-rest-api
-    - /rest/overview/api-versions
-    - /rest/overview/authenticating-to-the-rest-api
-    - /rest/overview/troubleshooting
+    - /rest/using-the-rest-api/rate-limits-for-the-rest-api
+    - /rest/using-the-rest-api/troubleshooting-the-rest-api
     - /rest/guides/scripting-with-the-rest-api-and-javascript
-    - /rest/overview/keeping-your-api-credentials-secure
+    - /rest/authentication/keeping-your-api-credentials-secure
   guideCards:
     - /rest/guides/delivering-deployments
     - /rest/guides/using-the-rest-api-to-interact-with-checks
-    - /rest/guides/using-pagination-in-the-rest-api
+    - /rest/using-the-rest-api/using-pagination-in-the-rest-api
 changelog:
   label: 'api, apis'
 layout: product-landing
 redirect_from:
   - /v3
   - /rest/reference
+  - /rest/overview
+  - /developers/overview
 versions:
   fpt: '*'
   ghes: '*'
@@ -37,7 +35,9 @@ versions:
   ghec: '*'
 children:
   - /quickstart
-  - /overview
+  - /about-the-rest-api
+  - /using-the-rest-api
+  - /authentication
   - /guides
   - /actions
   - /activity

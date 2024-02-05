@@ -40,6 +40,18 @@ gh extension install REPO
 
 If you already have an extension by the same name installed, the command will fail. For example, if you have installed `octocat/gh-whoami`, you must uninstall it before installing `hubot/gh-whoami`.
 
+## Running an extension
+
+When you have installed an extension, you run the extension as you would run a native {% data variables.product.prodname_cli %} command, using `gh EXTENSION-NAME`. The `EXTENSION-NAME` is the name of the repository that contains the extension, minus the `gh-` prefix.
+
+For example, if you installed the extension from the `octocat/gh-whoami` repository, you would run the extension with the following command.
+
+``` shell
+gh whoami
+```
+
+You can usually find specific information about how to use an extension in the README of the repository that contains the extension.
+
 ## Viewing installed extensions
 
 To view all installed extensions, use the `extensions list` subcommand. The output will also tell you which extensions have updates available.

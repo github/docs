@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -23,10 +22,7 @@ shortTitle: Build & test Python
 
 This guide shows you how to build, test, and publish a Python package.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %} {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
-{% endif %}
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
 
 ## Prerequisites
 
@@ -51,7 +47,7 @@ We recommend that you have a basic understanding of Python, and pip. For more in
 1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Python application".
 1. On the "Python application" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 
    If you don't find the "Python application" starter workflow, copy the following workflow code to a new file called `python-app.yml` in the `.github/workflows` directory of your repository.
 

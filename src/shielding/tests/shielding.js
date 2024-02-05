@@ -1,6 +1,5 @@
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-// import { setFastlySurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
@@ -36,10 +35,59 @@ describe('junk paths', () => {
     },
   )
 
+  test('just _next', async () => {
+    const res = await get('/_next')
+    expect(res.statusCode).toBe(404)
+  })
+
+  test('with a starting /en/ but with a junk end', async () => {
+    const res = await get('/en/package-lock.json')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch('text/plain')
+  })
+})
+
+describe('index.md and .md suffixes', () => {
   test('any URL that ends with /index.md redirects', async () => {
-    const res = await get('/en/get-started/index.md')
-    expect(res.statusCode).toBe(302)
-    expect(res.headers.location).toBe('/en/get-started')
+    // With language prefix
+    {
+      const res = await get('/en/get-started/index.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started')
+    }
+    // Without language prefix
+    {
+      const res = await get('/get-started/index.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started')
+    }
+    // With query string
+    {
+      const res = await get('/get-started/index.md?foo=bar')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started?foo=bar')
+    }
+  })
+
+  test('any URL that ends with /.md redirects', async () => {
+    // With language prefix
+    {
+      const res = await get('/en/get-started/hello.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started/hello')
+    }
+    // Without language prefix
+    {
+      const res = await get('/get-started/hello.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started/hello')
+    }
+    // With query string
+    {
+      const res = await get('/get-started/hello.md?foo=bar')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started/hello?foo=bar')
+    }
   })
 })
 

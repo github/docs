@@ -40,13 +40,15 @@ Organization owners and security managers can set {% data variables.dependabot.c
 
 You can create rules to target alerts using the following metadata:
 
-- Dependency scope (`devDependency` or `runtime`)
-- Package name
+- CVE ID
 - CWE
-- Severity
-- Patch availability
-- Manifest path (for repository-level rules only)
+- Dependency scope (`devDependency` or `runtime`)
 - Ecosystem
+- GHSA ID
+- Manifest path (for repository-level rules only)
+- Package name
+- Patch availability
+- Severity
 
 ### Understanding how {% data variables.dependabot.custom_rules %} and {% data variables.product.prodname_dependabot_security_updates %} interact
 

@@ -5,8 +5,8 @@ import {
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+} from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import type { SearchT } from 'src/search/components/types'
 import { Search } from 'src/search/components/index'
 
@@ -28,18 +28,6 @@ export default function Page({ mainContext, search }: Props) {
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const req = context.req as any
   const res = context.res as any
-
-  const version = req.context.currentVersion
-
-  const searchVersion = req.context.searchVersions[Array.isArray(version) ? version[0] : version]
-  if (!searchVersion) {
-    // E.g. someone loaded `/en/enterprisy-server@2.99/search`
-    // That's going to 404 in the XHR later but it simply shouldn't be
-    // a valid starting page.
-    return {
-      notFound: true,
-    }
-  }
 
   const mainContext = await getMainContext(req, res)
   addUINamespaces(req, mainContext.data.ui, ['search_results'])

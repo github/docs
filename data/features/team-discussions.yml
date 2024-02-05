@@ -2,4 +2,3 @@
 # Versions for which team discussions is still supported (deprecated for all other versions)
 versions:
   ghes: '<3.12'
-  ghae: '*'

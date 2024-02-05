@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -57,16 +56,6 @@ Rename this folder `codeql-repo` to avoid conflicting with the {% data variables
 clone and rename the repository in a single step by running
 `git clone git@github.com:github/codeql.git codeql-repo` in the `codeql-home` folder.
 
-{% ifversion ghae < 3.6 %}
-{% note %}
-
-**Note:** The {% data variables.product.prodname_codeql %} libraries and queries for Go analysis used to live in a separate [{% data variables.product.prodname_codeql %} for Go repository](https://github.com/github/codeql-go/). These have been moved to the `github/codeql` repository. It is no longer necessary to clone the `github/codeql-go` into a separate `codeql-home/codeql-go` folder.
-
-For more information, see the [Relocation announcement](https://github.com/github/codeql-go/issues/741).
-
-{% endnote %}
-{% endif %}
-
 {% ifversion codeql-packs %}
 
 Within this repository, the queries and libraries are organized into {% data variables.product.prodname_codeql %}
@@ -116,9 +105,9 @@ If you want to use the latest {% data variables.product.prodname_codeql %} featu
 
 ## Downloading databases from {% data variables.product.prodname_dotcom_the_website %}
 
-{% data variables.product.prodname_dotcom %} stores {% data variables.product.prodname_codeql %} databases for over 200,000 repos on {% data variables.product.prodname_dotcom_the_website %}, which you can download using the REST API. The list of repos is constantly growing and evolving to make sure that it includes the most interesting codebases for security research.
+{% data variables.product.prodname_dotcom %} stores {% data variables.product.prodname_codeql %} databases for over 200,000 repositories on {% data variables.product.prodname_dotcom_the_website %}, which you can download using the REST API. The list of repositories is constantly growing and evolving to make sure that it includes the most interesting codebases for security research.
 
-You can also analyze databases from {% data variables.product.prodname_dotcom_the_website %} using the {% data variables.product.prodname_codeql %} for VS Code extension. For more information, see "[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects)."
+You can also analyze databases from {% data variables.product.prodname_dotcom_the_website %} using the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension. For more information, see "[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects)."
 
 You can check if a repository has any {% data variables.product.prodname_codeql %} databases available for download using the `/repos/<owner>/<repo>/code-scanning/codeql/databases` endpoint. For example, to check for {% data variables.product.prodname_codeql %} databases using the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_api) you would run:
 

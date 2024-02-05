@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -17,7 +16,7 @@ topics:
   - Docker
 layout: inline
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -91,19 +90,19 @@ jobs:
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
-      
+
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
-      
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: my-docker-hub-namespace/my-docker-hub-repository
-      
+
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
@@ -142,9 +141,9 @@ The `build-push-action` options required for {% data variables.product.prodname_
 - `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
 - `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}
 - `tags`: Must be set in the format {% ifversion ghes %}`{% data reusables.package_registry.container-registry-hostname %}/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
-  
+
    For example, for an image named `octo-image` stored on {% data variables.product.prodname_ghe_server %} at `https://HOSTNAME/octo-org/octo-repo`, the `tags` option should be set to `{% data reusables.package_registry.container-registry-hostname %}/octo-org/octo-repo/octo-image:latest`{% else %}`docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION`.
-  
+
    For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `tags` option should be set to `docker.pkg.github.com/octo-org/octo-repo/octo-image:latest`{% endif %}. You can set a single tag as shown below, or specify multiple tags in a list.{% endif %}
 
 {% ifversion fpt or ghec or ghes %}
@@ -174,22 +173,22 @@ jobs:
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
-      
+
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
-          registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
+          registry: docker.pkg.github.com
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-      
+
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
           push: true
           tags: |
-            {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
-            {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
+            docker.pkg.github.com{% raw %}/${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
+            docker.pkg.github.com{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
 The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
@@ -226,28 +225,28 @@ jobs:
     steps:
       - name: Check out the repo
         uses: {% data reusables.actions.action-checkout %}
-      
+
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
           username: {% raw %}${{ secrets.DOCKER_USERNAME }}{% endraw %}
           password: {% raw %}${{ secrets.DOCKER_PASSWORD }}{% endraw %}
-      
+
       - name: Log in to the {% ifversion fpt or ghec or ghes %}Container{% else %}Docker{% endif %} registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
-          registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghae %}docker.YOUR-HOSTNAME.com{% elsif ghes %}{% data reusables.package_registry.container-registry-hostname %}{% else %}docker.pkg.github.com{% endif %}
+          registry: {% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-hostname %}{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-      
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: |
             my-docker-hub-namespace/my-docker-hub-repository
-            {% ifversion fpt or ghec or ghes %}{% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}{% elsif ghae %}{% raw %}docker.YOUR-HOSTNAME.com/${{ github.repository }}/my-image{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
-      
+            {% ifversion fpt or ghec or ghes %}{% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}{% else %}{% raw %}docker.pkg.github.com/${{ github.repository }}/my-image{% endraw %}{% endif %}
+
       - name: Build and push Docker images
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:

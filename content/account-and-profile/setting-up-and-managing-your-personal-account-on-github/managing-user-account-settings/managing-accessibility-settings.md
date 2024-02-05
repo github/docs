@@ -12,9 +12,9 @@ type: how_to
 
 ## About accessibility settings
 
-To create an experience on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
+To create an experience on {% data variables.location.product_location %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.product_name %} clashes with another application shortcut.
 
-You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.location.product_location %}{% elsif ghes or ghae %}the website for {% data variables.location.product_location %}{% endif %} and you can also control the display of animated images{% ifversion link-underlines %} and how links are displayed{% endif %}.
+You can decide whether you want to use some or all keyboard shortcuts on {% ifversion fpt or ghec %}{% data variables.location.product_location %}{% elsif ghes %}the website for {% data variables.location.product_location %}{% endif %} and you can also control the display of animated images{% ifversion link-underlines %} and how links are displayed{% endif %}.
 
 {% ifversion link-underlines %}
 
@@ -31,17 +31,17 @@ You can control whether links in text blocks on {% data variables.location.produ
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
 1. Under "Content", manage settings for link appearance.
-  
+
     - To enable underlines on links in text blocks, under "Link underlines", select **Show link underlines**.
     - To disable underlines on links in text blocks, under "Link underlines", select **Hide link underlines**.
-  
+
 {% endif %}
 
 ## Managing keyboard shortcuts
 
 You can perform actions across the {% data variables.product.product_name %} website by using your keyboard alone. Keyboard shortcuts can be useful to save time, but can be activated accidentally or interfere with assistive technology.
 
-By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
+By default, all keyboard shortcuts are enabled on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts)."
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
@@ -50,7 +50,7 @@ By default, all keyboard shortcuts are enabled on {% data variables.product.prod
    - To disable shortcut keys that don't use modifiers keys like <kbd>Control</kbd> or <kbd>Command</kbd>, under "General", deselect **Character keys**.
      - If you disable character keys, you may still be able to trigger shortcuts for your web browser, and you can still trigger shortcuts for {% data variables.product.product_name %} that use a modifier key.
    {%- ifversion command-palette %}
-   - To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[AUTOTITLE](/get-started/using-github/github-command-palette)."
+   - To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
    {%- endif %}
 
 {% ifversion motion-management %}

@@ -84,6 +84,10 @@ export async function addItemToProject(item, project) {
 // Given a GitHub login, returns a bool indicating
 // whether the login is part of the docs team
 export async function isDocsTeamMember(login) {
+  // Returns true if login is docs-bot, to bypass the checks and make PRs opened by docs-bot be treated as though they were made by a docs team member
+  if (login === 'docs-bot') {
+    return true
+  }
   // Get all members of the docs team
   const data = await graphql(
     `
@@ -269,6 +273,116 @@ export function generateUpdateProjectV2ItemFieldMutation({
   return mutation
 }
 
+// Guess the affected docs sets based on the files that the PR changed
+export function getFeature(data) {
+  // For issues, just use an empty string
+  if (data.item.__typename !== 'PullRequest') {
+    return ''
+  }
+
+  const paths = data.item.files.nodes.map((node) => node.path)
+
+  // For docs and docs-internal and docs-early-access PRs,
+  // determine the affected docs sets by looking at which
+  // directories under `content/` were affected.
+  // (Ignores changes to the data files.)
+  if (
+    process.env.REPO === 'github/docs-internal' ||
+    process.env.REPO === 'github/docs' ||
+    process.env.REPO === 'github/docs-early-access'
+  ) {
+    const features = new Set([])
+    paths.forEach((path) => {
+      const pathComponents = path.split('/')
+      if (pathComponents[0] === 'content') {
+        features.add(pathComponents[1])
+      }
+    })
+    const feature = Array.from(features).join()
+
+    return feature
+  }
+
+  // for github/github PRs, try to classify the OpenAPI files
+  if (process.env.REPO === 'github/github') {
+    const features = new Set([])
+    if (paths.some((path) => path.startsWith('app/api/description'))) {
+      features.add('OpenAPI')
+      paths.forEach((path) => {
+        if (path.startsWith('app/api/description/operations')) {
+          features.add(path.split('/')[4])
+          features.add('rest')
+        }
+        if (path.startsWith('app/api/description/webhooks')) {
+          features.add(path.split('/')[4])
+          features.add('webhooks')
+        }
+        if (path.startsWith('app/api/description/components/schemas/webhooks')) {
+          features.add('webhooks')
+        }
+      })
+    }
+
+    const feature = Array.from(features).join()
+
+    return feature
+  }
+
+  if (process.env.REPO === 'github/docs-strategy') {
+    return 'CD plan'
+  }
+
+  return ''
+}
+
+// Guess the size of an item
+export function getSize(data) {
+  // We need to set something in case this is an issue, so just guesstimate small
+  if (data.item.__typename !== 'PullRequest') {
+    return 'S'
+  }
+
+  // for github/github PRs, estimate the size based on the number of OpenAPI files that were changed
+  if (process.env.REPO === 'github/github') {
+    let numFiles = 0
+    let numChanges = 0
+    data.item.files.nodes.forEach((node) => {
+      if (node.path.startsWith('app/api/description')) {
+        numFiles += 1
+        numChanges += node.additions
+        numChanges += node.deletions
+      }
+    })
+    if (numFiles < 5 && numChanges < 10) {
+      return 'XS'
+    } else if (numFiles < 10 && numChanges < 50) {
+      return 'S'
+    } else if (numFiles < 10 && numChanges < 250) {
+      return 'M'
+    } else {
+      return 'L'
+    }
+  } else {
+    // Otherwise, estimated the size based on all files
+    let numFiles = 0
+    let numChanges = 0
+    data.item.files.nodes.forEach((node) => {
+      numFiles += 1
+      numChanges += node.additions
+      numChanges += node.deletions
+    })
+    if (numFiles < 5 && numChanges < 10) {
+      return 'XS'
+    } else if (numFiles < 10 && numChanges < 50) {
+      return 'S'
+    } else if (numFiles < 10 && numChanges < 250) {
+      return 'M'
+    } else {
+      return 'L'
+    }
+  }
+}
+
 export default {
   addItemsToProject,
   addItemToProject,
@@ -279,4 +393,6 @@ export default {
   formatDateForProject,
   calculateDueDate,
   generateUpdateProjectV2ItemFieldMutation,
+  getFeature,
+  getSize,
 }

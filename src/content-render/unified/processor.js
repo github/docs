@@ -25,6 +25,7 @@ import rewriteForRowheaders from './rewrite-for-rowheaders.js'
 import wrapProceduralImages from './wrap-procedural-images.js'
 import parseInfoString from './parse-info-string.js'
 import annotate from './annotate.js'
+import alerts from './alerts.js'
 
 export function createProcessor(context) {
   return (
@@ -45,6 +46,18 @@ export function createProcessor(context) {
       .use(highlight, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,
+        aliases: {
+          // As of Jan 2024, 'jsonc' is not supported by highlight.js. It
+          // just because plain text.
+          // But 'jsonc' works great in github.com. For example, when
+          // previewing and edited .md content in the browser. Or viewing
+          // PR diffs in web view.
+          // So by sticking to 'jsonc' where there's JSON with comments,
+          // it's technically more correct, looks good in github.com,
+          // but with this alias you get the nice syntax highlighting when
+          // viewed on our site.
+          json: 'jsonc',
+        },
       })
       .use(raw)
       .use(wrapProceduralImages)
@@ -53,6 +66,7 @@ export function createProcessor(context) {
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
       .use(rewriteLocalLinks, context)
+      .use(alerts)
       // HTML AST above ^^^
       .use(html)
     // String below vvv

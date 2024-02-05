@@ -5,7 +5,7 @@ import cx from 'classnames'
 
 import type { SearchResultsT, SearchResultHitT, SearchQueryT } from './types'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './SearchResults.module.scss'
@@ -72,6 +72,13 @@ function SearchResultHit({
   const title =
     hit.highlights.title && hit.highlights.title.length > 0 ? hit.highlights.title[0] : hit.title
 
+  let content = ''
+  if (hit.highlights.content_explicit?.length) {
+    content = hit.highlights.content_explicit[0]
+  } else if (hit.highlights.content?.length) {
+    content = hit.highlights.content[0]
+  }
+
   return (
     <div className={cx('my-6', styles.search_result)} data-testid="search-result">
       <p className="text-normal f5 color-fg-muted" style={{ wordSpacing: 2 }}>
@@ -99,9 +106,7 @@ function SearchResultHit({
           }}
         ></Link>
       </h2>
-      {hit.highlights.content && hit.highlights.content.length > 0 && (
-        <div dangerouslySetInnerHTML={{ __html: hit.highlights.content[0] }}></div>
-      )}
+      {content && <div dangerouslySetInnerHTML={{ __html: content }}></div>}
       {debug && (
         <Text as="p" fontWeight="bold">
           score: <code style={{ marginRight: 10 }}>{hit.score}</code> popularity:{' '}

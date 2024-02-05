@@ -47,7 +47,6 @@ Once you've installed Node.js (which includes the popular `npm` package manager)
 git clone https://github.com/github/docs
 cd docs
 npm ci
-npm run build
 npm start
 ```
 
@@ -92,6 +91,6 @@ For more information about using a codespace for working on {% data variables.pr
 ## Further reading
 
 - [AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content)
-- [Components](https://github.com/github/docs/blob/main/components/README.md)
+- [Components](https://github.com/github/docs/blob/main/src/frame/components/README.md)
 - [Data](https://github.com/github/docs/blob/main/data/README.md)
-- [Tests](https://github.com/github/docs/blob/main/tests/README.md)
+- [Tests](https://github.com/github/docs/blob/main/src/tests/README.md)

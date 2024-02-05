@@ -12,9 +12,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "actions",
@@ -44,6 +42,28 @@
         "subcategory": "audit-log",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/audit-log",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-enterprise-consumed-licenses",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/consumed-licenses",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-license-sync-status",
+        "subcategory": "license",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/license-sync-status",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -229,9 +249,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "enterprise_administration"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -242,9 +260,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_custom_roles"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -468,9 +484,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_custom_roles"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -481,9 +495,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_custom_roles"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -494,9 +506,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_custom_roles"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -507,9 +517,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_custom_roles"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -551,6 +559,17 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/interaction-limits",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
+        "subcategory": "custom-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/repository-fine-grained-permissions",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -772,6 +791,78 @@
       }
     ]
   },
+  "organization_custom_org_roles": {
+    "title": "Custom organization roles",
+    "displayTitle": "Organization permissions for \"Custom organization roles\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "list-organization-fine-grained-permissions-for-an-organization",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-fine-grained-permissions",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-all-organization-roles-for-an-organization",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "create-a-custom-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/organization-roles",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "get-an-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "update-a-custom-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-a-custom-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      }
+    ]
+  },
   "organization_custom_properties": {
     "title": "Custom properties",
     "displayTitle": "Organization permissions for \"Custom properties\"",
@@ -868,9 +959,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -881,9 +970,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -905,9 +992,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -951,9 +1036,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "orgs",
@@ -986,9 +1069,18 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
+        "subcategory": "custom-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/repository-fine-grained-permissions",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       }
     ]
   },
@@ -1010,13 +1102,13 @@
     ]
   },
   "organization_copilot_seat_management": {
-    "title": "GitHub Copilot for Business",
-    "displayTitle": "Organization permissions for \"GitHub Copilot for Business\"",
+    "title": "GitHub Copilot Business",
+    "displayTitle": "Organization permissions for \"GitHub Copilot Business\"",
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing",
         "access": "write",
@@ -1026,8 +1118,8 @@
       },
       {
         "category": "copilot",
-        "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing/seats",
         "access": "write",
@@ -1037,10 +1129,54 @@
       },
       {
         "category": "copilot",
-        "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
-        "subcategory": "copilot-for-business",
+        "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
         "verb": "post",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-users-from-the-copilot-business-subscription-for-an-organization",
+        "subcategory": "copilot-business",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-business-seat-assignment-details-for-a-user",
+        "subcategory": "copilot-business",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/members/{username}/copilot",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -1191,6 +1327,94 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/memberships/{username}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-all-organization-roles-for-a-team",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "assign-an-organization-role-to-a-team",
+        "subcategory": "organization-roles",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-an-organization-role-from-a-team",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/teams/{team_slug}/{role_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-all-organization-roles-for-a-user",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/users/{username}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "assign-an-organization-role-to-a-user",
+        "subcategory": "organization-roles",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "remove-an-organization-role-from-a-user",
+        "subcategory": "organization-roles",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/organization-roles/users/{username}/{role_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-teams-that-are-assigned-to-an-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}/teams",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-users-that-are-assigned-to-an-organization-role",
+        "subcategory": "organization-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/organization-roles/{role_id}/users",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -1950,9 +2174,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -1963,9 +2185,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -1976,9 +2196,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -1989,9 +2207,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2002,9 +2218,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2015,9 +2229,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2028,9 +2240,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2041,9 +2251,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2054,9 +2262,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2067,9 +2273,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2080,9 +2284,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2093,9 +2295,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2106,9 +2306,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2119,9 +2317,7 @@
         "access": "admin",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2132,9 +2328,7 @@
         "access": "admin",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2145,9 +2339,7 @@
         "access": "admin",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2158,9 +2350,7 @@
         "access": "admin",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2171,9 +2361,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -2184,9 +2372,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "repository_projects"
-        ]
+        "additional-permissions": []
       }
     ]
   },
@@ -2698,6 +2884,19 @@
         "slug": "add-selected-repository-to-an-organization-variable",
         "subcategory": "variables",
         "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "metadata"
+        ]
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
         "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
         "access": "write",
         "user-to-server": true,
@@ -3336,6 +3535,17 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "deployments",
+        "slug": "get-a-custom-deployment-protection-rule",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       }
     ]
   },
@@ -3598,7 +3808,7 @@
       },
       {
         "category": "repos",
-        "slug": "list-all-autolinks-of-a-repository",
+        "slug": "get-all-autolinks-of-a-repository",
         "subcategory": "autolinks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/autolinks",
@@ -4038,6 +4248,17 @@
       },
       {
         "category": "code-scanning",
+        "slug": "get-a-code-scanning-default-setup-configuration",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "code-scanning",
         "slug": "update-a-code-scanning-default-setup-configuration",
         "subcategory": "code-scanning",
         "verb": "patch",
@@ -4423,6 +4644,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "security-advisories",
+        "slug": "create-a-temporary-private-fork",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "repository_advisories"
+        ]
       },
       {
         "category": "repos",
@@ -5802,9 +6036,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "pulls",
@@ -5947,6 +6179,45 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/assets",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "download-a-repository-archive-tar",
+        "subcategory": "contents",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/tarball/{ref}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "download-a-repository-archive-zip",
+        "subcategory": "contents",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/zipball/{ref}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      }
+    ]
+  },
+  "repository_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Repository permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -6321,9 +6592,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6334,9 +6603,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6369,9 +6636,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6382,9 +6647,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6395,9 +6658,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6408,9 +6669,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "reactions",
@@ -6465,9 +6724,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6489,9 +6746,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6502,9 +6757,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6515,9 +6768,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6528,9 +6779,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6541,9 +6790,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6554,9 +6801,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6567,9 +6812,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6580,9 +6823,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6593,9 +6834,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6606,9 +6845,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6619,9 +6856,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6632,9 +6867,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6645,9 +6878,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6658,9 +6889,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "reactions",
@@ -6704,9 +6933,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6717,9 +6944,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6730,9 +6955,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6743,9 +6966,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6756,9 +6977,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6769,9 +6988,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6782,9 +6999,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6795,9 +7010,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6808,9 +7021,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6821,9 +7032,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6834,9 +7043,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -6847,9 +7054,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "pull_requests"
-        ]
+        "additional-permissions": []
       }
     ]
   },
@@ -7081,6 +7286,19 @@
         "slug": "add-selected-repository-to-an-organization-variable",
         "subcategory": "variables",
         "verb": "put",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "organization_actions_variables"
+        ]
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
         "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
         "access": "read",
         "user-to-server": true,
@@ -7635,7 +7853,29 @@
         "slug": "create-a-github-pages-deployment",
         "subcategory": "pages",
         "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages/deployment",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "pages",
+        "slug": "get-the-status-of-a-github-pages-deployment",
+        "subcategory": "pages",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "pages",
+        "slug": "cancel-a-github-pages-deployment",
+        "subcategory": "pages",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -7669,9 +7909,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7682,9 +7920,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7695,9 +7931,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7708,9 +7942,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7721,9 +7953,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7734,9 +7964,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7747,9 +7975,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7760,9 +7986,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7773,9 +7997,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7786,9 +8008,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7799,9 +8019,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7812,9 +8030,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7825,9 +8041,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7838,9 +8052,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7851,9 +8063,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7864,9 +8074,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7877,9 +8085,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7890,9 +8096,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7903,9 +8107,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "organization_projects"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "projects",
@@ -7944,9 +8146,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -7957,9 +8157,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "commits",
@@ -7994,9 +8192,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8007,9 +8203,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8020,9 +8214,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8033,9 +8225,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8046,9 +8236,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8059,9 +8247,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8072,9 +8258,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8085,9 +8269,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8098,9 +8280,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8111,9 +8291,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8124,9 +8302,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8137,9 +8313,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8150,9 +8324,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8163,9 +8335,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8176,9 +8346,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8189,9 +8357,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8202,9 +8368,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8215,9 +8379,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8228,9 +8390,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8241,9 +8401,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8254,9 +8412,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8267,9 +8423,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8280,9 +8434,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8293,9 +8445,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8306,9 +8456,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8319,9 +8467,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8332,9 +8478,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8345,9 +8489,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8358,9 +8500,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8371,9 +8511,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "issues",
@@ -8384,9 +8522,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "issues"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "pulls",
@@ -8496,9 +8632,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": [
-          "contents"
-        ]
+        "additional-permissions": []
       },
       {
         "category": "pulls",
@@ -8791,6 +8925,19 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "security-advisories",
+        "slug": "create-a-temporary-private-fork",
+        "subcategory": "repository-advisories",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": [
+          "administration"
+        ]
       }
     ]
   },

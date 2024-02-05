@@ -7,10 +7,8 @@ layout: product-guides
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 learningTracks:
   - '{% ifversion ghec %}get_started_with_your_enterprise_account{% endif %}'
-  - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
   - adopting_github_actions_for_your_enterprise_ghec
@@ -26,7 +24,6 @@ includeGuides:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
@@ -97,7 +94,6 @@ includeGuides:
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment
   - /admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise
-  - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
@@ -136,11 +132,10 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/rebuilding-contributions-data
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users
-  - /admin/overview/creating-an-enterprise-account
+  - /admin/managing-your-enterprise-account/creating-an-enterprise-account
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/about-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
-

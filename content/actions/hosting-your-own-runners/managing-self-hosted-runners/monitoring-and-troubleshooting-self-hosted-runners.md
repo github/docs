@@ -123,13 +123,13 @@ export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
 
 ## Reviewing the self-hosted runner application log files
 
-You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with \_Runner__, and is followed by a UTC timestamp of when the application was started.
+You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with `Runner_`, and is followed by a UTC timestamp of when the application was started.
 
-For detailed logs on workflow job executions, see the next section describing the \_Worker__ files.
+For detailed logs on workflow job executions, see the next section describing the `Worker_` files.
 
 ## Reviewing a job's log file
 
-The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory where you installed the runner application, and the filename begins with \_Worker__.
+The self-hosted runner application creates a detailed log file for each job that it processes. These files are stored in the `_diag` directory where you installed the runner application, and the filename begins with `Worker_`.
 
 {% linux %}
 
@@ -243,7 +243,7 @@ PS C:\actions-runner> Get-EventLog -LogName Application -Source ActionsRunnerSer
 
 We recommend that you regularly check the automatic update process, as the self-hosted runner will not be able to process jobs if it falls below a certain version threshold. The self-hosted runner application automatically updates itself, but note that this process does not include any updates to the operating system or other software; you will need to separately manage these updates.
 
-You can view the update activities in the \_Runner__ log files. For example:
+You can view the update activities in the `Runner_` log files. For example:
 
 ```shell
 [Feb 12 12:37:07 INFO SelfUpdater] An update is available.

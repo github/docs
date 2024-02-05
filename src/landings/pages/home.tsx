@@ -6,9 +6,9 @@ import {
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'components/context/MainContext'
+} from 'src/frame/components/context/MainContext'
 
-import { DefaultLayout } from 'components/DefaultLayout'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { ArticleList } from 'src/landings/components/ArticleList'
 import { HomePageHero } from 'src/landings/components/HomePageHero'

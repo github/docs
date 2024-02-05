@@ -5,13 +5,12 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Migration
   - CI
   - CD
-shortTitle: 'Extending GitHub Actions Importer'
+shortTitle: Extending GitHub Actions Importer
 ---
 
 [Legal notice](#legal-notice)
@@ -63,10 +62,10 @@ You can create custom transformers that {% data variables.product.prodname_actio
 
 ### Example custom transformer for a build step
 
-The following example converts a build step that uses the "buildJavascriptApp" identifier to run various `npm` commands:
+The following example converts a build step that uses the "buildJavaScriptApp" identifier to run various `npm` commands:
 
 ```ruby copy
-transform "buildJavascriptApp" do |item|
+transform "buildJavaScriptApp" do |item|
   command = ["build", "package", "deploy"].map do |script|
     "npm run #{script}"
   end
@@ -78,7 +77,7 @@ transform "buildJavascriptApp" do |item|
 end
 ```
 
-The above example results in the following {% data variables.product.prodname_actions %} workflow step. It is comprised of converted build steps that had a `buildJavascriptApp` identifier:
+The above example results in the following {% data variables.product.prodname_actions %} workflow step. It is comprised of converted build steps that had a `buildJavaScriptApp` identifier:
 
 ```yaml
 - name: build javascript app
@@ -88,7 +87,7 @@ The above example results in the following {% data variables.product.prodname_ac
     npm run deploy
 ```
 
-The `transform` method uses the identifier of the build step from your source CI/CD instance in an argument. In this example, the identifier is `buildJavascriptLibrary`. You can also use comma-separated values to pass multiple identifiers to the `transform` method. For example, `transform "buildJavascriptApp", "buildTypescriptApp" { |item| ... }`.
+The `transform` method uses the identifier of the build step from your source CI/CD instance in an argument. In this example, the identifier is `buildJavaScriptLibrary`. You can also use comma-separated values to pass multiple identifiers to the `transform` method. For example, `transform "buildJavaScriptApp", "buildTypeScriptApp" { |item| ... }`.
 
 {% note %}
 
@@ -103,7 +102,7 @@ You can customize the mapping between runners in your source CI/CD instance and 
 {% data variables.product.prodname_actions_importer %} uses custom transformers that are defined using a DSL built on top of Ruby. To create custom transformers for runners:
 
 - The custom transformer file must have at least one `runner` method.
-- The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. {% ifversion not ghae %}For more information on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."{% endif %}
+- The `runner` method accepts two parameters. The first parameter is the source CI/CD instance's runner label, and the second parameter is the corresponding {% data variables.product.prodname_actions %} runner label. For more information on {% data variables.product.prodname_actions %} runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 ### Example custom transformers for runners
 

@@ -46,10 +46,8 @@ In addition to reviewing your system logs, you can monitor activity on your inst
 - [Log files for the {% data variables.product.prodname_dotcom %} application](#log-files-for-the-github-application)
 - [Log files for the HTTP server](#log-files-for-the-http-server)
 - [Log files for instance configuration](#log-files-for-instance-configuration)
-- [Log files for the {% data variables.enterprise.management_console %}](#log-files-for-themanagement-console)
+- [Log files for the {% data variables.enterprise.management_console %}](#log-files-for-the-management-console)
 - [Log files for search](#log-files-for-search)
-- [Log files for storage](#log-files-for-storage)
-- [Log files for webhooks](#log-files-for-webhooks)
 - [Log files for system services](#log-files-for-system-services)
 
 {% ifversion ghes < 3.9 %}
@@ -99,10 +97,6 @@ The following log files record events from the instance's HTTP server.
 | <pre>/var/log/nginx/github.error.log</pre> | Records errors associated with HTTP requests. |
 | <pre>/var/log/nginx/pages.log</pre> | Records HTTP requests associated with {% data variables.product.prodname_pages %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages)." |
 | <pre>/var/log/nginx/pages.error.log</pre> | Records errors related to HTTP requests for {% data variables.product.prodname_pages %}. |
-{%- ifversion ghes < 3.7 %}
-| <pre>/var/log/nginx/render.log</pre> | Records HTTP requests associated with the `render` service, which renders content in the web UI such as GeoJSON, Jupyter notebooks, PDF, PSD, Solidworks, and SVG. |
-| <pre>/var/log/nginx/render.error.log</pre> | Records errors associated with HTTP requests for the `render` service. |
-{%- endif %}
 
 ### Log files for the {% data variables.enterprise.management_console %}
 
@@ -110,7 +104,7 @@ The following log files contain events from your instance's {% data variables.en
 
 | Path | Description |
 | :- | :- |
-{%- ifversion ghes > 3.6 %}
+{%- ifversion ghes %}
 | <pre>/var/log/enterprise-manage/audit.log</pre> | Records activity in the instance's {% data variables.enterprise.management_console %}. |
 {%- endif %}
 | <pre>/var/log/enterprise-manage/unicorn.log</pre> | Records HTTP and HTTPS operations that administrators perform in the {% data variables.enterprise.management_console %} using the web UI or REST API. |
@@ -121,7 +115,10 @@ The following log files contain events related to the configuration of your inst
 
 | Path | Description |
 | :- | :- |
-| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with each configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config-apply)." |
+| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with {% ifversion unique-config-run-logs %}the latest{% else %}each{% endif %} configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config-apply)." |
+{%- ifversion unique-config-run-logs %}
+| <pre>/data/user/config-apply/logs/YYYYMMDD/*</pre> | Stores log files for previous configuration runs. The instance stores the files in a directory that reflects the date, and each file name reflects the node and the ID of the run. |
+{%- endif %}
 
 ### Log files for search
 
@@ -131,14 +128,13 @@ The following log files contain events from services that provide search functio
 | :- | :- |
 | <pre>/var/log/elasticsearch/github-enterprise.log</pre> | Records events associated with the Elasticsearch service, which your instance uses to provide search services. |
 
-### Log files for webhooks
+### Journal logs for webhooks
 
-The following log files contain events from the service that delivers webhook payloads for your instance. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)."
+The following log files contain events related to webhooks that your instance sends.
 
-| Path | Description |
+| Service name | Description |
 | :- | :- |
-| <pre>/var/log/hookshot/resqued.log</pre> | Records webhook deliveries and failures from your instance. |
-| <pre>/var/log/hookshot/unicorn.log</pre> | Records webhook events that are triggered on your instance. |
+| <pre>hookshot-go</pre> | Records events for all webhook activity on the instance, including triggered webhooks, deliveries, and failures.|
 
 ### Log files for system services
 

@@ -45,6 +45,8 @@ A [pull request](/github/collaborating-with-issues-and-pull-requests/about-pull-
 
 We cannot accept contributions to the [REST API reference documentation](/rest/reference). If you spot an inaccuracy in the REST API reference documentation, open an issue in the [`rest-api-description`](https://github.com/github/rest-api-description/issues/new?template=schema-inaccuracy.md) repository.
 
+We only document {% data variables.product.prodname_dotcom %} products, features, tools, and extensions. We may mention or link to third-party tools to demonstrate how a feature works, but we do not accept pull requests to document third-party tools or integrations unless they were codeveloped with {% data variables.product.company_short %}.
+
 ### Reviewing your own pull requests
 
 You should always review your own pull request first, before marking it as ready for review by others.

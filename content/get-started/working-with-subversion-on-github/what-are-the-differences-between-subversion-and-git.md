@@ -8,9 +8,7 @@ redirect_from:
   - /github/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git
   - /get-started/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '<3.13'
 shortTitle: Subversion & Git differences
 ---
 ## Directory structure

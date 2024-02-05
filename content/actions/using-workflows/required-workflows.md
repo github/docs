@@ -4,6 +4,7 @@ shortTitle: Required workflows
 intro: You can specify which workflows will run as required status checks in all repositories or selected repositories in your organization.
 versions:
   feature: required-workflows
+permissions: Because this feature is being deprecated, this article is only relevant if you are already using required workflows for {% data variables.product.prodname_actions %}.
 type: how_to
 topics:
   - Workflows

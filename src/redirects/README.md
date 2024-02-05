@@ -69,4 +69,4 @@ Here's how the `src/archives/middleware/archived-enterprise-versions.js` fallbac
 
 Redirect tests are mainly found in `tests/routing/*`, with some additional tests in `tests/rendering/server.js`.
 
-The `tests/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.
+The `src/fixtures/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.

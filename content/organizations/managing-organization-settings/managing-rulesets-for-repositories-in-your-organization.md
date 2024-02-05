@@ -3,7 +3,7 @@ title: Managing rulesets for repositories in your organization
 intro: 'You can edit, monitor, and delete existing rulesets to alter how people can interact with repositories in your organization.'
 versions:
   feature: repo-rules-enterprise
-permissions: 'Organization owners can manage rulesets at the organization level.'
+permissions: 'Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.'
 topics:
   - Organizations
 shortTitle: Manage rulesets

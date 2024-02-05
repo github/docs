@@ -2,4 +2,4 @@
 # Reference: #11523
 
 versions:
-  ghes: '<3.12'
+  ghes: '>3.8 <3.12'

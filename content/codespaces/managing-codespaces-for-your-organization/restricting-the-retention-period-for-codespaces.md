@@ -16,13 +16,13 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 {% data reusables.codespaces.automatic-deletion %}
 
-{% data variables.product.prodname_dotcom %} users can set a personal retention period of less than 30 days for codespaces they create. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
+{% data variables.product.prodname_dotcom %} users can set a personal retention period of less than 30 days for codespaces they create. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 
 As an organization owner, you may want to configure constraints on the maximum retention period for codespaces created for the repositories owned by your organization. This can help you to limit the storage costs associated with codespaces that are stopped and then left unused until they are automatically deleted. For more information about storage charges, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)." You can set a maximum retention period for all, or for specific, repositories owned by your organization.
 
 {% note %}
 
-**Note**: Setting a maximum retention policy for a repository prevents people from exempting a codespace from automatic deletion. The "Keep codespace" option will be unavailable for codespaces created for that repository. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
+**Note**: Setting a maximum retention policy for a repository prevents people from exempting a codespace from automatic deletion. The "Keep codespace" option will be unavailable for codespaces created for that repository. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 {% endnote %}
 

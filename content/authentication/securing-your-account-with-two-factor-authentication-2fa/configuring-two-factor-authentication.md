@@ -125,7 +125,15 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 
 ## Configuring two-factor authentication using a passkey
 
-{% data reusables.passkeys.about-passkeys %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+{% data reusables.passkeys.about-passkeys %}
+
+{% note %}
+
+**Note:** Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
+
+{% endnote %}
+
+For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
 {% data reusables.passkeys.adding-a-passkey %}
@@ -136,7 +144,7 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 
 {% ifversion passkeys %}
 
-Not all FIDO authenticators can be used as passkeys, but you can still register those authenticators as security keys. Security keys are also webauthn credentials, but unlike passkeys they don't need to require user validation. Since security keys only need to verify user presence, they only count as a second factor and must be used in conjunction with your password.
+Not all FIDO authenticators can be used as passkeys, but you can still register those authenticators as security keys. Security keys are also WebAuthn credentials, but unlike passkeys they don't require user validation. Since security keys only need to verify user presence, they only count as a second factor and must be used in conjunction with your password.
 
 {% else %}
 
@@ -147,7 +155,7 @@ On most devices and browsers, you can use a physical security key over USB or NF
 Registering a security key for your account is available after enabling 2FA with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
-1. Ensure that you have a WebAuthn compatible security key inserted into your device, or that your device has a built-in authenticator such as Windows Hello, Face ID, or Touch ID. Most computers, phones, and tablets support this as an easier-to-use alternative to physical security keys.
+1. Ensure that you have a WebAuthn compatible security key inserted into your device.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 1. Next to "Security keys", click **Add**.
@@ -156,7 +164,7 @@ Registering a security key for your account is available after enabling 2FA with
 
 1. Under "Security keys", click **Register new security key**.
 1. Type a nickname for the security key, then click **Add**.
-1. Following your security key's documentation, activate your security key. If using an authenticator that's built into your device, follow the activation instructions from your operating system. You may need to select options such as `Face`, `PIN`, or `built-in sensor` to access your device's authenticator, depending on your operating system and browser.
+1. Following your security key's documentation, activate your security key.
 1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
 {% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 

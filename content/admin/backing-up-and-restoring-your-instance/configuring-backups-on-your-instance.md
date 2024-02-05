@@ -48,8 +48,8 @@ Physical storage requirements will vary based on Git repository disk usage and e
 
 | Hardware | Recommendation |
 | -------- | --------- |
-| **vCPUs**  | 2 |
-| **Memory** | 2 GB |
+| **vCPUs**  | 4 |
+| **Memory** | 8 GB |
 | **Storage** | Five times the primary instance's allocated storage |
 
 More resources may be required depending on your usage, such as user activity and selected integrations.
@@ -58,11 +58,13 @@ For more information, see [{% data variables.product.prodname_enterprise_backup_
 
 ## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
 
-To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, we recommend you download the relevant {% data variables.product.prodname_enterprise_backup_utilities %} release as a compressed archive, then extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the github/backup-utils repository.
+To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, download the latest version of {% data variables.product.prodname_enterprise_backup_utilities %} from the [github/backup-utils repository](https://github.com/github/backup-utils/releases) that is compatible with your version of {% data variables.product.product_name %}. For example, if you are running version 3.8.4 of {% data variables.product.product_name %}, then download the latest version of {% data variables.product.prodname_enterprise_backup_utilities %} in the 3.10 series. This is possible because all versions of {% data variables.product.prodname_enterprise_backup_utilities %} are backwards compatible for 2 versions, meaning the {% data variables.product.prodname_enterprise_backup_utilities %} 3.10 series can be used to backup and restore {% data variables.product.product_name %} instances running versions 3.8, 3.9, or 3.10.
 
-Downloading the release as a compressed archive ensures you are using the correct version of {% data variables.product.prodname_enterprise_backup_utilities %} for {% data variables.location.product_location %}, and that your existing backup configuration file, `backup.config`, will be preserved when installing a new version.
+After you download a compressed archive, you can extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the github/backup-utils repository.
 
-Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. Snapshots need to be stored on a filesystem which supports symbolic and hard links.
+If you have an existing backup configuration file, `backup.config`, ensure you copy the file to the location of the newly extracted and installed version of {% data variables.product.prodname_enterprise_backup_utilities %}.
+
+Backup snapshots created by {% data variables.product.prodname_enterprise_backup_utilities %} are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. These snapshots need to be stored on a filesystem which supports symbolic and hard links.
 
 {% note %}
 
@@ -91,16 +93,18 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
    ```
 
 1. To customize your configuration, edit `backup.config` in a text editor.
+
+   1. If you previously upgraded {% data variables.product.prodname_enterprise_backup_utilities %} using Git, ensure that you copy your existing configuration from `backup.config` into the new file. For more information, see "[Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}](#upgrading-github-enterprise-server-backup-utilities)."
    1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 
       {% note %}
 
-      **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.location.product_location %}.
+      **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as the load balancer allows SSH access over port 122 to {% data variables.location.product_location %}.
 
       To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
 
       {% endnote %}
-   1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host, but outside of where you cloned the Git repository in step 1.
+   1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host.
 1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.
 
@@ -118,91 +122,21 @@ For more information on advanced usage, see the [{% data variables.product.prodn
 
 ## Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
-When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a release that will work with your current version of {% data variables.product.product_name %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.location.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
-You can upgrade {% data variables.product.prodname_enterprise_backup_utilities %} in a Git repository by fetching and checking out the latest changes.
+When upgrading {% data variables.product.prodname_enterprise_backup_utilities %}, you must choose a version that will work with your current version of {% data variables.product.product_name %}. Your installation of {% data variables.product.prodname_enterprise_backup_utilities %} must be at least the same version as {% data variables.location.product_location %}, and cannot be more than two versions ahead. For more information, see [{% data variables.product.prodname_ghe_server %} version requirements](https://github.com/github/backup-utils/blob/master/docs/requirements.md#github-enterprise-server-version-requirements) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
-Alternatively, if you don't use a Git repository for your installation, you can extract a new archive into place, or you can change your approach to use a Git repository instead.
+1. Verify the installation method for {% data variables.product.prodname_enterprise_backup_utilities %}. Previous versions of {% data variables.product.prodname_enterprise_backup_utilities %} supported installation and updates in a local Git repository, but this method is no longer supported.
 
-### Verifying the installation type
+   {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
+   1. To check if a valid working directory exists inside a Git repository, run the following command.
 
-You can verify the installation method for {% data variables.product.prodname_enterprise_backup_utilities %} and determine the best way to upgrade your installation.
+      ```shell
+      git rev-parse --is-inside-work-tree
+      ```
 
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-1. To check if a valid working directory exists inside a Git repository, run the following command.
+1. To determine how to upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, review the output from `git rev-parse --is-inside-work-tree`.
 
-   ```shell
-   git rev-parse --is-inside-work-tree
-   ```
-
-   If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was likely installed by extracting a compressed archive file.
-If your installation is in a Git repository, you can install the latest version using Git. If the installation is from a compressed archive file, you can either download and extract the latest version, or you can reinstall {% data variables.product.prodname_enterprise_backup_utilities %} using Git to simplify future upgrades.
-
-- [Upgrading an installation in a Git repository](#upgrading-an-installation-in-a-git-repository)
-- [Using Git instead of compressed archives for upgrades](#using-git-instead-of-compressed-archives-for-upgrades)
-
-### Upgrading an installation in a Git repository
-
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-   {% note %}
-
-   **Note:** We recommend creating a copy of your existing `backup.config` file in a temporary location, like `$HOME/backup.config`, before upgrading {% data variables.product.prodname_enterprise_backup_utilities %}.
-
-   {% endnote %}
-
-1. Download the latest project updates by running the `git fetch` command.
-
-   ```shell
-   git fetch
-   ```
-
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
-
-### Using Git instead of compressed archives for upgrades
-
-If your backup host has internet connectivity and you previously used a compressed archive (`.tar.gz`) to install or upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, we recommend using a Git repository for your installation instead. Upgrading using Git requires less work and preserves your backup configuration.
-
-To use Git instead of a compressed archive for upgrades, you must back up your existing configuration, clone the repository, copy your configuration into place, verify the installation, verify SSH connectivity, then delete the old installation.
-
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
-1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
-
-   ```shell
-   cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
-   ```
-
-1. Change to the local directory on your backup host where you want to install the {% data variables.product.prodname_enterprise_backup_utilities %} Git repository.
-1. To clone the [project repository](https://github.com/github/backup-utils/) to the directory on your backup host, run the following command.
-
-   ```shell
-   git clone https://github.com/github/backup-utils.git
-   ```
-
-1. To change into the cloned repository, run the following command.
-
-   ```shell
-   cd backup-utils
-   ```
-
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
-1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
-
-   ```shell
-   cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
-   ```
-
-   {% note %}
-
-   **Note:** You can choose where to restore your backup configuration file to after cloning. For more information about where configuration files can be located, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
-
-   {% endnote %}
-
-1. To confirm that the paths to directories or scripts in your backup configuration file are correct, review the file in a text editor.
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
-
-1. Confirm that your backup data is not in the directory for the old installation.
-
-1. Delete your old GitHub Enterprise Server Backup Utilities directory from step 1 (where the compressed archive installation was located).
+   - If the output is `true`, {% data variables.product.prodname_enterprise_backup_utilities %} was installed by cloning the project's Git repository. To upgrade, copy your existing configuration in `backup.config`, then follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
+   - If the output includes `fatal: not a git repository (or any of the parent directories)`, {% data variables.product.prodname_enterprise_backup_utilities %} was extracted from a compressed archive file. To upgrade, follow the instructions in "[Installing {% data variables.product.prodname_enterprise_backup_utilities %}](#installing-github-enterprise-server-backup-utilities)."
 
 ## Scheduling a backup
 
@@ -240,6 +174,7 @@ Network settings are excluded from the backup snapshot. After restoration, you m
 
 1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 1. Stop replication on all replica nodes in a high-availability configuration. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)."
+1. Provision a new {% data variables.product.product_name %} instance to use as a target for the restoration of your backup. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
 
 ### Starting the restore operation

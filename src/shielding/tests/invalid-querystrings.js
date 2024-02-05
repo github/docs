@@ -1,4 +1,4 @@
-import { get } from '../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 
 import {
   MAX_UNFAMILIAR_KEYS_BAD_REQUEST,
@@ -55,6 +55,28 @@ describe('invalid query strings', () => {
       const res = await get(url)
       expect(res.statusCode).toBe(200)
     }
+  })
+
+  test('query string keys with single square brackets', async () => {
+    const url = `/en?query[foo]=bar`
+    const res = await get(url)
+    expect(res.statusCode).toBe(400)
+    expect(res.body).toMatch('Invalid query string key (query)')
+  })
+
+  test('query string keys with square brackets', async () => {
+    const url = `/?constructor[foo][bar]=buz`
+    const res = await get(url)
+    expect(res.statusCode).toBe(400)
+    expect(res.body).toMatch('Invalid query string key (constructor)')
+  })
+
+  test('bad tool query string with Chinese URL-encoded characters', async () => {
+    const url =
+      '/?tool%25252525253Dvisualstudio%252525253D%2525252526tool%252525253Dvscode%2525253D%25252526tool%2525253Dvscode%25253D%252526tool%25253Dvimneovim%253D%2526tool%253Djetbrains%3D%26tool%3Djetbrains=&tool=azure_data_studio'
+    const res = await get(url)
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/?tool=azure_data_studio')
   })
 })
 

@@ -349,6 +349,12 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
+      "slug": "remove-selected-repository-from-an-organization-variable",
+      "subcategory": "variables",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
+    },
+    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -1323,6 +1329,12 @@
       "requestPath": "/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}"
     },
     {
+      "slug": "get-a-code-scanning-default-setup-configuration",
+      "subcategory": "code-scanning",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup"
+    },
+    {
       "slug": "update-a-code-scanning-default-setup-configuration",
       "subcategory": "code-scanning",
       "verb": "patch",
@@ -1409,12 +1421,6 @@
       "subcategory": "invitations",
       "verb": "get",
       "requestPath": "/user/repository_invitations"
-    },
-    {
-      "slug": "accept-a-repository-invitation",
-      "subcategory": "invitations",
-      "verb": "patch",
-      "requestPath": "/user/repository_invitations/{invitation_id}"
     },
     {
       "slug": "decline-a-repository-invitation",
@@ -2661,6 +2667,12 @@
       "requestPath": "/orgs/{org}/public_members/{username}"
     },
     {
+      "slug": "list-repository-fine-grained-permissions-for-an-organization",
+      "subcategory": "custom-roles",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/repository-fine-grained-permissions"
+    },
+    {
       "slug": "list-security-manager-teams",
       "subcategory": "security-managers",
       "verb": "get",
@@ -2878,7 +2890,7 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
     }
   ],
   "projects": [
@@ -3185,6 +3197,14 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
     }
   ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
+    }
+  ],
   "reactions": [
     {
       "slug": "delete-team-discussion-comment-reaction",
@@ -3395,7 +3415,7 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"
@@ -3575,6 +3595,12 @@
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
     },
     {
+      "slug": "download-a-repository-archive-tar",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/tarball/{ref}"
+    },
+    {
       "slug": "list-repository-teams",
       "subcategory": "repos",
       "verb": "get",
@@ -3615,6 +3641,12 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/vulnerability-alerts"
+    },
+    {
+      "slug": "download-a-repository-archive-zip",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/zipball/{ref}"
     },
     {
       "slug": "create-a-repository-using-a-template",

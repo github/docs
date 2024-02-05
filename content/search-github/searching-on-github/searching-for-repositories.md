@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -150,9 +149,29 @@ You can filter your search based on the visibility of the repositories. For more
 
 | Qualifier  | Example
 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec or ghae %}
+| `is:public` | [**is:public org:github**](https://github.com/search?q=is%3Apublic+org%3Agithub&type=Repositories) matches public repositories owned by {% data variables.product.company_short %}.{% endif %}{% ifversion ghes or ghec %}
 | `is:internal` | [**is:internal test**](https://github.com/search?q=is%3Ainternal+test&type=Repositories) matches internal repositories that you can access and contain the word "test".{% endif %}
 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
+
+{% ifversion repository-properties %}
+
+## Search based on repository custom property
+
+{% note %}
+
+**Note:** Repository properties are in public beta and subject to change.
+
+{% endnote %}
+
+You can filter repositories based on custom properties using the `props.` prefixed qualifiers. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
+
+For these qualifiers to work, the search must be limited to a single organization. Otherwise, `props.` qualifiers are ignored.
+
+| Qualifier  | Example
+| ------------- | -------------
+| <code>props.<em>PROPERTY</em>:<em>VALUE</em></code> | [**org:github props.environment:production**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+props.environment%3Atesting&type=Repositories) matches repositories from the `github` organization that have the custom property `environment` set to `production`.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 

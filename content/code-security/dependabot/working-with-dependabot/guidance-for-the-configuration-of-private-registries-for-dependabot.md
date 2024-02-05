@@ -126,8 +126,8 @@ registries:
 
 - Image names may not always be detected in Containerfiles, Helm files, or yaml files.
 - Dockerfiles may only receive a version update to the first `FROM` directive.
-- Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920.
-- {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see https://github.com/dependabot/dependabot-core/issues/7640.
+- Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `github/dependabot/dependabot-core` repository.
+- {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `github/dependabot/dependabot-core` repository.
 
 ### Gradle
 
@@ -221,7 +221,7 @@ The snippet of a `dependabot.yml` file below uses a token. {% data reusables.dep
 registries:
   npm-github:
     type: npm-registry
-    url: https://npm.pkg.github.com/<org-name>
+    url: https://npm.pkg.github.com
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 
@@ -234,12 +234,12 @@ Example of the content of a `.npmrc` file:
 {% raw %}
 
 ```text
-registry=https://<private-registry-url>/<org-name>
+registry=https://<private-registry-url>
 ```
 
 {% endraw %}
 
-Aternatively you can add the private registry URL to an existing `.npmrc` file using the following command.
+Alternatively you can add the private registry URL to an existing `.npmrc` file using the following command.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ This would result in a '.npmrc' with the registry:
 {% raw %}
 
 ```text
-@<org-name>:registry=https://<private-registry-url>/<org-name>
+@<org-name>:registry=https://<private-registry-url>
 ```
 
 {% endraw %}
@@ -409,7 +409,7 @@ The Yarn registry uses a configuration similar to that of the npm registry. For 
 registries:
   yarn-github:
     type: npm-registry
-    url: https://npm.pkg.github.com/<org-name>
+    url: https://npm.pkg.github.com
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
 
@@ -446,7 +446,7 @@ encoding@^0.1.11:
 
 If the `yarn.lock` file doesn't list the private registry as the dependency source, you can set up Yarn Classic according to the standard package manager instructions.
 
-1. Define the private registry configuration in the the `dependabot.yml` file.
+1. Define the private registry configuration in the `dependabot.yml` file.
 1. You can then either:
     - Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key registry, or
     - Perform the same action by running `yarn config set registry <private registry URL>` in your terminal.
@@ -505,12 +505,12 @@ Finally, we recommend you run `yarn login` to verify that your configuration is 
 
 If the `yarn.lock` file doesn't list the private registry as the dependency source, you can set up Yarn Berry according to the standard package manager instructions.
 
-1. Define the private registry configuration in the the `dependabot.yml` file.
+1. Define the private registry configuration in the `dependabot.yml` file.
 1. You can then either:
     - Manually set the private registry to the `.yarnrc` file by adding the registry to a `.yarnrc.yml` file in the project root with the key `npmRegistryServer`, or
     - Perform the same action by running `yarn config set npmRegistryServer <private registry URL>` in your terminal.
 
-   Example of a `.yarnrc.yml` file with a private registry configured:  
+   Example of a `.yarnrc.yml` file with a private registry configured:
  `npmRegistryServer: "https://nexus.example.com/repository/yarn-all"`
 
    For more information, see [npmRegistryServer](https://yarnpkg.com/configuration/yarnrc#npmRegistryServer) in the Yarn documentation.
@@ -583,7 +583,7 @@ For information about {% data variables.product.prodname_registry %} registries,
 registries:
   github:
     type: npm-registry
-    url: https://npm.pkg.github.com/<org-name>
+    url: https://npm.pkg.github.com
     token: ${{ secrets.<token> }}
 ```
 
@@ -627,7 +627,7 @@ If you are restricting which IPs can reach your Nexus host, you need to add the 
       - "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private regstry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry.{% ifversion dependabot-private-registries %} However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."{% endif %}
 
 ### ProGet
 

@@ -436,9 +436,9 @@ sections:
 
   known_issues:
     - |
-      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
     - |
-      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %} [Updated: 2023-07-31]
     - |
       {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -458,8 +458,8 @@ sections:
       ```
       source /etc/bash.bashrc
       ```
-    - '{% data reusables.release-notes.git-push-known-issue %}'
-    - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %} [Updated: 2023-03-17]'
+    - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %} [Updated: 2023-03-17]'
     - |
       Use of the search API may cause subsequent requests to other interfaces to fail. When this issue occurs, impacted API or web UI users will receive HTTP 5xx responses and this `NoMethodError` exception will be logged:
 
@@ -476,6 +476,10 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
     - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
 
   deprecations:
     - heading: Unsecure algorithms disabled for administrative SSH connections
@@ -491,7 +495,7 @@ sections:
           For integrators who wish to receive webhooks for Dependabot alerts activity, the `dependabot_alert` webhook replaces the `repository_vulnerability_alert` webhook. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#dependabot_alert)."
 
   errata:
-    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'
+    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %} [Updated: 2023-06-01]'
 
     # https://github.com/github/releases/issues/2626
     - |

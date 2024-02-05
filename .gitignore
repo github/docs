@@ -16,6 +16,7 @@ coverage/
 /translations/
 .node-version
 .linkinator/full.log
+next-env.d.ts
 
 # blc: broken link checker
 blc_output.log
@@ -47,3 +48,6 @@ assets/images/help/writing/unordered-list-rendered (1).png
 
 # Used by getRemoteJSON()
 .remotejson-cache/
+
+# Used by precompute-pageinfo
+.pageinfo-cache.json.br

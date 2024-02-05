@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { get } from '../../../../tests/helpers/e2etest.js'
+import { get } from '#src/tests/helpers/e2etest.js'
 import getExceptionRedirects from '../../lib/exception-redirects.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const VERSIONLESS_REDIRECTS_FILE = path.join(
   __dirname,
-  '../../../../tests/fixtures/versionless-redirects.txt',
+  '../../../../src/fixtures/fixtures/versionless-redirects.txt',
 )
 
 // This test checks the default versioning redirect fallbacks described in lib/all-versions.js.

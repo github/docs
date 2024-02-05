@@ -6,6 +6,7 @@ import createTree from './create-tree.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import readFileContents from './read-file-contents.js'
 import Page from './page.js'
+import Permalink from './permalink.js'
 import frontmatterSchema from './frontmatter.js'
 import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
 
@@ -36,16 +37,17 @@ const translatableFrontmatterKeys = Object.entries(frontmatterSchema.schema.prop
  * first since it's the most expensive work. This gets us a nested object with pages attached that we can use
  * as the basis for the siteTree after we do some versioning. We can also use it to derive the pageList.
  */
-export async function loadUnversionedTree(languagesOnly = null) {
+export async function loadUnversionedTree(languagesOnly = []) {
   if (languagesOnly && !Array.isArray(languagesOnly)) {
     throw new Error("'languagesOnly' has to be an array")
   }
   const unversionedTree = {}
   unversionedTree.en = await createTree(path.join(languages.en.dir, 'content'))
+  setCategoryApplicableVersions(unversionedTree.en)
 
   const languagesValues = Object.entries(languages)
     .filter(([language]) => {
-      return !languagesOnly || languagesOnly.includes(language)
+      return !languagesOnly.length || languagesOnly.includes(language)
     })
     .map(([, data]) => {
       return data
@@ -65,6 +67,52 @@ export async function loadUnversionedTree(languagesOnly = null) {
   )
 
   return unversionedTree
+}
+
+function setCategoryApplicableVersions(tree) {
+  // Now that the tree has been fully computed, we can for any node that
+  // is a category page, re-set its `.applicableVersions` and `.permalinks`
+  // based on the union set of all its immediate children's
+  // `.applicableVersions`.
+  for (const childPage of tree.childPages) {
+    if (childPage.page.relativePath.endsWith('index.md')) {
+      const combinedApplicableVersions = []
+      let moreThanOneChild = false
+      for (const childChildPage of childPage.childPages || []) {
+        for (const version of childChildPage.page.applicableVersions) {
+          if (!combinedApplicableVersions.includes(version)) {
+            combinedApplicableVersions.push(version)
+          }
+        }
+        setCategoryApplicableVersions(childPage)
+        moreThanOneChild = true
+      }
+      if (
+        // Some landing pages have no children at all.
+        // For example the search/index.md page. With no children,
+        // the combined applicableVersions would be [].
+        moreThanOneChild &&
+        !equalSets(
+          new Set(childPage.page.applicableVersions),
+          new Set(combinedApplicableVersions),
+        ) &&
+        !childPage.page.relativePath.startsWith('early-access')
+      ) {
+        const newPermalinks = Permalink.derive(
+          childPage.page.languageCode,
+          childPage.page.relativePath,
+          childPage.page.title,
+          combinedApplicableVersions,
+        )
+        childPage.page.permalinks = newPermalinks
+        childPage.page.applicableVersions = combinedApplicableVersions
+      }
+    }
+  }
+}
+
+function equalSets(setA, setB) {
+  return setA.size === setB.size && [...setA].every((x) => setB.has(x))
 }
 
 async function translateTree(dir, langObj, enTree) {
@@ -247,7 +295,7 @@ export async function versionPages(obj, version, langCode) {
 }
 
 // Derive a flat array of Page objects in all languages.
-export async function loadPageList(unversionedTree, languagesOnly = null) {
+export async function loadPageList(unversionedTree, languagesOnly = []) {
   if (languagesOnly && !Array.isArray(languagesOnly)) {
     throw new Error("'languagesOnly' has to be an array")
   }
@@ -255,7 +303,7 @@ export async function loadPageList(unversionedTree, languagesOnly = null) {
   const pageList = []
 
   await Promise.all(
-    (languagesOnly || Object.keys(languages)).map(async (langCode) => {
+    ((languagesOnly.length && languagesOnly) || Object.keys(languages)).map(async (langCode) => {
       await addToCollection(rawTree[langCode], pageList)
     }),
   )
@@ -287,7 +335,7 @@ export function createMapFromArray(pageList) {
   return pageMap
 }
 
-export async function loadPageMap(pageList, languagesOnly = null) {
+export async function loadPageMap(pageList, languagesOnly = []) {
   const pages = pageList || (await loadPageList(languagesOnly))
   const pageMap = createMapFromArray(pages)
   return pageMap

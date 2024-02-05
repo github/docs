@@ -81,7 +81,7 @@ sections:
     - |
       {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
     - |
-      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
     - |
       Custom firewall rules are removed during the upgrade process.
 
@@ -98,7 +98,7 @@ sections:
     - |
       {% data reusables.release-notes.mermaid-rendering-known-issue %}
     - |
-      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %} [Updated: 2023-07-31]
     - |
       {% data reusables.release-notes.migrations-missing-section-known-issue %} [Updated: 2023-08-18]
     - |
@@ -109,3 +109,7 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
     - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]

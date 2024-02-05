@@ -20,7 +20,7 @@ You can use {% data variables.product.prodname_advanced_security %} features to 
 
 {% ifversion secret-scanning-enterprise-level-api %}{% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}{% endif %}
 
-{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)." {% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% endif %}
+{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% endif %}
 
 If you have disallowed {% data variables.product.prodname_GH_advanced_security %} for an organization, that organization will not be affected by enabling a feature for all existing repositories or for all new repositories. For more information about disallowing {% data variables.product.prodname_GH_advanced_security %} for an organization, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 
@@ -48,6 +48,8 @@ When you enable one or more security and analysis features for existing reposito
 1. Optionally, to enable or disable a feature automatically when new repositories are added, select the checkbox below the feature.
 {% ifversion secret-scanning-validity-check-partner-patterns %}
 1. Optionally, to automatically allow {% data variables.product.prodname_secret_scanning %} to check the validity of a secret by sending it to the relevant partner, select the relevant checkbox under "{% data variables.product.prodname_secret_scanning_caps %}". You can also enable the validity check for a single repository or organization. For more information, see "[Allowing validity checks for partner patterns in a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)," and "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+
+   For information on using the REST API to enable validity checks for partner patterns for your enterprise, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis#update-code-security-and-analysis-features-for-an-enterprise)" in the REST API documentation.
 
    {% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
 

@@ -49,7 +49,7 @@ To learn more about these approaches, see "[Precise and search-based navigation]
 
 Future releases will add _precise code navigation_ for more languages, which is a code navigation approach that can give more accurate results.
 
-{% ifversion code-search-code-view %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
+{% ifversion code-search-code-view %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
 
 {% ifversion code-search-code-view %}
 

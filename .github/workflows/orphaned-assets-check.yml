@@ -41,7 +41,9 @@ jobs:
         run: |
           set -e
 
-          filesToRemove=`./src/assets/scripts/find-orphaned-assets.js`
+          # The `-s` is to make npm run silent and not print verbose
+          # information about the npm script alias.
+          filesToRemove=`npm run -s find-orphaned-assets`
           [ -z "$filesToRemove" ] && exit 0
 
           echo $filesToRemove | xargs git rm
@@ -62,9 +64,20 @@ jobs:
           git commit -m "Delete orphaned assets $date"
           git push origin $branchname
 
+          body=$(cat <<-EOM
+            Found with the npm run find-orphaned-assets script.
+            The orphaned assets workflow file .github/workflows/orphaned-assets-check.yml
+            runs every Monday at 16:20 UTC / 8:20 PST.
+            The first responder should just spot-check some of the unused assets
+            to make sure they aren't referenced anywhere
+            and then approve and merge the pull request.
+            For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md).
+          EOM
+          )
+
           gh pr create \
             --title "Delete orphaned assets ($date)" \
-            --body "Found with the find-orphaned-assets.js script.\n\nFor more info see https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md" \
+            --body "$body" \
             --repo github/docs-internal \
             --label docs-content-fr
 

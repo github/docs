@@ -19,7 +19,7 @@ sections:
     - |
       {% data reusables.release-notes.mermaid-rendering-known-issue %}
     - |
-      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %} [Updated: 2023-07-31]
     - |
       {% data reusables.release-notes.migrations-missing-section-known-issue %} [Updated: 2023-08-18]
     - |
@@ -30,7 +30,13 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
     - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
-
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]
+  bugs:
+    - |
+      On an instance configured to use an outbound web proxy server, an administrator could not exclude private domains in [this list](https://github.com/weppos/publicsuffix-ruby/blob/main/data/list.txt) from the proxy configuration. [Updated: 2023-11-27]
   changes:
     - |
       Adjusted the timeout threshold for shutting down MySQL to prevent premature termination when upgrading to GHES 3.9.

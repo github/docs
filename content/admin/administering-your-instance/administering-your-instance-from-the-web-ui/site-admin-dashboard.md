@@ -10,7 +10,6 @@ redirect_from:
   - /admin/administering-your-instance/site-admin-dashboard
 versions:
   ghes: '*'
-  ghae: '*'
 type: reference
 topics:
   - Enterprise
@@ -18,27 +17,11 @@ topics:
 ---
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-hidden="true" %}.
 
-{% ifversion ghae %}
-
-## License info & search
-
-Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
-
-{% endif %}
-
 ## Explore
 
 Data for GitHub's [trending page][] is calculated into daily, weekly, and monthly time spans for both repositories and developers. You can see when this data was last cached and queue up new trending calculation jobs from the **Explore** section.
 
   [trending page]: https://github.com/blog/1585-explore-what-is-trending-on-github
-
-## Audit log
-
-{% data variables.product.product_name %} keeps a running log of audited actions that you can query.
-
-By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)."
-
-For more information on audit logging in general, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)." For a full list of audited actions, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 ## Reports
 
@@ -180,19 +163,3 @@ For example, the following words are reserved, among others:
 - `support`
 
 For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
-
-## Dormant users
-
-Here you can see and suspend inactive users on {% data variables.location.product_location %}. {% ifversion not ghae %}For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users)".{% endif %}
-
-A user account is considered to be inactive ("dormant") when it:
-
-- Has existed for longer than the dormancy threshold that's set for {% data variables.location.product_location %}.
-- Has not generated any activity within that time period.
-- Is not a site administrator.
-
-{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users#configuring-the-dormancy-threshold)."
-
-## Suspended users
-
-Here you can see all of the users who have been suspended on {% data variables.location.product_location %}, and [initiate an SSH key audit](/admin/user-management/managing-users-in-your-enterprise/auditing-ssh-keys).

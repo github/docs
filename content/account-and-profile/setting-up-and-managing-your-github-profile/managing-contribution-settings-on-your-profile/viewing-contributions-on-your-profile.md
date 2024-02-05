@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
@@ -34,7 +33,7 @@ On your profile page, certain actions count as contributions:
 - Opening a discussion
 - Answering a discussion
 - Proposing a pull request
-- Submitting a pull request review{% ifversion ghes or ghae %}
+- Submitting a pull request review{% ifversion ghes %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
@@ -96,4 +95,4 @@ If you can't see certain events in your timeline, check to make sure you still h
 
 ## Viewing contributions from {% data variables.product.prodname_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} or {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts from to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."
+If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.product_name %}{% endif %} and your enterprise owner enables {% data variables.enterprise.prodname_unified_contributions %}, you can send enterprise contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)."

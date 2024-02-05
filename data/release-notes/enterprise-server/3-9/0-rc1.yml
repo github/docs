@@ -383,9 +383,9 @@ sections:
     - |
       If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9, the database server on your instance will be upgraded from MySQL 5.7 to MySQL 8.0. I/O utilization will increase as a result, and in some cases this may affect your instance's performance. Do not upgrade to this RC in a production environment, and ensure that you take and verify a backup of the instance before upgrading to the GA release. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
     - |
-      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %} [Updated: 2023-07-31]
     - |
-      {% data reusables.release-notes.manage-api-unreachable %}
+      {% data reusables.release-notes.manage-api-unreachable %} [Updated: 2023-06-22]
     - |
       On an instance in a cluster configuration, after you upgrade nodes other than the primary MySQL node and before you upgrade the primary MySQL node, the following output may appear multiple times after you run `ghe-config-apply`.
 

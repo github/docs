@@ -89,7 +89,7 @@ Use these attributes to finish configuring LDAP for {% data variables.location.p
 | `Enable LDAP certificate verification` | {% octicon "x" aria-label="Optional" %} |If selected, [turns on](#enabling-ldap-certificate-verification) LDAP certificate verification. |
 | `Synchronization` | {% octicon "x" aria-label="Optional" %} | If selected, [turns on](#enabling-ldap-sync) LDAP Sync. |
 
-### Disabling password authentication for Git operations
+## Disabling password authentication for Git operations
 
 To enforce use of {% data variables.product.pat_generic %}s or SSH keys for Git access, which can help prevent your server from being overloaded by LDAP authentication requests, you can disable password authentication for Git operations.
 
@@ -99,7 +99,7 @@ To disable password authentication for Git operations, select **Disable username
 
 When this option is selected, if a user tries to use a password for Git operations via the command line, they will receive an error message that says, `Password authentication is not allowed for Git operations. You must use a {% data variables.product.pat_generic %}.`
 
-### Enabling LDAP certificate verification
+## Enabling LDAP certificate verification
 
 You can validate the LDAP server certificate you use with TLS by enabling LDAP certificate verification.
 
@@ -110,9 +110,11 @@ When this option is selected, the certificate is validated to make sure:
 - The certificate is not expired.
 - The certificate is signed by a trusted certificate authority (CA).
 
-### Enabling LDAP Sync
+## Enabling LDAP Sync
 
 You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled)."
+
+LDAP sync does not create user accounts on {% data variables.location.product_location %}. For more information, see "[Viewing and creating LDAP users](#viewing-and-creating-ldap-users)."
 
 {% note %}
 
@@ -124,7 +126,7 @@ If you need help determining if modifying the `MaxValRange` is the right approac
 
 {% endnote %}
 
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
+To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys**.
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
@@ -177,7 +179,7 @@ If disclosing such information is not desired, your company or organization shou
 
 {% endwarning %}
 
-### Supported LDAP group object classes
+## Supported LDAP group object classes
 
 {% data variables.product.prodname_ghe_server %} supports these LDAP group object classes. Groups can be nested.
 
@@ -187,6 +189,8 @@ If disclosing such information is not desired, your company or organization shou
 - `posixGroup`
 
 ## Viewing and creating LDAP users
+
+When you use LDAP, your instance creates a user account the first time someone successfully signs in using LDAP credentials. Alternatively, you can manually provision a user account.
 
 You can view the full list of LDAP users who have access to your instance and provision new users.
 
@@ -203,7 +207,7 @@ Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are
 - To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
 - To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
-### Manually syncing LDAP accounts
+## Manually syncing LDAP accounts
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}

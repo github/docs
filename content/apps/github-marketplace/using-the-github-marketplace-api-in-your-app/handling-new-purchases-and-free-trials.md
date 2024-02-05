@@ -83,6 +83,6 @@ If the purchase is for an organization and per-user, you can prompt the customer
 
 You can customize the way that organization members receive access to your app. Here are a few suggestions:
 
-**Flat-rate pricing:** If the purchase is made for an organization using flat-rate pricing, your app can [get all the organization’s members](/rest/orgs#list-organization-members) via the API and prompt the organization admin to choose which members will have paid users on the integrator side.
+**Flat-rate pricing:** If the purchase is made for an organization using flat-rate pricing, your app can [get all the organization’s members](/rest/orgs#list-organization-members) via the API and prompt the organization owner to choose which members will have paid users on the integrator side.
 
 **Per-unit pricing:** One method of provisioning per-unit seats is to allow users to occupy a seat as they log in to the app. Once the customer hits the seat count threshold, your app can alert the user that they need to upgrade through {% data variables.product.prodname_marketplace %}.

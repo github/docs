@@ -33,7 +33,7 @@ Deleting a fork will not delete the original upstream repository. You can make a
 
 {% data reusables.repositories.you-can-fork %}
 
-For instructions for forking a repository, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo#forking-a-repository)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
+For instructions for forking a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
 
 {% tip %}
 

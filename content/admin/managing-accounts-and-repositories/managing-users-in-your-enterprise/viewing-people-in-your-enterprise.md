@@ -11,7 +11,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 shortTitle: View people in your enterprise
@@ -30,10 +29,7 @@ If {% data variables.product.prodname_github_connect %} is configured for your e
 - The filter for two-factor authentication (2FA) status does not show people who only have an account on a {% data variables.product.prodname_ghe_server %} instance.
 - If you combine the filter for accounts on {% data variables.product.prodname_ghe_server %} instances with either the filter for organizations or 2FA status, you will not see any results.
 
-For more information about {% data variables.product.prodname_github_connect %}, see the following articles.
-
-- "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
-- "[AUTOTITLE](/github-ae@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+For more information about {% data variables.product.prodname_github_connect %}, see "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation.
 
 {% endif %}
 
@@ -49,9 +45,7 @@ You can view all the current enterprise owners{% ifversion ghec %} and billing m
 Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings)."
 {% endif %}
 
-{% ifversion not ghae %}
 You can also remove an administrator. For more information. see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#removing-an-enterprise-administrator-from-your-enterprise-account)."
-{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -190,13 +184,13 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can view
 
 ## Viewing dormant users
 
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+You can view a list of all dormant users {% ifversion ghes %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
 
 {% ifversion filter-by-enterprise-member-type %}
 
 ## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is managed in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Under "Organizations", in the search bar, begin typing the organization's name until it appears in the search results.

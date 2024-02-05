@@ -13,16 +13,11 @@ topics:
   - Organizations
   - Teams
 versions:
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
 ---
-
-{% ifversion ghae %}
-{% data reusables.security-overview.beta %}
-{% endif %}
 
 {% data reusables.security-overview.beta-org-risk-coverage %}
 
@@ -70,7 +65,7 @@ You can download a CSV file of the data displayed on the "Security risk" page. T
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% data reusables.security-overview.alert-differences %}
 
 ## Viewing enterprise-level code security risks
 
@@ -96,15 +91,4 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% data reusables.organizations.security-overview-feature-specific-page %}{% endif %}
 {% endif %}
 
-{% endif %}
-
-{% ifversion ghes < 3.7 or ghae < 3.7 %}
-
-## Viewing security overview for a team
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
-{% endif %}
+{% data reusables.security-overview.alert-differences %}

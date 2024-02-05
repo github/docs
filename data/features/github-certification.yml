@@ -1,0 +1,6 @@
+# Reference: #12157.
+# Documentation for the GitHub Certification program
+
+versions:
+  fpt: '*'
+  ghec: '*'

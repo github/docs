@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Local code
 ---
@@ -87,10 +86,12 @@ After you've initialized a Git repository, you can push the repository to {% dat
 
 ### Adding a local repository to {% data variables.product.prodname_dotcom %} using Git
 
+Before you can add your local repository to {% data variables.product.prodname_dotcom %} using Git, you must authenticate to {% data variables.product.prodname_dotcom %} on the command line. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#authenticating-with-the-command-line)."
+
 {% mac %}
 
 {% data reusables.migrations.create-empty-repo %}
-1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
@@ -115,12 +116,14 @@ After you've initialized a Git repository, you can push the repository to {% dat
    git push -u origin main
    ```
 
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.migrations.create-empty-repo %}
-1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -143,13 +146,15 @@ After you've initialized a Git repository, you can push the repository to {% dat
    ```shell
    git push origin main
    ```
+
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
 {% endwindows %}
 
 {% linux %}
 
 {% data reusables.migrations.create-empty-repo %}
-1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
@@ -172,6 +177,8 @@ After you've initialized a Git repository, you can push the repository to {% dat
    ```shell
    git push origin main
    ```
+
+   If your default branch is not named "main," replace "main" with the name of your default branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
 
 {% endlinux %}
 

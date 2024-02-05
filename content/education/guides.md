@@ -11,7 +11,7 @@ shortTitle: Guides
 
 Teachers, students, and researchers can use tools from {% data variables.product.product_name %} to enrich a software development curriculum and develop real-world collaboration skills.
 
-- [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)
+- [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/get-started/quickstart/creating-an-account-on-github)
 - [Git and {% data variables.product.prodname_dotcom %} quickstart](/get-started/quickstart)
 - [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students)
 - [Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher)

@@ -55,7 +55,7 @@ For information about how to choose your preferred dev container configuration w
 
 It's useful to think of the `devcontainer.json` file as providing "customization" rather than "personalization." You should only include things that everyone working on your codebase needs as standard elements of the development environment, not things that are personal preferences. Things like linters are good to standardize on, and to require everyone to have installed, so they're good to include in your `devcontainer.json` file. Things like user interface decorators or themes are personal choices that should not be put in the `devcontainer.json` file.
 
-You can personalize your codespaces by using dotfiles and Settings Sync. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account)."
+You can personalize your codespaces by using dotfiles and Settings Sync. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account)."
 
 ### Dockerfile
 
@@ -77,26 +77,34 @@ The following example uses four instructions:
 
 `ARG` defines a build-time variable.
 
-`FROM` specifies the parent image on which the generated Docker image will be based.
+`FROM` specifies the parent image on which the generated Docker image will be based. If a base image policy has been configured, allowing only certain images to be used, the specified image must match one of the image references in the policy. If it does not, codespaces for this repository will be created in recovery mode. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)."
 
-`COPY` copies a file and adds it to the filesystem.
+`COPY` copies a file from the repository and adds it to the filesystem of the codespace.
 
 `RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
 
 ```dockerfile copy
-ARG VARIANT="16-buster"
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
+ARG VARIANT="16"
+FROM mcr.microsoft.com/devcontainers/javascript-node:1-${VARIANT}
 
-# [Optional] Uncomment if you want to install an additional version of node using nvm
-# ARG EXTRA_NODE_VERSION=10
-# RUN su node -c "source /usr/local/share/nvm/nvm.sh && nvm install ${EXTRA_NODE_VERSION}"
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends bundler
 
-# [Optional] Uncomment if you want to install more global node modules
-# RUN su node -c "npm install -g <your-package-list-here>"
+# [Optional] Uncomment if you want to install an additional version
+#  of node using nvm
+# ARG EXTRA_NODE_VERSION=18
+# RUN su node -c "source /usr/local/share/nvm/nvm.sh \
+#    && nvm install ${EXTRA_NODE_VERSION}"
 
-COPY library-scripts/github-debian.sh /tmp/library-scripts/
-RUN apt-get update && bash /tmp/library-scripts/github-debian.sh
+COPY ./script-in-your-repo.sh /tmp/scripts/script-in-codespace.sh
+RUN apt-get update && bash /tmp/scripts/script-in-codespace.sh
 ```
+
+{% note %}
+
+**Note**: In the above example, the script that's copied to the codespace (`script-in-your-repo.sh`) must exist in your repository.
+
+{% endnote %}
 
 For more information about Dockerfile instructions, see "[Dockerfile reference](https://docs.docker.com/engine/reference/builder)" in the Docker documentation.
 
@@ -116,7 +124,7 @@ Various options are available to you if you want to use existing container orche
 
 ## Using the default dev container configuration
 
-If you don't add a dev container configuration to your repository, or if your configuration does not specify an image to use, then {% data variables.product.prodname_dotcom %} creates a container from a default Linux image. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
+If you don't add a dev container configuration to your repository, or if your configuration does not specify a base image to use, then {% data variables.product.prodname_dotcom %} creates a container from a default Linux image. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The default dev container image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
 
 {% data reusables.codespaces.default-image-contents %}
 
@@ -124,7 +132,7 @@ The default configuration is a good option if you're working on a small project 
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
+**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
 
 {% endnote %}
 

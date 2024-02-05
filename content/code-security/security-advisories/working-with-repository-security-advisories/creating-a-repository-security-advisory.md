@@ -19,6 +19,8 @@ topics:
 shortTitle: Create repository advisories
 ---
 
+{% data reusables.security-advisory.private-repository-non-ghas-deprecation-note %}
+
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
 ## Creating a security advisory

@@ -33,8 +33,10 @@ Enterprise members can access the overview page for organizations in their enter
 ### Limitations
 
 The data that populates the overview page can and will change over time due to various factors, such as repository deletion or modifications to a security advisory. This means that the overview metrics for the same time period could vary if viewed at two different times. For compliance reports or other scenarios where data consistency is crucial, we recommend that you source data from the audit log. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
-  
+
 Keep in mind that the overview page tracks changes over time for security alert data only. If you filter the page by non-alert attributes, such as repository status, the data you see will reflect the current state of those attributes, instead of the historical state. For example, consider that you archived a repository that contains open security alerts, an action which closes the alerts. If you then view the overview page for the week before you archived the repository, the alert data for the repository will only appear when you filter to show data from archived repositories, because the current state of the repository is archived. However, the alerts will appear as open, since they were open during that time period and the overview page tracks the historical state of alerts.
+
+{% data reusables.security-overview.alert-differences %}
 
 ## Viewing the security overview dashboard
 
@@ -44,7 +46,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 1. Use the options at the top of the overview page to filter the group of alerts you want to see metrics for. All of the data and metrics on the page will change as you adjust the filters.
    - Use the date picker to set the time range that you want to view alert activity and metrics for.
    - Click in the search box to add further filters on the alerts and metrics displayed.
-  
+
     ![Screenshot of the overview page in security overview for an organization. The options for filtering are outlined in dark orange, including the date picker and search field.](/assets/images/help/security-overview/security-overview-dashboard-filters.png)
 
 1. For the alert trends graph at the top of the page, you can click **{% octicon "shield" aria-hidden="true"  %} Open alerts** or **{% octicon "shield-x" aria-hidden="true"  %} Closed alerts** to toggle between showing the trends for open or closed alerts. The toggle will only affect the alert trends graph. For more information, see "[Alert trends graph](#alert-trends-graph)."
@@ -58,7 +60,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 - [Net resolve rate](#net-resolve-rate)
 - [Alert activity graph](#alert-activity-graph)
 - [Impact analysis for repositories](#impact-analysis-for-repositories)
-  
+
 ### Alert trends graph
 
 The alert trends graph shows the change in the number of alerts in your organization over the time period you have chosen. Alerts are grouped by severity. You can toggle the graph between open and closed alerts.
@@ -85,7 +87,7 @@ For more information on secret scanning push protection metrics, see "[AUTOTITLE
 
 The "Mean time to remediate" metric is the average age of all alerts that were remediated or dismissed in the chosen time period. Alerts that were closed as "false positive" are excluded.
 
-The age of each closed alert is calculated by subtracting the date the alert was created from the the date that the alert was last closed during the chosen time period. For reopened alerts, the age is calculated by subtracting the original created date rather than the date the alert was reopened.
+The age of each closed alert is calculated by subtracting the date the alert was created from the date that the alert was last closed during the chosen time period. For reopened alerts, the age is calculated by subtracting the original created date rather than the date the alert was reopened.
 
 ### Net resolve rate
 
@@ -96,7 +98,7 @@ The rate is calculated by dividing the number of alerts that were closed and rem
 {% note %}
 
 **Note:** The net resolve rate takes into account any new and any closed alerts during the chosen time period. This means that the set of new alerts and set of closed alerts used for the calculation do not necessarily correspond, since they may represent different populations of alerts.
-  
+
 {% endnote %}
 
 Alerts that are reopened and re-closed during the chosen time period are ignored.

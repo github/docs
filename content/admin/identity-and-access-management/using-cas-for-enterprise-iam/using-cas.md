@@ -48,3 +48,4 @@ No other attributes are available.
 1. Under "Authentication", select **CAS**.
 1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 1. In the **Server URL** field, type the full URL of your CAS server. If your CAS server uses a certificate that can't be validated by {% data variables.product.prodname_ghe_server %}, you can use the `ghe-ssl-ca-certificate-install` command to install it as a trusted certificate. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-install)."
+{% data reusables.enterprise.apply-configuration %}

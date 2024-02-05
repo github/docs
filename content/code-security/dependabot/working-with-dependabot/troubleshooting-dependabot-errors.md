@@ -50,9 +50,6 @@ When {% data variables.product.prodname_dependabot %} is blocked from creating a
 There are several reasons why an alert may have no pull request link:
 
 1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
-{% ifversion GH-advisory-db-supports-malware %}
-1. The alert is for malware and there is no secure version of the package.
-{% endif %}
 1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
 1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
 
@@ -112,11 +109,31 @@ If a security vulnerability is released for `B` versions `<2.0.0` and a patch is
 
 {% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}
 
+### {% data variables.product.prodname_dependabot %} fails to close a open pull request for an update that has already been applied on the default branch
+
+{% data variables.product.prodname_dependabot %} will close pull requests for dependency updates, once it detects these updates have been committed to the default branch. However, in rare circumstances, the pull request may remain open. If you notice that you have committed an update to a dependency manually, and that the pull request for that same update is still open, you can use one of the following commands in a comment on the pull request:
+- `@dependabot recreate`, or
+- `@dependabot rebase`.
+
+Either comment will trigger {% data variables.product.prodname_dependabot %} to check if the dependency is no longer upgradable or vulnerable. If {% data variables.product.prodname_dependabot %} detects that the pull request is no longer required, it will close the pull request in this particular case.
+
+For more information about {% data variables.product.prodname_dependabot %} comment commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+
 ### {% data variables.product.prodname_dependabot %} cannot update to the required version as there is already an open pull request for the latest version
 
 **Security updates only.** {% data variables.product.prodname_dependabot %} will not create a pull request to update the vulnerable dependency to a secure version because there is already an open pull request to update this dependency. You will see this error when a vulnerability is detected in a single dependency and there's already an open pull request to update the dependency to the latest version.
 
 There are two options: you can review the open pull request and merge it as soon as you are confident that the change is safe, or close that pull request and trigger a new security update pull request. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
+
+### No security update is needed as DEPENDENCY is no longer vulnerable
+
+**Security updates only.** {% data variables.product.prodname_dependabot %} cannot close a pull request to update a dependency that is not, or is no longer, vulnerable. You may see this error when dependency graph data is stale, or when the dependency graph and {% data variables.product.prodname_dependabot %} do not agree if a particular version of a dependency is vulnerable.
+
+To debug the problem, we recommend you first examine the dependency graph for your repository, review what version it has detected for the dependency, and check if the identified version matches what is being used in your repository.
+
+If you suspect your dependency graph data is out of date, you may need to manually update the dependency graph for your repository or investigate your dependency information further. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)."
+
+If you are able to confirm the dependency version is no longer vulnerable, you can close the {% data variables.product.prodname_dependabot %} pull request.
 
 ### {% data variables.product.prodname_dependabot %} timed out during its update
 
@@ -155,11 +172,11 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 {% ifversion dependabot-version-updates-groups %}
 
-### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request
+### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+{% ifversion dependabot-grouped-security-updates %}The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file only apply to version updates.{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
 
-You must configure groups per package ecosystem. To debug the problem, we recommend you look at the logs. For information about accessing the logs for a manifest, see "[Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}](#investigating-errors-with-dependabot-version-updates)" above.
+When you configure grouped version updates, you must configure groups per package ecosystem. To debug the problem, we recommend you look at the logs. For information about accessing the logs for a manifest, see "[Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}](#investigating-errors-with-dependabot-version-updates)" above.
 
 You may have unintentionally created empty groups. This happens, for example, when you set a `dependency-type` in the `allow` key for the overall job.
 
@@ -183,15 +200,44 @@ You need to ensure that configuration settings don't cancel each other, and upda
 
 For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
 
+{% ifversion dependabot-grouped-security-updates %}
+
+### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_security_updates %}
+
+The [`groups`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups) configuration settings in the `dependabot.yml` file only apply to version updates.
+
+For grouped security updates, {% data variables.product.prodname_dependabot %} uses the following guidelines to create grouped pull requests.
+
+- {% data variables.product.prodname_dependabot %} **will** group dependencies from the same package ecosystem that are located in different directories.
+- {% data variables.product.prodname_dependabot %} **will** apply other relevant customization options from the `dependabot.yml` file to pull requests for grouped security updates.
+- {% data variables.product.prodname_dependabot %} **will not** group dependencies from different package ecosystems together.
+- {% data variables.product.prodname_dependabot %} **will not** group security updates with version updates.
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates#impact-of-configuration-changes-on-security-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates)."
+
+{% endif %}
+
 ### {% data variables.product.prodname_dependabot %} fails to update one of the dependencies in a grouped pull request
 
-**Version updates only.**{% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+{% ifversion dependabot-grouped-security-updates %}There are different troubleshooting techniques you can use for failed version updates and failed security updates.
+
+#### Handling failures in grouped version updates{% endif %}
+
+**Version updates only.** {% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 If the dependency still fails to update, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
 
 If the dependency still fails to update, there may be a problem with the dependency itself, or with {% data variables.product.prodname_dependabot %} for that specific ecosystem.
 
 {% data reusables.dependabot.dependabot-ignore-dependencies %}
+
+{% ifversion dependabot-grouped-security-updates %}
+
+#### Handling failures in grouped security updates
+
+**Security updates only.** If a grouped pull request for security updates fails or is unable to be merged, we recommend you manually open pull requests to bump the versions of breaking changes. When you manually update a package that is included in a grouped pull request, {% data variables.product.prodname_dependabot %} will rebase the pull request so it does not include the manually updated package.
+
+{% endif %}
 
 ### Continuous integration (CI) fails on my grouped pull request
 

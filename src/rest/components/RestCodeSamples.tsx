@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
@@ -38,6 +38,14 @@ hljs.registerLanguage('curl', hljsCurl)
 
 function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
+}
+
+function highlightElement(element: HTMLElement) {
+  element.className = 'hljs'
+  // If the element was already highlighted, remove the dataset property
+  // otherwise the `hljs.highlightElement` function will not highlight.
+  delete element.dataset.highlighted
+  hljs.highlightElement(element)
 }
 
 export function RestCodeSamples({ operation, slug, heading }: Props) {
@@ -138,7 +146,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     }
   }, [])
 
-  // Handle syntax higlighting when the language changes or
+  // Handle syntax highlighting when the language changes or
   // a cookie is set
   useEffect(() => {
     const reqElem = requestCodeExample.current
@@ -147,8 +155,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
       handleResponseResize()
     }
   }, [selectedLanguage])
@@ -168,8 +175,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
   }, [selectedResponse])
 
@@ -178,14 +184,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   useEffect(() => {
     const reqElem = requestCodeExample.current
     if (reqElem) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
 
     const resElem = responseCodeExample.current
     if (resElem) {
-      resElem.className = 'hljs'
-      hljs.highlightElement(resElem)
+      highlightElement(resElem)
     }
   }, [selectedExample])
 
@@ -224,7 +228,9 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h3 className="mt-0 pt-0 h4" id={`${slug}--code-samples`}>
         <a href={`#${slug}--code-samples`}>{heading}</a>
       </h3>
-
+      <h4 className="mt-3 mb-3 h5">
+        {isSingleExample ? t('request_example') : t('request_examples')}
+      </h4>
       {/* Display an example selector if more than one example */}
       {!isSingleExample && (
         <div className="pb-5 pt-2">

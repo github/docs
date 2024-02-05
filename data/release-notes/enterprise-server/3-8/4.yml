@@ -11,14 +11,17 @@ sections:
     - |
       If a user made a request to the Collaborators API's Add a repository collaborator endpoint specifying a `permission` of `read` or `write`, the instance returned a `500` error. 
     - On an instance with the dependency graph enabled, the correct path appears for manifests that originate from build-time submission snapshots. 
-    - The `spokesctl` command-line utility accepts more input formats. 
+    - The `spokesctl` command-line utility accepts more input formats.
+    - |
+      On an instance with a GitHub Advanced Security license and code scanning enabled, CodeQL analysis created a SARIF file that failed processing, which the API showed as pending due to an internal exception. [Updated: 2023-12-12]
+      
   changes:
     - People with administrative SSH access to an instance can configure the maximum memory usage in gigabytes for Redis using `ghe-config redis.max-memory-gb VALUE`. 
   known_issues:
     - |
-      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-mysql-cannot-start-up %} [Updated: 2023-08-11]
     - |
-      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %} [Updated: 2023-07-31]
     - |
       {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %} [Updated: 2023-10-26]
     - |
@@ -46,3 +49,7 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]
     - |
       {% data reusables.release-notes.2023-11-aws-system-time %} [Updated 2023-11-10]
+    - |
+      {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %} [Updated 2023-12-05]
+    - |
+      {% data reusables.release-notes.2023-12-client-ip-addresses-incorrect-in-audit-log %} [Updated 2023-12-13]

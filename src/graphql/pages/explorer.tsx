@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { useEffect, useRef } from 'react'
 
 type Props = {
@@ -9,7 +9,11 @@ type Props = {
   graphqlExplorerUrl: string
 }
 export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) {
-  const { page } = mainContext
+  // Use TypeScript's "not null assertion" because `context.page` should
+  // will present in main context if it's gotten to the stage of React
+  // rendering.
+  const page = mainContext.page!
+
   const graphiqlRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {

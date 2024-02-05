@@ -13,8 +13,8 @@
 
 import { jest, test, expect } from '@jest/globals'
 
-import { describeIfElasticsearchURL } from '../../../tests/helpers/conditional-runs.js'
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
+import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 if (!process.env.ELASTICSEARCH_URL) {
@@ -100,8 +100,8 @@ describeIfElasticsearchURL('search rendering page', () => {
   })
 
   test('links per version in pathname', async () => {
-    const $ = await getDOM('/en/github-ae@latest/search?query=foo')
-    expect($('[data-testid="search-results"]').text()).toMatch('Exclusively for GHAE')
+    const $ = await getDOM('/en/enterprise-cloud@latest/search?query=foo')
+    expect($('[data-testid="search-results"]').text()).toMatch('Exclusively for GHEC')
     // Note it testid being 'search-result', not 'search-results'
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBeGreaterThan(0)
@@ -109,7 +109,7 @@ describeIfElasticsearchURL('search rendering page', () => {
     const links = $('[data-testid="search-result"] a')
     const hrefs = links.map((i, el) => $(el).attr('href')).get()
     for (const href of hrefs) {
-      expect(href).toMatch('/en/github-ae@latest/')
+      expect(href).toMatch('/en/enterprise-cloud@latest/')
     }
     expect.assertions(results.length + 2)
   })
@@ -135,7 +135,7 @@ describeIfElasticsearchURL('search rendering page', () => {
 
   test('more that one search query', async () => {
     const $ = await getDOM('/en/search?query=foo&query=bar')
-    expect($('[data-testid="search-results"]').text()).toMatch('Can not have multiple values')
+    expect($('[data-testid="search-results"]').text()).toMatch('Cannot have multiple values')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
   })

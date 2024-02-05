@@ -93,7 +93,7 @@ When you create a new repository, it only exists on your computer and you are th
 Now that you've created and published your repository, you're ready to make changes to your project and start crafting your first commit to your repository.
 
 1. To launch your external editor from within {% data variables.product.prodname_desktop %}, in the "{% data variables.product.prodname_desktop %}" menu bar, select **Repository**, then click **Open in EDITOR**. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor-in-github-desktop)."
-   ![Screenshot of a menu bar on a Mac. Under the open "Repository" dropdown menu, a cursor hovers over "Open in Visual Studio Code", highlighted in blue.](/assets/images/help/desktop/open-in-editor.png)
+   ![Screenshot of a menu bar on a Mac. Under the open "Repository" dropdown menu, a cursor hovers over "Open in {% data variables.product.prodname_vscode %}", highlighted in blue.](/assets/images/help/desktop/open-in-editor.png)
 
 1. Make some changes to the _README.md_ file that you previously created. You can add information that describes your project, like what it does and why it is useful. When you are satisfied with your changes, save them in your text editor.
 1. In {% data variables.product.prodname_desktop %}, navigate to the **Changes** view. In the file list, you should see your _README.md_. The checkbox to the left of the _README.md_ file indicates that the changes you've made to the file will be part of the commit you make. In the future, you might make changes to multiple files but only want to commit the changes you've made to some of the files. If you click the checkbox next to a file, that file will not be included in the commit.

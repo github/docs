@@ -19,7 +19,7 @@ Organization webhooks allow your server to receive HTTP `POST` payloads whenever
 
 ### Scopes and restrictions
 
-You must be an organization owner to use these endpoints. OAuth tokens require the `admin:org_hook` scope to use these endpoints.
+You must be an organization owner{% ifversion custom-org-roles %} or have the "Manage organization webhooks" permission{% endif %} to use these endpoints. OAuth tokens require the `admin:org_hook` scope to use these endpoints.
 
 In order to protect sensitive data which may be present in webhook configurations, we also enforce the following access control rules:
 

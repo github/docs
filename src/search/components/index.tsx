@@ -7,7 +7,7 @@ import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { useNumberFormatter } from 'src/search/components/useNumberFormatter'
 import { SearchResults } from 'src/search/components/SearchResults'
 import { NoQuery } from 'src/search/components/NoQuery'
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { ValidationErrors } from './ValidationErrors'
 
 type Props = {
@@ -30,7 +30,9 @@ export function Search({ search }: Props) {
   const { results, validationErrors } = search
   const hasQuery = Boolean((query && query.trim()) || '')
 
-  let pageTitle = documentPage.fullTitle
+  // Mostly to satisfy TypeScript because the useMainContext hook
+  // is run on every request and every request doesn't have a page.
+  let pageTitle = documentPage?.fullTitle || 'Search'
   if (hasQuery) {
     pageTitle = `${t('search_results_for')} "${query.trim()}"`
     if (currentVersion !== DEFAULT_VERSION) {

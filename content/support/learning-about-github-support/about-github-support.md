@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
   - /admin/enterprise-support/about-github-enterprise-support
@@ -60,14 +59,9 @@ For more information, see "[AUTOTITLE](/support/learning-about-github-support/ab
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghae %}
+{% ifversion fpt or ghec %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on
-{%- ifversion fpt or ghec %}
-[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
-{%- elsif ghae %}
-[{% data variables.product.product_name %} Status](https://ghestatus.com/)
-{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
+Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on [{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/). For more information, see "[About GitHub status](#about-github-status)."
 
 {% endif %}
 
@@ -105,13 +99,15 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 {% data reusables.support.scope-of-support %}
 
-{% ifversion ghec or fpt or ghae %}
+{% ifversion ghec or fpt %}
 
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
+You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% endif %}).
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
+
+You can also use the {% data variables.product.company_short %} Status API to check for incidents. For more information, see [{% data variables.product.company_short %} Status API](https://www.githubstatus.com/api/).
 
 {% endif %}
 
@@ -190,7 +186,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Resolving and closing support tickets
 

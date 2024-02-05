@@ -12,7 +12,6 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -35,7 +34,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Inviting a collaborator to a personal repository
 
-You can send an invitation to collaborate in your repository directly to someone on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or to the person's email address{% elsif ghes or ghae %}.{% endif %}
+You can send an invitation to collaborate in your repository directly to someone on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or to the person's email address{% elsif ghes %}.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -43,7 +42,7 @@ You can send an invitation to collaborate in your repository directly to someone
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" %} Collaborators**.

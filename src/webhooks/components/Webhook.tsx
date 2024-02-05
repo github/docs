@@ -6,7 +6,7 @@ import { slug } from 'github-slugger'
 import cx from 'classnames'
 
 import { useVersion } from 'src/versions/components/useVersion'
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'

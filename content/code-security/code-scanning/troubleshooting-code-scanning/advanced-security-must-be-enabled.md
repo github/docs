@@ -9,7 +9,9 @@ topics:
   - Errors
   - Troubleshooting
 versions:
-  feature: code-scanning-tool-status-page
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 ---
 
 ## About this error

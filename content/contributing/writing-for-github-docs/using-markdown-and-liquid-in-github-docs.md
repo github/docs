@@ -75,7 +75,7 @@ For information on when to use callout tags, see "[AUTOTITLE](/contributing/styl
 
 ## Code sample syntax highlighting
 
-To render syntax highlighting in command line instructions and code samples, we use triple backticks followed by the language of the sample. For a list of all supported languages, see [`code-languages.yml`](https://github.com/github/docs/blob/main/data/variables/code-languages.yml).
+To render syntax highlighting in command line instructions and code samples, we use triple backticks followed by the language of the sample. For a list of all supported languages, see [`code-languages.yml`](https://github.com/github/docs/blob/main/data/code-languages.yml).
 
 ### Example usage of code syntax highlighting
 
@@ -133,7 +133,7 @@ Code annotations only work in articles with the `layout: inline` frontmatter pro
         steps:
           - run: gh pr comment $PR_URL --body "Welcome to the repository!"
             env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               PR_URL: ${{ github.event.pull_request.html_url }}
     ```
 
@@ -194,7 +194,7 @@ You can define a default platform in an article's YAML frontmatter. For more inf
 
 ## Tool tags
 
-We occasionally need to write documentation that has different instructions for different tools. For example, the {% data variables.product.prodname_dotcom %} UI, {% data variables.product.prodname_cli %}, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_github_codespaces %}, and Visual Studio Code might be able to accomplish the same task using different steps. We use tool tags to control what information is displayed for each tool.
+We occasionally need to write documentation that has different instructions for different tools. For example, the {% data variables.product.prodname_dotcom %} UI, {% data variables.product.prodname_cli %}, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_github_codespaces %}, and {% data variables.product.prodname_vscode %} might be able to accomplish the same task using different steps. We use tool tags to control what information is displayed for each tool.
 
 {% data variables.product.prodname_docs %} maintains tool tags for {% data variables.product.prodname_dotcom %} products and selected third-party extensions. See the [`all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) object in the `github/docs` repository for a list of all supported tools.
 
@@ -399,17 +399,17 @@ Because the site is dynamic, it does not build HTML files for each different ver
 
 For example, an article that is available in currently supported versions will have permalink URLs like the following:
 
-- `/en/get-started/quickstart/set-up-git`
-- `/en/enterprise-cloud@latest/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.10/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.9/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.8/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.7/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.6/get-started/quickstart/set-up-git`
+- `/en/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-cloud@latest/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.10/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.9/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.8/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.7/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.6/get-started/getting-started-with-git/set-up-git`
 
 An article that is not available in {% data variables.product.prodname_ghe_server %} will have just one permalink:
 
-- `/en/get-started/quickstart/set-up-git`
+- `/en/get-started/getting-started-with-git/set-up-git`
 
 {% note %}
 

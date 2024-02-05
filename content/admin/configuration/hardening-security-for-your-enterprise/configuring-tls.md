@@ -80,3 +80,43 @@ You can also use the `ghe-ssl-acme` command line utility on {% data variables.lo
 
    ![Screenshot of the "Requesting TLS Certificate" dialog. At the top of the dialog, "STATUS: DONE" is highlighted with an orange outline.](/assets/images/enterprise/management-console/lets-encrypt-status.png)
 1. Click **Save configuration**.
+
+### Troubleshooting TLS with Let's Encrypt
+
+You can troubleshoot issues that affect your TLS certificate from Let's Encrypt.
+
+#### Error: "Security error prevented the resource from being loaded"
+
+In some cases, end users may report that pages for services on {% data variables.location.product_location %} respond with the following error in a browser's developer tools.
+
+```text
+Security error prevented the resource from being loaded
+```
+
+To resolve these errors, you must update the Subject Alternative Names (SANs) your Let's Encrypt certificate by reissuing the certificate. Replacement of an instance's certificate requires user-facing downtime.
+
+1. Communicate the upcoming downtime to your users, and consider enabling maintenance mode. For more information, see the following articles.
+
+   - "[AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)"
+   - "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode)"
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. To disable Let's Encrypt, run the following command.
+
+   ```shell copy
+   ghe-ssl-acme -d
+   ```
+
+1. To clear the existing settings for Let's Encrypt, run the following command.
+
+   ```shell copy
+   ghe-ssl-acme -x
+   ```
+
+1. To request and install a new certificate from Let's Encrypt, run the following command.
+
+   ```shell copy
+   ghe-ssl-acme -e
+   ```
+
+{% data reusables.enterprise.apply-configuration %}
+1. If you configured a user message or maintenance mode, remove the message and disable maintenance mode.

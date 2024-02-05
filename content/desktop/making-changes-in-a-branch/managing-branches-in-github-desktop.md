@@ -74,7 +74,7 @@ If you create a branch on {% data variables.product.product_name %}, you'll need
 You can view and make commits to any of your repository's branches. If you have uncommitted, saved changes, you'll need to decide what to do with your changes before you can switch branches. You can commit your changes on the current branch, stash your changes to temporarily save them on the current branch, or bring the changes to your new branch. If you want to commit your changes before switching branches, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)."
 {% tip %}
 
-**Tip**: You can set a default behavior for switching branches in the **Advanced** settings. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
+**Tip**: You can set a default behavior for switching branches in the **Prompts** settings. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
 
 {% endtip %}
 
@@ -105,7 +105,7 @@ You can't delete a branch if it's currently associated with an open pull request
 ## Further reading
 
 - "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop)"
-- "[AUTOTITLE](/get-started/quickstart/github-glossary#branch)" in the {% data variables.product.prodname_dotcom %} glossary
+- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#branch)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" in the Git documentation
 - "[AUTOTITLE](/desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop)"

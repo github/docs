@@ -2,7 +2,6 @@
 title: resolve ram
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -57,7 +56,20 @@ Select output format. Choices include:
 
 #### `-M, --ram=<MB>`
 
-Set total amount of RAM the query evaluator should be allowed to use.
+The query evaluator will try hard to keep its total memory footprint
+below this value. (However, for large databases it is possible that the
+threshold may be broken by file-backed memory maps, which can be swapped
+to disk in case of memory pressure).
+
+The value should be at least 2048 MB; smaller values will be
+transparently rounded up.
+
+#### `--dataset=<directory>`
+
+\[Advanced] Tune the RAM settings appropriately for querying the given
+dataset, taking into account components of RAM usage that scale with the
+size of the database. If this is not given, a generic default size will
+be assumed.
 
 ### Common options
 
@@ -93,3 +105,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

@@ -1,6 +1,6 @@
 ---
 title: Managing the forking policy for your repository
-intro: 'You can allow or prevent the forking of a specific private{% ifversion ghae or ghes or ghec %} or internal{% endif %} repository owned by an organization.'
+intro: 'You can allow or prevent the forking of a specific private{% ifversion ghes or ghec %} or internal{% endif %} repository owned by an organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-a-private-repository-owned-by-your-organization
   - /github/administering-a-repository/allowing-people-to-fork-a-private-repository-owned-by-your-organization
@@ -10,13 +10,12 @@ permissions: People with admin permissions for a repository can manage the forki
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
 shortTitle: Manage the forking policy
 ---
-An organization owner must allow forks of private{% ifversion ghae or ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
+An organization owner must allow forks of private{% ifversion ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
 {% ifversion fpt or ghec or ghes %}
 You can help prevent sensitive information from being exposed by disabling the ability to fork repositories in your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."

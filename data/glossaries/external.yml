@@ -256,7 +256,7 @@
 - term: gist
   description: >-
     A gist is a shareable file that you can edit, clone, and fork on GitHub.
-    You can make a gist {% ifversion ghae %}internal{% else %}public{% endif %} or secret, although secret gists will be
+    You can make a gist public or secret, although secret gists will be
     available to {% ifversion ghae %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - term: Git
   description: >-

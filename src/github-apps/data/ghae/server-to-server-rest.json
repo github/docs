@@ -501,6 +501,12 @@
       "subcategory": "installations",
       "verb": "get",
       "requestPath": "/installation/repositories"
+    },
+    {
+      "slug": "revoke-an-installation-access-token",
+      "subcategory": "installations",
+      "verb": "delete",
+      "requestPath": "/installation/token"
     }
   ],
   "branches": [
@@ -2075,6 +2081,14 @@
       "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch"
     }
   ],
+  "rate-limit": [
+    {
+      "slug": "get-rate-limit-status-for-the-authenticated-user",
+      "subcategory": "rate-limit",
+      "verb": "get",
+      "requestPath": "/rate_limit"
+    }
+  ],
   "reactions": [
     {
       "slug": "delete-team-discussion-comment-reaction",
@@ -2279,7 +2293,7 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"
@@ -2435,6 +2449,12 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
+      "slug": "download-a-repository-archive-tar",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/tarball/{ref}"
+    },
+    {
       "slug": "list-repository-teams",
       "subcategory": "repos",
       "verb": "get",
@@ -2451,6 +2471,12 @@
       "subcategory": "repos",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/topics"
+    },
+    {
+      "slug": "download-a-repository-archive-zip",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/zipball/{ref}"
     },
     {
       "slug": "list-repositories-for-a-user",

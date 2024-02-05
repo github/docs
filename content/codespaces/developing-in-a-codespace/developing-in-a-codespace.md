@@ -107,7 +107,7 @@ You can customize the codespaces that are created for a repository by creating o
 
 ### Personalizing your codespace
 
-You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository to personalize aspects of the codespace environment for any codespace that you create. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
+You can use a [dotfiles](https://dotfiles.github.io/tutorials/) repository to personalize aspects of the codespace environment for any codespace that you create. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)."
 
 ### Committing your changes
 

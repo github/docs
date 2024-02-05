@@ -17,9 +17,13 @@ topics:
 
 A project is an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests,{% ifversion projects-v2-insights %} visualize work with configurable charts,{% endif %} and add custom fields to track metadata specific to your team. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
 
+To get started and create a project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)." To learn more about the different layouts, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."
+
 ### Staying up-to-date
 
 Your projects are built from the issues and pull requests you add, creating direct references between your project and your work. Information is synced automatically to your project as you make changes, updating your views and charts. This integration works both ways, so that when you change information about a pull request or issue in your project, the pull request or issue reflects that information. For example, change an assignee in your project and that change is shown in your issue. You can take this integration even further, group your project by assignee, and make changes to issue assignment by dragging issues into the different groups.
+
+To learn more about managing items in your project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project){% ifversion projects-v2-bulk-table-editing %}" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/editing-items-in-your-project){% endif %}."
 
 ### Adding metadata to your items
 
@@ -30,6 +34,8 @@ You can use custom fields to add metadata to your issues, pull requests, and dra
 - A single select field to track whether a task is Low, Medium, or High priority.
 - A text field to add a quick note.
 - An iteration field to plan work week-by-week, including support for breaks.
+
+To learn more about the different fields you can add to a project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields)."
 
 ### Automating your projects
 

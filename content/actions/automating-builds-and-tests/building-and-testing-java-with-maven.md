@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -23,11 +22,7 @@ shortTitle: Build & test Java with Maven
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Maven software project management tool. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to {% ifversion actions-caching %}cache files and{% endif %} upload artifacts from a workflow run.
 
-{% ifversion ghae %}
-{% data reusables.actions.self-hosted-runners-software %}
-{% else %}
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
-{% endif %}
 
 ## Prerequisites
 
@@ -51,7 +46,7 @@ We recommend that you have a basic understanding of Java and the Maven framework
 1. The "{% ifversion actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Search for "Java with Maven".
 1. On the "Java with Maven" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 
    If you don't find the "Java with Maven" starter workflow, copy the following workflow code to a new file called `maven.yml` in the `.github/workflows` directory of your repository.
 

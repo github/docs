@@ -11,6 +11,9 @@
     ],
     "ghes-3.10": [
       "2022-11-28"
+    ],
+    "ghes-3.11": [
+      "2022-11-28"
     ]
   },
   "versionMapping": {
@@ -31,10 +34,12 @@
     "content/rest/index.md": {
       "startsWith": [
         "quickstart",
-        "overview",
+        "about-the-rest-api",
+        "using-the-rest-api",
+        "authentication",
         "guides"
       ]
     }
   },
-  "sha": "5d129ef688e218d460c9ef133c8c1d3334c86591"
+  "sha": "60482fa6aa943ad299eb3d1f5e91c3b38f79972b"
 }

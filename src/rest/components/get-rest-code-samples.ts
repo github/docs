@@ -3,7 +3,7 @@ import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from 'src/rest/components/types'
 import { useVersion } from 'src/versions/components/useVersion'
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 
 type CodeExamples = Record<string, any>
 
@@ -62,7 +62,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
       if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
         const paramNames = Object.keys(bodyParameters)
         paramNames.forEach((elem) => {
-          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} "${elem}=${bodyParameters[elem]}"`
+          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${bodyParameters[elem]}'`
         })
       } else {
         requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${bodyParameters}"`

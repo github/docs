@@ -45,9 +45,17 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@40526807ee1e208a1a8c1bbe6bd2d1b044ef6368 # v40.0.2
+        uses: tj-actions/changed-files@ae82ed4ae04587b665efad2f206578aa6f0e8539 # v42.0.0
         with:
+          # No need to escape the file names because we make the output of
+          # tj-actions/changed-files be set as an environment variable. Not
+          # as a direct input to the line of bash that uses it.
+          # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
+          safe_output: false
           files: 'content/**'
+          # Necessary so we can know what the old name was when a
+          # content file was renamed.
+          output_renamed_files_as_deleted_and_added: true
 
       - name: Run tests
         env:
