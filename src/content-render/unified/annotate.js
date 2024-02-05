@@ -40,7 +40,7 @@ import { header } from './code-header.js'
 const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8'))
 
 const commentRegexes = {
-  number: /^\s*#\s*/, // also known has hash or sharp; but the unicode name is "number sign"
+  number: /^\s*#[^!]\s*/, // also known has hash or sharp; but the unicode name is "number sign"
   slash: /^\s*\/\/\s*/,
   xml: /^\s*<!--\s*/,
   percent: /^\s*%%?\s*/,
@@ -71,6 +71,13 @@ function createAnnotatedNode(node) {
 
   // Group groups into rows
   const rows = chunk(groups, 2)
+  for (const [, note] of rows) {
+    if (note === undefined) {
+      throw new Error(
+        "Unbalanced code meaning there's a comment (note) that is not followed by any code.",
+      )
+    }
+  }
 
   // Render the HTML
   return template({ lang, code, rows })
