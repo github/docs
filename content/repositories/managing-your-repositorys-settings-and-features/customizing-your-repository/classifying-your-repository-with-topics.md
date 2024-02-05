@@ -49,7 +49,7 @@ When creating a topic:
 1. Create an .md file.
 
    GitHub will display a panel near the right edge of the screen.
-   
+  
 1. In the top right corner of this panel, to the right of "About", press the symbol {% octicon "gear" aria-label="Edit repository metadata" %}.
 
    ![Screenshot of the top right of the main page for a repository. The "Edit repository metadata" button, shown as a gear icon, is outlined in orange.](/assets/images/help/repository/edit-repository-details-gear.png)
@@ -57,7 +57,7 @@ When creating a topic:
 1. Under "Topics", start to type the topic you want to add to your repository.
 
    GitHub will display a list of any matching topics.
-   
+  
 1. You can pick at least one topic.
 
    If GitHub displays no topic, continue typing to create a new topic.
