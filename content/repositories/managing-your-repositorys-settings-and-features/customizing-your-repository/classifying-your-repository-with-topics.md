@@ -46,13 +46,23 @@ When creating a topic:
 {% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. In the top right corner of the page, to the right of "About", click {% octicon "gear" aria-label="Edit repository metadata" %}.
+1. Create an .md file.
+
+   GitHub will display a panel near the right edge of the screen.
+   
+1. In the top right corner of this panel, to the right of "About", press the symbol {% octicon "gear" aria-label="Edit repository metadata" %}.
 
    ![Screenshot of the top right of the main page for a repository. The "Edit repository metadata" button, shown as a gear icon, is outlined in orange.](/assets/images/help/repository/edit-repository-details-gear.png)
 
-1. Under "Topics", start to type the topic you want to add to your repository to display a dropdown menu of any matching topics. Click the topic you want to add or continue typing to create a new topic.
+1. Under "Topics", start to type the topic you want to add to your repository.
+
+   GitHub will display a list of any matching topics.
+   
+1. You can pick at least one topic.
+
+   If GitHub displays no topic, continue typing to create a new topic.
 
    ![Screenshot of the "Topics" field showing example topics: "docs" and "works-with-codespaces." A "Suggested" topic "documentation" is shown below.](/assets/images/help/repository/add-topic-form.png)
 
-1. Optional, if there are "Suggested" topics displayed under the "Topics" field, click {% octicon "plus" aria-label="Add this topic" %} to add or {% octicon "dash" aria-label="Decline this topic" %} to decline the suggested topic.
-1. After you've finished adding topics, click **Save changes**.
+1. If GitHub displays "suggested" topics under the "Topics" field, you can press the symbol {% octicon "plus" aria-label="Add this topic" %} to add a suggested topic, or the symbol {% octicon "dash" aria-label="Decline this topic" %} to decline it.
+1. After you've finished adding topics, press the button **Save changes**.
