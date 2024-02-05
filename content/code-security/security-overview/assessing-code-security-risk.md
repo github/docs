@@ -92,14 +92,3 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
-
-{% ifversion ghae < 3.7 %}
-
-## Viewing security overview for a team
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.organizations.specific_team %}
-{% data reusables.organizations.team-security-overview %}
-{% data reusables.organizations.filter-security-overview %}
-{% endif %}
