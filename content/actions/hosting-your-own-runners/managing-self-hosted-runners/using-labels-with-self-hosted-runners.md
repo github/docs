@@ -11,7 +11,7 @@ versions:
 type: tutorial
 shortTitle: Label runners
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 For information on how to use labels to route jobs to specific types of self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)." {% ifversion target-runner-groups %}You can also route jobs to runners in a specific group. For more information, see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)."{% endif %}
@@ -20,10 +20,10 @@ For information on how to use labels to route jobs to specific types of self-hos
 
 ## Creating a custom label
 
-You can create custom labels for runners at the repository{% ifversion ghec or ghes or ghae %}, organization, and enterprise{% else %} and organization{% endif %} levels.
+You can create custom labels for runners at the repository{% ifversion ghec or ghes %}, organization, and enterprise{% else %} and organization{% endif %} levels.
 
 - [Creating a custom label for a repository runner](#creating-a-custom-label-for-a-repository-runner)
-- [Creating a custom label for an organization runner](#creating-a-custom-label-for-an-organization-runner){% ifversion ghec or ghes or ghae %}
+- [Creating a custom label for an organization runner](#creating-a-custom-label-for-an-organization-runner){% ifversion ghec or ghes %}
 - [Creating a custom label for an enterprise runner](#creating-a-custom-label-for-an-enterprise-runner){% endif %}
 
 {% note %}
@@ -42,7 +42,7 @@ You can create custom labels for runners at the repository{% ifversion ghec or g
 {% data reusables.actions.self-hosted-runner-navigate-to-org %}
 {% data reusables.actions.self-hosted-runners-create-label-steps %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ### Creating a custom label for an enterprise runner
 
@@ -56,10 +56,10 @@ You can create custom labels for runners at the repository{% ifversion ghec or g
 
 ## Assigning a label to a self-hosted runner
 
-You can assign labels to self-hosted runners at the repository{% ifversion ghec or ghes or ghae %}, organization, and enterprise{% else %} and organization{% endif %} levels.
+You can assign labels to self-hosted runners at the repository{% ifversion ghec or ghes %}, organization, and enterprise{% else %} and organization{% endif %} levels.
 
 - [Assigning a label to a repository runner](#assigning-a-label-to-a-repository-runner)
-- [Assigning a label to an organization runner](#assigning-a-label-to-an-organization-runner){% ifversion ghec or ghes or ghae %}
+- [Assigning a label to an organization runner](#assigning-a-label-to-an-organization-runner){% ifversion ghec or ghes %}
 - [Assigning a label to an enterprise runner](#assigning-a-label-to-an-enterprise-runner){% endif %}
 
 ### Assigning a label to a repository runner
@@ -72,7 +72,7 @@ You can assign labels to self-hosted runners at the repository{% ifversion ghec 
 {% data reusables.actions.self-hosted-runner-navigate-to-org %}
 {% data reusables.actions.self-hosted-runner-assign-label-steps %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ### Assigning a label to an enterprise runner
 
@@ -87,10 +87,10 @@ You can assign labels to self-hosted runners at the repository{% ifversion ghec 
 
 ## Removing a custom label from a self-hosted runner
 
-You can remove custom labels from self-hosted runners at the repository{% ifversion ghec or ghes or ghae %}, organization, and enterprise{% else %} and organization{% endif %} levels.
+You can remove custom labels from self-hosted runners at the repository{% ifversion ghec or ghes %}, organization, and enterprise{% else %} and organization{% endif %} levels.
 
 - [Removing a custom label from a repository runner](#removing-a-custom-label-from-a-repository-runner)
-- [Removing a custom label from an organization runner](#removing-a-custom-label-from-an-organization-runner){% ifversion ghec or ghes or ghae %}
+- [Removing a custom label from an organization runner](#removing-a-custom-label-from-an-organization-runner){% ifversion ghec or ghes %}
 - [Removing a custom label from an enterprise runner](#removing-a-custom-label-from-an-enterprise-runner){% endif %}
 
 ### Removing a custom label from a repository runner
@@ -103,7 +103,7 @@ You can remove custom labels from self-hosted runners at the repository{% ifvers
 {% data reusables.actions.self-hosted-runner-navigate-to-org %}
 {% data reusables.actions.self-hosted-runner-remove-label-steps %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ### Removing a custom label from an enterprise runner
 

@@ -16,7 +16,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -27,7 +26,7 @@ shortTitle: Set commit email address
 
 {% data variables.product.prodname_dotcom %} uses your commit email address to associate commits with your account on {% data variables.location.product_location %}. You can choose the email address that will be associated with the commits you push from the command line as well as web-based Git operations you make.
 
-For web-based Git operations, you can set your commit email address on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For commits you push from the command line, you can set your commit email address in Git.
+For web-based Git operations, you can set your commit email address on {% data variables.location.product_location %}. For commits you push from the command line, you can set your commit email address in Git.
 
 {% ifversion fpt or ghec %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. Any commits you made prior to changing your commit email address are still associated with your previous email address.{% endif %}
 
@@ -45,7 +44,7 @@ For web-based Git operations, you can set your commit email address on {% ifvers
 
 You can also choose to block commits you push from the command line that expose your personal email address. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address)."{% endif %}
 
-To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your account on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% ifversion not ghae %}For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."{% endif %}
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your account on {% data variables.location.product_location %}{% ifversion fpt or ghec %}, or the `noreply` email address provided to you in your email settings{% endif %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
 
 {% ifversion fpt or ghec %}
 

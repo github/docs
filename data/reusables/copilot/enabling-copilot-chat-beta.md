@@ -8,7 +8,7 @@
 
 {% data variables.product.prodname_copilot_chat %} is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
 
-If {% data variables.product.prodname_copilot_chat_short %} is enbaled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
+If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
 
 ### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
 

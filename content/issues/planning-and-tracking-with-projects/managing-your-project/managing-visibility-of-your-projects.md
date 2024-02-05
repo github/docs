@@ -10,7 +10,7 @@ type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
-permissions: Organization owners can manage the visibility of project boards in their organization. Organization owners can also allow collaborators with admin permissions to manage project visibility. Visibility of user projects can be managed by the owner of the project and collaborators with admin permissions.
+permissions: Organization owners can manage the visibility of {% data variables.projects.projects_v1_boards %} in their organization. Organization owners can also allow collaborators with admin permissions to manage project visibility. Visibility of user projects can be managed by the owner of the project and collaborators with admin permissions.
 ---
 
 ## About project visibility

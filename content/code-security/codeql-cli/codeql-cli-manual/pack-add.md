@@ -2,7 +2,6 @@
 title: pack add
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -32,8 +31,8 @@ codeql pack add <options>... -- <scope/name[@range]>...
 
 ## Description
 
-\[Experimental] Adds a list of QL library packs with optional version
-ranges as dependencies of the current package, and then installs them.
+Adds a list of QL library packs with optional version ranges as
+dependencies of the current package, and then installs them.
 
 This command modifies the qlpack.yml file of the current package.
 Formatting and comments will be removed.

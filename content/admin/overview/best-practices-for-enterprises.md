@@ -5,7 +5,6 @@ intro: 'Learn {% data variables.product.company_short %}-recommended practices f
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Accounts

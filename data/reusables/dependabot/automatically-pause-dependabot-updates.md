@@ -12,7 +12,12 @@ An active repository is a repository for which a user (not {% data variables.pro
 
 An inactive repository is a repository that has at least one {% data variables.product.prodname_dependabot %} pull request open for more than 90 days, has been enabled for the full period, and where none of the actions listed above has been taken by a user.
 
-When {% data variables.product.prodname_dependabot %} is paused, {% data variables.product.prodname_dotcom %} adds a notice to the body of all open {% data variables.product.prodname_dependabot %} pull requests, and assigns a `dependabot-paused` label to these pull requests. You'll also see a banner notice in the UI of the **Settings** tab of the repository (under **Code security and analysis**, then **{% data variables.product.prodname_dependabot %}**), as well in the list of {% data variables.product.prodname_dependabot_alerts %} (if {% data variables.product.prodname_dependabot_security_updates %} are affected).{% ifversion dependabot-updates-paused-enterprise-orgs %} Additionally, you will be able to see whether {% data variables.product.prodname_dependabot %} is paused at the organization-level in the security overview. The `paused` status will also be visible via the API. For more information, see "[AUTOTITLE](/rest/repos#enable-automated-security-fixes)" in the REST API documentation.{% endif %}
+When {% data variables.product.prodname_dependabot %} is paused, {% data variables.product.prodname_dotcom %} adds a banner notice:
+- To all open {% data variables.product.prodname_dependabot %} pull requests.
+- To the UI of the **Settings** tab of the repository (under **Code security and analysis**, then **{% data variables.product.prodname_dependabot %}**).
+- To the list of {% data variables.product.prodname_dependabot_alerts %} (if {% data variables.product.prodname_dependabot_security_updates %} are affected).
+
+{% ifversion dependabot-updates-paused-enterprise-orgs %} Additionally, you will be able to see whether {% data variables.product.prodname_dependabot %} is paused at the organization-level in the security overview. The `paused` status will also be visible via the API. For more information, see "[AUTOTITLE](/rest/repos#enable-automated-security-fixes)" in the REST API documentation.{% endif %}
 
 As soon as a maintainer interacts with a {% data variables.product.prodname_dependabot %} pull request again, {% data variables.product.prodname_dependabot %} will unpause itself:
 - Security updates are automatically resumed for {% data variables.product.prodname_dependabot_alerts %}.

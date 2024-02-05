@@ -2,7 +2,6 @@
 title: resolve extensions
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -32,8 +31,8 @@ codeql resolve extensions <options>... -- <query|dir|suite|pack>...
 
 ## Description
 
-\[Experimental] \[Deep plumbing] Determine accessible extensions. This
-includes machine learning models and data extensions.
+\[Deep plumbing] Determine accessible extensions. This includes machine
+learning models and data extensions.
 
 This plumbing command resolves the set of data extensions and
 GitHub-created machine learning models that are available to the query
@@ -110,7 +109,7 @@ value.
 
 A list of threat models to enable or disable.
 
-The argument is the name of a threat model, optionally preceeded by a
+The argument is the name of a threat model, optionally preceded by a
 '!'. If no '!' is present, the named threat model and all of its
 descendants are enabled. If a '!' is present, the named threat model
 and all of its descendants are disabled.

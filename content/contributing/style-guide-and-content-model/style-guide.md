@@ -254,7 +254,29 @@ Note that regardless of the identifier you use (letters, words), footnotes will 
 
 Headers must adequately describe the content under them. Headers can either follow the guidelines for writing titles or can be written as questions. Use sentence casing for headers. Each header on a page must be unique.
 
-Use H2 for headers and H3 for subheaders. If an article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be text content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+If an article has headers, the headers must start with an H2 level header. You can use H3 and H4 level headers to further organize content into related groups, but you cannot skip header levels. There must be text content between a header and subheader, such as an introduction.
+- **Use:**
+
+  ```markdown
+  ## HEADER (H2)
+  TEXT
+
+  ### SUBHEADER (H3)
+  TEXT
+
+  #### SUBHEADER (H4)
+  TEXT
+  ```
+
+- **Avoid:**
+
+  ```markdown
+  ## HEADER (H2)
+
+  #### SUBHEADER (H4)
+  ```
+
+When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article)."
@@ -560,6 +582,17 @@ For more information, follow the "[LEARNING PATH TITLE](/)" learning path.
 When linking to an external site, choose the most useful resource for the context of the link - you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
 
 It's not necessary to link to an external product’s website when we mention an external product.
+
+### Adding anchors to preserve links
+
+If you know that there are links to a specific section of an article, you can add an anchor to the section to preserve the link. For example, if an external resource links to a specific section of an article, you could add an anchor so that the link directs to the correct section even if the section title changes.
+
+Use this format for link anchors. The anchor name should be the section name that is being preserved. Use an HTML comment to explain why you are adding the anchor.
+
+```markdown
+<!-- Anchor to maintain the current example link. -->
+<a name="SECTION-TITLE-THAT-MIGHT-CHANGE"></a>
+```
 
 ## Lists
 
@@ -1081,16 +1114,18 @@ To add row headers for a Markdown table, wrap the table in the Liquid tags `{% r
 
 ### Include a value for every cell
 
-Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+Every cell in a table must contain a value.
 
-If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+For cells with no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+For tables with row headers, the first cell (cell "A1") should describe the row headers to help people understand the whole table. However, if doing this would make the table less clear or add redundant information, you can leave this cell empty. For example, in the article "[AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-powershell#powershell-module-locations)," the first cell could be labeled as "Modules", but since each row header already includes the word "module", this header would repeat information that does not add descriptive value to understanding the table as a whole.
 
 ### Use clear, consistent symbols and labels
 
 For tables that use symbols:
 
 - Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE]/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
+- Use octicons or SVG. Do not use emoji. For more information about octicons, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons)."
 - Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
 - Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
@@ -1272,6 +1307,12 @@ Format radio button labels in bold and omit the words “radio button” or any 
 Use a standard format to refer to repositories. Link to repositories when helpful.
 - **Use:** in the `[account-name/repository-name](URL)` repository
 
+### Responsive elements
+
+We only document the responsive states of UI elements when they create ambiguity or confusion. If a task is unclear because of a responsive UI element, describe the interaction that someone must do to achieve the goal of the task. Do not just describe the visual state of the UI element.
+
+- **Use:** Click **Security**. If Security is not visible, click **⋮** to expand the repository menu.
+
 ### User interface text
 
 When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
@@ -1302,7 +1343,7 @@ To learn more about writing approachable content, see “[Microsoft's brand voic
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/quickstart/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/learning-about-github/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

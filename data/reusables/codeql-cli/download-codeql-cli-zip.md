@@ -9,7 +9,7 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 - A compatible version of the queries and libraries from https://github.com/github/codeql
 - Precompiled versions of all the queries included in the bundle
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 {% note %}
 For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.

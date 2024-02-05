@@ -6,7 +6,6 @@ intro: 'If some languages were not analyzed, you can modify your {% data variabl
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/some-languages-were-not-analyzed

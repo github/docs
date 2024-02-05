@@ -6,7 +6,7 @@ introLinks:
 featuredLinks:
   startHere:
     - /search-github/searching-on-github/searching-issues-and-pull-requests
-    - '{% ifversion ghes or ghae %}/search-github/searching-on-github/searching-code{% endif %}'
+    - '{% ifversion ghes %}/search-github/searching-on-github/searching-code{% endif %}'
     - /search-github/github-code-search/understanding-github-code-search-syntax
     - /search-github/searching-on-github/searching-for-repositories
     - /search-github/searching-on-github/searching-commits
@@ -41,4 +41,3 @@ children:
   - /github-code-search
 shortTitle: Search on GitHub
 ---
-

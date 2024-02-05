@@ -82,7 +82,8 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "head_ref": "",
   "base_ref": "",
   "event_name": "workflow_dispatch",{% ifversion actions-OIDC-custom-claim-enterprise %}
-  "enterprise": "avocado-corp"{% endif %}
+  "enterprise": "avocado-corp",{% endif %}{% ifversion actions-OIDC-enterprise_id-claim %}
+  "enterprise_id": "2",{% endif %}
   "ref_type": "branch",
   "job_workflow_ref": "octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main",
   "iss": "{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}",
@@ -127,6 +128,9 @@ The token also includes custom claims provided by {% data variables.product.prod
 | `base_ref`| The target branch of the pull request in a workflow run.                   |
 {%- ifversion actions-OIDC-custom-claim-enterprise %}
 | `enterprise`| The name of the enterprise that contains the repository from where the workflow is running.                  |
+{%- endif %}
+{%- ifversion actions-OIDC-enterprise_id-claim %}
+| `enterprise_id`| The ID of the enterprise that contains the repository from where the workflow is running.                  |
 {%- endif %}
 | `environment`| The name of the environment used by the job. To include the `environment` claim you must reference an environment.                   |
 | `event_name`| The name of the event that triggered the workflow run.                    |
@@ -278,10 +282,11 @@ After this setting is applied, the JWT will contain the updated `iss` value. In 
 
 ```json
 {
-  "jti": "6f4762ed-0758-4ccb-808d-ee3af5d723a8"
-  "sub": "repo:octocat-inc/private-server:ref:refs/heads/main"
-  "aud": "http://octocat-inc.example/octocat-inc"
-  "enterprise": "octocat-inc"
+  "jti": "6f4762ed-0758-4ccb-808d-ee3af5d723a8",
+  "sub": "repo:octocat-inc/private-server:ref:refs/heads/main",
+  "aud": "http://octocat-inc.example/octocat-inc",
+  "enterprise": "octocat-inc",
+  "enterprise_id": "123",
   "iss": "https://token.actions.githubusercontent.com/octocat-inc",
   "bf": 1755350653,
   "exp": 1755351553,

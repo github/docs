@@ -233,8 +233,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
-1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
-   ![Screenshot of {% data variables.product.prodname_vs %} menu bar. In the "Tools" menu, the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
+1. In the {% data variables.product.prodname_vs %} menu bar, under **Extensions**, click **ReSharper**, then click **Options**.
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
 1. Under "General" select **{% data variables.product.prodname_vs %}** and then click **Save**.
 

@@ -61,13 +61,7 @@ You can ask a general question about software development that is not focused on
 
 ## Asking a question with a specific context
 
-You can choose a specific context, such as a particular repository or a documentation set, and then ask a question with that context in mind.
-
-{% note %}
-
-**Note**: {% data reusables.copilot.chat-limited-docset-availability %}
-
-{% endnote %}
+You can choose a specific context, such as a particular repository or a documentation set (docset), and then ask a question with that context in mind. Organization owners can create organization-visible docsets from repositories within their organization. Organization members can then set those docsets as the context for {% data variables.product.prodname_copilot_chat_dotcom %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets)."
 
 {% data reusables.copilot.go-to-copilot-page %}
 1. Click a docset or a repository to provide a context for your question.
@@ -146,7 +140,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
    - How could I improve this code?
    - How can I test this script?
 
-   If you are aksing about specific lines, you could enter:
+   If you are asking about specific lines, you could enter:
    - Explain the function at the selected lines.
    - How could I improve this class?
    - Add error handling to this code.

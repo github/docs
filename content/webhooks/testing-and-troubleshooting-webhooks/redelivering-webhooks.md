@@ -5,7 +5,6 @@ intro: 'To help recover from failed deliveries, you can redeliver webhook delive
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -86,7 +85,7 @@ Only the owner of the sponsored account can redeliver sponsorship webhooks for t
 
 {% endif %}
 
-{% ifversion ghes or ghae or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Redelivering global webhooks
 

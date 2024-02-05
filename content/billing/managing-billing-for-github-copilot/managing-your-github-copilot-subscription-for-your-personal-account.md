@@ -21,8 +21,6 @@ If you have access to {% data variables.product.prodname_copilot %} through a {%
 
 {% data reusables.billing.billing-info %}
 
-{% data reusables.copilot.dotcom-settings %}
-
 ## Setting up a {% data variables.product.prodname_copilot %} trial or subscription for your personal account
 
 Before you can start using {% data variables.product.prodname_copilot_for_individuals %}, you will need to set up a free trial or subscription.

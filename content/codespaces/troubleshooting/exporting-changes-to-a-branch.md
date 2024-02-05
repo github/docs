@@ -36,6 +36,6 @@ The following steps describe how to export your changes to a branch or fork. For
 
    ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Export changes to a branch" option.](/assets/images/help/codespaces/export-changes-to-a-branch.png)
 
-1. From the popover or dialog box, select **Create branch** or **Create fork**.
+1. In the dialog box, click **Create branch** or **Create fork**.
 
-The name of the new branch will be the permanent name of your codespace prefixed by the string `codespace-`, for example `codespace-monalisa-ideal-space-engine-vj59xj67jg42xx7`.
+The name of the new branch will be the permanent name of your codespace prefixed by the string `codespace-`, for example `codespace-ideal-space-engine-w5vg5ww5p793g7g9`.

@@ -51,7 +51,7 @@ The {% data variables.secret-scanning.custom-pattern-regular-expression-generato
 
 ## Limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}
 
-Depending on factors such as your input description and examples, you may experience different levels of performance when using the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}. You need to be as specific as possible with your description, and provide different types of examples of tokens that match your pattern, to be sure that the regular expression incompasses all the patterns you want {% data variables.product.prodname_secret_scanning %} to search for.
+Depending on factors such as your input description and examples, you may experience different levels of performance when using the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %}. You need to be as specific as possible with your description, and provide different types of examples of tokens that match your pattern, to be sure that the regular expression encompasses all the patterns you want {% data variables.product.prodname_secret_scanning %} to search for.
 
 Also, the model used by the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} has been trained on natural language content written predominantly in English. As a result, you may notice differing performance when providing the generator with natural language input prompts in languages other than English.
 

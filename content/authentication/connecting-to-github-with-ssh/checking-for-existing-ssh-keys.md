@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -17,7 +16,7 @@ shortTitle: Check for existing SSH key
 
 ## About SSH keys
 
-You can use SSH to perform Git operations in repositories on {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)."
+You can use SSH to perform Git operations in repositories on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/about-ssh)."
 
 If you have an existing SSH key, you can use the key to authenticate Git operations over SSH.
 
@@ -35,10 +34,10 @@ Before you generate a new SSH key, you should check your local machine for exist
    # Lists the files in your .ssh directory, if they exist
    ```
 
-1. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is _id_rsa.pub_.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+1. Check the directory listing to see if you already have a public SSH key. By default, the filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
    - _id_rsa.pub_
    - _id_ecdsa.pub_
-   - _id_ed25519.pub_{% endif %}
+   - _id_ed25519.pub_
 
    {% tip %}
 

@@ -102,7 +102,7 @@ const getData = (liquidRef) => getDataByLanguage(liquidRef, 'en')
 
 const hasData = (liquidRef) => {
   try {
-    // If a reusable contains a non-existent data reference, it will
+    // If a reusable contains a nonexistent data reference, it will
     // return undefined. If the data reference is inherently broken
     // (e.g., {% data reus.foo %}), it will throw an error.
     const data = getData(liquidRef)

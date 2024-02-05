@@ -25,7 +25,9 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
+  const mainContext = useMainContext()
+  const { relativePath, allVersions, data, currentPathWithoutLanguage } = mainContext
+  const page = mainContext.page!
   const { userLanguage, setUserLanguageCookie } = useUserLanguage()
   const { languages } = useLanguages()
 

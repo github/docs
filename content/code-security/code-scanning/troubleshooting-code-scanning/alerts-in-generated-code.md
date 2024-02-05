@@ -6,7 +6,6 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/alerts-found-in-generated-code

@@ -14,7 +14,13 @@
 
 PREVIEW_ENV_LOCATION="eastus"
 
-REPO_NAME="${GITHUB_REPOSITORY#*\/}"
+# GITHUB_REPOSITORY is a default env variable and cannot be overwritten.
+# Use CUSTOM_GITHUB_REPOSITORY to specify a repo owner/name
+# other than the repo owner/name where this script was called from.
+# If CUSTOM_GITHUB_REPOSITORY is not specified, fall back to GITHUB_REPOSITORY.
+REPO_NAME_WITH_OWNER="${CUSTOM_GITHUB_REPOSITORY:-$GITHUB_REPOSITORY}"
+
+REPO_NAME="${REPO_NAME_WITH_OWNER#*\/}"
 echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
 
 DEPLOYMENT_NAME="${REPO_NAME}-pr-${PR_NUMBER}"
@@ -31,5 +37,5 @@ echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 APP_URL="https://${REPO_NAME}-${PR_NUMBER}-${APP_SHA}.preview.ghdocs.com"
 echo "APP_URL=${APP_URL}" >> $GITHUB_ENV
 
-IMAGE_REPO="${GITHUB_REPOSITORY}/pr-${PR_NUMBER}"
+IMAGE_REPO="${REPO_NAME_WITH_OWNER}/pr-${PR_NUMBER}"
 echo "IMAGE_REPO=${IMAGE_REPO}" >> $GITHUB_ENV
