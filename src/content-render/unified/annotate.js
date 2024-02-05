@@ -87,10 +87,12 @@ function createAnnotatedNode(node) {
 
   // Group groups into rows
   const rows = chunk(groups, 2)
-  for (const [, note] of rows) {
-    if (note === undefined) {
+
+  // Check the rows are formatted correctly
+  for (const [note, code] of rows) {
+    if (note === undefined || code === undefined) {
       throw new Error(
-        "Unbalanced code meaning there's a comment (note) that is not followed by any code.",
+        "Each annotation must have a note and a code block. If you're trying to create a blank annotation, you can use a single line comment with a space after it.",
       )
     }
   }
