@@ -82,16 +82,22 @@ export default async function handleError(error, req, res, next) {
       return res.sendStatus(error.statusCode || error.status)
     }
 
-    if (process.env.NODE_ENV !== 'test') {
-      console.error('500 error!', req.path)
-      console.error(error)
-    }
-
     res.statusCode = 500
-    nextApp.renderError(error, req, res, req.path)
+    // When in local development mode, we don't need the pretty HTML
+    // renderig of 500.tsx.
+    // Incidentally, as Jan 2024, if you try to execute nextApp.renderError
+    // when `NODE_ENV` is 'development' it will hang forever. A problem
+    // we can't fully explain but it's also moot because in local dev
+    // it's easier to just see the full stack trace in the console
+    // and in the client.
+    if (process.env.NODE_ENV === 'development') {
+      return next(error)
+    } else {
+      nextApp.renderError(error, req, res, req.path)
 
-    // Report to Failbot AFTER responding to the user
-    await logException(error, req)
+      // Report to Failbot AFTER responding to the user
+      await logException(error, req)
+    }
   } catch (error) {
     console.error('An error occurred in the error handling middleware!', error)
     return next(error)

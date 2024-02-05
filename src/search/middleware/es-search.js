@@ -446,27 +446,23 @@ function getHighlightConfiguration(query, highlights) {
         },
       },
     }
-    // NOTE (JAN 2024) THIS IS DELIBERATELY COMMENTED OUT. FOR NOW...
-    // Once we know the indexes have all been rebuilt with the
-    // new `term_vector: 'with_positions_offsets',` everywhere we
-    // can un-comment this.
-    // fields.content_explicit = {
-    //   // Fast Vector Highlighter
-    //   // Using this requires that you first index these fields
-    //   // with {term_vector: 'with_positions_offsets'}
-    //   type: 'fvh',
-    //   fragment_size: 150,
-    //   number_of_fragments: 1,
-    //   no_match_size: 0,
+    fields.content_explicit = {
+      // Fast Vector Highlighter
+      // Using this requires that you first index these fields
+      // with {term_vector: 'with_positions_offsets'}
+      type: 'fvh',
+      fragment_size: 150,
+      number_of_fragments: 1,
+      no_match_size: 0,
 
-    //   highlight_query: {
-    //     match_phrase_prefix: {
-    //       content_explicit: {
-    //         query,
-    //       },
-    //     },
-    //   },
-    // }
+      highlight_query: {
+        match_phrase_prefix: {
+          content_explicit: {
+            query,
+          },
+        },
+      },
+    }
   }
 
   return {

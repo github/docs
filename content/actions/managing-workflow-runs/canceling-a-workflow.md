@@ -5,10 +5,9 @@ intro: 'You can cancel a workflow run that is in progress. When you cancel a wor
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-write %}

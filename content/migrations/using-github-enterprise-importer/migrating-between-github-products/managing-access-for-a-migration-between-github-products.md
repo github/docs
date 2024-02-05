@@ -10,6 +10,8 @@ redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/running-a-migration-with-github-enterprise-importer/managing-access-for-github-enterprise-importer
   - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer
+  - /early-access/enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer
+  - /migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer
 ---
 
 ## About required access for {% data variables.product.prodname_importer_proper_name %}
@@ -28,9 +30,22 @@ Additionally, if you use IP allow lists with the source or destination, you may 
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.8 or higher for the first time, you also need someone with access to the {% data variables.enterprise.management_console %} to set up blob storage for {% data variables.location.product_location_enterprise %}.
 
+## About the migrator role
+
+{% data reusables.enterprise-migration-tool.about-the-migrator-role %}
+
+{% note %}
+
+**Notes:**
+- If you're migrating a repository between two organizations on {% data variables.product.prodname_dotcom_the_website %}, you can grant the migrator role to the same person or team for both organizations, but you must grant each separately.
+- You cannot grant the migrator role for enterprise accounts. Therefore, you can only run an organization migration if you're an owner of the destination enterprise. However, you can grant the migrator role to that enterprise owner for the source organization.
+- The {% data variables.product.prodname_cli %} does not support granting the migrator role for organizations on {% data variables.product.prodname_ghe_server %}, so you must be an organization owner of the source organization to migrate repositories from {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
+
 ## Required roles
 
-For the source and destination of the migration, different roles are required for different tasks. For some tasks, you can grant the migrator role to a user or team. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+For the source and destination of the migration, different roles are required for different tasks.
 
 ### Source organization
 
@@ -75,6 +90,31 @@ Downloading a migration log | {% octicon "dash" aria-label="Not applicable" %} |
 Reclaiming mannequins | {% octicon "dash" aria-label="Not applicable" %} | `admin:org` | {% octicon "dash" aria-label="Not applicable" %}
 Running a migration (source organization) | {% octicon "dash" aria-label="Not applicable" %} | `read:org`, `repo` | `read:org`, `repo` |
 Running an organization migration (destination enterprise) | `read:enterprise`, `admin:org`, `repo`, `workflow` | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
+
+## Granting the migrator role
+
+To allow someone other than an organization owner to run a repository migration or download migration logs, you can grant the migrator role to a user or team. For more information, see "[About the migrator role](#about-the-migrator-role)."
+
+You can grant the migrator role using either the {% data variables.product.prodname_gei_cli %} or the GraphQL API.
+
+- "[Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}](#granting-the-migrator-role-with-the-ado2gh-extension)"
+- "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
+
+### Granting the migrator role with the {% data variables.product.prodname_gei_cli_short %}
+
+To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_gei_cli %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/migrating-repositories-from-githubcom-to-github-enterprise-cloud#step-1-install-the-gei-extension-of-the-github-cli)."
+
+1. On {% data variables.product.prodname_dotcom_the_website %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}](#creating-a-personal-access-token-for-github-enterprise-importer)."
+{% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
+1. Use the `gh gei grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
+
+   ```shell copy
+   gh gei grant-migrator-role --github-org ORGANIZATION --actor ACTOR --actor-type TYPE
+   ```
+
+### Granting the migrator role with the GraphQL API
+
+{% data reusables.enterprise-migration-tool.grant-migrator-role-graphql %}
 
 ## Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_importer_proper_name %}
 

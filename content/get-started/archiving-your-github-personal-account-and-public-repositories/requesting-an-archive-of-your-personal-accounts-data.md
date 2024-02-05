@@ -21,7 +21,7 @@ For more information about the data {% data variables.product.product_name %} st
 
 When you request an export of your personal data through settings on {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.product_name %} packages your personal data in a `tar.gz` file and sends you an email to your primary email address with a download link.
 
-By default, the download link expires after seven days. At any time before the download link expires, you can disable the link from your user settings. For more information, see "[AUTOTITLE](/get-started/privacy-on-github/requesting-an-archive-of-your-personal-accounts-data#deleting-access-to-an-archive-of-your-personal-accounts-data)."
+By default, the download link expires after seven days. At any time before the download link expires, you can disable the link from your user settings. For more information, see "[AUTOTITLE](/get-started/archiving-your-github-personal-account-and-public-repositories/requesting-an-archive-of-your-personal-accounts-data#deleting-access-to-an-archive-of-your-personal-accounts-data)."
 
 If your operating system cannot natively unpack the `tar.gz` file, you can use a third-party tool to extract the archived files. For more information, see "[How to unzip a tar.gz file](https://opensource.com/article/17/7/how-unzip-targz-file)" on Opensource.com.
 

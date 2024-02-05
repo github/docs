@@ -529,6 +529,12 @@ You can use these additional options with the utility:
 ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 ```
 
+To apply the configuration, run the following command. During a configuration run, services on {% data variables.location.product_location %} may restart, which can cause brief downtime for users.
+
+```shell copy
+ghe-config-apply
+```
+
 ### ghe-ssl-certificate-setup
 
 This utility allows you to update an SSL certificate for {% data variables.location.product_location %}.
@@ -678,22 +684,10 @@ To create a standard bundle:
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
-To create a standard bundle including data from the last 3 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
-```
-
 To create a standard bundle including data from the last 2 days:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
-```
-
-To create a standard bundle including data from the last 4 days and 8 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -901,11 +895,15 @@ This utility manually repackages a repository network to optimize pack storage. 
 
 You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
+{% ifversion ghes < 3.9 %}
+
 {% warning %}
 
 **Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)" and "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository)."
 
 {% endwarning %}
+
+{% endif %}
 
 ```shell
 ghe-repo-gc USERNAME/REPONAME
@@ -1131,22 +1129,10 @@ To create a standard bundle:
 ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
-To create a standard bundle including data from the last 3 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
-```
-
 To create a standard bundle including data from the last 2 days:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
-```
-
-To create a standard bundle including data from the last 4 days and 8 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:

@@ -2188,7 +2188,7 @@
       },
       {
         "category": "repos",
-        "slug": "list-all-autolinks-of-a-repository",
+        "slug": "get-all-autolinks-of-a-repository",
         "subcategory": "autolinks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/autolinks",
@@ -4811,7 +4811,7 @@
         "slug": "create-a-github-pages-deployment",
         "subcategory": "pages",
         "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages/deployment",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments",
         "additional-permissions": [],
         "access": "write"
       }

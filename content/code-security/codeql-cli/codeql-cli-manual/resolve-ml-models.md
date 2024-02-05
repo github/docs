@@ -2,7 +2,6 @@
 title: resolve ml-models
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -32,8 +31,8 @@ codeql resolve ml-models <options>... -- <query|dir|suite|pack>...
 
 ## Description
 
-\[Deprecated] \[Experimental] \[Deep plumbing] Determine accessible
-machine learning models.
+\[Deprecated] \[Deep plumbing] Determine accessible machine learning
+models.
 
 This plumbing command is deprecated. Previously it resolved the set of
 GitHub-created machine learning models that were available to the query

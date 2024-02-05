@@ -64,7 +64,7 @@ Service hooks are not migrated from ADO, so you will need to recreate them separ
 To migrate a repository, you must be an organization owner for the destination organization, or an organization owner must grant you the migrator role.
 
 1. Decide whether you want an organization owner of the destination organization to perform your migrations, or whether you need to grant the migrator role to someone else.
-{% data reusables.enterprise-migration-tool.grant-migrator-tasks %}
+{% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role)."
 {% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
 
 ### What organizational structure do we want in {% data variables.product.prodname_dotcom %}?

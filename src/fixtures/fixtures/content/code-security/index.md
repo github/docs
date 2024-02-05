@@ -10,7 +10,6 @@ featuredLinks:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /getting-started

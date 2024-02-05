@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -26,7 +25,7 @@ With the accelerated use of open source, most projects depend on hundreds of ope
 
 You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
 
-{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment{% ifversion ghae %} and know about vulnerabilities in those dependencies{% endif %}{% ifversion fpt or ghec or ghes %}, know about vulnerabilities in those dependencies, and patch them{% endif %}.
+{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment, know about vulnerabilities in those dependencies, and patch them.
 
 The supply chain features on {% data variables.product.product_name %} are:
 - **Dependency graph**
@@ -41,7 +40,7 @@ The dependency graph is central to supply chain security. The dependency graph i
 Other supply chain features on {% data variables.product.prodname_dotcom %} rely on the information provided by the dependency graph.
 
 - Dependency review uses the dependency graph to identify dependency changes and help you understand the security impact of these changes when you review pull requests.
-- {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} is detected.
+- {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of advisories published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
 {% ifversion fpt or ghec or ghes %}- {% data variables.product.prodname_dependabot_security_updates %} use the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} to help you update dependencies with known vulnerabilities in your repository.
 
 {% data variables.product.prodname_dependabot_version_updates %} don't use the dependency graph and rely on the semantic versioning of dependencies instead. {% data variables.product.prodname_dependabot_version_updates %} help you keep your dependencies updated, even when they don’t have any vulnerabilities.
@@ -96,10 +95,6 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} require {% data variables.product.prodname_actions %} to run on {% data variables.product.product_name %}. {% data variables.product.prodname_dependabot_alerts %} do not require {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-{% elsif ghae %}
-
-{% data variables.product.prodname_actions %} is not required for {% data variables.product.prodname_dependabot_alerts %} to run on {% data variables.product.product_name %}.
-
 {% endif %}
 
 {% ifversion dependabot-actions-support %}
@@ -110,7 +105,7 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 #### What are Dependabot alerts
 
-{% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities{% ifversion GH-advisory-db-supports-malware %} and malware{% endif %}.
+{% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities.
 
 - {% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 {% ifversion fpt or ghec %}
@@ -167,7 +162,7 @@ Any repository type:
 - **{% data variables.product.prodname_dependabot_version_updates %}**—not enabled by default. People with write permissions to a repository can enable {% data variables.product.prodname_dependabot_version_updates %}. For information about enabling version updates, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 {% endif %}
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 - **Dependency graph** and **{% data variables.product.prodname_dependabot_alerts %}**—not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see {% ifversion ghes %}"[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)" and {% endif %}"[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 - **Dependency review**—available when dependency graph is enabled for {% data variables.location.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 {% endif %}

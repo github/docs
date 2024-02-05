@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -19,8 +18,6 @@ topics:
   - Repositories
 shortTitle: Manage secret alerts
 ---
-
-{% data reusables.secret-scanning.beta %}
 
 {% ifversion secret-scanning-non-provider-patterns %}
 

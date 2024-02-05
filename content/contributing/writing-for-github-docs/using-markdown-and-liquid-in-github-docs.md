@@ -399,17 +399,17 @@ Because the site is dynamic, it does not build HTML files for each different ver
 
 For example, an article that is available in currently supported versions will have permalink URLs like the following:
 
-- `/en/get-started/quickstart/set-up-git`
-- `/en/enterprise-cloud@latest/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.10/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.9/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.8/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.7/get-started/quickstart/set-up-git`
-- `/en/enterprise-server@3.6/get-started/quickstart/set-up-git`
+- `/en/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-cloud@latest/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.10/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.9/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.8/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.7/get-started/getting-started-with-git/set-up-git`
+- `/en/enterprise-server@3.6/get-started/getting-started-with-git/set-up-git`
 
 An article that is not available in {% data variables.product.prodname_ghe_server %} will have just one permalink:
 
-- `/en/get-started/quickstart/set-up-git`
+- `/en/get-started/getting-started-with-git/set-up-git`
 
 {% note %}
 

@@ -17,7 +17,7 @@ To learn more about {% data variables.product.prodname_copilot_for_docs %} and h
 
 ## Creating a private docset
 
-You can create a private docset from a single repository or a selection of repositories in your organization. You can create a docset from public or private repositories. Organization users will only have access to results from repositories they have read access to.
+You can create a private docset from a single repository or a selection of repositories in your organization. You can create a docset from public, private, or internal repositories. Organization users will only have access to results from repositories they have read access to.
 
 {% data reusables.copilot.click-copilot-icon %}
 {% data reusables.copilot.copilot-immersive-mode %}

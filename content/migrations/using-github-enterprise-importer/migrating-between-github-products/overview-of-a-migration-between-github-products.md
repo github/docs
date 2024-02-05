@@ -78,7 +78,7 @@ To migrate an organization, you must be an organization owner for the source org
 Additionally, you must be an enterprise owner on the destination enterprise account. You cannot grant the migrator role for enterprise accounts.
 
 1. Confirm that the person who will run your migrations is an enterprise owner of the destination enterprise account.
-1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 {% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 #### Deciding who will run repository migrations
@@ -86,7 +86,7 @@ Additionally, you must be an enterprise owner on the destination enterprise acco
 To migrate a repository, you must be an organization owner for both the source organization and the destination organization, or an organization owner must grant you the migrator role for each organization where you're not an owner.
 
 1. Decide whether you want an organization owner to perform your migrations, or whether you need to grant the migrator role to someone else.
-{% data reusables.enterprise-migration-tool.grant-migrator-tasks %}
+{% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 
    {% note %}
 
@@ -177,9 +177,9 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
    - To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
 1. If you use {% data variables.actions.hosted_runner %}s, reconfigure your runners.
 
-   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
-   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
+   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
+   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 1. Re-add any encrypted secrets.
 
    - To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."

@@ -15,7 +15,7 @@ topics:
 
 {% data reusables.repositories.you-can-fork %}
 
-If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork. If you fork a private {% ifversion ghec or ghes or ghae %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not. You can add an external collaborator to the fork, but only if the external collaborator also has access to the upstream repository.
+If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork. If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not. You can add an external collaborator to the fork, but only if the external collaborator also has access to the upstream repository.
 
 {% ifversion fpt or ghec %}
 
@@ -23,7 +23,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 {% endif %}
 
-Organizations can allow or prevent the forking of any private repositories owned by the organization{% ifversion ghec or ghes or ghae %}, and enterprises can enforce policies to specify where members can create forks of private or internal repositories. Policies control the options available to the enterprise's organizations.{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization){% ifversion fpt %}."{% else %}" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."{% endif %}
+Organizations can allow or prevent the forking of any private repositories owned by the organization{% ifversion ghec or ghes %}, and enterprises can enforce policies to specify where members can create forks of private or internal repositories. Policies control the options available to the enterprise's organizations.{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization){% ifversion fpt %}."{% else %}" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."{% endif %}
 
 ## About visibility of forks
 

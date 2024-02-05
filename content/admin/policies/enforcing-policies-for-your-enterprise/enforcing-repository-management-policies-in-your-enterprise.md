@@ -50,7 +50,7 @@ shortTitle: Repository management policies
 
 You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories) and "[AUTOTITLE](/organizations)."
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 ## Configuring the default visibility of new repositories
 
@@ -59,7 +59,7 @@ Each time someone creates a new repository within your enterprise, that person m
 If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Enforcing a policy for repository creation](#enforcing-a-policy-for-repository-creation)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -135,8 +135,8 @@ Across all organizations owned by your enterprise, you can allow members to invi
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes or ghae %}invitations{% endif %}", select the dropdown menu and click a policy.
+1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes %}invitations{% endif %}", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Repository {% ifversion ghec %}outside collaborators{% elsif ghes %}invitations{% endif %}", select the dropdown menu and click a policy.
 
 ## Enforcing a policy for the default branch name
 
@@ -181,7 +181,7 @@ Across all organizations owned by your enterprise, you can allow members with ad
 1. On the **Repository policies** tab, under "Repository issue deletion", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Repository issue deletion", select the dropdown menu and click a policy.
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 ## Enforcing a policy for Git push limits
 
@@ -226,7 +226,7 @@ Across all organizations owned by your enterprise, you can allow members to see 
 Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -298,7 +298,7 @@ If necessary, you can prevent repository administrators from changing anonymous 
 ### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

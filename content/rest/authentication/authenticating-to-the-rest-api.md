@@ -106,7 +106,7 @@ If this is not possible, you can store your token as a secret and use the name o
 
 To make an authenticated request to the API in a {% data variables.product.prodname_actions %} workflow using {% data variables.product.prodname_cli %}, you can store the value of `GITHUB_TOKEN` as an environment variable, and use the `run` keyword to execute the {% data variables.product.prodname_cli %} `api` subcommand. For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```yaml
 jobs:
@@ -124,7 +124,7 @@ jobs:
 
 To make an authenticated request to the API in a {% data variables.product.prodname_actions %} workflow using `curl`, you can store the value of `GITHUB_TOKEN` as an environment variable, and use the `run` keyword to execute a `curl` request to the API. For more information about the `run` keyword, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path)."{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```yaml copy
 jobs:

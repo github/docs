@@ -57,7 +57,11 @@ export const ArticlePage = () => {
           {intro}
         </Lead>
       )}
+    </>
+  )
 
+  const introCalloutsProp = (
+    <>
       {permissions && <PermissionsStatement permissions={permissions} />}
 
       {includesPlatformSpecificContent && <PlatformPicker />}
@@ -107,6 +111,7 @@ export const ArticlePage = () => {
           supportPortalVaIframeProps={supportPortalVaIframeProps}
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={introProp}
+          introCallOuts={introCalloutsProp}
           toc={toc}
           breadcrumbs={<Breadcrumbs />}
         >
@@ -121,7 +126,12 @@ export const ArticlePage = () => {
           <ArticleGridLayout
             supportPortalVaIframeProps={supportPortalVaIframeProps}
             topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
+            intro={
+              <>
+                {introProp}
+                {introCalloutsProp}
+              </>
+            }
             toc={toc}
           >
             {articleContents}

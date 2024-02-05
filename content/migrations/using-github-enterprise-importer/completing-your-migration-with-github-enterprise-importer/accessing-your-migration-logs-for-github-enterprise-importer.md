@@ -41,7 +41,7 @@ People with read access to a repository can access the migration log for the rep
 
 ## Downloading a repository migration log with the {% data variables.product.prodname_cli %}
 
-Organization owners and people with the migrator role can download migration logs using the {% data variables.product.prodname_cli %}. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+Organization owners and organization members with the migrator role can download migration logs using the {% data variables.product.prodname_cli %}.
 
 You can download the latest migration log for an individual repository with the `download-logs` command. The exact command depends on your migration source.
 

@@ -6,7 +6,6 @@ intro: 'If automatic build fails, you can configure {% data variables.product.pr
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/automatic-build-failed-for-a-compiled-language

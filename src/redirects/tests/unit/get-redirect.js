@@ -35,8 +35,6 @@ describe('getRedirect basics', () => {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest', ctx)).toBe('/en/github-ae@latest')
-
     expect(getRedirect('/enterprise-cloud@latest', ctx)).toBe('/en/enterprise-cloud@latest')
 
     expect(getRedirect('/enterprise-server@3.8', ctx)).toBe('/en/enterprise-server@3.8')
@@ -159,5 +157,88 @@ describe('getRedirect basics', () => {
     }
     expect(getRedirect('/enterprise/3.0', ctx)).toBe('/en/enterprise-server@3.0')
     expect(getRedirect('/enterprise/3.0/foo', ctx)).toBe('/en/enterprise-server@3.0/foo')
+  })
+})
+
+describe('github-ae@latest', () => {
+  it('home page should redirect to enterprise-cloud home page', () => {
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest', ctx)).toBe('/en/enterprise-cloud@latest')
+    expect(getRedirect('/en/github-ae@latest', ctx)).toBe('/en/enterprise-cloud@latest')
+  })
+  it('should redirect to home page for admin/release-notes', () => {
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/admin/release-notes', ctx)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/admin/release-notes', ctx)).toBe('/en')
+  })
+  it('a page that does exits, without correction, in enterprise-cloud', () => {
+    const ctx = {
+      pages: {
+        '/en/enterprise-cloud@latest/foo': null,
+      },
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/foo', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+    expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+  })
+  it("a page that doesn't exist in enterprise-cloud but in FPT", () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+      },
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/foo', ctx)).toBe('/en/foo')
+    expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/foo')
+  })
+  it("a page that doesn't exist in enterprise-cloud or in FPT", () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+      },
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/bar', ctx)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/bar', ctx)).toBe('/en')
+  })
+  it('a URL with legacy redirects, that redirects to enterprise-cloud', () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+        '/en/enterprise-cloud@latest/foo': true,
+      },
+      redirects: {
+        '/food': '/foo',
+      },
+    }
+    expect(getRedirect('/github-ae@latest/food', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+    expect(getRedirect('/en/github-ae@latest/food', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+  })
+  it("a URL with legacy redirects, that can't redirect to enterprise-cloud", () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+        // Note the lack of an enterprise-cloud page here
+      },
+      redirects: {
+        '/food': '/foo',
+      },
+    }
+    expect(getRedirect('/github-ae@latest/food', ctx)).toBe('/en/foo')
+    expect(getRedirect('/en/github-ae@latest/food', ctx)).toBe('/en/foo')
+  })
+  it('should 404 if nothing matches at all', () => {
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/never/heard/of', ctx)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/never/heard/of', ctx)).toBe('/en')
   })
 })

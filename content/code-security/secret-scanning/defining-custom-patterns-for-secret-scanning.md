@@ -7,7 +7,6 @@ redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -59,10 +58,9 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion custom-pattern-dry-run-ga %}
 1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}{% ifversion secret-scanning-push-protection-custom-patterns %}
 1. Optionally, to enable push protection for your custom pattern, click **Enable**.
@@ -111,25 +109,16 @@ aAAAe9
 
 Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
-{% ifversion ghae %}
-{% note %}
-
-**Note:** As there is no dry-run functionality, we recommend that you test your custom patterns in a repository before defining them for your entire organization. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.
-
-{% endnote %}
-{% endif %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-35 or custom-pattern-dry-run-ga %}
+{%- ifversion custom-pattern-dry-run-ga %}
 1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-35 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}{% ifversion secret-scanning-push-protection-custom-patterns %}
 1. Optionally, to enable push protection for your custom pattern, click **Enable**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-in-an-organization-for-a-custom-pattern)."
@@ -148,7 +137,7 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 
 {% note %}
 
-{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+{% ifversion custom-pattern-dry-run-ga %}
 **Notes:**
 - At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run.
 - {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
@@ -167,11 +156,10 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
 1. Under "Secret scanning custom patterns", click **New pattern**.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
-{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+{%- ifversion custom-pattern-dry-run-ga %}
 1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-select-enterprise-repos %}
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
-{%- ifversion secret-scanning-custom-enterprise-36 %}{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}{% endif %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}{% ifversion secret-scanning-push-protection-custom-patterns %}
 1. Optionally, to enable push protection for your custom pattern, click **Enable**. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
@@ -184,7 +172,7 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
-{%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
+{%- ifversion custom-pattern-dry-run-ga  %}
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
 {%- endif %}
 1. When you have reviewed and tested your changes, click **Publish changes**.{% ifversion secret-scanning-push-protection-custom-patterns %}

@@ -4,6 +4,88 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>isInMergeQueue</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>isMergeQueueEnabled</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>mergeQueue</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Input field <code>countMembersAlreadyRequested</code> of type <code>Boolean</code> was added to input object type <code>UpdateTeamReviewAssignmentInput</code></p>",
+          "<p>Input field <code>includeChildTeamMembers</code> of type <code>Boolean</code> was added to input object type <code>UpdateTeamReviewAssignmentInput</code></p>",
+          "<p>Input field <code>removeTeamRequest</code> of type <code>Boolean</code> was added to input object type <code>UpdateTeamReviewAssignmentInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-02-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>PropertyTargetDefinition</code> was added</p>",
+          "<p>Type <code>PropertyTargetDefinitionInput</code> was added</p>",
+          "<p>Type <code>RepositoryPropertyConditionTarget</code> was added</p>",
+          "<p>Type <code>RepositoryPropertyConditionTargetInput</code> was added</p>",
+          "<p>Field <code>repositoryProperty</code> was added to object type <code>RepositoryRuleConditions</code></p>",
+          "<p>Input field <code>repositoryProperty</code> of type <code>RepositoryPropertyConditionTargetInput</code> was added to input object type <code>RepositoryRuleConditionsInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>billingEmail</code> was added to object type <code>Enterprise</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>SponsorAndLifetimeValue</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueConnection</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueEdge</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueOrder</code> was added</p>",
+          "<p>Type <code>SponsorAndLifetimeValueOrderField</code> was added</p>",
+          "<p>Field <code>lifetimeReceivedSponsorshipValues</code> was added to object type <code>Organization</code></p>",
+          "<p>Field <code>lifetimeReceivedSponsorshipValues</code> was added to interface <code>Sponsorable</code></p>",
+          "<p>Field <code>lifetimeReceivedSponsorshipValues</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>id</code> was added to object type <code>UnpinIssuePayload</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-01-23"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>visibility: RepositoryVisibility</code> added to field <code>Organization.repositories</code></p>",
           "<p>Argument <code>visibility: RepositoryVisibility</code> added to field <code>Repository.forks</code></p>",
           "<p>Argument <code>visibility: RepositoryVisibility</code> added to field <code>RepositoryOwner.repositories</code></p>",

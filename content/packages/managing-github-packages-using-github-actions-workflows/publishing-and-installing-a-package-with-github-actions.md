@@ -9,14 +9,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Publish & install with Actions
 layout: inline
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 ## About {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}
 
@@ -159,7 +157,7 @@ jobs:
 # This job publishes the package. `needs: run-npm-test` makes this job dependent on the `run-npm-test` job.
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes or ghae %}
+    needs: run-npm-test {% ifversion ghes %}
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
       contents: read

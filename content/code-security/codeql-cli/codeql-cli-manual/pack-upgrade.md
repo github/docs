@@ -2,7 +2,6 @@
 title: pack upgrade
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -32,8 +31,7 @@ codeql pack upgrade [--force] <options>... -- <dir>
 
 ## Description
 
-\[Experimental] Update the dependencies for this pack to the latest
-available versions.
+Update the dependencies for this pack to the latest available versions.
 
 This command installs the latest compatible version of each dependency
 of the pack, updating the lock file with the newly acquired versions.
