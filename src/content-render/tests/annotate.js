@@ -1,3 +1,4 @@
+import cheerio from 'cheerio'
 import { renderContent } from '#src/content-render/index.js'
 
 const example = `
@@ -21,5 +22,29 @@ describe('annotate', () => {
     // If it fails, study the output and make sure it's correct.
     // If it is indeed correct, run `jest --updateSnapshot` to update it.
     expect(await renderContent(example)).toMatchSnapshot()
+  })
+
+  test('renders bash with hash bang annotations', async () => {
+    const example = `
+\`\`\`bash annotate
+# The next line is the hash bang
+#!/usr/bin/env bash
+
+# Sample comment
+echo "Hello, world!"
+\`\`\`
+`.trim()
+    const res = await renderContent(example)
+    const $ = cheerio.load(res)
+
+    const headerCode = $('header pre').text()
+    expect(headerCode).toMatch(example.split('\n').slice(1, -1).join('\n'))
+    const rows = $('.annotate-row')
+    const notes = $('.annotate-note p', rows)
+    const noteTexts = notes.map((i, el) => $(el).text()).get()
+    expect(noteTexts).toEqual(['The next line is the hash bang', 'Sample comment'])
+    const codes = $('.annotate-code pre', rows)
+    const codeTexts = codes.map((i, el) => $(el).text()).get()
+    expect(codeTexts).toEqual(['#!/usr/bin/env bash', 'echo "Hello, world!"'])
   })
 })
