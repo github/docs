@@ -1,6 +1,6 @@
 ---
 title: About ticket priority
-intro: You can communicate the severity of your issue and how it is affecting you and your team by setting the priority of your support ticket.
+intro: Support tickets are assigned a priority based on the circumstances of the issue and impact to you and your team.
 shortTitle: Ticket priority
 versions:
   ghec: '*'
@@ -11,7 +11,7 @@ topics:
 
 ## About ticket priorities
 
-When you contact {% data variables.contact.github_support %}, you can choose a priority for the ticket:
+When you contact {% data variables.contact.github_support %}, {% data variables.product.company_short %} will choose a priority for the ticket:
 
 - {% data variables.product.support_ticket_priority_low %}
 - {% data variables.product.support_ticket_priority_normal %}
@@ -19,6 +19,8 @@ When you contact {% data variables.contact.github_support %}, you can choose a p
 - {% data variables.product.support_ticket_priority_urgent %} {% ifversion ghec %}([{% data variables.contact.premium_support %}](/support/learning-about-github-support/about-github-premium-support) only){% endif %}
 
 {% data reusables.support.zendesk-old-tickets %}
+
+Ticket priority helps to ensure that support requests are handled in order, and according to their circumstances and impact.
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
