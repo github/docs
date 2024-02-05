@@ -35,8 +35,6 @@ The page that's displayed allows you to enable or disable all security and analy
 
 {% ifversion ghes %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
-{% ifversion ghae %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
-
 ## Enabling or disabling a feature for all existing repositories
 
 You can enable or disable features for all repositories.
@@ -179,6 +177,6 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 ## Further reading
 
 - "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
-- "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"{% endif %}
+- "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)"{% endif %}
+- "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"
