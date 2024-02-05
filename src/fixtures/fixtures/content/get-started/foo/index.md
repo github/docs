@@ -17,5 +17,4 @@ children:
   - /html-short-title
   - /page-with-callout
   - /table-with-ifversions
-  - /code-snippet-with-hashbang
 ---
