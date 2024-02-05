@@ -124,7 +124,7 @@ jobs:
 
 You can specify credentials for your service containers in case you need to authenticate with an image registry. This allows you to use images from private registries or to [increase your DockerHub rate limit](https://www.docker.com/increase-rate-limits/).
 
-Here’s an example of authenticating with DockerHub and GitHub Container Registry:
+Here’s an example of authenticating with Docker Hub and the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}:
 
 {% raw %}
 
