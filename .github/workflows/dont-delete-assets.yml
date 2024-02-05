@@ -41,7 +41,7 @@ jobs:
 
       - name: Find possible previous comment
         if: ${{ steps.comment.outputs.markdown != '' }}
-        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
+        uses: peter-evans/find-comment@d5fe37641ad8451bdd80312415672ba26c86575e
         id: findComment
         with:
           issue-number: ${{ github.event.number }}
