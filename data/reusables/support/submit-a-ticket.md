@@ -27,7 +27,7 @@
 1. Select the **Release series** dropdown menu and click the release {% data variables.location.product_location_enterprise %} is running.
 {%- endif %}
 {%- ifversion ghes or ghec %}
-1. Select the **Priority** dropdown menu and click the appropriate urgency. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-ticket-priority)."
+1. Select the **Type of Issue** dropdown menu and click the appropriate circumstance.
 {%- endif %}
 {%- ifversion ghes %}
     - Choose **{% data variables.product.support_ticket_priority_urgent %}** to report {% ifversion fpt or ghec %}critical system failure{% else %}fatal system failures, outages impacting critical system operations, security incidents, and expired licenses{% endif %}.
@@ -36,7 +36,7 @@
     - Choose **{% data variables.product.support_ticket_priority_low %}** to ask general questions and submit requests for new features, purchases, training, or health checks.
 {%- endif %}
 {%- ifversion ghes or ghec %}
-1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
+1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket issue aligns to our {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
 
    {% note %}
 
