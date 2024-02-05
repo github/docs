@@ -22,7 +22,12 @@ export const ArticleList = ({
   articles,
 }: ArticleListPropsT) => {
   const { t } = useTranslation('product_landing')
-  const { page } = useMainContext()
+  const mainContext = useMainContext()
+  // Use TypeScript's "not null assertion" because `mainContext.page` should
+  // will present in mainContext if it's gotten to the stage of React
+  // rendering.
+  const page = mainContext.page!
+
   return (
     <>
       {title && (

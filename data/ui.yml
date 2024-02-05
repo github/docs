@@ -139,6 +139,8 @@ rest_reference:
   notes: Notes
   parameters: Parameters for "{{ RESTOperationTitle }}"
   response: Response
+  request_example: Request example
+  request_examples: Request examples
   example_response: Example response
   status_code: Status code
   http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"

@@ -50,7 +50,7 @@ You can also archive an organization, instead of deleting it. Archiving an organ
 
 ## Backing up your organization content
 
-{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and projects from the account.
 
 {% ifversion ghes %}
 {% note %}

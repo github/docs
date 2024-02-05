@@ -127,13 +127,7 @@ curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pr
 
 ## Device flow
 
-{% note %}
-
-**Note:** The device flow is in public beta and subject to change.
-
-{% endnote %}
-
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+The device flow allows you to authorize users for a headless application, such as a CLI tool or the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 
 {% ifversion device-flow-is-opt-in %}
 
@@ -163,7 +157,7 @@ Parameter name | Type | Description
 By default, the response takes the following form:
 
 ```shell
-device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
+device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%2F{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
 Parameter name | Type | Description
@@ -217,7 +211,7 @@ The endpoint takes the following input parameters.
 Parameter name | Type | Description
 -----|------|--------------
 `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
+`device_code` | `string` | **Required.** The `device_code` you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
 `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
 
 By default, the response takes the following form:
@@ -293,9 +287,9 @@ subdirectory of the callback URL.
 
 ### Loopback redirect urls
 
-The optional `redirect_uri` parameter can also be used for loopback URLs. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
+The optional `redirect_uri` parameter can also be used for loopback URLs, which is useful for native applications running on a desktop computer. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
 
-For the `http://127.0.0.1:1234/path` callback URL, you can use this `redirect_uri`:
+For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri` if your application is listening on port `1234`:
 
 ```http
 http://127.0.0.1:1234/path

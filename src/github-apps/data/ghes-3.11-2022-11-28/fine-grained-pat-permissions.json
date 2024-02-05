@@ -348,6 +348,15 @@
       },
       {
         "category": "orgs",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
+        "subcategory": "custom-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/repository-fine-grained-permissions",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "orgs",
         "slug": "get-all-organization-repository-rulesets",
         "subcategory": "rules",
         "verb": "get",
@@ -495,6 +504,15 @@
         "requestPath": "/orgs/{org}/custom-repository-roles/{role_id}",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-repository-fine-grained-permissions-for-an-organization",
+        "subcategory": "custom-roles",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/repository-fine-grained-permissions",
+        "additional-permissions": [],
+        "access": "read"
       }
     ]
   },
@@ -1523,6 +1541,17 @@
           "metadata"
         ],
         "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "metadata"
+        ],
+        "access": "write"
       }
     ]
   },
@@ -2015,6 +2044,15 @@
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
         "additional-permissions": [],
         "access": "read"
+      },
+      {
+        "category": "deployments",
+        "slug": "get-a-custom-deployment-protection-rule",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
+        "additional-permissions": [],
+        "access": "read"
       }
     ]
   },
@@ -2240,7 +2278,7 @@
       },
       {
         "category": "repos",
-        "slug": "list-all-autolinks-of-a-repository",
+        "slug": "get-all-autolinks-of-a-repository",
         "subcategory": "autolinks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/autolinks",
@@ -2579,6 +2617,15 @@
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users",
         "additional-permissions": [],
         "access": "write"
+      },
+      {
+        "category": "code-scanning",
+        "slug": "get-a-code-scanning-default-setup-configuration",
+        "subcategory": "code-scanning",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/code-scanning/default-setup",
+        "additional-permissions": [],
+        "access": "read"
       },
       {
         "category": "code-scanning",
@@ -4544,6 +4591,17 @@
         "access": "read"
       },
       {
+        "category": "actions",
+        "slug": "remove-selected-repository-from-an-organization-variable",
+        "subcategory": "variables",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}",
+        "additional-permissions": [
+          "organization_actions_variables"
+        ],
+        "access": "read"
+      },
+      {
         "category": "dependabot",
         "slug": "add-selected-repository-to-an-organization-secret",
         "subcategory": "secrets",
@@ -4933,7 +4991,7 @@
         "slug": "create-a-github-pages-deployment",
         "subcategory": "pages",
         "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/pages/deployment",
+        "requestPath": "/repos/{owner}/{repo}/pages/deployments",
         "additional-permissions": [],
         "access": "write"
       }

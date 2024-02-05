@@ -92,3 +92,15 @@ curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```
+
+## Example 3: Events for Git activity in an enterprise, for a specific date and actor
+
+You can search for Git events in an enterprise, such as cloning, fetching, and pushing, by adding `include=git` as a parameter in the URL. Alternatively, you can use `include=all` to search for both web events and Git events.
+
+The query below searches for audit log events for Git activity, where the event occurred after Jan 1st, 2024, in the `avocado-corp` enterprise, and the action was performed by the `octocat` user.
+
+```shell
+curl -H "Authorization: Bearer TOKEN" \
+--request GET \
+"https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:>=2024-01-01+actor:octocat&include=git"
+```

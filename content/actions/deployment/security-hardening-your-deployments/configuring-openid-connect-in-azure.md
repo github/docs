@@ -30,21 +30,23 @@ This guide gives an overview of how to configure Azure to trust {% data variable
   <!-- This note is indented to align with the above reusable. -->
   {% note %}
 
-  **Note:** Azure Active Directory (Azure AD) does not have fixed IP ranges defined for these endpoints.
+  **Note:** Microsoft Entra ID (previously known as Azure AD) does not have fixed IP ranges defined for these endpoints.
 
   {% endnote %}
 
 - Make sure that the value of the issuer claim that's included with the JSON Web Token (JWT) is set to a publicly routable URL. For more information, see "[AUTOTITLE](/enterprise-server@latest/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."
 {% endif %}
 
-## Adding the Federated Credentials to Azure
+## Adding the federated credentials to Azure
 
 {% data variables.product.prodname_dotcom %}'s OIDC provider works with Azure's workload identity federation. For an overview, see Microsoft's documentation at "[Workload identity federation](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)."
 
 To configure the OIDC identity provider in Azure, you will need to perform the following configuration. For instructions on making these changes, refer to [the Azure documentation](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure).
 
-1. Create an Azure Active Directory application and a service principal.
-1. Add federated credentials for the Azure Active Directory application.
+{% ifversion fpt or ghec %}In the following procedure, you will create an application for Microsoft Entra ID (previously known as Azure AD).{% endif %}
+
+1. Create an Entra ID application and a service principal.
+1. Add federated credentials for the Entra ID application.
 1. Create {% data variables.product.prodname_dotcom %} secrets for storing Azure configuration.
 
 Additional guidance for configuring the identity provider:

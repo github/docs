@@ -140,6 +140,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "codespaces.start_environment",
+    "description": "A codespace was started.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "codespaces.suspend_environment",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -161,12 +166,12 @@
   },
   {
     "action": "copilot.cfb_org_settings_changed",
-    "description": "Settings for Copilot for Business were changed at the organization level.",
+    "description": "Settings for Copilot Business were changed at the organization level.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_added",
-    "description": "A seat was added to the Copilot for Business subscription for a user and they have received access to GitHub Copilot.",
+    "description": "A seat was added to the Copilot Business subscription for a user and they have received access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
@@ -191,17 +196,17 @@
   },
   {
     "action": "copilot.cfb_seat_cancelled",
-    "description": "A seat was canceled from the Copilot for Business subscription and the user no longer has access to GitHub Copilot.",
+    "description": "A seat was canceled from the Copilot Business subscription and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
-    "description": "A seat was canceled from the Copilot for Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
+    "description": "A seat was canceled from the Copilot Business subscription manually by GitHub and the user no longer has access to GitHub Copilot.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_management_changed",
-    "description": "The seat management setting was changed for the Copilot for Business subscription.",
+    "description": "The seat management setting was changed for the Copilot Business subscription.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1451,8 +1456,8 @@
   },
   {
     "action": "org.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#enabling-workflows-for-private-repository-forks"
   },
   {
     "action": "org.set_actions_retention_limit",
@@ -1466,8 +1471,8 @@
   },
   {
     "action": "org.set_default_workflow_permissions",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The default permissions granted to the GITHUB_TOKEN when running workflows were changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization"
   },
   {
     "action": "org.set_fork_pr_workflows_policy",
@@ -1476,8 +1481,8 @@
   },
   {
     "action": "org.set_workflow_permission_can_approve_pr",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for allowing GitHub Actions to create and approve pull requests was changed for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
   {
     "action": "org.sso_response",
@@ -1511,8 +1516,8 @@
   },
   {
     "action": "org.update_actions_settings",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "An organization owner or site administrator updated GitHub Actions policy settings for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization"
   },
   {
     "action": "org.update_actions_variable",
@@ -2381,8 +2386,8 @@
   },
   {
     "action": "repo.set_actions_private_fork_pr_approvals_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for requiring approval for fork pull request workflows from collaborators without write access to private repos was changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories"
   },
   {
     "action": "repo.set_actions_retention_limit",
@@ -2391,8 +2396,8 @@
   },
   {
     "action": "repo.set_default_workflow_permissions",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The default permissions granted to the GITHUB_TOKEN when running workflows were changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository"
   },
   {
     "action": "repo.set_fork_pr_workflows_policy",
@@ -2401,8 +2406,8 @@
   },
   {
     "action": "repo.set_workflow_permission_can_approve_pr",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "The policy for allowing GitHub Actions to create and approve pull requests was changed for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests"
   },
   {
     "action": "repo.staff_unlock",

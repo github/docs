@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: reference
 ---
@@ -366,7 +365,7 @@ runs:
         last_name: Octocat
 ```
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 #### `runs.steps[*].continue-on-error`
 

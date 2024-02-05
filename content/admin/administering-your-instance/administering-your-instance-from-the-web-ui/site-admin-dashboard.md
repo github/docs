@@ -10,21 +10,12 @@ redirect_from:
   - /admin/administering-your-instance/site-admin-dashboard
 versions:
   ghes: '*'
-  ghae: '*'
 type: reference
 topics:
   - Enterprise
   - Fundamentals
 ---
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-hidden="true" %}.
-
-{% ifversion ghae %}
-
-## License info & search
-
-Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
-
-{% endif %}
 
 ## Explore
 

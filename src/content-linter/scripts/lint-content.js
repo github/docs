@@ -250,7 +250,7 @@ function getFilesToLint(paths) {
     const extension = path.extname(lintPath)
     // We currently only lint Markdown files but will add
     // YAML files soon.
-    const isMdFile = extension === '.md'
+    const isMdFile = extension === '.md' && path.basename(lintPath) !== 'README.md'
     const isDirectory = extension === ''
     if (!isMdFile && !isDirectory) continue
     // The path can be relative or absolute. All paths get

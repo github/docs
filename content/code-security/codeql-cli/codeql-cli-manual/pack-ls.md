@@ -2,7 +2,6 @@
 title: pack ls
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -33,9 +32,8 @@ codeql pack ls <options>... -- <dir>
 
 ## Description
 
-\[Experimental] \[Deep plumbing] List the CodeQL packages rooted at
-this directory. This directory must contain a qlpack.yml or
-.codeqlmanifest.json file.
+\[Deep plumbing] List the CodeQL packages rooted at this directory.
+This directory must contain a qlpack.yml or .codeqlmanifest.json file.
 
 Available since `v2.7.1`.
 

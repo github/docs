@@ -36,7 +36,7 @@ shortTitle: Using Copilot Chat
 
 {% data variables.product.prodname_copilot_chat %} is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
 
-If {% data variables.product.prodname_copilot_chat_short %} is enbaled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
+If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
 
 ### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
 
@@ -87,7 +87,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
-1. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
+1. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, type a coding-related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
 1. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
 
    If your question is outside the scope of {% data variables.product.prodname_copilot_chat %}, it will tell you and may suggest an alternative question to ask.
@@ -163,7 +163,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% data variables.product.prodname_copilot_chat %} is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
 
-If {% data variables.product.prodname_copilot_chat_short %} is enbaled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
+If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
 
 ### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
 

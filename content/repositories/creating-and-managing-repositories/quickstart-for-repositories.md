@@ -53,7 +53,7 @@ Congratulations! You've successfully created your first repository, and initiali
 
 {% webui %}
 
-A [commit](/get-started/quickstart/github-glossary#commit) is like a snapshot of all the files in your project at a particular point in time.
+A [commit](/get-started/learning-about-github/github-glossary#commit) is like a snapshot of all the files in your project at a particular point in time.
 
 When you created your new repository, you initialized it with a _README_ file. _README_ files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your _README_ file are automatically shown on the front page of your repository.
 
@@ -119,7 +119,7 @@ You have now created a repository, including a _README_ file, and created your f
 
 {% webui %}
 
-- You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+- You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
 {% endwebui %}
 

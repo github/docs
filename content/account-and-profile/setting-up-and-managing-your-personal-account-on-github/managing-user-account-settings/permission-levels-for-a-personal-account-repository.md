@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -85,7 +84,7 @@ Collaborators can also perform the following actions.
 | Submit a review on a pull request that affects the mergeability of the pull request | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" |
 | Create and edit a wiki for the repository | "[AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis)" |
 | Create and edit releases for the repository | "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)" |
-| Act as a code owner for the repository | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)" |{% ifversion fpt or ghae or ghec %}
+| Act as a code owner for the repository | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)" |{% ifversion fpt or ghec %}
 | Publish, view, or install packages | "[AUTOTITLE](/packages/learn-github-packages)" |{% endif %}
 | Remove themselves as collaborators on the repository | "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository)" |
 

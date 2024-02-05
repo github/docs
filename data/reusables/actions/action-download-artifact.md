@@ -1,1 +1,1 @@
-actions/download-artifact@v3
+actions/download-artifact@v4

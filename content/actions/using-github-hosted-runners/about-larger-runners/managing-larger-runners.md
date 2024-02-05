@@ -65,6 +65,8 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/cont
 
 ## Changing the name of a {% data variables.actions.hosted_runner %}
 
+{% data reusables.actions.larger-runner-name-note %}
+
 {% ifversion ghec %}
 You can edit the name of your {% data variables.actions.hosted_runner %}s.
 

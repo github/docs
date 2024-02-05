@@ -25,6 +25,7 @@ sections:
       **MEDIUM**: An incorrect authorization vulnerability was identified that allowed issue comments to be updated with an improperly scoped token. This vulnerability did not allow unauthorized access to any repository content as it also required `contents.write` and `issues.read` permissions. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-51379](https://www.cve.org/CVERecord?id=CVE-2023-51379). 
     - |
       **MEDIUM**: An incorrect authorization vulnerability was identified that allowed issue comments to be read with an improperly scoped token. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-51380](https://www.cve.org/CVERecord?id=CVE-2023-51380).
+    - | 
       **LOW:** Pre-receive hooks have been further hardened against shell command injections. 
     - |
       **LOW:** To render interactive maps in an instance's web UI using Azure Maps, GitHub Enterprise Server has migrated from use of an unsecure Azure Maps API token to a more secure access token provided by role-based access control (RBAC) in Entra ID. After upgrading to this release, to re-enable interactive maps, an administrator must reconfigure authentication to Azure Maps in the Management Console. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-interactive-maps)."

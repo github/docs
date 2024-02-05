@@ -19,6 +19,14 @@ import { retryOnErrorTest } from './retry-on-error-test.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 
+const availableVersions = Object.fromEntries(
+  Object.entries(allVersions)
+    // GHAE is deprecated and not yet entirely deleted from all-versions
+    // Until so, we manually filter it out.
+    .filter(([version]) => version !== 'github-ae@latest')
+    .map(([key, value]) => [key, value]),
+)
+
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
 
@@ -38,7 +46,7 @@ dotenv.config()
 // We need this later to be able to map CLI arguments to what the
 // records are called when found on disk.
 const shortNames = Object.fromEntries(
-  Object.values(allVersions).map((info) => {
+  Object.values(availableVersions).map((info) => {
     const shortName = info.hasNumberedReleases
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
@@ -294,6 +302,19 @@ async function indexVersion(client, indexName, version, language, sourceDirector
   // CREATE INDEX
   const settings = {
     analysis: {
+      char_filter: {
+        // This will turn `runs-on` into `runs_on` so that it can't be
+        // tokenized to `runs` because `on` is a stop word.
+        // It also means that prose terms, in English, like `opt-in`
+        // not be matched if someone searches for `opt in`. But this
+        // is why we have multiple different analyzers. So it becomes
+        // `opt_in` in the `text_analyzer_explicit` analyzer, but is
+        // left as `opt` in the `text_analyzer` analyzer.
+        hyphenation_filter: {
+          type: 'mapping',
+          mappings: ['- => _'],
+        },
+      },
       analyzer: {
         // We defined to analyzers. Both based on a "common core" with the
         // `standard` tokenizer. But the second one adds Snowball filter.
@@ -306,6 +327,7 @@ async function indexVersion(client, indexName, version, language, sourceDirector
         // A great use-case of this when users search for keywords that are
         // code words like `dependency-name`.
         text_analyzer_explicit: {
+          char_filter: ['hyphenation_filter'],
           filter: ['lowercase', 'stop', 'asciifolding'],
           tokenizer: 'standard',
           type: 'custom',
@@ -355,7 +377,13 @@ async function indexVersion(client, indexName, version, language, sourceDirector
           // the searches faster.
           term_vector: 'with_positions_offsets',
         },
-        content_explicit: { type: 'text', analyzer: 'text_analyzer_explicit' },
+        content_explicit: {
+          type: 'text',
+          analyzer: 'text_analyzer_explicit',
+          // This is used for fast highlighting. Uses more space but makes
+          // the searches faster.
+          term_vector: 'with_positions_offsets',
+        },
         headings: { type: 'text', analyzer: 'text_analyzer', norms: false },
         headings_explicit: { type: 'text', analyzer: 'text_analyzer_explicit', norms: false },
         breadcrumbs: { type: 'text' },
@@ -371,6 +399,7 @@ async function indexVersion(client, indexName, version, language, sourceDirector
   const operations = allRecords.flatMap((doc) => {
     const { title, objectID, content, breadcrumbs, headings, intro } = doc
     const contentEscaped = escapeHTML(content)
+    const headingsEscaped = escapeHTML(headings)
     const record = {
       url: objectID,
       title,
@@ -378,8 +407,8 @@ async function indexVersion(client, indexName, version, language, sourceDirector
       content: contentEscaped,
       content_explicit: contentEscaped,
       breadcrumbs,
-      headings,
-      headings_explicit: headings,
+      headings: headingsEscaped,
+      headings_explicit: headingsEscaped,
       // This makes sure the popularities are always greater than 1.
       // Generally the 'popularity' is a ratio where the most popular
       // one of all is 1.0.

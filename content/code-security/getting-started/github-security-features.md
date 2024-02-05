@@ -4,7 +4,6 @@ intro: 'An overview of {% data variables.product.prodname_dotcom %} security fea
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -49,21 +48,9 @@ and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dep
 
 {% data reusables.dependabot.quickstart-link %}
 
-{% ifversion ghae %}
-
-### {% data variables.product.prodname_dependabot_alerts %}
-
-{% data reusables.dependabot.dependabot-alerts-beta %}
-
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-{% endif %}
-
-{% ifversion fpt or ghec or ghes %}
-
 ### {% data variables.product.prodname_dependabot_version_updates %}
 
 Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. You can also customize {% data variables.product.prodname_dependabot_version_updates %} to streamline their integration into your repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
-{% endif %}
 
 ### Dependency graph
 
@@ -131,7 +118,7 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 
 {% else %}
 
-### Security overview for organizations{% ifversion ghes or ghae  %}, enterprises,{% endif %} and teams
+### Security overview for organizations{% ifversion ghes %}, enterprises,{% endif %} and teams
 
 Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}

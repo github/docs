@@ -1,4 +1,4 @@
-// This separate file from config.json was neccessary in order to load
+// This separate file from config.json was necessary in order to load
 // static information into our client-side React components. But,
 // we also need a JSON file to have a format with static data that can be
 // written to automatically. The sync scripts for REST update information

@@ -2,6 +2,5 @@
 # Documentation for GitHub Actions workflow dependencies appearing in the dependency graph
 versions:
   fpt: '*'
-  ghae: '>= 3.5'
   ghes: '>3.4'
   ghec: '*'
