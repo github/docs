@@ -8,7 +8,6 @@ versions:
   ghec: '*'
 children:
   - /understanding-github-enterprise-importer
-  - /preparing-to-migrate-with-github-enterprise-importer
   - /migrating-from-azure-devops-to-github-enterprise-cloud
   - /migrating-from-bitbucket-server-to-github-enterprise-cloud
   - /migrating-between-github-products

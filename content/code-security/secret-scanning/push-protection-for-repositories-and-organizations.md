@@ -16,7 +16,6 @@ topics:
 shortTitle: Push protection for repositories
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## About push protection for repositories and organizations
@@ -186,16 +185,6 @@ Organization owners can provide a custom link that will be displayed when a push
 If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
-
-{% ifversion ghae < 3.6 %}
-
-{% tip %}
-
-**Tip:** You can use {% data variables.product.prodname_secret_scanning %} as a push protection from the web UI, as well as the command line, in {% data variables.product.product_name %} version 3.6 or later.
-
-{% endtip %}
-
-{% endif %}
 
 ### Allowing a blocked secret to be pushed
 

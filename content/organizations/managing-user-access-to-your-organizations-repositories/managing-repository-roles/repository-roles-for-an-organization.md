@@ -155,6 +155,12 @@ Some of the features listed below are limited to organizations using {% data var
 
 In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
 
+{%note %}
+
+**Note:** Repository writers and maintainers can only see secret scanning alert information for their own commits.
+
+{% endnote %}
+
 {% rowheaders %}
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
@@ -173,12 +179,6 @@ In this section, you can find the access required for security features, such as
 | [Designate additional people or teams to receive {% data variables.secret-scanning.alerts %}](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}
 
 {% endrowheaders %}
-
-{%note %}
-
-**Note:** Repository writers and maintainers can only see secret scanning alert information for their own commits.
-
-{% endnote %}
 
 ## Further reading
 

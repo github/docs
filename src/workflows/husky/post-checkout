@@ -1,6 +1,5 @@
 #!/bin/sh
 [ -n "$CI" ] && exit 0
-. "$(dirname "$0")/_/husky.sh"
 
 # Same process in husky/post-merge
 echo "Check if any packages need to be installed"

@@ -17,6 +17,8 @@ You can either set up a {% data variables.product.prodname_copilot %} subscripti
 
 {% data reusables.copilot.tp-users-trial-eligibility %}{% endif %}
 
+{% data variables.product.prodname_copilot %} billing operates in Coordinated Universal Time (UTC), so you may need to convert this to your own time zone. For example, if you're billed through Azure and see a usage update at 7:00 PM EST on December 1st, {% data variables.product.prodname_copilot %} might show it as 12:00 AM UTC on December 2nd. Remember, if you cancel a seat, it ends in the billing cycle you request it, avoiding extra charges despite time zone differences.
+
 {% data reusables.billing.billing-info %}
 
 ## Pricing for {% data variables.product.prodname_copilot_for_individuals %}
@@ -31,7 +33,7 @@ A free subscription for {% data variables.product.prodname_copilot %} is availab
 
 ## Pricing for {% data variables.product.prodname_copilot_for_business %}
 
-The {% data variables.product.prodname_copilot_for_business %} subscription is available on a monthly cycle, and is billed at {% data variables.copilot.cfb_price_per_month %} per user per month. Billing for {% data variables.product.prodname_copilot_for_business %} is processed at the end of each billing cycle.
+The {% data variables.product.prodname_copilot_for_business %} subscription is available on a monthly cycle, and is billed at {% data variables.copilot.cfb_price_per_month %} per user per month. Billing for {% data variables.product.prodname_copilot_for_business %} is processed at the end of each billing cycle. For more information about setting up a {% data variables.product.prodname_copilot_for_business %} subscription, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise)."
 
 Billed users are calculated based on the number of assigned {% data variables.product.prodname_copilot %} seats. Any seat assigned part way through the billing cycle will be prorated based on the number of days remaining in the cycle. Any seat assignment removed during a billing cycle will take effect from the beginning of the next cycle. The person will still be able to use {% data variables.product.prodname_copilot %} until the end of the cycle.
 
@@ -42,3 +44,9 @@ Policy settings and the usage overview for {% data variables.product.prodname_co
 {% endif %}
 
 When you connect an Azure subscription to your organization or enterprise account and enable metered billing via Azure, metered usage will start to be sent to Azure. You will be billed through {% data variables.product.prodname_dotcom %} for usage from the start of the current billing cycle to when you enabled metered billing via Azure, on your next billing date. The period between the date you connected your Azure subscription and enabled metered billing via Azure, and the end of the calendar month will be charged in Azure on the first of the month. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+
+{% note %}
+
+**Note:** Usage data is sent to Azure daily, but you are billed at the end of the month based on the number of seats used. This means that although you can track your daily spending (number of seats in this case), actual payments are processed monthly.
+
+{% endnote %}

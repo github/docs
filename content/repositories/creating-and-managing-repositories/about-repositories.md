@@ -78,7 +78,7 @@ When you create a repository owned by your personal account, the repository is a
 {% endif %}
 
 {%- ifversion fpt or ghec %}
-- Public repositories are accessible to everyone on the internet.
+- {% ifversion ghec %}If your account is not a {% data variables.enterprise.prodname_managed_user %}, you can create public repositories. {% endif %}Public repositories are accessible to everyone on the internet.
 - Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- elsif ghes %}
 - If {% data variables.location.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.location.product_location %}, including outside collaborators.
@@ -86,7 +86,7 @@ When you create a repository owned by your personal account, the repository is a
 {%- elsif ghae %}
 - Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 - Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
 {%- endif %}
 

@@ -17,8 +17,12 @@ npm run build
 Now, to run all the tests:
 
 ```shell
-npm run playwright-test
+npm run playwright-test -- playwright-rendering
 ```
+
+The first argument, `playwright-rendering` here, is because we have multiple
+test suites for headless testing. Some that test local dev, some that
+test for accessibility, and some that test on fixtures.
 
 That command will automatically start a server (on `localhost:4000`) for
 the duration of test suite. It then finds all `tests/**/*.spec.ts`
@@ -228,3 +232,32 @@ documentation how to do things like locators and/or assertions.
 - When you use the codegen, it's clever in that it can attach to `data-testid`
 nodes in your DOM. That's a good thing. If it's unable to do that,
 consider going into the React code and add some more.
+
+## Slow tests and patience
+
+By default the timeouts for running tests and for assertions are set up
+to be quite short. In CI, they're by default quite long. The reason for
+a lesser patience is for rapid development and the fact that if something
+times out, in local dev, it's usually not because of a slow computer but
+because of an incorrect test or assertion.
+
+To increase the patience consider setting, for example:
+
+```sh
+export PLAYWRIGHT_TIMEOUT=20000  # 20 seconds
+export PLAYWRIGHT_EXPECT_TIMEOUT=4000 # 4 seconds
+```
+
+You can also get the default patience settings as is used in CI by running
+as if it was run in CI:
+
+```sh
+CI=1 npm run playwright-test -- playwright-rendering
+```
+
+Note, that with `CI` set to a truthy value, it will also default to
+using exactly 1 worker. To counter that, you can use:
+
+```sh
+PLAYWRIGHT_WORKERS=4 CI=1 npm run playwright-test -- playwright-rendering
+```

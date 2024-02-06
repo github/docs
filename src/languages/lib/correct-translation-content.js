@@ -27,7 +27,7 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('{% variables.', '{% data variables.')
 
     // For the rather custom Russian translation of
-    // the content/get-started/quickstart/github-glossary.md page
+    // the content/get-started/learning-about-github/github-glossary.md page
     // These string replacements speak for themselves.
     content = content.replaceAll(
       '{% для глоссария в глоссариях %}',
@@ -40,7 +40,7 @@ export function correctTranslatedContentStrings(content, englishContent, context
   if (context.code === 'ko') {
     // For the rather custom Korean translation of github-glossary.md
     // Let's try to salvage based on what's in
-    // docs-internal.ko-kr/content/get-started/quickstart/github-glossary.md
+    // docs-internal.ko-kr/content/get-started/learning-about-github/github-glossary.md
     // as of September 2023.
     content = content.replaceAll('용어집 %}의 용어집에 대한 {%', '{% for glossary in glossaries %}')
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')

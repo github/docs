@@ -11,7 +11,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Advanced Security
   - Code scanning

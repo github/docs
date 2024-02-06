@@ -35,12 +35,6 @@ describe('junk paths', () => {
     },
   )
 
-  test('any URL that ends with /index.md redirects', async () => {
-    const res = await get('/en/get-started/index.md')
-    expect(res.statusCode).toBe(302)
-    expect(res.headers.location).toBe('/en/get-started')
-  })
-
   test('just _next', async () => {
     const res = await get('/_next')
     expect(res.statusCode).toBe(404)
@@ -50,6 +44,50 @@ describe('junk paths', () => {
     const res = await get('/en/package-lock.json')
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toMatch('text/plain')
+  })
+})
+
+describe('index.md and .md suffixes', () => {
+  test('any URL that ends with /index.md redirects', async () => {
+    // With language prefix
+    {
+      const res = await get('/en/get-started/index.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started')
+    }
+    // Without language prefix
+    {
+      const res = await get('/get-started/index.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started')
+    }
+    // With query string
+    {
+      const res = await get('/get-started/index.md?foo=bar')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started?foo=bar')
+    }
+  })
+
+  test('any URL that ends with /.md redirects', async () => {
+    // With language prefix
+    {
+      const res = await get('/en/get-started/hello.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/en/get-started/hello')
+    }
+    // Without language prefix
+    {
+      const res = await get('/get-started/hello.md')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started/hello')
+    }
+    // With query string
+    {
+      const res = await get('/get-started/hello.md?foo=bar')
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/get-started/hello?foo=bar')
+    }
   })
 })
 

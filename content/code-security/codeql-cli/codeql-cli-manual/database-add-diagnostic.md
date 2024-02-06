@@ -3,7 +3,6 @@ title: database add-diagnostic
 intro: '[Experimental] Add a piece of diagnostic information to a database.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
