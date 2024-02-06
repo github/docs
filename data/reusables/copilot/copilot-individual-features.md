@@ -4,7 +4,7 @@
 
 ### {% data variables.product.prodname_copilot_chat %} in your IDE
 
-{% data variables.product.prodname_copilot_chat %} in your IDE is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within supported IDEs. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)."
+{% data variables.product.prodname_copilot_chat %} in your IDE is a chat interface that lets you ask and receive answers to coding-related questions within supported IDEs. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)."
 
 ### {% data variables.product.prodname_copilot_cli %}
 

@@ -10,7 +10,7 @@ shortTitle: Copilot Individual feature set
 
 ## About {% data variables.product.prodname_copilot_for_individuals %}
 
-{% data variables.product.prodname_copilot_for_individuals %} is a {% data variables.product.prodname_copilot %} plan available to {% data variables.product.prodname_dotcom %} customers through personal accounts. For more information on {% data variables.product.prodname_copilot_for_individuals %}, see "[AUTOTITLE](/copilot/copilot-individual/about-github-copilot-individual)."
+{% data variables.product.prodname_copilot_for_individuals %} is a {% data variables.product.prodname_copilot %} plan available to {% data variables.product.prodname_dotcom %} customers through personal accounts. For more information, see "[AUTOTITLE](/copilot/copilot-individual/about-github-copilot-individual)."
 
 ## {% data variables.product.prodname_copilot_for_individuals %} features
 
