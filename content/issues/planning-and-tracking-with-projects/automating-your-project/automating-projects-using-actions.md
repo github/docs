@@ -75,9 +75,9 @@ jobs:
     steps:
     # Uses the {% ifversion ghes < 3.12 %}[tibdex/github-app-token](https://github.com/tibdex/github-app-token){% else %}[actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token){% endif %} action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}`.
     #
-    #Replace `APP_ID` with the name of the secret that contains your app ID.
+    # Replace `APP_ID` with the name of the secret that contains your app ID.
     #
-    #Replace `APP_PEM` with the name of the secret that contains your app private key.
+    # Replace `APP_PEM` with the name of the secret that contains your app private key.
       - name: Generate token
         id: generate_token
         uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
@@ -125,7 +125,7 @@ jobs:
 #
 # - To get the ID of a field called `Team`, add `echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV`.
 # - To get the ID of an option called `Octoteam` for the `Team` single select field, add `echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV`.
-# 
+#
 # **Note:** This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
           echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
@@ -257,7 +257,7 @@ jobs:
 #
 # - To get the ID of a field called `Team`, add `echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV`.
 # - To get the ID of an option called `Octoteam` for the `Team` single select field, add `echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV`.
-# 
+#
 # **Note:** This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
           echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
