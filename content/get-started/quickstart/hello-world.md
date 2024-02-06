@@ -17,10 +17,10 @@ This tutorial teaches you {% data variables.product.product_name %} essentials l
 
 In this quickstart guide, you will:
 
-- Create and use a repository
-- Start and manage a new branch
-- Make changes to a file and push them to {% data variables.product.product_name %} as commits
-- Open and merge a pull request
+- Create and use a repository.
+- Start and manage a new branch.
+- Make changes to a file and push them to {% data variables.product.product_name %} as commits.
+- Open and merge a pull request.
 
 ### Prerequisites
 
@@ -140,7 +140,7 @@ In this walk-through, you should not have any conflicts, so you are ready to mer
 1. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
 1. Click back to the **Code** tab of your `hello-world` repository to see your published changes on `main`.
 
-## Next steps
+## Conclusion
 
 By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
 
@@ -151,9 +151,11 @@ As part of that, we've learned how to:
 - Change a file and commit those changes to {% data variables.product.product_name %}.
 - Open and merge a pull request.
 
-Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+## Next steps
 
-If you want to practice these skills again, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Introduction to {% data variables.product.prodname_dotcom %}" course.
+- Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+- If you want to practice the skills you've learned in this tutorial again, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Introduction to {% data variables.product.prodname_dotcom %}" course.
+- In the next tutorial, "[AUTOTITLE](/get-started/quickstart/setting-up-your-profile)," you'll learn how to personalize your profile and you'll also learn some basic Markdown syntax for writing on {% data variables.product.product_name %}.
 
 ## Further reading
 

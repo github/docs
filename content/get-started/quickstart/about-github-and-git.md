@@ -25,7 +25,7 @@ Storing your code in a "repository" on {% data variables.product.prodname_dotcom
 - Let others **review** your code, and make suggestions to improve it.
 - **Collaborate** on a shared project, without worrying that your changes will impact the work of your collaborators before you're ready to integrate them.
 
-Collaborative working, which is one of the most fundamental features of {% data variables.product.prodname_dotcom %}, is possible thanks to an open-source software called "Git," upon which {% data variables.product.prodname_dotcom %} is built.
+Collaborative working, one of {% data variables.product.prodname_dotcom %}’s fundamental features, is made possible by the open-source software, Git, upon which {% data variables.product.prodname_dotcom %} is built.
 
 ## About Git
 
@@ -47,7 +47,7 @@ There are plenty of Git-related actions that you can complete on {% data variabl
 
 However, most people work on their files locally (on their own computer), then continually sync these local changes—and all the related Git data—with the central "remote" repository on {% data variables.product.prodname_dotcom %}. There are plenty of tools that you can use to do this, such as GitHub Desktop.
 
-Once you start to work collaboratively, where you and others all need to be making changes to the same repository at the same time, you'll continually:
+Once you start to collaborate with others and all need to work on the same repository at the same time, you’ll continually:
 
 - **Pull** all the latest changes made by your collaborators from the remote repository on {% data variables.product.prodname_dotcom %}.
 - **Push** back your own changes to the same remote repository on {% data variables.product.prodname_dotcom %}.
@@ -56,11 +56,14 @@ Git figures out how to intelligently merge this flow of changes, and {% data var
 
 ## Where do I start?
 
-If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar with Git, we recommend working through the articles in the "[AUTOTITLE](/get-started/quickstart)" category, which will help you to:
+If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar with Git, we recommend working through the articles in the "[AUTOTITLE](/get-started/quickstart)" category. The articles focus on tasks you can complete directly in your browser on {% data variables.product.prodname_dotcom %} and will help you to:
 
 - **Create an account** on {% data variables.product.prodname_dotcom %}.
 - **Learn the "{% data variables.product.prodname_dotcom %} Flow"**, and the key principles of collaborative working (branches, commits, pull requests, merges).
-- **Find inspiration** on {% data variables.product.prodname_dotcom %} and learn how to **download** interesting code for your own use.
+- **Personalise your profile** to share your interests and skills.
+- **Explore {% data variables.product.prodname_dotcom %}** to find inspiration for your own projects and connect with others.
+- Learn how to **download** interesting code for your own use.
+- Learn how to **upload** something you're working to a {% data variables.product.prodname_dotcom %} repository.
 
 {% ifversion fpt or ghec %}
 

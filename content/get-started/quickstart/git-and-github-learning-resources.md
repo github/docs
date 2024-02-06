@@ -6,41 +6,43 @@ redirect_from:
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
-intro: 'There are a lot of helpful Git and {% data variables.product.product_name %} resources on the web. This is a short list of our favorites!'
+intro: 'There are a lot of helpful Git and {% data variables.product.product_name %} resources available.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 authors:
   - GitHub
 shortTitle: Learning resources
 ---
-## Using Git
-
-Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
 
 ## Using {% data variables.product.product_name %}
 
-{% ifversion fpt or ghec %}
+Become better acquainted with {% data variables.product.product_name %} through our "[AUTOTITLE](/get-started/using-github)" articles:
+- To review the fundamentals of a {% data variables.product.product_name %} workflow, see "[AUTOTITLE](/get-started/using-github/github-flow)."
+- To learn about the various tools for working with repositories hosted on {% data variables.product.product_name %}, and how to choose a tool that best suits your needs, see "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
+- To understand the different communication tools on {% data variables.product.product_name %}, such as {% data variables.product.prodname_github_issues %}{% ifversion fpt or ghec %}, {% data variables.product.prodname_discussions %},{% endif %} and pull requests, see "[AUTOTITLE](/get-started/using-github/communicating-on-github)."
 
-{% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
+## Using Git
 
-{% endif %}
+Familiarize yourself with Git through our series of articles:
+- "[AUTOTITLE](/get-started/getting-started-with-git)."
+- "[AUTOTITLE](/get-started/using-git)."
 
-Become better acquainted with {% data variables.product.product_name %} through our [getting started](/get-started) articles. See our [{% data variables.product.prodname_dotcom %} flow](https://guides.github.com/introduction/flow) for a process introduction. Refer to our [overview guides](https://guides.github.com) to walk through basic concepts.
+There are also lots of other online reading resources to help you learn Git:
+- [Official Git project site](https://git-scm.com).
+- [ProGit book](http://git-scm.com/book).
+- [Git command list](https://git-scm.com/docs).
 
-{% data reusables.support.ask-and-answer-forum %}
+## Online courses
 
-### Branches, forks, and pull requests
+- {% data variables.product.prodname_learning %} offers free interactive courses that are built into {% data variables.product.prodname_dotcom %} with instant automated feedback and help. Learn to open your first pull request, make your first open source contribution, create a {% data variables.product.prodname_pages %} site, and more. For more information about course offerings, see [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
-Learn about [Git branching](http://learngitbranching.js.org/) using an interactive tool. Read about [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) and [pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) as well as [how we use pull requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) at {% data variables.product.prodname_dotcom %}. Access references about using {% data variables.product.prodname_dotcom %} from the [command line](https://cli.github.com/).
+- [Git branching](http://learngitbranching.js.org/) is a free interactive tool for learning and practising Git concepts.
+
+- An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) can also teach you the basics of Git.
 
 ## Training
-
-### Free courses
-
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://skills.github.com/) including [Introduction to {% data variables.product.prodname_dotcom %}](https://github.com/skills/introduction-to-github); and courses on {% data variables.product.product_name %} specific tools such as {% data variables.product.prodname_actions %}.
 
 ### {% data variables.product.prodname_dotcom %}'s web-based educational programs
 
@@ -50,10 +52,6 @@ Learn about [Git branching](http://learngitbranching.js.org/) using an interacti
 
 {% data variables.product.prodname_dotcom %} offers [in-person classes](https://services.github.com/#offerings) taught by our highly-experienced educators. [Contact us](https://services.github.com/#contact) to ask your training-related questions.
 
-## Extras
+## Community
 
-An interactive [online Git course](https://www.pluralsight.com/courses/code-school-git-real) from [Pluralsight](https://www.pluralsight.com/codeschool) has seven levels with dozens of exercises in a fun game format. Feel free to adapt our [.gitignore templates](https://github.com/github/gitignore) to meet your needs.
-
-Extend your {% data variables.product.prodname_dotcom %} reach through {% ifversion fpt or ghec %}[integrations](/get-started/exploring-integrations/about-using-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) text editor.
-
-Learn how to launch and grow your open source project with the [Open Source Guides](https://opensource.guide/).
+{% data reusables.support.ask-and-answer-forum %}
