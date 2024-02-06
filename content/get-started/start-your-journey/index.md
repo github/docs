@@ -1,6 +1,6 @@
 ---
-title: Quickstart
-intro: 'Get started using {% data variables.product.product_name %} to manage Git repositories and collaborate with others.'
+title: Start your journey
+intro: 'Learn the basics of {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,5 +22,5 @@ children:
   - /git-and-github-learning-resources
 redirect_from:
   - /github/getting-started-with-github/quickstart
+  - /get-started/quickstart
 ---
-

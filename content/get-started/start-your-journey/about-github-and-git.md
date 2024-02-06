@@ -13,6 +13,8 @@ topics:
   - GitHub
   - Collaboration
   - Community
+redirect_from:
+  - /get-started/quickstart/about-github-and-git
 ---
 
 ## About {% data variables.product.prodname_dotcom %}
@@ -63,13 +65,13 @@ If you're new to {% data variables.product.prodname_dotcom %}, and unfamiliar wi
 - **Personalise your profile** to share your interests and skills.
 - **Explore {% data variables.product.prodname_dotcom %}** to find inspiration for your own projects and connect with others.
 - Learn how to **download** interesting code for your own use.
-- Learn how to **upload** something you're working to a {% data variables.product.prodname_dotcom %} repository.
+- Learn how to **upload** something you're working on to a {% data variables.product.prodname_dotcom %} repository.
 
 {% ifversion fpt or ghec %}
 
 ## Next steps
 
-- "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)"
+- "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)"
 
 {% endif %}
 

@@ -10,6 +10,8 @@ topics:
   - Profile
   - Accounts
 type: how_to
+redirect_from:
+  - /get-started/quickstart/setting-up-your-profile
 ---
 
 ## About your profile
@@ -44,11 +46,11 @@ Next, we'll add some basic information about yourself to share with other {% dat
 1. On your profile page, under your profile picture, click **Edit profile**.
 1. Under "Bio", write one or two sentences about yourself, such as who you are and what you do.
 
-   {% tip %}
+   {% note %}
 
-   **Tip:** Keep the bio short; we'll add a longer description of your interests in your profile README in the section below.
+   **Note:** Keep the bio short; we'll add a longer description of your interests in your profile README in the section below.
 
-   {% endtip %}
+   {% endnote %}
 1. To add an emoji to your bio, visit "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)" and copy and paste an emoji into the "Bio" dialog box.
 1. Optionally, add your {% ifversion profile-pronouns %}preferred pronouns,{% endif %} workplace, location and timezone{% ifversion profile-social-links %}, and any links to your personal website and social accounts{% endif %}. {% ifversion profile-pronouns %}{% data reusables.profile.pronouns-visibility %}{% endif %}
 1. Click **Save**.
@@ -93,7 +95,7 @@ In the following steps, we'll create and edit your profile README.
 
 - If you want to learn more Markdown syntax and add more sophisticated formatting to your profile README, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
 - Alternatively, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Communicate using Markdown" course.
-- In the next tutorial, "[AUTOTITLE](/get-started/quickstart/finding-inspiration-on-github)," we'll look at ways you can explore {% data variables.product.product_name %} to find projects and people that interest you.
+- In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/finding-inspiration-on-github)," we'll look at ways you can explore {% data variables.product.product_name %} to find projects and people that interest you.
 
 ## Further reading
 

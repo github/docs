@@ -16,7 +16,7 @@ is used, is wrong. The quotation is inside the square bracket! Naughty.
 But this is a common occurrence in translations and we need to smartly
 recover from it.
 
-["AUTOTITLE](/get-started/quickstart/dynamic-title)"
+["AUTOTITLE](/get-started/start-your-journey/dynamic-title)"
 
 "[AUTOTITLE](/get-started/foo/cross-version-linking)"
 
