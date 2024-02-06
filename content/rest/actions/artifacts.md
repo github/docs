@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions Artifacts
+title: REST API endpoints for GitHub Actions artifacts
 allowTitleToDifferFromFilename: true
 shortTitle: Artifacts
 intro: >-

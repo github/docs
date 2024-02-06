@@ -14,8 +14,6 @@ topics:
 
 {% data variables.product.prodname_codeql %} includes many queries for analyzing Ruby code. {% data reusables.code-scanning.codeql-query-tables.query-suite-behavior %}
 
-{% data reusables.code-scanning.beta-ruby-support %}
-
 ## Built-in queries for Ruby analysis
 
 {% data reusables.code-scanning.codeql-query-tables.codeql-version-info %}

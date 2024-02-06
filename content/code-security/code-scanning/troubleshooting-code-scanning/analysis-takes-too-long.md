@@ -11,7 +11,6 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/build-is-taking-too-long
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
 There are several approaches you can try to reduce the build time in a {% data variables.product.prodname_code_scanning %} analysis.
