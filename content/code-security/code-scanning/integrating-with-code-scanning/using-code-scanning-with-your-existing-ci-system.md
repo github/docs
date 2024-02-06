@@ -22,7 +22,6 @@ topics:
   - SARIF
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
 ## About using {% data variables.product.prodname_code_scanning %} with your existing CI system

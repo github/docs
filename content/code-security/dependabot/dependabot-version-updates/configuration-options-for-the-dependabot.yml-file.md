@@ -21,7 +21,6 @@ topics:
 shortTitle: Configure dependabot.yml
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About the `dependabot.yml` file

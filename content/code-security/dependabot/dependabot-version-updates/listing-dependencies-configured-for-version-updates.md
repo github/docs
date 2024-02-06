@@ -18,7 +18,6 @@ topics:
 shortTitle: List configured dependencies
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## Viewing dependencies monitored by {% data variables.product.prodname_dependabot %}

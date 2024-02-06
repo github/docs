@@ -19,8 +19,6 @@ topics:
 shortTitle: Auto-update actions
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot_version_updates %} for actions

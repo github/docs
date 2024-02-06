@@ -14,8 +14,6 @@ topics:
 shortTitle: Dependabot updates
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
 ## About self-hosted runners for {% data variables.product.prodname_dependabot_updates %}
 
 You can help users of {% data variables.location.product_location %} to create and maintain secure code by setting up {% data variables.product.prodname_dependabot %} security and version updates. With {% data variables.product.prodname_dependabot_updates %}, developers can configure repositories so that their dependencies are updated and kept secure automatically. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
