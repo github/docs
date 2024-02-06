@@ -9,6 +9,8 @@ versions:
 topics:
   - Repositories
 type: tutorial
+redirect_from:
+  - /get-started/quickstart/downloading-files-from-github
 ---
 
 ## Introduction
@@ -54,7 +56,7 @@ You now have a copy of the repository's files saved as a zip file on your local 
 
 ## Next steps
 
-- In the next tutorial, "[AUTOTITLE](/get-started/quickstart/uploading-a-project-to-github)," you'll learn how to upload your own files to a remote repository on {% data variables.product.product_name %}.
+- In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/uploading-a-project-to-github)," you'll learn how to upload your own files to a remote repository on {% data variables.product.product_name %}.
 
 ## Further reading
 

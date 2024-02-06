@@ -9,6 +9,8 @@ versions:
 topics:
   - Repositories
 type: tutorial
+redirect_from:
+  - /get-started/quickstart/uploading-a-project-to-github
 ---
 
 ## Introduction
@@ -25,7 +27,7 @@ If you're already familiar with Git, and you're looking for information on how t
 
 ## Prerequisites
 
-- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."{% endif %}
+- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
 - You should have a group of files you'd like to upload.
 
 ## Step 1: Create a new repository for your project

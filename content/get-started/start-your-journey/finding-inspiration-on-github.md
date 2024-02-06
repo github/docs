@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
   - /get-started/quickstart/be-social
+  - /get-started/quickstart/finding-inspiration-on-github
 intro: 'You can find inspiration for your own projects and learning on {% data variables.product.prodname_dotcom %} and connect with a community.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
@@ -68,7 +69,7 @@ Following people and organizations on {% data variables.product.product_name %} 
 ## Next steps
 
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
-- In the next tutorial, "[AUTOTITLE](/get-started/quickstart/downloading-files-from-github)," you'll learn how to download files from {% data variables.product.product_name %} for your own use, and learn the differences between downloading, cloning, and forking repositories.
+- In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/downloading-files-from-github)," you'll learn how to download files from {% data variables.product.product_name %} for your own use, and learn the differences between downloading, cloning, and forking repositories.
 
 ## Further reading
 
