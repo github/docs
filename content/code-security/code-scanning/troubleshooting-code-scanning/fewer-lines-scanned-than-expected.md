@@ -11,8 +11,6 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected
 ---
 
-{% data reusables.code-scanning.beta %}
-
 ## About analysis of compiled languages
 
 For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.prodname_codeql %} only scans files that are built during the analysis. Therefore the number of lines of code scanned will be lower than expected if some of the source code isn't compiled correctly. This can happen for several reasons:

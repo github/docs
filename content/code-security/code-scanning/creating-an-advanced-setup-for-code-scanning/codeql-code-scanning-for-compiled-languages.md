@@ -30,7 +30,6 @@ topics:
   - Kotlin
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 ## About the {% data variables.code-scanning.codeql_workflow %} and compiled languages

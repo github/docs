@@ -6,7 +6,6 @@ versions:
   feature: code-scanning-without-workflow
 ---
 
-{% data reusables.code-scanning.beta %}
 
 When you enable default setup, a workflow is triggered with the automatically generated configuration. This run is used to test whether default setup works for all {% data variables.product.prodname_codeql %}-supported languages in the repository.
 

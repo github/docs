@@ -15,7 +15,6 @@ topics:
   - CodeQL
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
 ## About alerts from {% data variables.product.prodname_code_scanning %}
