@@ -300,3 +300,14 @@ docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 - "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
 
 {% endif %}  <!-- End of main versioning block -->
+
+
+  # Add steps to build and publish Docker images to GitHub Container Registry
+  - name: Login to GitHub Container Registry
+    run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+  - name: Build Docker image
+    run: docker build -t ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ github.sha }} .
+
+  - name: Push Docker image to GitHub Container Registry
+    run: docker push ghcr.io/${{ github.repository_owner }}/${{ github.repository_name }}:${{ github.sha }}
