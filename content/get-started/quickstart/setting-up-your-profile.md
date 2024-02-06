@@ -20,7 +20,9 @@ Your profile page on {% data variables.product.prodname_dotcom %} is a place whe
 - **Showcase** your projects and contributions.
 - **Express** your identity{% ifversion fpt or ghec %} and show the {% data variables.product.prodname_dotcom %} community who you are{% endif %}.
 
-In this tutorial, you'll learn the basics of how to personalize your profile by adding a profile picture, bio, and a profile README.
+In this tutorial, you'll learn how to personalize your profile by adding a profile picture, bio, and a profile README.
+
+You'll also learn the basics of Markdown syntax, which is what you'll use to format any writing you do on {% data variables.product.prodname_dotcom %}.
 
 ### Prerequisites
 
@@ -53,11 +55,11 @@ Next, we'll add some basic information about yourself to share with other {% dat
 
 ## Adding a profile README
 
-In the "[AUTOTITLE](/get-started/quickstart/hello-world)" tutorial, we learned how to create a new repository and how to add a `README.md` file to it. We'll do the same thing here, but this time, we'll create a special README file that displays on your profile page.
+Next, we'll create a special repository and README file that will be displayed directly on your profile page.
 
-Your profile README lets you showcase information about yourself in more detail, such as your interests, skills, and background.
+Your profile README contains information such as your interests, skills, and background, and it can be a great way to introduce yourself to other people on {% data variables.product.product_name %} and showcase your work.
 
-As we learned in the "Hello world" tutorial, `README.md` files are written using Markdown syntax, which is just a way to format plain text.
+As we learned in the "[AUTOTITLE](/get-started/quickstart/hello-world)" tutorial, `README.md` files are written using Markdown syntax (note the `.md` file extension), which is just a way to format plain text.
 
 In the following steps, we'll create and edit your profile README.
 
@@ -89,14 +91,12 @@ In the following steps, we'll create and edit your profile README.
 
 ## Next steps
 
-If you want to learn more Markdown syntax and add more sophisticated formatting to your profile README, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
-
-Alternatively, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Communicate using Markdown" course.
-
-Next, we'll look at ways you can explore {% data variables.product.product_name %} in "[AUTOTITLE](/get-started/quickstart/finding-inspiration-on-github)."
+- If you want to learn more Markdown syntax and add more sophisticated formatting to your profile README, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
+- Alternatively, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Communicate using Markdown" course.
+- In the next tutorial, "[AUTOTITLE](/get-started/quickstart/finding-inspiration-on-github)," we'll look at ways you can explore {% data variables.product.product_name %} to find projects and people that interest you.
 
 ## Further reading
 
-- [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)
-- [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)
-- [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile)"
+- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"

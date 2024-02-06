@@ -39,7 +39,7 @@ If you're having problems verifying your email address, there are some troublesh
 
 ## Next steps
 
-- Now that you've created your personal account, we'll start to explore the basics of {% data variables.product.prodname_dotcom %}. In the following tutorial, "[AUTOTITLE](/get-started/quickstart/hello-world)," you'll learn about repositories and how to create one, and you'll be introduced to concepts such as branching, commits, and pull requests.
+- Now that you've created your personal account, we'll start to explore the basics of {% data variables.product.prodname_dotcom %}. In the next tutorial, "[AUTOTITLE](/get-started/quickstart/hello-world)," you'll learn about repositories and how to create one, and you'll be introduced to concepts such as branching, commits, and pull requests.
 - We strongly recommend that you configure 2FA for your account. 2FA is an extra layer of security that can help keep your account secure. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Further reading

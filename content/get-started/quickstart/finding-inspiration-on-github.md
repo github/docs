@@ -68,8 +68,9 @@ Following people and organizations on {% data variables.product.product_name %} 
 ## Next steps
 
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
+- In the next tutorial, "[AUTOTITLE](/get-started/quickstart/downloading-files-from-github)," you'll learn how to download files from {% data variables.product.product_name %} for your own use, and learn the differences between downloading, cloning, and forking repositories.
 
 ## Further reading
 
-- [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard){% ifversion fpt or ghec %}
-- [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github){% endif %}
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard)"{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)"{% endif %}

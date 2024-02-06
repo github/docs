@@ -51,8 +51,8 @@ topics:
 children:
   - /quickstart
   - /onboarding
-  - /learning-about-github
   - /using-github
+  - /learning-about-github
   - /accessibility
   - /writing-on-github
   - /exploring-projects-on-github
@@ -64,4 +64,3 @@ children:
   - /using-github-docs
   - /showcase-your-expertise-with-github-certifications
 ---
-
