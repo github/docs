@@ -6,7 +6,6 @@ shortTitle: Advanced functionality
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -30,4 +29,3 @@ children:
 redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference
 ---
-

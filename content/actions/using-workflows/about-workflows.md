@@ -5,7 +5,6 @@ intro: 'Get a high-level overview of {% data variables.product.prodname_actions 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 redirect_from:
@@ -179,7 +178,7 @@ For more information, see "[AUTOTITLE](/actions/using-containerized-services)."
 
 ### Using labels to route workflows
 
-If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.{% ifversion not ghae %} {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.{% endif %}
+If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner in addition to their default label of `self-hosted`. Then, you can refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way. {% data variables.product.prodname_dotcom %}-hosted runners have predefined labels assigned.
 
 This example shows how a workflow can use labels to specify the required runner:
 

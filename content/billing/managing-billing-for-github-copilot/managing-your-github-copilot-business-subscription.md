@@ -1,7 +1,8 @@
 ---
-title: 'Managing your GitHub Copilot subscription for your organization {% ifversion ghec%}or enterprise{% endif %}'
+title: 'Managing your GitHub Copilot Business subscription'
 intro: 'Set up {% data variables.product.prodname_copilot_for_business %} for your organization{% ifversion ghec %} or enterprise{% endif %} account and manage your subscription.'
-allowTitleToDifferFromFilename: true
+redirect_from:
+  - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise
 product: '{% data reusables.gated-features.copilot-billing %}'
 versions:
   feature: copilot
@@ -33,7 +34,7 @@ You can set up a {% data variables.product.prodname_copilot_business_short %} su
 
 ## Setting up a {% data variables.product.prodname_copilot_business_short %} subscription for your enterprise
 
-Before you can start using {% data variables.product.prodname_copilot_business_short %} in your enterprise, you will need to set up a subscription.
+Before you can start using {% data variables.product.prodname_copilot_business_short %} in your enterprise, you will need to set up a subscription. Once you have set up a subscription, any organization administrator in your enterprise can choose to assign seats to their organization members. For more information, see "[AUTOTITLE](/copilot/managing-copilot-business/managing-access-for-copilot-business-in-your-organization)."
 
 ### Customers under a Microsoft Enterprise Agreement
 

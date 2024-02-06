@@ -16,11 +16,8 @@ shortTitle: GitHub Campus Program
 
 - No-cost access to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} for all of your technical and academic departments
 - 50,000 {% data variables.product.prodname_actions %} minutes and 50 GB {% data variables.product.prodname_registry %} storage
-- Teacher training to master Git and {% data variables.product.prodname_dotcom %}
-- Exclusive access to new features, GitHub Education-specific swag, and free developer tools from {% data variables.product.prodname_dotcom %} partners
-- Automated access to premium {% data variables.product.prodname_education %} features, like the {% data variables.product.prodname_student_pack %}
 
-To read about how GitHub is used by educators, see [GitHub Education stories](https://education.github.com/stories).
+To read about how {% data variables.product.prodname_dotcom %} is used by educators, see [{% data variables.product.prodname_education %} stories](https://education.github.com/stories).
 
 ## {% data variables.product.prodname_campus_program %} terms and conditions
 

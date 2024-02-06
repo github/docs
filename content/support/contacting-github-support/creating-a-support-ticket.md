@@ -1,12 +1,11 @@
 ---
 title: Creating a support ticket
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.landing_page_portal %}{% endif %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
+intro: 'You can use the {% data variables.contact.landing_page_portal %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
 shortTitle: Creating a ticket
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /admin/enterprise-support/preparing-to-submit-a-ticket
@@ -23,8 +22,6 @@ redirect_from:
 topics:
   - Support
 ---
-
-{% ifversion fpt or ghec or ghes %}
 
 ## About support tickets
 
@@ -93,28 +90,6 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 1. If you'd like to include diagnostics with your support ticket, Under "Diagnostics", click **Download diagnostic info** and save the file locally. You'll attach this file to your support ticket later.
 1. To complete your ticket and display the {% data variables.contact.enterprise_portal %}, under "Open Support Request", click **New support request**.
 {% data reusables.support.submit-a-ticket %}
-
-{% endif %}
-
-{% elsif ghae %}
-
-You can submit a ticket for support with {% data variables.product.prodname_ghe_managed %} from the {% data variables.contact.ae_azure_portal %}.
-
-## Prerequisites
-
-To submit a ticket for {% data variables.product.prodname_ghe_managed %} in the {% data variables.contact.ae_azure_portal %}, you must provide the ID for your {% data variables.product.prodname_ghe_managed %} subscription in Azure to your Customer Success Account Manager (CSAM) at Microsoft.
-
-## Submitting a ticket using the {% data variables.contact.ae_azure_portal %}
-
-Commercial customers can submit a support request in the {% data variables.contact.contact_ae_portal %}. Government customers should use the [Azure portal for government customers](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft Docs.
-
-## Troubleshooting problems in the {% data variables.contact.ae_azure_portal %}
-
-{% data variables.product.company_short %} is unable to troubleshoot access and subscription issues in the Azure portal. For help with the Azure portal, contact your CSAM at Microsoft or review the following information.
-
-- If you cannot sign into the Azure portal, see [Troubleshoot Azure subscription sign-in issues](https://docs.microsoft.com/en-US/azure/cost-management-billing/manage/troubleshoot-sign-in-issue) in the Microsoft Docs or [submit a request directly](https://support.microsoft.com/en-us/supportrequestform/84faec50-2cbc-9b8a-6dc1-9dc40bf69178).
-
-- If you can sign into the Azure portal but you cannot submit a ticket for {% data variables.product.prodname_ghe_managed %}, review the prerequisites for submitting a ticket. For more information, see "[Prerequisites](#prerequisites)".
 
 {% endif %}
 

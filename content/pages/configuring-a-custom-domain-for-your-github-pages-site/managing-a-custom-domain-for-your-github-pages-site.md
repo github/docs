@@ -24,6 +24,8 @@ People with admin permissions for a repository can configure a custom domain for
 
 ## About custom domain configuration
 
+{% data reusables.pages.custom-domain-warning %}
+
 Make sure you add your custom domain to your {% data variables.product.prodname_pages %} site before configuring your custom domain with your DNS provider. Configuring your custom domain with your DNS provider without adding your custom domain to {% data variables.product.product_name %} could result in someone else being able to host a site on one of your subdomains.
 
 {% windows %}

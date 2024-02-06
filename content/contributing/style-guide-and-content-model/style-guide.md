@@ -1307,6 +1307,12 @@ Format radio button labels in bold and omit the words “radio button” or any 
 Use a standard format to refer to repositories. Link to repositories when helpful.
 - **Use:** in the `[account-name/repository-name](URL)` repository
 
+### Responsive elements
+
+We only document the responsive states of UI elements when they create ambiguity or confusion. If a task is unclear because of a responsive UI element, describe the interaction that someone must do to achieve the goal of the task. Do not just describe the visual state of the UI element.
+
+- **Use:** Click **Security**. If Security is not visible, click **⋮** to expand the repository menu.
+
 ### User interface text
 
 When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
@@ -1337,7 +1343,7 @@ To learn more about writing approachable content, see “[Microsoft's brand voic
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/quickstart/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our "[Glossary](/get-started/learning-about-github/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

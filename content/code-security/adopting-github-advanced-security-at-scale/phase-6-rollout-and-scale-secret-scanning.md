@@ -3,7 +3,6 @@ title: 'Phase 6: Rollout and scale secret scanning'
 intro: 'For the final phase, you will focus on the rollout of {% data variables.product.prodname_secret_scanning %}. {% data variables.product.prodname_secret_scanning_caps %} is a more straightforward tool to rollout than {% data variables.product.prodname_code_scanning %}, as it involves less configuration, but it''s critical to have a strategy for handling new and old results.'
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -77,8 +76,8 @@ Once you have decided on the secret types, you can do the following:
    {% endnote %}
 
 1. When you have created the process that teams will follow for revoking credentials, you can collate information about the types of secrets and other metadata associated with the leaked secrets so you can discern who to communicate the new process to.
-   {% ifversion not ghae %}
-   You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."{% endif %}
+
+   You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
    Some information you may want to collect includes:
 

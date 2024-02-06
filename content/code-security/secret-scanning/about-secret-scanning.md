@@ -18,7 +18,6 @@ topics:
   - Advanced Security
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## About {% data variables.product.prodname_secret_scanning %}

@@ -3,7 +3,6 @@ title: Understanding your software supply chain
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Dependency graph
@@ -21,4 +20,3 @@ children:
   - /exploring-the-dependencies-of-a-repository
   - /troubleshooting-the-dependency-graph
 ---
-

@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /working-with-the-container-registry
@@ -24,4 +23,3 @@ children:
   - /migrating-to-the-container-registry-from-the-docker-registry
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}

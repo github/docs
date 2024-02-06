@@ -1,7 +1,7 @@
 ---
 title: About SAML for enterprise IAM
 shortTitle: About SAML for IAM
-intro: 'You can use SAML single sign-on (SSO) {% ifversion ghae %}and System for Cross-domain Identity Management (SCIM) {% endif %}to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.location.product_location %}{% elsif ghae %}to {% data variables.location.product_location %}{% endif %}.'
+intro: 'You can use SAML single sign-on (SSO) to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.location.product_location %}{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -25,7 +25,7 @@ redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-saml-for-enterprise-iam
 ---
 
-## About SAML SSO for {% ifversion ghec %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
+## About SAML SSO for {% ifversion ghec %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.location.product_location %}{% endif %}
 
 {% ifversion ghec %}
 
@@ -43,7 +43,7 @@ After you enable SAML SSO, depending on the IdP you use, you may be able to enab
 
 {% data reusables.saml.no-scim-for-enterprises %}
 
-If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
+If you use Microsoft Entra ID (previously known as Azure AD) as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
@@ -54,12 +54,6 @@ SAML SSO allows people to authenticate and access {% data variables.location.pro
 SAML is an XML-based standard for authentication and authorization. When you configure SAML for {% data variables.location.product_location %}, the external system for authentication is called an identity provider (IdP). Your instance acts as a SAML service provider (SP). For more information about the SAML standard, see [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) on Wikipedia.
 
 {% data reusables.enterprise.saml-or-ldap %}
-
-{% elsif ghae %}
-
-{% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
-
-After you configure the application for {% data variables.product.product_name %} on your identity provider (IdP), you can provision access to {% data variables.location.product_location %} by assigning users and groups to the application on your IdP. For more information about SAML SSO for {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
 {% endif %}
 
@@ -73,9 +67,9 @@ After you configure SAML, people who use {% data variables.location.product_loca
 
 {% endif %}
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or ghae or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghes %}user {% endif %}provisioning for {% data variables.location.product_location %}, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
+For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."{% ifversion ghec or scim-for-ghes %} To learn how to configure both authentication and {% ifversion ghes %}user {% endif %}provisioning for {% data variables.location.product_location %}, see the articles for individual IdPs in "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."{% endif %}
 
-{% ifversion ghae or scim-for-ghes %}
+{% ifversion scim-for-ghes %}
 
 ## About creation of user accounts
 
@@ -94,7 +88,7 @@ We test and officially support the following IdPs. For SAML SSO, we offer limite
 IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
 Active Directory Federation Services (AD FS) | {% octicon "check" aria-label= "Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-Azure Active Directory (Azure AD) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+Entra ID | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 OneLogin | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 PingOne | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -112,31 +106,12 @@ If your IdP supports encrypted assertions, you can configure encrypted assertion
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 
-{% elsif ghae %}
-
-The following IdPs are officially supported for integration with {% data variables.product.prodname_ghe_managed %}.
-
-{% data reusables.saml.okta-ae-sso-beta %}
-
-{% data reusables.github-ae.saml-idp-table %}
-
-{% endif %}
-
-{% ifversion ghae %}
-
-## Mapping {% data variables.product.prodname_ghe_managed %} teams to Okta groups
-
-If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
-
 {% endif %}
 
 ## Further reading
 
 - "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
 - [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website
-{%- ifversion ghae or scim-for-ghes %}
+{%- ifversion scim-for-ghes %}
 - [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website
-{%- endif %}
-{%- ifversion ghae %}
-- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)"
 {%- endif %}

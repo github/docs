@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -164,13 +163,6 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
-
-{% ifversion ghae %}
-
-## Using the actions included with {% data variables.product.prodname_ghe_managed %}
-
-By default, you can use most of the official {% data variables.product.prodname_dotcom %}-authored actions in {% data variables.product.prodname_ghe_managed %}. For more information, see "[AUTOTITLE](/admin/github-actions/using-github-actions-in-github-ae/using-actions-in-github-ae)."
-{% endif %}
 
 ## Next steps
 

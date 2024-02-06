@@ -20,6 +20,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 - General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
 - Questions asked in the context of your project, or a documentation set. For more information, see "[Asking a question with a specific context](#asking-a-question-with-a-specific-context)."
 - Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
+- Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#finding-out-about-the-changes-in-a-pull-request)."
 
 ### Limitations
 
@@ -156,6 +157,49 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 1. To view a conversation in immersive mode, displaying just the conversation thread, click the dashed box icon at the top right of the conversation thread.
 
    ![Screenshot of the immersive mode button at the top right of the {% data variables.product.prodname_copilot_short %} panel. The button is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-view-button.png)
+
+## Finding out about the changes in a pull request
+
+You can ask {% data variables.product.prodname_copilot_short %} to explain what's changed in any of the files in a pull request.
+
+1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a pull request in a repository.
+1. Click the **Files changed** tab.
+1. Do one of the following:
+
+   - To ask a question about a file that's being changed by a pull request, click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
+   - To ask a question about specific lines within a file in the pull request:
+
+     1. Select the lines by clicking the line number for the first line you want to select, holding down <kbd>Shift</kbd> and clicking the line number for the last line you want to select.
+     1. To ask your own question about the selected lines, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) to the right of your selection.
+        This displays the {% data variables.product.prodname_copilot_chat %} panel with the selected lines indicated as the context of your question.
+     1. To ask a predefined question, click the downward-pointing button beside the {% data variables.product.prodname_copilot_short %} icon and click **Explain**.
+
+1. If you clicked the {% data variables.product.prodname_copilot_short %} icon, or you chose **Ask {% data variables.product.prodname_copilot_short %} about this diff**, type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>. For example, you could enter:
+
+   - Why has this module been included?
+   - What is &#96;actorData&#96; in this line?
+   - Explain this &#96;do..end&#96; block.
+   - What's the purpose of this file?
+
+## Accessing {% data variables.product.prodname_copilot_chat_short %} from the search bar
+
+You can ask {% data variables.product.prodname_copilot_short %} a question about an entire repository by typing your question in the main search box of the repository.
+
+1. Navigate to a repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Press <kbd>/</kbd>, or click in the main search box at the top of the page.
+1. In the search box, after `repo:OWNER/REPO`, type the question you want to ask {% data variables.product.prodname_copilot_short %}.
+
+   For example, you could enter:
+
+   - What does this repo do?
+   - Where is authentication implemented in this codebase?
+   - How does license file detection work in this repo?
+
+1. Click **Ask {% data variables.product.prodname_copilot_short %}**.
+
+   ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The drop-down option "Ask {% data variables.product.prodname_copilot_short %}" is highlighted with an orange outline.](/assets/images/help/copilot/ask-copilot-from-search-bar.png)
+
+   The {% data variables.product.prodname_copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 

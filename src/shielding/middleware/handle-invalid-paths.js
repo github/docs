@@ -69,9 +69,15 @@ export default function handleInvalidPaths(req, res, next) {
     return res.status(404).send('Not found')
   }
 
-  if (req.path.endsWith('/index.md')) {
+  if (req.path.endsWith('/index.md') || req.path.endsWith('.md')) {
     defaultCacheControl(res)
-    return res.redirect(req.path.replace(/\/index\.md$/, ''))
+    // The originalUrl is the full URL including query string.
+    // E.g. `/en/foo.md?bar=baz`
+    const newUrl = req.originalUrl.replace(
+      req.path,
+      req.path.replace(/\/index\.md$/, '').replace(/\.md$/, ''),
+    )
+    return res.redirect(newUrl)
   }
 
   return next()
