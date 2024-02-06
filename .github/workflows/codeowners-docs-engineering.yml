@@ -54,28 +54,3 @@ jobs:
           then
             gh pr edit $PR --add-reviewer github/docs-engineering
           fi
-
-      - name: Additional information requested
-        run: |
-          id=9664BE8F1CA3
-          body=$(gh pr view $PR --json body | jq -r .body)
-          append=$(cat <<-EOM
-
-          <!-- $id -->
-          ### For engineers
-
-          - **How to test**: {Step by step.}
-          - **How to review**: {What to look for when reviewing.}
-          - **Potential risks**: {Any additional risks this change may introduce.}
-          - **How to monitor**: {Datadog link, etc.}
-          - **How to rollback**: {Any additional information beyond shipping a revert pull request.}
-          - **Accessibility impact**: {Any changes to React components.}
-
-          If this involves manual change, please create a [production change issue](https://github.com/github/docs-engineering/issues/new?labels=engineering&projects=&template=production-config-change.md).
-          EOM
-          )
-          if [[ ! $body =~ $id ]]
-          then
-            body+=$append
-            gh pr edit $PR --body "$body"
-          fi
