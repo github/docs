@@ -6,6 +6,7 @@ redirect_from:
   - /articles/git-and-github-learning-resources
   - /github/getting-started-with-github/git-and-github-learning-resources
   - /github/getting-started-with-github/quickstart/git-and-github-learning-resources
+  - /get-started/quickstart/git-and-github-learning-resources
 intro: 'There are a lot of helpful Git and {% data variables.product.product_name %} resources available.'
 versions:
   fpt: '*'

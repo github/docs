@@ -23,9 +23,10 @@ versions:
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /get-started/quickstart
+  quickstart: /get-started/start-your-journey
 featuredLinks:
   startHere:
+    - /get-started/start-your-journey/about-github-and-git
     - /get-started/learning-about-github/githubs-plans
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
@@ -33,8 +34,8 @@ featuredLinks:
     - /get-started/onboarding/getting-started-with-github-enterprise-server
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
-    - /get-started/quickstart/creating-an-account-on-github
-    - /get-started/quickstart/hello-world
+    - /get-started/start-your-journey/creating-an-account-on-github
+    - /get-started/start-your-journey/hello-world
     - /get-started/getting-started-with-git/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
     - /get-started/learning-about-github/github-glossary
@@ -49,7 +50,7 @@ topics:
   - Notifications
   - Accounts
 children:
-  - /quickstart
+  - /start-your-journey
   - /onboarding
   - /using-github
   - /learning-about-github
