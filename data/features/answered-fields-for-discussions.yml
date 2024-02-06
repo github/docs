@@ -1,5 +1,5 @@
-# Reference: #7383
-# Highlight text in Markdown
+# Reference: #12006
+
 versions:
   fpt: '*'
   ghec: '*'
