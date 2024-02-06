@@ -15,6 +15,8 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} job logs
 
+Anyone with write permissions to a repository can view {% data variables.product.prodname_dependabot %} job logs for the repository. Job logs are only available if {% data variables.product.prodname_dependabot_version_updates %} are enabled for the repository.
+
 Whenever a {% data variables.product.prodname_dependabot %} job runs, the details of the job are captured in the job logs list, which is accessible from the dependency graph.
 
 For each manifest file, the job logs record the most recent runs of {% data variables.product.prodname_dependabot %}, with each log entry displaying the job type, job ID, timestamp, and, where necessary, a link to the pull request(s) associated with the job.
