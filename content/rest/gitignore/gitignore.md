@@ -1,5 +1,7 @@
 ---
-title: Gitignore
+title: REST API endpoints for gitignore
+shortTitle: Gitignore
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to get `.gitignore` templates that can be used to ignore
   files and directories.

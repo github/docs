@@ -1,5 +1,5 @@
 ---
-title: Gist comments
+title: REST API endpoints for gist comments
 allowTitleToDifferFromFilename: true
 shortTitle: Comments
 intro: Use the REST API to view and modify comments on a gist.

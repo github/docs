@@ -1,5 +1,7 @@
 ---
-title: Collaborators
+title: REST API endpoints for collaborators
+shortTitle: Collaborators
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage collaborators for a repository.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
