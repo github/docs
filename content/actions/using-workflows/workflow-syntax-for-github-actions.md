@@ -481,7 +481,7 @@ You can specify a branch, ref, or SHA in a public {% data variables.product.prod
 
 ```yaml
 jobs:
-  my_first_job:
+  my-first-job:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
@@ -499,7 +499,7 @@ A subdirectory in a public {% data variables.product.prodname_dotcom %} reposito
 
 ```yaml
 jobs:
-  my_first_job:
+  my-first-job:
     steps:
       - name: My first step
         uses: actions/aws/ec2@main
@@ -521,7 +521,7 @@ A Docker image published on [Docker Hub](https://hub.docker.com/).
 
 ```yaml
 jobs:
-  my_first_job:
+  my-first-job:
     steps:
       - name: My first step
         uses: docker://alpine:3.8
@@ -537,7 +537,7 @@ A public Docker image in the {% data variables.product.prodname_registry %} {% d
 
 ```yaml
 jobs:
-  my_first_job:
+  my-first-job:
     steps:
       - name: My first step
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
@@ -553,7 +553,7 @@ A Docker image in a public registry. This example uses the Google Container Regi
 
 ```yaml
 jobs:
-  my_first_job:
+  my-first-job:
     steps:
       - name: My first step
         uses: docker://gcr.io/cloud-builders/gradle
@@ -567,7 +567,7 @@ Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
 ```yaml
 jobs:
-  my_first_job:
+  my-first-job:
     steps:
       - name: Check out repository
         uses: {% data reusables.actions.action-checkout %}
@@ -732,14 +732,14 @@ Defines the three input parameters (`first_name`, `middle_name`, and `last_name`
 
 ```yaml
 jobs:
-  my_first_job:
+  my-first-job:
     steps:
       - name: My first step
-        uses: actions/hello_world@main
+        uses: actions/hello-world@main
         with:
-          first_name: Mona
-          middle_name: The
-          last_name: Octocat
+          first-name: Mona
+          middle-name: The
+          last-name: Octocat
 ```
 
 ## `jobs.<job_id>.steps[*].with.args`
