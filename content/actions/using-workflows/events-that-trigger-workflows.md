@@ -117,7 +117,7 @@ on:
 
 {% endnote %}
 
-Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see "[AUTOTITLE](/graphql/reference/mutations#createref)" in the GraphQL API documentation or "[AUTOTITLE](/rest/git#create-a-reference)" in the REST API documentation.
+Runs your workflow when someone creates a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to create a Git reference, see "[AUTOTITLE](/graphql/reference/mutations#createref)" in the GraphQL API documentation or "[AUTOTITLE](/rest/git#create-a-reference)."
 
 For example, you can run a workflow when the `create` event occurs.
 
@@ -140,7 +140,7 @@ on:
 
 {% endnote %}
 
-Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see "[AUTOTITLE](/graphql/reference/mutations#deleteref)" in the GraphQL API documentation or "[AUTOTITLE](/rest/git#delete-a-reference)" in the REST API documentation.
+Runs your workflow when someone deletes a Git reference (Git branch or tag) in the workflow's repository. For information about the APIs to delete a Git reference, see "[AUTOTITLE](/graphql/reference/mutations#deleteref)" in the GraphQL API documentation or "[AUTOTITLE](/rest/git#delete-a-reference)."
 
 For example, you can run a workflow when the `delete` event occurs.
 
