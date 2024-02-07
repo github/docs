@@ -1,5 +1,7 @@
 ---
-title: Branches
+title: REST API endpoints for branches
+shortTitle: Branches
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to modify branches and their protection settings.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
