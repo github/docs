@@ -27,7 +27,7 @@ like "Enterprise Server X.Y". It should change the above sentence.
 
 ## Link to a page with variable title
 
-"[AUTOTITLE](/get-started/quickstart/dynamic-title)"
+"[AUTOTITLE](/get-started/start-your-journey/dynamic-title)"
 
 "[AUTOTITLE](/get-started/foo/cross-version-linking)"
 

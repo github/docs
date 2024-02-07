@@ -12,10 +12,10 @@ type: how_to
 
 {% ifversion ghes %}
 
-"[Autotitle](/get-started/quickstart/hello-world)."
+"[Autotitle](/get-started/start-your-journey/hello-world)."
 
 {% else %}
 
-"[AUTOTITLES](/get-started/quickstart/hello-world)."
+"[AUTOTITLES](/get-started/start-your-journey/hello-world)."
 
 {% endif %}
