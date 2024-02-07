@@ -39,6 +39,7 @@ The following rules apply to all code annotations.
 - You can include any number of spaces before the comment tag starts.
 - You can include any number of spaces after the comment tag ends.
 - To create a blank annotation, insert a comment tag with no text after it. Blank annotations are useful if some lines of a sample don't require an annotation.
+- Strings that begin with `#!` will render in the code block and are not treated as comments.
 - Anything after the comment tag will be parsed with Markdown. Links, versioning, and other styling will render as if they were written in Markdown.
 - Multiple sequential comments will create a single annotation.
 - Lines that do not start with a comment tag and are empty or only contain spaces will be ignored.

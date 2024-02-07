@@ -1,8 +1,8 @@
 import { getDOM, head } from '#src/tests/helpers/e2etest.js'
 
 describe('map topics', () => {
-  test('get-started/quickstart map-topic', async () => {
-    const $ = await getDOM('/get-started/quickstart')
+  test('get-started/start-your-journey map-topic', async () => {
+    const $ = await getDOM('/get-started/start-your-journey')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch('Get started using HubGit to manage Git repositories')
 
@@ -10,7 +10,9 @@ describe('map topics', () => {
     expect(links.length).toBeGreaterThan(0)
     // They all have the same prefix
     const hrefs = links.map((i, el) => $(el).attr('href')).get()
-    expect(hrefs.every((href) => href.startsWith('/en/get-started/quickstart/'))).toBeTruthy()
+    expect(
+      hrefs.every((href) => href.startsWith('/en/get-started/start-your-journey/')),
+    ).toBeTruthy()
     // The all resolve to a 200 OK without redirects
     const responses = await Promise.all(hrefs.map((href) => head(href)))
     expect(responses.every((r) => r.statusCode === 200)).toBeTruthy()

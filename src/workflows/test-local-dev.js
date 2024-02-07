@@ -56,12 +56,12 @@ async function main() {
 
 async function testEditingPage() {
   const string = `Today's date is ${new Date().toString()}`
-  const filePath = 'content/get-started/quickstart/hello-world.md'
+  const filePath = 'content/get-started/start-your-journey/hello-world.md'
   const content = fs.readFileSync(filePath, 'utf-8')
   try {
     fs.appendFileSync(filePath, string, 'utf-8')
 
-    const res = await get('/get-started/quickstart/hello-world')
+    const res = await get('/get-started/start-your-journey/hello-world')
     if (!res.body.includes(string)) {
       throw new Error(`Couldn't find the string '${string}' in the response body`)
     }
@@ -73,7 +73,7 @@ async function testEditingPage() {
 async function testJSONParameters() {
   // currentVersion should be free-pro-team@latest
   {
-    const res = await get('/get-started/quickstart/hello-world?json=currentVersion')
+    const res = await get('/get-started/start-your-journey/hello-world?json=currentVersion')
     const info = JSON.parse(res.body)
     assert(info === 'free-pro-team@latest')
   }

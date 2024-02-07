@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test'
+import { defineConfig } from '@playwright/test'
 
 /**
  * Read environment variables from file.
@@ -72,28 +72,28 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-        // need this wider width because of our slightly wider than normal xl
-        // breakpoint that helps prevent overlapping main content with the minitoc
-        viewport: {
-          width: 1400,
-          height: 720,
-        },
-      },
-    },
+    // {
+    //   name: 'chromium',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     // need this wider width because of our slightly wider than normal xl
+    //     // breakpoint that helps prevent overlapping main content with the minitoc
+    //     viewport: {
+    //       width: 1400,
+    //       height: 720,
+    //     },
+    //   },
+    // },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
