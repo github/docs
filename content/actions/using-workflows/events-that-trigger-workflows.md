@@ -1257,7 +1257,7 @@ jobs:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[AUTOTITLE](/rest/activity#starring)" in the REST API documentation.
+Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[AUTOTITLE](/rest/activity#starring)."
 
 For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
 
