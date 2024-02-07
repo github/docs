@@ -21,4 +21,4 @@ You can use the REST API to retrieve a list of {% data variables.product.company
 
 {% endwarning %}
 
-For more information, see "[AUTOTITLE](/rest/meta)" in the REST API documentation.
+For more information, see "[AUTOTITLE](/rest/meta)."
