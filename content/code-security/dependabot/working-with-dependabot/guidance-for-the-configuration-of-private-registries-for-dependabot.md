@@ -620,7 +620,7 @@ registries:
 If you are running Nexus behind a reverse proxy, you need to ensure that the server is accessible using an Auth token by using `curl -v -H 'Authorization: Bearer <token>' 'https://<nexus-repo-url>/repository/<repo-name>/@<scope>%2<package>'`. For more information, see [Run Behind a Reverse Proxy](https://help.sonatype.com/repomanager3/planning-your-implementation/run-behind-a-reverse-proxy) in the Sonatype documentation.
 
 If you are restricting which IPs can reach your Nexus host, you need to add the {% data variables.product.prodname_dependabot %} IPs to the allowlist.
-  - You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[Meta](/rest/meta)" in the Meta API documentation.
+  - You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[AUTOTITLE](/rest/meta)."
   - These are the current IPs:
       - "18.213.123.130/32"
       - "3.217.79.163/32"

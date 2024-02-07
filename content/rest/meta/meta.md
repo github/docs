@@ -1,5 +1,7 @@
 ---
-title: Meta
+title: REST API endpoints for meta data
+shortTitle: Meta
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to get meta information about {% data
   variables.product.product_name %}, including the IP addresses of {% data

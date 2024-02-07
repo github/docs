@@ -41,7 +41,7 @@ Some events have multiple activity types. For these events, you can specify whic
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)" in the REST API documentation.
+Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)."
 
 For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
 
@@ -65,7 +65,7 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)." For information about the check run APIs, see "[AUTOTITLE](/graphql/reference/objects#checkrun)" in the GraphQL API documentation or "[AUTOTITLE](/rest/checks#runs)" in the REST API documentation.
+Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)." For information about the check run APIs, see "[AUTOTITLE](/graphql/reference/objects#checkrun)" in the GraphQL API documentation or "[AUTOTITLE](/rest/checks#runs)."
 
 For example, you can run a workflow when a check run has been `rerequested` or `completed`.
 
@@ -95,7 +95,7 @@ on:
 
 {% endnote %}
 
-Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)." For information about the check suite APIs, see "[AUTOTITLE](/graphql/reference/objects#checksuite)" in the GraphQL API documentation or "[AUTOTITLE](/rest/checks#suites)" in the REST API documentation.
+Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)." For information about the check suite APIs, see "[AUTOTITLE](/graphql/reference/objects#checksuite)" in the GraphQL API documentation or "[AUTOTITLE](/rest/checks#suites)."
 
 For example, you can run a workflow when a check suite has been `completed`.
 
@@ -1257,7 +1257,7 @@ jobs:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[AUTOTITLE](/rest/activity#starring)" in the REST API documentation.
+Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[AUTOTITLE](/rest/activity#starring)."
 
 For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
 

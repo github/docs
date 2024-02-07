@@ -1,5 +1,7 @@
 ---
-title: Codes of conduct
+title: REST API endpoints for codes of conduct
+shortTitle: Codes of conduct
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to get information about codes of conduct.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
