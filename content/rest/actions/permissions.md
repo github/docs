@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions Permissions
+title: REST API endpoints for GitHub Actions permissions
 allowTitleToDifferFromFilename: true
 shortTitle: Permissions
 intro: >-

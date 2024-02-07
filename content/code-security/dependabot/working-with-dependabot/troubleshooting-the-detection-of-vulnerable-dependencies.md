@@ -23,7 +23,6 @@ topics:
   - Repositories
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.result-discrepancy %}
 
 ## Why do some dependencies seem to be missing?

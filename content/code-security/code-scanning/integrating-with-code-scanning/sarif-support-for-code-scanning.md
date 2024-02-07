@@ -21,9 +21,6 @@ topics:
   - SARIF
 ---
 
-
-{% data reusables.code-scanning.beta %}
-
 ## About SARIF support
 
 SARIF (Static Analysis Results Interchange Format) is an [OASIS Standard](https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html) that defines an output file format. The SARIF standard is used to streamline how static analysis tools share their results. {% data variables.product.prodname_code_scanning_caps %} supports a subset of the SARIF 2.1.0 JSON schema.
