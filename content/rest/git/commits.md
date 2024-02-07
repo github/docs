@@ -1,5 +1,5 @@
 ---
-title: Git commits
+title: REST API endpoints for Git commits
 shortTitle: Commits
 allowTitleToDifferFromFilename: true
 intro: >-

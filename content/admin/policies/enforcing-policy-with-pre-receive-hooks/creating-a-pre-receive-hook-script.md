@@ -88,9 +88,9 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>blob#save</pre> | Change to a file's contents in the web interface | "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)" |
 | <pre>branch merge api</pre> | Merge of a branch via the API | "[AUTOTITLE](/rest/branches#merge-a-branch)" |
 | <pre>branches page delete button</pre> | Deletion of a branch in the web interface | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" |
-| <pre>git refs create api</pre> | Creation of a ref via the API | "[AUTOTITLE](/rest/git#create-a-reference)" in the REST API documentation |
-| <pre>git refs delete api</pre> | Deletion of a ref via the API | "[AUTOTITLE](/rest/git#delete-a-reference)" in the REST API documentation |
-| <pre>git refs update api</pre> | Update of a ref via the API | "[AUTOTITLE](/rest/git#update-a-reference)" in the REST API documentation |
+| <pre>git refs create api</pre> | Creation of a ref via the API | "[AUTOTITLE](/rest/git#create-a-reference)" |
+| <pre>git refs delete api</pre> | Deletion of a ref via the API | "[AUTOTITLE](/rest/git#delete-a-reference)" |
+| <pre>git refs update api</pre> | Update of a ref via the API | "[AUTOTITLE](/rest/git#update-a-reference)" |
 | <pre>git repo contents api</pre> | Change to a file's contents via the API | "[AUTOTITLE](/rest/repos#create-or-update-file-contents)" in the REST API documentation |
 {%- ifversion ghes %}
 | `merge` | Merge of a pull request using auto-merge | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
@@ -103,7 +103,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>pull request revert button</pre> | Revert of a pull request | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)" |
 | <pre>releases delete button</pre> | Deletion of a release | "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#deleting-a-release)" |
 | <pre>stafftools branch restore</pre> | Restoration of a branch from the site admin dashboard | "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#repositories)" |
-| <pre>tag create api</pre> | Creation of a tag via the API | "[AUTOTITLE](/rest/git#create-a-tag-object)" in the REST API documentation |
+| <pre>tag create api</pre> | Creation of a tag via the API | "[AUTOTITLE](/rest/git#create-a-tag-object)" |
 {%- ifversion ghes < 3.13 %}
 | <pre>slumlord (#SHA)</pre> | Commit via Subversion | "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients#making-commits-to-subversion)" |
 {%- endif %}

@@ -43666,6 +43666,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   hasProjectsEnabled: Boolean!
 
   """
+  Indicates if the repository displays a Sponsor button for financial contributions.
+  """
+  hasSponsorshipsEnabled: Boolean!
+
+  """
   Whether vulnerability alerts are enabled for the repository.
   """
   hasVulnerabilityAlertsEnabled: Boolean!
@@ -45188,6 +45193,11 @@ interface RepositoryInfo {
   Indicates if the repository has the Projects feature enabled.
   """
   hasProjectsEnabled: Boolean!
+
+  """
+  Indicates if the repository displays a Sponsor button for financial contributions.
+  """
+  hasSponsorshipsEnabled: Boolean!
 
   """
   Indicates if the repository has wiki feature enabled.
@@ -58670,6 +58680,11 @@ input UpdateRepositoryInput {
   Indicates if the repository should have the project boards feature enabled.
   """
   hasProjectsEnabled: Boolean
+
+  """
+  Indicates if the repository displays a Sponsor button for financial contributions.
+  """
+  hasSponsorshipsEnabled: Boolean
 
   """
   Indicates if the repository should have the wiki feature enabled.
