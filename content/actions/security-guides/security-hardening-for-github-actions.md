@@ -113,17 +113,13 @@ There are a number of different approaches available to help you mitigate the ri
 
 ### Using an action instead of an inline script (recommended)
 
-The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
-
-{% raw %}
+The recommended approach is to create a JavaScript action that processes the context value as an argument. This approach is not vulnerable to the injection attack, since the context value is not used to generate a shell script, but is instead passed to the action as an argument:
 
 ```yaml
 uses: fakeaction/checktitle@v3
 with:
-    title: ${{ github.event.pull_request.title }}
+    title: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
 ```
-
-{% endraw %}
 
 ### Using an intermediate environment variable
 
@@ -131,12 +127,10 @@ For inline scripts, the preferred approach to handling untrusted input is to set
 
 The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
 
-{% raw %}
-
 ```yaml
       - name: Check PR title
         env:
-          TITLE: ${{ github.event.pull_request.title }}
+          TITLE: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
         run: |
           if [[ "$TITLE" =~ ^octocat ]]; then
           echo "PR title starts with 'octocat'"
@@ -146,8 +140,6 @@ The following example uses Bash to process the `github.event.pull_request.title`
           exit 1
           fi
 ```
-
-{% endraw %}
 
 In this example, the attempted script injection is unsuccessful, which is reflected by the following lines in the log:
 
