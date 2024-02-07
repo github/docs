@@ -86,7 +86,7 @@ Name | Description
 **`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."{% ifversion not fpt %}
 **`admin:enterprise`** | Gives full control of enterprise functionality. For more information, see "[AUTOTITLE](/graphql/guides/managing-enterprise-accounts)" in the GraphQL API documentation.<br><br>Includes `manage_runners:enterprise`{% ifversion ghec or ghes %}, `manage_billing:enterprise`,{% endif %} and `read:enterprise`.
 &emsp;`manage_runners:enterprise` | Gives full control over self-hosted runners within the enterprise. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)." {% ifversion ghec or ghes %}
-&emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see "[AUTOTITLE](/rest/billing)" in the REST API documentation. {% endif %}
+&emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see "[AUTOTITLE](/rest/billing)." {% endif %}
 &emsp;`read:enterprise` | Read all data on an enterprise profile. Does not include profile data of enterprise members or organizations.{% endif %}{% ifversion read-audit-scope %}
 **`read:audit_log`** | Read audit log data.{% endif %}
 {% note %}

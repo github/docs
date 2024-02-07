@@ -1,5 +1,5 @@
 ---
-title: Repository invitations
+title: REST API endpoints for repository invitations
 allowTitleToDifferFromFilename: true
 shortTitle: Invitations
 intro: >-

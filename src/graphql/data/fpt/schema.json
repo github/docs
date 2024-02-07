@@ -60544,6 +60544,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasVulnerabilityAlertsEnabled",
           "description": "<p>Whether vulnerability alerts are enabled for the repository.</p>",
           "type": "Boolean!",
@@ -80478,6 +80486,14 @@
         {
           "name": "hasProjectsEnabled",
           "description": "<p>Indicates if the repository has the Projects feature enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -102957,6 +102973,14 @@
         {
           "name": "hasProjectsEnabled",
           "description": "<p>Indicates if the repository should have the project boards feature enabled.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

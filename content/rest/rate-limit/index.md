@@ -1,5 +1,7 @@
 ---
-title: Rate limit
+title: REST API endpoints for rate limits
+shortTitle: Rate limit
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to check your current rate limit status.
 versions:
   fpt: '*'

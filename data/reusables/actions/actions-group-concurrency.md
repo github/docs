@@ -1,11 +1,11 @@
-When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress, the queued job or workflow will be `pending`. Any previously pending job or workflow in the concurrency group will be canceled. To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`.
+When a concurrent job or workflow is queued, if another job or workflow run using the same concurrency group in the repository is in progress, the queued job or workflow run will be `pending`. Any pending job or workflow run in the same concurrency group will be canceled when a new job or workflow run is queued. To also cancel any currently running job or workflow run in the same concurrency group, specify `cancel-in-progress: true`.
 
 {% note %}
 
 **Notes:**
 
 - The concurrency group name is case insensitive. For example, `prod` and `Prod` will be treated as the same concurrency group.
-- Ordering is not guaranteed for jobs or runs using concurrency groups, they are handled in the order that they are processed.
+- Ordering is not guaranteed for jobs or workflow runs using concurrency groups. Jobs or workflow runs in the same concurrency group are handled in an arbitrary order.
 
 {% endnote %}
 
