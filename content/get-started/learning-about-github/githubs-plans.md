@@ -67,6 +67,7 @@ In addition to the features available with {% data variables.product.prodname_fr
 
   - Wikis
   - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
+    {% data reusables.repositories.repo-insights-commit-limit %}
 
 ## {% data variables.product.prodname_free_team %} for organizations
 
@@ -103,6 +104,7 @@ In addition to the features available with {% data variables.product.prodname_fr
 
   - Wikis
   - Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
+    {% data reusables.repositories.repo-insights-commit-limit %}
 {%- ifversion fpt or ghec %}
 - The option to enable or disable {% data variables.product.prodname_github_codespaces %}
   - Organization owners can choose to enable or disable {% data variables.product.prodname_github_codespaces %} for the organization's private {% ifversion ghec %}and internal {% endif %}repositories, and can pay for the usage of members and collaborators. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)" and [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
