@@ -24,12 +24,12 @@ If {% data variables.product.prodname_copilot_enterprise_short %} is enabled for
 - {% data variables.product.prodname_copilot_for_prs %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)")
 - {% data variables.product.prodname_copilot_for_docs %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management)")
 
-These features are in beta and subject to change. Additional features will be added to the {% data variables.product.prodname_copilot_enterprise_short %} offering over time. If you're participating in the beta, you'll be notified when new features are added.
+These features are in beta and subject to change. Additional features will be added to the {% data variables.product.prodname_copilot_enterprise_short %} offering over time. If you're taking part in the beta, you'll be notified when new features are added.
 
 ## Signing up for the {% data variables.product.prodname_copilot_enterprise_short %} beta
 
 You can nominate an enterprise that you're a member of for the [{% data variables.product.prodname_copilot_enterprise_short %} waitlist](https://github.com/github-copilot/copilot_enterprise_waitlist_signup/join). To join the waitlist, the enterprise must use {% data variables.product.prodname_ghe_cloud %} and have an active {% data variables.product.prodname_copilot_for_business %} subscription.
 
-Nominating an enterprise for the waitlist does not guarantee access. You agree to the pre-release license terms by signing up for the waitlist. For more information, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-license-terms)."
+Nominating an enterprise for the waitlist does not guarantee access. By signing up to the waitlist, you are agreeing to the pre-release license terms. For more information, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-license-terms)."
 
 If an enterprise is granted access to the {% data variables.product.prodname_copilot_enterprise_short %} beta, an administrator must enable the features before members can start using them. For more information, see {% ifversion ghec %}"[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)."{% elsif fpt %}"[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
