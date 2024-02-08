@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -26,7 +25,7 @@ If you haven't already, you should read the "[Basics of Authentication](/apps/oa
 
 ## Discover the repositories that your app can access for a user
 
-In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's {% ifversion fpt %}a public{% elsif ghec or ghes %}a public or internal{% elsif ghae %}an internal{% endif %} repository where the user has write access.
+In addition to having their own personal repositories, a user may be a collaborator on repositories owned by other users and organizations. Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's {% ifversion fpt %}a public{% elsif ghec or ghes %}a public or internal{% endif %} repository where the user has write access.
 
 [OAuth scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) and [organization application policies](https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/) determine which of those repositories your app can access for a user. Use the workflow below to discover those repositories.
 
