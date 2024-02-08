@@ -5,7 +5,6 @@ intro: Learn how to generate an installation access token for your {% data varia
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 permissions: Organization owners can reinstate a former member of an organization.
 topics:
@@ -23,8 +22,8 @@ If a user is removed from your organization in one of the following ways, the us
 - You manually removed the user from your organization. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."
 {%- ifversion ghec %}
 - The user was removed via SCIM. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
-{%- endif %}{% ifversion not ghae %}
-- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
+{%- endif %}
+- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% ifversion fpt or ghec %}
 - The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 - You converted an organization member to an outside collaborator. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)."
 

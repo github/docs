@@ -11,7 +11,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 ---
@@ -43,7 +42,7 @@ For more information about adding people to your enterprise, see "[AUTOTITLE](/a
 Enterprise owners have complete control over the enterprise and can take every action, including:
 
 - Managing administrators
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
+- {% ifversion ghec %}Adding and removing {% elsif ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
 - Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - Managing enterprise settings
 - Enforcing policy across organizations

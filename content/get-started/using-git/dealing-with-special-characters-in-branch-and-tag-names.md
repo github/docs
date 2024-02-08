@@ -4,7 +4,6 @@ intro: 'Git is very permissive about what characters are allowed in branch and t
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Special characters in names
 ---

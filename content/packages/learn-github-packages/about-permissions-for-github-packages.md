@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: About permissions
 ---
@@ -62,13 +61,13 @@ To use or manage a package hosted by a package registry, you must use a {% data 
 
 For example:
 - To download and install packages from a repository, your {% data variables.product.pat_v1 %} must have the `read:packages` scope, and your user account must have read permission.
-- {% ifversion fpt or ghes or ghec %}To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must have the `delete:packages` and `repo` scope. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+- To delete a package on {% data variables.product.product_name %}, your {% data variables.product.pat_v1 %} must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 
 | Scope | Description | Required permission |
 | --- | --- | --- |
 |`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
 |`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
-| `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
+| `delete:packages` | Delete packages from {% data variables.product.prodname_registry %} | admin |
 | `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
 {% data reusables.package_registry.delete-with-github-token-using-api-beta %}

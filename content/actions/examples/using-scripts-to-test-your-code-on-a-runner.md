@@ -5,7 +5,6 @@ intro: 'How to use essential {% data variables.product.prodname_actions %} featu
 versions:
   fpt: '*'
   ghes: '> 3.1'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

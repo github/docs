@@ -5,7 +5,6 @@ intro: 'In order for {% data variables.product.prodname_ghe_server %} instances 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
