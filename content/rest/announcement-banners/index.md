@@ -1,5 +1,7 @@
 ---
-title: Announcement Banners
+title: REST API endpoints for announcement banners
+shortTitle: Announcement banners
+allowTitleToDifferFromFilename: true
 intro: 'The Announcement Banners API enables you to view, create, and remove an announcement banner for your enterprise or organization.'
 versions:
   ghec: '*'

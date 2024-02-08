@@ -1,5 +1,7 @@
 ---
-title: Emojis
+title: REST API endpoints for emojis
+shortTitle: Emojis
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to list and view all the available emojis to use on {% data
   variables.product.product_name %}.

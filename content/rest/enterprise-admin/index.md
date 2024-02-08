@@ -84,7 +84,7 @@ These endpoints are only accessible to authenticated {% data variables.product.p
 
 The current version of your enterprise is returned in the REST API response header:
 `X-GitHub-Enterprise-Version: {{currentVersion}}.0`
-You can also read the current version by calling the [meta endpoint](/rest/meta).
+You can also read the current version by calling `GET /meta`. For more information, see "[AUTOTITLE](/rest/meta)."
 
 {% endif %}
 

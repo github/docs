@@ -1,5 +1,5 @@
 ---
-title: Git tags
+title: REST API endpoints for Git tags
 shortTitle: Tags
 allowTitleToDifferFromFilename: true
 intro: >-

@@ -64,7 +64,7 @@ redirect_from:
   - /insights/installing-and-configuring-github-insights/managing-data-in-github-insights/managing-repositories
   - /admin/configuration/configuring-your-enterprise/configuring-data-encryption-for-your-enterprise
 introLinks:
-  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghae %}/admin/overview/about-github-ae{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
+  overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
   try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
 changelog:
