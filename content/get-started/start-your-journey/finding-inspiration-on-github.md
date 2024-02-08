@@ -14,7 +14,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 topics:
   - Profile
   - Accounts
