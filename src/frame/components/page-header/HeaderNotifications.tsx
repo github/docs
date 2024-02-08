@@ -59,12 +59,7 @@ export const HeaderNotifications = () => {
     }
   }
   const releaseNotices: Array<Notif> = []
-  if (currentVersion === 'github-ae@latest') {
-    releaseNotices.push({
-      type: NotificationType.RELEASE,
-      content: t('notices.ghae_silent_launch'),
-    })
-  } else if (currentVersion === data.variables.release_candidate.version) {
+  if (currentVersion === data.variables.release_candidate.version) {
     releaseNotices.push({
       type: NotificationType.RELEASE,
       content: `${allVersions[currentVersion].versionTitle}${t('notices.release_candidate')}`,
