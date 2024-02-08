@@ -4,7 +4,6 @@ intro: 'You can install {% data variables.product.prodname_github_apps %} direct
 versions:
   fpt: '*'
   ghec: '*'
-  ghae: '*'
   ghes: '*'
 shortTitle: Install from third party
 ---

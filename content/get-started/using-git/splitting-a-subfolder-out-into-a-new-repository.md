@@ -10,7 +10,6 @@ intro: You can turn a folder within a Git repository into a brand new repository
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Splitting a subfolder
 ---
