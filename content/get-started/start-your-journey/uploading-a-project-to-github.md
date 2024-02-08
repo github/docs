@@ -1,6 +1,6 @@
 ---
 title: Uploading a project to GitHub
-shortTitle: Upload a project to GitHub
+shortTitle: Upload a project
 intro: 'Learn how to upload the files for your project to {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
@@ -9,6 +9,8 @@ versions:
 topics:
   - Repositories
 type: tutorial
+redirect_from:
+  - /get-started/quickstart/uploading-a-project-to-github
 ---
 
 ## Introduction
@@ -25,7 +27,7 @@ If you're already familiar with Git, and you're looking for information on how t
 
 ## Prerequisites
 
-- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."{% endif %}
+- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
 - You should have a group of files you'd like to upload.
 
 ## Step 1: Create a new repository for your project
@@ -50,7 +52,7 @@ So far, you should only see one file listed in the repository, the `README.md` f
 
 ## Step 3: Edit the README file for your project's repository
 
-In Step 1, we selected to add a README file when creating your new repository. This file is typically the first item someone will see when visiting your repository and it usually contains information on what your project is about and why your project is useful. For example, if you're working on a software project, you will include information on how to install and use your software.
+Your repository's README file is typically the first item someone will see when visiting your repository. It usually contains information on what your project is about and why your project is useful.
 
 As we learned in the "Hello world" tutorial, the README file (`README.md`) is written in Markdown syntax. {% data reusables.getting-started.what-is-markdown %}
 
@@ -59,21 +61,16 @@ In this step, we'll edit your project's `README.md` using Markdown so that it in
 1. From the list of files, click `README.md` to view the file.
 1. In the upper right corner of the file view, click {% octicon "pencil" aria-label="Edit file" %} to open the file editor.
    - You will see that some information about your project has been pre-filled for you. For example, you should see the repository name and repository description you completed in Step 1 displayed on line 1 and line 2.
-1. On line 1, delete the existing text apart from `#`, then type a title for your project. In Markdown, `#` formats a first-level heading.
+1. Delete the existing text apart from `#`, then type a proper title for your project.
    - Example: `# About my first project on GitHub`.
-1. On the next line, we'll write a short sentence that describes what your project is about.
-   - Example: `This repository contains files that showcase my first project on GitHub.`
-1. On the following line, format a second-level heading by starting the line with `##`.
-   - Example: `## Installation`.
-1. For the following lines, we'll format a numbered list by starting each new line with `1.`.
-   - Example:
+1. Next, add some information about your project, such as a description of the project's purpose or its main features.
+   {% note %}
 
-     ```text
-     1. Download the files for this project.
-     1. Install the software.
-     1. Run the software.
-     ```
+   **Note:** If you're not sure what to write, take a look at other repositories on {% data variables.product.product_name %} to see how other people describe their projects.
 
+   To apply more sophisticated formatting, such as adding images, links, and footnotes, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+
+   {% endnote %}
 {% data reusables.files.preview_change %}
 1. Take a look at how the file will render once we save our changes, then toggle back to "Edit".
 1. Continue to edit and preview the text until you're happy with the content of your README.
@@ -92,15 +89,19 @@ If you set your repository visibility to "Public," the repository will be displa
 
 As you add, edit or delete files directly in the browser on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_dotcom %} will track these changes ("commits"), so you can start to manage your project's history and evolution.
 
+When making changes, remember that you can create a new branch from the `main` branch of your repository, so that you can experiment without affecting the main copy of files. Then, when you're happy with a set of a changes, open a pull request to merge the changes into your `main` branch. For a reminder of how to do this, see "[AUTOTITLE](/get-started/quickstart/hello-world)."
+
 ## Next steps
 
-- Take a look at the README files of other repositories on {% data variables.product.product_name %} to get a sense of what information to include in your own README.
+- Most people want to keep working on their files locally (i.e. on their own computer), and then continually sync these locally-made changes with this "remote" {% ifversion fpt or ghec %}(in the cloud){% endif %} repository on {% data variables.product.product_name %}. There are plenty of tools that let you do this, such as GitHub Desktop. To get started, you'd need to:
+   - **Install** GitHub Desktop. For more information, see "[AUTOTITLE](/desktop/overview/getting-started-with-github-desktop)."
+   - **Clone** the remote repository, so you have a copy of it on your own computer. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)."
+   - Continually **sync** your local changes with this remote repository. For more information, see "[AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop)."
 
-- To apply more sophisticated formatting to your README using Markdown, see "[AUTOTITLE](/get-started/writing-on-github)."
-
-- Most people want to keep working on their files locally (i.e. on their own computer) and then continually sync these locally-made changes with this "remote" {% ifversion fpt or ghec %}(in the cloud){% endif %} repository on {% data variables.product.product_name %}. There are plenty of tools that let you do this, such as GitHub Desktop. For more information, see "[AUTOTITLE](/desktop/overview/getting-started-with-github-desktop)" and "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
+- To learn more about other tools available for working with repositories hosted on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/using-github/connecting-to-github)."
 
 ## Further reading
 
-- [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-- [AUTOTITLE](/repositories/working-with-files/managing-files)
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+- "[AUTOTITLE](/repositories/working-with-files/managing-files)"
+- "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)"

@@ -1,5 +1,7 @@
 ---
-title: Workflow runs
+title: REST API endpoints for workflow runs
+shortTitle: Workflow runs
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with workflow runs in {% data
   variables.product.prodname_actions %}.

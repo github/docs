@@ -20,7 +20,7 @@ learningTracks:
 includeGuides:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/allowing-built-in-authentication-for-users-outside-your-provider
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/changing-authentication-methods
-  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
+  - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-authentication-and-provisioning-for-your-enterprise-using-entra-id
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
@@ -139,3 +139,4 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
+

@@ -56,7 +56,6 @@ You must specify:
 
 {% data reusables.code-scanning.codeql-language-identifiers-table %}
 {% data reusables.code-scanning.beta-kotlin-or-swift-support %}
-{% data reusables.code-scanning.beta-ruby-support %}
 
 If your codebase has a build command or script that invokes the build process, we recommend that you specify it as well:
 
@@ -253,7 +252,7 @@ The following examples are designed to give you an idea of some of the build com
 
   ```shell
   # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL.
-  # To ensure isolated builds without caching, add `--no-build-cache` on persistent machines.  
+  # To ensure isolated builds without caching, add `--no-build-cache` on persistent machines.
   codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='gradle --no-daemon clean test'
   ```
 

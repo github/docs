@@ -161,8 +161,6 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
 After you set up {% data variables.product.prodname_dependabot %} updates for {% data variables.location.product_location %}, you may see failures when existing workflows are triggered by {% data variables.product.prodname_dependabot %} events.
 
 By default, {% data variables.product.prodname_actions %} workflow runs that are triggered by {% data variables.product.prodname_dependabot %} from `push`, `pull_request`, `pull_request_review`, or `pull_request_review_comment` events are treated as if they were opened from a repository fork. Unlike workflows triggered by other actors, this means they receive a read-only `GITHUB_TOKEN` and do not have access to any secrets that are normally available. This will cause any workflows that attempt to write to the repository to fail when they are triggered by {% data variables.product.prodname_dependabot %}.

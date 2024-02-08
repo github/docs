@@ -1,5 +1,5 @@
 ---
-title: Git trees
+title: REST API endpoints for Git trees
 shortTitle: Trees
 allowTitleToDifferFromFilename: true
 intro: >-

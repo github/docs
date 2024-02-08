@@ -35,8 +35,6 @@ If your code depends on a package with a security vulnerability, this can cause 
 
 ## Detection of insecure dependencies
 
-{% data reusables.dependabot.dependabot-alerts-beta %}
-
 {% data variables.product.prodname_dependabot %} performs a scan of the default branch of your repository to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
 
 {% ifversion fpt or ghec %}

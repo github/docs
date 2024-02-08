@@ -59,10 +59,6 @@
 {%- ifversion fpt or ghec %}
 | `environment` | Contains activities related to {% data variables.product.prodname_actions %} environments.
 {%- endif %}
-{%- ifversion ghae %}
-| `external_group` | Contains activities related to Okta groups.
-| `external_identity` | Contains activities related to a user in an Okta group.
-{%- endif %}
 | `hook` | Contains activities related to webhooks.
 | `integration` | Contains activities related to integrations in an account.
 | `integration_installation` | Contains activities related to integrations installed in an account.

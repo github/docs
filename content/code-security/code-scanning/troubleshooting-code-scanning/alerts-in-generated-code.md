@@ -11,6 +11,5 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/alerts-found-in-generated-code
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 {% data reusables.code-scanning.alerts-found-in-generated-code %}

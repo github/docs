@@ -111,7 +111,7 @@
   },
   {
     "action": "codespaces.connect",
-    "description": "A codespace was started.",
+    "description": "Credentials for a codespace were refreshed.",
     "docs_reference_links": "N/A"
   },
   {
@@ -126,12 +126,12 @@
   },
   {
     "action": "codespaces.export_environment",
-    "description": "N/A",
+    "description": "A codespace was exported to a branch on GitHub.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "codespaces.restore",
-    "description": "N/A",
+    "description": "A codespace was restored.",
     "docs_reference_links": "N/A"
   },
   {
@@ -141,12 +141,12 @@
   },
   {
     "action": "codespaces.suspend_environment",
-    "description": "N/A",
+    "description": "A codespace was stopped.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "codespaces.trusted_repositories_access_update",
-    "description": "Triggered when you change your personal account's access and security setting for Codespaces.",
+    "description": "A personal account's access and security setting for Codespaces were updated.",
     "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
   },
   {
@@ -1576,7 +1576,7 @@
   },
   {
     "action": "user.create_integration_secret",
-    "description": "N/A",
+    "description": "A user secret for Codespaces was created.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1696,7 +1696,7 @@
   },
   {
     "action": "user.remove_integration_secret",
-    "description": "N/A",
+    "description": "A user secret for Codespaces was deleted.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1796,7 +1796,7 @@
   },
   {
     "action": "user.update_integration_secret",
-    "description": "N/A",
+    "description": "A user secret for Codespaces was updated.",
     "docs_reference_links": "N/A"
   },
   {
