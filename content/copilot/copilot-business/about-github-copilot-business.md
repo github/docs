@@ -15,17 +15,17 @@ shortTitle: About GitHub Copilot Business
 
 {% data reusables.copilot.get-copilot-business-cta-button %}
 
-## About {% data variables.product.prodname_copilot_for_business %}
+## About {% data variables.product.prodname_copilot_business_short %}
 
 {% data reusables.copilot.about-copilot %}
 
-With {% data variables.product.prodname_copilot_business_short %}, you can manage access to {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the administrators of that organization can grant access to individuals and teams. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
+With {% data variables.product.prodname_copilot_business_short %}, you can manage access to {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the administrators of that organization can grant access to individuals and teams. For more information, see "[AUTOTITLE](/copilot/copilot-business/enabling-and-setting-up-github-copilot-business)."
 
 {% data reusables.copilot.supported-tools %}
 
 {% data reusables.copilot.telemetry-setting-org %}
 
-### Understanding the differences between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_individuals_short %}
+### Understanding the differences between {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_individuals_short %}, and {% data variables.product.prodname_copilot_enterprise %}
 
 {% data reusables.copilot.differences-cfi-cfb-table %}
 
@@ -74,19 +74,21 @@ You have the ability to manage and make choices regarding the collection, retent
 
 {% data variables.product.prodname_copilot_for_business %} utilizes data from file content and additional sources to enhance its functionality. This data collection process is aimed at improving the service and involves the gathering and analysis of certain information.
 
-{% data reusables.copilot.user-engagement-data %}
+#### User engagement data
+
+When you use {% data variables.product.prodname_copilot %}, it collects information about your interactions with the IDE or editor. This includes actions like accepting or dismissing suggestions, as well as general usage data and error information. The purpose of collecting this data is to measure metrics such as latency and feature engagement. Some of this information may include personal data, but it is stored in a way that does not directly identify you.
 
 #### Prompts
 
-{% data reusables.copilot.prompts %} These Prompts are only sent in real time. {% data variables.product.prodname_copilot_for_business %} does not retain Prompts.
+A prompt refers to the contextual information that the {% data variables.product.prodname_copilot %} extension sends when you pause typing while working on a file, or when you open the {% data variables.product.prodname_copilot %} pane. These prompts are only sent in real time. {% data variables.product.prodname_copilot_for_business %} does not retain prompts.
 
 #### Suggestions
 
-{% data reusables.copilot.suggestions %} Suggestions are only sent in real-time. {% data variables.product.prodname_copilot_for_business %} does not retain Suggestions.
+After receiving and processing a prompt, the AI-model generates one or more lines of proposed text known as suggestions. These suggestions are then transmitted back to the {% data variables.product.prodname_copilot %} extension. Suggestions are only sent in real-time. {% data variables.product.prodname_copilot_for_business %} does not retain suggestions.
 
 ### How is the data in {% data variables.product.prodname_copilot_for_business %} used and shared?
 
-User Engagement Data is used by {% data variables.product.company_short %} and Microsoft to provide the service and to enable improvements.
+User engagement data is used by {% data variables.product.company_short %} and Microsoft to provide the service and to enable improvements.
 
 - Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
 - Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
@@ -95,9 +97,9 @@ User Engagement Data is used by {% data variables.product.company_short %} and M
 
 ### How can users of {% data variables.product.prodname_copilot_for_business %} control use of their data?
 
-User Engagement Data, including pseudonymous identifiers and general usage data, is necessary for the use of {% data variables.product.prodname_copilot %} and will continue to be collected, processed, and shared with Microsoft when you use {% data variables.product.prodname_copilot %}.
+User engagement data, including pseudonymous identifiers and general usage data, is necessary for the use of {% data variables.product.prodname_copilot %} and will continue to be collected, processed, and shared with Microsoft when you use {% data variables.product.prodname_copilot %}.
 
-{% data variables.product.prodname_copilot_for_business %} does not retain any Prompts or Suggestions.
+{% data variables.product.prodname_copilot_for_business %} does not retain any prompts or suggestions.
 
 For more information about privacy for {% data variables.product.prodname_copilot_for_business %}, see the "[The {% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/#privacy)."
 

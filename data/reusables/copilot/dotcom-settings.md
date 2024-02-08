@@ -19,11 +19,11 @@ If you choose to allow suggestions matching public code, and you accept a sugges
 
 {% ifversion fpt %}
 
-### Enabling or disabling Prompt and Suggestion collection
+### Enabling or disabling prompt and suggestion collection
 
 {% data reusables.copilot.telemetry-setting-org %}
 
-You can choose whether your Prompts and Suggestions are collected and retained by GitHub and further processed and shared with Microsoft and by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
+You can choose whether your prompts and suggestions are collected and retained by {% data variables.product.prodname_dotcom %} and further processed and shared with Microsoft and by adjusting your user settings. For more information about data that {% data variables.product.prodname_copilot %} may collect depending on your settings, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)" and the [{% data variables.product.prodname_copilot %} privacy FAQ](https://github.com/features/copilot/#faq-privacy-copilot-for-business).
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.copilot-settings %}
