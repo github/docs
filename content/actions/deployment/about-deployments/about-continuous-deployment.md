@@ -4,7 +4,6 @@ intro: 'You can create custom continuous deployment (CD) workflows directly in y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 redirect_from:
