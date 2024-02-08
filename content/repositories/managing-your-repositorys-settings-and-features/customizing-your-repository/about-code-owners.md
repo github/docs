@@ -11,7 +11,6 @@ product: '{% data reusables.gated-features.code-owners %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

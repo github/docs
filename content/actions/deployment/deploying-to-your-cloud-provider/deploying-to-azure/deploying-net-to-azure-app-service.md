@@ -4,7 +4,6 @@ intro: You can deploy your .NET project to Azure App Service as part of your con
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:

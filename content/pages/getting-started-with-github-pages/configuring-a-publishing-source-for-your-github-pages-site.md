@@ -10,7 +10,6 @@ permissions: 'People with admin or maintainer permissions for a repository can c
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages

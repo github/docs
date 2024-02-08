@@ -4,7 +4,6 @@ intro: 'You can import a repository from Mercurial by converting the repository 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Mercurial
 ---

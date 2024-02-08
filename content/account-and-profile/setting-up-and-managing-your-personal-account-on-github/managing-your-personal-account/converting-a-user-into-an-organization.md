@@ -12,7 +12,6 @@ intro: You can convert your personal account into an organization. This allows m
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts

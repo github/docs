@@ -5,7 +5,6 @@ intro: 'You can use an installation access token from a {% data variables.produc
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

@@ -4,7 +4,6 @@ intro: You can create guidelines to communicate how people should contribute to 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors
