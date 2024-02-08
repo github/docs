@@ -16,7 +16,7 @@ featuredLinks:
   guideCards:
     - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view
     - /issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
-    - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
+    - '{% ifversion ghes %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
     - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
   popular:
     - /issues/tracking-your-work-with-issues/about-issues
@@ -26,7 +26,7 @@ featuredLinks:
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
     - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
-    - '{% ifversion ghes or ghae %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
+    - '{% ifversion ghes %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
 layout: product-landing
 beta_product: false
 versions:
@@ -69,4 +69,3 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
-

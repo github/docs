@@ -26,7 +26,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 The following limitations apply to this beta release of {% data variables.product.prodname_copilot_chat_dotcom %}:
 
 - {% data reusables.copilot.chat-limited-docset-availability %}
-- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. Up to {% data variables.copilot.max-chat-indexed-repos %} repositories can be indexed for each organization.
+- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository.
 - The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ## Prerequisites
@@ -61,13 +61,7 @@ You can ask a general question about software development that is not focused on
 
 ## Asking a question with a specific context
 
-You can choose a specific context, such as a particular repository or a documentation set, and then ask a question with that context in mind.
-
-{% note %}
-
-**Note**: {% data reusables.copilot.chat-limited-docset-availability %}
-
-{% endnote %}
+You can choose a specific context, such as a particular repository or a documentation set (docset), and then ask a question with that context in mind. Organization owners can create organization-visible docsets from repositories within their organization. Organization members can then set those docsets as the context for {% data variables.product.prodname_copilot_chat_dotcom %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets)."
 
 {% data reusables.copilot.go-to-copilot-page %}
 1. Click a docset or a repository to provide a context for your question.
@@ -92,7 +86,7 @@ You can choose a specific context, such as a particular repository or a document
 
    {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context.
 
-   If you get access to {% data variables.product.prodname_copilot_short %} from the organization that owns the repository, and the repository has not been indexed, an **Index this repository** button is displayed. Click this button to start the indexing process. Up to {% data variables.copilot.max-chat-indexed-repos %} repositories can be indexed for each organization.
+   If you get access to {% data variables.product.prodname_copilot_short %} from the organization that owns the repository, and the repository has not been indexed, an **Index this repository** button is displayed. Click this button to start the indexing process.
 
    ![Screenshot showing the 'Index this repository' button highlighted with a dark orange outline.](/assets/images/help/copilot/index-this-repo.png)
 
@@ -146,7 +140,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
    - How could I improve this code?
    - How can I test this script?
 
-   If you are aksing about specific lines, you could enter:
+   If you are asking about specific lines, you could enter:
    - Explain the function at the selected lines.
    - How could I improve this class?
    - Add error handling to this code.

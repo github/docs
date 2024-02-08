@@ -5,7 +5,6 @@ shortTitle: Troubleshoot dependency graph
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

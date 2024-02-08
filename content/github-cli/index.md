@@ -1,6 +1,6 @@
 ---
-title: "{% data variables.product.prodname_cli %} documentation"
-shortTitle: "{% data variables.product.prodname_cli %}"
+title: '{% data variables.product.prodname_cli %} documentation'
+shortTitle: '{% data variables.product.prodname_cli %}'
 intro: '{% data reusables.cli.about-cli %}'
 versions:
   fpt: '*'
@@ -26,7 +26,7 @@ featuredLinks:
     - /repositories/creating-and-managing-repositories/quickstart-for-repositories
     - /pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally
     - /pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request
-    - /get-started/quickstart/fork-a-repo
+    - /pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
     - /repositories/creating-and-managing-repositories/cloning-a-repository
   popularHeading: Popular CLI tasks
 changelog:

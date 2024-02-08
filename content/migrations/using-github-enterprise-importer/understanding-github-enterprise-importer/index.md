@@ -8,7 +8,6 @@ versions:
   ghec: '*'
 children:
   - /about-github-enterprise-importer
-  - /migration-support-for-github-enterprise-importer
 redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/understanding-github-enterprise-importer
   - /early-access/enterprise-importer/understanding-github-enterprise-importer

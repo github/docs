@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions Cache
+title: REST API endpoints for GitHub Actions cache
 allowTitleToDifferFromFilename: true
 shortTitle: Cache
 intro: >-

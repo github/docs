@@ -26,7 +26,7 @@ describe('siteTree', () => {
   test('object order and structure', () => {
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].href).toBe('/en/get-started')
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].childPages[0].href).toBe(
-      '/en/get-started/quickstart',
+      '/en/get-started/start-your-journey',
     )
   })
 
@@ -67,7 +67,7 @@ function validate(currentPage) {
 
     expect(isValid, errors).toBe(true)
 
-    // Run recurisvely until we run out of child pages
+    // Run recursively until we run out of child pages
     validate(childPage)
   })
 }

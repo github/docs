@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -46,7 +45,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Node.js" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 
    If you don't find the "Node.js" starter workflow, copy the following workflow code to a new file called `node.js.yml` in the `.github/workflows` directory of your repository.
 
@@ -144,9 +143,7 @@ jobs:
 ```
 
 If you don't specify a Node.js version, {% data variables.product.prodname_dotcom %} uses the environment's default Node.js version.
-{% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %}
-{% else %} For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
-{% endif %}
+For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
 
 ## Installing dependencies
 

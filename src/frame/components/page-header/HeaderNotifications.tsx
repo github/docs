@@ -25,7 +25,9 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
+  const mainContext = useMainContext()
+  const { relativePath, allVersions, data, currentPathWithoutLanguage } = mainContext
+  const page = mainContext.page!
   const { userLanguage, setUserLanguageCookie } = useUserLanguage()
   const { languages } = useLanguages()
 
@@ -82,7 +84,7 @@ export const HeaderNotifications = () => {
   ].filter(ExcludesNull)
 
   return (
-    <div>
+    <div data-container="notifications">
       {allNotifications.map(({ type, content, onClose }, i) => {
         const isLast = i === allNotifications.length - 1
 

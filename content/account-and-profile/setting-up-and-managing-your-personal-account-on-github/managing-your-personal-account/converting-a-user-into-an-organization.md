@@ -33,6 +33,7 @@ shortTitle: User into an organization
 - Since organizations cannot star repositories, you will no longer have access to your original list of starred repositories.
 - You will no longer have access to the list of users you were following from your user account.
 - Any followers of your user account will not automatically follow the new organization.
+{% ifversion projects-v2 %}- Any existing collaborators on your projects will still have access to those projects in the new organization.{% endif %}
 {% endwarning %}
 
 {% ifversion fpt or ghec or ghes %}

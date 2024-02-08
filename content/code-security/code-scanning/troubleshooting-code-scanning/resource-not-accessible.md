@@ -10,8 +10,6 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/resource-not-accessible-by-integration
 ---
 
-{% data reusables.code-scanning.beta %}
-
 ## About this error
 
 ```text

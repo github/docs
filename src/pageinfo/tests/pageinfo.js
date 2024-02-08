@@ -31,11 +31,11 @@ describe('pageinfo api', () => {
   })
 
   test('happy path', async () => {
-    const res = await get(makeURL('/en/get-started/quickstart'))
+    const res = await get(makeURL('/en/get-started/start-your-journey'))
     expect(res.statusCode).toBe(200)
     const { info } = JSON.parse(res.body)
     expect(info.product).toBe('Get started')
-    expect(info.title).toBe('Quickstart')
+    expect(info.title).toBe('Start your journey')
     expect(info.intro).toBe(
       'Get started using HubGit to manage Git repositories and collaborate with others.',
     )
@@ -199,12 +199,12 @@ describe('pageinfo api', () => {
     const res = await get(makeURL('/en foo bar'))
     expect(res.statusCode).toBe(400)
     const { error } = JSON.parse(res.body)
-    expect(error).toBe("'pathname' can not contain whitespace")
+    expect(error).toBe("'pathname' cannot contain whitespace")
   })
 
   describe('translations', () => {
     test('Japanese page', async () => {
-      const res = await get(makeURL('/ja/get-started/quickstart/hello-world'))
+      const res = await get(makeURL('/ja/get-started/start-your-journey/hello-world'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
       expect(info.product).toBe('はじめに')
@@ -213,11 +213,11 @@ describe('pageinfo api', () => {
     })
 
     test('falls back to English if translation is not present', async () => {
-      const enRes = await get(makeURL('/en/get-started/quickstart'))
+      const enRes = await get(makeURL('/en/get-started/start-your-journey'))
       expect(enRes.statusCode).toBe(200)
       // This page doesn't have a Japanese translation. I.e. it doesn't
       // even exist on disk. So it'll fall back to English.
-      const translationRes = await get(makeURL('/ja/get-started/quickstart'))
+      const translationRes = await get(makeURL('/ja/get-started/start-your-journey'))
       expect(translationRes.statusCode).toBe(200)
       const en = JSON.parse(enRes.body)
       const translation = JSON.parse(translationRes.body)

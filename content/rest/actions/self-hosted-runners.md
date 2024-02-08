@@ -1,5 +1,7 @@
 ---
-title: Self-hosted runners
+title: REST API endpoints for self-hosted runners
+shortTitle: Self-hosted runners
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with self-hosted runners in {% data
   variables.product.prodname_actions %}.

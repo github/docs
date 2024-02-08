@@ -8,7 +8,7 @@ You can create links to your existing codespaces. This is useful if you have a l
 
 {% endnote %}
 
-Create a link using one of the following URL patterns. In these URLs `CODESPACE-NAME` represents the unique name of the codespace, such as `monalisa-project-x-codespace-956j5pp5pjpc79wx`, not the codespace's display name. You can find the name of a codespace by copying the link to the codespace on your https://github.com/codespaces page and extracting the codespace name from the URL.
+Create a link using one of the following URL patterns. In these URLs `CODESPACE-NAME` represents the unique, permanent name of the codespace, such as `literate-space-parakeet-w5vg5ww5p793g7g9`, not the codespace's display name. You can find the name of a codespace by copying the link to the codespace on your https://github.com/codespaces page and extracting the codespace name from the URL.
 
 | **Link opens in** | **Link syntax** |
 | --- | --- |

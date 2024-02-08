@@ -49,7 +49,7 @@ Checks include check runs, check suites, and commit statuses.
 
 1. When someone pushes code to the repository, {% data variables.product.prodname_dotcom %} automatically sends the `check_suite` event with an action of `requested` to all {% data variables.product.prodname_github_apps %} installed on the repository that have the `checks:write` permission. This event lets the apps know that code was pushed to the repository, and that {% data variables.product.prodname_dotcom %} has automatically created a new check suite.
 1. When your app receives this event, it can add check runs to that suite.
-1. Your check runs can include annotations that are displayed on specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab. For more information, see the `annotations` object in the "[AUTOTITLE](/rest/checks/runs#create-a-check-run)" documentation.
+1. Your check runs can include annotations that are displayed on specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab. For more information, see the `annotations` object in "[AUTOTITLE](/rest/checks/runs#create-a-check-run)."
 
 For more information about checks, see "[AUTOTITLE](/rest/checks)" and "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)."
 
@@ -166,7 +166,7 @@ Make sure that you are on a secure machine before performing these steps, since 
 1. In your terminal, navigate to the directory where your clone is stored.
 1. Create a file called `.env` at the top level of this directory.
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
-1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
+1. Add the following contents to your `.env` file. {% ifversion ghes %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
    ```shell copy
    GITHUB_APP_IDENTIFIER="YOUR_APP_ID"
@@ -191,7 +191,7 @@ Make sure that you are on a secure machine before performing these steps, since 
    ...
    HkVN9...
    ...
-   -----END DSA PRIVATE KEY-----"
+   -----END RSA PRIVATE KEY-----"
    ```
 
 ## Add code for your {% data variables.product.prodname_github_app %}
@@ -288,7 +288,7 @@ class GHAapp < Sinatra::Application
     # Instantiate an Octokit client authenticated as a GitHub App.
     # GitHub App authentication requires that you construct a
     # JWT (https://jwt.io/introduction/) signed with the app's private key,
-    # so GitHub can be sure that it came from the app an not altererd by
+    # so GitHub can be sure that it came from the app and not altered by
     # a malicious third party.
     def authenticate_app
       payload = {
@@ -662,7 +662,7 @@ In the code block that starts with `helpers do`, where it says `# ADD CREATE_CHE
     end
 ```
 
-This code calls the "[AUTOTITLE](/rest/checks#create-a-check-run)" endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
+This code calls the `POST /repos/{owner}/{repo}/check-runs` endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method). For more information about the endpoint, see "[AUTOTITLE](/rest/checks#create-a-check-run)."
 
 To create a check run, only two input parameters are required: `name` and `head_sha`. In this code, we name the check run "Octo RuboCop," because we'll use RuboCop to implement the CI test later in the tutorial. But you can choose any name you'd like for the check run. For more information about RuboCop, see the [RuboCop documentation](https://docs.rubocop.org/rubocop/index.html).
 
@@ -749,7 +749,7 @@ In the code block that starts with `helpers do`, where it says `# ADD INITIATE_C
     end
 ```
 
-The code above calls the "[Update a check run](/rest/checks#update-a-check-run)" endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method), and updates the check run that you already created.
+The code above calls the `PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}` endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method), and updates the check run that you already created. For more information about the endpoint, see "[AUTOTITLE](/rest/checks#update-a-check-run)."
 
 Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In Part 2 of this tutorial, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
 
@@ -885,7 +885,7 @@ Open your `server.rb` file. In the code block that starts with `helpers do`, whe
 
 The code above uses the `ruby-git` gem to clone the repository using the app's installation token. It clones the code in the same directory as `server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
 
-From the repository directory, this code fetches and merges the latest changes (`@git.pull`), and checks out the specifig Git ref (`@git.checkout(ref)`). The code to do all of this fits nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. When it's done, the code changes the directory back to the original working directory (`pwd`).
+From the repository directory, this code fetches and merges the latest changes (`@git.pull`), and checks out the specific Git ref (`@git.checkout(ref)`). The code to do all of this fits nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. When it's done, the code changes the directory back to the original working directory (`pwd`).
 
 Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method.
 
@@ -998,7 +998,7 @@ The following steps will show you how to test that the code works and view the e
 
 The `@output` variable contains the parsed JSON results of the RuboCop report. As shown in the example output in the previous step, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
 
-The REST API endpoints to manage check runs allow you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this tutorial you will update the check run with annotations, using the "[Update a check run](/rest/checks/runs#update-a-check-run)" endpoint.
+The REST API endpoints to manage check runs allow you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this tutorial you will update the check run with annotations, using the `PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}` endpoint. For more information about the endpoint, see "[AUTOTITLE](/rest/checks/runs#update-a-check-run)."
 
 The API limits the number of annotations to a maximum of 50 per request. To create more than 50 annotations, you will have to make multiple requests to the "Update a check run" endpoint. For example, to create 105 annotations you would need to make three separate requests to the API. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
 
@@ -1510,7 +1510,7 @@ class GHAapp < Sinatra::Application
     # Instantiate an Octokit client authenticated as a GitHub App.
     # GitHub App authentication requires that you construct a
     # JWT (https://jwt.io/introduction/) signed with the app's private key,
-    # so GitHub can be sure that it came from the app an not altererd by
+    # so GitHub can be sure that it came from the app and not altered by
     # a malicious third party.
     def authenticate_app
       payload = {

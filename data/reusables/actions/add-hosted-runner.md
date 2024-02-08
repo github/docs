@@ -8,4 +8,6 @@
     - **Runner group**: Choose the group that your runner will be a member of. This group will host multiple instances of your runner, as they scale up and down to suit demand. {% ifversion ghec %}
     - **Networking**: Choose whether static IP address ranges will be assigned to instances of the {% data variables.actions.hosted_runner %}. You can use up to 10 {% data variables.actions.hosted_runner %}s with static IP addresses in total. {% endif %}
 
+    {% data reusables.actions.larger-runner-name-note %}
+
 1. Click **Create runner**.

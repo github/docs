@@ -46,9 +46,13 @@ describe(listFirstWordCapitalization.names.join(' - '), () => {
       "- '[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)'",
       '- [Viewing your sponsors and sponsorships](/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships)',
       '- macOS',
+      '- [{% data variables.actions.test %}](/apple/test)',
+      '- {{ foo }} for example',
       '- {% data variables.product.prodname_dotcom_the_website %} Services Continuity and Incident Management Plan',
       '-  {% data variables.product.prodname_dotcom_the_website %} Services Continuity and Incident Management Plan',
       '- x64',
+      '- @mention your friends',
+      '- @hash tags',
       '- 05:00',
     ].join('\n')
     const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })

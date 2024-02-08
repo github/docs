@@ -24,7 +24,7 @@ If you're new to {% data variables.product.prodname_dotcom %}, a good way to sta
 
 ## Getting started
 
-In the user interface on {% data variables.location.product_location %}, you can perform the whole "{% data variables.product.prodname_dotcom %} flow" for contributing to a repository, including creating a branch or fork, editing and previewing files, committing your changes, and creating a pull request. You can also upload files from your computer or download them from the repository. For more information, see "[AUTOTITLE](/get-started/quickstart/github-flow)."
+In the user interface on {% data variables.location.product_location %}, you can perform the whole "{% data variables.product.prodname_dotcom %} flow" for contributing to a repository, including creating a branch or fork, editing and previewing files, committing your changes, and creating a pull request. You can also upload files from your computer or download them from the repository. For more information, see "[AUTOTITLE](/get-started/using-github/github-flow)."
 
 Working directly on {% data variables.location.product_location %} is often the quickest way to contribute to a repository, for the following reasons.
 
@@ -32,7 +32,7 @@ Working directly on {% data variables.location.product_location %} is often the 
 - If you're already signed in to {% data variables.product.prodname_dotcom %}, you have access to any repository where you have the necessary permissions, so you don't need to set up any additional authentication on your computer.
 - You can commit changes in the user interface, so you don't need to use the command line or memorize any Git commands.
 
-For a tutorial to help you get started with making changes in the browser, see "[AUTOTITLE](/get-started/quickstart/hello-world)."
+For a tutorial to help you get started with making changes in the browser, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)."
 
 {% ifversion fpt or ghec %}
 
@@ -57,7 +57,7 @@ If you haven't worked with a {% data variables.product.prodname_dotcom %} reposi
 
 There are several tools you can use to connect to {% data variables.product.prodname_dotcom %} from your desktop. These tools allow you to authenticate to {% data variables.product.prodname_dotcom %}, clone a repository, track your changes, and push the changes to {% data variables.product.prodname_dotcom %}.
 
-- If you want a lot of control and flexibility, you can use the command line. You'll need to install Git and be familiar with some basic Git commands. You can also install {% data variables.product.prodname_cli %}, a command-line interface that lets you perform many actions on {% data variables.product.prodname_dotcom %}, such as creating a pull request or forking a repository. For more information, see "[AUTOTITLE](/get-started/quickstart/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+- If you want a lot of control and flexibility, you can use the command line. You'll need to install Git and be familiar with some basic Git commands. You can also install {% data variables.product.prodname_cli %}, a command-line interface that lets you perform many actions on {% data variables.product.prodname_dotcom %}, such as creating a pull request or forking a repository. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 - If you'd prefer to use a visual interface, you can use a visual Git client such as {% data variables.product.prodname_desktop %}. With {% data variables.product.prodname_desktop %}, you can visualize the changes you're making and access most Git commands through a visual interface, so you don't need to memorize any commands. For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)."
 - If you want to work in one place, you can often do most things from your editor. An editor such as {% data variables.product.prodname_vscode_shortname %} includes an integrated terminal and buttons for common Git commands, so you can edit files and push your changes to {% data variables.product.prodname_dotcom %} all from one place. You can also install an extension to work directly with pull requests and issues on {% data variables.product.prodname_dotcom %}. To get started, see [Download {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/download).
 
@@ -71,15 +71,15 @@ For more information about how to authenticate to {% data variables.product.prod
 
 | Tool | Use case | Browser or desktop |
 | ---- | -------- | ------------------ |
-| **On {% data variables.location.product_location %}** | You want a visual interface and need to make quick, simple changes, typically involving a single commit. For an introduction, see "[AUTOTITLE](/get-started/quickstart/hello-world)." | Browser |
+| **On {% data variables.location.product_location %}** | You want a visual interface and need to make quick, simple changes, typically involving a single commit. For an introduction, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)." | Browser |
 {%- ifversion fpt or ghec %}
 | **github.dev** | You want to make more complex changes to a repository than is possible on {% data variables.product.prodname_dotcom_the_website %}, but don't need to work with a terminal or tools you have installed on your computer. For more information, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor)." | Browser |
 | **{% data variables.product.prodname_github_codespaces %}** | You need the resources of a computer to do things like run scripts, create a test build of your project, or install dependencies, and you want to get started quickly by working in a cloud-based environment. For more information, see "[AUTOTITLE](/codespaces/overview)." | Browser or desktop |
 {%- endif %}
 | **{% data variables.product.prodname_desktop %}** | You want to work with files locally, and would prefer a visual interface to use Git, visualize changes, and interact with {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/desktop/overview/about-github-desktop)." | Desktop |
 | **IDE or text editor**  | You're working with more complex files and projects and want everything in one place. | Desktop |
-| **Command-line Git and {% data variables.product.prodname_cli %}** | You're used to working from the command line and want to avoid switching context, or you need to access a complex Git command that isn't integrated into visual interfaces. For more information, see "[AUTOTITLE](/get-started/quickstart/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)." | Desktop |
-| **{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API** | You want to automate common tasks such as backing up your data, or create integrations that extend {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/rest/overview/about-githubs-apis)." | Browser or desktop |
+| **Command-line Git and {% data variables.product.prodname_cli %}** | You're used to working from the command line and want to avoid switching context, or you need to access a complex Git command that isn't integrated into visual interfaces. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)" and "[AUTOTITLE](/github-cli/github-cli/about-github-cli)." | Desktop |
+| **{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API** | You want to automate common tasks such as backing up your data, or create integrations that extend {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api)." | Browser or desktop |
 
 ## Further reading
 

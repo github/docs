@@ -13,8 +13,17 @@ import contextualize from '#src/frame/middleware/context/context.js'
 import features from '#src/versions/middleware/features.js'
 import getRedirect from '#src/redirects/lib/get-redirect.js'
 import { isArchivedVersionByPath } from '#src/archives/lib/is-archived-version.js'
+import { readCompressedJsonFile } from '#src/frame/lib/read-json-file.js'
 
 const router = express.Router()
+
+// If you have pre-computed page info into a JSON file on disk, this is
+// where it would be expected to be found.
+// Note that if the file does not exist, it will be ignored and
+// every pageinfo is computed every time.
+// Note! The only reason this variable is exported is so that
+// it can be imported by the script scripts/precompute-pageinfo.ts
+export const CACHE_FILE_PATH = '.pageinfo-cache.json.br'
 
 const validationMiddleware = (req, res, next) => {
   const { pathname } = req.query
@@ -31,7 +40,7 @@ const validationMiddleware = (req, res, next) => {
     return res.status(400).json({ error: `'pathname' has to start with /` })
   }
   if (/\s/.test(pathname)) {
-    return res.status(400).json({ error: `'pathname' can not contain whitespace` })
+    return res.status(400).json({ error: `'pathname' cannot contain whitespace` })
   }
   req.pageinfo = { pathname }
   return next()
@@ -83,6 +92,97 @@ const pageinfoMiddleware = (req, res, next) => {
   return next()
 }
 
+export async function getPageInfo(page, pathname) {
+  const renderingReq = {
+    path: pathname,
+    language: page.languageCode,
+    pagePath: pathname,
+    cookies: {},
+  }
+  const next = () => {}
+  const res = {}
+  await contextualize(renderingReq, res, next)
+  await shortVersions(renderingReq, res, next)
+  renderingReq.context.page = page
+  await features(renderingReq, res, next)
+  const context = renderingReq.context
+
+  const title = await page.renderProp('title', context, { textOnly: true })
+  const intro = await page.renderProp('intro', context, { textOnly: true })
+
+  let productPage = null
+  for (const permalink of page.permalinks) {
+    const rootHref = permalink.href
+      .split('/')
+      .slice(0, permalink.pageVersion === 'free-pro-team@latest' ? 3 : 4)
+      .join('/')
+    const rootPage = context.pages[rootHref]
+    if (rootPage) {
+      productPage = rootPage
+      break
+    }
+  }
+  const product = productPage ? await getProductPageInfo(productPage, context) : ''
+
+  return { title, intro, product }
+}
+
+const _productPageCache = {}
+// The title of the product is much easier to cache because it's often
+// repeated. What determines the title of the product is the language
+// and the version. A lot of pages have the same title for the product.
+async function getProductPageInfo(page, context) {
+  const cacheKey = `${page.relativePath}:${context.currentVersion}:${context.currentLanguage}`
+  if (!(cacheKey in _productPageCache)) {
+    const title =
+      (await page.renderProp('shortTitle', context, {
+        textOnly: true,
+      })) ||
+      (await page.renderProp('title', context, {
+        textOnly: true,
+      }))
+    _productPageCache[cacheKey] = title
+  }
+  return _productPageCache[cacheKey]
+}
+
+let _cache = null
+async function getPageInfoFromCache(page, pathname) {
+  let cacheInfo = ''
+  if (_cache === null) {
+    try {
+      _cache = readCompressedJsonFile(CACHE_FILE_PATH)
+      cacheInfo = 'initial-load'
+    } catch (error) {
+      cacheInfo = 'initial-fail'
+      if (error.code !== 'ENOENT') {
+        throw error
+      }
+      _cache = {}
+    }
+  }
+
+  let info = _cache[pathname]
+  if (!cacheInfo) {
+    cacheInfo = info ? 'hit' : 'miss'
+  }
+  if (!info) {
+    info = await getPageInfo(page, pathname)
+    // You might wonder; why do we not store this compute information
+    // into the `_cache` from here?
+    // The short answer is; it won't be used again.
+    // In production, which is the only place where performance matters,
+    // a HTTP GET request will only happen once per deployment. That's
+    // because the CDN will cache it until the next deployment (which is
+    // followed by a CDN purge).
+    // In development (local preview), the performance doesn't really matter.
+    // In CI, we use the caching because the CI runs
+    // `npm run precompute-pageinfo` right before it runs jest tests.
+  }
+  info.cacheInfo = cacheInfo
+  return info
+}
+
 router.get(
   '/v1',
   validationMiddleware,
@@ -113,57 +213,16 @@ router.get(
       throw new Error(`pathname '${pathname}' not one of the page's permalinks`)
     }
 
-    const renderingReq = {
-      path: pathname,
-      language: page.languageCode,
-      pagePath: pathname,
-      cookies: {},
-    }
-    const next = () => {}
-    await contextualize(renderingReq, res, next)
-    await shortVersions(renderingReq, res, next)
-    renderingReq.context.page = page
-    await features(renderingReq, res, next)
-    const context = renderingReq.context
-
-    const title = await page.renderProp('title', context, { textOnly: true })
-    const intro = await page.renderProp('intro', context, { textOnly: true })
-
-    let productPage = null
-    for (const permalink of page.permalinks) {
-      const rootHref = permalink.href
-        .split('/')
-        .slice(0, permalink.pageVersion === 'free-pro-team@latest' ? 3 : 4)
-        .join('/')
-      const rootPage = context.pages[rootHref]
-      if (rootPage) {
-        productPage = rootPage
-        break
-      }
-    }
-    let product = ''
-    if (productPage) {
-      product = await productPage.renderProp('shortTitle', context, {
-        textOnly: true,
-      })
-      if (!product) {
-        product = await productPage.renderProp('title', context, {
-          textOnly: true,
-        })
-      }
-    }
-
-    const info = {
-      product,
-      title,
-      intro,
-    }
+    const fromCache = await getPageInfoFromCache(page, pathname)
+    const { cacheInfo, ...info } = fromCache
 
     const tags = [
       // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags
       // the max length of a tag is 200 characters. Most of ours are less than
       // that but we truncate just to be safe.
       `pathname:${pathname}`.slice(0, 200),
+      `language:${page.languageCode}`,
+      `cache:${cacheInfo}`,
     ]
     statsd.increment('pageinfo.lookup', 1, tags)
 

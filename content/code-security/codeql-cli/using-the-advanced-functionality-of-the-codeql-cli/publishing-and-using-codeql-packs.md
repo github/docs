@@ -238,6 +238,10 @@ The following properties are supported in `qlpack.yml` files.
     codeql/cpp-all: ^0.0.2
   ```
 
+  If you are unsure or it does not matter which version should be used, then you can use `"*"`, which indicates that any version of this dependency is compatible with this pack. In practice, this will usually resolve to the highest published version of the dependency.
+
+  There is a special version placeholder, `${workspace}`, which indicates that this {% data variables.product.prodname_codeql %} pack depends on whatever version of the dependency is in the same workspace. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/about-codeql-workspaces#using-workspace-as-a-version-range-in-qlpackyml-files)."
+
 #### `defaultSuiteFile`
 
 - Required by packs that export a set of default queries to run.

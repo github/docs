@@ -91,6 +91,14 @@ jobs:
           # Needed for gh
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: |
+          # If nothing to commit, exit now. It's fine. No orphans.
+          changes=$(git diff --name-only | wc -l)
+          untracked=$(git status --untracked-files --short | wc -l)
+          if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
+            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
+            exit 0
+          fi
+
           git status
           current_timestamp=$(date '+%Y-%m-%d-%H%M%S')
           branch_name="delete-orphan-files-$current_timestamp"

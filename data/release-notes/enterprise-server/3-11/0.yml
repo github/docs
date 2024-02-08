@@ -300,6 +300,8 @@ sections:
 
   known_issues:
     - |
+      {% data reusables.release-notes.2023-12-ghes-3-11-upgrade-reloading-system-services-error %} [Updated 2023-12-21]
+    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
@@ -323,6 +325,8 @@ sections:
       {% data reusables.release-notes.2023-10-git-push-made-but-not-registered %}
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
+    - |
+      {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
 
   deprecations:
     # https://github.com/github/releases/issues/3259

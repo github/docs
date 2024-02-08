@@ -41,7 +41,7 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 
    ![Screenshot of the "Manage discussion categories" page.  A button, labeled "New category", is highlighted with an orange outline.](/assets/images/help/discussions/click-new-category-button.png)
 
-1. Edit the emoji, title, description, and discussion format for the category. For more information about discussion formats, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+1. {% data reusables.discussions.edit-category-details %}
 {% ifversion discussions-category-section %}
 {% data reusables.discussions.add-category-to-section %}{% endif %}
 1. Click **Create**.

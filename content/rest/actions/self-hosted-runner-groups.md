@@ -1,5 +1,7 @@
 ---
-title: Self-hosted runner groups
+title: REST API endpoints for self-hosted runner groups
+shortTitle: Self-hosted runner groups
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with self-hosted runner groups for {% data
   variables.product.prodname_actions %}.

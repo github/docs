@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -16,6 +15,7 @@ children:
   - /about-the-tool-status-page
   - /editing-your-configuration-of-default-setup
   - /codeql-query-suites
+  - /configuring-larger-runners-for-default-setup
   - /viewing-code-scanning-logs
   - /c-cpp-built-in-queries
   - /csharp-built-in-queries

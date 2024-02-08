@@ -41,3 +41,7 @@ When you reorder commits, you may see one of the following notifications or erro
     {% data reusables.desktop.resolve-merge-conflicts %}
 
     1. When all conflicts are resolved, you can reorder your commits.
+
+## Further reading
+
+- "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"

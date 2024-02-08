@@ -6,7 +6,7 @@
     "build": {
         "dockerfile": "Dockerfile",
         // Update 'VARIANT' to pick a Node version
-        "args": { "VARIANT": "18" }
+        "args": { "VARIANT": "20" }
     },
 
     // Set *default* container specific settings.json values on container create.
@@ -31,6 +31,7 @@
                 "bierner.markdown-preview-github-styles",
                 "streetsidesoftware.code-spell-checker",
                 "alistairchristie.open-reusables",
+                "AlistairChristie.version-identifier",
                 "GitHub.copilot",
                 "GitHub.copilot-chat"
             ]

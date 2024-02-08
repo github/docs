@@ -1,5 +1,5 @@
 ---
-title: Repository traffic
+title: REST API endpoints for repository traffic
 shortTitle: Traffic
 allowTitleToDifferFromFilename: true
 intro: Use the REST API to retrieve information provided in your repository graph.

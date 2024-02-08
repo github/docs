@@ -75,9 +75,9 @@ jobs:
     steps:
     # Uses the {% ifversion ghes < 3.12 %}[tibdex/github-app-token](https://github.com/tibdex/github-app-token){% else %}[actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token){% endif %} action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}`.
     #
-    #Replace `APP_ID` with the name of the secret that contains your app ID.
+    # Replace `APP_ID` with the name of the secret that contains your app ID.
     #
-    #Replace `APP_PEM` with the name of the secret that contains your app private key.
+    # Replace `APP_PEM` with the name of the secret that contains your app private key.
       - name: Generate token
         id: generate_token
         uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
@@ -91,7 +91,7 @@ jobs:
       # Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
       - name: Get project data
         env:
-          GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
           ORGANIZATION: YOUR_ORGANIZATION
           PROJECT_NUMBER: YOUR_PROJECT_NUMBER
         # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. `fields` returns a union and the query uses inline fragments (`... on`) to return information about any `ProjectV2Field` and `ProjectV2SingleSelectField` fields. The response is stored in a file called `project_data.json`.
@@ -125,17 +125,17 @@ jobs:
 #
 # - To get the ID of a field called `Team`, add `echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV`.
 # - To get the ID of an option called `Octoteam` for the `Team` single select field, add `echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV`.
-# 
+#
 # **Note:** This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
           echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
           echo 'STATUS_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
           echo 'TODO_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="Todo") |.id' project_data.json) >> $GITHUB_ENV
 
-# Sets environment variables for this step. `GITHUB_TOKEN` is the token generated in the first step. `PR_ID` is the ID of the pull request that triggered this workflow.
+# Sets environment variables for this step. `GH_TOKEN` is the token generated in the first step. `PR_ID` is the ID of the pull request that triggered this workflow.
       - name: Add PR to project
         env:
-          GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
           PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
         # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) and the API to add the pull request that triggered this workflow to the project. The `jq` flag parses the response to get the ID of the created item.
         run: |
@@ -155,10 +155,10 @@ jobs:
       - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
 
-# Sets environment variables for this step. `GITHUB_TOKEN` is the token generated in the first step.
+# Sets environment variables for this step. `GH_TOKEN` is the token generated in the first step.
       - name: Set fields
         env:
-          GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
         # Sets the value of the `Status` field to `Todo`. Sets the value of the `Date posted` field.
         run: |
           gh api graphql -f query='
@@ -223,7 +223,7 @@ jobs:
     # Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
       - name: Get project data
         env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
           ORGANIZATION: YOUR_ORGANIZATION
           PROJECT_NUMBER: YOUR_PROJECT_NUMBER
         # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. `fields` returns a union and the query uses inline fragments (`... on`) to return information about any `ProjectV2Field` and `ProjectV2SingleSelectField` fields. The response is stored in a file called `project_data.json`.
@@ -257,7 +257,7 @@ jobs:
 #
 # - To get the ID of a field called `Team`, add `echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV`.
 # - To get the ID of an option called `Octoteam` for the `Team` single select field, add `echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV`.
-# 
+#
 # **Note:** This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
           echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
@@ -267,7 +267,7 @@ jobs:
 # Sets environment variables for this step. Replace `YOUR_TOKEN` with the name of the secret that contains your {% data variables.product.pat_generic %}.
       - name: Add PR to project
         env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
           PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
         # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) and the API to add the pull request that triggered this workflow to the project. The `jq` flag parses the response to get the ID of the created item.
         run: |
@@ -290,7 +290,7 @@ jobs:
 # Sets environment variables for this step. Replace `YOUR_TOKEN` with the name of the secret that contains your {% data variables.product.pat_generic %}.
       - name: Set fields
         env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ secrets.YOUR_TOKEN }}{% endraw %}
         # Sets the value of the `Status` field to `Todo`. Sets the value of the `Date posted` field.
         run: |
           gh api graphql -f query='

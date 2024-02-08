@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
   - /admin/enterprise-support/about-github-enterprise-support
@@ -27,8 +26,6 @@ topics:
 
 The support options available to {% data variables.product.prodname_dotcom %} users depend on the products used by their personal accounts,  any organizations or enterprises they are members of, and any {% data variables.product.prodname_ghe_server %} instances they manage. Each product includes a default level of support and accounts that use {% data variables.product.prodname_enterprise %} can purchase {% data variables.contact.premium_support %}.
 
-{% ifversion not ghae %}
-
 {% rowheaders %}
 
 |  | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
@@ -40,8 +37,6 @@ The support options available to {% data variables.product.prodname_dotcom %} us
 | {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | Available to purchase |
 
 {% endrowheaders %}
-
-{% endif %}
 
 {% ifversion ghes %}
 
@@ -60,14 +55,9 @@ For more information, see "[AUTOTITLE](/support/learning-about-github-support/ab
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghae %}
+{% ifversion fpt or ghec %}
 
-Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on
-{%- ifversion fpt or ghec %}
-[{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/)
-{%- elsif ghae %}
-[{% data variables.product.product_name %} Status](https://ghestatus.com/)
-{%- endif %}. For more information, see "[About GitHub status](#about-github-status)."
+Before contacting {% data variables.contact.github_support %}, check if there are currently any incidents affecting services on {% data variables.product.product_name %} on [{% data variables.product.prodname_dotcom %} Status](https://githubstatus.com/). For more information, see "[About GitHub status](#about-github-status)."
 
 {% endif %}
 
@@ -91,25 +81,19 @@ With {% data variables.product.product_name %}, you have access to support in En
 
 To contact {% data variables.contact.github_support %}, visit the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
 
-{% elsif ghae %}
-
-You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.ae_azure_portal %} to report issues in writing. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)."
-
 {% endif %}
 
-{% ifversion not ghae %}
 Email communication from GitHub Support will always be sent from either a `github.com` or `githubsupport.com` address.
-{% endif %}
 
 ## Scope of support
 
 {% data reusables.support.scope-of-support %}
 
-{% ifversion ghec or fpt or ghae %}
+{% ifversion ghec or fpt %}
 
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% elsif ghae %}https://ghestatus.com{% endif %}).
+You can check for any incidents currently affecting {% data variables.product.product_name %} services and view information about past incidents on {% data variables.product.prodname_dotcom %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% endif %}).
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.product_name %}.
 
@@ -192,7 +176,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Resolving and closing support tickets
 
@@ -206,6 +190,4 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 - Section 10 on Support in the "[{% data variables.product.prodname_ghe_server %} License Agreement](https://enterprise.github.com/license)"
 {%- endif %}
 - "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"
-{%- ifversion not ghae %}
 - "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)"
-{%- endif %}

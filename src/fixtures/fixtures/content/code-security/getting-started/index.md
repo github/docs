@@ -4,7 +4,6 @@ intro: code security get started articles
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: quick_start
 topics:

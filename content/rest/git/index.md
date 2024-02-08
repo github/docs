@@ -1,5 +1,6 @@
 ---
-title: Git database
+title: REST API endpoints for Git database
+shortTitle: Git database
 intro: 'Use the REST API to interact with raw Git objects in your Git database on {% data variables.product.product_name %} and to list and update Git references (branch heads and tags).'
 allowTitleToDifferFromFilename: true
 redirect_from:

@@ -49,8 +49,10 @@ To migrate your repositories from {% data variables.product.prodname_ghe_server 
 
 ## Prerequisites
 
-{% data reusables.enterprise-migration-tool.migration-prerequisites %}
-- You must be either an organization owner or be granted the migrator role for both the source and destination organizations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+- {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
+- {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
+- {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
+- In both the source and destination organizations, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 - If you use {% data variables.product.prodname_ghe_server %} 3.8 or higher, you need access to the {% data variables.enterprise.management_console %}.
 
 {% api %}
@@ -239,7 +241,7 @@ If you're using {% data variables.product.prodname_ghe_server %} 3.7 or lower, y
 
 If you're using {% data variables.product.prodname_ghe_server %} 3.8 or higher, your instance uploads the archives and generates the URLs for you. The `Location` header in the previous step will return the short-lived URL.
 
-You may need to allowlist {% data variables.product.company_short %}'s IP ranges. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#configuring-ip-allow-lists-for-migrations)."
+You may need to allowlist {% data variables.product.company_short %}'s IP ranges. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 
 ## Step 7: Start your repository migration
 
@@ -290,6 +292,8 @@ mutation startRepositoryMigration (
 `metadataArchiveUrl` | A {% data variables.product.prodname_ghe_cloud %}-accessible URL for your metadata archive.
 `sourceRepositoryUrl` | The URL for your repository on your {% data variables.product.prodname_ghe_server %} instance. This is required, but {% data variables.product.prodname_ghe_cloud %} will not communicate directly with your {% data variables.product.prodname_ghe_server %} instance.
 
+For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
+
 {% data reusables.enterprise-migration-tool.next-check-status %}
 
 ## Step 8: Check the status of your migration
@@ -307,6 +311,8 @@ mutation startRepositoryMigration (
 ## Step 1: Install the {% data variables.product.prodname_gei_cli %}
 
 {% data reusables.enterprise-migration-tool.install-gei-extension-intro %}
+
+{% data reusables.enterprise-migration-tool.gei-binary %}
 
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 {% data reusables.enterprise-migration-tool.install-gei-extension %}
@@ -422,6 +428,8 @@ gh gei generate-script --github-source-org SOURCE \
 
 {% data reusables.enterprise-migration-tool.skip-releases %}
 
+{% data reusables.enterprise-migration-tool.gei-binary-generate-script %}
+
 ## Step 6: Migrate repositories
 
 {% data reusables.enterprise-migration-tool.migrate-repos-gei %}
@@ -482,6 +490,12 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 {% data reusables.enterprise-migration-tool.ghes-api-url-placeholder %}
 {% data reusables.enterprise-migration-tool.azure-storage-connection-string-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+
+{% data reusables.enterprise-migration-tool.abort-migration %}
+
+```shell copy
+gh gei abort-migration --migration-id MIGRATION-ID
+```
 
 ## Step 7: Validate your migration and check the error log
 

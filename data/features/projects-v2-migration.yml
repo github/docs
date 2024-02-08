@@ -1,4 +1,4 @@
-# Migrating from classic projects
+# Migrating from projects (classic)
 versions:
   fpt: '*'
   ghec: '*'

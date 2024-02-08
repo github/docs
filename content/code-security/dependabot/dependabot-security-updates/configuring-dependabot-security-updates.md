@@ -25,7 +25,6 @@ topics:
 ---
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About configuring {% data variables.product.prodname_dependabot_security_updates %}

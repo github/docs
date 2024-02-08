@@ -47,7 +47,6 @@ Once you've installed Node.js (which includes the popular `npm` package manager)
 git clone https://github.com/github/docs
 cd docs
 npm ci
-npm run build
 npm start
 ```
 

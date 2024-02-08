@@ -17,13 +17,15 @@ redirect_from:
 permissions: Enterprise owners can configure audit log streaming.
 ---
 
-{% ifversion ghes %}
+
 {% note %}
 
-**Note:** Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+{% ifversion ghes %}**Notes:**
+- Audit log streaming is currently in beta for {% data variables.product.product_name %} and is subject to change.
+- {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% else %}
+**Note:** {% data reusables.webhooks.webhooks-as-audit-log-alternative %}{% endif %}
 
 {% endnote %}
-{% endif %}
 
 ## About audit log streaming
 
@@ -252,7 +254,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 {% endnote %}
 
 {% ifversion ghec %}
-To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[Meta](/rest/meta/meta#get-github-enterprise-cloud-meta-information)" in the REST API documentation.
+To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information)."
 {% endif %}
 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
@@ -267,7 +269,7 @@ To get a list of IP address ranges that {% data variables.product.prodname_dotco
 
    - The port on which the application accepts data.<br>
 
-     If you're using Splunk Cloud and haven't changed the port configration, `Port` should be `443`.
+     If you're using Splunk Cloud and haven't changed the port configuration, `Port` should be `443`.
 
      If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 

@@ -68,7 +68,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    - For "Which CI providers are you configuring?", use the arrow keys to select `CircleCI`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
    - For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the GitHub instance", {% ifversion ghes or ghae %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   - For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
    - For "{% data variables.product.pat_generic_caps %} for CircleCI", enter the value for the CircleCI personal API token that you created earlier, and press <kbd>Enter</kbd>.
    - For "Base url of the CircleCI instance", press <kbd>Enter</kbd> to accept the default value (`https://circleci.com`).
    - For "CircleCI organization name", enter the name for your CircleCI organization, and press <kbd>Enter</kbd>.
@@ -76,7 +76,7 @@ The `configure` CLI command is used to set required credentials and options for 
    An example of the `configure` command is shown below:
 
    ```shell
-   $ gh actions-importer configure 
+   $ gh actions-importer configure
    ✔ Which CI providers are you configuring?: CircleCI
    Enter the following values (leave empty to omit):
    ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
@@ -258,7 +258,7 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 The pipeline is selected by matching the `repository_slug` in the config file to the value of the `--circle-ci-organization` and `--circle-ci-project` options. The `path` is then used to pull the specified source file.
 
 ```bash
-gh actions-importer dry-run circle-ci --circle-ci-project circle-org-name/circle-project-name --output-dir ./output/ --config-file-path ./path/to/circle-ci/config.yml 
+gh actions-importer dry-run circle-ci --circle-ci-project circle-org-name/circle-project-name --output-dir ./output/ --config-file-path ./path/to/circle-ci/config.yml
 ```
 
 ##### Specify the repository of converted composite actions

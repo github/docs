@@ -6,13 +6,10 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/logs-are-not-detailed-enough
 ---
-
-{% data reusables.code-scanning.beta %}
 
 If your logs are not detailed enough, there are several steps you can take to make them more useful.
 
@@ -23,7 +20,7 @@ You can enable step debug logging in {% data variables.product.prodname_actions 
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
 You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
-The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow.
+The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), extracted source code files, and any SARIF file(s) produced by the workflow.
 
 These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. If you contact GitHub support, they might ask for this data.
 

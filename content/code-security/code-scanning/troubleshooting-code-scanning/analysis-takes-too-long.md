@@ -6,13 +6,11 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/build-is-taking-too-long
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
 There are several approaches you can try to reduce the build time in a {% data variables.product.prodname_code_scanning %} analysis.
@@ -21,9 +19,9 @@ There are several approaches you can try to reduce the build time in a {% data v
 
 {% ifversion fpt or ghec %}
 
-If you use self-hosted runners to run {% data variables.product.prodname_code_scanning %} analysis, you can increase the memory or the number of cores on those runners. If you're using {% data variables.product.prodname_codeql %} with advanced setup for your analysis, you can review the recommended hardware resources for {% data variables.product.prodname_codeql %} to make sure your self-hosted runners meet those requirements. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
+If you're using {% data variables.product.company_short %}-hosted runners for your {% data variables.product.prodname_code_scanning %} analysis, consider upgrading to {% data variables.actions.hosted_runners %}. These are {% data variables.product.company_short %}-hosted runners with more RAM, CPU, and disk space than standard runners. For more information about {% data variables.actions.hosted_runners %} and {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)" and "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/configuring-larger-runners-for-default-setup)."
 
-If you're using {% data variables.product.company_short %}-hosted runners for your {% data variables.product.prodname_code_scanning %} analysis, you could consider upgrading to larger runners. These are {% data variables.product.company_short %}-hosted runners with more RAM, CPU, and disk space than standard runners. For more information about larger runners and the specifications you can use with them, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
+If you're using self-hosted runners to run {% data variables.product.prodname_code_scanning %} analysis, you can increase the memory or the number of cores on those runners. If you're using {% data variables.product.prodname_codeql %} with advanced setup for your analysis, review the recommended hardware resources for {% data variables.product.prodname_codeql %} to make sure your self-hosted runners meet those requirements. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/recommended-hardware-resources-for-running-codeql)."
 
 {% elsif ghes %}
 

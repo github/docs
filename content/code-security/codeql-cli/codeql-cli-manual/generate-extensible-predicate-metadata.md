@@ -5,7 +5,6 @@ intro: |-
   found in the given pack.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -29,8 +28,8 @@ codeql generate extensible-predicate-metadata <options>... -- <pack-root-dir>
 
 ## Description
 
-\[Experimental] \[Deep plumbing] Report the extensible predicates
-found in the given pack.
+\[Deep plumbing] Report the extensible predicates found in the given
+pack.
 
 ## Options
 

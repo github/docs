@@ -11,7 +11,6 @@ import {
 } from '#src/frame/lib/path-utils.js'
 import productNames from '#src/products/lib/product-names.js'
 import warmServer from '#src/frame/lib/warm-server.js'
-import searchVersions from '#src/search/lib/versions.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { getDataByLanguage, getUIDataMerged } from '#src/data-directory/lib/get-data.js'
 
@@ -59,7 +58,6 @@ export default async function contextualize(req, res, next) {
   req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language)
   req.context.siteTree = siteTree
   req.context.pages = pageMap
-  req.context.searchVersions = searchVersions
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
   req.context.initialRestVersioningReleaseDate =
     allVersions[nonEnterpriseDefaultVersion].apiVersions[0]

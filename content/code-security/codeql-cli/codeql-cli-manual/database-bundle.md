@@ -2,7 +2,6 @@
 title: database bundle
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -47,6 +46,12 @@ that results, logs, TRAP, or similar should be included.
 #### `-o, --output=<output>`
 
 \[Mandatory] The output file, typically with the extension ".zip".
+
+#### `--include-diagnostics`
+
+Include diagnostics in the bundle.
+
+Available since `v2.16.0`.
 
 #### `--include-results`
 

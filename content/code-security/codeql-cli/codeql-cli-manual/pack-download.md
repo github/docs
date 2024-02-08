@@ -2,7 +2,6 @@
 title: pack download
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -33,9 +32,9 @@ codeql pack download [--dir=<dir>] [--force] <options>... -- <scope/name[@versio
 
 ## Description
 
-\[Experimental] Download the set of qlpacks referenced by the query
-spec of the command line from the registry. Packs can be provided by
-name or implicitly inside of a query suite (.qls) file.
+Download the set of qlpacks referenced by the query spec of the command
+line from the registry. Packs can be provided by name or implicitly
+inside of a query suite (.qls) file.
 
 The packs will be downloaded and unzipped into the package cache by
 default.
