@@ -4,7 +4,6 @@ intro: 'To help you manage your notifications efficiently, there are several way
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Notifications

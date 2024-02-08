@@ -61,7 +61,7 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
       - third-party/dependencies/dependency1
       - vendors/dependency1
       - /externals/vendor1/dependency1
-{% ifversion ghes < 3.10 or ghae < 3.10 %}
+{% ifversion ghes < 3.10 %}
 1. **Visualization limits**
 
     These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
