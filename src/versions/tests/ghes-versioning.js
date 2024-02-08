@@ -1,5 +1,6 @@
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { liquid } from '#src/content-render/index.js'
+import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 import shortVersionsMiddleware from '#src/versions/middleware/short-versions.js'
 
 const contextualize = (req) => {
@@ -12,14 +13,14 @@ describe('ifversion conditionals', () => {
   beforeAll(async () => {
     req.context = {
       allVersions,
-      currentVersion: 'github-ae@latest',
+      currentVersion: `enterprise-server@${supported[0]}`,
     }
     contextualize(req)
   })
 
   test('greater than', async () => {
     const template = `
-      {% ifversion ghae > 3.2 %}
+      {% ifversion ghes > 3.2 %}
       FOO
       {% else %}
       BAR
@@ -31,7 +32,7 @@ describe('ifversion conditionals', () => {
 
   test('less than', async () => {
     const template = `
-      {% ifversion ghae < 3.2 %}
+      {% ifversion ghes < 3.2 %}
       FOO
       {% else %}
       BAR
@@ -43,7 +44,7 @@ describe('ifversion conditionals', () => {
 
   test('Equal', async () => {
     const template = `
-      {% ifversion ghae %}
+      {% ifversion ghes %}
       FOO
       {% else %}
       BAR
@@ -55,7 +56,7 @@ describe('ifversion conditionals', () => {
 
   test('Not', async () => {
     const template = `
-      {% ifversion not ghae %}
+      {% ifversion not ghes %}
       FOO
       {% else %}
       BAR

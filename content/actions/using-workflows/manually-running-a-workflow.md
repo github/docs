@@ -4,7 +4,6 @@ intro: 'When a workflow is configured to run on the `workflow_dispatch` event, y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Manually run a workflow
 redirect_from:
