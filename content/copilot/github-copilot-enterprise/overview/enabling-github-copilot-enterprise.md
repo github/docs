@@ -20,7 +20,7 @@ To use {% data variables.product.prodname_copilot_enterprise %} features, you ca
 
 If an enterprise or organization is granted access to the {% data variables.product.prodname_copilot_enterprise_short %} beta, an administrator must enable the {% data variables.product.prodname_copilot_enterprise_short %} features before members can start using the features. You can enable features in the settings of the enterprise or organization. Enabling or disabling the {% data variables.product.prodname_copilot_enterprise_short %} features does not affect the features already included in your {% data variables.product.prodname_copilot_for_business %} subscription.
 
-When members are granted access to the features, they will be notified that they have access, and receive instructions on how to start using the features.
+When members are granted access to the features, they will be notified that they have access and receive instructions on how to start using the features.
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_enterprise %} features for an enterprise
 
