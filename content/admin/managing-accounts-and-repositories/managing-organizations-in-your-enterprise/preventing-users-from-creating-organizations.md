@@ -9,7 +9,6 @@ redirect_from:
 intro: You can prevent users from creating organizations in your enterprise.
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise

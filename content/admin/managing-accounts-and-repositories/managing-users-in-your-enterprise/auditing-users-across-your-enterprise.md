@@ -9,7 +9,6 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/auditing-users-across-your-enterprise
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Auditing

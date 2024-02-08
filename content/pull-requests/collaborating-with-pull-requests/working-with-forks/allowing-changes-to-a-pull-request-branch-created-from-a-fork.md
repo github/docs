@@ -10,7 +10,6 @@ permissions: People with push access to the upstream repository of a fork owned 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

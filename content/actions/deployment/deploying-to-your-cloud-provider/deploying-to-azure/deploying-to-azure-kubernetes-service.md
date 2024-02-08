@@ -4,7 +4,6 @@ intro: You can deploy your project to Azure Kubernetes Service (AKS) as part of 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:

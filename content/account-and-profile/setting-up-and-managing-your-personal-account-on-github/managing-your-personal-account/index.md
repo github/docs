@@ -5,7 +5,6 @@ shortTitle: Manage personal account
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
