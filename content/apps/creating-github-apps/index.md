@@ -1,5 +1,5 @@
 ---
-title: Creating GitHub Apps
+title: My GitHub Apps
 intro: You can build GitHub Apps for yourself or others to use.
 versions:
   fpt: '*'
