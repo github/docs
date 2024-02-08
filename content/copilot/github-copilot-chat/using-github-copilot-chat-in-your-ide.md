@@ -246,6 +246,18 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% data reusables.copilot.chat-procedural-intro %}
 
+## Joining the beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE
+
+The following customers are eligible to participate in the private beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE.
+
+- Users with **{% data variables.product.prodname_copilot_individuals_short %} subscriptions**. To join the private beta, sign up on the [waitlist](https://github.com/github-copilot/chat_jetbrains_waitlist_signup/join). You will be notified by email when you are granted access to the beta. Joining the waitlist does not guarantee access to the beta.
+- Owners of **invoiced organizations or enterprises with a {% data variables.product.prodname_copilot_business_short %} subscription** who also have an account manager. To join the private beta, contact your account manager or solutions engineer to request access.
+
+The following customers are not eligible for the private beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE at this time.
+
+- Customers on Free, Team, or Enterprise plans who do not have an account manager.
+- Customers on Enterprise plans who pay for {% data variables.product.product_name %} with a credit card or PayPal.
+
 ## Prerequisites
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
