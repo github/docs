@@ -4,7 +4,6 @@ intro: 'You can generate a user access token for your {% data variables.product.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

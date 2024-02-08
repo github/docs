@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: tutorial
 topics:
   - Migration
