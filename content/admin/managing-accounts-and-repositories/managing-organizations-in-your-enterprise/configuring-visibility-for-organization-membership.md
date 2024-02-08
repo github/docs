@@ -7,7 +7,6 @@ redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise

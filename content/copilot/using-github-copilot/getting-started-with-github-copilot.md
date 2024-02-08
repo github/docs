@@ -20,7 +20,7 @@ topics:
   - Copilot
 ---
 
-{% data reusables.copilot.copilot-cta-button %}
+<a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=getting+started+with+github+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Start a free trial</span> {% octicon "link-external" height:16 %}</a>
 
 {% jetbrains %}
 

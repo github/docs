@@ -5,7 +5,6 @@ permissions: People with admin access for a repository can change the default br
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch

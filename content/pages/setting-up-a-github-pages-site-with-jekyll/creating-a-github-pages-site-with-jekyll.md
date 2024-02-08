@@ -9,7 +9,6 @@ permissions: 'People with admin permissions for a repository can create a {% dat
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages

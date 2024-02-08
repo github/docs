@@ -9,7 +9,6 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/integrating-jira-with-your-personal-projects
 versions:
   ghes: '*'
-  ghae: '*'
 shortTitle: Integrate Jira with projects
 ---
 {% data reusables.user-settings.access_settings %}
