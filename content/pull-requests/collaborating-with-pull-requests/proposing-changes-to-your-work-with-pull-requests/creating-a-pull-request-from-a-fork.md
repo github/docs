@@ -10,7 +10,6 @@ permissions: 'Anyone with write access to a repository can create a pull request
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

@@ -10,7 +10,6 @@ redirect_from:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/activity-dashboard
 versions:
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 ---

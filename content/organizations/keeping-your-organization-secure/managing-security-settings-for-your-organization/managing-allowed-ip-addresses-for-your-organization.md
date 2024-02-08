@@ -5,7 +5,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
