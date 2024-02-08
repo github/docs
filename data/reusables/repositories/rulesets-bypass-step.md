@@ -1,6 +1,6 @@
 You can grant certain roles, teams, or apps bypass permissions for your ruleset. The following are eligible for bypass access:
   - Repository admins or organization owners
-  - The maintain or write role, or custom repository roles based on the write role
+  - The "Maintain" or "Write" role, or custom repository roles based on the "Write" role
   - Teams
   - {% data variables.product.prodname_github_apps %}
 
