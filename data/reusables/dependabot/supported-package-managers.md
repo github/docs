@@ -68,6 +68,8 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 {% data variables.product.prodname_dependabot %} supports both public and private Docker registries. For a list of the supported registries, see "`docker-registry`" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)."
 {% endif %}
 
+{% data variables.product.prodname_dependabot %} parses Docker image tags for Semantic Versioning ([SemVer](https://semver.org/)). If {% data variables.product.prodname_dependabot %} detects a tag with a pre-release, then it will only suggest an update to the latest version with a matching pre-release, and it will not suggest a newer version that use a different pre-release label. For more information, see the `dependabot-docker` [README.md](https://github.com/dependabot/dependabot-core/blob/main/docker/README.md) file in the `github/dependabot/dependabot-core` repository.
+
 #### {% data variables.product.prodname_actions %}
 
 {% data variables.product.prodname_dependabot %} only supports updates to {% data variables.product.prodname_actions %} using the {% data variables.product.prodname_dotcom %} repository syntax, such as `{% data reusables.actions.action-checkout %}`. {% data variables.product.prodname_dependabot %} will ignore actions or reusable workflows referenced locally (for example, `./.github/actions/foo.yml`).
