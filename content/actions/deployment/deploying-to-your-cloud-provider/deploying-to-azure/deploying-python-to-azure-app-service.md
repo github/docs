@@ -4,7 +4,6 @@ intro: You can deploy your Python project to Azure App Service as part of your c
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:

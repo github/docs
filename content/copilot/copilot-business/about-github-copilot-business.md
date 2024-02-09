@@ -13,7 +13,7 @@ topics:
 shortTitle: About GitHub Copilot Business
 ---
 
-{% data reusables.copilot.get-copilot-business-cta-button %}
+<a href="https://github.com/github-copilot/business_signup/choose_business_type/?ref_cta=Copilot+Business+trial&ref_loc=about+github+copilot+business&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Get {% data variables.product.prodname_copilot_for_business %}</span> {% octicon "link-external" height:16 %}</a>
 
 ## About {% data variables.product.prodname_copilot_business_short %}
 

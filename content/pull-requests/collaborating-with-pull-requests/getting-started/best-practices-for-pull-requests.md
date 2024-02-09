@@ -4,7 +4,6 @@ intro: 'You can follow best practices to improve the consistency and quality of 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

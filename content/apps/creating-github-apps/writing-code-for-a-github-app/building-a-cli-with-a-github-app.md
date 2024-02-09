@@ -5,7 +5,6 @@ intro: 'Follow this tutorial to write a CLI in Ruby that generates a user access
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

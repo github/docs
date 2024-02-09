@@ -5,7 +5,6 @@ intro: 'Learn {% data variables.product.prodname_dotcom %}-recommended practices
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

@@ -5,7 +5,6 @@ intro: You can make your {% data variables.product.prodname_github_app %} authen
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

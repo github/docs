@@ -5,7 +5,6 @@ intro: Learn how to use repositories most effectively.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

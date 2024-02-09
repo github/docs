@@ -4,7 +4,6 @@ intro: You can deploy your web app to Azure Static Web App as part of your conti
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:

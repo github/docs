@@ -11,7 +11,6 @@ intro: 'Learn how to create a new repository and commit your first change in 5 m
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
