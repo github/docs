@@ -6219,17 +6219,20 @@ input CreateAttributionInvitationInput {
   """
   The Node ID of the owner scoping the reattributable data.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  ownerId: ID!
+    @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"], abstractType: "Account")
 
   """
   The Node ID of the account owning the data to reattribute.
   """
-  sourceId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  sourceId: ID!
+    @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"], abstractType: "Account")
 
   """
   The Node ID of the account which may claim the data.
   """
-  targetId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  targetId: ID!
+    @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"], abstractType: "Account")
 }
 
 """
@@ -28582,6 +28585,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
+    )
 
   """
   The number of deletions in this pull request.
@@ -28617,6 +28623,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     last: Int
   ): PullRequestChangedFileConnection
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   Identifies the head Ref associated with the pull request.
@@ -29782,11 +29793,19 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
+    )
 
   """
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the PullRequestReview object
@@ -30024,6 +30043,9 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
+    )
 
   """
   The diff hunk to which the comment applies.
@@ -30039,6 +30061,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the PullRequestReviewComment object
