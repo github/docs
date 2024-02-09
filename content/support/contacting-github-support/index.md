@@ -14,6 +14,7 @@ redirect_from:
 children:
   - getting-your-enterprise-started-with-the-github-support-portal
   - creating-a-support-ticket
+  - using-copilot-in-github-support
   - viewing-and-updating-support-tickets
   - providing-data-to-github-support
 ---
