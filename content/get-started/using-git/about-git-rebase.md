@@ -11,7 +11,6 @@ intro: 'The `git rebase` command allows you to easily change a series of commits
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 Typically, you would use `git rebase` to:

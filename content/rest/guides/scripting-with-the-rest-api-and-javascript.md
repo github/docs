@@ -5,7 +5,6 @@ intro: Write a script using the Octokit.js SDK to interact with the REST API.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
