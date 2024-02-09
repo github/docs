@@ -5,7 +5,6 @@ intro: Define the type of machine that will process a job in your workflow.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  
