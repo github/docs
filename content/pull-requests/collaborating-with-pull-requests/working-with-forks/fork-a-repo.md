@@ -15,7 +15,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Pull requests
+  - Pull requests 
   - Issues
   - Notifications
   - Accounts
