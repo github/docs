@@ -132,6 +132,8 @@ If you are using a WSL2-based Linux on Windows you can follow the Windows instru
 {% endmac %}
 
 {% linux %}
+## Telling Git about your X.509 key
+
 While smimesign (used on Windows and MacOS) isn't supported today on Linux, `gpgsm` is natively supported by Git and Linux.
 
 1. Install `gpgsm` via your package manager:
