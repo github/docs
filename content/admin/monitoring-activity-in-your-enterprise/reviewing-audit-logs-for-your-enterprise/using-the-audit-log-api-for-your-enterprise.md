@@ -6,7 +6,6 @@ permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% e
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: tutorial
 topics:
   - Auditing

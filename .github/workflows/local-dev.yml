@@ -69,7 +69,7 @@ jobs:
           set -e
 
           # This test assumes this one file always exists
-          ls content/get-started/quickstart/hello-world.md
+          ls content/get-started/start-your-journey/hello-world.md
 
           # Not sure if it matters but we're in a detached HEAD state
           # after the actions/checkout action.
@@ -82,7 +82,7 @@ jobs:
           # To know what will fail the markdown lint, see src/content-linter/style/github-docs.js
           # Add some NOT valid Markdown to it
           # In this case an internal link with a hardcode /en/ prefix.
-          echo "This *is** not valid [Markdown](/en/foo)" >> content/get-started/quickstart/hello-world.md
+          echo "This *is** not valid [Markdown](/en/foo)" >> content/get-started/start-your-journey/hello-world.md
           git commit -a -m "this should fail"
           exit_code=$?
           if [ $exit_code != 0 ]; then

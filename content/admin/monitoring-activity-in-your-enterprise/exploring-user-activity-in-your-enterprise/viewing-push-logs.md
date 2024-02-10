@@ -10,7 +10,6 @@ redirect_from:
   - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/viewing-push-logs
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Auditing

@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -100,7 +99,7 @@ Sometimes, system configurations disallow SSH agent forwarding. You can check if
 ```shell
 $ ssh -v URL
 # Connect to the specified URL with verbose debug output
-> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Reading configuration data /Users/YOU/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config

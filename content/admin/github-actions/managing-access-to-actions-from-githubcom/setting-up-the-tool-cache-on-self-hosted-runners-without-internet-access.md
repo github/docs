@@ -6,7 +6,6 @@ redirect_from:
   - /admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access
 versions:
   ghes: '*'
-  ghae: '*'
 type: tutorial
 topics:
   - Actions

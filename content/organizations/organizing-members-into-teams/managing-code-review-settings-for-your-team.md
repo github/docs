@@ -8,7 +8,6 @@ product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

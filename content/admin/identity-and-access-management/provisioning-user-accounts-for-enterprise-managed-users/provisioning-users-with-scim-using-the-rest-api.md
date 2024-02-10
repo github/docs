@@ -46,7 +46,7 @@ Alternatively, you can use a partner IdP for both authentication and provisionin
 
 The audit log for your enterprise displays details about activity in your enterprise. You can use the audit log to support your configuration of SCIM. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
-Due to the volume of events in this log, {% data variables.product.company_short %} retains the data for six months. To ensure that you don't lose audit log data, and to view more granular activity in the audit log, {% data variables.product.company_short %} recommends that you configure audit log streaming. When you stream the audit log, you can optionally choose to stream events for API requests, including requests to endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+Due to the volume of events in this log, {% data variables.product.company_short %} retains the data for 180 days. To ensure that you don't lose audit log data, and to view more granular activity in the audit log, {% data variables.product.company_short %} recommends that you configure audit log streaming. When you stream the audit log, you can optionally choose to stream events for API requests, including requests to endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
 
 ## Understanding the REST API for SCIM
 

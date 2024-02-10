@@ -308,6 +308,12 @@ To help improve security, compliance, and standardization, you can customize the
 
 Customizing the claims results in a new format for the entire `sub` claim, which replaces the default predefined `sub` format in the token described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#example-subject-claims)."
 
+{% note %}
+
+**Note**: The `sub` claim uses the shortened form `repo` (for example, `repo:<orgName/repoName>`) instead of `repository` to reference the repository.
+
+{% endnote %}
+
 The following example templates demonstrate various ways to customize the subject claim. To configure these settings on {% data variables.product.prodname_dotcom %}, admins use the REST API to specify a list of claims that must be included in the subject (`sub`) claim.
 
 {% data reusables.actions.use-request-body-api %}

@@ -24,8 +24,6 @@ topics:
   - Repositories
 ---
 
-{% data reusables.code-scanning.beta %}
-
 ## Viewing the alerts for a repository
 
 Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."

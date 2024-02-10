@@ -28,6 +28,7 @@ export const Breadcrumbs = ({ inHeader }: Props) => {
       data-testid={inHeader ? 'breadcrumbs-header' : 'breadcrumbs-in-article'}
       className={cx('f5 breadcrumbs', styles.breadcrumbs)}
       aria-label="Breadcrumb"
+      data-container="breadcrumbs"
     >
       <ul>
         {Object.values(breadcrumbs)
