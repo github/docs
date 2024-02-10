@@ -129,7 +129,7 @@ If you are using a WSL2-based Linux on Windows you can replace `smimesign` with 
 
 {% mac %}
 {% data reusables.gpg.x-509-key %}
-{% endwindows %}
+{% endmac %}
 
 {% linux %}
 While smimesign (used on Windows and MacOS) isn't supported today on Linux, `gpgsm` is natively supported by Git and Linux.
