@@ -123,7 +123,7 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 {% windows %}
 {% data reusables.gpg.x-509-key %}
 {% note %}
-If you are using a WSL2-based Linux on Windows you can replace `smimesign` with `smimesign.exe` on the WSL2 distro's git config and it'll sign using the Windows binary / certificate store.
+If you are using a WSL2-based Linux on Windows you can follow the Windows instructions replacing `smimesign` with `smimesign.exe` on the WSL2 distro's git config and it will sign using the Windows binary / certificate store.
 {% endnote %}
 {% endwindows %}
 
@@ -144,7 +144,7 @@ While smimesign (used on Windows and MacOS) isn't supported today on Linux, `gpg
 1. In the event you need to specify your key use `gpgsm --list-keys` to find your key and then `git config --global user.signingkey KEY` to configure it.
 
 {% note %}
-While smimesign is only usable today on Windows and Mac on WSL2-based Linux on Windows you can replace `smimesign` with `smimesign.exe` on the WSL2 git config and it'll sign using the Windows binary / certificate store.
+While smimesign is only usable today on Windows and Mac on WSL2-based Linux on Windows you can follow the Windows instructions replacing `smimesign` with `smimesign.exe` on the WSL2 git config and it will sign using the Windows binary / certificate store.
 {% endnote %}
 {% endlinux %}
 
