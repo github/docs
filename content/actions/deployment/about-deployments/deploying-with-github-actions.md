@@ -4,7 +4,6 @@ intro: Learn how to control deployments with features like environments and conc
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 redirect_from:

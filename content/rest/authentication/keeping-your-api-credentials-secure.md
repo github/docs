@@ -5,7 +5,6 @@ intro: Follow these best practices to keep your API credentials and tokens secur
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

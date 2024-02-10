@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 children:
   - /about-githubs-migration-tooling
   - /planning-your-migration-to-github

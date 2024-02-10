@@ -1,5 +1,5 @@
 ---
-title: Repository statistics
+title: REST API endpoints for repository statistics
 shortTitle: Statistics
 allowTitleToDifferFromFilename: true
 intro: >-

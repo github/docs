@@ -1,5 +1,7 @@
 ---
-title: Notifications
+title: REST API endpoints for notifications
+shortTitle: Notifications
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to manage {% data variables.product.product_name %}
   notifications.

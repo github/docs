@@ -90,7 +90,6 @@ async function main() {
     const newYamlContent = makeLiquidReplacements(yamlReplacements, yamlContent)
       .replace(/("|')?free-pro-team("|')?:/g, 'fpt:')
       .replace(/("|')?enterprise-server("|')?:/g, 'ghes:')
-      .replace(/("|')?github-ae("|')?:/g, 'ghae:')
 
     if (dryRun) {
       console.log(yamlReplacements)

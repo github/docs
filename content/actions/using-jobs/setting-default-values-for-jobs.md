@@ -5,7 +5,6 @@ intro: 'Define the default settings that will apply to all jobs in the workflow,
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  

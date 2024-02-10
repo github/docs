@@ -10,7 +10,6 @@ permissions: Anyone with write access to a repository can pull a remote pull req
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

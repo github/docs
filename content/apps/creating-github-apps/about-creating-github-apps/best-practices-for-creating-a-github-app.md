@@ -5,7 +5,6 @@ intro: 'Follow these best practices to improve the security and performance of y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

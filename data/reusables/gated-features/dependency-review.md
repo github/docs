@@ -7,7 +7,4 @@ Dependency review is included in {% data variables.product.product_name %} for p
 {%- elsif ghes %}
 Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
 
-{%- elsif ghae %}
-Dependency review is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
-
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

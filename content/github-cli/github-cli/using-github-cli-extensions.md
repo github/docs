@@ -4,7 +4,6 @@ intro: 'Learn how to use custom extensions written by other {% data variables.pr
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI

@@ -4,7 +4,6 @@ intro: 'Your {% data variables.product.prodname_github_app %} can authenticate a
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

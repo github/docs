@@ -4,7 +4,6 @@ intro: 'The essentials for using {% data variables.product.prodname_dotcom %}''s
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:

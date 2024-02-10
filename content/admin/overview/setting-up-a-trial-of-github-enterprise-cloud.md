@@ -14,7 +14,7 @@ topics:
 shortTitle: Enterprise Cloud trial
 ---
 
-{% data reusables.enterprise.ghec-cta-button %}
+<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 %}</a>
 
 ## About {% data variables.product.prodname_ghe_cloud %}
 

@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

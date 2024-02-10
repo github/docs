@@ -5,7 +5,6 @@ intro: '{% data variables.product.company_short %} does not automatically redeli
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks

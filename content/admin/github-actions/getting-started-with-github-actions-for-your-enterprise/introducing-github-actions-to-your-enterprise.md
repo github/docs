@@ -5,7 +5,6 @@ intro: 'You can plan how to roll out {% data variables.product.prodname_actions 
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Actions

@@ -50,7 +50,7 @@ For each dependency, you can see its ecosystem, the manifest file in which it wa
 {% endif %}
 
 {% ifversion ghes %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes > 3.9 or ghae > 3.9%}.{% else %}, grouped by ecosystem.{% endif %}
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes > 3.9 %}.{% else %}, grouped by ecosystem.{% endif %}
 {% endif %}
 
 {% ifversion dependency-graph-repository-view-update %}
