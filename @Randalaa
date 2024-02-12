@@ -1,0 +1,78 @@
+$ bcoin-cli info
+{
+  "version": "2.0.0-dev",
+  "network": "main",
+  "chain": {
+    "height": 597278,
+    "tip": "000000000000000000114ab8c7d77b0bce885cbecc12f95f2f1cbdfcefb86aa6",
+    "progress": 1
+  },
+  "indexes": {
+    "addr": {
+      "enabled": true,
+      "height": 597278
+    },
+    "tx": {
+      "enabled": true,
+      "height": 597278
+    }
+    "filter": {
+      "enabled": true,
+      "height": 597278
+    }
+  },
+  "pool": {
+    "host": "50.81.201.97",
+    "port": 8333,
+    "agent": "/bcoin:2.0.0-dev/",
+    "services": "1001",
+    "outbound": 8,
+    "inbound": 0
+  },
+  "mempool": {
+    "tx": 164,
+    "size": 472712
+  },
+  "time": {
+    "uptime": 1035007,
+    "system": 1569876412,
+    "adjusted": 1569876412,
+    "offset": 0
+  },
+  "memory": {
+    "total": 168,
+    "jsHeap": 52,
+    "jsHeapTotal": 82,
+    "nativeHeap": 85,
+    "external": 18
+  }
+}
+ 
+$ bwallet-cli account get default
+{
+  "name": "default",
+  "initialized": true,
+  "witness": true,
+  "watchOnly": false,
+  "type": "pubkeyhash",
+  "m": 1,
+  "n": 1,
+  "accountIndex": 0,
+  "receiveDepth": 1,
+  "changeDepth": 1,
+  "nestedDepth": 0,
+  "lookahead": 10,
+  "receiveAddress": "bc1qmnej7kvmde3g5hpt39khunv6mwfl750ygejr92",
+  "changeAddress": "bc1q0w8y68csn0a5793yw2k2cr4s2x48lfad52y08y",
+  "nestedAddress": 3MzjvWzRTLe6SFwqqvuorJDpr5mvb8ApzUE,
+  "accountKey": "xpubDCEf3giqwrde3yUvCBoMDWfNdxGmefjXHMY5EuvBg7ErJMrHr1cXTodiT4anxv2RN1wX9GHMMLi9hysYtr58PHfES929bpa8MB1q6zWZhKu",
+  "keys": [],
+  "balance": {
+    "tx": 0,
+    "coin": 0,
+    "unconfirmed": 0,
+    "confirmed": 0
+  }
+}
+ 
+$ |
