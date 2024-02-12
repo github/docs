@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting issues with GitHub Copilot Chat
 intro: Troubleshooting help for common issues with {% data variables.product.prodname_copilot_chat %}.
-product: '{% data reusables.gated-features.copilot-chat %}'
+product: '{% data reusables.gated-features.copilot-chat-callout %}'
 defaultTool: vscode
 topics:
   - Copilot

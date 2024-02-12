@@ -1,8 +1,8 @@
 ---
 title: Configuring user provisioning with SCIM for your enterprise
 shortTitle: Configure SCIM user provisioning
-intro: 'You can configure System for Cross-domain Identity Management (SCIM) for {% ifversion scim-for-ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}, which automatically provisions user accounts when you assign the application for {% ifversion scim-for-ghes %}your instance{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to a user on your identity provider (IdP).'
-permissions: '{% ifversion scim-for-ghes %}Site administrators{% elsif ghae %}Enterprise owners{% endif %} can configure user provisioning for {% ifversion scim-for-ghes %}a {% data variables.product.product_name %} instance{% elsif ghae %}an enterprise on {% data variables.product.product_name %}{% endif %}.'
+intro: 'You can configure System for Cross-domain Identity Management (SCIM) for {% ifversion scim-for-ghes %}{% data variables.location.product_location %}{% endif %}, which automatically provisions user accounts when you assign the application for {% ifversion scim-for-ghes %}your instance{% endif %} to a user on your identity provider (IdP).'
+permissions: '{% ifversion scim-for-ghes %}Site administrators{% endif %} can configure user provisioning for {% ifversion scim-for-ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
 versions:
   feature: scim-for-ghes
 type: how_to
@@ -22,7 +22,7 @@ redirect_from:
 
 ## About user provisioning for {% data variables.product.product_name %}
 
-{% ifversion scim-for-ghes %}If you use SAML single sign-on (SSO) for {% data variables.location.product_location %}, you{% elsif ghae %}You{% endif %} can configure SCIM to automatically create or suspend user accounts and grant access{% ifversion scim-for-ghes %} to your instance{% endif %} when you assign or unassign the application on your IdP. For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
+{% ifversion scim-for-ghes %}If you use SAML single sign-on (SSO) for {% data variables.location.product_location %}, you{% endif %} can configure SCIM to automatically create or suspend user accounts and grant access{% ifversion scim-for-ghes %} to your instance{% endif %} when you assign or unassign the application on your IdP. For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
 
 If you do not configure user provisioning with SCIM, your IdP will not communicate with {% data variables.product.product_name %} automatically when you assign or unassign the application to a user. Without SCIM, {% data variables.product.product_name %} creates a user account using SAML Just-in-Time (JIT) provisioning the first time someone navigates to {% data variables.product.product_name %} and signs in by authenticating through your IdP.
 

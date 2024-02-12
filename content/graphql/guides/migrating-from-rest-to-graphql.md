@@ -8,7 +8,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 shortTitle: Migrate from REST to GraphQL

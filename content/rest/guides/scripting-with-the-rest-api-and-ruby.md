@@ -5,7 +5,6 @@ intro: Learn how to write a script using the Octokit.rb SDK to interact with the
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
 - API

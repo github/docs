@@ -5,7 +5,6 @@ intro: 'You can automatically publish packages using {% data variables.product.p
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /actions/publishing-packages-with-github-actions

@@ -9,12 +9,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
 ---
 A repository's graphs give you information on {% ifversion fpt or ghec %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. If you maintain a repository, you can use this data to get a better understanding of who's using your repository and why they're using it.
+
+{% data reusables.repositories.repo-insights-commit-limit %}
 
 {% ifversion fpt or ghec %}
 

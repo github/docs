@@ -23,7 +23,7 @@ For more information about configuring {% data variables.product.prodname_copilo
 
 ## {% data variables.product.prodname_copilot %} not working in some files
 
-If you're using {% data variables.product.prodname_copilot_for_business %}, you may not see code completion suggestions in your editor for some files. This happens when a file is excluded from being used by {% data variables.product.prodname_copilot %}. Content exclusion can be configured by a repository administrator, or by an organization owner.
+If you're using {% data variables.product.prodname_copilot %} with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} license, you may not see code completion suggestions in your editor for some files. This happens when a file is excluded from being used by {% data variables.product.prodname_copilot %}. Content exclusion can be configured by a repository administrator, or by an organization owner.
 
 When a file is affected by a content exclusion setting, {% data variables.product.prodname_copilot %} will not suggest code completion in that file, and the content of that file will not be used to inform code completion suggestions in other files.
 
@@ -33,7 +33,7 @@ When a file is affected by a content exclusion setting, {% data variables.produc
 
 {% data reusables.copilot.content-exclusions-scope %}
 
-{% data reusables.copilot.content-exclusions-delay %} For more information, see "[AUTOTITLE](/copilot/managing-copilot-business/configuring-content-exclusions-for-github-copilot#propagating-content-exclusion-changes-to-your-ide)."
+{% data reusables.copilot.content-exclusions-delay %} For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/configuring-content-exclusions-for-github-copilot#propagating-content-exclusion-changes-to-your-ide)."
 
 {% note %}
 

@@ -5,7 +5,6 @@ intro: "Learn about what a {% data variables.product.prodname_github_app %} is a
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

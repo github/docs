@@ -4,7 +4,6 @@ intro: 'Use the REST API to read and write raw Git objects to your Git database 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

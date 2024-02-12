@@ -4,7 +4,6 @@ intro: 'Learn about limitations for repositories.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

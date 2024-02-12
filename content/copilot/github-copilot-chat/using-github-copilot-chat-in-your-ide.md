@@ -1,7 +1,6 @@
 ---
 title: Using GitHub Copilot Chat in your IDE
 intro: 'You can start using {% data variables.product.prodname_copilot_chat %} by installing the extension in your preferred environment.'
-product: '{% data reusables.gated-features.copilot-chat %}'
 topics:
   - Copilot
 redirect_from:
@@ -13,6 +12,14 @@ shortTitle: Using Copilot Chat
 ---
 
 {% vscode %}
+
+{% note %}
+
+**Important:**
+
+{% data reusables.gated-features.copilot-chat-callout %}
+
+{% endnote %}
 
 ## About {% data variables.product.prodname_copilot_chat %} and {% data variables.product.prodname_vscode %}
 
@@ -28,31 +35,7 @@ shortTitle: Using Copilot Chat
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_chat %}
 
-{% note %}
-
-**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to {% data variables.product.prodname_copilot_chat %}.
-
-{% endnote %}
-
-{% data variables.product.prodname_copilot_chat %} is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
-
-If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
-
-### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
-1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then click **Enabled** or **Disabled**.
-
-### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the enterprise level
-
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then choose the appropriate option.
-    - Click **Allowed** to enable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
-    - Click **Blocked** to disable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
-    - Click **No policy** to allow each organization under your enterprise to set their own policy.
+{% data reusables.copilot.enabling-or-disabling-copilot %}
 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vscode %}
 
@@ -141,6 +124,14 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% visualstudio %}
 
+{% note %}
+
+**Important:**
+
+{% data reusables.gated-features.copilot-chat-callout %}
+
+{% endnote %}
+
 ## About {% data variables.product.prodname_copilot_chat %} and {% data variables.product.prodname_vs %}
 
 {% data reusables.copilot.chat-procedural-intro %}
@@ -155,31 +146,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_chat %}
 
-{% note %}
-
-**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you are automatically granted access to {% data variables.product.prodname_copilot_chat %}.
-
-{% endnote %}
-
-{% data variables.product.prodname_copilot_chat %} is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
-
-If {% data variables.product.prodname_copilot_chat_short %} is enabled or disabled at the enterprise level, organizations within the enterprise cannot override the setting.
-
-### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
-1. To the right of **{% data variables.product.prodname_copilot_chat %} in the IDE**, select the dropdown menu, and then click **Enabled** or **Disabled**.
-
-### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the enterprise level
-
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. To the right of **{% data variables.product.prodname_copilot_chat_short %} in the IDE**, select the dropdown menu, and then choose the appropriate option.
-    - Click **Allowed** to enable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
-    - Click **Blocked** to disable {% data variables.product.prodname_copilot_chat %} for all organizations under your enterprise.
-    - Click **No policy** to allow each organization under your enterprise to set their own policy.
+{% data reusables.copilot.enabling-or-disabling-copilot %}
 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}
 
@@ -242,9 +209,31 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% jetbrains_beta %}
 
+{% note %}
+
+**Important:**
+
+{% data reusables.gated-features.copilot-chat-jetbrains-beta %}
+
+{% data reusables.gated-features.copilot-chat-callout-jetbrains-only %}
+
+{% endnote %}
+
 ## About {% data variables.product.prodname_copilot_chat %} and JetBrains
 
 {% data reusables.copilot.chat-procedural-intro %}
+
+## Joining the beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE
+
+The following customers are eligible to participate in the private beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE.
+
+- Users with **{% data variables.product.prodname_copilot_individuals_short %} subscriptions**. To join the private beta, sign up on the [waitlist](https://github.com/github-copilot/chat_jetbrains_waitlist_signup/join). You will be notified by email when you are granted access to the beta. Joining the waitlist does not guarantee access to the beta.
+- Owners of **invoiced organizations or enterprises with a {% data variables.product.prodname_copilot_business_short %} subscription** who also have an account manager. To join the private beta, contact your account manager or solutions engineer to request access.
+
+The following customers are not eligible for the private beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE at this time.
+
+- Customers on Free, Team, or Enterprise plans who do not have an account manager.
+- Customers on Enterprise plans who pay for {% data variables.product.product_name %} with a credit card or PayPal.
 
 ## Prerequisites
 
@@ -272,12 +261,11 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% note %}
 
-**Notes:**  
-
-- If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you can join the [waitlist](https://github.com/github-copilot/chat_jetbrains_waitlist_signup/join). You will be notified by email when you have been grated access. Joining the waitlist does not guarantee you access.
-- If you have a {% data variables.product.prodname_copilot_for_business %} subscription for an invoiced organization or enterprise, you can contact your account manager or solutions engineer to request access.
+**Note:** If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you can join the [waitlist](https://github.com/github-copilot/chat_jetbrains_waitlist_signup/join) for {% data variables.product.prodname_copilot_chat_short %}. You will be notified by email when you have been grated access. Joining the waitlist does not guarantee you access.
 
 {% endnote %}
+
+If your organization {% ifversion ghec %}or enterprise{% endif %} is participating in the beta, organization {% ifversion ghec %}or enterprise{% endif %} owners can enable or disable {% data variables.product.prodname_copilot_chat %}.
 
 ### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
 

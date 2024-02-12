@@ -5,7 +5,6 @@ intro: '{% data variables.product.prodname_actions %} are designed to help you b
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:

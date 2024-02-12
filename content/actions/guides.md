@@ -6,7 +6,6 @@ layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 learningTracks:
   - getting_started

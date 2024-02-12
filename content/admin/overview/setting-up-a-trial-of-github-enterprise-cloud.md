@@ -14,7 +14,7 @@ topics:
 shortTitle: Enterprise Cloud trial
 ---
 
-{% data reusables.enterprise.ghec-cta-button %}
+<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 %}</a>
 
 ## About {% data variables.product.prodname_ghe_cloud %}
 
@@ -42,7 +42,7 @@ The following features are not included in the trial of {% data variables.produc
 
 - {% data variables.product.prodname_emus %}: If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 - {% data variables.product.prodname_github_codespaces %}
-- {% data variables.product.prodname_copilot_for_business %}
+- {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 - {% data variables.product.prodname_sponsors %}
 - Paid {% data variables.product.prodname_marketplace %} apps (free apps are supported as part of the trial)
 - {% data variables.product.prodname_github_connect %}

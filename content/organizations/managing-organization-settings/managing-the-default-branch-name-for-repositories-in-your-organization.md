@@ -7,7 +7,6 @@ permissions: Organization owners can manage the default branch name for new repo
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

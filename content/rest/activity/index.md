@@ -1,5 +1,7 @@
 ---
-title: Activity
+title: REST API endpoints for activity
+shortTitle: Activity
+allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to list events and feeds and manage notifications, starring, and watching.'
 redirect_from:
   - /v3/activity

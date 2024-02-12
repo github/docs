@@ -5,7 +5,6 @@ intro: 'Example workflows that demonstrate the CI/CD features of {% data variabl
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - using-scripts-to-test-your-code-on-a-runner

@@ -5,7 +5,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -116,10 +115,6 @@ For more information about how to create an allow list for a {% data variables.p
 
 {% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
-{% ifversion not ghae %}
-
 ## Using {% data variables.product.prodname_pages %} with an IP allow list
 
 {% data reusables.pages.ip-allow-list-pages %}
-
-{% endif %}

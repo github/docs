@@ -1,5 +1,7 @@
 ---
-title: Gists
+title: REST API endpoints for gists
+shortTitle: Gists
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to list, create, update and delete the public gists on
   GitHub.

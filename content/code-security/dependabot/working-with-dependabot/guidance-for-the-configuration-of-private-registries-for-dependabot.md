@@ -126,8 +126,8 @@ registries:
 
 - Image names may not always be detected in Containerfiles, Helm files, or yaml files.
 - Dockerfiles may only receive a version update to the first `FROM` directive.
-- Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `github/dependabot/dependabot-core` repository.
-- {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `github/dependabot/dependabot-core` repository.
+- Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `dependabot/dependabot-core` repository.
+- {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `dependabot/dependabot-core` repository.
 
 ### Gradle
 
@@ -620,7 +620,7 @@ registries:
 If you are running Nexus behind a reverse proxy, you need to ensure that the server is accessible using an Auth token by using `curl -v -H 'Authorization: Bearer <token>' 'https://<nexus-repo-url>/repository/<repo-name>/@<scope>%2<package>'`. For more information, see [Run Behind a Reverse Proxy](https://help.sonatype.com/repomanager3/planning-your-implementation/run-behind-a-reverse-proxy) in the Sonatype documentation.
 
 If you are restricting which IPs can reach your Nexus host, you need to add the {% data variables.product.prodname_dependabot %} IPs to the allowlist.
-  - You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[Meta](/rest/meta)" in the Meta API documentation.
+  - You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[AUTOTITLE](/rest/meta)."
   - These are the current IPs:
       - "18.213.123.130/32"
       - "3.217.79.163/32"
