@@ -343,13 +343,15 @@ This example workflow uses `gh-actions-cache` to delete up to 100 caches created
 ```yaml
 name: cleanup caches by a branch
 on:
-  pull_request:
+  pull_request_target:
     types:
       - closed
 
 jobs:
   cleanup:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - name: Cleanup
         run: |
@@ -369,7 +371,7 @@ jobs:
         env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           REPO: {% raw %}${{ github.repository }}{% endraw %}
-          BRANCH: refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge
+          BRANCH: {% raw %}${{ github.ref_name }}{% endraw %} 
 ```
 
 Alternatively, you can use the API to automatically list or delete all caches on your own cadence. For more information, see "[AUTOTITLE](/rest/actions/cache#about-the-cache-in-github-actions)."
