@@ -4,7 +4,6 @@ intro: 'You can enforce, allow, or disable merging with a merge commit for all p
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

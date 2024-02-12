@@ -5,7 +5,6 @@ intro: 'How to automatically trigger {% data variables.product.prodname_actions 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:

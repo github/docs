@@ -4,7 +4,6 @@ intro: 'Your tokens can expire and can also be revoked by you, applications you 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity

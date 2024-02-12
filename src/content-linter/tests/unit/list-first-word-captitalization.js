@@ -54,6 +54,7 @@ describe(listFirstWordCapitalization.names.join(' - '), () => {
       '- @mention your friends',
       '- @hash tags',
       '- 05:00',
+      '- "keyword" starts with a quotation sign',
     ].join('\n')
     const result = await runRule(listFirstWordCapitalization, { strings: { markdown } })
     const errors = result.markdown

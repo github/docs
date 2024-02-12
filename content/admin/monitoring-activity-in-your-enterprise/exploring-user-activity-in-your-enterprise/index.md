@@ -4,7 +4,6 @@ intro: 'You can view user and system activity by leveraging dashboards, webhooks
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:

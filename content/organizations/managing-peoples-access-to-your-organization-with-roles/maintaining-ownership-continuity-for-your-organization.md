@@ -11,7 +11,6 @@ permissions: Organization owners can promote any member of an organization to an
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

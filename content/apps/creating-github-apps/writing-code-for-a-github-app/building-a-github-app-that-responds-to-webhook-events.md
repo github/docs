@@ -5,7 +5,6 @@ intro: 'Learn how to build a {% data variables.product.prodname_github_app %} th
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

@@ -1,7 +1,7 @@
 ---
 title: Enabling GitHub Copilot Enterprise
 shortTitle: Enabling Copilot Enterprise
-intro: 'Learn how to enable the features available with the {% data variables.product.prodname_copilot_enterprise %} beta.'
+intro: 'Learn how to enable the features available with {% data variables.product.prodname_copilot_enterprise %}.'
 versions:
   ghec: '*'
 topics:
@@ -9,6 +9,8 @@ topics:
 ---
 
 ## About {% data variables.product.prodname_copilot_enterprise_short %} features
+
+To use {% data variables.product.prodname_copilot_enterprise %}, you need to set up a subscription for your enterprise account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
 
 To use {% data variables.product.prodname_copilot_enterprise %} features, you can nominate an organization or enterprise that you're a member of for the [{% data variables.product.prodname_copilot_enterprise_short %} waitlist](https://github.com/github-copilot/copilot_enterprise_waitlist_signup/join). To join the waitlist, the organization or enterprise must use {% data variables.product.prodname_ghe_cloud %} and have an active {% data variables.product.prodname_copilot_for_business %} subscription. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
 

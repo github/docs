@@ -256,6 +256,7 @@ prodname_copilot_docs_short: 'docset management'
 prodname_copilot_for_prs: 'Copilot pull request summaries'
 prodname_copilot_prs_short: 'pull request summaries'
 prodname_copilot_customization: 'Copilot Customization'
+prodname_copilot_in_support: 'Copilot in GitHub Support'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'

@@ -1,5 +1,7 @@
 ---
-title: Workflow jobs
+title: REST API endpoints for workflow jobs
+shortTitle: Workflow jobs
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with workflow jobs in {% data
   variables.product.prodname_actions %}.

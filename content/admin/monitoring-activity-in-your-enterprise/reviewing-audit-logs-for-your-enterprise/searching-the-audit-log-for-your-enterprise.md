@@ -11,7 +11,6 @@ redirect_from:
   - /admin/user-management/monitoring-activity-in-your-enterprise/searching-the-audit-log
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

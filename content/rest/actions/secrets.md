@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions Secrets
+title: REST API endpoints for GitHub Actions Secrets
 allowTitleToDifferFromFilename: true
 shortTitle: Secrets
 intro: >-

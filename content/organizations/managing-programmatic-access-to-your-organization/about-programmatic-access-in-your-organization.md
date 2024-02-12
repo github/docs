@@ -11,7 +11,6 @@ shortTitle: About programmatic access
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

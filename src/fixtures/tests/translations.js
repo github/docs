@@ -26,13 +26,13 @@ describe('translations', () => {
   })
 
   test('hello world', async () => {
-    const $ = await getDOM('/ja/get-started/quickstart/hello-world')
+    const $ = await getDOM('/ja/get-started/start-your-journey/hello-world')
     const h1 = $('h1').text()
     expect(h1).toBe('こんにちは World')
   })
 
   test('internal links get prefixed with /ja', async () => {
-    const $ = await getDOM('/ja/get-started/quickstart/link-rewriting')
+    const $ = await getDOM('/ja/get-started/start-your-journey/link-rewriting')
     const links = $('#article-contents a[href]')
     const jaLinks = links.filter((i, element) => $(element).attr('href').startsWith('/ja'))
     const enLinks = links.filter((i, element) => $(element).attr('href').startsWith('/en'))
@@ -44,7 +44,7 @@ describe('translations', () => {
     const $ = await getDOM('/ja/get-started/foo/autotitling')
     const links = $('#article-contents a[href]')
     links.each((i, element) => {
-      if ($(element).attr('href').includes('/ja/get-started/quickstart/hello-world')) {
+      if ($(element).attr('href').includes('/ja/get-started/start-your-journey/hello-world')) {
         expect($(element).text()).toBe('こんにちは World')
       }
     })
@@ -82,17 +82,17 @@ describe('translations', () => {
   })
 
   test('automatic correction of bad AUTOTITLE in reusables', async () => {
-    const $ = await getDOM('/ja/get-started/quickstart/hello-world')
+    const $ = await getDOM('/ja/get-started/start-your-journey/hello-world')
     const links = $('#article-contents a[href]')
     const texts = links.map((i, element) => $(element).text()).get()
     // That Japanese page uses AUTOTITLE links. Both in the main `.md` file
     // but also inside a reusable.
-    // E.g. `["AUTOTITLE](/get-started/quickstart/hello-world)."`
+    // E.g. `["AUTOTITLE](/get-started/start-your-journey/hello-world)."`
     // If we didn't do the necessary string corrections on translations'
     // content and reusables what *would* remain is a HTML link that
     // would look like this:
     //
-    //    <a href="/ja/get-started/quickstart/hello-world">&quot;AUTOTITLE</a>
+    //    <a href="/ja/get-started/start-your-journey/hello-world">&quot;AUTOTITLE</a>
     //
     // This test makes sure no such string is left in any of the article
     // content links.

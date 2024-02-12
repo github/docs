@@ -1,0 +1,6 @@
+# Reference: #12006
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.12'

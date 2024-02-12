@@ -10,7 +10,7 @@ import { renderContent } from '#src/content-render/index.js'
  *     '/authentication/troubleshooting-ssh',
  *     '/authentication/connecting-to-github-with...',
  *     '/authentication/connecting-to-github-with-ssh/a...',
- *     '{% ifversion ghae %}/authentication/connecting-to-...{% endif %}',
+ *     '{% ifversion ghec %}/authentication/connecting-to-...{% endif %}',
  *     '/authentication/managing-commit-signature-verif...'
  *
  * In this case, if we'd "prematurely" sliced that list to the first 4,

@@ -9,8 +9,6 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/results-are-different-than-expected
 ---
 
-{% data reusables.code-scanning.beta %}
-
 If your {% data variables.product.prodname_code_scanning %} results are different than you expected, you may have both default and advanced setup configured for your repository. When you enable default setup, this disables the existing {% data variables.product.prodname_codeql %} workflow file and blocks any {% data variables.product.prodname_codeql %} API analysis from uploading results.
 
 To check if default setup is enabled, navigate to the main page of the repository, then click {% octicon "gear" aria-hidden="true" %} **Settings**. In the "Security" section of the sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis", click {% octicon "kebab-horizontal" aria-label="Menu" %}. If there is a {% octicon "workflow" aria-hidden="true" %} **Switch to advanced** option, you are currently using default setup.

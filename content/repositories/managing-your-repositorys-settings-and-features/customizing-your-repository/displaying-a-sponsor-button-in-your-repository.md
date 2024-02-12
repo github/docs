@@ -27,7 +27,6 @@ Platform | Syntax
 [Ko-fi](https://ko-fi.com/) | `ko_fi: USERNAME`
 [Liberapay](https://en.liberapay.com/) | `liberapay: USERNAME`
 [Open Collective](https://opencollective.com/) | `open_collective: USERNAME`
-[Otechie](https://otechie.com/)| `otechie: USERNAME`
 [Patreon](https://www.patreon.com/) | `patreon: USERNAME`
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`

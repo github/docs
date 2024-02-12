@@ -13,7 +13,6 @@ redirect_from:
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -21,8 +20,6 @@ topics:
   - Infrastructure
   - Networking
 ---
-
-{% data reusables.github-connect.beta %}
 
 ## About {% data variables.product.prodname_github_connect %}
 

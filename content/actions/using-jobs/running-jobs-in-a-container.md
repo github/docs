@@ -5,7 +5,6 @@ intro: Use a container to run the steps in a job.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  

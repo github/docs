@@ -1,5 +1,5 @@
 ---
-title: Git blobs
+title: REST API endpoints for Git blobs
 shortTitle: Blobs
 allowTitleToDifferFromFilename: true
 intro: >-

@@ -1,5 +1,5 @@
 ---
-title: Git references
+title: REST API endpoints for Git references
 shortTitle: References
 intro: >-
   Use the REST API to interact with references in your Git database on {% data

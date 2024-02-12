@@ -11,14 +11,13 @@ redirect_from:
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
 versions:
   ghes: '*'
-  ghae: '*'
 topics:
   - GitHub search
 ---
 
 ## About search for {% data variables.product.prodname_dotcom_the_website %} repositories from {% data variables.product.product_name %}
 
-You can search for designated private repositories on {% data variables.product.prodname_ghe_cloud %} from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. For more information about searching across environments, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)."
+You can search for designated private repositories on {% data variables.product.prodname_ghe_cloud %} from {% data variables.location.product_location %}. For more information about searching across environments, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)."
 
 ## Prerequisites
 

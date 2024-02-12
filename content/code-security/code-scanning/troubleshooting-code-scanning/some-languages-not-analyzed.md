@@ -11,7 +11,6 @@ redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/some-languages-were-not-analyzed
 ---
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
 If you're using advanced setup and your workflow doesn't explicitly specify the languages to analyze, {% data variables.product.prodname_codeql %} implicitly detects the supported languages in your code base. In this configuration, out of the compiled languages {% data variables.code-scanning.compiled_languages %}, {% data variables.product.prodname_codeql %} only analyzes the language with the most source files. Edit the workflow and add a matrix specifying the languages you want to analyze. The default {% data variables.product.prodname_codeql %} analysis workflow uses such a matrix.

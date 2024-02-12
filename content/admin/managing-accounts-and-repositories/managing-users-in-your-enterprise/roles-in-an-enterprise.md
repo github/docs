@@ -11,7 +11,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 ---
@@ -43,7 +42,7 @@ For more information about adding people to your enterprise, see "[AUTOTITLE](/a
 Enterprise owners have complete control over the enterprise and can take every action, including:
 
 - Managing administrators
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
+- {% ifversion ghec %}Adding and removing {% elsif ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghes %} in{% endif %} the enterprise{% ifversion remove-enterprise-members %}
 - Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - Managing enterprise settings
 - Enforcing policy across organizations
@@ -96,6 +95,6 @@ Guest collaborators can be members of IdP groups that are connected to {% data v
 
 When provisioning your guest collaborators, make sure that the only role assigned to the user in your IdP is guest collaborator. This applies to both direct assignment, and group memberships. If the same user is assigned multiple roles, the more privileged role will override the less privileged role. For example, if you assign the guest collaborator role directly to a user, but the user is also a member of a group that's assigned the enterprise owner role, the user will have the full privileges of an enterprise owner.
 
-If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users#enabling-guest-collaborators)."
+If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML authentication, or if you use Entra ID for OIDC authentication, you may need to update your IdP application to use guest collaborators. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators)."
 
 {% endif %}

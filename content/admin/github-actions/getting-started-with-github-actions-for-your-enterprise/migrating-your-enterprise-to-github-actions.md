@@ -5,7 +5,6 @@ intro: 'Learn how to plan a migration to {% data variables.product.prodname_acti
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Actions

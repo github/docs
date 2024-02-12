@@ -4,7 +4,6 @@ intro: 'You can build integrations to extend {% data variables.product.company_s
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

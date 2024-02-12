@@ -4,7 +4,6 @@ intro: 'You can specify a URL that users will be redirected to after they author
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

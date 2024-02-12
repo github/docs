@@ -5,7 +5,6 @@ intro: 'Your {% data variables.product.prodname_github_app %} can subscribe to w
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
