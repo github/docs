@@ -38,6 +38,18 @@ If you set up an allow list you can also choose to automatically add to your all
 
 You can also configure allowed IP addresses at the enterprise account level, and the entries in the enterprise account's allow list are inherited by all the organizations owned by the enterprise. {% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %} For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)."
 
+{% warning %}
+
+**Warning:** Losing access to the IP addresses in your IP allow list could result in unintended consequences, such as getting locked out of your enterprise or organization.
+
+{% endwarning %}
+
+As a best practice, to ensure both secure and reliable access to your enterprise and organization resources when creating an IP allow list, consider the following:
+
+- Maintaining more than one owner of the enterprise account or organization that the IP allow list will be enforced for.
+- Using CIDR notation to specify a range of IP addresses that will include dynamically assigned addresses, to minimize the number of allow list entries.
+- Including a static network in your allowed IP addresses, for backup access in case of problems.
+
 ## Adding an allowed IP address
 
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
