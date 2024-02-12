@@ -98,7 +98,7 @@ function evaluateVersions(versionsObj) {
   // where versions obj is something like:
   //   fpt: '*'
   //   ghes: '>=2.19'
-  //   ghae: '*'
+  //   ghec: '*'
   // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.js)
   Object.entries(versionsObj).forEach(([plan, planValue]) => {
     // For each available plan (e.g., `ghes`), get the matching versions from allVersions.
