@@ -371,7 +371,7 @@ jobs:
         env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           REPO: {% raw %}${{ github.repository }}{% endraw %}
-          BRANCH: {% raw %}${{ github.ref_name }}{% endraw %} 
+          BRANCH: {% raw %}${{ github.ref_name }}{% endraw %}
 ```
 
 Alternatively, you can use the API to automatically list or delete all caches on your own cadence. For more information, see "[AUTOTITLE](/rest/actions/cache#about-the-cache-in-github-actions)."
