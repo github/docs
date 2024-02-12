@@ -42,8 +42,8 @@ If you create a codespace from a repository without a `devcontainer.json` file, 
 The `devcontainer.json` file is usually located in the `.devcontainer` directory of your repository. Alternatively, you can locate it directly in the root of the repository, in which case the file name must begin with a period: `.devcontainer.json`.
 
 If you want to have a choice of dev container configurations in your repository, any alternatives to the  `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file must be located in their own subdirectory at the path `.devcontainer/SUBDIRECTORY/devcontainer.json`. For example, you could have a choice of two configurations:
-* `.devcontainer/database-dev/devcontainer.json`
-* `.devcontainer/gui-dev/devcontainer.json`
+- `.devcontainer/database-dev/devcontainer.json`
+- `.devcontainer/gui-dev/devcontainer.json`
 
 When you have multiple `devcontainer.json` files in your repository, each codespace is created from only one of the configurations. Settings cannot be imported or inherited between `devcontainer.json` files. If a `devcontainer.json` file in a custom subdirectory has dependent files, such as the Dockerfile or scripts that are run by commands in the `devcontainer.json` file, it's recommended that you co-locate these files in the same subdirectory.
 
@@ -83,7 +83,7 @@ The following example uses four instructions:
 
 `RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
 
-```Dockerfile{:copy}
+```dockerfile copy
 ARG VARIANT="16-buster"
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
@@ -104,11 +104,11 @@ For more information about Dockerfile instructions, see "[Dockerfile reference](
 
 To use a Dockerfile as part of a dev container configuration, reference it in your `devcontainer.json` file by using the `dockerfile` property.
 
-```json{:copy}
+```jsonc copy
 {
-  ...
+  // ...
   "build": { "dockerfile": "Dockerfile" },
-  ...
+  // ...
 }
 ```
 
@@ -163,8 +163,8 @@ You can add a predefined dev container configuration either while working in a c
 
 If none of the predefined configurations meets your needs, you can create a custom configuration by writing your own `devcontainer.json` file.
 
-* If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository.
-* If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
+- If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository.
+- If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
 
    {% note %}
 
@@ -222,8 +222,8 @@ If a setting is defined in multiple scopes, Workspace settings take priority, th
 
 You can define default interface settings for {% data variables.product.prodname_vscode_shortname %} in two places.
 
-* Interface settings defined in the `.vscode/settings.json` file in your repository are applied as Workspace-scoped settings in the codespace.
-* Interface settings defined in the `settings` key in the `devcontainer.json` file are applied as Remote [Codespaces]-scoped settings in the codespace.
+- Interface settings defined in the `.vscode/settings.json` file in your repository are applied as Workspace-scoped settings in the codespace.
+- Interface settings defined in the `settings` key in the `devcontainer.json` file are applied as Remote [Codespaces]-scoped settings in the codespace.
 
 ## Applying configuration changes to a codespace
 

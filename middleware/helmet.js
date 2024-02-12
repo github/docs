@@ -1,7 +1,7 @@
 import helmet from 'helmet'
 import { cloneDeep } from 'lodash-es'
-import isArchivedVersion from '../lib/is-archived-version.js'
-import versionSatisfiesRange from '../lib/version-satisfies-range.js'
+import isArchivedVersion from '#src/archives/lib/is-archived-version.js'
+import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
 
 const isDev = process.env.NODE_ENV === 'development'
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -60,7 +60,7 @@ ndDirs.scriptSrc.push(
   "'unsafe-eval'",
   "'unsafe-inline'",
   'http://www.google-analytics.com',
-  'https://ssl.google-analytics.com'
+  'https://ssl.google-analytics.com',
 )
 ndDirs.connectSrc.push('https://www.google-analytics.com')
 ndDirs.imgSrc.push('http://www.google-analytics.com', 'https://ssl.google-analytics.com')

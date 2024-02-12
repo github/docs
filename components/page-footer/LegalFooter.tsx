@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon } from '@primer/octicons-react'
 import cx from 'classnames'
-import { useTranslation } from '../hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const LegalFooter = () => {
   const router = useRouter()
@@ -42,7 +42,7 @@ export const LegalFooter = () => {
             legacyBehavior={false}
             className={cx(
               'text-underline',
-              router.locale === 'ko' && 'color-fg-attention text-bold'
+              router.locale === 'ko' && 'color-fg-attention text-bold',
             )}
           >
             {t('privacy')}

@@ -30,7 +30,7 @@ export default function ClientSideRefresh() {
       // because, naturally, the first time you mount it, it will not
       // need to refresh because it's as fresh as it gets already.
       revalidateOnMount: false,
-    }
+    },
   )
 
   return null

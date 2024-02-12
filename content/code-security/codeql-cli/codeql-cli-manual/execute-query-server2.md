@@ -1,6 +1,6 @@
 ---
 title: execute query-server2
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql execute query-server2 [--threads=<num>] <options>...
 ```
 
@@ -39,7 +39,9 @@ streams.
 
 Available since `v2.10.11`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--[no-]tuple-counting`
 
@@ -69,7 +71,7 @@ If no timeout is specified, or is given as 0, no timeout will be set
 Use this many threads to evaluate queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `--[no-]save-cache`
@@ -118,7 +120,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate *\<pred>*.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
@@ -128,17 +130,17 @@ evaluation using xterm control sequences. Possible values are:
 
 `no`: Never produce fancy progress; assume a dumb terminal.
 
-`auto` *(default)*: Autodetect whether the command is running in an
+`auto` _(default)_: Autodetect whether the command is running in an
 appropriate terminal.
 
 `yes`: Assume the terminal can understand xterm control sequences. The
-feature still depends on being able to autodetect the *size* of the
+feature still depends on being able to autodetect the _size_ of the
 terminal, and will also be disabled if `-q` is given.
 
 `25x80` (or similar): Like `yes`, and also explicitly give the size of
 the terminal.
 
-`25x80:/dev/pts/17` (or similar): show fancy progress on a *different*
+`25x80:/dev/pts/17` (or similar): show fancy progress on a _different_
 terminal than stderr. Mostly useful for internal testing.
 
 #### `--search-path=<dir>[:<dir>...]`

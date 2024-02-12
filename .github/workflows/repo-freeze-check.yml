@@ -18,7 +18,7 @@ on:
       - main
 
 permissions:
-  contents: none
+  contents: read
 
 env:
   FREEZE: ${{ secrets.FREEZE }}
@@ -29,8 +29,16 @@ jobs:
     name: Prevent merging during deployment freezes
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
       - name: Fail if repo merges are paused
         if: ${{ env.FREEZE == 'true' && github.head_ref != 'repo-sync' }}
         run: |
           echo 'Merges into the "main" branch on this repo are currently paused!'
           exit 1
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

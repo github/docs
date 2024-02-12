@@ -1,0 +1,4 @@
+# Issue 11808, "Rolling back entitlement change for Actions Minutes and EMUs"
+
+versions:
+  ghec: '*'

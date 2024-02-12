@@ -4,7 +4,7 @@ import Ajv from 'ajv'
 import readJsonFile from '../../../lib/read-json-file.js'
 import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../lib/validator.js'
 import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { GRAPHQL_DATA_DIR } from '../lib/index.js'
 
 const allVersionValues = Object.values(allVersions)
@@ -24,15 +24,15 @@ graphqlTypes.forEach((type) => {
 describe('graphql json files', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  test('schemas object validation', () => {
-    // The typeObj is repeated thousands of times in each .json file
-    // so use a cache of which we've already validated to speed this
-    // test up significantly.
-    const typeObjsTested = new Set()
-    graphqlVersions.forEach((version) => {
-      const schemaJsonPerVersion = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/schema.json`)
-      // all graphql types are arrays except for queries
-      graphqlTypes.forEach((type) => {
+  // The typeObj is repeated thousands of times in each .json file
+  // so use a cache of which we've already validated to speed this
+  // test up significantly.
+  const typeObjsTested = new Set()
+  graphqlVersions.forEach((version) => {
+    const schemaJsonPerVersion = readJsonFile(`${GRAPHQL_DATA_DIR}/${version}/schema.json`)
+    // all graphql types are arrays except for queries
+    graphqlTypes.forEach((type) => {
+      test(`${version} schemas object validation for ${type}`, () => {
         schemaJsonPerVersion[type].forEach((typeObj) => {
           const key = JSON.stringify(typeObj) + type
           if (typeObjsTested.has(key)) return
@@ -43,7 +43,7 @@ describe('graphql json files', () => {
 
           if (!valid) {
             errors = `kind: ${typeObj.kind}, name: ${typeObj.name}: ${formatAjvErrors(
-              schemaValidatorFunctions[type].errors
+              schemaValidatorFunctions[type].errors,
             )}`
           }
 

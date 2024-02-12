@@ -1,0 +1,77 @@
+name: Optimize images
+
+# **What it does**: Optimize images.
+# **Why we have it**: Reduce bandwidth needs.
+# **Who does it impact**: Docs engineering.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '**/*.png'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  optimize-images-on-pr:
+    # We can't make commits on forks
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo on head ref
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        with:
+          ref: ${{ github.head_ref }}
+          # Need to specify a PAT here because otherwise GITHUB_TOKEN is used
+          # by default.  Workflows won't trigger in that case because actions
+          # performed with GITHUB_TOKEN don't trigger other workflows.
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - name: Check out base ref
+        run: git fetch --no-tags --depth=1 origin $GITHUB_BASE_REF
+
+      - name: Install the Optipng package
+        run: sudo apt-get update && sudo apt-get -y install optipng
+
+      - name: Run optipng on new or changed images
+        run: |
+          set -e # exit when any command fails
+
+          echo "Ensure we can view $GITHUB_BASE_REF"
+          git checkout $GITHUB_BASE_REF
+
+          echo "Ensure we can view $GITHUB_HEAD_REF"
+          git checkout $GITHUB_HEAD_REF
+
+          echo "List the files that changed"
+          git diff --name-only --diff-filter=d $GITHUB_BASE_REF $GITHUB_HEAD_REF
+
+          echo "Run optipng on pngs in from the diff"
+          git diff --name-only -z --diff-filter=d $GITHUB_BASE_REF $GITHUB_HEAD_REF -- '*.png' | xargs -0 optipng -nx
+
+      - name: Make a commit and a push
+        run: |
+          echo "If there's no changes, exit"
+          if [[ !  `git status --porcelain` ]]
+          then
+            echo "No changes found"
+            exit 0
+          fi
+
+          echo "Make a commit"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add "*.png"
+          git commit --message="Optimize images"
+
+          echo "Push up changes"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

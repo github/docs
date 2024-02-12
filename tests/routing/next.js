@@ -8,7 +8,7 @@ describe('bad requests', () => {
   test('any _next/image request should 404', async () => {
     const res = await get('/_next/image?what=ever')
     expect(res.statusCode).toBe(404)
-    expect(res.headers['content-type']).toMatch('text/html')
+    expect(res.headers['content-type']).toMatch('text/plain')
   })
 
   test('any _next.* request should 404', async () => {

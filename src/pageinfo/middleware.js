@@ -8,11 +8,11 @@ import {
   setFastlySurrogateKey,
   makeLanguageSurrogateKey,
 } from '../../middleware/set-fastly-surrogate-key.js'
-import shortVersions from '../../middleware/contextualizers/short-versions.js'
+import shortVersions from '#src/versions/middleware/short-versions.js'
 import contextualize from '../../middleware/context.js'
-import features from '../../middleware/contextualizers/features.js'
-import getRedirect from '../../lib/get-redirect.js'
-import { isArchivedVersionByPath } from '../../lib/is-archived-version.js'
+import features from '#src/versions/middleware/features.js'
+import getRedirect from '#src/redirects/lib/get-redirect.js'
+import { isArchivedVersionByPath } from '#src/archives/lib/is-archived-version.js'
 
 const router = express.Router()
 
@@ -159,8 +159,13 @@ router.get(
       intro,
     }
 
-    const tags = ['version:v1', `pathname:${pathname}`]
-    statsd.increment('api.pageinfo', 1, tags)
+    const tags = [
+      // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags
+      // the max length of a tag is 200 characters. Most of ours are less than
+      // that but we truncate just to be safe.
+      `pathname:${pathname}`.slice(0, 200),
+    ]
+    statsd.increment('pageinfo.lookup', 1, tags)
 
     defaultCacheControl(res)
 
@@ -173,10 +178,10 @@ router.get(
     setFastlySurrogateKey(
       res,
       `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(page.languageCode)}`,
-      true
+      true,
     )
     res.status(200).json({ info })
-  })
+  }),
 )
 
 // Alias for the latest version

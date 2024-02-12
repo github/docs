@@ -47,12 +47,14 @@ You do not need to configure anything in your repository to enable code navigati
 
 To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
 
-Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
+Future releases will add _precise code navigation_ for more languages, which is a code navigation approach that can give more accurate results.
 
 {% ifversion code-search-code-view %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
 
 {% ifversion code-search-code-view %}
+
 ## Using the symbols pane
+
 You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
 
 Symbol search is a feature of code search. For more information, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
@@ -60,7 +62,7 @@ Symbol search is a feature of code search. For more information, see "[AUTOTITLE
 1. Select a repository, then navigate to a file containing symbols.
 1. To bring up the symbols pane, above the file content, click {% octicon "code-square" aria-label="The code square icon" %}.
 
-  Alternatively, you can open the symbols pane by clicking an eligible symbol in your file. Clickable symbols are highlighted in yellow when you hover over them.
+   Alternatively, you can open the symbols pane by clicking an eligible symbol in your file. Clickable symbols are highlighted in yellow when you hover over them.
 
 1. Click the symbol you would like to find from the symbols pane or within the file itself.
 
@@ -85,7 +87,7 @@ You can find all references for a function or method within the same repository 
 
 ## Precise and search-based navigation
 
-Certain languages supported by {% data variables.product.prodname_dotcom %} have access to *precise code navigation*, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use *search-based code navigation*, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
+Certain languages supported by {% data variables.product.prodname_dotcom %} have access to _precise code navigation_, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use _search-based code navigation_, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
 
 If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
 
@@ -106,4 +108,5 @@ If code navigation is enabled for you but you don't see links to the definitions
 - Code navigation only works for repositories with fewer than 100,000 files.
 
 ## Further reading
+
 - "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"

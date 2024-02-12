@@ -1,7 +1,7 @@
 user_migrations_intro: >-
-  You can use these endpoints to review, backup, or migrate your user data stored on {% data variables.product.product_name %}.com.
+  You can use these endpoints to review, backup, or migrate your user data stored on {% data variables.product.prodname_dotcom_the_website %}.
 organization_migrations_intro: >-
-  You can use these endpoints to move a repository from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator/exporting-migration-data-from-githubcom)."
+  You can use these endpoints to export one or more repositories so you can move them to a{% ifversion ghes %}nother{% endif %} {% data variables.product.prodname_ghe_server %} instance. For more information, see "[AUTOTITLE]({% ifversion ghae %}/enterprise-server@latest{% endif %}/migrations/using-ghe-migrator/exporting-migration-data-from-githubcom)."
 source_imports_intro: >-
   You can use these endpoints to start an import from a Git, Subversion,
   Mercurial, or Team Foundation Version Control source repository. This is the same

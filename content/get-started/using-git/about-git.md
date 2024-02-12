@@ -159,7 +159,7 @@ git push
 There are two primary ways people collaborate on {% data variables.product.product_name %}:
 
 1. Shared repository
-2. Fork and pull
+1. Fork and pull
 
 With a shared repository, individuals and teams are explicitly designated as contributors with read, write, or administrator access. This simple permission structure, combined with features like protected branches, helps teams progress quickly when they adopt {% data variables.product.product_name %}.
 

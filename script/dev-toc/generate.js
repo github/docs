@@ -4,9 +4,9 @@ import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 import { program } from 'commander'
-import fpt from '../../lib/non-enterprise-default-version.js'
-import { allVersionKeys } from '../../lib/all-versions.js'
-import { liquid } from '../../lib/render-content/index.js'
+import fpt from '#src/versions/lib/non-enterprise-default-version.js'
+import { allVersionKeys } from '#src/versions/lib/all-versions.js'
+import { liquid } from '#src/content-render/index.js'
 import contextualize from '../../middleware/context.js'
 
 const layoutFilename = path.posix.join(process.cwd(), 'script/dev-toc/layout.html')
@@ -20,7 +20,7 @@ program
   .description('Generate a local TOC of the docs website and open it in your browser')
   .option(
     '-o, --openSections [product-ids...]',
-    'open sections for one or more product IDs by default (e.g., "-o codespaces pull-requests")'
+    'open sections for one or more product IDs by default (e.g., "-o codespaces pull-requests")',
   )
   .parse(process.argv)
 

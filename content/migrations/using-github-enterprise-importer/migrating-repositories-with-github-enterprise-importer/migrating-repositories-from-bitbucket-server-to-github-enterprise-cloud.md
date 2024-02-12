@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-bitbucket-server-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 You can migrate individual repositories or all repositories from a BitBucket Server instance using {% data variables.product.prodname_cli %}.
@@ -32,7 +30,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 1. Install the {% data variables.product.prodname_bbs2gh_cli_short %}.
 
-   ```shell{:copy}
+   ```shell copy
    gh extension install github/gh-bbs2gh
    ```
 
@@ -42,7 +40,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 
 The {% data variables.product.prodname_bbs2gh_cli %} is updated weekly. {% data reusables.enterprise-migration-tool.update-your-extension %}
 
-```shell{:copy}
+```shell copy
 gh extension upgrade github/gh-bbs2gh
 ```
 
@@ -57,7 +55,7 @@ You'll also need to set environment variables for your Bitbucket Server username
 
    - If you're using Terminal, use the `export` command.
 
-      ```shell{:copy}
+      ```shell copy
       export GH_PAT="TOKEN"
      export BBS_USERNAME="USERNAME"
      export BBS_PASSWORD="PASSWORD"
@@ -67,7 +65,7 @@ You'll also need to set environment variables for your Bitbucket Server username
 
    - If you're using PowerShell, use the `$env` command.
 
-      ```shell{:copy}
+      ```shell copy
       $env:GH_PAT="TOKEN"
      $env:BBS_USERNAME="USERNAME"
      $env:BBS_PASSWORD="PASSWORD"
@@ -107,7 +105,7 @@ When you migrate a repository, by default, the {% data variables.product.prodnam
 1. Downloads the migration archive from the Bitbucket Server instance to the machine where you're running the {% data variables.product.prodname_bbs2gh_cli %}, using SFTP (Linux) or SMB (Windows)
 1. Uploads the migration archives to the blob storage provider of your choice
 1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
-1. Deletes the migration archive
+1. Deletes the migration archive from your local machine. (You'll need to delete the archive from your blob storage provider manually once the migration has finished.)
 
 Alternatively, you can use the {% data variables.product.prodname_cli %} to generate the archive, download that archive manually, and then use the {% data variables.product.prodname_cli %} to continue the migration.
 
@@ -120,7 +118,7 @@ To migrate a single repository, use the `gh bbs2gh migrate-repo` command.
 
 {% data reusables.enterprise-migration-tool.bitbucket-server-migrate-repo-access %}
 
-```shell{:copy}
+```shell copy
 gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT --bbs-repo CURRENT-NAME \
   --github-org DESTINATION --github-repo NEW-NAME \
@@ -130,6 +128,8 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --smb-user SMB-USER
   # Use the following option if you're using AWS S3 as your blob storage provider
   --aws-bucket-name AWS-BUCKET-NAME
+  # Use the following option if you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer
+  --archive-download-host ARCHIVE-DOWNLOAD-HOST
 ```
 
 {% data reusables.enterprise-migration-tool.placeholder-table %}
@@ -142,6 +142,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
 {% data reusables.enterprise-migration-tool.smb-user-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+{% data reusables.enterprise-migration-tool.archive-download-host-placeholder %}
 
 {% note %}
 
@@ -162,7 +163,7 @@ You must follow this step from a computer that can access:
 
 First, use the `gh bbs2gh migrate-repo` command with only the following arguments:
 
-```shell{:copy}
+```shell copy
 gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT \
   --bbs-repo CURRENT-NAME
@@ -175,7 +176,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 
 Your migration archive will be generated, and its path will be printed in the command output:
 
-```
+```text
 [12:14] [INFO] Export completed. Your migration archive should be ready on your
 instance at $BITBUCKET_SHARED_HOME/data/migration/export/Bitbucket_export_9.tar
 ```
@@ -186,9 +187,12 @@ Download the migration archive from your Bitbucket Server instance, and store th
 
 To import your migration archive into {% data variables.product.prodname_dotcom %}, use the `gh bbs2gh migrate-repo` command again, with a different set of arguments:
 
-```shell{:copy}
+```shell copy
 gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
   --github-org DESTINATION --github-repo NEW-NAME \
+  --bbs-server-url BBS-SERVER-URL \
+  --bbs-project PROJECT \
+  --bbs-repo CURRENT-NAME \
   # Use the following option if you're using AWS S3 as your blob storage provider
   --aws-bucket-name AWS-BUCKET-NAME
 ```
@@ -197,6 +201,9 @@ gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
 {% data reusables.enterprise-migration-tool.archive-path-placeholder %}
 {% data reusables.enterprise-migration-tool.destination-placeholder %}
 {% data reusables.enterprise-migration-tool.new-name-placeholder %}
+{% data reusables.enterprise-migration-tool.bbs-server-url-placeholder %}
+{% data reusables.enterprise-migration-tool.project-placeholder %}
+{% data reusables.enterprise-migration-tool.current-name-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
 
 ## Step 6: Validate your migration and check the error log
@@ -213,7 +220,7 @@ You must follow this step from a computer that can access your Bitbucket Server 
 
 To generate a migration script, run the `gh bbs2gh generate-script` command.
 
-```shell{:copy}
+```shell copy
 gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
   --github-org DESTINATION \
   --output FILENAME \
@@ -221,6 +228,8 @@ gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
   --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
   # Use the following options if your Bitbucket Server instance runs on Windows
   --smb-user SMB-USER
+  # Use the following option if you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer
+  --archive-download-host ARCHIVE-DOWNLOAD-HOST
 ```
 
 {% data reusables.enterprise-migration-tool.download-migration-logs-flag %}
@@ -232,6 +241,7 @@ gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.ssh-user-placeholder %}
 {% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
 {% data reusables.enterprise-migration-tool.smb-user-placeholder %}
+{% data reusables.enterprise-migration-tool.archive-download-host-placeholder %}
 
 ### Reviewing the migration script
 

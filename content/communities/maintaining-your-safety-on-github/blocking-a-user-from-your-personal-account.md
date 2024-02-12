@@ -73,7 +73,7 @@ In repositories you own, blocked users also cannot:
 
 {% note %}
 
-Use {% data variables.contact.report_abuse %} to contact us if you're being harassed. {% data reusables.policies.abuse %}
+If you're being harassed, visit {% data variables.contact.contact_support_page %} to report abuse. {% data reusables.policies.abuse %}
 
 {% endnote %}
 

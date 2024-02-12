@@ -1,6 +1,6 @@
 ---
 title: bqrs info
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql bqrs info <options>... -- <file>
 ```
 
@@ -40,7 +40,9 @@ column types of each result set.
 It can also optionally precompute offsets for using the pagination
 options of [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode). This is mainly useful for IDE plugins.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>`
 
@@ -48,7 +50,7 @@ options of [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Supporting pagination in codeql bqrs decode
 
@@ -56,7 +58,7 @@ Select output format, either `text` *(default)* or `json`.
 
 \[Advanced] When given together with `--format=json`, compute a table
 of byte offsets that can later be given to the `--start-at` option of
-[codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode), to start streaming results at positions 0, *\<num>*, 2\**\<num>*, and so
+[codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode), to start streaming results at positions 0, _\<num>_, 2\*_\<num>_, and so
 forth.
 
 #### `--paginate-result-set=<name>`

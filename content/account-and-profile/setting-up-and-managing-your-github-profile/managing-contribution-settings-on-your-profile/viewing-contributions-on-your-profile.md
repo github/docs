@@ -49,7 +49,7 @@ This section displays your repositories with the most watchers. {% ifversion fpt
 
 This section displays up to six public repositories or gists. Important details are listed for each of the items you've chosen to feature. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/pinning-items-to-your-profile)."
 
-![Screenshot of the "Pinned repositories" section of a user's profile page.](/assets/images/help/profile/profile_pinned_repositories.png)
+![Screenshot of the "Pinned repositories" section of a user's profile page.](/assets/images/help/profile/profile-pinned-repositories.png)
 
 {% endif %}
 
@@ -60,7 +60,7 @@ Your contributions calendar shows your contribution activity.
 ### Viewing contributions from specific times
 
 - Click on a day's square to show the contributions made during that 24-hour period.
-- Press *Shift* and click on another day's square to show contributions made during that time span.
+- Press _Shift_ and click on another day's square to show contributions made during that time span.
 
 {% note %}
 
@@ -68,7 +68,7 @@ Your contributions calendar shows your contribution activity.
 
 {% endnote %}
 
-![Screenshot of the contributions graph on a user profile.](/assets/images/help/profile/contributions_graph.png)
+![Screenshot of the contributions graph on a user profile.](/assets/images/help/profile/contributions-graph.png)
 
 ### How contribution event times are calculated
 

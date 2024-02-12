@@ -1,6 +1,6 @@
 ---
 title: database interpret-results
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database interpret-results --format=<format> --output=<output> [--threads=<num>] <options>... -- <database> <file|dir|suite>...
 ```
 
@@ -38,7 +38,9 @@ such as SARIF or CSV.
 The results should have been computed and stored in a CodeQL database
 directory using [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries). (Usually you'd want to do these steps together, by using [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze)).
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
@@ -146,9 +148,9 @@ languages or different parts of the code.
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
 presentation in Code Scanning, this value should differ between each of
-the analyses, which tells Code Scanning that the analyses *supplement*
-rather than *supersede* each other. (The values should be consistent
-between runs of the same analysis for *different* versions of the code
+the analyses, which tells Code Scanning that the analyses _supplement_
+rather than _supersede_ each other. (The values should be consistent
+between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
@@ -161,7 +163,7 @@ present) as the `<run>.automationId` property in SARIF v1, the
 The number of threads used for computing paths.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `--[no-]print-diagnostics-summary`
@@ -238,8 +240,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

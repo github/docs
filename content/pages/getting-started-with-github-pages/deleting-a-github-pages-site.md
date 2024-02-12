@@ -20,6 +20,7 @@ You can delete your site in two ways:
 - Change the source to the `None` branch. For more information, see [Deleting your site by changing the source](#deleting-your-site-by-changing-the-source) below.
 
 If you want to remove the current deployment of your site but do not want to delete the site, you can unpublish your site. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)."
+
 ## Deleting your site by changing the source
 
 {% data reusables.pages.navigate-site-repo %}

@@ -30,3 +30,7 @@ like "Enterprise Server X.Y". It should change the above sentence.
 "[AUTOTITLE](/get-started/quickstart/dynamic-title)"
 
 "[AUTOTITLE](/get-started/foo/cross-version-linking)"
+
+## Use of a reusable that might have auto-title links
+
+{% data reusables.gated-features.more-info %}

@@ -16,4 +16,5 @@ children:
   - /for-playwright
   - /html-short-title
   - /page-with-callout
+  - /table-with-ifversions
 ---

@@ -26,7 +26,7 @@ const SUPPORTED_LANGUAGES = ['json', 'javascript', 'curl']
 //     </pre>
 //
 const CODE_ELEMENTS_PARENT_SELECTOR = '[data-highlight]'
-const CODE_SELECTOR = 'div code' || 'pre code'
+const CODE_SELECTOR = 'code'
 
 export default function ClientSideHighlightJS() {
   const { asPath } = useRouter()
@@ -50,13 +50,13 @@ export default function ClientSideHighlightJS() {
       }
     })
     for (const parent of Array.from(
-      document.querySelectorAll<HTMLElement>(CODE_ELEMENTS_PARENT_SELECTOR)
+      document.querySelectorAll<HTMLElement>(CODE_ELEMENTS_PARENT_SELECTOR),
     )) {
       const language = parent.dataset.highlight || 'json'
       if (!SUPPORTED_LANGUAGES.includes(language)) {
         if (process.env.NODE_ENV === 'development') {
           console.warn(
-            `For highlighting, only ${SUPPORTED_LANGUAGES} is supported. Not '${language}'.`
+            `For highlighting, only ${SUPPORTED_LANGUAGES} is supported. Not '${language}'.`,
           )
         }
         continue

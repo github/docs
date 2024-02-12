@@ -3,8 +3,8 @@ import {
   readCompressedJsonFileFallback,
 } from '../../../lib/read-json-file.js'
 import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js'
-import languages from '../../../lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import languages from '#src/languages/lib/languages.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 export const GRAPHQL_DATA_DIR = 'src/graphql/data'
 /* ADD LANGUAGE KEY */
@@ -23,7 +23,7 @@ export function getGraphqlSchema(version, type) {
   if (!graphqlSchema.has(graphqlVersion)) {
     graphqlSchema.set(
       graphqlVersion,
-      readCompressedJsonFileFallback(`${GRAPHQL_DATA_DIR}/${graphqlVersion}/schema.json`)
+      readCompressedJsonFileFallback(`${GRAPHQL_DATA_DIR}/${graphqlVersion}/schema.json`),
     )
   }
   return graphqlSchema.get(graphqlVersion)[type]
@@ -34,7 +34,9 @@ export function getGraphqlChangelog(version) {
   if (!changelog.has(graphqlVersion)) {
     changelog.set(
       graphqlVersion,
-      readCompressedJsonFileFallbackLazily(`${GRAPHQL_DATA_DIR}/${graphqlVersion}/changelog.json`)()
+      readCompressedJsonFileFallbackLazily(
+        `${GRAPHQL_DATA_DIR}/${graphqlVersion}/changelog.json`,
+      )(),
     )
   }
 
@@ -45,7 +47,7 @@ export function getGraphqlBreakingChanges(version) {
   const graphqlVersion = getGraphqlVersion(version)
   if (!upcomingChanges.has(graphqlVersion)) {
     const data = readCompressedJsonFileFallbackLazily(
-      `${GRAPHQL_DATA_DIR}/${graphqlVersion}/upcoming-changes.json`
+      `${GRAPHQL_DATA_DIR}/${graphqlVersion}/upcoming-changes.json`,
     )()
     upcomingChanges.set(graphqlVersion, data)
   }
@@ -56,7 +58,7 @@ export function getPreviews(version) {
   const graphqlVersion = getGraphqlVersion(version)
   if (!previews.has(graphqlVersion)) {
     const data = readCompressedJsonFileFallbackLazily(
-      `${GRAPHQL_DATA_DIR}/${graphqlVersion}/previews.json`
+      `${GRAPHQL_DATA_DIR}/${graphqlVersion}/previews.json`,
     )()
     previews.set(graphqlVersion, data)
   }
@@ -74,7 +76,7 @@ export async function getMiniToc(context, type, items, depth = 2, markdownHeadin
       items,
       context,
       depth,
-      markdownHeading
+      markdownHeading,
     )
     miniTocs.get(currentLanguage).get(graphqlVersion).set(type, graphqlMiniTocItems)
   }

@@ -1,6 +1,6 @@
 ---
 title: database bundle
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database bundle --output=<output> [--mode=<mode>] <options>... -- <database>
 ```
 
@@ -36,7 +36,9 @@ A command that zips up the useful parts of the database. This will only
 include the mandatory components, unless the user specifically requests
 that results, logs, TRAP, or similar should be included.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
@@ -103,7 +105,7 @@ Select how aggressively to trim the cache. Choices include:
 `brutal`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` *(default)*: Trim everything except explicitly "cached"
+`normal` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
 `light`: Simply make sure the defined size limits for the disk cache are

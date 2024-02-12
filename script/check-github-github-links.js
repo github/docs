@@ -81,7 +81,7 @@ async function main(opts, args) {
       ...(await getPathsWithMatchingStrings(searchStrings, 'github', 'github', {
         cache: CACHE_SEARCHES,
         forceDownload: FORCE_DOWNLOAD,
-      }))
+      })),
     )
     await fs.writeFile('/tmp/foundFiles.json', JSON.stringify(foundFiles, undefined, 2), 'utf-8')
   }
@@ -92,7 +92,7 @@ async function main(opts, args) {
         !file.includes('test/') &&
         !file.includes('app/views/') &&
         !file.includes('config.') &&
-        !file.includes('app/api/description/')
+        !file.includes('app/api/description/'),
     )
 
   const docsLinksFiles = []
@@ -155,8 +155,8 @@ async function main(opts, args) {
                   regexIndexOf(
                     contents,
                     /\n|"\)|{@email_tracking_params}|\^http|Ahttps|example|This|TODO"|[{}|"%><.,')* ]/,
-                    startSearchIndex + 1
-                  )
+                    startSearchIndex + 1,
+                  ),
                 )
                 .trim()
 
@@ -174,7 +174,7 @@ async function main(opts, args) {
     await fs.writeFile(
       '/tmp/docsLinksFiles.json',
       JSON.stringify(docsLinksFiles, undefined, 2),
-      'utf-8'
+      'utf-8',
     )
   }
   const brokenLinks = []
@@ -200,7 +200,7 @@ async function main(opts, args) {
             throw error
           }
         }
-      })
+      }),
     )
   }
 

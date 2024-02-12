@@ -1,6 +1,6 @@
 ---
 title: dataset check
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql dataset check <options>... -- <dataset>
 ```
 
@@ -37,7 +37,9 @@ as it validates the data produced by the extractor. It may also be
 useful if queries against a database are giving inconsistent results, to
 rule out issues in the underlying data as the cause.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dataset>`
 
@@ -53,7 +55,7 @@ useful to set it to 0.
 
 Select output format. Possible choices:
 
-`text` *(default)*: A human-readable textual rendering.
+`text` _(default)_: A human-readable textual rendering.
 
 `json`: A streamed JSON array of objects.
 

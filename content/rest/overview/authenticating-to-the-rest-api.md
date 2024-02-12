@@ -39,6 +39,8 @@ If you try to use a REST API endpoint without a token or with a token that has i
 
 If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}.{% ifversion pat-v2 %} If possible, {% data variables.product.company_short %} recommends that you use a {% data variables.product.pat_v2 %} instead of a {% data variables.product.pat_v1 %}.{% endif %} For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
+{% ifversion pat-v2 %}If you are using a {% data variables.product.pat_v2 %}, your {% data variables.product.pat_v2 %} requires specific permissions in order to access each REST API endpoint. For more information about the permissions that are required for each endpoint, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)." If you are using a {% data variables.product.pat_v1 %}, your {% else %}Your {% endif %}{% data variables.product.pat_v1 %} requires specific scopes in order to access each REST API endpoint. For general guidance about what scopes to choose, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)."
+
 {% ifversion fpt or ghec %}If you use a {% data variables.product.pat_v1 %} to access an organization that enforces SAML single sign-on (SSO) for authentication, you will need to authorize your token after creation.{% ifversion pat-v2 %} {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.{% endif %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
 
 If you do not authorize your {% data variables.product.pat_v1 %} for SAML SSO before you try to use it to access an organization that enforces SAML SSO, you may receive a `404 Not Found` or a `403 Forbidden` error. If you receive a `403 Forbidden` error, you can follow the URL in the `X-GitHub-SSO` header to authorize your token. The URL expires after one hour. If you requested data that could come from multiple organizations, the API will not return results from the organizations that require SAML SSO. The `X-GitHub-SSO` header will indicate the ID of the organizations that require SAML SSO authorization of your {% data variables.product.pat_v1 %}. For example: `X-GitHub-SSO: partial-results; organizations=21955855,20582480`.
@@ -48,24 +50,44 @@ If you do not authorize your {% data variables.product.pat_v1 %} for SAML SSO be
 
 If you want to use the API for an organization or on behalf of another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_app %}s allow more control over the access and permission that the app has.
+Your {% data variables.product.prodname_github_app %} requires specific permissions in order to access each REST API endpoint. For more information about the permissions that are required for each endpoint, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
+
+You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_apps %} allow more control over the access and permission that the app has.
 
 {% ifversion fpt or ghec %}Access tokens created by apps are automatically authorized for SAML SSO.{% endif %}
 
 ### Using basic authentication
 
-Some REST API endpoints for {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s require you to use basic authentication to access the endpoint. You will use the app's client ID as the username and the app's client secret as the password.
+Some REST API endpoints for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} require you to use basic authentication to access the endpoint. You will use the app's client ID as the username and the app's client secret as the password.
 
 For example:
 
 ```shell
 curl --request POST \
---url "{% data variables.product.api_url_code %}/authorizations" \
---user "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"{% ifversion api-date-versioning %} \
+--url "{% data variables.product.api_url_code %}/applications/YOUR_CLIENT_ID/token" \
+--user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET"{% ifversion api-date-versioning %} \
+--header "Accept: application/vnd.github+json" \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
+--data '{
+  "access_token": "ACCESS_TOKEN_TO_CHECK"
+}'
 ```
 
-You can find the client ID and generate a client secret on the settings page for your app. For user-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the sluggified name of your app and `ORGANIZATION` with the sluggified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+The client ID and client secret are associated with the app, not with the owner of the app or a user who authorized the app. They are used to perform operations on behalf of the app, such as creating access tokens.
+
+If you are the owner of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, or if you are an app manager for a {% data variables.product.prodname_github_app %}, you can find the client ID and generate a client secret on the settings page for your app. To navigate to your app's settings page:
+
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. Navigate to your account settings.
+   - For an app owned by a personal account, click **Settings**.
+   - For an app owned by an organization:
+     1. Click **Your organizations**.
+     1. To the right of the organization, click **Settings**.
+{% data reusables.user-settings.developer_settings %}
+1. In the left sidebar, click **{% data variables.product.prodname_github_apps %}** or **{% data variables.product.prodname_oauth_apps %}**.
+1. For {% data variables.product.prodname_github_apps %}, to the right of the {% data variables.product.prodname_github_app %} you want to access, click **Edit**. For {% data variables.product.prodname_oauth_apps %}, click the app that you want to access.
+1. Next to **Client ID**, you will see the client ID for your app.
+1. Next to **Client secrets**, click **Generate a new client secret** to generate a client secret for your app.
 
 ## Authenticating in a {% data variables.product.prodname_actions %} workflow
 

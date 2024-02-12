@@ -1,12 +1,15 @@
-import fs from 'fs/promises'
+import fs from 'fs'
 import path from 'path'
 
 import { describe } from '@jest/globals'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
-import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
+import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
 import getRest from '../lib/index.js'
+import readFrontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '../../../lib/frontmatter.js'
+import getApplicableVersions from '../../versions/lib/get-applicable-versions.js'
 
 const schemasPath = 'src/rest/data'
 
@@ -41,37 +44,66 @@ function createCategoryList(operations) {
 }
 
 describe('markdown for each rest version', () => {
-  test('markdown file exists for every operationId prefix in all versions of the OpenAPI schema', async () => {
-    // list of REST markdown files that do not correspond to REST API resources
-    // TODO could we get this list dynamically, say via page frontmatter?
-    const excludeFromResourceNameCheck = [
-      'README.md',
-      'index.md',
-      'guides',
-      'overview',
-      'quickstart.md',
-    ]
+  // Unique set of all categories across all versions of the OpenAPI schema
+  const allCategories = new Set()
+  // Entire schema including categories and subcategories
+  const openApiSchema = {}
+  // All applicable version of categories based on frontmatter in the categories index.md file
+  const categoryApplicableVersions = {}
+  const referenceDir = path.join(process.cwd(), 'content/rest')
+  const excludeFromResourceNameCheck = [
+    'README.md',
+    'index.md',
+    'guides',
+    'overview',
+    'quickstart.md',
+  ]
 
-    // Unique set of all categories across all versions of the OpenAPI schema
-    const allCategories = new Set()
+  function getApplicableVersionFromFile(file) {
+    const currentFile = fs.readFileSync(file, 'utf8')
+    const { data } = frontmatter(currentFile)
+    return getApplicableVersions(data.versions, file)
+  }
 
+  function getCategorySubcategory(file) {
+    const fileSplit = file.split('/')
+    const cat = fileSplit[fileSplit.length - 2]
+    const subCat = fileSplit[fileSplit.length - 1].replace('.md', '')
+    return { category: cat, subCategory: subCat }
+  }
+
+  beforeAll(async () => {
     for (const version in allVersions) {
       if (isApiVersioned(version)) {
         for (const apiVersion of allVersions[version].apiVersions) {
           const apiOperations = await getRest(version, apiVersion)
           Object.keys(apiOperations).forEach((category) => allCategories.add(category))
+          openApiSchema[version] = apiOperations
         }
       } else {
         const apiOperations = await getRest(version)
         Object.keys(apiOperations).forEach((category) => allCategories.add(category))
+        openApiSchema[version] = apiOperations
       }
     }
 
-    const referenceDir = path.join('content/rest')
-    const filenames = (await fs.readdir(referenceDir))
+    walk(referenceDir, { includeBasePath: true, directories: false })
+      .filter((filename) => filename.includes('index.md'))
+      .forEach((file) => {
+        const applicableVersions = getApplicableVersionFromFile(file)
+        const { category } = getCategorySubcategory(file)
+        categoryApplicableVersions[category] = applicableVersions
+      })
+  })
+
+  test('markdown file exists for every operationId prefix in all versions of the OpenAPI schema', async () => {
+    // list of REST markdown files that do not correspond to REST API resources
+    // TODO could we get this list dynamically, say via page frontmatter?
+    const filenames = fs
+      .readdirSync(referenceDir)
       .filter(
         (filename) =>
-          !excludeFromResourceNameCheck.find((excludedFile) => filename.endsWith(excludedFile))
+          !excludeFromResourceNameCheck.find((excludedFile) => filename.endsWith(excludedFile)),
       )
       .map((filename) => filename.replace('.md', ''))
 
@@ -82,6 +114,36 @@ describe('markdown for each rest version', () => {
     const missingFile =
       'Found an OpenAPI REST operation category that is not represented by a markdown file in content/rest.'
     expect(difference([...allCategories], filenames), missingFile).toEqual([])
+  })
+
+  test('category and subcategory exist in OpenAPI schema for every applicable version in markdown frontmatter', async () => {
+    walk(referenceDir, { includeBasePath: true, directories: false })
+      .filter(
+        (filename) => !excludeFromResourceNameCheck.some((pattern) => filename.includes(pattern)),
+      )
+      .forEach((file) => {
+        const applicableVersions = getApplicableVersionFromFile(file)
+        const { category, subCategory } = getCategorySubcategory(file)
+
+        for (const version of applicableVersions) {
+          expect(
+            Object.keys(openApiSchema[version][category]),
+            `The REST version: ${version}'s category: ${category} does not include the subcategory: ${subCategory}. Please check file: ${file}`,
+          ).toContain(subCategory)
+          expect(categoryApplicableVersions[category]).toContain(version)
+        }
+      })
+  })
+})
+
+describe('rest file structure', () => {
+  test('children of content/rest/index.md are in alphabetical order', async () => {
+    const indexContent = fs.readFileSync('content/rest/index.md', 'utf8')
+    const { data } = readFrontmatter(indexContent)
+    const sortableChildren = data.children.filter(
+      (child) => child !== '/quickstart' && child !== '/overview' && child !== '/guides',
+    )
+    expect(sortableChildren).toStrictEqual([...sortableChildren].sort())
   })
 })
 
@@ -98,7 +160,7 @@ describe('OpenAPI schema validation', () => {
         // Because the rest calendar dates now have latest, next, or calendar date attached to the name, we're
         // now checking if the decorated file names now start with an openApiBaseName
         expect(
-          decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName))
+          decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName)),
         ).toBe(true)
       })
   })
@@ -122,7 +184,7 @@ describe('OpenAPI schema validation', () => {
           const operations = await getRest(version, apiVersion)
           expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)
         }
-      })
+      }),
     )
   })
 })

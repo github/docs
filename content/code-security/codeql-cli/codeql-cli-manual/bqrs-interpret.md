@@ -1,6 +1,6 @@
 ---
 title: bqrs interpret
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql bqrs interpret --format=<format> --output=<output> -t=<String=String> [--threads=<num>] [--source-archive=<sourceArchive>] [--source-location-prefix=<sourceLocationPrefix>] <options>... -- <bqrs-file>
 ```
 
@@ -35,7 +35,9 @@ codeql bqrs interpret --format=<format> --output=<output> -t=<String=String> [--
 A command that interprets a single BQRS file according to the provided
 metadata and generates output in the specified format.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<bqrs-file>`
 
@@ -138,9 +140,9 @@ languages or different parts of the code.
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
 presentation in Code Scanning, this value should differ between each of
-the analyses, which tells Code Scanning that the analyses *supplement*
-rather than *supersede* each other. (The values should be consistent
-between runs of the same analysis for *different* versions of the code
+the analyses, which tells Code Scanning that the analyses _supplement_
+rather than _supersede_ each other. (The values should be consistent
+between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
@@ -153,7 +155,7 @@ present) as the `<run>.automationId` property in SARIF v1, the
 The number of threads used for computing paths.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `--sarif-run-property=<String=String>`

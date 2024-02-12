@@ -26,11 +26,11 @@ import {
   deprecated,
   firstReleaseStoredInBlobStorage,
   lastVersionWithoutArchivedRedirectsFile,
-} from '../lib/enterprise-server-releases.js'
+} from '#src/versions/lib/enterprise-server-releases.js'
 
 program
   .description(
-    "Visit a bunch of archived redirects.json URLs to warm up getRemoteJSON's disk cache"
+    "Visit a bunch of archived redirects.json URLs to warm up getRemoteJSON's disk cache",
   )
   .parse(process.argv)
 
@@ -39,7 +39,7 @@ main()
 function version2url(version) {
   const inBlobStorage = semver.gte(
     semver.coerce(version).raw,
-    semver.coerce(firstReleaseStoredInBlobStorage).raw
+    semver.coerce(firstReleaseStoredInBlobStorage).raw,
   )
   return inBlobStorage
     ? `https://githubdocs.azureedge.net/enterprise/${version}/redirects.json`
@@ -49,7 +49,7 @@ function version2url(version) {
 function withArchivedRedirectsFile(version) {
   return semver.eq(
     semver.coerce(version).raw,
-    semver.coerce(lastVersionWithoutArchivedRedirectsFile).raw
+    semver.coerce(lastVersionWithoutArchivedRedirectsFile).raw,
   )
 }
 

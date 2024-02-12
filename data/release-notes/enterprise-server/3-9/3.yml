@@ -1,0 +1,69 @@
+date: '2023-08-10'
+intro: |
+  {% warning %}
+
+  **Warning**: A change to MySQL in GitHub Enterprise Server 3.9 and later may impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.9.3-known-issues)" section of these release notes.
+  {% endwarning %}
+sections:
+  security_fixes:
+    - |
+      **LOW:** An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a reopened pull request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/) and was assigned [CVE-2023-23766](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23766). [Updated: 2023-09-22]
+  bugs:
+    - |
+      API results were incomplete, and ordering of results was incorrect if `asc` or `desc` appeared in lowercase within the API query.
+    - |
+      The checks in the merge box for a pull request did not always match the the checks for the most recent commit in the pull request.
+    - |
+      When a site administrator used GitHub Enterprise Importer on versions 3.7 and below to migrate repositories from GitHub Enterprise Server, the system backup size would increase after running many migrations due to storage files not being cleaned up.
+    - |
+      A collaborator with the "Set the social preview" permission inherited from the "Read" role could not upload the social preview image of a repository.
+    - |
+      The security settings page for a repository would return an error when enterprise-level runners were assigned to the repository.
+    - |
+      GitHub Enterprise Server was queuing zip jobs unnecessarily.
+  changes:
+    - |
+      On GitHub Enterprise Server 3.8 and above, a blob storage provider must be configured in the Management Console in order to use the GitHub Enterprise Importer CLI, "startRepositoryMigration" GraphQL API, or "Start an organization migration" REST API. The "Migrations" section in the Management Console was mistakenly removed and has been added back.
+    - |
+      Administrators can display all repositories in a network with `spokesctl` by using the `repositories` subcommand.
+    - |
+      The secondary abuse rate limits of the GraphQL API are now configurable in the Management Console. [Updated: 2023-09-01]
+  known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %} [Updated: 2023-08-11]
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[Troubleshooting access to the Management Console](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)." [Updated: 2023-02-23]
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.mermaid-rendering-known-issue %}
+    - |
+      When enabling CodeQL via default setup [at scale](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale), some checks related to GitHub Actions are omitted, potentially preventing the process from completing.
+    - |
+      {% data reusables.release-notes.migrations-blob-storage-unconfigurable-known-issue %} [Updated: 2023-08-18]
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
+    - |
+      {% data reusables.release-notes.2023-09-config-apply-timeout-hookshot-go-replicas %} [Updated: 2023-09-21]
+    - |
+      {% data reusables.release-notes.2023-09-ephemeral-self-hosted-runners-not-auto-upgrading %} [Updated: 2023-09-29]
+    - |
+      {% data reusables.release-notes.2023-10-resource-activity-queue-not-processed %} [Updated: 2023-10-10]
+    - |
+      {% data reusables.release-notes.2023-10-support-bundle-p-flag-not-working %} [Updated: 2023-10-13]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2023-10-17]

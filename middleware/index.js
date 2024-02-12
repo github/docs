@@ -16,58 +16,55 @@ import {
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
 import handleErrors from '#src/observability/middleware/handle-errors.js'
-import handleInvalidPaths from '#src/observability/middleware/handle-invalid-paths.js'
 import handleNextDataPath from './handle-next-data-path.js'
-import detectLanguage from './detect-language.js'
+import detectLanguage from '#src/languages/middleware/detect-language.js'
 import reloadTree from './reload-tree.js'
 import context from './context.js'
-import shortVersions from './contextualizers/short-versions.js'
-import languageCodeRedirects from './redirects/language-code-redirects.js'
-import handleRedirects from './redirects/handle-redirects.js'
+import shortVersions from '#src/versions/middleware/short-versions.js'
+import languageCodeRedirects from '#src/redirects/middleware/language-code-redirects.js'
+import handleRedirects from '#src/redirects/middleware/handle-redirects.js'
 import findPage from './find-page.js'
 import blockRobots from './block-robots.js'
-import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-assets.js'
+import archivedEnterpriseVersionsAssets from '#src/archives/middleware/archived-enterprise-versions-assets.js'
 import api from './api/index.js'
 import healthz from './healthz.js'
 import productIcons from './product-icons.js'
 import manifestJson from './manifest-json.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
-import archivedEnterpriseVersions from './archived-enterprise-versions.js'
+import archivedEnterpriseVersions from '#src/archives/middleware/archived-enterprise-versions.js'
 import robots from './robots.js'
-import earlyAccessLinks from './contextualizers/early-access-links.js'
+import earlyAccessLinks from '#src/early-access/middleware/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
 import triggerError from '#src/observability/middleware/trigger-error.js'
-import secretScanning from './contextualizers/secret-scanning.js'
-import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
-import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
+import secretScanning from '#src/secret-scanning/middleware/secret-scanning.js'
+import ghesReleaseNotes from '#src/release-notes/middleware/ghes-release-notes.js'
+import ghaeReleaseNotes from '#src/release-notes/middleware/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
 import glossaries from './contextualizers/glossaries.js'
-import features from './contextualizers/features.js'
+import features from '#src/versions/middleware/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import productGroups from './contextualizers/product-groups.js'
-import homepageLinks from './contextualizers/homepage-links.js'
 import featuredLinks from '#src/landings/middleware/featured-links.js'
-import learningTrack from './learning-track.js'
+import learningTrack from '#src/learning-track/middleware/learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
-import assetPreprocessing from './asset-preprocessing.js'
-import archivedAssetRedirects from './archived-asset-redirects.js'
+import assetPreprocessing from '#src/assets/middleware/asset-preprocessing.js'
+import archivedAssetRedirects from '#src/archives/middleware/archived-asset-redirects.js'
 import favicons from './favicons.js'
-import setStaticAssetCaching from './static-asset-caching.js'
+import setStaticAssetCaching from '#src/assets/middleware/static-asset-caching.js'
 import fastHead from './fast-head.js'
 import fastlyCacheTest from './fastly-cache-test.js'
 import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
-import dynamicAssets from './dynamic-assets.js'
+import dynamicAssets from '#src/assets/middleware/dynamic-assets.js'
 import contextualizeSearch from '#src/search/middleware/contextualize.js'
-import rateLimit from './rate-limit.js'
-import handleInvalidQuerystrings from '#src/observability/middleware/handle-invalid-query-strings.js'
+import shielding from '#src/shielding/middleware/index.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -76,7 +73,7 @@ const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 // it's off if you're in a production environment or running automated tests.
 // But if you set the env var, that takes precedence.
 const ENABLE_DEV_LOGGING = JSON.parse(
-  process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest)
+  process.env.ENABLE_DEV_LOGGING || !(DEPLOYMENT_ENV === 'azure' || isTest),
 )
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
@@ -131,8 +128,8 @@ export default function (app) {
   // archivedEnterpriseVersionsAssets must come before static/assets
   app.use(
     asyncMiddleware(
-      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets')
-    )
+      instrument(archivedEnterpriseVersionsAssets, './archived-enterprise-versions-assets'),
+    ),
   )
 
   app.use(favicons)
@@ -165,7 +162,7 @@ export default function (app) {
       immutable: process.env.NODE_ENV !== 'development',
       // The next middleware will try its luck and send the 404 if must.
       fallthrough: true,
-    })
+    }),
   )
   app.use(asyncMiddleware(instrument(dynamicAssets, './dynamic-assets')))
   app.use(
@@ -176,7 +173,7 @@ export default function (app) {
       maxAge: '7 days', // A bit longer since releases are more sparse
       // See note about about use of 'fallthrough'
       fallthrough: false,
-    })
+    }),
   )
 
   // In development, let NextJS on-the-fly serve the static assets.
@@ -196,14 +193,12 @@ export default function (app) {
         immutable: true,
         // See note about about use of 'fallthrough'
         fallthrough: false,
-      })
+      }),
     )
   }
 
   // *** Early exits ***
-  app.use(rateLimit)
-  app.use(instrument(handleInvalidQuerystrings, './handle-invalid-querystrings'))
-  app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
+  app.use(shielding)
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
   // *** Security ***
@@ -262,11 +257,11 @@ export default function (app) {
   app.use(instrument(robots, './robots'))
   app.use(
     /(\/.*)?\/early-access$/,
-    instrument(earlyAccessLinks, './contextualizers/early-access-links')
+    instrument(earlyAccessLinks, './contextualizers/early-access-links'),
   )
   app.use(
     '/categories.json',
-    asyncMiddleware(instrument(categoriesForSupport, './categories-for-support'))
+    asyncMiddleware(instrument(categoriesForSupport, './categories-for-support')),
   )
   app.get('/_500', asyncMiddleware(instrument(triggerError, './trigger-error')))
 
@@ -293,7 +288,6 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(contextualizeSearch, './search/middleware/contextualize')))
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
-  app.use(asyncMiddleware(instrument(homepageLinks, './homepage-links')))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

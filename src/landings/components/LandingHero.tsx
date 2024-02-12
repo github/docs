@@ -5,8 +5,8 @@ import { LinkExternalIcon, NoteIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'components/hooks/useTranslation'
-import { useVersion } from 'components/hooks/useVersion'
+import { useTranslation } from 'src/languages/components/useTranslation'
+import { useVersion } from 'src/versions/components/useVersion'
 import { Lead } from 'components/ui/Lead'
 
 export const LandingHero = () => {
@@ -37,30 +37,32 @@ export const LandingHero = () => {
 
         {intro && <Lead data-search="lead">{intro}</Lead>}
 
-        {introLinks &&
-          Object.entries(introLinks)
-            .filter(([key, link]) => {
-              return link && !key.includes('raw')
-            })
-            .map(([key, link], i) => {
-              if (!link) {
-                return null
-              }
-              return (
-                <FullLink
-                  key={link}
-                  id={link}
-                  href={link}
-                  className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary')}
-                >
-                  {t(key) || key}
-                </FullLink>
-              )
-            })}
+        <div data-search="hide">
+          {introLinks &&
+            Object.entries(introLinks)
+              .filter(([key, link]) => {
+                return link && !key.includes('raw')
+              })
+              .map(([key, link], i) => {
+                if (!link) {
+                  return null
+                }
+                return (
+                  <FullLink
+                    key={link}
+                    id={link}
+                    href={link}
+                    className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary')}
+                  >
+                    {t(key) || key}
+                  </FullLink>
+                )
+              })}
+        </div>
       </div>
 
       {productVideo && (
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-lg-6" data-search="hide">
           <div className="position-relative" style={{ paddingBottom: '56.25%' }}>
             <iframe
               title={`${shortTitle || title} Video`}

@@ -25,7 +25,11 @@ By default, {% data variables.product.product_name %} does not display the sourc
 
 You are responsible for meeting any legal obligations that accompany the viewing or storage of IP addresses displayed within your organization's audit log.
 
+{% ifversion enterprise-audit-log-ip-addresses %}
+
 Alternatively, you can configure IP addresses at the enterprise level. For more information, see "[Displaying IP addresses in the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/displaying-ip-addresses-in-the-audit-log-for-your-enterprise)."
+
+{% endif %}
 
 {% data reusables.audit_log.users-agree-to-ip-collection %}
 

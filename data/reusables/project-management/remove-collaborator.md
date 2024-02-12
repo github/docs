@@ -1,1 +1,1 @@
-4. Next to the collaborator you want to remove, click **X**.
+1. Next to the collaborator you want to remove, click **X**.

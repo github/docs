@@ -1,6 +1,6 @@
 ---
 title: database print-baseline
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database print-baseline <options>... -- <database>
 ```
 
@@ -43,7 +43,9 @@ the count in metrics queries since metrics queries may include external
 files that are passed to the evaluator, but are not included in the
 source root.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
@@ -51,13 +53,13 @@ source root.
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
-but a directory that *contains* databases, and all of those databases
+but a directory that _contains_ databases, and all of those databases
 will be processed together.
 
 #### `--[no-]db-cluster`
 
 Indicates that the directory given on the command line is not a database
-itself, but a directory that *contains* one or more databases under
+itself, but a directory that _contains_ one or more databases under
 construction. Those databases will be processed together.
 
 ### Common options

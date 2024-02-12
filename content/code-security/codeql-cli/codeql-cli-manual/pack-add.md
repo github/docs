@@ -1,6 +1,6 @@
 ---
 title: pack add
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack add <options>... -- <scope/name[@range]>...
 ```
 
@@ -40,7 +40,9 @@ Formatting and comments will be removed.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<scope/name[@range]>...`
 

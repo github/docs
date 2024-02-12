@@ -1,4 +1,4 @@
-import supportedOperators from '../../../lib/liquid-tags/ifversion-supported-operators.js'
+import supportedOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
 
 // Turn an array of Liquid conditional objects that results from ./get-liquid-conditionals.js into a more
 // detailed array of objects that includes GHES versioning information.
@@ -25,7 +25,8 @@ export default function getVersionBlocks(rawBlocks) {
       .map((arg) => arg.split(' '))
       .filter(
         (args) =>
-          args.some((arg) => supportedOperators.includes(arg)) && args.some((arg) => arg === 'ghes')
+          args.some((arg) => supportedOperators.includes(arg)) &&
+          args.some((arg) => arg === 'ghes'),
       )
       .map((args) => args.filter((arg) => !(arg === 'or' || (arg === 'and') | (arg === ''))))
 

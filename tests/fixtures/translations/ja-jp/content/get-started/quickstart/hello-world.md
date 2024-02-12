@@ -11,6 +11,15 @@ intro: 'この Hello World 演習に従って、{% data variables.product.produc
 
 ## 可変タイトルのページへのリンク
 
-"[AUTOTITLE](/get-started/quickstart/dynamic-title)"
+Hi, if you look carefully at this next line, the way the auto-title keyword
+is used, is wrong. The quotation is inside the square bracket! Naughty.
+But this is a common occurrence in translations and we need to smartly
+recover from it.
+
+["AUTOTITLE](/get-started/quickstart/dynamic-title)"
 
 "[AUTOTITLE](/get-started/foo/cross-version-linking)"
+
+## Use of a reusable that might have auto-title links
+
+{% data reusables.gated-features.more-info %}

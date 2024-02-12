@@ -50,7 +50,7 @@ When rate limits are enabled for your {% data variables.product.product_name %} 
 
 {% ifversion ghec or fpt %}
 
-The rate limits for requests made by a {% data variables.product.prodname_github_app %} depend on where the app is installed. If the app is installed on an organization or repository owned by an enterprise on {% data variables.location.product_location %}, the rate limit will be higher than for an app that is installed outside an enterprise. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)" and "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)."
+The rate limits for requests made by a {% data variables.product.prodname_github_app %} depend on where the app is installed. If the app is installed on an organization or repository owned by an enterprise on {% data variables.location.product_location %}, the rate limit will be higher than for an app that is installed outside an enterprise. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)."
 
 {% endif %}
 

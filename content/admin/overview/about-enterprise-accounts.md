@@ -86,7 +86,7 @@ If you use both {% data variables.product.prodname_ghe_cloud %} and {% data vari
 
 You can also connect the enterprise account on {% data variables.location.product_location_enterprise %} to your enterprise account on {% data variables.product.prodname_dotcom_the_website %} to see license usage details for your {% data variables.product.prodname_enterprise %} subscription from {% data variables.product.prodname_dotcom_the_website %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."{% endif %}
 
-For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)." {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
+For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)." {% data reusables.enterprise-accounts.to-upgrade-or-get-started %}
 
 {% endif %}
 
@@ -96,13 +96,13 @@ The bill for your enterprise account includes the monthly cost for each member o
 
 {% ifversion ghec %}
 
-For more information about billing for your {% data variables.product.prodname_ghe_cloud %} subscription, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" and "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+For more information about billing for your {% data variables.product.prodname_ghe_cloud %} subscription, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)" and "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
 
 {% elsif ghes %}
 
 {% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-For more information about billing for {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+For more information about billing for {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% else %}{% data variables.product.product_name %}{% endif %}, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
 
 {% endif %}
 
@@ -110,7 +110,7 @@ For more information about billing for {% ifversion ghec %}{% data variables.pro
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_enterprise %} offers two deployment options. In addition to {% data variables.product.prodname_ghe_cloud %}, you can use {% data variables.product.prodname_ghe_server %} to host development work for your enterprise in your data center or supported cloud provider. {% endif %}Enterprise owners on {% data variables.product.prodname_dotcom_the_website %} can use an enterprise account to manage payment and licensing for {% data variables.product.prodname_ghe_server %} instances. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products#github-enterprise)" and "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise)."
+{% data variables.product.prodname_enterprise %} offers two deployment options. In addition to {% data variables.product.prodname_ghe_cloud %}, you can use {% data variables.product.prodname_ghe_server %} to host development work for your enterprise in your data center or supported cloud provider. {% endif %}Enterprise owners on {% data variables.product.prodname_dotcom_the_website %} can use an enterprise account to manage payment and licensing for {% data variables.product.prodname_ghe_server %} instances. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-enterprise)" and "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise)."
 
 {% endif %}
 

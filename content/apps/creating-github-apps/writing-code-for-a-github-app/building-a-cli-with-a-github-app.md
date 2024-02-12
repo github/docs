@@ -60,19 +60,19 @@ These steps lead you through building a CLI and using device flow to get a user 
 1. Create a Ruby file to hold the code that will generate a user access token. This tutorial will name the file `app_cli.rb`.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run the following command to make `app_cli.rb` executable:
 
-   ```{:copy}
+   ```text copy
    chmod +x app_cli.rb
    ```
 
 1. Add this line to the top of `app_cli.rb` to indicate that the Ruby interpreter should be used to run the script:
 
-   ```ruby{:copy}
+   ```ruby copy
    #!/usr/bin/env ruby
    ```
 
 1. Add these dependencies to the top of `app_cli.rb`, following `#!/usr/bin/env ruby`:
 
-   ```ruby{:copy}
+   ```ruby copy
    require "net/http"
    require "json"
    require "uri"
@@ -82,7 +82,7 @@ These steps lead you through building a CLI and using device flow to get a user 
    These are all part of the Ruby standard library, so you don't need to install any gems.
 1. Add the following `main` function that will serve as an entry point. The function includes a `case` statement to take different actions depending on which command is specified. You will expand this `case` statement later.
 
-   ```ruby{:copy}
+   ```ruby copy
    def main
      case ARGV[0]
      when "help"
@@ -99,7 +99,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
 1. At the bottom of the file, add the following line to call the entry point function. This function call should remain at the bottom of your file as you add more functions to this file later in the tutorial.
 
-   ```ruby{:copy}
+   ```ruby copy
    main
    ```
 
@@ -107,7 +107,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    `app_cli.rb` now looks like this:
 
-   ```ruby{:copy}
+   ```ruby copy
    #!/usr/bin/env ruby
 
    require "net/http"
@@ -133,13 +133,13 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see this output:
 
-   ```
+   ```shell
    `help` is not yet defined
    ```
 
    You can also test your script without a command or with an unhandled command. For example, `./app_cli.rb create-issue` should output:
 
-   ```
+   ```shell
    Unknown command `create-issue`
    ```
 
@@ -147,7 +147,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
 1. Add the following `help` function to `app_cli.rb`. Currently, the `help` function prints a line to tell users that this CLI takes one command, "help". You will expand this `help` function later.
 
-   ```ruby{:copy}
+   ```ruby copy
    def help
      puts "usage: app_cli <help>"
    end
@@ -155,7 +155,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
 1. Update the `main` function to call the `help` function when the `help` command is given:
 
-   ```ruby{:copy}
+   ```ruby copy
    def main
      case ARGV[0]
      when "help"
@@ -174,7 +174,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    `app_cli.rb` now looks like this. The order of the functions don't matter as long as the `main` function call is at the end of the file.
 
-   ```ruby{:copy}
+   ```ruby copy
    #!/usr/bin/env ruby
 
    require "net/http"
@@ -204,7 +204,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see this output:
 
-   ```
+   ```shell
    usage: app_cli <help>
    ```
 
@@ -214,13 +214,13 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Near the top of your file, after the `require` statements, add the `CLIENT_ID` of your {% data variables.product.prodname_github_app %} as a constant in `app_cli.rb`. For more information about finding your app's client ID, see "[Get the client ID](#get-the-client-id)." Replace `YOUR_CLIENT_ID` with the client ID of your app:
 
-   ```ruby{:copy}
+   ```ruby copy
    CLIENT_ID="YOUR_CLIENT_ID"
    ```
 
 1. Add the following `parse_response` function to `app_cli.rb`. This function parses a response from the {% data variables.product.company_short %} REST API. When the response status is `200 OK` or `201 Created`, the function returns the parsed response body. Otherwise, the function prints the response and body an exits the program.
 
-   ```ruby{:copy}
+   ```ruby copy
    def parse_response(response)
      case response
      when Net::HTTPOK, Net::HTTPCreated
@@ -235,7 +235,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Add the following `request_device_code` function to `app_cli.rb`. This function makes a `POST` request to `{% data variables.product.oauth_host_code %}/login/device/code` and returns the response.
 
-   ```ruby{:copy}
+   ```ruby copy
    def request_device_code
      uri = URI("{% data variables.product.oauth_host_code %}/login/device/code")
      parameters = URI.encode_www_form("client_id" => CLIENT_ID)
@@ -248,7 +248,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Add the following `request_token` function to `app_cli.rb`. This function makes a `POST` request to `{% data variables.product.oauth_host_code %}/login/oauth/access_token` and returns the response.
 
-   ```ruby{:copy}
+   ```ruby copy
    def request_token(device_code)
      uri = URI("{% data variables.product.oauth_host_code %}/login/oauth/access_token")
      parameters = URI.encode_www_form({
@@ -264,7 +264,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Add the following `poll_for_token` function to `app_cli.rb`. This function polls `{% data variables.product.oauth_host_code %}/login/oauth/access_token` at the specified interval until {% data variables.product.company_short %} responds with an `access_token` parameter instead of an `error` parameter. Then, it writes the user access token to a file and restricts the permissions on the file.
 
-   ```ruby{:copy}
+   ```ruby copy
    def poll_for_token(device_code, interval)
 
      loop do
@@ -316,7 +316,7 @@ The `login` command will run the device flow to get a user access token. For mor
    1. Calls the `poll_for_token` to poll {% data variables.product.company_short %} for an access token.
    1. Lets the user know that authentication was successful.
 
-   ```ruby{:copy}
+   ```ruby copy
    def login
      verification_uri, user_code, device_code, interval = request_device_code.values_at("verification_uri", "user_code", "device_code", "interval")
 
@@ -331,7 +331,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Update the `main` function to call the `login` function when the `login` command is given:
 
-   ```ruby{:copy}
+   ```ruby copy
    def main
      case ARGV[0]
      when "help"
@@ -348,7 +348,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Update the `help` function to include the `login` command:
 
-   ```ruby{:copy}
+   ```ruby copy
    def help
      puts "usage: app_cli <login | help>"
    end
@@ -358,7 +358,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
    `app_cli.rb` now looks something like this, where `YOUR_CLIENT_ID` is the client ID of your app. The order of the functions don't matter as long as the `main` function call is at the end of the file.
 
-   ```ruby{:copy}
+   ```ruby copy
    #!/usr/bin/env ruby
 
    require "net/http"
@@ -474,7 +474,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
    1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb login`. You should see output that looks like this. The code will differ every time:
 
-      ```
+      ```shell
       Please visit: {% data variables.product.oauth_host_code %}/login/device
       and enter code: CA86-8D94
       ```
@@ -489,7 +489,7 @@ Now that your app can generate a user access token, you can make API requests on
 
 1. Add the following `whoami` function to `app_cli.rb`. This function gets information about the user with the `/user` REST API endpoint. It outputs the username that corresponds to the user access token. If the `.token` file was not found, it prompts the user to run the `login` function.
 
-   ```ruby{:copy}
+   ```ruby copy
    def whoami
      uri = URI("{% data variables.product.api_url_code %}/user")
 
@@ -514,7 +514,7 @@ Now that your app can generate a user access token, you can make API requests on
 
 1. Update the `parse_response` function to handle the case where the token has expired or been revoked. Now, if you get a `401 Unauthorized` response, the CLI will prompt the user to run the `login` command.
 
-   ```ruby{:copy}
+   ```ruby copy
    def parse_response(response)
      case response
      when Net::HTTPOK, Net::HTTPCreated
@@ -532,7 +532,7 @@ Now that your app can generate a user access token, you can make API requests on
 
 1. Update the `main` function to call the `whoami` function when the `whoami` command is given:
 
-   ```ruby{:copy}
+   ```ruby copy
    def main
      case ARGV[0]
      when "help"
@@ -549,7 +549,7 @@ Now that your app can generate a user access token, you can make API requests on
 
 1. Update the `help` function to include the `whoami` command:
 
-   ```ruby{:copy}
+   ```ruby copy
    def help
      puts "usage: app_cli <login | whoami | help>"
    end
@@ -561,7 +561,7 @@ Now that your app can generate a user access token, you can make API requests on
 
 This is the full code example that was outlined in the previous section. Replace `YOUR_CLIENT_ID` with the client ID of your app.
 
-   ```ruby{:copy}
+   ```ruby copy
    #!/usr/bin/env ruby
 
    require "net/http"
@@ -705,13 +705,13 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see output that looks like this.
 
-   ```
+   ```shell
    usage: app_cli <login | whoami | help>
    ```
 
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb login`. You should see output that looks like this. The code will differ every time:
 
-   ```
+   ```shell
    Please visit: {% data variables.product.oauth_host_code %}/login/device
    and enter code: CA86-8D94
    ```
@@ -721,21 +721,21 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 1. Your terminal should now say "Successfully authenticated!".
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this, where `octocat` is your username.
 
-   ```
+   ```shell
    You are octocat
    ```
 
 1. Open the `.token` file in your editor, and modify the token. Now, the token is invalid.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this:
 
-   ```
+   ```shell
    You are not authorized. Run the `login` command.
    ```
 
 1. Delete the `.token` file.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this:
 
-   ```
+   ```shell
    You are not authorized. Run the `login` command.
    ```
 

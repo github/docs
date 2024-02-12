@@ -87,6 +87,7 @@ You can list all {% data variables.product.prodname_code_scanning %} alerts for 
 For more information, see "[{% data variables.product.prodname_code_scanning_caps %}](/rest/code-scanning)."
 
 ## Further reading
-- [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)
+
+- [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
 - [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
 - [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)

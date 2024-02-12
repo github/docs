@@ -24,9 +24,11 @@ If you set up a subscription for {% data variables.product.prodname_copilot_for_
 
 {% data variables.product.prodname_copilot_for_business %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#github-copilot-pricing-for-github-enterprise-cloud)."
 
-{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_copilot_for_business %} lets you choose whether to enable or disable the filter at the enterprise-level, or allow organization owners to decide at the organization-level. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown.
+Wherever a restrictive policy has been chosen at the enterprise level, an organization owner will not be able to select a more permissive policy at the organization level. In cases where no policy is selected at the enterprise level, and multiple organizations within the enterprise have chosen different policies, the most restrictive policy will always take precedence.
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_for_business %} in your enterprise
+
+Enterprise owners can choose whether to grant access to {% data variables.product.prodname_copilot %} for all, none, or a selection of organizations within the enterprise.
 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
@@ -44,6 +46,8 @@ If you set up a subscription for {% data variables.product.prodname_copilot_for_
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot %} suggestions that match public code in your enterprise
 
+{% data variables.product.prodname_copilot %} includes a filter which detects code suggestions that match public code on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_copilot_for_business %} lets you choose whether to enable or disable the filter at the enterprise level, or allow organization owners to decide at the organization level. When the filter is enabled, {% data variables.product.prodname_copilot %} checks code suggestions with their surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match or near match, the suggestion will not be shown.
+
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. Under "Suggestions matching public code," click the dropdown menu and select the policy you want to enforce.
@@ -53,6 +57,18 @@ If you set up a subscription for {% data variables.product.prodname_copilot_for_
 
     ![Screenshot of the {% data variables.product.prodname_copilot %} policy page. The dropdown menu of suggestions that match public code settings is outlined in dark orange.](/assets/images/help/copilot/duplication-detection-enterprise-dropdown.png)
 
+## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_chat %} (beta) in your enterprise
+
+{% data variables.product.prodname_copilot_chat %} is a feature that allows users to chat with {% data variables.product.prodname_copilot %} to get code suggestions and answers to coding-related questions. You can enable or disable {% data variables.product.prodname_copilot_chat %} for organizations under your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to {% data variables.product.prodname_copilot_chat %} for each organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)."
+
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.copilot-tab %}
+1. Under "{% data variables.product.prodname_copilot_chat %}," click the dropdown menu and select the policy you want to enforce.
+    - To allow {% data variables.product.prodname_copilot_chat %} use, select **Allowed**.
+    - To block {% data variables.product.prodname_copilot_chat %} use, select **Blocked**.
+    - To allow each of your organizations to set their own policy on the use of {% data variables.product.prodname_copilot_chat %}, select **No policy (let each organization decide)**.
+
 ## Further reading
 
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

@@ -1,6 +1,6 @@
 import express from 'express'
 import { getWebhook } from '../lib/index.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { defaultCacheControl } from '../../../middleware/cache-control.js'
 
 const router = express.Router()
@@ -19,7 +19,7 @@ router.get('/v1', async function webhooks(req, res, next) {
   }
 
   const webhookVersion = Object.values(allVersions).find(
-    (version) => version.version === req.query.version
+    (version) => version.version === req.query.version,
   )?.version
   const notFoundError = 'No webhook found for given category and version'
 

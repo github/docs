@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-organizations-with-github-enterprise-importer/migrating-organizations-from-githubcom-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About organization migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
@@ -47,15 +45,12 @@ query(
   enterprise (slug: $slug)
   {
     slug
-		id
+    id
   }
 }
-
 ```
 
-| Query variable | Description |
-|----|----|
-| `slug` | The slug for your enterprise account, which you can identify by looking at the URL for your enterprise, `https://github.com/enterprises/SLUG`.
+{% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
 
 ## Step 2: Start your organization migration
 
@@ -148,14 +143,14 @@ Before you can use the {% data variables.product.prodname_gei_cli_short %} to mi
 
    - If you're using Terminal, use the `export` command.
 
-     ```shell{:copy}
+     ```shell copy
      export GH_PAT="TOKEN"
      export GH_SOURCE_PAT="TOKEN"
      ```
 
    - If you're using PowerShell, use the `$env` command.
 
-     ```shell{:copy}
+     ```shell copy
      $env:GH_PAT="TOKEN"
      $env:GH_SOURCE_PAT="TOKEN"
      ```
@@ -164,7 +159,7 @@ Before you can use the {% data variables.product.prodname_gei_cli_short %} to mi
 
 To migrate an organization, use the `gh gei migrate-org` command.
 
-```shell{:copy}
+```shell copy
 gh gei migrate-org --github-source-org SOURCE --github-target-org DESTINATION --github-target-enterprise ENTERPRISE
 ```
 
@@ -173,12 +168,13 @@ gh gei migrate-org --github-source-org SOURCE --github-target-org DESTINATION --
 DESTINATION | The name you want the new organization to have. Must be unique on {% data variables.product.prodname_dotcom_the_website %}.
 ENTERPRISE | The slug for your destination enterprise, which you can identify by looking at the URL for your enterprise account, `https://github.com/enterprises/SLUG`.
 
-
 ## Step 5: Validate your migration and check the error log
+
 {% endcli %}
 {% api %}
 
 ## Step 4: Validate your migration and check the error log
+
 {% endapi %}
 
 After your migration has finished, we recommend that you check the migration log repository. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#accessing-an-organization-migration-log)."

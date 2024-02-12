@@ -1,6 +1,6 @@
 ---
 title: pack publish
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack publish [--dry-run] [--threads=<num>] [--ram=<MB>] [--pack=<folder> | <package.tgz>] <options>... -- <dir>
 ```
 
@@ -37,7 +37,9 @@ the pack is first compiled (if necessary) and bundled.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dir>`
 
@@ -61,7 +63,7 @@ Delete the pack bundle after publishing.
 Use this many threads to compile queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -112,17 +114,17 @@ Available since `v2.11.3`.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `--groups=[-]<group>[,[-]<group>...]`
 
 List of CodeQL pack groups to include or exclude from this operation. A
 qlpack in the given workspace is included if:
 
-*   It is in at least one of the groups listed without a minus sign (this
-    condition is automatically satisfied if there are no groups listed
-    without a minus sign), and
-*   It is not in any group listed with a minus sign
+- It is in at least one of the groups listed without a minus sign (this
+  condition is automatically satisfied if there are no groups listed
+  without a minus sign), and
+- It is not in any group listed with a minus sign
 
 ### Options to set up compilation environment
 
@@ -158,8 +160,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

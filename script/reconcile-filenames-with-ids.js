@@ -16,7 +16,7 @@ import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import frontmatter from '../lib/read-frontmatter.js'
 import { execSync } from 'child_process'
-import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
+import addRedirectToFrontmatter from '../src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
 
 const slugger = new GithubSlugger()
 
@@ -25,7 +25,7 @@ const contentDir = path.join(process.cwd(), 'content')
 const contentFiles = walk(contentDir, { includeBasePath: true, directories: false }).filter(
   (file) => {
     return file.endsWith('.md') && !file.endsWith('index.md') && !file.includes('README')
-  }
+  },
 )
 
 // TODO fix path separators in the redirect

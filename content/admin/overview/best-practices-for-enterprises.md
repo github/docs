@@ -18,6 +18,7 @@ topics:
 {% data reusables.organizations.ent-ownership-recommendation %} {% ifversion ghec or ghes %}For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."{% endif %}
 
 {% ifversion ghec %}
+
 ## Identify the best authentication method for your enterprise
 
 {% data reusables.enterprise.ghec-authentication-options %}

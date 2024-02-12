@@ -1,0 +1,31 @@
+date: '2023-09-21'
+sections:
+  security_fixes:
+    - To prevent commits from a detached repository from syncing to prior forks that are now in a separate repository network, GitHub Enterprise Server closes pull requests between repositories during detachment.
+    - Packages have been updated to the latest security versions.
+  bugs:
+    - On an instance in a cluster configuration, the Cluster-Balance daemon would run against jobs not specified in the configuration.
+    - On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, custom patterns would erroneously show no results for a dry run.
+  changes:
+    - When providing data to GitHub Support, GitHub Enterprise Server displays a notice describing how support data is used before uploading the support files.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %}

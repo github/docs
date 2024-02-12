@@ -1,6 +1,6 @@
 ---
 title: execute cli-server
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql execute cli-server <options>...
 ```
 
@@ -35,7 +35,9 @@ codeql execute cli-server <options>...
 \[Deep plumbing] Server for running multiple commands while avoiding
 repeated JVM initialization.
 
-## Primary options
+## Options
+
+### Primary Options
 
 ### Common options
 

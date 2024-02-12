@@ -78,14 +78,15 @@ Your dashboard feed displays projects based on your interests including reposito
 To explore more projects, see "{% data variables.explore.explore_github %}".
 
 ## Next steps
+
 You are now connected to the {% data variables.product.product_name %} community. There are other ways to interact and build within {% data variables.product.product_name %}.
 
-* {% data reusables.getting-started.set-up-git %}
+- {% data reusables.getting-started.set-up-git %}
 
-* {% data reusables.getting-started.create-a-repository %}
+- {% data reusables.getting-started.create-a-repository %}
 
-* {% data reusables.getting-started.fork-a-repository %}
+- {% data reusables.getting-started.fork-a-repository %}
 
-* {% data reusables.getting-started.contributing-to-projects  %}
+- {% data reusables.getting-started.contributing-to-projects  %}
 
-* {% data reusables.support.connect-in-the-forum-bootcamp %}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

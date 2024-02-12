@@ -1,4 +1,4 @@
-1. In the "General" section:
-   - Type a name for the ruleset.
-   - Select the enforcement status. You must set the status to **Active** if you want the ruleset to be enforced. {% ifversion repo-rules-enterprise %}Alternatively, if you set the status to **Evaluate**, the ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page. For more information, see "[Viewing insights for rulesets](#viewing-insights-for-rulesets)."{% endif %}
-   - If you want repository or organization owners to be able to bypass the rules in the ruleset, change the selection in the dropdown menu under "Bypass mode."
+1. In the "General" section, type a name for the ruleset, then select {% octicon "skip" aria-hidden="true" %} **Disabled** {% octicon "triangle-down" aria-hidden="true" %} and click one of the following enforcement statuses:
+   - {% octicon "play" aria-hidden="true" %} **Active**: your ruleset will be enforced upon creation.{% ifversion repo-rules-enterprise %}
+   - {% octicon "meter" aria-hidden="true" %} **Evaluate**: your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page. For more information, see "[Viewing insights for rulesets](#viewing-insights-for-rulesets)."{% endif %}
+   - {% octicon "skip" aria-hidden="true" %} **Disabled**: your ruleset will not be enforced{% ifversion repo-rules-enterprise %} or evaluated{% endif %}.

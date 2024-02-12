@@ -1,0 +1,59 @@
+date: '2023-07-18'
+sections:
+  security_fixes:
+    - |
+      An attacker with access to the password hash of the root site administrator user for the instance's Management Console could make requests to the password API endpoint from outside of the instance. 
+    - |
+      Packages have been updated to the latest security versions. 
+    - |
+      **LOW:**  An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a re-opened Pull Request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and was assigned [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765).
+
+  bugs:
+    - |
+      Customers who use Azure Blob store as the remote blob provider to back GitHub Packages would have validation errors if the `EndpointSuffix` part of their Connection string was anything other than `core.windows.net`.  Now all valid `EndpointSuffix` are accepted. 
+    - |
+      After creation of a blob object from the web UI, pre-receive hook events were missing from the instance's audit log. 
+    - |
+      On an instance with an outbound web proxy server configured, the proxy interfered with internal operations that used `nomad alloc exec`. 
+    - |
+      On an instance in a cluster configuration, the `ghe-cluster-balance` behaved inconsistently when displaying status or managing jobs with more than one task group. 
+    - |
+      On an instance configured for LDAP authentication, if the LDAP server sent an empty string for the `sshPublicKey` attribute, LDAP user sync would fail. 
+    - |
+      On an instance with Dependabot enabled, in some situations, Dependabot alerts were not updated when a user pushed to a repository. 
+    - |
+      On an instance that was not configured to deliver email notifications using SMTP, background jobs to deliver email were enqueued unnecessarily. 
+    - |
+      Determining suggested reviewers on a pull request could time out or be very slow. 
+    - |
+      On an instance with a GitHub Advanced Security license and secret scanning enabled, output from Git for a push blocked by push protection always included an `http://` link. 
+  changes:
+    - |
+      On an instance in a cluster configuration, the `ghe-cluster-config-check` command-line utility will return an affirmative message when no warnings or errors are detected. The affirmative message is "Configuration validation complete. No errors found." 
+    - |
+      On an instance with 170 or fewer vCPUs, the default for `app.babeld.threads-max` is 512 instead of 3 times the number of vCPUs. The monitor dashboard also includes metrics within the "Babeld threads" section. 
+    - |
+      The Management Console displays a warning about unexpected consequences that may result from modification of the instance's hostname after initial configuration. 
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      {% data reusables.release-notes.babeld-max-threads-performance-issue %}
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

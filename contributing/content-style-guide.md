@@ -1,5 +1,7 @@
 # Content style guide for GitHub Docs <!-- omit in toc -->
 
+**Note:** This version of the style guide is no longer maintained and will be deprecated. See the [content model](https://docs.github.com/en/contributing/writing-for-github-docs/content-model) on docs.github.com for the most up to date version. Open any pull requests against the `contributing/writing-for-github-docs/content-model.md` file.
+
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
 These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"
@@ -39,7 +41,13 @@ Warnings and danger notices are rendered in red `{% warning %}` tags.
 
 For more information on formatting callouts, see “Callouts” in the [markup reference guide](content-markup-reference.md).
 
-## Call to action (CTA) buttons
+## Buttons
+
+Landing pages and some articles have buttons that take people to relevant content in other articles or on other GitHub webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the Enterprise trial sign up page since that is the next step in the process of setting up a trial. The "[Migrations](https://docs.github.com/en/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
+
+If a button encourages people to navigate away from the GitHub Docs site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in `docs-strategy` to share your use case for approval by Content Strategy.
+
+### Call to action (CTA) buttons
 
 CTA buttons emphasize a link that we expect or encourage readers to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to GitHub-owned domains. For example, the CTA in "[Getting started with GitHub Copilot in Visual Studio Code](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on github.com.
 
@@ -56,6 +64,7 @@ Style your CTAs using the following format.
 Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[Code sample syntax highlighting](./content-markup-reference.md#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
+- Specify the language of the sample after the first code fence. For a list of all supported languages, see [Code languages](../data/variables/code-languages.yml).
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
   - If you show a command and the command's output, do not make the code block copyable.
@@ -63,13 +72,13 @@ Within code blocks:
 - If your code example includes content that should be parsed (for example, HTML tags to format text), wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
   - **Use**:
 
-    ```
+    ``` YAML
     GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
   - **Avoid**:
 
-    ```
+    ``` YAML
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
 
@@ -89,7 +98,8 @@ Avoid inline links in command names.
 
 ### Examples
 
-When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context.
+When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context. You can add code annotations to explain long code examples. See "[Code annotations](./content-markup-reference.md#code-sample-annotations)" for more information.
+
 - **Use:**
 
 ```
@@ -129,6 +139,8 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: {% raw %}${{ matrix.python }}{% endraw %}
 ```
 
+To indent reusables, see [`data/reusables/README.md`](/data/reusables/README.md).
+
 ### Scheduled workflows
 
 Workflow runs are delayed when too many workflows run at once. Since many users copy code from the GitHub docs, we should use examples that guide users away from congested times.
@@ -143,7 +155,7 @@ Use italics to emphasize words or parts of a sentence. Use emphasis sparingly fo
 
 - **Use:** _Fine-grained personal access tokens_ have several security advantages over personal access tokens (classic).
 - **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
-- **Avoid:** Next to _**Title**_, add a descriptive label for your new key. 
+- **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
 ## Footnotes
 
@@ -175,7 +187,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 
 - Express the core idea or meaning of the image, rather than describing it literally.
 - Use 40–150 characters.
-- End with a period.
+- End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.
@@ -383,11 +395,11 @@ Some best practices for using links:
 - Links should be meaningful and provide high value to the user’s journey—link out carefully.
 - Move links that are helpful but not necessary to an article’s further reading section.
 - Do not repeat the same link more than once in the same article or under the same H2 header.
-- Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurance.)
+- Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
 
 For accessibility and readability, avoid inline or midsentence links.
-- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.
+- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+- **Avoid:** `Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
@@ -403,11 +415,11 @@ For example, the Free, Pro, & Team version of "[Managing the publication of GitH
 
 To link to a different article in a different version, use this format:
 
-> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+> `For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.`
 
 To link to the same article in a different version, use this format:
 
-> For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
+> `For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).`
 
 To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
 
@@ -416,22 +428,25 @@ To link to a specific version, you must include the version in the path (e.g., `
 When we link to specific sections of articles, we want to make sure the link is descriptive enough so that someone knows they are in the correct spot after following a link.
 
 To link to a specific header in the same article, use this format:
-> For more information, see "[HEADER TITLE](#HEADER-TITLE)."
+> `For more information, see "[HEADER TITLE](#HEADER-TITLE)."`
 
 To link to a specific header in a different article, use this format:
-> For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
+> `For more information, see "[AUTOTITLE](path-to-article#HEADER-TITLE)."`
+
+To link to two or more specific headers in a different article, use this format:
+> `For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."`
 
 ### Links to a specific tool
 
 When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
 
-> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
+> `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."`
 
 ### Links to learning paths
 
 Use this format to link to a learning path.
 
-> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
+> `For more information, follow the "[LEARNING PATH TITLE]()" learning path.`
 
 ### Links to external resources
 
@@ -680,6 +695,12 @@ A release note for a security fix answers the following questions.
 
 - > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
 
+#### Base image and package updates
+
+We also include base image and dependent package updates in the "Security fixes" section, since these updates often address security issues. We consolidate all of these updates in the following note.
+
+> Packages have been updated to the latest security versions.
+
 ### Bug fixes
 
 A release note for a bug fix describes a correction to an undesired or otherwise unexpected behavior. Generally, notes for bug fixes are only part of patch releases.
@@ -882,7 +903,7 @@ For example, in "[Autoscaling with self hosted runners](https://docs.github.com/
 
 ### Use proper markup for row and column headers
 
-Tables in which the first column describes the data values in the table (but is not data itself) need to be marked up with row headers. This is important for assistive technology to understand relationships between cells. 
+Tables in which the first column describes the data values in the table (but is not data itself) need to be marked up with row headers. This is important for assistive technology to understand relationships between cells.
 
 For example in the following table, in order to make sense of the "Yes" and "No" values in the table, you need to know both the column header (role) and row header (permission).
 
@@ -941,6 +962,116 @@ Where table data is not truly binary (every value is either "Yes" or "No", for e
 
 ### Use footnotes sparingly
 See "[Footnotes](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#footnotes)."
+
+### Align table content consistently
+
+All columns in a table should be left-aligned, except for columns containing only octicons which should be center-aligned. If a column contains both text and octicons, use center alignment.
+
+Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read "[Organizing information with tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table)" for more information.
+
+The following example shows part of a table from "[Configuration options for the dependabot.yml file](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)".
+
+
+<table>
+<thead>
+<tr>
+<th align=left>Option</th>
+<th align=center>Required</th>
+<th align=center>Security Updates</th>
+<th align=center>Version Updates</th>
+<th align=left>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align=left><code>package-ecosystem</code></td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+<td align=left>Package manager to use</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>directory</code></td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
+<td align=center>
+      <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
+<td align=left>Location of package manifests</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>schedule.interval</code></td>
+<td align=center>
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
+<td align=center>
+      <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
+<td align=left>How often to check for updates</td>
+</tr>
+</tbody>
+</table>
+
+````
+| Option              | Required | Security Updates | Version Updates | Description                    |
+|---------------------|:--------:|:----------------:|:---------------:|--------------------------------|
+| `package-ecosystem` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Package manager to use         |
+| `directory`         |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Location of package manifests  |
+| `schedule.interval` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| How often to check for updates |
+````
 
 ## Titles
 
@@ -1117,7 +1248,7 @@ If the reader manages an enterprise account, and you're describing the people's 
 The following documentation should reference "user accounts."
 
 - The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
-- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
 - Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
 - Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
@@ -1137,13 +1268,36 @@ Spell out acronyms the first time they’re used in an article, except in titles
 
 ### Apps
 
-Use "apps" or "applications" in general content.
+Use "app" or "application" in general content.
 - **Use:** Publish and list your apps in GitHub Marketplace
 
-Use "Apps" when referring to specific apps or types of apps.
-- **Use:** GitHub App, OAuth App
+Use "app" when referring to OAuth apps since these are not a product.
+- **Use:** Register an OAuth app
+- **Use:** Register an {% data variables.product.prodname_oauth_app %}
+- **Avoid:** Register an OAuth App
 
-GitHub Apps is always capitalized, because it’s a feature name.
+Use "App" when referring to GitHub Apps since this is a product.
+- **Use:** Register a GitHub App
+- **Use:** Register a {% data variables.product.prodname_github_app %}
+
+GitHub Apps and OAuth apps consist of two parts: the app registration, and the code that makes the app do something.
+
+- To refer to just the GitHub App settings/configuration in the GitHub UI, use terminology like "register" and "GitHub App registration".
+   - **Use:** Register a GitHub App
+   - **Use:** Update a GitHub App registration
+   - **Avoid:** Create a GitHub App
+   - **Avoid:** Modify a GitHub App
+
+- To refer to just the code for the app, use terminology like "code for your app" or "your app's code".
+   - **Use:** code for your app
+   - **Use:** code for your GitHub App
+   - **Use:** your app's code
+   - **Avoid:** Your GitHub App
+   - **Avoid:** Your OAuth app
+
+- To refer to the whole app collectively (registration + code), refer to it as a GitHub App or OAuth app.
+
+GitHub Apps can be installed on organization and user accounts. To refer to an installation of the app, use "GitHub App installation" instead of "GitHub App".
 
 ### Currency
 

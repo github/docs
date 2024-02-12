@@ -18,7 +18,7 @@ includeGuides:
   - /actions/quickstart
   - /actions/learn-github-actions/understanding-github-actions
   - /actions/creating-actions/creating-a-docker-container-action
-  - /actions/using-workflows/using-starter-workflows
+  - /actions/learn-github-actions/using-starter-workflows
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/publishing-packages/about-packaging-with-github-actions
@@ -47,11 +47,11 @@ includeGuides:
   - /actions/creating-actions/about-custom-actions
   - /actions/creating-actions/creating-a-javascript-action
   - /actions/creating-actions/creating-a-composite-action
-  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-azure-pipelines-to-github-actions
-  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-circleci-to-github-actions
-  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-gitlab-cicd-to-github-actions
-  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-jenkins-to-github-actions
-  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-travis-ci-to-github-actions
+  - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
+  - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-circleci-to-github-actions
+  - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
+  - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-jenkins-to-github-actions
+  - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/managing-issues-and-pull-requests/using-github-actions-for-project-management
   - /actions/managing-issues-and-pull-requests/closing-inactive-issues
   - /actions/managing-issues-and-pull-requests/scheduling-issue-creation

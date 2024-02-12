@@ -18,7 +18,7 @@ const inProd = NODE_ENV === 'production'
 
 if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
   console.warn(
-    'Running in production but HYDRO_SECRET and HYDRO_ENDPOINT environment variables are not set.'
+    'Running in production but HYDRO_SECRET and HYDRO_ENDPOINT environment variables are not set.',
   )
 }
 
@@ -30,7 +30,7 @@ if (inProd && (isNil(HYDRO_SECRET) || isNil(HYDRO_ENDPOINT))) {
 */
 async function _publish(
   events,
-  { secret, endpoint } = { secret: HYDRO_SECRET, endpoint: HYDRO_ENDPOINT }
+  { secret, endpoint } = { secret: HYDRO_SECRET, endpoint: HYDRO_ENDPOINT },
 ) {
   if (!secret || !endpoint) {
     return { statusCode: 200 }

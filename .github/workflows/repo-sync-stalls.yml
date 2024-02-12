@@ -10,6 +10,7 @@ on:
     - cron: '20 */2 * * *' # Run every 2nd hour at 20 minutes after
 
 permissions:
+  contents: read
   pull-requests: read
 
 jobs:
@@ -51,11 +52,11 @@ jobs:
                 core.setFailed('Repo sync appears to be stalled')
               }
             })
-      - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-        if: ${{ failure() }}
+
+      - name: Check out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - uses: ./.github/actions/slack-alert
         with:
-          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
-          text: Repo sync appears to be stalled for ${{github.repository}}. See https://github.com/${{github.repository}}/pulls?q=is%3Apr+is%3Aopen+label%3Aautomated-reposync-pr
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

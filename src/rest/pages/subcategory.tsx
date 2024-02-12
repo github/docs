@@ -71,7 +71,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)

@@ -70,6 +70,7 @@ When you merge a pull request that contains a security update, the corresponding
 {% endif %}
 
 {% ifversion dependabot-updates-paused %}
+
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.automatically-pause-dependabot-updates %}

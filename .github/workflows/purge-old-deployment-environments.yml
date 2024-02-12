@@ -1,0 +1,48 @@
+name: Purge old deployment environments
+
+# **What it does**:
+#  Deletes old deployment environments. A deployment environment exists
+#  for the sake of a Azure Preview environment. Those Azure Preview environments
+#  and cleaned up by a separate process.
+# **Why we have it**: To keep things neat and tidy.
+# **Who does it impact**: Docs engineering.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+
+# **IMPORTANT:** Do not change the FREEZE environment variable set here!
+# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
+# during a docs deployment freeze), add an Actions Secret to the repo settings
+# called `FREEZE` with a value of `true`. To re-enable Audit Logs updates, simply
+# delete that Secret from the repo settings. The environment variable here
+# will duplicate that Secret's value for later evaluation.
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+
+jobs:
+  purge-old-deployment-environments:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout out repo
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Run purge script
+        if: ${{ env.FREEZE != 'true' }}
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          # Necessary to be able to delete deployment environments
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+        run: src/workflows/purge-old-deployment-environments.js
+
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

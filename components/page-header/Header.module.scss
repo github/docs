@@ -1,4 +1,5 @@
-@import "@primer/css/support/index.scss";
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
 
 .header {
   display: unset;

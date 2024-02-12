@@ -2,8 +2,7 @@
 title: Common validation errors when creating issue forms
 intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: issue-forms
 topics:
   - Community
 ---
@@ -203,7 +202,6 @@ body:
 ```
 
 `id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
-
 
 ## Labels are too similar
 

@@ -16,7 +16,7 @@ shortTitle: View blocked users in org
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.block_users %}
-5. Under "Blocked users", review the list of users who are blocked from your organization.
+1. Under "Blocked users", review the list of users who are blocked from your organization.
 
 ## Further reading
 

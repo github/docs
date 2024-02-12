@@ -20,13 +20,13 @@ redirect_from:
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %}
 
-{% data reusables.saml.switching-from-org-to-enterprise %} 
+{% data reusables.saml.switching-from-org-to-enterprise %}
 
 When you configure SAML SSO at the organization level, each organization must be configured with a unique SSO tenant in your IdP, which means that your members will be associated with a unique SAML identity record for each organization they have successfully authenticated with. If you configure SAML SSO for your enterprise account instead, each enterprise member will have one SAML identity that is used for all organizations owned by the enterprise account.
 
 After you configure SAML SSO for your enterprise account, the new configuration will override any existing SAML SSO configurations for organizations owned by the enterprise account.
 
-Enterprise members will not be notified when an enterprise owner enables SAML for the enterprise account. If SAML SSO was previously enforced at the organization level, members should not see a major difference when navigating directly to organization resources. The members will continue to be prompted to authenticate via SAML. If members navigate to organization resources via their IdP dashboard, they will need to click the new tile for the enterprise-level app, instead of the old tile for the organization-level app. The members will then be able to choose the organization to navigate to. 
+Enterprise members will not be notified when an enterprise owner enables SAML for the enterprise account. If SAML SSO was previously enforced at the organization level, members should not see a major difference when navigating directly to organization resources. The members will continue to be prompted to authenticate via SAML. If members navigate to organization resources via their IdP dashboard, they will need to click the new tile for the enterprise-level app, instead of the old tile for the organization-level app. The members will then be able to choose the organization to navigate to.
 
 Any {% data variables.product.pat_generic %}s, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were previously authorized for the organization will continue to be authorized for the organization. However, members will need to authorize any PATs, SSH keys, {% data variables.product.prodname_oauth_apps %}, and {% data variables.product.prodname_github_apps %} that were never authorized for use with SAML SSO for the organization.
 
@@ -42,6 +42,6 @@ For more information about the decision to implement SAML SSO at the organizatio
 1. Optionally, remove any existing SAML configuration for organizations owned by the enterprise account. To help you decide whether to remove the configurations, see "[About SAML single sign-on for enterprise accounts](#about-saml-single-sign-on-for-enterprise-accounts)."
 1. If you kept any organization-level SAML configurations in place, to prevent confusion, consider hiding the tile for the organization-level apps in your IdP.
 1. Advise your enterprise members about the change.
-   -  Members will no longer be able to access their organizations by clicking the SAML app for the organization in the IdP dashboard. They will need to use the new app configured for the enterprise account.
+   - Members will no longer be able to access their organizations by clicking the SAML app for the organization in the IdP dashboard. They will need to use the new app configured for the enterprise account.
    - Members will need to authorize any PATs or SSH keys that were not previously authorized for use with SAML SSO for their organization. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
    - Members may need to reauthorize {% data variables.product.prodname_oauth_apps %} that were previously authorized for the organization. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)."

@@ -1,1 +1,1 @@
-You can set a specific spending limit or, for some accounts, allow unlimited spending. The spending limit applies to your combined overages for {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}.
+You can set a specific spending limit or, for some accounts, allow unlimited spending. The spending limit applies to your combined overages (any usage beyond the amounts included with your plan) for {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}.

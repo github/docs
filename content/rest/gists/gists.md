@@ -3,7 +3,7 @@ title: Gists
 intro: >-
   Use the REST API to list, create, update and delete the public gists on
   GitHub.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -39,6 +39,5 @@ These are the supported media types for fetching gist contents.
     application/vnd.github.base64
 
 For more information, see "[AUTOTITLE](/rest/overview/media-types)."
-
 
 <!-- Content after this section is automatically generated -->

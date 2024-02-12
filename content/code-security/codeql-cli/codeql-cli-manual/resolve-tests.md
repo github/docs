@@ -1,6 +1,6 @@
 ---
 title: resolve tests
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve tests <options>... -- <test|dir>...
 ```
 
@@ -36,19 +36,21 @@ This plumbing command is responsible for expanding the command-line
 parameters of subcommands that run QL unit tests, to an actual list of
 individual .ql and .qlref files to execute.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<test|dir>...`
 
 Each argument is one of:
 
-*   A `.ql` or `.qlref` file that defines a test to run.
-*   A directory which will be searched recursively for tests to run.
+- A `.ql` or `.qlref` file that defines a test to run.
+- A directory which will be searched recursively for tests to run.
 
 #### `--slice=<N/M>`
 
-\[Advanced] Divide the test cases into *M* roughly equal-sized slices
-and process only the *N*th of them. This can be used for manual
+\[Advanced] Divide the test cases into _M_ roughly equal-sized slices
+and process only the _N_th of them. This can be used for manual
 parallelization of the testing process.
 
 #### `--[no-]strict-test-discovery`
@@ -71,7 +73,7 @@ files even though a `.qlref` file cannot really be a non-test.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Common options
 

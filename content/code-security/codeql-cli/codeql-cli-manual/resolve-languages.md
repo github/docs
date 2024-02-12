@@ -1,6 +1,6 @@
 ---
 title: resolve languages
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve languages <options>...
 ```
 
@@ -38,7 +38,9 @@ the pack has conflicting locations within a single search element, so it
 cannot actually be resolved. The caller may use the actual locations to
 format an appropriate error message.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--search-path=<dir>[:<dir>...]`
 
@@ -61,7 +63,7 @@ per-user configuration file).
 
 Select output format. Choices include:
 
-`text` *(default)*: Print the paths to extractor packs to standard
+`text` _(default)_: Print the paths to extractor packs to standard
 output.
 
 `json`: Print the paths to extractor packs as a JSON string.

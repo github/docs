@@ -1,6 +1,6 @@
 ---
 title: resolve metadata
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve metadata <options>... -- <file>
 ```
 
@@ -35,7 +35,9 @@ codeql resolve metadata <options>... -- <file>
 \[Deep plumbing] Resolve and return the key-value metadata pairs from a
 query source file.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>`
 

@@ -1,6 +1,6 @@
 ---
 title: database import
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database import [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] <options>... -- <database> <additionalDbs>...
 ```
 
@@ -36,7 +36,7 @@ codeql database import [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] <optio
 unfinalized database.
 
 The result of this command is that the target database (the one in the
-*first* argument) will be augmented with the data from all the other
+_first_ argument) will be augmented with the data from all the other
 databases passed. In particular, TRAP files from the other databases
 will be imported and sources in them will be copied.
 
@@ -48,7 +48,9 @@ build systems where special care has been taken in how the build was
 separated in order to ensure that the resulting final database is
 meaningful.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 
@@ -56,7 +58,7 @@ meaningful.
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
-but a directory that *contains* databases, and all of those databases
+but a directory that _contains_ databases, and all of those databases
 will be processed together.
 
 #### `<additionalDbs>...`
@@ -70,7 +72,7 @@ database clusters rather than individual CodeQL databases.
 #### `--[no-]db-cluster`
 
 Indicates that the directory given on the command line is not a database
-itself, but a directory that *contains* one or more databases under
+itself, but a directory that _contains_ one or more databases under
 construction. Those databases will be processed together.
 
 ### Options for controlling the TRAP import operation
@@ -86,7 +88,7 @@ database's extractor.
 Use this many threads for the import operation.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`

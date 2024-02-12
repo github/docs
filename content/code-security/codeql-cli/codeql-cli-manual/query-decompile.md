@@ -1,6 +1,6 @@
 ---
 title: query decompile
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql query decompile [--output=<file>] <options>... -- <file>
 ```
 
@@ -38,7 +38,9 @@ from a .qlo file.
 The code will be written to standard output, unless the `--output`
 option is specified.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>`
 

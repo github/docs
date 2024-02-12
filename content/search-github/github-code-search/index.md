@@ -1,6 +1,6 @@
 ---
 title: GitHub Code Search
-intro: 'You can use a wide range of syntax to search {% data variables.product.product_name %}. You can adjust the scope of your search, build and troubleshoot queries, and narrow down search results with qualifiers.'
+intro: 'Learn how to use code search to find, navigate, and understand code across {% data variables.product.prodname_dotcom %}.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-code-view

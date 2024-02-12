@@ -14,13 +14,11 @@ export const ProductArticlesList = () => {
 
   return (
     <div className="d-flex gutter flex-wrap" data-testid="product-articles-list">
-      {currentProductTree.childPages.map((treeNode, i) => {
-        if (treeNode.documentType === 'article') {
-          return null
-        }
-
-        return <ProductTreeNodeList key={treeNode.href + i} treeNode={treeNode} />
-      })}
+      {currentProductTree.childPages
+        .filter((treeNode) => treeNode.childPages.length)
+        .map((treeNode) => {
+          return <ProductTreeNodeList key={treeNode.href} treeNode={treeNode} />
+        })}
     </div>
   )
 }
@@ -29,7 +27,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
   return (
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h3 className="mb-3 f4">
-        <Link className="color-unset text-underline" href={treeNode.href}>
+        <Link className="text-underline" href={treeNode.href}>
           {treeNode.title}
         </Link>
       </h3>
@@ -48,9 +46,9 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
                 },
               }}
             >
-              <Link className="d-block width-full" href={childNode.href}>
+              <Link className="d-block width-full text-underline" href={childNode.href}>
                 {childNode.title}
-                {childNode.documentType === 'mapTopic' ? (
+                {childNode.childPages.length > 0 ? (
                   <small className="color-fg-muted d-inline-block">
                     &nbsp;&bull; {childNode.childPages.length} articles
                   </small>

@@ -3,7 +3,6 @@
   "ignore": [
     "assets",
     "script",
-    "stylesheets",
     "tests",
     "content",
     "translations",

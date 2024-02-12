@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router'
 import cx from 'classnames'
+import { XIcon } from '@primer/octicons-react'
 
-import { useLanguages } from 'components/context/LanguagesContext'
+import { useLanguages } from 'src/languages/components/LanguagesContext'
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ExcludesNull } from 'components/lib/ExcludesNull'
-import { useVersion } from 'components/hooks/useVersion'
-import { useUserLanguage } from 'components/hooks/useUserLanguage'
+import { useVersion } from 'src/versions/components/useVersion'
+import { useUserLanguage } from 'src/languages/components/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
 
 enum NotificationType {
@@ -18,12 +19,14 @@ enum NotificationType {
 type Notif = {
   content: string
   type?: NotificationType
+  onClose?: () => void
 }
+
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { relativePath, allVersions, data, currentPathWithoutLanguage, page } = useMainContext()
-  const { userLanguage } = useUserLanguage()
+  const { userLanguage, setUserLanguageCookie } = useUserLanguage()
   const { languages } = useLanguages()
 
   const { t } = useTranslation('header')
@@ -38,6 +41,18 @@ export const HeaderNotifications = () => {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: `This article is also available in <a href="${href}">${languages[userLanguage]?.name}</a>.`,
+        onClose: () => {
+          try {
+            setUserLanguageCookie('en')
+          } catch (err) {
+            // You can never be too careful because setting a cookie
+            // can fail. For example, some browser
+            // extensions disallow all setting of cookies and attempts
+            // at the `document.cookie` setter could throw. Just swallow
+            // and move on.
+            console.warn('Unable to set cookie', err)
+          }
+        },
       })
     }
   } else {
@@ -45,11 +60,6 @@ export const HeaderNotifications = () => {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
-      })
-    } else if (router.locale) {
-      translationNotices.push({
-        type: NotificationType.TRANSLATION,
-        content: t('notices.localization_complete'),
       })
     }
   }
@@ -80,8 +90,9 @@ export const HeaderNotifications = () => {
 
   return (
     <div>
-      {allNotifications.map(({ type, content }, i) => {
+      {allNotifications.map(({ type, content, onClose }, i) => {
         const isLast = i === allNotifications.length - 1
+
         return (
           <div
             key={content}
@@ -94,10 +105,21 @@ export const HeaderNotifications = () => {
               type === NotificationType.TRANSLATION && 'color-bg-accent',
               type === NotificationType.RELEASE && 'color-bg-accent',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
-              !isLast && 'border-bottom color-border-default'
+              !isLast && 'border-bottom color-border-default',
             )}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
+          >
+            {onClose && (
+              <button
+                className="flash-close js-flash-close"
+                type="button"
+                aria-label="Close"
+                onClick={() => onClose()}
+              >
+                <XIcon size="small" className="octicon mr-1" />
+              </button>
+            )}
+            <p dangerouslySetInnerHTML={{ __html: content }} />
+          </div>
         )
       })}
     </div>

@@ -1,5 +1,5 @@
 ---
-title: Rate limits for OAuth Apps
+title: Rate limits for OAuth apps
 intro: '{% data reusables.shortdesc.rate_limits_apps %}'
 versions:
   fpt: '*'
@@ -7,13 +7,13 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 shortTitle: Rate limits
 ---
 
 {% note %}
 
-**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. The rate limit for {% data variables.product.prodname_github_app %}s using an installation access token scales with the number of repositories and number of organization users. Conversely, {% data variables.product.prodname_oauth_app %}s have lower rate limits and do not scale. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. The rate limit for {% data variables.product.prodname_github_apps %} using an installation access token scales with the number of repositories and number of organization users. Conversely, {% data variables.product.prodname_oauth_apps %} have lower rate limits and do not scale. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 {% endnote %}
 
@@ -47,7 +47,14 @@ When rate limits are enabled for your {% data variables.product.product_name %} 
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-{% ifversion ghes %}By default, {% data variables.product.prodname_oauth_apps %}{% else %}{% data variables.product.prodname_oauth_apps %}{% endif %} are limited to {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} requests per hour and per authenticated user. All requests from {% data variables.product.prodname_oauth_apps %} that are authorized by a user or a {% data variables.product.pat_generic %} owned by the user, and requests authenticated with any of the user's authentication credentials, share the same quota of {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} requests per hour for that user.
+{% data variables.product.prodname_oauth_apps %} can encounter rate limits during the following two actions:
+
+1. When signing in users.
+1. When making API calls.
+
+{% data variables.product.prodname_oauth_apps %} should always cache their tokens, and only rarely need to sign in a user. Repeatedly signing in a user can be a sign of a bug, most frequently seen as an infinite loop between the app and {% data variables.product.company_short %}. If an app signs the user in ten times within one hour, the next sign in within the same hour will require re-authorization of the application. This ensures the user is aware that the app is minting so many tokens, and provides a break in what may be an infinite loop otherwise. This ten _sign in_ rate limit is distinct from the ten _token_ limit also enforced for {% data variables.product.prodname_oauth_apps %}. For information about the ten token limit, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#creating-multiple-tokens-for-oauth-apps)."
+
+{% ifversion ghes %}By default, {% data variables.product.prodname_oauth_apps %}{% else %}{% data variables.product.prodname_oauth_apps %}{% endif %} are also limited to {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} requests per hour and per authenticated user. All requests from {% data variables.product.prodname_oauth_apps %} that are authorized by a user or a {% data variables.product.pat_generic %} owned by the user, and requests authenticated with any of the user's authentication credentials, share the same quota of {% ifversion ghae %}15,000{% elsif fpt or ghec or ghes %}5,000{% endif %} requests per hour for that user.
 
 {% ifversion fpt or ghec %}
 

@@ -2,10 +2,10 @@ import React from 'react'
 import { Flash } from '@primer/react'
 import { useRouter } from 'next/router'
 
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 const restRepoDisplayPages = [
   'branches',
@@ -50,13 +50,13 @@ export const RestBanner = () => {
     bannerText = t('rest.banner.api_versioned')
     versionWithApiVersion = currentVersion
   } else {
-    if (currentVersionObj.shortName === 'ghes') {
+    if (currentVersionObj.isGHES) {
       // If this is a GHES release with no REST versions,
       // find out if any GHES releases contain REST versioning yet.
       const firstGhesReleaseWithApiVersions = Object.values(allVersions)
         .reverse()
         .find((v) => {
-          return v.shortName === 'ghes' && v.apiVersions.length
+          return v.isGHES && v.apiVersions.length
         })
 
       if (firstGhesReleaseWithApiVersions) {
@@ -64,7 +64,7 @@ export const RestBanner = () => {
         bannerText = t('rest.banner.ghes_api_versioned')
           .replace(
             '{{ firstGhesReleaseWithApiVersions.versionTitle }}',
-            firstGhesReleaseWithApiVersions.versionTitle
+            firstGhesReleaseWithApiVersions.versionTitle,
           )
           .replace(/{{\s*currentVersion\s*}}/, currentVersion)
       }
@@ -83,7 +83,7 @@ export const RestBanner = () => {
             dangerouslySetInnerHTML={{
               __html: t('rest.banner.api_version_info').replace(
                 /{{\s*versionWithApiVersion\s*}}/,
-                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
+                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
               ),
             }}
           />

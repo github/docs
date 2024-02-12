@@ -19,7 +19,7 @@ import { get } from '../../../tests/helpers/e2etest.js'
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
     'None of the API search middleware tests are run because ' +
-      "the environment variable 'ELASTICSEARCH_URL' is currently not set."
+      "the environment variable 'ELASTICSEARCH_URL' is currently not set.",
   )
 }
 
@@ -242,6 +242,15 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       expect(res.statusCode).toBe(400)
       expect(JSON.parse(res.body).error).toMatch('neverheardof')
     }
+    // multiple 'query' keys
+    {
+      const sp = new URLSearchParams()
+      sp.append('query', 'test1')
+      sp.append('query', 'test2')
+      const res = await get('/api/search/v1?' + sp)
+      expect(res.statusCode).toBe(400)
+      expect(JSON.parse(res.body).error).toMatch('Can not have multiple values')
+    }
   })
 
   test('breadcrumbless records should always return a string', async () => {
@@ -302,6 +311,6 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(400)
     const results = JSON.parse(res.body)
-    expect(results.error).toMatch(`Not a valid value (["xxxxx"]) for key 'include'`)
+    expect(results.error).toMatch(`Not a valid value ([ 'xxxxx' ]) for key 'include'`)
   })
 })

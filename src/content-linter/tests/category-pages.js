@@ -7,10 +7,10 @@ import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 
 import matter from '../../../lib/read-frontmatter.js'
-import renderContent from '../../../lib/render-content/index.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import { renderContent } from '#src/content-render/index.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import contextualize from '../../../middleware/context.js'
-import shortVersions from '../../../middleware/contextualizers/short-versions.js'
+import shortVersions from '#src/versions/middleware/short-versions.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -126,14 +126,14 @@ describe('category pages', () => {
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
-              })
+              }),
             )
           ).filter(Boolean)
 
           // Get all of the child articles that exist in the subdir
           const childEntries = await fs.promises.readdir(categoryDir, { withFileTypes: true })
           const childFileEntries = childEntries.filter(
-            (ent) => ent.isFile() && ent.name !== 'index.md'
+            (ent) => ent.isFile() && ent.name !== 'index.md',
           )
           const childFilePaths = childFileEntries.map((ent) => path.join(categoryDir, ent.name))
 
@@ -148,7 +148,7 @@ describe('category pages', () => {
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
-              })
+              }),
             )
           ).filter(Boolean)
 
@@ -158,7 +158,7 @@ describe('category pages', () => {
               const { data } = matter(articleContents)
 
               articleVersions[articlePath] = getApplicableVersions(data.versions, articlePath)
-            })
+            }),
           )
         })
 
@@ -191,7 +191,7 @@ describe('category pages', () => {
             }),
             `${indexRelPath.replace('index.md', '')} contains a mix of ${errorType}s and ${
               categoryChildTypes[0]
-            }s, category children must be of the same type`
+            }s, category children must be of the same type`,
           ).toBe(true)
         })
 
@@ -210,7 +210,7 @@ describe('category pages', () => {
 
           // If this fails, execute "script/reconcile-category-dirs-with-ids.js"
         })
-      }
+      },
     )
   })
 })

@@ -1,6 +1,6 @@
 ---
 title: test run
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql test run [--threads=<num>] [--ram=<MB>] <options>... -- <test|dir>...
 ```
 
@@ -32,14 +32,16 @@ codeql test run [--threads=<num>] [--ram=<MB>] <options>... -- <test|dir>...
 
 Run unit tests for QL queries.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<test|dir>...`
 
 Each argument is one of:
 
-*   A `.ql` or `.qlref` file that defines a test to run.
-*   A directory which will be searched recursively for tests to run.
+- A `.ql` or `.qlref` file that defines a test to run.
+- A directory which will be searched recursively for tests to run.
 
 #### `--failing-exitcode=<code>`
 
@@ -51,7 +53,7 @@ useful to set it to 0.
 
 Select output format. Possible choices:
 
-`text` *(default)*: A human-readable textual rendering.
+`text` _(default)_: A human-readable textual rendering.
 
 `json`: A streamed JSON array of test result objects.
 
@@ -70,7 +72,7 @@ in the future, so consumers should ignore any event with an unrecognized
 
 \[Advanced] Preserve the databases extracted to run the test queries,
 even where all tests in a directory pass. (The database will always be
-left present when there are tests that *fail*).
+left present when there are tests that _fail_).
 
 #### `--[no-]fast-compilation`
 
@@ -110,8 +112,8 @@ Set total amount of RAM the test runner should be allowed to use.
 
 #### `--slice=<N/M>`
 
-\[Advanced] Divide the test cases into *M* roughly equal-sized slices
-and process only the *N*th of them. This can be used for manual
+\[Advanced] Divide the test cases into _M_ roughly equal-sized slices
+and process only the _N_th of them. This can be used for manual
 parallelization of the testing process.
 
 #### `--[no-]strict-test-discovery`
@@ -166,8 +168,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -281,7 +283,7 @@ If no timeout is specified, or is given as 0, no timeout will be set
 Use this many threads to evaluate queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 ### Options for controlling outputting of structured evaluator logs

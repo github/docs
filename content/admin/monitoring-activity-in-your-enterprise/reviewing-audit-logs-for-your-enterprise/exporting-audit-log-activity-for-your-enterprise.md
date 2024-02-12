@@ -42,6 +42,6 @@ You can also export Git events data by date range.
 1. Click {% octicon "file-zip" aria-hidden="true" %} **Download Results**.
 1. The data is exported as a compressed JSON file. To extract the JSON data, uncompress the file using an archive utility client or command. For example:
 
-    ```
+    ```shell
     gunzip export-avocado-corp-1642896556.json.gz
     ```

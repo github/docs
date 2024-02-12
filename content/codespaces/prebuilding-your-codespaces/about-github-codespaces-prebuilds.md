@@ -34,7 +34,7 @@ When you create a codespace from a template on the "Your codespaces" page, {% da
 
 ## The prebuild process
 
-To create a prebuild you set up a prebuild configuration. When you save the configuration, a {% data variables.product.prodname_actions %} workflow runs to create each of the required prebuilds; one workflow per prebuild. Workflows also run whenever the prebuilds for your configuration need to be updated. This can happen at scheduled intervals, on pushes to a prebuild-enabled repository, or when you change the dev container configuration. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+To create a prebuild, you set up a prebuild configuration. When you save the configuration, a {% data variables.product.prodname_actions %} workflow runs to create each of the required prebuilds; one workflow per prebuild. Workflows also run whenever the prebuilds for your configuration need to be updated. This can happen at scheduled intervals, on pushes to a prebuild-enabled repository, or when you change the dev container configuration. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 When a prebuild configuration workflow runs, {% data variables.product.prodname_dotcom %} creates a temporary codespace, performing setup operations up to and including any `onCreateCommand` and `updateContentCommand` commands in the `devcontainer.json` file. No `postCreateCommand` commands are run during the creation of a prebuild. For more information about these commands, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation. A snapshot of the generated container is then taken and stored.
 
@@ -50,9 +50,9 @@ With the prebuild set to be updated on each push, it means that if there are ver
 
 For example, let's imagine 5 pushes are made, in quick succession, against a branch that has a prebuild configuration. In this situation:
 
-* A workflow run is started for the first push, to update the prebuild.
-* If the 4 remaining pushes do not affect the dev container configuration, the workflow runs for these are queued in a "pending" state.
+- A workflow run is started for the first push, to update the prebuild.
+- If the 4 remaining pushes do not affect the dev container configuration, the workflow runs for these are queued in a "pending" state.
 
   If any of the remaining 4 pushes change the dev container configuration, then the service will not skip that one and will immediately run the prebuild creation workflow, updating the prebuild accordingly if it succeeds.
 
-* Once the first run completes, workflow runs for pushes 2, 3, and 4 will be canceled, and the last queued workflow (for push 5) will run and update the prebuild.
+- Once the first run completes, workflow runs for pushes 2, 3, and 4 will be canceled, and the last queued workflow (for push 5) will run and update the prebuild.

@@ -9,7 +9,7 @@ topics:
 redirect_from:
   - /codespaces/working-with-your-codespace
 children:
-  - /managing-encrypted-secrets-for-your-codespaces
+  - /managing-secrets-for-your-codespaces
   - /managing-repository-access-for-your-codespaces
   - /reviewing-your-security-logs-for-github-codespaces
   - /managing-gpg-verification-for-github-codespaces

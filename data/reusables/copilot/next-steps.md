@@ -1,0 +1,1 @@
+You successfully installed {% data variables.product.prodname_copilot %} and received your first suggestion, but that's just the beginning! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_copilot %}.

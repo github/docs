@@ -1,5 +1,5 @@
 import { getChangelogItems } from '../../lib/changelog.js'
-import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 
 export default async function whatsNewChangelog(req, res, next) {
   if (!req.context.page) return next()
@@ -25,7 +25,7 @@ export default async function whatsNewChangelog(req, res, next) {
 
   req.context.whatsNewChangelog = await getChangelogItems(
     req.context.page.changelog.prefix,
-    req.context.changelogUrl
+    req.context.changelogUrl,
   )
   return next()
 }

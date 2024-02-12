@@ -1,0 +1,6 @@
+# Reference: Issue #10089 - Alert rules: user-configured dismiss rules for Dependabot alerts
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'

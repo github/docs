@@ -13,6 +13,7 @@ topics:
 ---
 
 {% ifversion api-date-versioning %}
+
 ## API version
 
 Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
@@ -103,6 +104,7 @@ curl --request GET \
 If you try to use a REST API endpoint without a token or with a token that has insufficient permissions, you will receive a `404 Not Found` or `403 Forbidden` response.
 
 {% ifversion fpt or ghes or ghec %}
+
 ### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -157,7 +159,7 @@ specified as a segment in the path can be passed as an HTTP query string
 parameter:
 
 ```shell
-$ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
+curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
 In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner`
@@ -168,7 +170,7 @@ For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in th
 with a Content-Type of 'application/json':
 
 ```shell
-$ curl -i --header "Authorization: Bearer YOUR-TOKEN" -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
+curl -i --header "Authorization: Bearer YOUR-TOKEN" -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ## Root endpoint
@@ -196,7 +198,7 @@ receive request bodies:
 
         {"message":"Problems parsing JSON"}
 
-2. Sending the wrong type of JSON values will result in a `400 Bad
+1. Sending the wrong type of JSON values will result in a `400 Bad
    Request` response.
 
         HTTP/2 400
@@ -204,7 +206,7 @@ receive request bodies:
 
         {"message":"Body should be a JSON object"}
 
-3. Sending invalid fields will result in a `422 Unprocessable Entity`
+1. Sending invalid fields will result in a `422 Unprocessable Entity`
    response.
 
         HTTP/2 422
@@ -238,7 +240,7 @@ Resources may also send custom validation errors (where `code` is `custom`). Cus
 ## HTTP redirects
 
 The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is *not* an
+request may result in a redirection. Receiving an HTTP redirection is _not_ an
 error and clients should follow that redirect. Redirect responses will have a
 `Location` header field which contains the URI of the resource to which the
 client should repeat the requests.
@@ -312,7 +314,6 @@ The {% data variables.product.product_name %} REST API uses rate limiting to con
 Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. Additionally, the Search endpoints have dedicated limits. For more information, see "[AUTOTITLE](/rest/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
-
 
 #### Rate limits for requests from personal accounts
 
@@ -394,7 +395,6 @@ If you exceed the rate limit, the response will have a `403` status and the `x-r
 ```
 
 If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
-
 
 ### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
 
@@ -635,10 +635,10 @@ A link that looks like this:
 
 Some requests that create new data, such as creating a new commit, allow you to provide time zone information when specifying or generating timestamps. We apply the following rules, in order of priority, to determine timezone information for such API calls.
 
-* [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
-* [Using the `Time-Zone` header](#using-the-time-zone-header)
-* [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
-* [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
+- [Explicitly providing an ISO 8601 timestamp with timezone information](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
+- [Using the `Time-Zone` header](#using-the-time-zone-header)
+- [Using the last known timezone for the user](#using-the-last-known-timezone-for-the-user)
+- [Defaulting to UTC without other timezone information](#defaulting-to-utc-without-other-timezone-information)
 
 Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
 
@@ -653,7 +653,7 @@ These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this
 It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github-linguist/linguist/contents/new_file.md
+curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github-linguist/linguist/contents/new_file.md
 ```
 
 This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the API to manage contents generates a git commit for each addition or change and uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos#contents)." This header will determine the timezone used for generating that current timestamp.

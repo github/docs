@@ -28,8 +28,8 @@ shortTitle: Change the state
 {% endtip %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the "Pull requests" list, click the pull request you'd like to mark as ready for review.
-3. In the merge box, click **Ready for review**.
+1. In the "Pull requests" list, click the pull request you'd like to mark as ready for review.
+1. In the merge box, click **Ready for review**.
 
    ![Screenshot of the merge box in a pull request. The "Ready for review" button is outlined in dark orange.](/assets/images/help/pull_requests/ready-for-review-button.png)
 
@@ -38,12 +38,12 @@ shortTitle: Change the state
 You can convert a pull request to a draft at any time. For example, if you accidentally opened a pull request instead of a draft, or if you've received feedback on your pull request that needs to be addressed, you can convert the pull request to a draft to indicate further changes are needed. No one can merge the pull request until you mark the pull request as ready for review again. People who are already subscribed to notifications for the pull request will not be unsubscribed when you convert the pull request to a draft.
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the "Pull requests" list, click the pull request you'd like to convert to a draft.
-3. In the right sidebar, under "Reviewers," click **Convert to draft**.
+1. In the "Pull requests" list, click the pull request you'd like to convert to a draft.
+1. In the right sidebar, under "Reviewers," click **Convert to draft**.
 
    ![Screenshot of the "Reviewers" section in the right sidebar of a pull request. The "Convert to draft" link is outlined in dark orange.](/assets/images/help/pull_requests/convert-to-draft-link.png)
 
-4. Click **Convert to draft**.
+1. Click **Convert to draft**.
 
 ## Further reading
 

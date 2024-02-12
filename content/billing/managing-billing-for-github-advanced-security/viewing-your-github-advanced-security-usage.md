@@ -84,6 +84,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 ### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the UI
 
 {% ifversion ghas-billing-table-ui-update %}
+
 #### At the repository-level
 
 {% data reusables.profile.access_org %}
@@ -96,6 +97,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {% endif %}
 
 {% ifversion ghec %}
+
 #### At the organization-level
 
 {% data reusables.profile.access_org %}
@@ -105,7 +107,9 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {% endif %}
 
 {% ifversion ghas-billing-table-ui-update %}
+
 #### At the enterprise-level
+
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -120,7 +124,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {%- elsif ghes > 3.8 %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-hidden="true" %} **CSV report** in the header of the "Committers" table.
 
-   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-CSV-report-ghes-3.9.png)
+   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-csv-report-ghes-3.9.png)
 
 {%- else %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," {% octicon "download" aria-label="The download icon" %} in the header of the "Committers" table.

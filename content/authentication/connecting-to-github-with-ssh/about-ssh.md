@@ -33,6 +33,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can provi
 {% else ghec or ghes or ghae %}
 If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories, if the forks is owned by your personal account. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
 {% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/authentication/troubleshooting-ssh)"

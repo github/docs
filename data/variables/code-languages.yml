@@ -1,0 +1,69 @@
+# Comment options: number (#), slash (//), percent (%%), hyphen (--), xml (<!-- -->), none
+# For languages that support highlighting: https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md
+# We prefer full language name in lowercase to avoid conflicts
+bash:
+  name: Bash
+  comment: number
+csharp:
+  name: C#
+  comment: slash
+dockerfile:
+  name: Dockerfile
+  comment: number
+golang:
+  name: Go
+  comment: slash
+graphql:
+  name: GraphQL
+  comment: number
+groovy:
+  name: Groovy
+  comment: slash
+html:
+  name: HTML
+  comment: xml
+http:
+  name: HTTP
+  comment: none
+java:
+  name: Java
+  comment: slash
+javascript:
+  name: JavaScript
+  comment: slash
+json:
+  name: JSON
+  comment: none
+jsonc:
+  name: JSONC
+  comment: slash
+markdown:
+  name: Markdown
+  comment: xml
+powershell:
+  name: PowerShell
+  comment: number
+python:
+  name: Python
+  comment: number
+ruby:
+  name: Ruby
+  comment: number
+scss:
+  name: SCSS
+  comment: slash
+shell:
+  name: Shell
+  comment: number
+sql:
+  name: SQL
+  comment: hyphen
+text:
+  name: Text
+  comment: number
+xml:
+  name: XML
+  comment: xml
+yaml:
+  name: YAML
+  comment: number

@@ -31,7 +31,7 @@ When you squash and merge, {% data variables.product.prodname_dotcom %} generate
 When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
 Number of commits | Summary | Description |
------------------ | ------- | ----------- |	
+----------------- | ------- | ----------- |
 One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
 More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
 {% endif %}
@@ -76,13 +76,17 @@ Anyone with write permissions in the repository, can then [merge the changes](/p
 
 A pull request can be merged automatically if its head branch is directly or indirectly merged into the base branch externally. In other words, if the head branch's tip commit becomes reachable from the tip of the target branch. For example:
 
-* Branch `main` is at commit **C**.
-* Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
-* Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
+- Branch `main` is at commit **C**.
+- Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
+- Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
 
-If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged *automatically* because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark *both* pull requests as merged.
+If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged _automatically_ because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark _both_ pull requests as merged.
 
-Pull requests in this situation will be marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-rules) have not been satisfied.
+Indirect merges can only occur either when the commits in the pull request's head branch are pushed directly to the repository's default branch, or when the commits in the pull request's head branch are present in another pull request and are merged into the repository's default branch using the **Create a merge commit** option.
+
+If a pull request containing commits present in another pull request's head branch is merged using the **Squash and merge** or **Rebase and merge** options, a new commit is created on the base branch and the other pull request will not be automatically merged.
+
+Pull requests that are merged indirectly are marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-rules) have not been satisfied.
 
 ## Further reading
 

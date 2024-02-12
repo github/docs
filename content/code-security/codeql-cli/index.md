@@ -1,6 +1,7 @@
 ---
 title: Use the CodeQL CLI to secure your code
 shortTitle: CodeQL CLI
+allowTitleToDifferFromFilename: true
 intro: 'Use {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} analyses locally.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -13,8 +14,8 @@ topics:
   - Code scanning
   - CodeQL
 children:
-  - /using-the-codeql-cli
-  - /codeql-cli-reference
+  - /getting-started-with-the-codeql-cli
+  - /using-the-advanced-functionality-of-the-codeql-cli
   - /codeql-cli-manual
 ---
 

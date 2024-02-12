@@ -6,5 +6,9 @@
 # Site Policy
 /content/site-policy/ @github/site-policy-admins
 
+# Enterprise
+/data/release-notes/**/*.yml @github/docs-content-enterprise
+src/ghes-releases/lib/enterprise-dates.json @github/docs-content-enterprise
+
 # Requires review of #actions-oidc-integration, docs-engineering/issues/1506
 content/actions/deployment/security-hardening-your-deployments/** @github/oidc

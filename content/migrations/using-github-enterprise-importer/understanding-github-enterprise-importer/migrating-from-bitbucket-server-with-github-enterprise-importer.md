@@ -10,8 +10,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-from-bitbucket-server-with-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.bbs-release-phase %}
-
 ## About migrations from Bitbucket Server
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %} on a repository-by-repository basis. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
@@ -120,7 +118,7 @@ To give access to migrated repositories, you can create teams and give each team
 
 1. Create teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team)."
 1. Add organization members to teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
-1. Give each team access to the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+1. Give each team access to the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
 
 ### Reclaiming mannequins
 

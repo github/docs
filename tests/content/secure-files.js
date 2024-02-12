@@ -34,8 +34,8 @@ describe('Secure file paths are present and have code owners if required', () =>
           matchingEntry?.toLowerCase().includes(file.requiredCodeOwner.toLowerCase()),
           `Code owner for ${file.name} expected to be @${file.requiredCodeOwner.replaceAll(
             '@',
-            ''
-          )}`
+            '',
+          )}`,
         ).toBeTruthy()
       }
     })

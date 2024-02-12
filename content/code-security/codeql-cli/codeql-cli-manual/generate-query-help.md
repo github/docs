@@ -1,6 +1,6 @@
 ---
 title: generate query-help
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql generate query-help --format=<format> [--output=<dir|file>] <options>... -- <qhelp|query|dir|suite>...
 ```
 
@@ -32,19 +32,21 @@ codeql generate query-help --format=<format> [--output=<dir|file>] <options>... 
 
 Generate end-user query help from .qhelp files.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<qhelpdir|suite>...`
 
 \[Mandatory] Query help files to render. Each argument is one of:
 
-*   A .qhelp file to render.
-*   A .ql file with a corresponding .qhelp file to render.
-*   A directory that will be searched recursively for .ql files with
-    corresponding .qhelp files.
-*   A .qls file that defines a particular set of queries.
-*   The basename of a "well-known" .qls file exported by one of the
-    installed QL packs.
+- A .qhelp file to render.
+- A .ql file with a corresponding .qhelp file to render.
+- A directory that will be searched recursively for .ql files with
+  corresponding .qhelp files.
+- A .qls file that defines a particular set of queries.
+- The basename of a "well-known" .qls file exported by one of the
+  installed QL packs.
 
 #### `--format=<format>`
 
@@ -72,7 +74,7 @@ path.
 If no output path is provided, only a single .qhelp or .ql file will be
 accepted, and the output will be written to stdout.
 
-If an output directory is used, filenames *within* the output directory
+If an output directory is used, filenames _within_ the output directory
 will be derived from the .qhelp file names.
 
 #### `--warnings=<mode>`
@@ -81,7 +83,7 @@ How to handle warnings from the query help renderer. One of:
 
 `hide`: Suppress warnings.
 
-`show` *(default)*: Print warnings but continue with rendering.
+`show` _(default)_: Print warnings but continue with rendering.
 
 `error`: Treat warnings as errors.
 
@@ -119,8 +121,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

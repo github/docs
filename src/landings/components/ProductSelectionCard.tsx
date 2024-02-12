@@ -1,36 +1,17 @@
-import { ProductT, useMainContext } from 'components/context/MainContext'
 import type { ProductGroupT } from 'src/landings/components/ProductSelections'
 
 import React from 'react'
-import { useRouter } from 'next/router'
-import { useVersion } from 'components/hooks/useVersion'
 import { Link } from 'components/Link'
 import * as Octicons from '@primer/octicons-react'
+import { LinkExternalIcon } from '@primer/octicons-react'
 
 type ProductSelectionCardProps = {
-  name: string
   group: ProductGroupT
 }
 
-export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps) => {
-  const router = useRouter()
-  const { currentVersion } = useVersion()
-  const { isFPT } = useMainContext()
-
-  function href(product: ProductT) {
-    return `${!product.external ? `/${router.locale}` : ''}${
-      product.versions?.includes(currentVersion) && !isFPT
-        ? `/${currentVersion}/${product.id}`
-        : product.href
-    }`
-  }
-
+export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
   const groupIcon = {
     height: '22px',
-  }
-
-  function showProduct(product: ProductT) {
-    return isFPT || product.versions?.includes(currentVersion) || product.external
   }
 
   function icon(group: ProductGroupT) {
@@ -54,27 +35,28 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
   }
 
   return (
-    <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 pb-4">
+    <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 col-xl-3 pb-4">
       <div className="flex-auto ws-normal">
         <div className="d-flex flex-items-center">
           {icon(group)}
 
           <div>
-            <h2 className="h3">{name}</h2>
+            <h2 className="h3">{group.name}</h2>
           </div>
         </div>
 
         <div className="pt-2 mb-4 text-normal">
           <ul className="list-style-none">
             {group.children.map((product) => {
-              if (!showProduct(product)) {
-                return null
-              }
-
               return (
                 <li key={product.name} className="pt-2">
-                  <Link href={href(product)} target={product.external ? '_blank' : undefined}>
+                  <Link href={product.href} target={product.external ? '_blank' : undefined}>
                     {product.name}
+                    {product.external && (
+                      <span className="ml-1">
+                        <LinkExternalIcon aria-label="(external site)" size="small" />
+                      </span>
+                    )}
                   </Link>
                 </li>
               )

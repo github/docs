@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { getOpenApiVersion } from '../../../lib/all-versions.js'
+import { getOpenApiVersion } from '#src/versions/lib/all-versions.js'
 import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
 
 export const WEBHOOK_DATA_DIR = 'src/webhooks/data'
@@ -68,8 +68,8 @@ export async function getWebhooks(version) {
     webhooksCache.set(
       openApiVersion,
       readCompressedJsonFileFallback(
-        path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME)
-      )
+        path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME),
+      ),
     )
   }
 

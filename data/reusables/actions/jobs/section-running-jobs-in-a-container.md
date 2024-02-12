@@ -10,7 +10,7 @@ If you do not set a `container`, all steps will run directly on the host specifi
 
 ### Example: Running a job within a container
 
-```yaml{:copy}
+```yaml copy
 name: CI
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container:
-      image: node:14.16
+      image: node:18
       env:
         NODE_ENV: development
       ports:
@@ -38,5 +38,5 @@ When you only specify a container image, you can omit the `image` keyword.
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
-    container: node:14.16
+    container: node:18
 ```

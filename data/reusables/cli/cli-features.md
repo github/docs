@@ -7,3 +7,4 @@
 - Create, list, view, and delete releases
 - Create, edit, list, view, and delete gists{% ifversion fpt %}
 - List, create, delete, and connect to a codespace{% endif %}
+- Retrieve information from the {% data variables.product.prodname_dotcom %} API

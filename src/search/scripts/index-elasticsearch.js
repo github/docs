@@ -11,13 +11,13 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import { Client, errors } from '@elastic/elasticsearch'
-import { program, Option } from 'commander'
+import { program, Option, InvalidArgumentError } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
 import { retryOnErrorTest } from '../../../script/helpers/retry-on-error-test.js'
-import { languageKeys } from '../../../lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import statsd from '#src/observability/lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
@@ -44,7 +44,7 @@ const shortNames = Object.fromEntries(
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
     return [shortName, info]
-  })
+  }),
 )
 
 const allVersionKeys = Object.keys(shortNames)
@@ -54,13 +54,24 @@ program
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeys))
   .addOption(
-    new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys)
+    new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys),
   )
   .addOption(
-    new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
+    new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys),
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
+  .option(
+    '-s, --stagger-seconds <seconds>',
+    'Number of seconds to sleep between each bulk operation',
+    (value) => {
+      const parsed = parseInt(value, 10)
+      if (isNaN(parsed)) {
+        throw new InvalidArgumentError('Not a number.')
+      }
+      return parsed
+    },
+  )
   .argument('<source-directory>', 'where the indexable files are')
   .parse(process.argv)
 
@@ -76,7 +87,7 @@ async function main(opts, args) {
   if (!elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
-        'set the environment variable ELASTICSEARCH_URL'
+        'set the environment variable ELASTICSEARCH_URL',
     )
   }
   let node = elasticsearchUrl || process.env.ELASTICSEARCH_URL
@@ -125,7 +136,9 @@ async function main(opts, args) {
     if (error instanceof errors.ElasticsearchClientError) {
       // All ElasticsearchClientError error subclasses have a `name` and
       // `message` but only some have a `meta`.
-      if (error.meta) console.error(error.meta)
+      if (error.meta) {
+        console.error('Error meta: %O', error.meta)
+      }
       throw new Error(error.message)
     }
     // If any other error happens that isn't from the elasticsearch SDK,
@@ -133,17 +146,20 @@ async function main(opts, args) {
     throw error
   }
 }
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 async function indexAll(node, sourceDirectory, opts) {
   const client = new Client({ node })
 
-  const { language, verbose, notLanguage, indexPrefix } = opts
+  const { language, verbose, notLanguage, indexPrefix, staggerSeconds } = opts
 
   let version
   if ('version' in opts) {
     version = opts.version
     if (process.env.VERSION) {
       console.warn(
-        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`
+        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`,
       )
     }
   } else {
@@ -151,7 +167,7 @@ async function indexAll(node, sourceDirectory, opts) {
       version = process.env.VERSION
       if (!allVersionKeys.includes(version)) {
         throw new Error(
-          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`
+          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`,
         )
       }
     }
@@ -189,6 +205,10 @@ async function indexAll(node, sourceDirectory, opts) {
       if (verbose) {
         console.log(`To view index: ${safeUrlDisplay(node + `/${indexName}`)}`)
         console.log(`To search index: ${safeUrlDisplay(node + `/${indexName}/_search`)}`)
+      }
+      if (staggerSeconds) {
+        console.log(`Sleeping for ${staggerSeconds} seconds...`)
+        await sleep(1000 * staggerSeconds)
       }
     }
   }
@@ -233,7 +253,7 @@ async function indexVersion(
   version,
   language,
   sourceDirectory,
-  verbose = false
+  verbose = false,
 ) {
   // Note, it's a bit "weird" that numbered releases versions are
   // called the number but that's the convention the previous
@@ -345,7 +365,17 @@ async function indexVersion(
     `version:${version}`,
     `language:${language}`,
   ])
-  const bulkResponse = await timed({ refresh: true, body: operations })
+  const bulkOptions = {
+    // Default is 'false'.
+    // It means that the index is NOT refreshed as documents are inserted.
+    // Which makes sense in our case because we do not intend to search on
+    // this index until after we've pointed the alias to this new index.
+    refresh: false,
+    // Default is '1m' but we have no reason *not* to be patient. It's run
+    // by a bot on a schedeule (GitHub Actions).
+    timeout: '5m',
+  }
+  const bulkResponse = await timed({ body: operations, ...bulkOptions })
 
   if (bulkResponse.errors) {
     // Some day, when we're more confident how and why this might happen
@@ -353,7 +383,7 @@ async function indexVersion(
     // For now, if it fails, it's "OK". It means we won't be proceeding,
     // an error is thrown in Actions and we don't have to worry about
     // an incompletion index.
-    console.error(bulkResponse.errors)
+    console.error(`Bulk response errors: ${bulkResponse.errors}`)
     throw new Error('Bulk errors happened.')
   }
 
@@ -392,11 +422,11 @@ async function indexVersion(
       onError: (error, attempts) => {
         console.warn(
           chalk.yellow(
-            `Failed to get a list of indexes for '${indexName}' (${error.message}). Will attempt ${attempts} more times.`
-          )
+            `Failed to get a list of indexes for '${indexName}' (${error.message}). Will attempt ${attempts} more times.`,
+          ),
         )
       },
-    }
+    },
   )
   for (const index of indices) {
     if (index.index !== thisAlias && index.index.startsWith(indexName)) {

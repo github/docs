@@ -25,3 +25,5 @@ Once your app listing meets the {% data variables.product.prodname_marketplace %
 1. To submit your completed app listing, click **Request publish**.
 
 An onboarding expert will reach out to you with additional information.
+
+Once your {% data variables.product.prodname_github_app %} is listed in {% data variables.product.prodname_marketplace %}, you must contact {% data variables.product.company_short %} Support in order to delete your listing. If you want to delete your {% data variables.product.prodname_github_app %}, you must first delete the listing from {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace)."

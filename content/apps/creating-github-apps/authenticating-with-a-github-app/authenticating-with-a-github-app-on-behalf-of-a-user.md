@@ -33,3 +33,9 @@ Once a user has authorized your app, you can generate a user access token, which
 Requests made with a user access token are sometimes called "user-to-server" requests.
 
 If you want to attribute app activity to the app instead of to a user, you should authenticate as an app installation instead. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
+
+{% note %}
+
+**Note**: {% data reusables.apps.github_app_auth_saml %}
+
+{% endnote %}

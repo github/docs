@@ -1,6 +1,6 @@
 ---
 title: test extract
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql test extract <options>... -- <testDir>
 ```
 
@@ -36,7 +36,9 @@ Build a database for a specified test directory, without actually
 running any test queries. Outputs the path to the raw QL dataset to
 execute test queries against.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<testDir>`
 
@@ -108,7 +110,7 @@ takes up a lot of space in the dataset.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Common options
 

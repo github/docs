@@ -1,5 +1,5 @@
 import { productMap } from '../lib/all-products.js'
-import { deprecated } from '../lib/enterprise-server-releases.js'
+import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
 const pathRegExps = [
   // Disallow indexing of WIP products

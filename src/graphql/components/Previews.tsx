@@ -3,7 +3,7 @@ import GithubSlugger from 'github-slugger'
 import cx from 'classnames'
 
 import { HeadingLink } from 'components/article/HeadingLink'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { PreviewT } from './types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 

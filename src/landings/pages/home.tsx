@@ -4,7 +4,7 @@ import type { GetServerSideProps } from 'next'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 
 import { DefaultLayout } from 'components/DefaultLayout'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ArticleList } from 'src/landings/components/ArticleList'
 import { HomePageHero } from 'src/landings/components/HomePageHero'
 import type { ProductGroupT } from 'src/landings/components/ProductSelections'
@@ -81,7 +81,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       mainContext: await getMainContext(req, res),
       productGroups: req.context.productGroups,
       gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
-        ({ title, href, intro }: any) => ({ title, href, intro })
+        ({ title, href, intro }: any) => ({ title, href, intro }),
       ),
       popularLinks: req.context.featuredLinks.popular.map(({ title, href, intro }: any) => ({
         title,

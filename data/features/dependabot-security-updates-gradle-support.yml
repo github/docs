@@ -1,0 +1,5 @@
+# Reference: Issue #11070 - Gradle support for Dependabot Security Updates - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

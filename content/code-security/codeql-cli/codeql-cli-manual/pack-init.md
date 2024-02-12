@@ -1,6 +1,6 @@
 ---
 title: pack init
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack init [--dir=<dir>] [--extractor=<extractor>] <options>... -- <package-name>
 ```
 
@@ -37,7 +37,9 @@ directory.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<package-name>`
 

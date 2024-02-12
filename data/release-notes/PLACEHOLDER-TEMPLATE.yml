@@ -4,7 +4,7 @@ deprecated: false
 intro: |
   {% note %}
 
-  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can’t upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
+  **Note:** Release candidate (RC) builds are intended solely for use in a test environment. If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
 
   {% endnote %}
 

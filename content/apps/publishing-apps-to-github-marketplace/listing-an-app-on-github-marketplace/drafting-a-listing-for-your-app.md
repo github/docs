@@ -28,15 +28,15 @@ shortTitle: Draft an app listing
 
 You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
 
-* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app)
-* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)
-* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes)
+- [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app)
+- [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)
+- [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes)
 
 To create a {% data variables.product.prodname_marketplace %} listing:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
+1. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
 
    {% note %}
 
@@ -44,13 +44,13 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 
    {% endnote %}
 
-   ![Screenshot of the sidebar on the "Developer Settings" page of {% data variables.product.prodname_dotcom %}. Options labeled "{% data variables.product.prodname_github_apps %}" and "{% data variables.product.prodname_oauth_apps %}" are outlined in dark orange.](/assets/images/settings/apps_choose_app.png)
+   ![Screenshot of the sidebar on the "Developer Settings" page of {% data variables.product.prodname_dotcom %}. Options labeled "{% data variables.product.prodname_github_apps %}" and "{% data variables.product.prodname_oauth_apps %}" are outlined in dark orange.](/assets/images/settings/apps-choose-app.png)
 
-4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
+1. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
 {% data reusables.user-settings.edit_marketplace_listing %}
-5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
+1. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
 
-   ![Screenshot of a {% data variables.product.prodname_marketplace %} listing.](/assets/images/marketplace/marketplace-listing-overview.png)
+   ![Screenshot of a draft {% data variables.product.prodname_marketplace %} listing. In a section labeled "Publish your app to Marketplace," unfinished action items such as "Add your contact info" are marked with orange circles.](/assets/images/marketplace/marketplace-listing-overview.png)
 
 {% note %}
 

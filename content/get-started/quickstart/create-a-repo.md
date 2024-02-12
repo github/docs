@@ -45,15 +45,15 @@ You can store a variety of projects in {% data variables.product.product_name %}
 {% webui %}
 
 {% data reusables.repositories.create_new %}
-2. Type a short, memorable name for your repository. For example, "hello-world".
+1. Type a short, memorable name for your repository. For example, "hello-world".
 
    ![Screenshot of the first step in creating a {% data variables.product.prodname_dotcom %} repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
-3. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
+1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
-Congratulations! You've successfully created your first repository, and initialized it with a *README* file.
+Congratulations! You've successfully created your first repository, and initialized it with a _README_ file.
 
 {% endwebui %}
 
@@ -62,9 +62,9 @@ Congratulations! You've successfully created your first repository, and initiali
 {% data reusables.cli.cli-learn-more %}
 
 1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`.
-3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
-4. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+1. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`.
+1. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
+1. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
@@ -74,18 +74,18 @@ Congratulations! You've successfully created your first repository, and initiali
 
 A [commit](/get-started/quickstart/github-glossary#commit) is like a snapshot of all the files in your project at a particular point in time.
 
-When you created your new repository, you initialized it with a *README* file. *README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository.
+When you created your new repository, you initialized it with a _README_ file. _README_ files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your _README_ file are automatically shown on the front page of your repository.
 
 Let's commit a change to the README file.
 
 1. In your repository's list of files, select **README.md**.
-   
+
    ![Screenshot of a list of files in a repository. A file name, "README.md", is highlighted with an orange outline.](/assets/images/help/repository/create-commit-open-readme.png)
 {% data reusables.repositories.edit-file-button %}
 1. In the text box, type some information about yourself.
 {% data reusables.files.preview_change %}
 1. Review the changes you made to the file. If you select **Show diff**, you will see the new content in green.
-   
+
    ![Screenshot of the "Preview" view for a file. A checkbox labeled "Show diff" is selected, and an addition to the file is indicated by a green line marker. Both are outlined in orange.](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
@@ -97,10 +97,10 @@ Let's commit a change to the README file.
 
 Now that you have created a project, you can start committing changes.
 
-*README* files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your *README* file are automatically shown on the front page of your repository. Follow these steps to add a *README* file.
+_README_ files are a great place to describe your project in more detail, or add some documentation such as how to install or use your project. The contents of your _README_ file are automatically shown on the front page of your repository. Follow these steps to add a _README_ file.
 
 1. In the command line, navigate to the root directory of your new project. (This directory was created when you ran the `gh repo create` command.)
-1. Create a *README* file with some information about the project.
+1. Create a _README_ file with some information about the project.
 
     ```shell
     echo "info about this project" >> README.md
@@ -134,16 +134,16 @@ Now that you have created a project, you can start committing changes.
 
 ## Next steps
 
-You have now created a repository, including a *README* file, and created your first commit on {% data variables.location.product_location %}.
+You have now created a repository, including a _README_ file, and created your first commit on {% data variables.location.product_location %}.
 
 {% webui %}
 
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+- You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
 
 {% endwebui %}
 
-* You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
+- You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
 
-* {% data reusables.getting-started.being-social %}
+- {% data reusables.getting-started.being-social %}
 
-* {% data reusables.support.connect-in-the-forum-bootcamp %}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

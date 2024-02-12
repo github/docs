@@ -1,0 +1,42 @@
+# These urls are exceptions to the versionless redirect fallbacks (described in lib/all-versions.js).
+# See the comment in lib/redirects/precompile.js for an explanation of these exceptions.
+# Originally shipped in pull #20947 on 10/15/21
+# Updated in pull #27307 on 07/21/22
+
+# "About Premium Support" is the combination of three older articles and is now versioned for GHEC and GHES. As it is still
+# linked from site policy and the UI, this ensures those version-less URLs redirect correctly.
+# Shipped in #23217
+/enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support
+- /admin/enterprise-support/about-github-premium-support-for-github-enterprise
+- /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
+
+# FPT versioning was removed as part of github/docs-content#5166
+/rest/overview/resources-in-the-rest-api
+- /rest/overview/api-previews
+
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+- /enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+
+/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+- /enterprise-server@3.3/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+- /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+- /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
+
+/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise
+- /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
+
+# As seen in PR 38572 we want specific versions to redirect to different articles
+/enterprise-server@3.8/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+- /enterprise-server@3.8/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+
+/enterprise-server@3.7/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+- /enterprise-server@3.7/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+
+/enterprise-server@3.6/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+- /enterprise-server@3.6/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+
+/github-ae@latest/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+- /github-ae@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+
+/billing/managing-your-github-billing-settings/redeeming-a-coupon
+- /enterprise-cloud@latest/billing/managing-your-github-billing-settings/redeeming-a-coupon

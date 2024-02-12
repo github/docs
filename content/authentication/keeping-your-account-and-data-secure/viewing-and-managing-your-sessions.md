@@ -20,13 +20,12 @@ You can view a list of devices that have logged into your account, and revoke an
 1. To see the web session details, click **See more**.
 1. To revoke a web session, click **Revoke session**.
 {% ifversion fpt or ghec %}
-1. Optionally, to revoke a {% data variables.product.prodname_mobile %} session, go back to the Sessions overview page and click **Revoke** next to the device you want to revoke. 
+1. Optionally, to revoke a {% data variables.product.prodname_mobile %} session, go back to the Sessions overview page and click **Revoke** next to the device you want to revoke.
 
     {% note %}
 
-    **Note:** Revoking a mobile session signs you out of the {% data variables.product.prodname_mobile %} application on that device and removes it as a second-factor option. 
+    **Note:** Revoking a mobile session signs you out of the {% data variables.product.prodname_mobile %} application on that device and removes it as a second-factor option.
 
     {% endnote %}
-    
-{% endif %}
 
+{% endif %}

@@ -1,0 +1,41 @@
+date: '2023-06-20'
+sections:
+  security_fixes:
+    - |
+      If a user's request to the instance's API included authentication credentials within a URL parameter, administrators could see the credentials in JSON within the instance's audit log. 
+    - Packages have been updated to the latest security versions. 
+  bugs:
+    - |
+      If an administrator updated the instance's TLS certificate using the Management Console API's [Set settings](/rest/enterprise-admin/management-console) endpoint, sending the certificate and key data as a URL query parameter resulted in the data appearing unmasked in system logs.
+    - After an enterprise owner set a permanent rate limit for a users GitHub App at `http(s)://HOSTNAME/stafftools/users/USERNAME/installations`, the instance did not respect the rate limit. 
+    - If an instance had tens of thousands of deleted repositories, an upgrade to GitHub Enterprise Server 3.7 could take longer than expected. 
+    - On an instance with multiple nodes, when using the `spokesctl` command-line utility to manage repositories with replicas that failed to fully create, the utility would spuriously attempt to repair healthy replicas. 
+  changes:
+    - If a configuration runs fails due to Elasticsearch errors, `ghe-config-apply` displays a more actionable error message. 
+  known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      {% data reusables.release-notes.babeld-max-threads-performance-issue %}
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      When using an outbound web proxy server, the `ghe-btop` command may fail in some circumstances with the error "Error querying allocation: Unexpected response code: 401".
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

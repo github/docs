@@ -23,7 +23,7 @@ type: how_to
 
 You can execute any {% data variables.product.prodname_cli %} command. For example, this workflow uses the `gh issue comment` subcommand to add a comment when an issue is opened.
 
-```yaml{:copy}
+```yaml copy
 name: Comment when opened
 on:
   issues:
@@ -41,7 +41,7 @@ jobs:
 
 You can also execute API calls through {% data variables.product.prodname_cli %}. For example, this workflow first uses the `gh api` subcommand to query the GraphQL API and parse the result. Then it stores the result in an environment variable that it can access in a later step. In the second step, it uses the `gh issue create` subcommand to create an issue containing the information from the first step.
 
-```yaml{:copy}
+```yaml copy
 name: Report remaining open issues
 on: 
   schedule: 

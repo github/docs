@@ -33,7 +33,7 @@ export default async function purgeEdgeCache(
     purgeTwice = true,
     delayBeforeFirstPurge = DELAY_BEFORE_FIRST_PURGE,
     delayBeforeSecondPurge = DELAY_BEFORE_SECOND_PURGE,
-  } = {}
+  } = {},
 ) {
   if (!surrogateKey) {
     throw new Error('No key set and/or no FASTLY_SURROGATE_KEY env var set')

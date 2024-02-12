@@ -1,6 +1,6 @@
 ---
 title: resolve upgrades
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve upgrades --dbscheme=<file> <options>...
 ```
 
@@ -39,17 +39,19 @@ and is exposed as a separate plumbing command in order to (a) help with
 troubleshooting, and (b) provide a starting point for modifying the path
 in extraordinary cases where exact control is needed.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--dbscheme=<file>`
 
-\[Mandatory] The *current* dbscheme of the dataset we want to upgrade.
+\[Mandatory] The _current_ dbscheme of the dataset we want to upgrade.
 
 #### `--format=<fmt>`
 
 Select output format. Choices include:
 
-`lines` *(default)*: Print upgrade scripts on one line each.
+`lines` _(default)_: Print upgrade scripts on one line each.
 
 `json`: Print a JSON array of upgrade script paths.
 
@@ -84,8 +86,8 @@ doesn't matter; it is an error if a pack name is found in two different
 places through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -93,7 +95,7 @@ value.
 
 #### `--target-dbscheme=<file>`
 
-The *target* dbscheme we want to upgrade to. If this is not given, a
+The _target_ dbscheme we want to upgrade to. If this is not given, a
 maximal upgrade path will be constructed
 
 #### `--target-sha=<sha>`

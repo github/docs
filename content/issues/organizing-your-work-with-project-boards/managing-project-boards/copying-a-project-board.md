@@ -24,11 +24,11 @@ A {% data variables.projects.projects_v1_board %}'s automation is also enabled b
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to copy.
 {% data reusables.project-management.click-menu %}
-3. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Copy**.
+1. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Copy**.
 ![Screenshot showing a project menu. The copy option is highlighted with an orange outline.](/assets/images/help/projects/project-board-copy-setting.png)
-4. Under "Owner", use the drop-down menu and click the repository or organization where you want to copy the project board.
-5. Optionally, under "Project board name", type the name of the copied {% data variables.projects.projects_v1_board %}.
-6. Optionally, under "Description", type a description of the copied project board that other people will see.
-7. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
+1. Under "Owner", use the drop-down menu and click the repository or organization where you want to copy the project board.
+1. Optionally, under "Project board name", type the name of the copied {% data variables.projects.projects_v1_board %}.
+1. Optionally, under "Description", type a description of the copied project board that other people will see.
+1. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
 {% data reusables.project-management.choose-visibility %}
-9. Click **Copy project**.
+1. Click **Copy project**.

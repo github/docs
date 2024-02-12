@@ -13,7 +13,7 @@ type: how_to
 
 {% rowheaders %}
 
-| |Tom|Dick|Harry|
+|Preferences|Tom|Dick|Harry|
 |---|---|---|---|
 |Favorite fruit| Banana  | Apple | Mango
 |Football or soccer|Soccer|Football|Sportsball??
@@ -22,8 +22,8 @@ type: how_to
 
 ## Regular table
 
-| Name | Seasons | Skill
-|---|---|---|---|
+| Name | Seasons | Skill |
+|---|---|---|
 | Jill | 1 | Nunchucks |
 | Sabrina | 3 | Knives |
 | Kelly | 4 | Kicks |

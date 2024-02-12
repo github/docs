@@ -1,5 +1,6 @@
 import { expect } from '@jest/globals'
 import { getDOM, head } from '../helpers/e2etest.js'
+import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('article versioning', () => {
   test('only links to articles for fpt', async () => {
@@ -18,7 +19,7 @@ describe('article versioning', () => {
     const second = links.filter((i) => i === 1)
     expect(first.attr('href')).toBe('/en/enterprise-cloud@latest/get-started/versioning/only-ghec')
     expect(second.attr('href')).toBe(
-      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec-and-ghes'
+      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec-and-ghes',
     )
     // Both links should 200 if you go to them
     expect((await head(first.attr('href'))).statusCode).toBe(200)
@@ -41,7 +42,28 @@ describe('article versioning', () => {
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(
-      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec'
+      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec',
     )
+  })
+})
+
+describe('home page versioning', () => {
+  test('invalid language and valid version', async () => {
+    // Don't use 'latest' here because that will trigger a redirect
+    // first to the latest actual number.
+    const res = await head(`/ennnnn/enterprise-server@${supported[0]}`)
+    expect(res.statusCode).toBe(404)
+  })
+  test('invalid language and invalid version', async () => {
+    const res = await head(`/ennnnn/enterprise-server@4.987`)
+    expect(res.statusCode).toBe(404)
+  })
+  test('valid language and valid version', async () => {
+    const res = await head(`/en/enterprise-server@${supported[supported.length - 1]}`)
+    expect(res.statusCode).toBe(200)
+  })
+  test('invalid language and "latest" version', async () => {
+    const res = await head('/ennnnn/enterprise-server@latest')
+    expect(res.statusCode).toBe(404)
   })
 })

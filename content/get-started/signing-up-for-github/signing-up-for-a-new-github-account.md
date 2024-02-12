@@ -17,7 +17,7 @@ topics:
 
 You can create a personal account, which serves as your identity on {% data variables.product.prodname_dotcom_the_website %}, or an organization, which allows multiple personal accounts to collaborate across multiple projects. For more information about account types, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
-When you create a personal account or organization, you must select a billing plan for the account. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+When you create a personal account or organization, you must select a billing plan for the account. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 ## Signing up for a new account
 

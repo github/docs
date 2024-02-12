@@ -1,0 +1,5 @@
+# Reference: #11461
+# Runners list in the Actions tab
+versions:
+  fpt: '*'
+  ghec: '*'

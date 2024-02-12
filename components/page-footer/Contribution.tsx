@@ -1,7 +1,7 @@
 import { GitPullRequestIcon } from '@primer/octicons-react'
 
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const Contribution = () => {
   const { relativePath } = useMainContext()
@@ -20,12 +20,7 @@ export const Contribution = () => {
         {t`button`}
       </a>
       <p className="color-fg-muted f6 mt-2">
-        <a
-          className="text-underline"
-          href="https://github.com/github/docs/blob/main/CONTRIBUTING.md"
-          target="_blank"
-          rel="noopener"
-        >
+        <a className="text-underline" href="/contributing" target="_blank" rel="noopener">
           {t`to_guidelines`}
         </a>
       </p>

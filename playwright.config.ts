@@ -49,7 +49,15 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        // need this wider width because of our slightly wider than normal xl
+        // breakpoint that helps prevent overlapping main content with the minitoc
+        viewport: {
+          width: 1400,
+          height: 720,
+        },
+      },
     },
 
     {
@@ -79,7 +87,13 @@ export default defineConfig({
     // },
     {
       name: 'Google Chrome',
-      use: { channel: 'chrome' },
+      use: {
+        channel: 'chrome',
+        viewport: {
+          width: 1400,
+          height: 720,
+        },
+      },
     },
   ],
 

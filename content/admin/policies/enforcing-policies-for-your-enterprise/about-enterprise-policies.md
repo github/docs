@@ -11,7 +11,7 @@ topics:
   - Policies
 ---
 
-To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account. 
+To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account.
 
 {% data reusables.enterprise.about-policies %}
 

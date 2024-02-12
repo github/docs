@@ -1,0 +1,28 @@
+name: Send Slack notification if workflow fails
+description: Send Slack notification if workflow fails
+
+inputs:
+  slack_channel_id:
+    description: Slack channel ID
+    required: true
+  slack_token:
+    description: Slack token
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Send Slack notification if workflow fails
+      uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+      if: >-
+        ${{
+          failure() &&
+          github.repository == 'github/docs-internal' &&
+          github.event_name != 'pull_request' &&
+          github.event_name != 'pull_request_target'
+        }}
+      with:
+        channel: ${{ inputs.slack_channel_id }}
+        bot-token: ${{ inputs.slack_token }}
+        color: failure
+        text: The last '${{ github.workflow }}' run failed. See ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

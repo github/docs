@@ -34,22 +34,24 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
+1. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
 
 ## Troubleshooting certificate provisioning ("Certificate not yet created" error)
 
 When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
 
+Please note that your {% data variables.product.prodname_pages %} site must be publicly available for a Let's Encrypt certificate to be issued. Once the certificate has been issued you may revert the site to private.
+
 The process may take some time. If the process has not completed several minutes after you clicked **Save**, try clicking **Remove** next to your custom domain name. Retype the domain name and click **Save** again. This will cancel and restart the provisioning process.
 
 ## Resolving problems with mixed content
 
-If you enable HTTPS for your {% data variables.product.prodname_pages %} site but your site's HTML still references images, CSS, or JavaScript over HTTP, then your site is serving *mixed content*. Serving mixed content may make your site less secure and cause trouble loading assets.
+If you enable HTTPS for your {% data variables.product.prodname_pages %} site but your site's HTML still references images, CSS, or JavaScript over HTTP, then your site is serving _mixed content_. Serving mixed content may make your site less secure and cause trouble loading assets.
 
 To remove your site's mixed content, make sure all your assets are served over HTTPS by changing `http://` to `https://` in your site's HTML.
 
 Assets are commonly found in the following locations:
-- If your site uses Jekyll, your HTML files will probably be found in the *_layouts* folder.
+- If your site uses Jekyll, your HTML files will probably be found in the __layouts_ folder.
 - CSS is usually found in the `<head>` section of your HTML file.
 - JavaScript is usually found in the `<head>` section or just before the closing `</body>` tag.
 - Images are often found in the `<body>` section.

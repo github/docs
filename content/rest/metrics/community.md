@@ -3,7 +3,7 @@ title: Community metrics
 shortTitle: Community
 allowTitleToDifferFromFilename: true
 intro: Use the REST API to retrieve information about your community profile.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

@@ -12,7 +12,9 @@ versions:
   ghec: '*'
 ---
 {% for glossary in glossaries %}
-  ## {{ glossary.term }}
+
+## {{ glossary.term }}
+
   {{ glossary.description }}
   
 {% endfor %}

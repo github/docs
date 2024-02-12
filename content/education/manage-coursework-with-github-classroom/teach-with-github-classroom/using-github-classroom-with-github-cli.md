@@ -35,11 +35,11 @@ To install the {% data variables.product.prodname_classroom %} extension, run `g
 To use `gh` to work with {% data variables.product.prodname_classroom %}, type `gh classroom SUBCOMMAND`.
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_classroom %}, you could:
-* List your classrooms:<br>
+- List your classrooms:<br>
   `gh classroom list`
-* List the assignments for a specific classroom:<br>
+- List the assignments for a specific classroom:<br>
   `gh classroom assignments`
-* View information for a specific assignment:<br>
+- View information for a specific assignment:<br>
   `gh classroom assignment`
 
 ## `gh` subcommands for {% data variables.product.prodname_classroom %} <!-- omit in toc -->
@@ -72,7 +72,6 @@ gh classroom assignments
 
 Display a list of assignments for a classroom.
 
-
 ### List accepted assignments
 
 ```shell
@@ -104,3 +103,5 @@ gh classroom clone student-repos
 ```
 
 Clones student repositories from a given assignment. By default, the student repos are cloned into the current directory a directory named after the assignment slug. To clone into a different directory, use the `--directory` flag. If the directory does not exists, it will be created.
+
+By default, results are paginated by 30. To get a different number of repositories, use the `--per-page NUMBER` flag.

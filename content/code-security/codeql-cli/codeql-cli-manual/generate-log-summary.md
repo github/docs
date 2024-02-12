@@ -1,6 +1,6 @@
 ---
 title: generate log-summary
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql generate log-summary <options>... -- <input> <result>
 ```
 
@@ -39,7 +39,9 @@ implementing a script that uses output from the logs, it is strongly
 recommended to run this command and use its output rather than using the
 event logs directly.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<input>`
 
@@ -66,7 +68,7 @@ Enabling this flag forces all timestamps to be UTC.
 
 Control the format of the output produced.
 
-`predicates` *(default)*: Produce a summary of the computation performed
+`predicates` _(default)_: Produce a summary of the computation performed
 for each predicate. This will be a stream of JSON objects separated
 either by two newline characters (by default) or one if the
 `--minify-output` option is passed.

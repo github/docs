@@ -16,15 +16,7 @@ describe('translations', () => {
     // You gotta know your tests/fixtures/translations/ja-jp/data/ui.yml
     expect(h1).toBe('日本 GitHub Docs')
 
-    // The header banner mentions something about
-    // "For the most up-to-date content, see the English version."
-    const notification = $('[data-testid="header-notification"]')
-    expect(notification.length).toBe(1)
-    const toEnglishDoc = notification.find('a#to-english-doc')
-    expect(toEnglishDoc.text()).toBe('English documentation')
-
-    // Sidebar uses the translated shortTitle
-    const links = $('[data-testid=sidebar] a[href]')
+    const links = $('[data-testid=product] a[href]')
     const hrefs = links
       .filter((i, link) => $(link).attr('href').startsWith('/'))
       .map((i, link) => $(link))
@@ -58,5 +50,57 @@ describe('translations', () => {
     })
     // There are 4 links on the `autotitling.md` content.
     expect.assertions(4)
+  })
+
+  test('correction of linebreaks in translations', async () => {
+    // free-pro-team
+    {
+      const $ = await getDOM('/ja/get-started/foo/table-with-ifversions')
+
+      const paragraph = $('#article-contents p').text()
+      expect(paragraph).toMatch('mention of GitHub in Liquid')
+
+      const tds = $('#article-contents td')
+        .map((i, element) => $(element).text())
+        .get()
+      expect(tds.length).toBe(2)
+      expect(tds[1]).toBe('Not')
+    }
+    // enterprise-server
+    {
+      const $ = await getDOM('/ja/enterprise-server@latest/get-started/foo/table-with-ifversions')
+
+      const paragraph = $('#article-contents p').text()
+      expect(paragraph).toMatch('mention of GitHub Enterprise Server in Liquid')
+
+      const tds = $('#article-contents td')
+        .map((i, element) => $(element).text())
+        .get()
+      expect(tds.length).toBe(2)
+      expect(tds[1]).toBe('Present')
+    }
+  })
+
+  test('automatic correction of bad AUTOTITLE in reusables', async () => {
+    const $ = await getDOM('/ja/get-started/quickstart/hello-world')
+    const links = $('#article-contents a[href]')
+    const texts = links.map((i, element) => $(element).text()).get()
+    // That Japanese page uses AUTOTITLE links. Both in the main `.md` file
+    // but also inside a reusable.
+    // E.g. `["AUTOTITLE](/get-started/quickstart/hello-world)."`
+    // If we didn't do the necessary string corrections on translations'
+    // content and reusables what *would* remain is a HTML link that
+    // would look like this:
+    //
+    //    <a href="/ja/get-started/quickstart/hello-world">&quot;AUTOTITLE</a>
+    //
+    // This test makes sure no such string is left in any of the article
+    // content links.
+    // Note that, in English, it's not acceptable to have such a piece of
+    // Markdown. It would not be let into `main` by our CI checks. But
+    // by their nature, translations are not checked by CI in the same way.
+    // Its "flaws" have to be corrected at runtime.
+    const stillAutotitle = texts.filter((text) => /autotitle/i.test(text))
+    expect(stillAutotitle.length).toBe(0)
   })
 })

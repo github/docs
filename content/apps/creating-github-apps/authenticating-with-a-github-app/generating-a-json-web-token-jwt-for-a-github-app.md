@@ -86,7 +86,7 @@ puts jwt
 
 {% endnote %}
 
-```python{:copy}
+```python copy
 #!/usr/bin/env python3
 import jwt
 import time

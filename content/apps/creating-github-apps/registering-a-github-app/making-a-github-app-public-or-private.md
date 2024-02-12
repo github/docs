@@ -21,7 +21,7 @@ topics:
 shortTitle: Visibility
 ---
 
-## About visibility for {% data variables.product.prodname_github_app %}s
+## About visibility for {% data variables.product.prodname_github_apps %}
 
 You can make your {% data variables.product.prodname_github_app %} registration public or private. {% ifversion fpt %}If you set your {% data variables.product.prodname_github_app %} registration to public, any user on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_ghe_cloud %} can install it. If you set your {% data variables.product.prodname_github_app %} registration to private, it can only be installed on the account that owns the app.
 

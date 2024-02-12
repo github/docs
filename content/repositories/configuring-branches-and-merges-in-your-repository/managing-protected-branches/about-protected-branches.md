@@ -28,12 +28,12 @@ topics:
 ---
 ## About branch protection rules
 
-You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
+You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule. Actors may only be added to bypass lists when the repository belongs to an organization.
 
 By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
 {% ifversion bypass-branch-protections %}
-By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)".
 {% else %}
 By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository. You can optionally choose to include administrators, too.{% endif %}
 
@@ -57,7 +57,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
 {%- ifversion required-deployments %}
@@ -110,7 +110,7 @@ For complex pull requests that require many reviews, requiring an approval from 
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
 
-You can use the commit status API to allow external services to mark commits with an appropriate status.. For more information, see "[AUTOTITLE](/rest/commits/statuses)" in the REST API documentation.
+You can use the commit status API to allow external services to mark commits with an appropriate status. For more information, see "[AUTOTITLE](/rest/commits/statuses)" in the REST API documentation.
 
 After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch. After all required status checks pass, any commits must either be pushed to another branch and then merged or pushed directly to the protected branch.
 
@@ -124,7 +124,7 @@ You can set up required status checks to either be "loose" or "strict." The type
 | **Loose** | The **Require branches to be up to date before merging** checkbox is **not** checked. | The branch **does not** have to be up to date with the base branch before merging. | You'll have fewer required builds, as you won't need to bring the head branch up to date after other collaborators merge pull requests. Status checks may fail after you merge your branch if there are incompatible changes with the base branch. |
 | **Disabled** | The **Require status checks to pass before merging** checkbox is **not** checked. | The branch has no merge restrictions. | If required status checks aren't enabled, collaborators can merge the branch at any time, regardless of whether it is up to date with the base branch. This increases the possibility of incompatible changes.
 
-For troubleshooting information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/troubleshooting-required-status-checks)."
+For troubleshooting information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks)."
 
 ### Require conversation resolution before merging
 
@@ -139,8 +139,8 @@ When you enable required commit signing on a branch, contributors {% ifversion f
 {% ifversion fpt or ghec %}
 **Notes:**
 
-* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
-* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+- If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
+- If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
 {% else %}
 **Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
@@ -158,10 +158,10 @@ Enforcing a linear commit history prevents collaborators from pushing merge comm
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges)."
 
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
+
 ### Require merge queue
 
-{% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
 
 {% data reusables.pull_requests.merge-queue-merging-method %}
@@ -169,11 +169,15 @@ Before you can require a linear commit history, your repository must allow squas
 
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 %}
+
 ### Require deployments to succeed before merging
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+{% endif %}
 
 {% ifversion lock-branch %}
+
 ### Lock branch
 
 Locking a branch ensures that no commits can be made to the branch.
@@ -181,12 +185,13 @@ By default, a forked repository does not support syncing from its upstream repos
 {%  endif %}
 
 {% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
+
 ### Include administrators{% endif %}
 
 {% ifversion bypass-branch-protections %}
 By default, the restrictions of a branch protection rule do not apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission in a repository.
 
-You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
+You can enable this setting to apply the restrictions to admins and roles with the "bypass branch protections" permission, too.  For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)".
 {% else %}
 By default, protected branch rules do not apply to people with admin permissions to a repository. You can enable this setting to include administrators in your protected branch rules.{% endif %}
 

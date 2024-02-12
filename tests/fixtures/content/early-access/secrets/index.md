@@ -1,6 +1,10 @@
 ---
 title: GitHub Secrets
-versions: '*'
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 hidden: true
 children:
   - /early-days

@@ -4,9 +4,9 @@ import { Survey } from 'src/events/components/Survey'
 import { Contribution } from 'components/page-footer/Contribution'
 import { Support } from 'components/page-footer/Support'
 import { useMainContext } from 'components/context/MainContext'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { useRouter } from 'next/router'
-import { useTranslation } from '../hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const SupportSection = () => {
   const { currentVersion } = useVersion()
@@ -35,7 +35,7 @@ export const SupportSection = () => {
             className={cx(
               'float-left pr-4 mb-6 mb-xl-0 col-12',
               totalCols > 1 && 'col-lg-6',
-              totalCols > 2 && 'col-xl-3'
+              totalCols > 2 && 'col-xl-3',
             )}
           >
             <Survey />
@@ -47,7 +47,7 @@ export const SupportSection = () => {
               'float-left pr-4 mb-6 mb-xl-0 col-12',
               totalCols > 1 && 'col-lg-6',
               totalCols > 2 && 'col-xl-4',
-              totalCols > 2 && showSurvey && 'offset-xl-1'
+              totalCols > 2 && showSurvey && 'offset-xl-1',
             )}
           >
             <Contribution />
@@ -59,7 +59,7 @@ export const SupportSection = () => {
               'float-left pr-4 mb-6 mb-xl-0 col-12',
               totalCols > 1 && 'col-lg-6',
               totalCols > 2 && 'col-xl-3',
-              totalCols > 2 && (showSurvey || showContribution) && 'offset-xl-1'
+              totalCols > 2 && (showSurvey || showContribution) && 'offset-xl-1',
             )}
           >
             <Support />

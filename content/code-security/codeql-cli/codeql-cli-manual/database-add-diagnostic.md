@@ -1,7 +1,7 @@
 ---
 title: database add-diagnostic
 intro: '[Experimental] Add a piece of diagnostic information to a database.'
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database add-diagnostic --source-id=<id> --source-name=<name> <options>... -- <database>
 ```
 
@@ -34,7 +34,9 @@ codeql database add-diagnostic --source-id=<id> --source-name=<name> <options>..
 
 Available since `v2.12.6`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<database>`
 

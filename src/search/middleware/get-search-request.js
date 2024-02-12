@@ -1,5 +1,7 @@
-import languages from '../../../lib/languages.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { format } from 'node:util'
+
+import languages from '#src/languages/lib/languages.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { POSSIBLE_HIGHLIGHT_FIELDS, DEFAULT_HIGHLIGHT_FIELDS } from './es-search.js'
 
 const DEFAULT_SIZE = 10
@@ -75,6 +77,7 @@ const PARAMS = [
     key: 'highlights',
     default_: DEFAULT_HIGHLIGHT_FIELDS,
     cast: (v) => (Array.isArray(v) ? v : [v]),
+    multiple: true,
     validate: (v) => {
       for (const highlight of v) {
         if (!POSSIBLE_HIGHLIGHT_FIELDS.includes(highlight)) {
@@ -90,6 +93,7 @@ const PARAMS = [
     key: 'include',
     default_: [],
     cast: toArray,
+    multiple: true,
     // Note: At the time of writing this general validator middleware
     // doesn't yet know it's being used by the v1 version.
     // But we don't have any other versions yet so no need to
@@ -102,7 +106,7 @@ export function getSearchFromRequest(req, force = {}) {
   const search = {}
   const validationErrors = []
 
-  for (const { key, default_, cast, validate } of PARAMS) {
+  for (const { key, default_, cast, validate, multiple } of PARAMS) {
     // This is necessary because when the version or language comes from
     // the pathname, we don't want pick these up from the query string.
     // This function gets used by /$locale/$version/search
@@ -116,7 +120,7 @@ export function getSearchFromRequest(req, force = {}) {
     if (!value || (typeof value === 'string' && !value.trim())) {
       if (default_ === undefined) {
         // no value and no default, bad!
-        validationErrors.push({ error: `No truthy value for key '${key}'` })
+        validationErrors.push({ error: `No truthy value for key '${key}'`, key })
         continue
       }
       value = default_
@@ -127,7 +131,8 @@ export function getSearchFromRequest(req, force = {}) {
     try {
       if (validate && !validate(value)) {
         validationErrors.push({
-          error: `Not a valid value (${JSON.stringify(value)}) for key '${key}'`,
+          error: format('Not a valid value (%O) for key %O', value, key),
+          key,
         })
       }
     } catch (err) {
@@ -137,6 +142,13 @@ export function getSearchFromRequest(req, force = {}) {
         throw err
       }
     }
+    if (!multiple && Array.isArray(value)) {
+      validationErrors.push({
+        error: format('Can not have multiple values (%O) for key %O', value, key),
+        key,
+      })
+    }
+
     search[key] = value
   }
 

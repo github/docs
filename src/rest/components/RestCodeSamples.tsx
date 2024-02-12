@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, Select, Tooltip, UnderlineNav } from '@primer/react'
+import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
@@ -9,7 +9,7 @@ import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import useClipboard from 'src/rest/components/useClipboard'
 import {
   getShellExample,
@@ -20,7 +20,7 @@ import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 
 type Props = {
   slug: string
@@ -63,8 +63,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   // Menu options for the language selector
   const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
-  // Management Console operations are not supported by Octokit
-  if (operation.subcategory !== 'management-console') {
+  // Management Console and GHES Manage API operations are not supported by Octokit
+  if (operation.subcategory !== 'management-console' && operation.subcategory !== 'manage-ghes') {
     languageSelectOptions.push(CodeSampleKeys.javascript)
 
     // Not all examples support the GH CLI language option. If any of
@@ -83,7 +83,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const showExampleOptionMediaType =
     languageExamples.length > 1 &&
     !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType
+      (example) => example.response.contentType === languageExamples[0].response.contentType,
     )
   const exampleSelectOptions = languageExamples.map((example, index) => ({
     text: showExampleOptionMediaType
@@ -111,10 +111,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
 
   const handleLanguageSelection = (languageKey: CodeSampleKeys) => {
     setSelectedLanguage(languageKey)
-    Cookies.set('codeSampleLanguagePreferred', languageKey, {
-      sameSite: 'strict',
-      secure: document.location.protocol !== 'http:',
-    })
+    Cookies.set('codeSampleLanguagePreferred', languageKey)
   }
 
   const handleResponseResize = () => {
@@ -249,13 +246,15 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         <div className="my-0 p-3">
           <RestMethod verb={operation.verb} requestPath={operation.requestPath} />
         </div>
-        <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center">
+        <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center pt-2">
           <div className="d-inline-flex ml-2">
-            <UnderlineNav aria-label="Example language selector">
+            <TabNav aria-label={`Example language selector for ${operation.title}`}>
               {languageSelectOptions.map((optionKey) => (
-                <UnderlineNav.Link
+                <TabNav.Link
                   key={optionKey}
-                  onClick={() => {
+                  selected={optionKey === selectedLanguage}
+                  onClick={(e) => {
+                    e.preventDefault()
                     handleLanguageSelection(optionKey)
                   }}
                   onKeyDown={(event) => {
@@ -263,25 +262,30 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                       handleLanguageSelection(optionKey)
                     }
                   }}
-                  tabIndex={0}
-                  selected={optionKey === selectedLanguage}
-                  className="pr-3 mr-0"
-                  sx={{
-                    cursor: 'pointer',
-                  }}
+                  href="#"
                 >
                   {t(`rest.reference.code_sample_options.${optionKey}`)}
-                </UnderlineNav.Link>
+                </TabNav.Link>
               ))}
-            </UnderlineNav>
+            </TabNav>
           </div>
           <div className="mr-2">
             <Tooltip
               className="mr-2"
               direction="w"
-              aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}
+              aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
-              <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
+              <button
+                className="js-btn-copy btn-octicon"
+                aria-label={
+                  isCopied
+                    ? t('button_text.copied')
+                    : `${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`
+                }
+                aria-live="polite"
+                aria-atomic="true"
+                onClick={() => setCopied()}
+              >
                 {isCopied ? <CheckIcon /> : <CopyIcon />}
               </button>
             </Tooltip>
@@ -293,51 +297,48 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           className={cx(
             styles.codeBlock,
             styles.requestCodeBlock,
-            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`
+            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+          tabIndex={0}
         >
           <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
         </div>
       </div>
 
       {/* Response section */}
-      <div
+      <h4
         className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
           __html: displayedExample.response.description || t('rest.reference.response'),
         }}
-      ></div>
-
+      ></h4>
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
-          <UnderlineNav aria-label="Example response format selector">
-            {responseSelectOptions.map((optionKey) => {
-              if (!displayedExample.response.schema) return null
-
-              return (
-                <UnderlineNav.Link
-                  key={optionKey}
-                  onClick={() => {
+          <TabNav
+            className="pt-2 mx-2"
+            aria-label={`Example response format selector for ${operation.title}`}
+          >
+            {responseSelectOptions.map((optionKey) => (
+              <TabNav.Link
+                key={optionKey}
+                selected={optionKey === selectedResponse}
+                onClick={(e) => {
+                  e.preventDefault()
+                  handleResponseSelection(optionKey)
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
                     handleResponseSelection(optionKey)
-                  }}
-                  onKeyDown={(event) => {
-                    if (event.key === 'Enter') {
-                      handleResponseSelection(optionKey)
-                    }
-                  }}
-                  tabIndex={0}
-                  selected={optionKey === selectedResponse}
-                  className="pr-3 mr-0 ml-2"
-                  sx={{
-                    cursor: 'pointer',
-                  }}
-                >
-                  {t(`rest.reference.response_options.${optionKey}`)}
-                </UnderlineNav.Link>
-              )
-            })}
-          </UnderlineNav>
+                  }
+                }}
+                href="#"
+              >
+                {t(`rest.reference.response_options.${optionKey}`)}
+              </TabNav.Link>
+            ))}
+          </TabNav>
         ) : null}
         <div className="">
           {/* Status code */}
@@ -353,10 +354,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               className={cx(
                 styles.codeBlock,
                 styles.responseCodeBlock,
-                'border-top rounded-1 my-0'
+                'border-top rounded-1 my-0',
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
+              // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
+              tabIndex={0}
             >
               <code ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example

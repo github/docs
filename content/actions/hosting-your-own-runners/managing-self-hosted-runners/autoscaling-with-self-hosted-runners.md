@@ -66,8 +66,6 @@ Alternatively, you can create ephemeral, just-in-time runners using the REST API
 
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae %}
-
 ## Controlling runner software updates on self-hosted runners
 
 By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
@@ -90,14 +88,12 @@ For instructions on how to install the latest runner version, see the installati
 
 {% endnote %}
 
-{% endif %}
-
 ## Using webhooks for autoscaling
 
 You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
 
 - For more information about the `workflow_job` webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/creating-webhooks)."
+- To learn how to work with webhooks, see "[AUTOTITLE](/webhooks)."
 
 ## Authentication requirements
 

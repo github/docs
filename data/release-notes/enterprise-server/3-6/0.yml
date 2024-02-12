@@ -29,14 +29,14 @@ sections:
         # https://github.com/github/releases/issues/2341
         - |
           You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#enforcing-tls-for-smtp-connections)."
-          
+
           - **Note**: This feature is unavailable in GitHub Enterprise Server 3.6.0 and 3.6.1. The feature is available in the 3.6.2 release. [Updated: 2022-09-22]
 
     - heading: Audit logs
       notes:
         # https://github.com/github/releases/issues/1438
         - |
-          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. Enabling this feature can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)." [Updated: 2023-09-12]
 
     - heading: GitHub Connect
       notes:
@@ -59,7 +59,7 @@ sections:
         # https://github.com/github/releases/issues/2321
         - |
           Users on an instance with a GitHub Advanced Security license can opt to receive a webhook event that triggers when an organization owner or repository administrator enables or disables a code security or analysis feature. For more information, see the following documentation.
-          
+
           - "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)" in the webhook documentation
           - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
           - "[Managing security and analysis features for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
@@ -76,7 +76,7 @@ sections:
         # https://github.com/github/releases/issues/2277
         - |
           Enterprise owners and users on an instance with a GitHub Advanced Security license can view secret scanning alerts and bypasses of secret scanning's push protection in the enterprise and organization audit logs, and via the REST API. For more information, see the following documentation.
-          
+
           - "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)"
           - "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
           - "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
@@ -90,7 +90,7 @@ sections:
         # https://github.com/github/releases/issues/2236
         - |
           Users on an instance with a GitHub Advanced Security license can use `sort` and `direction` parameters in the REST API when retrieving secret scanning alerts, and sort based on the alert’s `created` or `updated` fields. The new parameters are available for the entire instance, or for individual organizations or repositories. For more information, see the following documentation.
-          
+
           - "[List secret scanning alerts for an enterprise](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
           - "[List secret scanning alerts for an organization](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
           - "[List secret scanning alerts for a repository](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
@@ -130,7 +130,7 @@ sections:
         # https://github.com/github/releases/issues/1766
         - |
           If GitHub Connect is enabled for your instance, users can contribute an improvement to a security advisory in the [GitHub Advisory Database](https://github.com/advisories). To contribute, click **Suggest improvements for this vulnerability** while viewing an advisory's details. For more information, see the following articles.
-          
+
           - "[Managing GitHub Connect](/admin/configuration/configuring-github-connect/managing-github-connect)"
           - "[Browsing security vulnerabilities in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
           - "[About GitHub Security Advisories for repositories](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)" in the GitHub Enterprise Cloud documentation
@@ -171,12 +171,12 @@ sections:
         # https://github.com/github/releases/issues/2334
         - |
           Enterprise owners can migrate container images from the GitHub Docker registry to the GitHub Container registry. The Container registry provides the following benefits.
-          
+
           - Improves the sharing of containers within an organization
           - Allows the application of granular access permissions
           - Permits the anonymous sharing of public container images
           - Implements OCI standards for hosting Docker images
-          
+
           The Container registry is in beta and subject to change. For more information, see "[Migrating your enterprise to the Container registry from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)."
 
     - heading: Community experience
@@ -265,7 +265,7 @@ sections:
         # https://github.com/github/releases/issues/2260
         - |
           Editing Markdown in the web interface has been improved.
-          
+
           - After a user selects text and pastes a URL, the selected text will become a Markdown link to the pasted URL.
           - When a user pastes spreadsheet cells or HTML tables, the resulting text will render as a table.
           - When a user copies text containing links, the pasted text will include the link as a Markdown link.
@@ -280,14 +280,13 @@ sections:
     # https://github.com/github/releases/issues/1569
     - |
       The unencrypted and unauthenticated Git protocol is now disabled by default. If you do not re-enable the protocol after you upgrade to GitHub Enterprise Server 3.6 or later, `git://` connections on port 9418 will return the following error.
-      
+
       ```
       The unauthenticated git protocol on port 9418 is no longer supported.
       ```
-      
+
       If you wish to support the protocol in your environment, you must manually re-enable the feature. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)" and the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/). [Updated: 2023-01-31]
     - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
-    - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
     - |
       VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
     - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
@@ -311,6 +310,9 @@ sections:
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
     - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]
 
   deprecations:
     - heading: Changes to supported SSH algorithms
@@ -320,8 +322,10 @@ sections:
           In GitHub Enterprise Server 3.6 and later, GitHub is changing the supported algorithms and hash functions for Git operations over SSH. By default, SSH connections that satisfy **both** of the following conditions will fail.
 
           {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
-          
+
           You can adjust the cutoff date. For more information, see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)." [Updated: 2023-01-31]
 
   errata:
     - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'
+    - |
+      The "Changes" section of these release notes indicated that if a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved. This change is not available in GitHub Enterprise Server 3.6, but is available in GitHub Enterprise Server 3.7 and later. [Updated: 2023-09-06]

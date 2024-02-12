@@ -49,7 +49,7 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
     - [Merge all of the commits into the base branch](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges) by clicking **Merge pull request**. If the **Merge pull request** option is not shown, click the merge dropdown menu and select **Create a merge commit**.
 
-     ![Screenshot of the merge options for a pull request. The arrow to expand the dropdown is outlined in dark orange.](/assets/images/help/pull_requests/merge-pull-request-options.png)
+      ![Screenshot of the merge options for a pull request. The arrow to expand the dropdown is outlined in dark orange.](/assets/images/help/pull_requests/merge-pull-request-options.png)
 
     - [Squash the commits into one commit](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges#squash-and-merge-your-pull-request-commits) by clicking the merge dropdown menu, selecting **Squash and merge** and then clicking **Squash and merge**.
 
@@ -60,7 +60,7 @@ If you decide you don't want the changes in a topic branch to be merged to the u
     **Note:** Rebase and merge will always update the committer information and create new commit SHAs. For more information, see "[About pull request merges](/articles/about-pull-request-merges#rebase-and-merge-your-pull-request-commits)."
 
     {% endnote %}
-2. If prompted, type a commit message, or accept the default message.
+1. If prompted, type a commit message, or accept the default message.
 
    {% data reusables.pull_requests.default-commit-message-squash-merge %}
 {% data reusables.files.choose-commit-email %}
@@ -71,7 +71,7 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
    {% endnote %}
 1. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
-2. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.
+1. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.
 
 {% endwebui %}
 
@@ -98,6 +98,6 @@ gh pr merge 523 --squash --body "my squash commit" --delete-branch
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)"
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" using {% data variables.product.prodname_desktop %}
+- "[AUTOTITLE](/desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" using {% data variables.product.prodname_desktop %}
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)"

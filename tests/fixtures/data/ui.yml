@@ -8,10 +8,6 @@ header:
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
-    localization_complete:
-      We publish frequent updates to our documentation, and translation of this page may still be in progress.
-      For the most current information, please visit the
-      <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
@@ -21,7 +17,7 @@ header:
   sign_up_cta: Sign up
   menu: Menu
 picker:
-  language_picker_default_text: Choose a language
+  language_picker_label: Language
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
 release_notes:
@@ -88,6 +84,7 @@ contribution_cta:
   to_guidelines: Learn how to contribute
 parameter_table:
   body: Body parameters
+  webhook-body: Webhook request body parameters
   default: Default
   description: Description
   enum_description_title: Can be one of
@@ -101,6 +98,12 @@ parameter_table:
   type: Type
   single_enum_description: Value
 products:
+  audit_logs:
+    action: Action
+    description: Description
+  button_text:
+    copy_to_clipboard: Copy to clipboard
+    copied: Copied!
   graphql:
     reference:
       implements: <code>{{ GraphQLItemTitle }}</code> Implements
@@ -134,6 +137,14 @@ products:
       actions_api_title: Actions
     versioning:
       about_versions: About REST API versions
+    overview:
+      permissions:
+        access: Access
+        endpoints: Endpoint
+        tokens: Token types
+        additionalPermissions: Additional permissions
+        uat: UAT
+        iat: IAT
     reference:
       in: In
       description: Description
@@ -254,3 +265,6 @@ toggle_images:
   show_single: Show image
 scroll_button:
   scroll_to_top: Scroll to top
+popovers:
+  role_description: hover card
+  keyboard_shortcut_description: Press alt+up to activate

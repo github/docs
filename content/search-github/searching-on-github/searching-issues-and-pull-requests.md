@@ -72,17 +72,20 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
 
-## Search for pull requests in the merge queue
+{% ifversion merge-queue  %}
 
-{% data reusables.pull_requests.merge-queue-beta %}
+## Search for pull requests in the merge queue
 
 You can also use the `is` qualifier to find pull requests that are queued to merge.
 
 | Qualifier | Example |
 | --- | --- |
-| `is:queued` | [**is:queued**](https://github.com/search?q=is%3Aqueued&type=pullrequests) matches pull requests that are currently queued to merge. |
+| `is:queued` | [**is:queued**](https://github.com/search?q=is%3Aqueued&type=pullrequests) matches pull requests that are currently queued to merge.
+
+{% endif %}
 
 {% ifversion issue-close-reasons %}
+
 ## Search by the reason an issue was closed
 
 You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
@@ -158,6 +161,7 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 | `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
 
 ## Search for linked issues and pull requests
+
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
 
 | Qualifier | Example |
@@ -174,7 +178,7 @@ You can narrow your results by labels, using the `label` qualifier. Since issues
 | Qualifier        | Example
 | ------------- | -------------
 | <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) matches issues with the label "help wanted" that are in Ruby repositories.
-| `in:body` <code>-label:<em>LABEL</em></code> <code>label:<em>LABEL</em></code> | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but *do* have the label "priority."
+| `in:body` <code>-label:<em>LABEL</em></code> <code>label:<em>LABEL</em></code> | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) matches issues with the word "broken" in the body, that lack the label "bug", but _do_ have the label "priority."
 | <code>label:<em>LABEL</em></code> <code>label:<em>LABEL</em></code> | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."
 | <code>label:<em>LABEL,LABEL</em></code> | [**label:bug,resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) matches issues with the label "bug" or the label "resolved."
 
@@ -247,7 +251,7 @@ You can filter issues and pull requests by the number of interactions with the `
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches pull requests or issues with more than 2000 interactions.
+| <code>interactions:<em>n</em></code> | [**interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches pull requests or issues with more than 2000 interactions.
 | <code>interactions:<em>n..n</em></code> | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches pull requests or issues with interactions ranging from 500 to 1,000.
 
 ## Search by number of reactions
@@ -256,10 +260,11 @@ You can filter issues and pull requests by the number of reactions using the `re
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) matches issues with more than 1000 reactions.
+| <code>reactions:<em>n</em></code> | [**reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) matches issues with more than 1000 reactions.
 | <code>reactions:<em>n..n</em></code> | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.
 
 ## Search for draft pull requests
+
 You can filter for draft pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
 
 | Qualifier        | Example
@@ -352,10 +357,10 @@ You can search for an issue or pull request that has a locked conversation using
 
 You can narrow your search to issues and pull requests that are missing certain metadata, using the `no` qualifier. That metadata includes:
 
-* Labels
-* Milestones
-* Assignees
-* Projects
+- Labels
+- Milestones
+- Assignees
+- Projects
 
 | Qualifier        | Example
 | ------------- | -------------

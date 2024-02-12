@@ -1,0 +1,6 @@
+# Reference: #8889
+# Feature based versioning file for Actions Runner Controller
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.9'

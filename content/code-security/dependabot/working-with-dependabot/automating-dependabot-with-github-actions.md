@@ -41,7 +41,7 @@ For workflows initiated by {% data variables.product.prodname_dependabot %} (`gi
 
 {% ifversion actions-stable-actor-ids %}These restrictions apply even if the workflow is re-run by a different actor.{% endif %}
 
-For more information, see ["Keeping your GitHub Actions and workflows secure: Preventing pwn requests"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
+For more information, see "[Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/)."
 
 {% ifversion fpt or ghec or ghes %}
 

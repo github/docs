@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { AnchoredOverlay, Button, Dialog, IconButton } from '@primer/react'
+import { ActionList, ActionMenu, Dialog, IconButton } from '@primer/react'
 import {
   KebabHorizontalIcon,
   LinkExternalIcon,
@@ -11,17 +11,17 @@ import {
   XIcon,
 } from '@primer/octicons-react'
 
-import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
 import { useHasAccount } from 'components/hooks/useHasAccount'
-import { LanguagePicker } from './LanguagePicker'
+import { LanguagePicker } from 'src/languages/components/LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
 import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Search } from 'src/search/components/Search'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
-import { VersionPicker } from 'components/page-header/VersionPicker'
+import { VersionPicker } from 'src/versions/components/VersionPicker'
 import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { AllProductsLink } from 'components/sidebar/AllProductsLink'
 
@@ -30,16 +30,13 @@ import styles from './Header.module.scss'
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { isHomepageVersion, currentProduct, currentProductTree, allVersions } = useMainContext()
+  const { isHomepageVersion, currentProduct } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [scroll, setScroll] = useState(false)
   const { hasAccount } = useHasAccount()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const openMenuOverlay = useCallback(() => setIsMenuOpen(true), [setIsMenuOpen])
-  const closeMenuOverlay = useCallback(() => setIsMenuOpen(false), [setIsMenuOpen])
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const openSidebar = useCallback(() => setIsSidebarOpen(true), [isSidebarOpen])
   const closeSidebar = useCallback(() => setIsSidebarOpen(false), [isSidebarOpen])
@@ -50,11 +47,8 @@ export const Header = () => {
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-  const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
-  const [windowSize, setWindowSize] = useState(0)
-  const handleWindowResize = useCallback(() => {
-    setWindowSize(window.innerWidth)
-  }, [])
+  const { width } = useWidth()
+  const returnFocusRef = useRef(null)
 
   useEffect(() => {
     function onScroll() {
@@ -96,11 +90,9 @@ export const Header = () => {
     if (bodyDiv && body) {
       // The full sidebar automatically shows at the xl window size so unlock
       // scrolling if the overlay was opened and the window size is increased to xl.
-      body.style.overflow = isSidebarOpen && windowSize < 1280 ? 'hidden' : 'auto'
+      body.style.overflow = isSidebarOpen && width && width < 1280 ? 'hidden' : 'auto'
     }
-    window.addEventListener('resize', handleWindowResize)
-    return () => window.removeEventListener('resize', handleWindowResize)
-  }, [isSidebarOpen, windowSize])
+  }, [isSidebarOpen])
 
   // with client side navigation clicking sidebar overlay links doesn't dismiss
   // the overlay so we close it ourselves when the path changes
@@ -122,20 +114,49 @@ export const Header = () => {
     }
   }, [])
 
+  function useWidth() {
+    const hasWindow = typeof window !== 'undefined'
+
+    function getWidth() {
+      const width = hasWindow ? window.innerWidth : null
+      return {
+        width,
+      }
+    }
+
+    const [width, setWidth] = useState(getWidth())
+
+    useEffect(() => {
+      if (hasWindow) {
+        const handleResize = function () {
+          setWidth(getWidth())
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+      }
+    }, [hasWindow])
+
+    return width
+  }
+
   return (
     <>
       <div
+        data-container="header"
         className={cx(
           'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
-          styles.header
+          styles.header,
         )}
       >
         {error !== '404' && <HeaderNotifications />}
         <header
           className={cx(
             'color-bg-default p-2 position-sticky top-0 z-1 border-bottom',
-            scroll && 'color-shadow-small'
+            scroll && 'color-shadow-small',
           )}
+          role="banner"
+          aria-label="Main"
         >
           <div
             className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
@@ -151,9 +172,9 @@ export const Header = () => {
                 className="d-flex flex-items-center color-fg-default no-underline mr-3"
               >
                 <MarkGithubIcon size={32} />
-                <span className="h4 text-semibold ml-2">{t('github_docs')}</span>
+                <span className="h4 text-semibold ml-2 mr-3">{t('github_docs')}</span>
               </Link>
-              <div className="hide-sm border-left">
+              <div className="hide-sm border-left pl-3">
                 <VersionPicker />
               </div>
             </div>
@@ -168,7 +189,7 @@ export const Header = () => {
                     isSearchOpen
                       ? styles.searchContainerWithOpenSearch
                       : styles.searchContainerWithClosedSearch,
-                    'mr-3'
+                    'mr-3',
                   )}
                 >
                   <Search />
@@ -195,7 +216,7 @@ export const Header = () => {
               <IconButton
                 className={cx(
                   'hide-lg hide-xl',
-                  !isSearchOpen ? 'd-flex flex-items-center' : 'd-none'
+                  !isSearchOpen ? 'd-flex flex-items-center' : 'd-none',
                 )}
                 data-testid="mobile-search-button"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
@@ -229,15 +250,12 @@ export const Header = () => {
 
               {/* The ... navigation menu at medium and smaller widths */}
               <div>
-                <AnchoredOverlay
-                  anchorRef={menuButtonRef}
-                  renderAnchor={(anchorProps) => (
-                    <Button
+                <ActionMenu aria-labelledby="menu-title">
+                  <ActionMenu.Anchor>
+                    <IconButton
                       data-testid="mobile-menu"
-                      className="px-2"
-                      {...anchorProps}
                       icon={KebabHorizontalIcon}
-                      aria-label="Open Menu Bar"
+                      aria-label="Open Menu"
                       sx={
                         isSearchOpen
                           ? // The ... menu button when the smaller width search UI is open.  Since the search
@@ -270,52 +288,47 @@ export const Header = () => {
                               },
                             }
                       }
-                    >
-                      {}
-                    </Button>
-                  )}
-                  open={isMenuOpen}
-                  onOpen={openMenuOverlay}
-                  onClose={closeMenuOverlay}
-                  aria-labelledby="menu-title"
-                >
-                  <div
-                    data-testid="open-mobile-menu"
-                    className={cx('pt-2', !signupCTAVisible && 'pb-2', styles.menuOverlay)}
-                  >
-                    <span id="menu-title" className="f6 px-3 py-2 mb-1 d-block h6 color-fg-muted">
-                      {t('menu')}
-                    </span>
-                    <span className="px-2 pb-2 m-2 d-block d-sm-none">
-                      <VersionPicker mediumOrLower={true} />
-                    </span>
-                    <span className="px-2 pb-2 m-2 d-block">
-                      <LanguagePicker mediumOrLower={true} />
-                    </span>
-                    {isRestPage && allVersions[currentVersion].apiVersions.length > 0 && (
-                      <span className="px-2 pb-2 m-2 d-block">
-                        <ApiVersionPicker />
-                      </span>
-                    )}
-                    {signupCTAVisible && (
-                      <Link
-                        href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
-                        target="_blank"
-                        rel="noopener"
-                        data-testid="mobile-signup"
-                        className="d-flex flex-justify-between flex-items-center color-fg-muted border-top px-3 py-3"
-                      >
-                        {t`sign_up_cta`}
-                        <LinkExternalIcon aria-label="(external site)" />
-                      </Link>
-                    )}
-                  </div>
-                </AnchoredOverlay>
+                    />
+                  </ActionMenu.Anchor>
+                  <ActionMenu.Overlay align="start">
+                    <ActionList>
+                      <ActionList.Group data-testid="open-mobile-menu">
+                        {width && width > 544 ? (
+                          <LanguagePicker mediumOrLower={true} />
+                        ) : (
+                          <LanguagePicker xs={true} />
+                        )}
+                        <ActionList.Divider />
+                        {width && width < 545 && (
+                          <>
+                            <VersionPicker xs={true} />
+                            <ActionList.Divider />
+                          </>
+                        )}
+                        {signupCTAVisible && (
+                          <ActionList.LinkItem
+                            href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                            target="_blank"
+                            rel="noopener"
+                            data-testid="mobile-signup"
+                            className="d-flex color-fg-muted"
+                          >
+                            {t`sign_up_cta`}
+                            <LinkExternalIcon
+                              className="height-full float-right"
+                              aria-label="(external site)"
+                            />
+                          </ActionList.LinkItem>
+                        )}{' '}
+                      </ActionList.Group>
+                    </ActionList>
+                  </ActionMenu.Overlay>
+                </ActionMenu>
               </div>
             </div>
           </div>
           {!isHomepageVersion && !isSearchResultsPage && (
-            <div className="d-flex flex-items-center d-xl-none mt-2">
+            <div className="d-flex flex-items-center d-xxl-none mt-2">
               <div className={cx(styles.sidebarOverlayCloseButtonContainer, 'mr-2')}>
                 <IconButton
                   data-testid="sidebar-hamburger"
@@ -324,8 +337,10 @@ export const Header = () => {
                   icon={ThreeBarsIcon}
                   aria-label="Open Sidebar"
                   onClick={openSidebar}
+                  ref={returnFocusRef}
                 />
                 <Dialog
+                  returnFocusRef={returnFocusRef}
                   isOpen={isSidebarOpen}
                   onDismiss={closeSidebar}
                   aria-labelledby="menu-title"
@@ -347,17 +362,14 @@ export const Header = () => {
                     sx={{ display: 'block' }}
                   >
                     <AllProductsLink />
-                    {error === '404' ||
-                    !currentProduct ||
-                    isSearchResultsPage ||
-                    !currentProductTree ? null : (
+                    {error === '404' || !currentProduct || isSearchResultsPage ? null : (
                       <div className="mt-3">
                         <Link
                           data-testid="sidebar-product-dialog"
-                          href={currentProductTree.href}
+                          href={currentProduct.href}
                           className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
                         >
-                          {productTitle}
+                          {currentProduct.name}
                         </Link>
                       </div>
                     )}

@@ -20,7 +20,7 @@ import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
     'None of the API search middleware tests are run because ' +
-      "the environment variable 'ELASTICSEARCH_URL' is currently not set."
+      "the environment variable 'ELASTICSEARCH_URL' is currently not set.",
   )
 }
 
@@ -131,5 +131,12 @@ describeIfElasticsearchURL('search rendering page', () => {
   test("don't convert q= to query= if query= already present", async () => {
     const res = await get('/en/search?q=pulls&query=pushes')
     expect(res.statusCode).toBe(200)
+  })
+
+  test('more that one search query', async () => {
+    const $ = await getDOM('/en/search?query=foo&query=bar')
+    expect($('[data-testid="search-results"]').text()).toMatch('Can not have multiple values')
+    const results = $('[data-testid="search-result"]')
+    expect(results.length).toBe(0)
   })
 })

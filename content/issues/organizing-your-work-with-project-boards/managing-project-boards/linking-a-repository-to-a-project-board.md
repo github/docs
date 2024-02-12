@@ -21,10 +21,10 @@ Anyone with write permissions to a {% data variables.projects.projects_v1_board 
 1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to link a repository.
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
-4. In the left sidebar, click **Linked repositories**.
-5. Click **Link a repository**.
-6. Search for the repository you'd like to link.
-7. Click **Link**. To unlink, click **Unlink**.
+1. In the left sidebar, click **Linked repositories**.
+1. Click **Link a repository**.
+1. Search for the repository you'd like to link.
+1. Click **Link**. To unlink, click **Unlink**.
 
 {% note %}
 

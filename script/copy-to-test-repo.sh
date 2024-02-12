@@ -26,7 +26,7 @@ if [[ "$REPO_NAME" == "docs-internal-test" ]]; then
   if [[ `git status --porcelain` ]]; then
     echo "Committing and pushing test files"
     git add --all
-    git commit -m "testing (commited from script)"
+    git commit -m "testing (committed from script)"
     git push -f
   else
     echo "No changes copied over. Are there relevent changes and are you pointing to the correct -test directory?"

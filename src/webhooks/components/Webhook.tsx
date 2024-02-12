@@ -1,14 +1,14 @@
 import { ActionList, ActionMenu, Flash } from '@primer/react'
-import { useState, KeyboardEvent, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
-import { useVersion } from 'components/hooks/useVersion'
+import { useVersion } from 'src/versions/components/useVersion'
 import { HeadingLink } from 'components/article/HeadingLink'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
 
@@ -117,15 +117,12 @@ export function Webhook({ webhook }: Props) {
       undefined,
       {
         shallow: true,
-      }
+      },
     )
   }
 
   // callback to trigger useSWR() hook after a nested property is clicked
-  function handleBodyParamExpansion(event: KeyboardEvent<HTMLElement>) {
-    // need to cast it because 'closest' isn't necessarily available on
-    // event.target
-    const target = event.target as HTMLElement
+  function handleBodyParamExpansion(target: HTMLDetailsElement) {
     setClickedBodyParameterName(target.closest('details')?.dataset.nestedParamId)
   }
 
@@ -138,7 +135,7 @@ export function Webhook({ webhook }: Props) {
     webhookFetcher,
     {
       revalidateOnFocus: false,
-    }
+    },
   )
 
   const currentWebhookActionType = selectedWebhookActionType || webhook.data.action
@@ -155,7 +152,7 @@ export function Webhook({ webhook }: Props) {
           dangerouslySetInnerHTML={{
             __html: t('webhooks.availability').replace(
               '{{ WebhookName }}',
-              currentWebhookAction.category
+              currentWebhookAction.category,
             ),
           }}
         />
@@ -182,7 +179,7 @@ export function Webhook({ webhook }: Props) {
           dangerouslySetInnerHTML={{
             __html: t('webhooks.webhook_payload_object').replace(
               '{{ WebhookName }}',
-              currentWebhookAction.category
+              currentWebhookAction.category,
             ),
           }}
         />
@@ -236,6 +233,7 @@ export function Webhook({ webhook }: Props) {
             bodyParameters={currentWebhookAction.bodyParameters || []}
             bodyParamExpandCallback={handleBodyParamExpansion}
             clickedBodyParameterName={clickedBodyParameterName}
+            variant="webhooks"
           />
         </div>
       </div>
@@ -244,8 +242,7 @@ export function Webhook({ webhook }: Props) {
         <>
           <h3>{t('webhooks.webhook_payload_example')}</h3>
           <div
-            className={cx(styles.payloadExample, 'border-top rounded-1 my-0')}
-            style={{ maxHeight: '32rem' }}
+            className={cx(styles.payloadExample, 'border rounded-1 my-0')}
             data-highlight={'json'}
           >
             <code>{JSON.stringify(webhook.data.payloadExample, null, 2)}</code>

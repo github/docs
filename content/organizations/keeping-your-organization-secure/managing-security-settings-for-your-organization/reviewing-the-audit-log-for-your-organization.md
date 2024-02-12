@@ -34,15 +34,15 @@ The audit log lists events triggered by activities that affect your organization
 
 To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped in different categories. For the full list of events in each category, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
-
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
 | `account` | Contains all activities related to your organization account.{% endif %}{% ifversion fpt or ghec %}
-| `advisory_credit` | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."{% endif %}{% ifversion pat-v2%}
+| `advisory_credit` | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."{% endif %}{% ifversion pat-v2%}
 | `auto_approve_personal_access_token_requests` | Contains activities related to your organization's approval policy for {% data variables.product.pat_v2 %}s. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization)."{% endif %}{% ifversion fpt or ghec %}
 | `billing` | Contains all activities related to your organization's billing.{% endif %}{% ifversion fpt or ghec %}
 | `business` | Contains activities related to business settings for an enterprise. |{% endif %}{% ifversion fpt or ghec %}
 | `codespaces` | Contains all activities related to your organization's codespaces. |{% endif %}
+| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} subscription.
 | `dependabot_alerts` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% ifversion fpt or ghec or ghes %}
 | `dependabot_security_updates` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
@@ -62,10 +62,11 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `marketplace_listing` | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes or ghec %}
 | `members_can_create_pages` | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
 | `org` | Contains activities related to organization membership.{% ifversion ghec %}
-| `org_credential_authorization` | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
+| `org_credential_authorization` | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
+| `org_secret_scanning_automatic_validity_checks` | Contains organization-level activities related to enabling and disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | `org_secret_scanning_custom_pattern` | Contains organization-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}
 | `organization_default_label` | Contains all activities related to default labels for repositories in your organization.
-| `oauth_application` | Contains all activities related to OAuth Apps.
+| `oauth_application` | Contains all activities related to {% data variables.product.prodname_oauth_apps %}.
 | `packages` | Contains all activities related to {% data variables.product.prodname_registry %}.{% ifversion fpt or ghec %}
 | `payment_method` | Contains all activities related to how your organization pays for GitHub.{% endif %}{% ifversion pat-v2%}
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s in your organization. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% endif %}
@@ -73,18 +74,20 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `project` | Contains all activities related to project boards.
 | `protected_branch` | Contains all activities related to protected branches.
 | `repo` | Contains activities related to the repositories owned by your organization.{% ifversion fpt or ghec %}
-| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
-| `repository_content_analysis` | Contains all activities related to [enabling or disabling data use for a private repository](/get-started/privacy-on-github/about-githubs-use-of-your-data).{% endif %}{% ifversion fpt or ghec %}
+| `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
+| `repository_content_analysis` | Contains all activities related to enabling or disabling data use for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."{% endif %}{% ifversion fpt or ghec %}
 | `repository_dependency_graph` | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae or ghec %}
-| `repository_secret_scanning` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
+| `repository_secret_scanning` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." {% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
+| `repository_secret_scanning_automatic_validity_checks` | Contains repository-level activities related to enabling and disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)." {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | `repository_secret_scanning_custom_pattern` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
 | `repository_secret_scanning_custom_pattern_push_protection`| Contains repository-level activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_push_protection` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}
+| `repository_secret_scanning_push_protection` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %} push protection. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}
 | `repository_vulnerability_alert` | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).{% ifversion fpt or ghec %}
 | `repository_vulnerability_alerts` | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% ifversion custom-repository-roles %}
-| `role` | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
+| `role` | Contains all activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
 | `secret_scanning` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 | `secret_scanning_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} for new repositories created in the organization. {% endif %}{% ifversion fpt or ghec %}
+| `restore_member` | Triggered when an organization owner reinstates a member. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."|
 | `sponsors`| Contains all events related to sponsor buttons (see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)"){% endif %}
 | `team` | Contains all activities related to teams in your organization.{% ifversion team-discussions %}
 | `team_discussions` | Contains activities related to managing team discussions for an organization.{% endif %}
@@ -92,13 +95,13 @@ To search for specific events, use the `action` qualifier in your query. Actions
 
 You can search for specific sets of actions using these terms. For example:
 
-* `action:team` finds all events grouped within the team category.
-* `-action:hook` excludes all events in the webhook category.
+- `action:team` finds all events grouped within the team category.
+- `-action:hook` excludes all events in the webhook category.
 
 Each category has a set of associated actions that you can filter on. For example:
 
-* `action:team.create` finds all events where a team was created.
-* `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
+- `action:team.create` finds all events where a team was created.
+- `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
 ### Search based on time of action
 
@@ -108,10 +111,10 @@ Use the `created` qualifier to filter events in the audit log based on when they
 
 For example:
 
-* `created:2014-07-08` finds all events that occurred on July 8th, 2014.
-* `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
-* `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
-* `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
+- `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+- `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+- `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+- `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
 {% note %}
 
@@ -123,11 +126,20 @@ For example:
 
 Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or its full name. Keep in mind that countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-* `country:de` finds all events that occurred in Germany.
-* `country:Mexico` finds all events that occurred in Mexico.
-* `country:"United States"` all finds events that occurred in the United States.
+- `country:de` finds all events that occurred in Germany.
+- `country:Mexico` finds all events that occurred in Mexico.
+- `country:"United States"` all finds events that occurred in the United States.
+
+{% ifversion ghec %}
+
+### Search based on access token
+
+You can identify all events that were performed by a specific access token. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token)."
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Exporting the audit log
 
 {% data reusables.audit_log.export-log %}
@@ -163,7 +175,7 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% ifversion ghec %}
-Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#git)."
 {% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.

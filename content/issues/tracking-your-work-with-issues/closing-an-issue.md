@@ -26,7 +26,7 @@ shortTitle: Close an issue
 1. Optionally, to change your reason for closing the issue, next to "Close issue," select {% octicon "triangle-down" aria-label="Select close issue reason" %}, then click a reason.
 
    ![Screenshot of the buttons at the bottom of an issue. A button, labeled with a downward triangle icon indicating a dropdown menu, is outlined in dark orange.](/assets/images/help/issues/close-issue-select-reason.png)
-2. Click **Close issue**.
+1. Click **Close issue**.
 {%- else %}
 1. At the bottom of the comment box, click **Close issue**.
 {% endif %}

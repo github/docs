@@ -13,12 +13,11 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
+permissions: 'Organization owners can create teams and can control whether all organization members can also create teams. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."'
 topics:
   - Organizations
   - Teams
 ---
-
-Only organization owners and maintainers of a parent team can create a new child team under a parent. Owners can also restrict creation permissions for all teams in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -36,13 +35,13 @@ Only organization owners and maintainers of a parent team can create a new child
 {% data reusables.organizations.create-team-choose-parent %}
 {% ifversion ghec %}
 1. Optionally, if your organization or enterprise account uses team synchronization or your enterprise uses {% data variables.product.prodname_emus %}, connect an identity provider group to your team.
-    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
-    * If your organization or enterprise account uses team synchronization, under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to five identity provider groups to connect to the new team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+    - If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+    - If your organization or enterprise account uses team synchronization, under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to five identity provider groups to connect to the new team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.team-notifications %}
 {% data reusables.organizations.create_team %}
-1. Optionally, [give the team access to organization repositories](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository).
+1. Optionally, give the team access to organization repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
 
 {% ifversion ghes %}
 
@@ -68,7 +67,7 @@ You must be a site admin and an organization owner to create a team with LDAP sy
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
-6. Under "LDAP group", search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name. {% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches.
+1. Under "LDAP group", search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name. {% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches.
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}

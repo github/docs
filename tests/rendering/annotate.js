@@ -1,9 +1,7 @@
-import renderContent from '../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 const example = `
-{% annotate %}
-
-\`\`\`yaml
+\`\`\`yaml annotate
 # The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
 name: Post welcome comment
 
@@ -13,8 +11,6 @@ on:
   pull_request:
     types: [opened]
 \`\`\`
-
-{% endannotate %}
 `
 
 describe('annotate', () => {
@@ -22,6 +18,8 @@ describe('annotate', () => {
     // We don't normally use snapshots,
     // but in this case its a short and concise example
     // that won't change regularly.
+    // If it fails, study the output and make sure it's correct.
+    // If it is indeed correct, run `jest --updateSnapshot` to update it.
     expect(await renderContent(example)).toMatchSnapshot()
   })
 })

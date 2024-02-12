@@ -22,9 +22,9 @@ export const Callout = ({
         className,
         styles.container,
         'border rounded-1 p-3 f5',
-        variant === 'success' && 'color-border-success color-bg-success',
+        variant === 'success' && 'color-border-success-emphasis color-bg-success',
         variant === 'info' && 'color-border-accent-emphasis color-bg-accent',
-        variant === 'warning' && 'color-bg-attention color-border-attention-emphasis'
+        variant === 'warning' && 'color-border-attention-emphasis color-bg-attention',
       )}
       dangerouslySetInnerHTML={dangerouslySetInnerHTML}
     >

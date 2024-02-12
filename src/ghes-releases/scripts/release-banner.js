@@ -11,7 +11,7 @@ import path from 'path'
 import { program } from 'commander'
 import yaml from 'js-yaml'
 
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 
 const releaseCandidateFile = 'data/variables/release_candidate.yml'
 const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
@@ -22,7 +22,7 @@ program
   .option(`-a, --action <${allowedActions.join(' or ')}>`, 'Create or remove the banner.')
   .option(
     '-v, --version <version>',
-    'The version the banner applies to. Must be in <plan@release> format.'
+    'The version the banner applies to. Must be in <plan@release> format.',
   )
   .parse(process.argv)
 
@@ -35,7 +35,7 @@ if (!allowedActions.includes(options.action)) {
 
 if (!Object.keys(allVersions).includes(options.version)) {
   console.log(
-    'Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.'
+    'Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.',
   )
   process.exit(1)
 }

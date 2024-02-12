@@ -17,7 +17,7 @@ describe('guides', () => {
 describe('learning tracks', () => {
   test('start the first learning track and come back via the navigation banner', async () => {
     const $ = await getDOM('/code-security/guides')
-    const links = $('[data-testid=feature-track] a')
+    const links = $('[data-testid=learning-track] a')
     const link = links.filter((_, el) => $(el).text() === 'Start learning path').first()
     expect(link.attr('href')).toMatch('learn=foo_bar')
     expect(link.attr('href')).toMatch('learnProduct=code-security')
@@ -37,7 +37,7 @@ describe('learning tracks', () => {
     expect(nextWrapper.length).toBe(1)
     const nextLink = nextWrapper.find('a').first()
     expect(nextLink.attr('href')).toMatch(
-      'code-security/getting-started/securing-your-organization'
+      'code-security/getting-started/securing-your-organization',
     )
     expect(nextLink.attr('href')).toMatch('learn=foo_bar')
     expect(nextLink.attr('href')).toMatch('learnProduct=code-security')
@@ -64,7 +64,7 @@ describe('learning tracks', () => {
     const nav3 = $2('[data-testid=learning-track-nav]')
     const navPrevLink = nav3.find('a').first()
     expect(navPrevLink.attr('href')).toMatch(
-      'code-security/getting-started/securing-your-organization'
+      'code-security/getting-started/securing-your-organization',
     )
   })
 

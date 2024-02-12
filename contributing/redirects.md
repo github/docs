@@ -12,7 +12,7 @@ Sometimes we change the name of an article but want its old URL to redirect to i
 
 ### Automatic redirects for URLs that do not include a version
 
-If a URL for a docs page is entered without a version segment (e.g., `https://docs.github.com/foo` instead of `https://docs.github.com/<version>/foo`), the site will automatically redirect it to the **first available version** of the page. The order of precedence is specified in `lib/all-versions.js`, where the current order is: 
+If a URL for a docs page is entered without a version segment (e.g., `https://docs.github.com/foo` instead of `https://docs.github.com/<version>/foo`), the site will automatically redirect it to the **first available version** of the page. The order of precedence is specified in `lib/all-versions.js`, where the current order is:
 
 1. Free, Pro, & Team (`fpt`)
 1. Enterprise Cloud (`ghec`)
@@ -25,11 +25,11 @@ If `foo.md` is available in Free, Pro, & Team, no redirect will occur because `f
 
 ### Redirects across versions
 
-If you want the URL for one version of an article to redirect to a URL for another version, you must use [/lib/redirects/static/redirect-exceptions.txt](/lib/redirects/static/redirect-exceptions.txt) instead. For example, if you remove the Free, Pro, & Team (`fpt`) version of an article, the URL will [automatically redirect](#automatic-redirects-for-urls-that-do-not-include-a-version) to the next available version of the page. If you want it to redirect to a version that is **lower in the order of precedence**, or to a different page entirely, you must specify an exception.
+If you want the URL for one version of an article to redirect to a URL for another version, you must use [/src/redirects/lib/static/redirect-exceptions.txt](/src/redirects/lib/static/redirect-exceptions.txt) instead. For example, if you remove the Free, Pro, & Team (`fpt`) version of an article, the URL will [automatically redirect](#automatic-redirects-for-urls-that-do-not-include-a-version) to the next available version of the page. If you want it to redirect to a version that is **lower in the order of precedence**, or to a different page entirely, you must specify an exception.
 
 Another example: we removed the `ghes` version of "[Exporting member information for your organization](https://docs.github.com/en/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)," but we don't want URLs that include the `enterprise-server@<release>` version segment to 404. In order to redirect `ghes` URLs to another version (such as `ghec`), we need to add an exception.
 
-Each entry in [the exceptions file](/lib/redirects/static/redirect-exceptions.txt) should start with the path you want to redirect _to_, including the version, followed by an unordered list of the paths you want to redirect _from_:
+Each entry in [the exceptions file](/src/redirects/lib/static/redirect-exceptions.txt) should start with the path you want to redirect _to_, including the version, followed by an unordered list of the paths you want to redirect _from_:
 
 ```
 /enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
@@ -40,11 +40,11 @@ Each entry in [the exceptions file](/lib/redirects/static/redirect-exceptions.tx
 
 ## External redirects
 
-Sometimes the canonical home of some content moves outside the help site. For these types of redirects, we add entries to [/lib/redirects/external-sites.json](/lib/redirects/external-sites.json).
+Sometimes the canonical home of some content moves outside the help site. For these types of redirects, we add entries to [/src/redirects/lib/external-sites.json](/src/redirects/lib/external-sites.json).
 
 ## Custom redirects
 
-We also have custom routing code that automatically creates redirects under the hood for things like moved Admin guide pages. This code lives in [/lib/redirects/get-old-paths-from-permalink.js](/lib/redirects/get-old-paths-from-permalink.js). All redirects for the site are compiled when the server starts by [/lib/redirects/precompile.js](/lib/redirects/precompile.js).
+We also have custom routing code that automatically creates redirects under the hood for things like moved Admin guide pages. This code lives in [/src/redirects/lib/get-old-paths-from-permalink.js](/src/redirects/lib/get-old-paths-from-permalink.js). All redirects for the site are compiled when the server starts by [/src/redirects/lib/precompile.js](/src/redirects/lib/precompile.js).
 
 See [Links and image paths](../content/README.md#links-and-image-paths) for info on how links and images are rewritten on the fly at page render time.
 

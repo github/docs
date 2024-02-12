@@ -15,14 +15,28 @@ export default function parsePageSectionsIntoRecords(page) {
       return $(el).text().trim().replace('/', '').replace(/\s+/g, ' ')
     })
     .get()
-    .slice(0, -1)
 
   // Like in printing from DOM, some elements should not be included in
   // the records for search. This might be navigational elements of the
   // page that don't make much sense to find in a site search.
   $('[data-search=hide]').remove()
 
-  const breadcrumbs = breadcrumbsArray.join(' / ') || ''
+  // Only slice off the last one if the length of the array is greater
+  // that 1.
+  // On an article page, we the breadcrumbs array will be something
+  // like:
+  //
+  //   ['Product short title', 'Map topic', 'Article title']
+  //
+  // But on a product landing page, it'll just be:
+  //
+  //   ['Product short title']
+  //
+  // So here, if we skip the last one we get nothing for the breadcrumb.
+  const breadcrumbs =
+    breadcrumbsArray
+      .slice(0, breadcrumbsArray.length > 1 ? -1 : breadcrumbsArray.length)
+      .join(' / ') || ''
 
   const objectID = href
 

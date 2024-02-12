@@ -1,6 +1,6 @@
 import { blockIndex } from '../../middleware/block-robots.js'
 import { productMap } from '../../lib/all-products.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 
 function allowIndex(path) {
   return !blockIndex(path)
@@ -60,7 +60,7 @@ describe('block robots', () => {
     expect(allowIndex('/en/actions/overview/intro')).toBe(true)
     expect(allowIndex(`/en/enterprise/${enterpriseServerReleases.latest}/user/actions`)).toBe(true)
     expect(
-      allowIndex(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`)
+      allowIndex(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`),
     ).toBe(true)
   })
 

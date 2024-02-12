@@ -17,9 +17,11 @@ children:
   - /installing-a-github-app-from-github-marketplace-for-your-organizations
   - /installing-a-github-app-from-a-third-party
   - /installing-your-own-github-app
+  - /requesting-a-github-app-from-your-organization-owner
   - /authorizing-github-apps
   - /approving-updated-permissions-for-a-github-app
   - /reviewing-and-revoking-authorization-of-github-apps
   - /reviewing-and-modifying-installed-github-apps
+  - /saml-and-github-apps
 ---
 

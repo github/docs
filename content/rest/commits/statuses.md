@@ -1,7 +1,7 @@
 ---
 title: Commit statuses
 intro: Use the REST API to interact with commit statuses.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -23,6 +23,5 @@ Statuses can include a `context` to indicate what service is providing that stat
 Note that the `repo:status` [OAuth scope](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) grants targeted access to statuses **without** also granting access to repository code, while the `repo` scope grants permission to code as well as statuses.
 
 If you are developing a GitHub App and want to provide more detailed information about an external service, you may want to use the REST API to manage checks. For more information, see "[AUTOTITLE](/rest/checks)."
-
 
 <!-- Content after this section is automatically generated -->

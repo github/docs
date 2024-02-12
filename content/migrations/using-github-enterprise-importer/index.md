@@ -21,5 +21,3 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-to-github-ae
   - /early-access/enterprise-importer
 ---
-
-{% data reusables.enterprise-migration-tool.release-phase %}

@@ -1,0 +1,48 @@
+date: '2023-08-10'
+sections:
+  security_fixes:
+    - |
+      **LOW:** An incorrect comparison vulnerability was identified in GitHub Enterprise Server that allowed commit smuggling by displaying an incorrect diff in a reopened pull request. To exploit this vulnerability, an attacker would need write access to the repository. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/) and was assigned [CVE-2023-23766](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23766). [Updated: 2023-09-22]
+    - |
+      Packages have been updated to the latest security versions. 
+  bugs:
+    - | 
+      On an instance in a high availability configuration, on some platforms, replication could perform poorly over links with very high latency. 
+    - |
+      On an instance with custom firewall rules defined, a configuration run with `ghe-config-apply` could take longer than expected. 
+    - |
+      Events related to repository notifications did not appear in the audit log. 
+    - |
+      A collaborator with the "Set the social preview" permission inherited from the "Read" role couldnt upload the social preview image of a repository. 
+    - |
+      On an instance in a high availability configuration, existing nodes with out-of-sync repositories prevented new nodes from replicating those repositories. 
+    - |
+      GitHub Enterprise Server was queuing zip jobs unnecessarily. 
+  changes:
+    - |
+      The secondary abuse rate limits of the GraphQL API are now configurable in the Management Console. 
+    - |
+      The description of the `ghe-cluster-balance` command line utility clarifies that it can be used to balance jobs other than `github-unicorn`. 
+    - |
+      Administrators can display all repositories in a network with `spokesctl` by using the `repositories` subcommand. 
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
+      In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - |
+      Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      {% data reusables.release-notes.repository-inconsistencies-errors %}
+    - |
+      On an instance in a high-availability configuration, passive replica nodes accept Git client requests and forward the requests to the primary node.
+    - |
+      If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
+    - |
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

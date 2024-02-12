@@ -8,5 +8,5 @@ children:
   - /about-server-statistics
   - /exporting-server-statistics
   - /requesting-server-statistics-using-the-rest-api
+  - /including-data-about-github-actions-in-server-statistics
 ---
-

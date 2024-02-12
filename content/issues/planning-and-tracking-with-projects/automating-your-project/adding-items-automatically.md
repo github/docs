@@ -7,6 +7,11 @@ type: tutorial
 topics:
   - Projects
 ---
+{% ifversion ghes > 3.8 %}
+
+{% data reusables.projects.enable_enterprise_workflows %}
+
+{% endif %}
 
 ## About automatically adding items
 
@@ -17,7 +22,7 @@ When you enable the auto-add workflow, existing items matching your criteria wil
 The auto-add workflow supports a subset of filters. You can use the following filters when configuring your workflow.
 
 | Qualifier | Possible values
-| --- | --- | --- |
+| --- | --- |
 | `is` | open, closed, merged, draft, issue, pr
 | `label` | "label name"
 | `reason` | completed, reopened, "not planned"
@@ -40,7 +45,6 @@ The auto-add workflow is limited per plan.
 
 {% endif %}
 
-
 ## Configuring the auto-add workflow in your project
 
 {% data reusables.projects.access-workflows %}
@@ -50,7 +54,7 @@ The auto-add workflow is limited per plan.
 
    ![Screenshot showing the workflow menu bar. The "Edit" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-start-editing.png)
 
-1. Under "Filters", select the repository you want to add items from.   
+1. Under "Filters", select the repository you want to add items from.
 1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project.
 1. To enable the new workflow, click **Save and turn on workflow**.
 
@@ -74,5 +78,7 @@ Once you have duplicated a workflow, you can click **Edit** to start making chan
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
+{%- ifversion projects-v2-workflows %}
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
+{%- endif %}

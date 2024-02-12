@@ -29,16 +29,16 @@ Azure Active Directory (Azure AD) is a service from Microsoft that allows you to
 
 After you enable SAML SSO and SCIM for {% data variables.product.product_name %} using Azure AD, you can accomplish the following from your Azure AD tenant.
 
-* Assign the {% data variables.product.product_name %} application on Azure AD to a user account to automatically create and grant access to a corresponding user account on {% data variables.product.product_name %}.
-* Unassign the {% data variables.product.product_name %} application to a user account on Azure AD to deactivate the corresponding user account on {% data variables.product.product_name %}.
-* Assign the {% data variables.product.product_name %} application to an IdP group on Azure AD to automatically create and grant access to user accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.product_name %} for connection to a team and its parent organization.
-* Unassign the {% data variables.product.product_name %} application from an IdP group to deactivate the {% data variables.product.product_name %} user accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
+- Assign the {% data variables.product.product_name %} application on Azure AD to a user account to automatically create and grant access to a corresponding user account on {% data variables.product.product_name %}.
+- Unassign the {% data variables.product.product_name %} application to a user account on Azure AD to deactivate the corresponding user account on {% data variables.product.product_name %}.
+- Assign the {% data variables.product.product_name %} application to an IdP group on Azure AD to automatically create and grant access to user accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.product_name %} for connection to a team and its parent organization.
+- Unassign the {% data variables.product.product_name %} application from an IdP group to deactivate the {% data variables.product.product_name %} user accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
 
 For more information about managing identity and access for your enterprise on {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
 
 ## Prerequisites
 
-- To configure authentication and user provisioning for {% data variables.product.product_name %} using Azure AD, you must have an Azure AD account and tenant. For more information, see the [Azure AD website](https://azure.microsoft.com/free/active-directory) and [Quickstart: Create an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in the Microsoft Docs.
+- To configure authentication and user provisioning for {% data variables.product.product_name %} using Azure AD, you must have an Azure AD account and tenant. For more information, see the [Azure AD website](https://azure.microsoft.com/products/active-directory) and [Quickstart: Create an Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in the Microsoft Docs.
 
 {%- ifversion scim-for-ghes %}
 - {% data reusables.saml.ghes-you-must-configure-saml-sso %}
@@ -69,7 +69,7 @@ In your Azure AD tenant, add the application for {% data variables.product.produ
 
 {% endif %}
 
-## Managing enterprise owners 
+## Managing enterprise owners
 
 The steps to make a person an enterprise owner depend on whether you only use SAML or also use SCIM. For more information about enterprise owners, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 

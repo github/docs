@@ -1,6 +1,6 @@
 ---
 title: resolve queries
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve queries <options>... -- <query|dir|suite|pack>...
 ```
 
@@ -41,16 +41,18 @@ list of "well-known" query suite definitions found in available QL
 packs to the standard error stream, and successfully return an empty
 list of queries.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<querysuite|pack>...`
 
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:
 
-*   `scope/name` is the qualified name of a CodeQL pack.
-*   `range` is a semver range.
-*   `path` is a file system path.
+- `scope/name` is the qualified name of a CodeQL pack.
+- `range` is a semver range.
+- `path` is a file system path.
 
 If a `scope/name` is specified, the `range` and `path` are optional. A
 missing `range` implies the latest version of the specified pack. A
@@ -71,7 +73,7 @@ absolute. It is considered relative to the root of the CodeQL pack.
 
 Select output format. Choices include:
 
-`text` *(default)*: A line-oriented list of pathnames.
+`text` _(default)_: A line-oriented list of pathnames.
 
 `json`: A plain list of pathnames as strings.
 
@@ -117,8 +119,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

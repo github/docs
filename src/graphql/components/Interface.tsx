@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Link } from 'components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import type { ObjectT, InterfaceT } from './types'
 
 type Props = {
@@ -20,7 +20,7 @@ export function Interface({ item, objects }: Props) {
   const implementedBy = objects.filter(
     (object) =>
       object.implements &&
-      object.implements.some((implementsItem) => implementsItem.name === item.name)
+      object.implements.some((implementsItem) => implementsItem.name === item.name),
   )
 
   return (

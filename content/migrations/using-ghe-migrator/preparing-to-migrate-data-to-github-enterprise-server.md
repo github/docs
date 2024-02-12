@@ -26,39 +26,44 @@ shortTitle: Prepare to migrate data
 1. Using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy the migration archive generated from your source instance or organization to your {% data variables.product.prodname_ghe_server %} target:
 
     ```shell
-    $ scp -P 122 PATH-TO-MIGRATION-GUID.tar.gz admin@HOSTNAME:/home/admin/
+    scp -P 122 PATH-TO-MIGRATION-GUID.tar.gz admin@HOSTNAME:/home/admin/
     ```
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-3. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
+1. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
 
     ```shell
     ghe-migrator prepare /home/admin/MIGRATION-GUID.tar.gz
     ```
 
-    * To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
-    * {% data reusables.enterprise_migrations.specify-staging-path %}
+    - To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
+    - {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ## Generating a list of migration conflicts
 
-1. Using the `ghe-migrator conflicts` command with the Migration GUID, generate a *conflicts.csv* file:
+1. Using the `ghe-migrator conflicts` command with the Migration GUID, generate a _conflicts.csv_ file:
+
     ```shell
-    $ ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
+    ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
     ```
+
     - If no conflicts are reported, you can safely import the data by following the steps in "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
-2. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy *conflicts.csv* to your local computer:
+
+1. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy _conflicts.csv_ to your local computer:
+
    ```shell
-   $ scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
+   scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
    ```
-3. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
+
+1. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
 
 ## Reviewing migration conflicts
 
-1. Using a text editor or [CSV-compatible spreadsheet software](https://en.wikipedia.org/wiki/Comma-separated_values#Application_support), open *conflicts.csv*.
-2. With guidance from the examples and reference tables below, review the *conflicts.csv* file to ensure that the proper actions will be taken upon import.
+1. Using a text editor or [CSV-compatible spreadsheet software](https://en.wikipedia.org/wiki/Comma-separated_values#Application_support), open _conflicts.csv_.
+1. With guidance from the examples and reference tables below, review the _conflicts.csv_ file to ensure that the proper actions will be taken upon import.
 
-The *conflicts.csv* file contains a *migration map* of conflicts and recommended actions. A migration map lists out both what data is being migrated from the source, and how the data will be applied to the target.
+The _conflicts.csv_ file contains a _migration map_ of conflicts and recommended actions. A migration map lists out both what data is being migrated from the source, and how the data will be applied to the target.
 
 | `model_name`   | `source_url`   | `target_url` | `recommended_action` |
 |--------------|--------------|------------|--------------------|
@@ -67,7 +72,7 @@ The *conflicts.csv* file contains a *migration map* of conflicts and recommended
 | `repository`   | `https://example-gh.source/octo-org/widgets` | `https://example-gh.target/octo-org/widgets` | `rename` |
 | `team`         | `https://example-gh.source/orgs/octo-org/teams/admins` | `https://example-gh.target/orgs/octo-org/teams/admins` | `merge` |
 
-Each row in *conflicts.csv* provides the following information:
+Each row in _conflicts.csv_ provides the following information:
 
 |    Name      | Description   |
 |--------------|---------------|
@@ -83,17 +88,16 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `action`      | Description | Applicable models |
 |------------------------|-------------|-------------------|
 | `import`      | (default) Data from the source is imported to the target. | All record types
-| `map`         | Data from the source is replaced by existing data on the target. | Users, organizations
+| `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations
 | `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
 | `merge`       | Data from the source is combined with existing data on the target. | Teams
 
-**We strongly suggest you review the *conflicts.csv* file and use [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
-
+**We strongly suggest you review the _conflicts.csv_ file and use [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
 
 ## Resolving migration conflicts or setting up custom mappings
 
-If you believe that `ghe-migrator` will perform an incorrect change, you can make corrections by changing the data in *conflicts.csv*. You can make changes to any of the rows in *conflicts.csv*.
+If you believe that `ghe-migrator` will perform an incorrect change, you can make corrections by changing the data in _conflicts.csv_. You can make changes to any of the rows in _conflicts.csv_.
 
 For example, let's say you notice that the `octocat` user from the source is being mapped to `octocat` on the target.
 
@@ -101,7 +105,7 @@ For example, let's say you notice that the `octocat` user from the source is bei
 |--------------|--------------|------------|--------------------|
 | `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/octocat` | `map`
 
-You can choose to map the user to a different user on the target. Suppose you know that `octocat` should actually be `monalisa` on the target. You can change the `target_url` column in *conflicts.csv* to refer to `monalisa`.
+You can choose to map the user to a different user on the target. Suppose you know that `octocat` should actually be `monalisa` on the target. You can change the `target_url` column in _conflicts.csv_ to refer to `monalisa`.
 
 | `model_name`   | `source_url`   | `target_url` | `recommended_action` |
 |--------------|--------------|------------|--------------------|
@@ -122,7 +126,7 @@ Given a list of usernames from the source and a list of usernames on the target,
 You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) command:
 
 ```shell
-$ ghe-migrator audit -m user -g MIGRATION-GUID > users.csv
+ghe-migrator audit -m user -g MIGRATION-GUID > users.csv
 ```
 
 Now, you can edit that CSV and enter the new URL for each user you would like to map or rename, and then update the fourth column to have `map` or `rename` as appropriate.
@@ -137,16 +141,16 @@ The same process can be used to create mappings for each record that supports cu
 
 ### Applying modified migration data
 
-1. After making changes, use the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command to apply your modified *conflicts.csv* (or any other mapping *.csv* file in the correct format) to the target instance:
+1. After making changes, use the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command to apply your modified _conflicts.csv_ (or any other mapping _.csv_ file in the correct format) to the target instance:
 
     ```shell
-    $ scp -P 122 ~/Desktop/conflicts.csv admin@HOSTNAME:/home/admin/
+    scp -P 122 ~/Desktop/conflicts.csv admin@HOSTNAME:/home/admin/
     ```
 
-2. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified *.csv* file and the Migration GUID:
+1. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified _.csv_ file and the Migration GUID:
 
     ```shell
-    $ ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
+    ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
     ```
 
-3. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
+1. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.

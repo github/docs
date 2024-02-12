@@ -19,7 +19,7 @@ topics:
 {% ifversion ghes %}
 {% warning %}
 
-**Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.support_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
+**Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.landing_page_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
 
 {% endwarning %}
 {% endif %}
@@ -62,18 +62,18 @@ The maximum file size is:
 
 We support these files:
 
-* PNG (*.png*)
-* GIF (*.gif*)
-* JPEG (*.jpg*, *.jpeg*)
+- PNG (_.png_)
+- GIF (_.gif_)
+- JPEG (_.jpg_, _.jpeg_)
 {%- ifversion svg-support %}
-* SVG (*.svg*)
+- SVG (_.svg_)
 {%- endif %}
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*, *.tgz*){% ifversion fpt or ghec or ghes %}
-* Video (*.mp4*, *.mov*, *.webm*){% endif %}
+- Log files (_.log_)
+- Microsoft Word (_.docx_), Powerpoint (_.pptx_), and Excel (_.xlsx_) documents
+- Text files (_.txt_)
+- PDFs (_.pdf_)
+- ZIP (_.zip_, _.gz_, _.tgz_){% ifversion fpt or ghec or ghes %}
+- Video (_.mp4_, _.mov_, _.webm_){% endif %}
 
 {% ifversion fpt or ghec or ghes %}{% note %}
 

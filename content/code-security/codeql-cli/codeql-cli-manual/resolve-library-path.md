@@ -1,6 +1,6 @@
 ---
 title: resolve library-path
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve library-path (--query=<qlfile> | --dir=<dir> | --root-pack=<pkgname>) <options>...
 ```
 
@@ -46,7 +46,9 @@ query.
 **The command is deeply internal and its behavior or existence may
 change without much notice as the QL language ecosystem evolves.**
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--[no-]find-extractors`
 
@@ -59,7 +61,7 @@ on by default.
 
 Select output format. Choices include:
 
-`lines` *(default)*: Print command line arguments on one line each.
+`lines` _(default)_: Print command line arguments on one line each.
 
 `json`: Print a JSON object with all the data.
 
@@ -104,8 +106,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -185,7 +187,7 @@ The root directory of the pack containing queries to compile.
 resolution.
 
 This is used when the pack can be found by name somewhere in the search
-path. If you know the *disk location* of your desired root package,
+path. If you know the _disk location_ of your desired root package,
 pretend it contains a .ql file and use `--query` instead.
 
 ### Common options

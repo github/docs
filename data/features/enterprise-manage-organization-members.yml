@@ -2,5 +2,3 @@
 # Documentation for organization invitation enhancements
 versions:
   ghec: '*'
-  ghes: '>=3.9'
-  ghae: '>=3.9'

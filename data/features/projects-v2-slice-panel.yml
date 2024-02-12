@@ -1,0 +1,6 @@
+# Issue 10597
+# Slice panel for Projects
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

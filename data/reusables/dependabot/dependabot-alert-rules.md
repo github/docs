@@ -1,0 +1,1 @@
+Additionally, you can use {% data variables.product.prodname_dependabot %} alert rules to filter out false positive alerts or alerts you're not interested in, based on complex logic from a variety of contextual criteria. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alert-rules/about-dependabot-alert-rules)."

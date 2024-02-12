@@ -16,9 +16,9 @@ versions:
 ---
 Typically, you would use `git rebase` to:
 
-* Edit previous commit messages
-* Combine multiple commits into one
-* Delete or revert commits that are no longer necessary
+- Edit previous commit messages
+- Combine multiple commits into one
+- Delete or revert commits that are no longer necessary
 
 {% warning %}
 
@@ -31,7 +31,7 @@ Typically, you would use `git rebase` to:
 To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
 
 ```shell
-$ git rebase --interactive OTHER-BRANCH-NAME
+git rebase --interactive OTHER-BRANCH-NAME
 ```
 
 ## Rebasing commits against a point in time
@@ -39,7 +39,7 @@ $ git rebase --interactive OTHER-BRANCH-NAME
 To rebase the last few commits in your current branch, you can enter the following command in your shell:
 
 ```shell
-$ git rebase --interactive HEAD~7
+git rebase --interactive HEAD~7
 ```
 
 ## Commands available while rebasing
@@ -70,7 +70,7 @@ There are six commands available while rebasing:
 
 No matter which command you use, Git will launch [your default text editor](/get-started/getting-started-with-git/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
-```
+```text
 pick 1fc6c95 Patch A
 pick 6b2481b Patch B
 pick dd1475d something I want to split
@@ -98,7 +98,7 @@ Breaking this information, from top to bottom, we see that:
 
 - Seven commits are listed, which indicates that there were seven changes between our starting point and our current branch state.
 - The commits you chose to rebase are sorted in the order of the oldest changes (at the top) to the newest changes (at the bottom).
-- Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are *rebased* onto your repository.
+- Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are _rebased_ onto your repository.
 - After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
 - Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
 
@@ -108,4 +108,4 @@ Breaking this information, from top to bottom, we see that:
 - [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+- "[AUTOTITLE](/desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation

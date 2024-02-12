@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/configuring-issue-templates-for-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - Community
 shortTitle: Configure
@@ -39,7 +39,7 @@ shortTitle: Configure
 1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 1. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
-{% ifversion fpt or ghec %}
+{% ifversion issue-forms %}
 
 ## Creating issue forms
 
@@ -59,8 +59,8 @@ Here is the rendered version of the issue form.
 
 1. Choose a repository where you want to create an issue form. You can use an existing repository that you have write access to, or you can create a new repository. For more information about creating a repository, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 1. In your repository, create a file called `.github/ISSUE_TEMPLATE/FORM-NAME.yml`, replacing `FORM-NAME` with the name for your issue form. For more information about creating new files on GitHub, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
-3. In the body of the new file, type the contents of your issue form. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)."
-4. Commit your file to the default branch of your repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
+1. In the body of the new file, type the contents of your issue form. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)."
+1. Commit your file to the default branch of your repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
 
 {% endif %}
 
@@ -72,15 +72,15 @@ You can encourage contributors to use issue templates by setting `blank_issues_e
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your *config.yml* file, the template in `issue_template.md` will be used when people chose to open a blank issue. If you disable blank issues, the template will never be used.
+**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your _config.yml_ file, the template in `issue_template.md` will be used when people chose to open a blank issue. If you disable blank issues, the template will never be used.
 
 {% endnote %}
 
 If you prefer to receive certain reports outside of {% data variables.product.product_name %}, you can direct people to external sites with `contact_links`.
 
-Here is an example *config.yml* file.
+Here is an example _config.yml_ file.
 
-```yaml{:copy}
+```yaml copy
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}

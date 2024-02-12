@@ -25,11 +25,12 @@ Once you are a verified {% data variables.product.prodname_global_campus %} stud
 
 {% data variables.product.prodname_global_campus %} is a portal from which you can access your {% data variables.product.prodname_education %} benefits and resources, all in one place. On the {% data variables.product.prodname_global_campus %} portal, students can:
 - Connect with a local Campus Expert. For more information on campus experts, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-experts)."
+- Gain in-depth understanding of a feature, tool, or topic with curated experiences designed to support your learning journey.
 - Explore and claim offers for free industry tools from the [Student Developer Pack](https://education.github.com/pack).
 - See upcoming in-person and virtual events for students, curated by {% data variables.product.prodname_education %} and student leaders.
 - View assignments from [GitHub Classroom](https://classroom.github.com/) with upcoming due dates.
 - Stay in the know on what the community is interested in by rewatching recent [Campus TV](https://www.twitch.tv/githubeducation) episodes. Campus TV is created by {% data variables.product.prodname_dotcom %} and student community leaders and can be watched live or on demand.
-- Discover student-created repositories from GitHub Community Exchange. For more information, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)."
+- Discover student-created repositories from {% data variables.product.prodname_community_exchange %}. For more information, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange)."
 
 {% data variables.product.prodname_global_campus %} students also receive the following {% data variables.product.prodname_dotcom %} benefits.
 - **{% data variables.product.prodname_copilot %}**: Verified students receive a free subscription for {% data variables.product.prodname_copilot %}. You will be automatically notified about the free subscription when you visit the {% data variables.product.prodname_copilot %} subscription page in your account settings. For more information about subscribing to and using {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account#setting-up-a-trial-of-github-copilot)" and "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)."

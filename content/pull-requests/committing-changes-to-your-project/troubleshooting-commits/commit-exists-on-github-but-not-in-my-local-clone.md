@@ -27,16 +27,16 @@ However, when you view the commit on {% data variables.location.product_location
 
 There are several possible explanations:
 
-* The local repository is out of date.
-* The branch that contains the commit was deleted, so the commit is no longer referenced.
-* Someone force pushed over the commit.
+- The local repository is out of date.
+- The branch that contains the commit was deleted, so the commit is no longer referenced.
+- Someone force pushed over the commit.
 
 ## The local repository is out of date
 
 Your local repository may not have the commit yet. To get information from your remote repository to your local clone, use `git fetch`:
 
 ```shell
-$ git fetch REMOTE
+git fetch REMOTE
 ```
 
 This safely copies information from the remote repository to your local clone without making any changes to the files you have checked out.
@@ -75,7 +75,7 @@ $ git push upstream B:recover-B
 # Push local B to new upstream branch, creating new reference to commit
 ```
 
-Now, *you* can run:
+Now, _you_ can run:
 
 ```shell
 $ git fetch upstream recover-B

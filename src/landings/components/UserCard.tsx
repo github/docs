@@ -19,7 +19,7 @@ export const UserCard = ({ user, href }: Props) => {
         />
       </div>
       <div className="flex-auto">
-        <h4>{user.username}</h4>
+        <h3 className="wb-break-word">{user.username}</h3>
         <p className="mt-1 color-fg-muted">{user.description}</p>
       </div>
     </a>

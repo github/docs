@@ -6,7 +6,7 @@ import { defaultCacheControl } from '../../../middleware/cache-control.js'
 import { REST_DATA_DIR } from '../lib/index.js'
 
 const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
-  path.join(REST_DATA_DIR, 'client-side-rest-api-redirects.json')
+  path.join(REST_DATA_DIR, 'client-side-rest-api-redirects.json'),
 )
 
 const router = express.Router()

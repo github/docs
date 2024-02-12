@@ -57,7 +57,7 @@ export default function Category({
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('src/rest/lib/index.js')
   const nonEnterpriseDefaultVersion = (await import(
-    'lib/non-enterprise-default-version.js'
+    'src/versions/lib/non-enterprise-default-version.js'
   )) as unknown as string
 
   const req = context.req as any
@@ -114,7 +114,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     let fullSubcategoryTitle
 
     const pageTocItem = tocLandingContext.tocItems.find(
-      (tocItem) => tocItem.fullPath === fullSubcategoryPath
+      (tocItem) => tocItem.fullPath === fullSubcategoryPath,
     )
 
     if (pageTocItem) {
@@ -134,7 +134,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       subCatOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     miniTocItems.restOperationsMiniTocItems.forEach((operationMinitoc) => {
@@ -190,7 +190,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)

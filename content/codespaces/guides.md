@@ -15,6 +15,7 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-dotnet-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-java-project-for-codespaces
+  - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-php-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/setting-a-minimum-specification-for-codespace-machines
   - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file
   - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/automatically-opening-files-in-the-codespaces-for-a-repository
@@ -42,14 +43,14 @@ includeGuides:
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces
-  - /codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces
+  - /codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces
   - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
   - /codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces
-  - /codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization
+  - /codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization
-  - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
+  - /codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces
   - /codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period

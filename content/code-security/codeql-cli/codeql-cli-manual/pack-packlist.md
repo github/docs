@@ -1,6 +1,6 @@
 ---
 title: pack packlist
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack packlist <options>... -- <dir>
 ```
 
@@ -41,7 +41,9 @@ pack or in an ancestor directory.
 
 Available since `v2.6.0`.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dir>`
 
@@ -49,7 +51,7 @@ The root directory of the package.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Common options
 

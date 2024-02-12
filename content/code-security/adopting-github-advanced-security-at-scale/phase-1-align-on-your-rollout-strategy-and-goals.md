@@ -22,11 +22,11 @@ To build a foundation for the direction of your company's rollout, outline goals
 
 Here are some high-level examples of what your goals for rolling out GHAS might look like:
 
-- **Reducing the number of vulnerabilities**: This may be in general, or because your company was recently impacted by a significant vulnerability that you believe could have been prevented by a tool like GHAS.
-- **Identifying high-risk repositories**: Some companies simply want to target repositories that contain the most risk, enabling them to reduce risk by remediating vulnerabilities.
--  **Increasing remediation rates**: To prevent the accumulation of security debt, you may wish to drive developer adoption of findings and ensure these vulnerabilities are remediated in a timely manner.
-- **Meeting compliance requirements**: For example, many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
-- **Preventing secrets leakage**: Many companies want to prevent critical information from being leaked, such as software keys or financial data.
+- Reducing the number of vulnerabilities: This may be in general, or because your company was recently impacted by a significant vulnerability that you believe could have been prevented by a tool like GHAS.
+- Identifying high-risk repositories: Some companies simply want to target repositories that contain the most risk, enabling them to reduce risk by remediating vulnerabilities.
+- Increasing remediation rates: To prevent the accumulation of security debt, you may wish to drive developer adoption of findings and ensure these vulnerabilities are remediated in a timely manner.
+- Meeting compliance requirements: For example, many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
+- Preventing secrets leakage: Many companies want to prevent critical information from being leaked, such as software keys or financial data.
 
 ## Lead your rollout with both your security and development groups
 
@@ -35,7 +35,6 @@ Companies that involve both their security and development teams in their GHAS r
 GHAS takes a developer-centered approach to software security by integrating seamlessly into the developer workflow. Having key representation from your development group early in the process decreases the risk of your rollout and encourages organizational buy-in.
 
 Involving development groups earlier, ideally from the time of purchase, helps companies utilize GHAS to address security concerns earlier in the development process. When both groups work together, they achieve alignment early in the process, remove silos, build and strengthen their working relationships, and take more responsibility for the rollout.
-
 
 ## Learn about GHAS
 

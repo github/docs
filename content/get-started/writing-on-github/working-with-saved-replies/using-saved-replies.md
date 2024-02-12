@@ -13,11 +13,11 @@ versions:
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-2. Click the desired issue or pull request.
-3. To add a saved reply, above the comment field, select {% octicon "reply" aria-label="The mail reply" %}.
+1. Click the desired issue or pull request.
+1. To add a saved reply, above the comment field, select {% octicon "reply" aria-label="The mail reply" %}.
    ![Screenshot of a {% data variables.product.prodname_dotcom %} comment box. On the toolbar, a reply button with a left-facing curved arrow is outlined in dark orange.](/assets/images/help/writing/saved-replies-button.png)
-4. From the list, select the saved reply you'd like to add to your comment. Optionally, edit the content of the saved reply.  
-5. Select **Comment** to add your comment.
+1. From the list, select the saved reply you'd like to add to your comment. Optionally, edit the content of the saved reply.  
+1. Select **Comment** to add your comment.
 
 {% tip %}
 

@@ -14,7 +14,7 @@ topics:
   - Project management
 shortTitle: Add label to comment on issue
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -26,13 +26,13 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
 ## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-2. {% data reusables.actions.make-workflow-file %}
-3. Copy the following YAML contents into your workflow file.
+1. {% data reusables.actions.make-workflow-file %}
+1. Copy the following YAML contents into your workflow file.
 
-    ```yaml{:copy}
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+    ```yaml copy
+    {% data reusables.actions.actions-not-certified-by-github-comment %}
 
-{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+    {% data reusables.actions.actions-use-sha-pinning-comment %}
 
     name: Add comment
     on:
@@ -54,10 +54,10 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
                 This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
     ```
 
-4. Customize the parameters in your workflow file:
+1. Customize the parameters in your workflow file:
    - Replace `help-wanted` in `if: github.event.label.name == 'help-wanted'` with the label that you want to act on. If you want to act on more than one label, separate the conditions with `||`. For example, `if: github.event.label.name == 'bug' || github.event.label.name == 'fix me'` will comment whenever the `bug` or `fix me` labels are added to an issue.
    - Change the value for `body` to the comment that you want to add. GitHub flavored markdown is supported. For more information about markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
-5. {% data reusables.actions.commit-workflow %}
+1. {% data reusables.actions.commit-workflow %}
 
 ## Testing the workflow
 
@@ -66,9 +66,9 @@ Every time an issue in your repository is labeled, this workflow will run. If th
 Test your workflow by applying your specified label to an issue.
 
 1. Open an issue in your repository. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
-2. Label the issue with the specified label in your workflow file. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
-3. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
-4. When the workflow completes, the issue that you labeled should have a comment added.
+1. Label the issue with the specified label in your workflow file. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
+1. To see the workflow run triggered by labeling the issue, view the history of your workflow runs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+1. When the workflow completes, the issue that you labeled should have a comment added.
 
 ## Next steps
 

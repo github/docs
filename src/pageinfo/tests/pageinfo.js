@@ -2,7 +2,7 @@ import { beforeAll } from '@jest/globals'
 
 import { get } from '../../../tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
-import { latest } from '../../../lib/enterprise-server-releases.js'
+import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
 const makeURL = (pathname) => `/api/pageinfo/v1?${new URLSearchParams({ pathname })}`
 
@@ -13,13 +13,13 @@ describe('pageinfo api', () => {
     // alert in case it was accidentally forgotten.
     if (!process.env.ROOT) {
       console.warn(
-        'WARNING: The pageinfo tests require the ROOT environment variable to be set to the fixture root'
+        'WARNING: The pageinfo tests require the ROOT environment variable to be set to the fixture root',
       )
     }
     // Ditto for fixture-based translations to work
     if (!process.env.TRANSLATIONS_FIXTURE_ROOT) {
       console.warn(
-        'WARNING: The pageinfo tests require the TRANSLATIONS_FIXTURE_ROOT environment variable to be set'
+        'WARNING: The pageinfo tests require the TRANSLATIONS_FIXTURE_ROOT environment variable to be set',
       )
     }
   })
@@ -37,7 +37,7 @@ describe('pageinfo api', () => {
     expect(info.product).toBe('Get started')
     expect(info.title).toBe('Quickstart')
     expect(info.intro).toBe(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
     )
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()

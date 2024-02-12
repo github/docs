@@ -1,0 +1,1 @@
+Passkeys allow you to sign in securely to {% data variables.product.prodname_dotcom_the_website %}, without having to input your password. If you use two-factor authentication (2FA), passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. You can also use passkeys for sudo mode and resetting your password.

@@ -1,6 +1,6 @@
 ---
 title: bqrs decode
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql bqrs decode [--output=<file>] [--result-set=<name>] [--sort-key=<col>[,<col>...]] <options>... -- <file>
 ```
 
@@ -35,7 +35,9 @@ Convert result data from BQRS into other forms.
 The decoded output will be written to standard output, unless the
 `--output` option is specified.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file>`
 
@@ -71,7 +73,7 @@ for all columns.
 
 Select output format. Choices include:
 
-`text` *(default)*: A human-readable plain text table.
+`text` _(default)_: A human-readable plain text table.
 
 `csv`: Comma-separated values.
 

@@ -31,7 +31,7 @@ You can optimize recovery time by configuring a `devcontainer.json` in the proje
 
 ## Option 2: Wait for recovery
 
-In this case, no action on your part is required. Know that we are working diligently to restore service availability. 
+In this case, no action on your part is required. Know that we are working diligently to restore service availability.
 
 You can check the current service status on the [Status Dashboard](https://www.githubstatus.com/).
 

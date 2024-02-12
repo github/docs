@@ -5,7 +5,7 @@ import { mkdirp } from 'mkdirp'
 import yaml from 'js-yaml'
 import { execSync } from 'child_process'
 import { getContents, listMatchingRefs } from '../../../script/helpers/git-utils.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import processPreviews from './utils/process-previews.js'
 import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
@@ -14,7 +14,7 @@ import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
 const dataFilenames = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './src/graphql/scripts/utils/data-filenames.json'))
+  await fs.readFile(path.join(process.cwd(), './src/graphql/scripts/utils/data-filenames.json')),
 )
 
 // check for required PAT
@@ -41,7 +41,7 @@ async function main() {
     const previewsJson = processPreviews(safeForPublicPreviews)
     await updateStaticFile(
       previewsJson,
-      path.join(graphqlStaticDir, graphqlVersion, 'previews.json')
+      path.join(graphqlStaticDir, graphqlVersion, 'previews.json'),
     )
 
     // 2. UPDATE UPCOMING CHANGES
@@ -52,7 +52,7 @@ async function main() {
     const upcomingChangesJson = await processUpcomingChanges(safeForPublicChanges)
     await updateStaticFile(
       upcomingChangesJson,
-      path.join(graphqlStaticDir, graphqlVersion, 'upcoming-changes.json')
+      path.join(graphqlStaticDir, graphqlVersion, 'upcoming-changes.json'),
     )
 
     // 3. UPDATE SCHEMAS
@@ -64,7 +64,7 @@ async function main() {
     const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews)
     await updateStaticFile(
       schemaJsonPerVersion,
-      path.join(graphqlStaticDir, graphqlVersion, 'schema.json')
+      path.join(graphqlStaticDir, graphqlVersion, 'schema.json'),
     )
 
     // 4. UPDATE CHANGELOG
@@ -75,12 +75,12 @@ async function main() {
         latestSchema,
         safeForPublicPreviews,
         previousUpcomingChanges.upcoming_changes,
-        yaml.load(safeForPublicChanges).upcoming_changes
+        yaml.load(safeForPublicChanges).upcoming_changes,
       )
       if (changelogEntry) {
         prependDatedEntry(
           changelogEntry,
-          path.join(graphqlStaticDir, graphqlVersion, 'changelog.json')
+          path.join(graphqlStaticDir, graphqlVersion, 'changelog.json'),
         )
       }
     }

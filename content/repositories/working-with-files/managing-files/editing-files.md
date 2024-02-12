@@ -35,7 +35,7 @@ shortTitle: Edit files
 
 1. In your repository, browse to the file you want to edit.
 {% data reusables.repositories.edit-file %}
-3. In the text box, make any changes you need to the file.
+1. In the text box, make any changes you need to the file.
 {% data reusables.files.preview_change %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

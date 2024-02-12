@@ -4,6 +4,4 @@
    1. You can click **More options {% octicon "chevron-down" aria-label="down" %}** to provide other surrounding content or additional match requirements for the secret format.
    1. Provide a sample test string to make sure your configuration is matching the patterns you expect.
 
-   {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
    ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form.](/assets/images/help/repository/secret-scanning-create-custom-pattern.png)
-   {% endif %}

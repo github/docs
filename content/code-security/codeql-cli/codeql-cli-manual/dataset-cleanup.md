@@ -1,6 +1,6 @@
 ---
 title: dataset cleanup
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql dataset cleanup [--mode=<mode>] <options>... -- <dataset>
 ```
 
@@ -35,7 +35,9 @@ codeql dataset cleanup [--mode=<mode>] <options>... -- <dataset>
 This should not be used for datasets still under construction, as it
 will make it impossible to import further data into the dataset.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dataset>`
 
@@ -75,7 +77,7 @@ Select how aggressively to trim the cache. Choices include:
 `brutal`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` *(default)*: Trim everything except explicitly "cached"
+`normal` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
 `light`: Simply make sure the defined size limits for the disk cache are

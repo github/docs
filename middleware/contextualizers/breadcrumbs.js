@@ -39,7 +39,7 @@ function getBreadcrumbs(req, isEarlyAccess) {
 
   const breadcrumbs = traverseTreeTitles(
     req.context.currentPath,
-    req.context.currentProductTreeTitles
+    req.context.currentProductTreeTitles,
   )
   ;[...Array(cutoff)].forEach(() => breadcrumbs.shift())
 

@@ -141,7 +141,7 @@ export async function getPathsWithMatchingStrings(
   strArr,
   org,
   repo,
-  { cache = true, forceDownload = false } = {}
+  { cache = true, forceDownload = false } = {},
 ) {
   const perPage = 100
   const paths = new Set()
@@ -229,7 +229,7 @@ async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTi
       console.warn(
         `Got secondary rate limit blocked. Sleeping for ${
           sleepTime / 1000
-        } seconds. (attempts left: ${maxAttempts})`
+        } seconds. (attempts left: ${maxAttempts})`,
       )
       return new Promise((resolve) => {
         setTimeout(() => {

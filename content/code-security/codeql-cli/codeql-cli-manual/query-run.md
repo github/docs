@@ -1,6 +1,6 @@
 ---
 title: query run
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql query run (--database=<database> | --dataset=<dataset>) [--output=<file.bqrs>] [--threads=<num>] [--ram=<MB>] <options>... -- <file.ql>
 ```
 
@@ -47,7 +47,9 @@ source-code alerts, you may find [codeql database analyze](/code-security/codeql
 
 To run multiple queries in parallel, see [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries).
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<file.ql>`
 
@@ -99,7 +101,7 @@ If no timeout is specified, or is given as 0, no timeout will be set
 Use this many threads to evaluate queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `--[no-]save-cache`
@@ -148,7 +150,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate *\<pred>*.
+A CSV file that contains rows for external predicate _\<pred>_.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
@@ -158,17 +160,17 @@ evaluation using xterm control sequences. Possible values are:
 
 `no`: Never produce fancy progress; assume a dumb terminal.
 
-`auto` *(default)*: Autodetect whether the command is running in an
+`auto` _(default)_: Autodetect whether the command is running in an
 appropriate terminal.
 
 `yes`: Assume the terminal can understand xterm control sequences. The
-feature still depends on being able to autodetect the *size* of the
+feature still depends on being able to autodetect the _size_ of the
 terminal, and will also be disabled if `-q` is given.
 
 `25x80` (or similar): Like `yes`, and also explicitly give the size of
 the terminal.
 
-`25x80:/dev/pts/17` (or similar): show fancy progress on a *different*
+`25x80:/dev/pts/17` (or similar): show fancy progress on a _different_
 terminal than stderr. Mostly useful for internal testing.
 
 ### Options for controlling outputting of structured evaluator logs
@@ -203,7 +205,7 @@ How to handle warnings from the QL compiler. One of:
 
 `hide`: Suppress warnings.
 
-`show` *(default)*: Print warnings but continue with compilation.
+`show` _(default)_: Print warnings but continue with compilation.
 
 `error`: Treat warnings as errors.
 
@@ -285,8 +287,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

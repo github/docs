@@ -35,7 +35,7 @@ body:
       label: Tasks
       description: Please be sure to complete each of the following.
       options:
-        - label: MUST follow our [general contributing guidelines](CONTRIBUTING.md) for voice and markup format.
+        - label: MUST follow our [general contributing guidelines](https://docs.github.com/en/contributing) for voice and markup format.
           required: true
         - label: MUST emphasize how the third-party product works with GitHub.
           required: true
@@ -64,4 +64,4 @@ body:
     attributes:
       value: |
         Once all tasks are completed, please mention `@github/docs-content` for next steps.
-        /cc @github/partner-engineering for :eyes:.
+        /cc @github/technology-partnerships-and-engineering for :eyes:.

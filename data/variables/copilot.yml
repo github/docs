@@ -1,0 +1,10 @@
+# Variables used in the Copilot docs that are not product names
+
+# Copilot billing: price per month for Copilot for Individuals
+cfi_price_per_month: '$10 USD'
+
+# Copilot billing: price per year for Copilot for Individuals
+cfi_price_per_year: '$100 USD'
+
+# Copilot billing: price per month for Copilot for Business
+cfb_price_per_month: '$19 USD'

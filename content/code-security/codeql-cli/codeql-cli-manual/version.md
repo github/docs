@@ -1,6 +1,6 @@
 ---
 title: version
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql version <options>...
 ```
 
@@ -32,11 +32,13 @@ codeql version <options>...
 
 Show the version of the CodeQL toolchain.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `--format=<fmt>`
 
-Select output format. Choices include `text` *(default)* ,`terse`, and
+Select output format. Choices include `text` _(default)_ ,`terse`, and
 `json`.
 
 ### Common options

@@ -6,7 +6,7 @@ import { useMainContext } from 'components/context/MainContext'
 
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
 import { GuideCard } from 'src/landings/components/GuideCard'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 export const GuideCards = () => {
   const router = useRouter()

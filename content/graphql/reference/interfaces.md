@@ -24,5 +24,4 @@ For more information, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#i
 
 {% data reusables.projects.graphql-ghes %}
 
-
 <!-- Content after this section is automatically generated -->

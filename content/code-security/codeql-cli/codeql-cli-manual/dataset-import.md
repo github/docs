@@ -1,6 +1,6 @@
 ---
 title: dataset import
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql dataset import --dbscheme=<file> [--threads=<num>] <options>... -- <dataset> <trap>...
 ```
 
@@ -34,10 +34,12 @@ codeql dataset import --dbscheme=<file> [--threads=<num>] <options>... -- <datas
 
 Create a dataset by populating it with TRAP files, or add data from TRAP
 files to an existing dataset. Updating a dataset is only possible if it
-has the correct dbscheme *and* its ID pool has been preserved from the
+has the correct dbscheme _and_ its ID pool has been preserved from the
 initial import.
 
-## Primary options
+## Options
+
+### Primary Options
 
 #### `<dataset>`
 
@@ -60,7 +62,7 @@ want to import.
 Use this many threads for the import operation.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `--[no-]check-undefined-labels`

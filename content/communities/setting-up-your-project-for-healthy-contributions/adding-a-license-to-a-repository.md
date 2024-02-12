@@ -24,7 +24,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 {% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-1. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
+1. In the file name field, type _LICENSE_ or _LICENSE.md_ (with all caps).
 1. Under the file name, click **Choose a license template**.
 
    ![Screenshot of the new file form, with "LICENSE" entered in the file name field. A button, labeled "Choose a license template," is outlined in dark orange.](/assets/images/help/repository/license-tool.png)
@@ -42,11 +42,11 @@ Open source licenses enable others to freely use, change, and distribute the pro
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
-4. On the **Edit new file** tab, paste the full text of the license you want to use.
+1. In the file name field, type _LICENSE_ or _LICENSE.md_ (with all caps).
+1. On the **Edit new file** tab, paste the full text of the license you want to use.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
-7. Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)".
+1. Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)".
 ![Screenshot of a {% data variables.product.prodname_dotcom %} pull request showing a radio button to commit directly to the main branch or to create a new branch. New branch is selected.](/assets/images/help/repository/choose-commit-branch.png)
 {% data reusables.files.propose_file_change %}
 

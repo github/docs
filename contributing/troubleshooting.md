@@ -1,16 +1,16 @@
 # Troubleshooting <!-- omit in toc -->
 
-- [Troubleshooting server tests that fail locally but pass in CI](#troublshooting-server-tests-that-fail-locally-but-pass-in-ci)
-- [Troubleshooting stalled deployments and CI](#troubleshooting-stalled-deployments-and-ci)
+- [Troubleshooting](#troubleshooting)
+  - [Troubleshooting server tests that fail locally but pass in CI](#troubleshooting-server-tests-that-fail-locally-but-pass-in-ci)
   - [Staging deployment stalled](#staging-deployment-stalled)
   - [CI stalled or stuck](#ci-stalled-or-stuck)
-- [Troubleshooting failed deployments and CI](#troubleshooting-failed-deployments-and-ci)
   - [Can't run the site locally](#cant-run-the-site-locally)
   - [Failed staging deployment](#failed-staging-deployment)
   - [500 error on specific page on staging](#500-error-on-specific-page-on-staging)
 - [Check internal links](#check-internal-links)
 - [Check external links](#check-external-links)
 - [Debugging locally](#debugging-locally)
+- [Liquid processing](#liquid-processing)
 
 ## Troubleshooting
 
@@ -36,8 +36,6 @@ $ git commit --allow-empty -m 'empty commit to redeploy staging'
 ```
 $ git commit --allow-empty -m 'empty commit to rerun CI'
 ```
-
-## Troubleshooting failed deployments and CI
 
 ### Can't run the site locally
 If you are running `script/server` and get a `Cannot find module` error, try:

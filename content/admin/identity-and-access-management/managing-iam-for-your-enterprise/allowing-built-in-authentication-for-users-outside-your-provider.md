@@ -37,9 +37,9 @@ If you configure built-in authentication and a person successfully authenticates
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-4. Under "Authentication", select your authentication method.
-5. Select **Allow creation of accounts with built-in authentication**.
-6. Read the warning, then click **Ok**.
+1. Under "Authentication", select your authentication method.
+1. Select **Allow creation of accounts with built-in authentication**.
+1. Read the warning, then click **Ok**.
 
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
