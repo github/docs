@@ -4,7 +4,6 @@ intro: Testing to cross the version boundary with hardcoded cross-version links
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

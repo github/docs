@@ -4,7 +4,6 @@ intro: Demonstrates the HTML that becomes of a `note` Liquid tag
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

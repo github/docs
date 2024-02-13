@@ -4,7 +4,6 @@ intro: 'Gentle and fun intro about APIs'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

@@ -4,7 +4,6 @@ intro: 'Follow this Hello World exercise to get started with {% data variables.p
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: quick_start
 topics:
