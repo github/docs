@@ -174,7 +174,7 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 
 {% note %}
 
-**Note:** This endpoint is rate limited. See [Rate limits](/rest/rate-limit) to learn how to get your current rate limit status.
+**Note:** This endpoint is rate limited. See [Rate limits](/rest/rate-limit/rate-limit) to learn how to get your current rate limit status.
 
 {% endnote %}
 
