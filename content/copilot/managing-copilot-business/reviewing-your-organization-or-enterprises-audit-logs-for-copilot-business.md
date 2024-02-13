@@ -35,7 +35,7 @@ Audit logs for {% data variables.product.prodname_copilot_business_short %} can 
 
 ## Searching audit log events for {% data variables.product.prodname_copilot_business_short %}
 
-You can search for any of the {% data variables.product.prodname_copilot %} audit log events using the `action` qualifier, and the `copilot` category. For example, searching `action:copilot.cfb_seat_assignment_created` will show you events related to a {% data variables.product.prodname_copilot_business_short %} seat being assigned to a new user.
+Audit logs for {% data variables.product.prodname_copilot_business_short You can search for any of the {% data variables.product.prodname_copilot %} audit log events using the `action` qualifier and the `copilot` category. For example, searching `action:copilot.cfb_seat_assignment_created` will show you events related to a {% data variables.product.prodname_copilot_business_short %} seat being assigned to a new user.
 
 Alternatively, you can review all of the {% data variables.product.prodname_copilot %} audit log events for your organization{% ifversion ghec %} or enterprise{% endif %} by searching for `action:copilot`.
 
