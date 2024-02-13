@@ -50,7 +50,6 @@ export default async function syncSearchIndexes({
     for (const pageVersion of versionsToBuild) {
       // if GHES, resolves to the release number like 2.21, 2.22, etc.
       // if FPT, resolves to 'dotcom'
-      // if GHAE, resolves to 'ghae'
       const indexVersion =
         allVersions[pageVersion].plan === 'enterprise-server'
           ? allVersions[pageVersion].currentRelease

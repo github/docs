@@ -4,7 +4,6 @@ intro: Learn how to traverse data sets using cursor based pagination with the Gr
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

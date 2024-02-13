@@ -5,7 +5,6 @@ permissions: '{% data reusables.enterprise-accounts.emu-permission-gist %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
