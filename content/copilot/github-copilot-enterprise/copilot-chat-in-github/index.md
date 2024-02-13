@@ -7,4 +7,5 @@ versions:
 children:
   - /about-github-copilot-chat
   - /using-github-copilot-chat-in-githubcom
+  - /managing-copilot-knowledge-bases
 ---
