@@ -49,7 +49,7 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
           {title}
         </h1>
         {intro && (
-          <Lead data-testid="lead" data-search="lead" className="markdown-body">
+          <Lead data-testid="lead" data-search="lead">
             {intro}
           </Lead>
         )}
