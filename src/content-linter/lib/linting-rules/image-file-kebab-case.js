@@ -15,8 +15,8 @@ export const imageFileKebabCase = {
         addFixErrorDetail(
           onError,
           token.lineNumber,
-          imageFileName,
           suggestedFileName,
+          imageFileName,
           [token.line.indexOf(imageFileName) + 1, imageFileName.length],
           null, // Todo add fix
         )
