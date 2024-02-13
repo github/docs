@@ -4,7 +4,6 @@ intro: A simple page that has 1 asset image
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

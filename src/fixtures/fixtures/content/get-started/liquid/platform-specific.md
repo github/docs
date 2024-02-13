@@ -4,7 +4,6 @@ intro: Demonstrates the HTML that becomes of a `mac`, `windows`, and `linux` Liq
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 defaultPlatform: windows

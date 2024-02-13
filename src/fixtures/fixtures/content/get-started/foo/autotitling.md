@@ -4,7 +4,6 @@ intro: Internal links that use AUTOTITLE should just work
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---
