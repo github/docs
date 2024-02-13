@@ -86,7 +86,7 @@
       background: none;
     }
 
-    td.has-nested-table {
+    :global(td.has-nested-table) {
       width: 100%;
 
       table {
