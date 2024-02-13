@@ -45,11 +45,13 @@ Private registry support applies to git registries, and doesn't include cargo re
 
 #### Dev containers
 
-You can use `devcontainers` as a `package-ecosystem` in your `dependabot.yml` file to update Features in your `devcontainer.json` configuration files. Dev containers are used in several tools and services, including {% data variables.product.prodname_codespaces %}. For more information about Features and the supported services, see [Features](https://containers.dev/implementors/features/) and [Supporting tools and services](https://containers.dev/supporting) in the Dev Containers' documentation, respectively.
+You can use `devcontainers` as a `package-ecosystem` in your `dependabot.yml` file to update Features in your `devcontainer.json` configuration files. For more information about this support, and for configuration file examples, see [General Availability of {% data variables.product.prodname_dependabot %} Integration](https://containers.dev/guide/dependabot) in the Development Containers documentation.
+
+Dev containers are used in several tools and services, including {% data variables.product.prodname_codespaces %}. For more information about Features and the supported services, see [Features](https://containers.dev/implementors/features/) and [Supporting tools and services](https://containers.dev/supporting) in the Development Containers documentation, respectively.
 
 This updater ensures Features are pinned to the latest `major` version in the associated `devcontainer.json` file.  If a dev container has a lockfile, that file will also be updated. For more information about lockfile specifications, see [Lockfiles](https://github.com/devcontainers/spec/blob/main/docs/specs/devcontainer-lockfile.md) in the `devcontainers/spec` repository.
 
-Features in any valid dev container location will be updated in a single pull request. For more information about the dev container specification, see [Specification](https://containers.dev/implementors/spec/#devcontainerjson) in the Dev Containers' documentation.
+Features in any valid dev container location will be updated in a single pull request. For more information about the dev container specification, see [Specification](https://containers.dev/implementors/spec/#devcontainerjson) in the Development Containers documentation.
 
 {% endif %}
 
