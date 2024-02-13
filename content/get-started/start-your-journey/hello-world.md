@@ -1,164 +1,122 @@
 ---
-title: Hello World
-intro: 'Follow this Hello World exercise to learn {% data variables.product.product_name %}''s pull request workflow.'
+title: Hello~World
+intro: Follow the Hello World exercise to learn about pull request workflows.
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: SFPT
+  ghes:  GHESC
+  ghec: GHECS
 type: quick_start
 topics:
   - Pull requests
   - Fundamentals
 redirect_from:
-  - /get-started/quickstart/hello-world
+  - /get-started/quickstart/hello~world
 ---
 
 ## Introduction
 
-This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
+This tutorial teaches you "variables, and standard naming conventions" essentials like repositories, branches, commits, and pull requests. You will be able to create your own Hello World repository and learn {% data variables.product.product_name %} pull request workflow, a popular way to create and review code.
 
-In this quickstart guide, you will:
+In the following quickstart guide, you can:
 
-- Create and use a repository.
-- Start and manage a new branch.
-- Make changes to a file and push them to {% data variables.product.product_name %} as commits.
-- Open and merge a pull request.
+●.  Create and use a repository.
+●. Start and manage a branch name and repository.
+●. Make changes to a file and push them to "variables, and standard naming conventions" as commits.
+●. Open and merge a pull request.
 
 ### Prerequisites
 
-- You must have a {% data variables.product.prodname_dotcom %} account. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
+○. You must have "variables, and standard naming conventions" account. See "IPv4-IPv6:ftp/sftp" or ghec. For more information, see "AUTO-TITLE", get-started/start-your-journey/creating-an-account-on-github).
 
-- You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on).
+○. You would not need to know how to code, use the command line, or install GitLense and the control software that "variables, and standard naming conventions" are built on".
 
-## Step 1: Create a repository
+## Step One: Create a repository
 
-The first thing we'll do is create a repository. You can think of a repository as a folder that contains related items, such as files, images, videos, or even other folders. A repository usually groups together items that belong to the same "project" or thing you're working on.
+The first thing we can accomplish, create a repository. You can think of a repository as a folder that contains related items, such as files, images, videos, or even other folders. A "repository" should "group together" items that belong to the same "project" or "folder/file" that you are working on.
 
-Often, repositories include a README file, a file with information about your project. README files are written in Markdown, which is an easy-to-read, easy-to-write language for formatting plain text. We'll learn more about Markdown in the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/setting-up-your-profile)."
+Often, repositories include a README file, usually a file that has information about your project. "README" files are written using Markdown, which can be easy-to-read, and easy-to-write languages to format into plain text. We will learn more about Markdown during the next tutorial, "AUTO-TITLE/get-started/start-your-journey/setting-up-your-profile".
 
-{% data variables.product.product_name %} lets you add a README file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
+"variables, and standard naming conventions" let you add a "README" file at the same time you create your repository. "variables, and standard naming conventions" also offers other common options such as a license file, but you would not have to select any of them now.
 
-Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
+Your "hello-world" repository can be a place where you store ideas, resources, or even share and discuss topics within a team, group, or one on one.
 
-{% data reusables.repositories.create_new %}
-1. In the "Repository name" box, type `hello-world`.
-{% data reusables.repositories.add-description %} For example, type "This repository is for practising the {% data variables.product.prodname_dotcom %} Flow."
-{% data reusables.repositories.select-public-or-private %}
-{% data reusables.repositories.add-readme %}
-{% data reusables.repositories.click-create %}
+"reusable repositories creates a fresh repository"
+~■~ In the "Repository name" box, type "hello world".
+Then navigate to "reusable repositories and add a description". For example, type "This repository is for practicing the variables, products, and product naming conventions Flow".
+~■~ With reusable repositories you can select "public or private options".
+~■~ You should consider adding to the reusable repositories README file.
+~■~ All reusable repositories have a click "create" button after you have finished editing.
 
-## Step 2: Create a branch
+## Next Step: Create a branch,
 
 Branching lets you have different versions of a repository at one time.
 
-By default, your repository has one branch named `main` that is considered to be the definitive branch. You can create additional branches off of `main` in your repository.
+Automatically, your repository has one branch named "main" that defines the top level of your branch. You can create additional branches off of "main" to your repository.
 
-Branching is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. You can use branches to experiment and make edits before committing them to `main`.
+Branching helps when you want to add features to a project without changing the main source of the code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later. You can use branches to experiment and make edits before committing them to "main". However, after you commit to the "main" branch, that will make changes throughout the whole process.
 
-When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
+When you create a branch off the "main" branch, you are l making a copy, or snapshot, of "main" as it was at that point during creation. If someone other than you made changes to the "main" branch whilst you were working on your branch, you could pull those updates as well.
 
 This diagram shows:
 
-- The `main` branch
-- A new branch called `feature`
-- The journey that `feature` takes before it's merged into `main`
+~■~ The "main" branch
+~■~ A featured branch called "feature"
+~■~ The journey that "feature" takes before it merges into "main" diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages called "Commit changes", "Submit pull requests", and "Discuss proposed changes", and then merges back to "main/assets/images/help/repository/branching.png".
 
-![Diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes," and is then merged back into main.](/assets/images/help/repository/branching.png)
+~■~ Creating a branch:
 
-### Creating a branch
+□ First, click the "Code" tab of your "hello-world" repository.
+  
+□ Second, Above the file list, click the dropdown menu that says "main version global-nav-update". A screenshot of the repository page can be found at the dropdown menu labeled by a branch icon and "main",  highlights by an orange outline located here "main/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png". Otherwise, you can screenshot the repository page at the dropdown menu labeled by a "branch icon" and "main", highlights by an orange outline at the following path: "main/assets/images/help/branches/branch-selection-dropdown.png".
 
-1. Click the **Code** tab of your `hello-world` repository.
-1. Above the file list, click the dropdown menu that says **main**.
+□ Third, Type a branch name called "readme edits", into the text box. Then click "Create branch", and "readme edits" from "main". Take a screenshot of the branch dropdown repository. "Create branch", and "readme edits " from "main'" are outlined by dark orange. /assets/images/help/repository/"your branch name"-branch.png. Now you have two branches, "main" and "readme-edits". Right now, they look exactly the same. Next you can add changes to the branch you created, the "readme-edits" branch.
 
-{% ifversion global-nav-update %}
+~■~ Next Step, Make and commit changes:
 
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
+When you created your branch during the previous step, it added data variables to "your project" and "your project name" brought you to the code page at your projects "readme edits" branch, which allows a copy of "main". You can make and save changes to the files at your repository on data variables, project files, and project names. Saved changes are called commits. Each commit has an associated commit message, which describes why a particular change was made. Commit messages capture the history of your changes so that other contributors understand what you did and why.
 
-{% else %}
+~●~ Under the "readme-edits" branch you created, click the "README.md" file.
+~●~ To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
+~●~ In the editor, write a bit about yourself then click "Commit changes".
+~●~ In the "Commit changes" box, write a commit message that describes your changes then click "Commit changes". These changes will be made only to the "README" file on your "readme edits" branch, so now the branch contains content different from the "main" branch.
 
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
+~■~ Next Step, open a pull request:
 
-{% endif %}
+Now that you have changed a branch off of "main", you can open a pull request. Pull requests are the heart of collaboration on variables, and standard naming conventions. When you open a pull request, you are proposing your changes and requesting that someone review and pull your contributions to the branch you pulled, and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown by different colors.
 
-1. Type a branch name, `readme-edits`, into the text box.
-1. Click **Create branch: readme-edits from main**.
+As soon as you make a commit, you can open a pull request and start a discussion, even before the code finishes. In these steps, you can open a pull request within your own repository and then merge it yourself. A great way to practice the variables and standard naming conventions flow before working on larger projects.
 
-   ![Screenshot of the branch dropdown for a repository. "Create branch: readme-edits from 'main'" is outlined in dark orange.](/assets/images/help/repository/new-branch.png)
+~○~ Click the "Pull requests" tab of your "hello-world" repository.
+~○~ Click "New pull request"
+~○~ In the "Example Comparisons" box, select the branch you made called "readme edits", to compare to "main". Look over your changes within the diffs on the "compare page" and make sure they are what you want to submit.
 
-Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new `readme-edits` branch.
+Screenshot the diff and add it to the README.md file. Three red lines list the text currently being removed, and three green lines list the text being added at the file location "main/assets/images/help/repository/diffs.png".
 
-## Step 3: Make and commit changes
+~○~ Next: Click "Create pull request" and give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs. Then click "Create pull request".
 
-When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
+~■~ Next Steps, Reviewing a pull request:
 
-You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
+When you start collaborating within a team makes a great time to ask about their reviews. This allows your collaborators to comment on, or propose changes to, your pull requests before you merge the changes into the "main" branch. We will not cover reviewing pull requests presently. However, showing interest by learning more, you can check the following materials at "main/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews". Alternatively the "https://skills.github.com/reviewing-pull-requests" course provides more details.
 
-1. Under the `readme-edits` branch you created, click the `README.md` file.
-1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
-1. In the editor, write a bit about yourself.
-{% ifversion code-search-code-view %}1. Click **Commit changes...**.{% endif %}
-1. In the "Commit changes" box, write a commit message that describes your changes.
-1. Click **Commit changes**.
+~■~ Final Steps, merge your pull request:
 
-These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
+In the last steps, you will merge your "readme edits" branch into the "main" branch.  After you merge your pull request, the changes on your "readme edits" branch will be incorporated into "main". Sometimes, a pull request may introduce changes to code that conflict to the existing code on "main." If there are any conflicts, "data-variables.product.product_name" will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments within the pull request to discuss the conflicts to your team members. In the last walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
 
-## Step 4: Open a pull request
+~■~ At the bottom of the pull request, click "Merge pull request" to merge the changes into "main".
+~■~ Then click "Confirm merge". You will receive a message that the request was successfully merged and the request was closed.
+~■~ Then click "Delete branch". Now that your pull request has merged and your changes are on "main", you can safely remove the "readme edits" branch. If you want to make more changes to your project, you can always create another branch and repeat the process.
+~■~ Click back to the "Code" tab of your "hello-world" repository to see your published changes on "main."
 
-Now that you have changes in a branch off of `main`, you can open a pull request.
+~■~ Conclusion:
 
-Pull requests are the heart of collaboration on {% data variables.product.product_name %}. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
+By completing the tutorial, you have learned how to create a project and make a pull request on "data variables.product.product_name".
 
-As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
+As part of that, we have learned how to:
 
-In this step, you'll open a pull request in your own repository and then merge it yourself. It's a great way to practise the {% data variables.product.product_name %} flow before working on larger projects.
-
-1. Click the **Pull requests** tab of your `hello-world` repository.
-1. Click **New pull request**
-1. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
-1. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
-
-   ![Screenshot of a diff for the README.md file. 3 red lines list the text that's being removed, and 3 green lines list the text being added.](/assets/images/help/repository/diffs.png)
-
-1. Click **Create pull request**.
-1. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
-1. Click **Create pull request**.
-
-### Reviewing a pull request
-
-When you start collaborating with others, this is the time you'd ask for their review. This allows your collaborators to comment on, or propose changes to, your pull request before you merge the changes into the `main` branch.
-
-We won't cover reviewing pull requests in this tutorial, but if you're interested in learning more, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." Alternatively, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Reviewing pull requests" course.
-
-## Step 5: Merge your pull request
-
-In this final step, you will merge your `readme-edits` branch into the `main` branch.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
-
-Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
-
-In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
-
-1. At the bottom of the pull request, click **Merge pull request** to merge the changes into `main`.
-1. Click **Confirm merge**. You will receive a message that the request was successfully merged and the request was closed.
-1. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
-1. Click back to the **Code** tab of your `hello-world` repository to see your published changes on `main`.
-
-## Conclusion
-
-By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
-
-As part of that, we've learned how to:
-
-- Create a repository.
-- Start and manage a new branch.
-- Change a file and commit those changes to {% data variables.product.product_name %}.
-- Open and merge a pull request.
-
-## Next steps
-
-- Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
-- If you want to practice the skills you've learned in this tutorial again, try the [{% data variables.product.prodname_learning %}](https://skills.github.com/) "Introduction to {% data variables.product.prodname_dotcom %}" course.
-- In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/setting-up-your-profile)," you'll learn how to personalize your profile and you'll also learn some basic Markdown syntax for writing on {% data variables.product.product_name %}.
-
-## Further reading
-
-- "[AUTOTITLE](/get-started/using-github/github-flow)"
+~●~ Create a repository.
+~●~ Start and manage a fresh branch.
+~●~ Change a file and commit those changes to "data variables.product.product_name".
+~●~ Open and merge a pull request.
+~●~ Take a look at your "data variables.product.product_name" profile and you will see your work reflected on your contribution graph. 
+~●~ If you want to practice the skills you have learned during the tutorial again, check the "data variables.product.prodname_learning" at "https://skills.github.com/Introduction-to-data-variables/product/prodname_dotcom" course.
+~●~ In the next tutorial, "get-started/start-your-journey/setting-up-your-profile" you can learn how to personalize your profile and you can also learn some basic Markdown syntax by writing on "data variables.product.product_name". Further reading at "/get-started/using-github/github-flow".
