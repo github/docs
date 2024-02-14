@@ -10,7 +10,6 @@ import { updateContentDirectory } from '../lib/update-markdown.js'
 
 const versions = {
   fpt: '*',
-  ghae: '*',
   ghec: '*',
   ghes: '*',
 }
