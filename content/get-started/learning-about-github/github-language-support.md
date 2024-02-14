@@ -44,7 +44,7 @@ Some features are supported for additional languages or package managers. If you
 {% note %}
 
 **Notes:**
-- The support of Gradle for the dependency graph and {% data variables.product.prodname_dependabot_alerts %} is limited to the upload of data obtained using the dependency submission API.
+- The support of Gradle for the dependency graph and {% data variables.product.prodname_dependabot_alerts %} is limited to the upload of data obtained using the {% data variables.dependency-submission-api.name %}.
 - PHP and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
 
 {% endnote %}
