@@ -27,7 +27,7 @@ Linux
 16 GB
 </td>
 <td>
-150 GB
+14 GB
 </td>
 <td>
 <code>ubuntu-latest</code>, <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
@@ -46,7 +46,7 @@ Windows
 <td>16 GB
 </td>
 <td>
-150 GB
+14 GB
 </td>
 <td>
 <code>windows-latest</code>, <code>windows-2022</code>, <code>windows-2019</code>

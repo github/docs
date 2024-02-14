@@ -4,7 +4,6 @@ intro: 'When rendered, links are rewriting to perfection for viewing'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: quick_start
 ---

@@ -49,10 +49,7 @@ const plans = [
     openApiBaseName: 'ghes-',
     miscBaseName: 'ghes-',
   },
-  // github-ae is gone, but we need to keep it in the array
-  // for the validation of front matter when it checks the `versions`
-  // keys.
-  // All requests for github-ae@latest will be redirected in getRedirect().
+
   {
     plan: 'github-ae',
     planTitle: 'GitHub AE',

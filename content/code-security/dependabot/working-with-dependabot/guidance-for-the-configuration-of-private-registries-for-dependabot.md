@@ -25,16 +25,20 @@ This article contains recommendations and advice to help you configure {% data v
 - Extra configuration options, wherever appropriate (for example, npm has a configuration file that needs to be set).
 - Advice about configuring registry hosts.
 
-You'll find detailed guidance for the setup of the following package managers and registry hosts:
+You'll find detailed guidance for the setup of the following package managers:
 
 - [Bundler](#bundler)
 - [Docker](#docker)
 - [Gradle](#gradle)
 - [Maven](#maven)
 - [npm](#npm)
-- [Nuget](#nuget)
+- [Nuget](#nuget){% ifversion dependabot-updates-pub-private-registry %}
+- [pub](#pub){% endif %}
 - [Python](#python)
 - [Yarn](#yarn)
+
+You'll also find recommendations for the setup of the following registry hosts:
+
 - [Artifactory](#artifactory)
 - [Azure Artifacts](#azure-artifacts)
 - [{% data variables.product.prodname_registry %} registry](#data-variablesproductprodname_registry--registry)
@@ -350,6 +354,41 @@ registries:
 
 {% endraw %}
 
+{% ifversion dependabot-updates-pub-private-registry %}
+
+### pub
+
+You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#pub-repository)."
+
+{% raw %}
+
+```yaml
+registries:
+  my-pub-registry:
+    type: pub-repository
+    url: https://example-private-pub-repo.dev/optional-path
+    token: ${{secrets.MY_PUB_TOKEN}}
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - my-pub-registry
+```
+
+{% endraw %}
+
+#### Notes
+
+{% data reusables.dependabot.access-private-dependencies-link %}
+
+pub supports URL and token authentication. The URL used for the registry should match the pub-hosted URL. For more information, see [Hosted Pub Repository Specification Version 2](https://github.com/dart-lang/pub/blob/master/doc/repository-spec-v2.md#hosted-url) in the `github/dart-lang/pub` repository.
+
+{% data variables.product.prodname_dependabot %} doesn't support overrides to the default package registry. For more information about overrides and why some users may implement them, see [Overriding the default package repository](https://dart.dev/tools/pub/custom-package-repositories#default-override) in the Dart documentation.
+
+{% endif %}
+
 ### Python
 
 Supported by Artifactory, Azure Artifacts, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
@@ -397,7 +436,7 @@ registries:
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-'url' should contain the URL, organization, and the "feed" or repository.
+`url` should contain the URL, organization, and the "feed" or repository.
 
 ### Yarn
 
