@@ -12,6 +12,7 @@ topics:
   - Copilot
 type: rai
 redirect_from:
+  - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat
   - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
 ---
 
