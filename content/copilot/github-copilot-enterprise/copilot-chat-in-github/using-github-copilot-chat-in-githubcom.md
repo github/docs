@@ -119,9 +119,9 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
 1. Start a conversation with Copilot, either picking a repository or selecting "General coding chat".
 
-1. Click the "Attach knowledge" button button to view a list of the knowledge bases that you have access to.
+1. Click the "Attach knowledge" button to view a list of the knowledge bases that you have access to.
 
-   ![Screenshot showing the 'Attach knowledge' button.](/assets/images/help/copilot/attach-knowledge.png)
+   ![Screenshot showing the "Ask Copilot" box. The "Attach knowledge" button is highlighted with an orange outline. ](/assets/images/help/copilot/attach-knowledge.png)
 
 1. Click the knowledge base that you want to use as context.
 
@@ -129,7 +129,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
    You can search for a knowledge base if you don't see one you want to use.
 
-   ![Screenshot showing the 'Attach knowledge' popover with a list of knowledge bases.](/assets/images/help/copilot/attach-knowledge-popover.png)
+   ![Screenshot showing the "Attach knowledge" popover with a list of knowledge bases.](/assets/images/help/copilot/attach-knowledge-popover.png)
 
 1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
@@ -139,7 +139,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
    - What's the process for creating a new REST API?
    - What are our best practices for logging?
 
-1. The response typically contains numbered references to files that {% data variables.product.prodname_copilot_short %} used to generate the answer, from the knowledge base you selected. To list the sources that were used, click the "references" link.
+1. The response will typically contain numbered references to files that {% data variables.product.prodname_copilot_short %} uses to generate the answer, from the knowledge base you selected. To list the sources that were used, click the "references" link.
 
    ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
 

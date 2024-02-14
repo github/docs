@@ -19,15 +19,15 @@ When you ask a question in {% data variables.product.prodname_copilot_chat_dotco
 
 ## Creating a knowledge base
 
-You can create a knowledge based on a single repository or a selection of repositories. You can create a knowledge base using public, private, and/or internal repositories.
+You can create a knowledge base from a single repository or a selection of repositories. You can create a knowledge base using public, private, and/or internal repositories.
 
-A knowledge base you create will be accessible by all organization members with a {% data variables.product.prodname_copilot_enterprise %} subscription. When an organization member uses a knowledge base as context in {% data variables.product.prodname_copilot_chat_dotcom_short %}, the response will only use data from repositories that the organization member has read access to.
+Knowledge bases you create will be accessible by all organization members with a {% data variables.product.prodname_copilot_enterprise %} subscription. When an organization member uses a knowledge base as context in {% data variables.product.prodname_copilot_chat_dotcom_short %}, the response will only use data from repositories that the organization member has read access to.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Customize**.
-1. In the box under **Knowledge**, click **Add knowledge base**.
+1. To the right of "Knowledge", click **Add knowledge base**.
 1. In the "Name" field, enter a unique name for the knowledge base. Optionally, in the "Description" field, you can add a description for the knowledge base.
 
     ![Screenshot of the "Add knowledge base" page.](/assets/images/help/copilot/copilot-create-knowledge-base-page.png)
@@ -58,8 +58,8 @@ Organization owners can delete a knowledge base created in their organization.
 {% data reusables.profile.org_settings %}
 
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Customize**.
-1. On the right hand side of the knowledge basde you want to edit, click {% octicon "pencil" aria-label="The pencil symbol" %}.
-1. Make changes to your knowledge base.
+1. To the right of the knowledge base you want to edit, click {% octicon "pencil" aria-label="The pencil symbol" %}.
+1. Make your desired changes to your knowledge base.
 1. Click **Update knowledge base**.
 
 ## Deleting a knowledge base
@@ -70,5 +70,5 @@ Organization owners can delete a knowledge base created in their organization.
 {% data reusables.profile.org_settings %}
 
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Customize**.
-1. On the right-hand side of the knowledge base you want to delete, click {% octicon "trash" aria-label="The trash symbol" %}.
-1. Review the information in the "Confirm deletion" dialog box, and click **Delete**.
+1. To the right of the knowledge base you want to delete, click {% octicon "trash" aria-label="The trash symbol" %}.
+1. In the "Confirm deletion" dialog box, review the information and click **Delete**.
