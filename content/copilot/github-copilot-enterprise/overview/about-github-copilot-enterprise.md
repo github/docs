@@ -14,7 +14,7 @@ topics:
 
 If {% data variables.product.prodname_copilot_enterprise_short %} is enabled for an enterprise, members get access to the following {% data variables.product.prodname_copilot_short %} features on {% data variables.product.prodname_dotcom_the_website %}.
 
-- {% data variables.product.prodname_copilot_chat_short %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat)")
+- {% data variables.product.prodname_copilot_chat_short %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)")
 - {% data variables.product.prodname_copilot_for_prs %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)")
 - {% data variables.product.prodname_copilot_for_docs %} (see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management)")
 
