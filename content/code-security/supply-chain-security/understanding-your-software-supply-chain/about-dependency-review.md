@@ -85,7 +85,7 @@ The best practices you should take will depend on whether you use {% data variab
 
 If you use {% data variables.product.prodname_actions %} to access the {% data variables.dependency-submission-api.name %} or the dependency review API:
    - Make sure you run all of your dependency submission actions in the same {% data variables.product.prodname_actions %} workflow as your {% data variables.dependency-review.action_name %}. This will give you control over the order of execution, and it will ensure that dependency review will always work.
-   - If you do choose to run the {% data variables.dependency-review.action_name %} separately, for instance, as a required workflow, you should:
+   - If you do choose to run the {% data variables.dependency-review.action_name %} separately, you should:
      - Set `retry-on-snapshot-warnings` to `true`.
      - Set `retry-on-snapshot-warnings-timeout` to slightly exceed the typical run time (in seconds) of your longest-running dependency submission action.
 
