@@ -12,9 +12,9 @@ Please note that using links in this way:
 
 ```markdown
 [this
-is a perfectly good relative link](link/relative.md)
+is a perfectly good relative link](folder/relative.md)
 ```
 
-might prevent the link to be converted to `relative/html`. Please keep the text link in a single line.
+might prevent the link to be converted to `folder/relative.html`. Please keep the text link in a single line.
 
 Relative links are easier for users who clone your repository. Absolute links may not work in clones of your repository - we recommend using relative links to refer to other files within your repository.
