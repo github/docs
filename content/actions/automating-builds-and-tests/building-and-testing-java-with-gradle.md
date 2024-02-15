@@ -84,7 +84,6 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
 {% data reusables.actions.gradle-workflow-steps %}
 1. The "Build with Gradle" step executes the `build` task using the [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
 
-
 1. Edit the workflow as required. For example, change the Java version.
 
    {% indented_data_reference reusables.actions.third-party-actions spaces=3 %}
