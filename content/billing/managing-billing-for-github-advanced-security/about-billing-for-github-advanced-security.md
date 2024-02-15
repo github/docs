@@ -128,4 +128,8 @@ When you decide which repositories and organizations to prioritize for {% data v
 
 When you have enabled {% data variables.product.prodname_GH_advanced_security %} for these organizations or repositories, assess which other codebases you could add without incurring billing for unique {% ifversion ghas-billing-UI-update %}active {% endif %}committers. Finally, review the remaining important and busy codebases. {% ifversion fpt or ghes or ghec %}If you want to increase the number of {% ifversion ghas-billing-UI-update %}licensed active committers, {% else %}seats in your license, {% endif %}contact {% data variables.contact.contact_enterprise_sales %}.{% endif %}
 
+{% ifversion ghas-in-license-sync %}
+If your enterprise uses {% data variables.product.prodname_GH_advanced_security %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users aren't consuming multiple licenses unnecessarily by synchronizing license usage between environments.{% ifversion ghec %} {% data variables.product.prodname_GH_advanced_security %} is included in license sync in {% data variables.product.prodname_ghe_server %} version 3.12 and later.{% endif %} For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
+{% endif %}
+
 {% endif %}
