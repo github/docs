@@ -113,10 +113,11 @@ async function main() {
   }
   const derefFiles = await readdir(TEMP_OPENAPI_DIR)
   const { restSchemas, webhookSchemas } = await getOpenApiSchemaFiles(derefFiles)
+  const progAccessSource = sourceRepo === 'github' && GITHUB_REP_DIR
 
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
-    await syncRestData(TEMP_OPENAPI_DIR, restSchemas)
+    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, progAccessSource)
   }
 
   if (pipelines.includes('webhooks')) {
@@ -126,11 +127,7 @@ async function main() {
 
   if (pipelines.includes('github-apps')) {
     console.log(`\n▶️  Generating GitHub Apps data files...\n`)
-    await syncGitHubAppsData(
-      TEMP_OPENAPI_DIR,
-      restSchemas,
-      sourceRepo === 'github' && GITHUB_REP_DIR,
-    )
+    await syncGitHubAppsData(TEMP_OPENAPI_DIR, restSchemas, progAccessSource)
   }
 
   if (pipelines.includes('rest-redirects')) {
