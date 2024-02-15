@@ -148,12 +148,6 @@ If a site administrator has blocked force pushes to the default branch only, you
 
 ## Require workflows to pass before merging
 
-{% note %}
-
-**Note:** This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
-
-{% endnote %}
-
 You can require all changes made to a targeted branch to pass specified workflows before they can be merged. This rule can only be configured at the organization level.
 
 To use this rule, you must first create a workflow file. The workflow file needs to be in a repository that matches the visibility of the repositories you want to run it in. Specifically, a public workflow can run on any repository in your organization, an internal workflow can only run on internal and private repositories, and a private workflow can only run on private repositories. For more information, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."

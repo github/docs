@@ -104,6 +104,15 @@ async function main() {
   if (sourceRepo === REST_API_DESCRIPTION_ROOT) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
     const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
+
+    // This automation uses the all-versions.js file as the source of truth
+    // for deprecated and supported versions and releases. The all-versions.js
+    // file still includes the GHAE version, which is effectively deprecated.
+    // We need to manually remove it from the list of current versions.
+    // Delete these two line when GHAE is removed from all-versions.js.
+    const indexToRemove = currentOpenApiVersions.findIndex((openApiName) => openApiName === 'ghae')
+    currentOpenApiVersions.splice(indexToRemove, 1)
+
     derefDir.forEach((schema) => {
       // if the schema does not start with a current version name, delete it
       if (!currentOpenApiVersions.find((version) => schema.startsWith(version))) {
@@ -113,10 +122,11 @@ async function main() {
   }
   const derefFiles = await readdir(TEMP_OPENAPI_DIR)
   const { restSchemas, webhookSchemas } = await getOpenApiSchemaFiles(derefFiles)
+  const progAccessSource = sourceRepo === 'github' && GITHUB_REP_DIR
 
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
-    await syncRestData(TEMP_OPENAPI_DIR, restSchemas)
+    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, progAccessSource)
   }
 
   if (pipelines.includes('webhooks')) {
@@ -126,11 +136,7 @@ async function main() {
 
   if (pipelines.includes('github-apps')) {
     console.log(`\n▶️  Generating GitHub Apps data files...\n`)
-    await syncGitHubAppsData(
-      TEMP_OPENAPI_DIR,
-      restSchemas,
-      sourceRepo === 'github' && GITHUB_REP_DIR,
-    )
+    await syncGitHubAppsData(TEMP_OPENAPI_DIR, restSchemas, progAccessSource)
   }
 
   if (pipelines.includes('rest-redirects')) {

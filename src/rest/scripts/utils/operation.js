@@ -49,7 +49,7 @@ export default class Operation {
     return this
   }
 
-  async process() {
+  async process(progAccessData) {
     await Promise.all([
       this.codeExamples(),
       this.renderDescription(),
@@ -57,6 +57,7 @@ export default class Operation {
       this.renderParameterDescriptions(),
       this.renderBodyParameterDescriptions(),
       this.renderPreviewNotes(),
+      this.programmaticAccess(progAccessData),
     ])
 
     const { isValid, errors } = validateJson(operationSchema, this)
@@ -185,5 +186,9 @@ export default class Operation {
       console.error(error)
       throw new Error(`Error rendering preview notes for ${this.verb} ${this.requestPath}`)
     }
+  }
+
+  programmaticAccess(progAccessData) {
+    this.progAccess = progAccessData[this.#operation.operationId]
   }
 }

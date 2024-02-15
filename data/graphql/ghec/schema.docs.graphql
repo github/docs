@@ -16002,6 +16002,11 @@ enum FundingPlatform {
   PATREON
 
   """
+  Polar funding platform.
+  """
+  POLAR
+
+  """
   Tidelift funding platform.
   """
   TIDELIFT
