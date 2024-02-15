@@ -5,7 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Use the REST API to check your current rate limit status.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

@@ -2,7 +2,6 @@
 title: Organizations
 intro: Use the REST API to create organizations on your enterprise.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  ghae: '*'
   ghes: '*'
 topics:
   - API
