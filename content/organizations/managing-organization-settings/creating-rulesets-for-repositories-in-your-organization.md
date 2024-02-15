@@ -73,12 +73,6 @@ To target all repositories in your organization, in the "Target repositories" se
 
 ### Targeting repositories by properties in your organization
 
-{% note %}
-
-**Note:** Repository properties are in public beta and subject to change.
-
-{% endnote %}
-
 You can target repositories in your organization by custom properties. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
 
 1. To target a dynamic list of repositories in your organization by properties, in the "Target repositories" section, select {% octicon "goal" aria-hidden="true" %} **Target: REPOSITORIES**, then click **Dynamic list by property**.
