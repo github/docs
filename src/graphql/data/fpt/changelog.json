@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value <code>POLAR</code> was added to enum <code>FundingPlatform</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2024-02-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>PullRequest</code></p>",
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>PullRequestReview</code></p>",
           "<p>Field <code>fullDatabaseId</code> was added to object type <code>PullRequestReviewComment</code></p>"

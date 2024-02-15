@@ -25,7 +25,7 @@
     - CreateDeploymentInput
     - CreateDeploymentPayload
   owning_teams:
-    - '@github/c2c-actions-service'
+    - '@github/pages'
 - title: >-
     MergeInfoPreview - More detailed information about a pull request's merge
     state.
