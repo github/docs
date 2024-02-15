@@ -29,6 +29,7 @@ Platform | Syntax
 [Open Collective](https://opencollective.com/) | `open_collective: USERNAME`
 [Patreon](https://www.patreon.com/) | `patreon: USERNAME`
 [Tidelift](https://tidelift.com/) | `tidelift: PLATFORM-NAME/PACKAGE-NAME`
+[Polar](https://www.polar.sh/) | `polar: USERNAME`
 Custom URL | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`
 
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names.

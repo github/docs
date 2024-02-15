@@ -12,6 +12,16 @@ export interface Operation {
   subcategory: string
   enabledForGitHubApps: boolean
   codeExamples: Array<CodeSample>
+  progAccess: ProgAccessT
+}
+
+export interface ProgAccessT {
+  userToServerRest?: boolean
+  serverToServer?: boolean
+  fineGrainedPat?: boolean
+  permissions: Array<Object>
+  allowPermissionlessAccess?: boolean
+  allowsPublicRead?: boolean
 }
 
 export interface Parameter {
