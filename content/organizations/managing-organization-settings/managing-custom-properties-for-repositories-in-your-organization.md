@@ -9,17 +9,13 @@ topics:
 shortTitle: Custom properties
 ---
 
-{% note %}
-
-**Note:** Repository properties are in public beta and subject to change.
-
-{% endnote %}
-
 ## About custom properties
 
 Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties are private and can only be viewed by people with read permissions to the repository.
 
+{% ifversion ghec or ghes  %}
 You can use repository properties to determine which repositories to target with a ruleset. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#targeting-repositories-by-properties-in-your-organization)."
+{% endif %}
 
 ## Allowed characters
 
@@ -31,6 +27,8 @@ Custom property names and values may only contain certain characters:
 ## Adding custom properties
 
 You can add custom properties to your organization and set values for those properties for repositories in your organization.
+
+You can also use the REST API to create and manage custom properties for an organization. For more information, see "[AUTOTITLE](/rest/orgs/custom-properties)."
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -61,6 +59,8 @@ You can set values for custom properties for repositories in your organization.
 ## Viewing values for repositories in your organization
 
 People with read permissions to a repository can view the values of custom properties for that repository, but they can't edit those values.
+
+You can also use the REST API to list the custom properties assigned to a repository by your organization. For more information, see "[AUTOTITLE](/rest/repos/custom-properties)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
