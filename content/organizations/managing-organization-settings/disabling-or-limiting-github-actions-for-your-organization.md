@@ -101,7 +101,7 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion required-workflows %}
+{% ifversion required-workflows-deprecation %}
 
 ## Adding a required workflow to an organization
 

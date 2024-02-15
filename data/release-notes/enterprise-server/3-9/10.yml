@@ -24,7 +24,7 @@ sections:
       - |
         **HIGH:** An attacker with an editor role in the Management Console could gain admin SSH access to the appliance by command injection into nomad templates when configuring audit log forwarding. GitHub has requested CVE ID [CVE-2024-1374](https://www.cve.org/cverecord?id=CVE-2024-1374) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
       - |
-        **HIGH:** An attacker could create new branches in public repositories, and run workflows in target repositories with read and write permission for GITHUB_TOKEN. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+       **HIGH:** An attacker could create new branches in public repositories, and run arbitrary GitHub Actions workflows with permissions from the GITHUB_TOKEN. GitHub has requested CVE ID [CVE-2024-1482](https://www.cve.org/cverecord?id=CVE-2024-1482) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
       - |
         **MEDIUM:** An attacker could make changes to a user account by taking advantage of a Cross-site Scripting vulnerability in the tag name pattern field in the tag protections UI. Exploitation of this vulnerability required user interaction with malicious javascript on a website along with further social engineering. GitHub has requested CVE ID [CVE-2024-1084](https://www.cve.org/cverecord?id=CVE-2024-1084) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
       - |
