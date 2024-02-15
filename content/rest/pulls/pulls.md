@@ -3,7 +3,6 @@ title: Pulls
 intro: Use the REST API to interact with pull requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

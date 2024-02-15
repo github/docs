@@ -3,7 +3,6 @@ title: Commit statuses
 intro: Use the REST API to interact with commit statuses.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
