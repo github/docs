@@ -637,6 +637,12 @@
       "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/cancel"
     },
     {
+      "slug": "force-cancel-a-workflow-run",
+      "subcategory": "workflow-runs",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel"
+    },
+    {
       "slug": "list-jobs-for-a-workflow-run",
       "subcategory": "workflow-jobs",
       "verb": "get",
@@ -2799,6 +2805,18 @@
       "requestPath": "/orgs/{org}/rulesets"
     },
     {
+      "slug": "list-organization-rule-suites",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/rule-suites"
+    },
+    {
+      "slug": "get-an-organization-rule-suite",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/rule-suites/{rule_suite_id}"
+    },
+    {
       "slug": "get-an-organization-repository-ruleset",
       "subcategory": "rules",
       "verb": "get",
@@ -3034,7 +3052,7 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
     }
   ],
   "projects": [
@@ -3565,7 +3583,7 @@
       "requestPath": "/repos/{owner}/{repo}/activity"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"
@@ -3743,6 +3761,18 @@
       "subcategory": "rules",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/rulesets"
+    },
+    {
+      "slug": "list-repository-rule-suites",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites"
+    },
+    {
+      "slug": "get-a-repository-rule-suite",
+      "subcategory": "rule-suites",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}"
     },
     {
       "slug": "get-a-repository-ruleset",
