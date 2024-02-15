@@ -16,7 +16,7 @@ const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
   (elem) => allVersions[elem].openApiVersionName,
 )
 
-export async function syncRestData(sourceDirectory, restSchemas, progAccessSource = false) {
+export async function syncRestData(sourceDirectory, restSchemas, progAccessSource) {
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
