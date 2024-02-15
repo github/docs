@@ -1,5 +1,5 @@
 ---
-title: Working with the npm registry
+title: Working with the npm registry systems
 intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
@@ -231,7 +231,7 @@ If your instance has subdomain isolation enabled:
 ```
 
 {% ifversion ghes %}
-If your instance has subdomain isolation disabled:
+If your instance's subdomain isolation is disabled:
 
 ```shell
 @NAMESPACE:registry=https://HOSTNAME/_registry/npm
