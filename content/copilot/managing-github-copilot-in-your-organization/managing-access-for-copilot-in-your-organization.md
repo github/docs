@@ -1,10 +1,11 @@
 ---
-title: Managing access for Copilot Business in your organization
-intro: 'Learn how to manage access to {% data variables.product.prodname_copilot_for_business %} in your organization, and review usage data to inform your decisions.'
-permissions: Organization owners can configure access to {% data variables.product.prodname_copilot_for_business %} for their organization.
+title: Managing access for Copilot in your organization
+intro: 'Learn how to manage access to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} and{% endif %} {% data variables.product.prodname_copilot_business_short %} in your organization, and review usage data to inform your decisions.'
+permissions: '{% ifversion ghec %} Enterprise owners can administer access to {% data variables.product.prodname_copilot %} for organizations within the enterprise.{% endif %} Organization owners can configure access to {% data variables.product.prodname_copilot %} for members of their organization. Organization owners can also access usage data relating to {% data variables.product.prodname_copilot %} in their organization and use that data to make informed decisions about seat assignment.'
 versions:
   feature: copilot
 redirect_from:
+  - /copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization
   - /copilot/managing-copilot-for-business/managing-access-for-copilot-for-business-in-your-organization
   - /copilot/managing-copilot-business/managing-access-for-copilot-business-in-your-organization
 topics:
@@ -12,15 +13,19 @@ topics:
 shortTitle: Managing access
 ---
 
-## About managing access to {% data variables.product.prodname_copilot_for_business %} in your organization
+## About managing access to {% data variables.product.prodname_copilot %} in your organization
 
-{% data variables.product.prodname_copilot_for_business %} is a {% data variables.product.prodname_copilot %} subscription, billed and administered at the organization {% ifversion ghec %}or enterprise {% endif %}level.{% ifversion ghec %} Enterprise owners can administer access for organizations within the enterprise.{% endif %} Organization owners can administer access for teams and individuals within the organization. Organization owners can also access usage data relating to {% data variables.product.prodname_copilot_for_business %} in their organization and use that data to make informed decisions about seat assignment.
+{% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise %} and {% endif %}{% data variables.product.prodname_copilot_for_business %} {% ifversion ghec %}are{% else %}is a{% endif %} {% data variables.product.prodname_copilot %} subscription{% ifversion ghec %}s{% endif %}, billed and administered at the organization {% ifversion ghec %}or enterprise {% endif %}level. {% ifversion ghec %}
 
-Organization{% ifversion ghec %} and enterprise{% endif %} owners can also manage policies for {% data variables.product.prodname_copilot_for_business %}. For more information{% ifversion ghec %} about managing policies at the organization level{% endif %}, see "[AUTOTITLE](/copilot/managing-copilot-business/managing-policies-for-copilot-business-in-your-organization)."{% ifversion ghec %} For more information about managing policies at the enterprise level, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)" {% endif %}
+Enterprise owners can enable or disable {% data variables.product.prodname_copilot %} for organizations within their enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-business-in-your-enterprise)." TODOCS: CHECK THIS LINKS TO THE SUBSECTION - THE NAME & LINK MAY CHANGE
+
+{% endif %}Organization owners can administer access to {% data variables.product.prodname_copilot_short %} for teams and individuals within the organization. Organization owners can also access usage data relating to {% data variables.product.prodname_copilot %} in their organization, and use that data to make informed decisions about seat assignment.
+
+Organization{% ifversion ghec %} and enterprise{% endif %} owners can manage various policies for {% data variables.product.prodname_copilot_short %}, such as whether to allow or block suggestions that match public code. For more information{% ifversion ghec %} about managing policies at the organization level{% endif %}, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-policies-and-features-for-copilot-in-your-organization)."{% ifversion ghec %} For more information about managing policies at the enterprise level, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise)" {% endif %}
 
 ## Configuring access to {% data variables.product.prodname_copilot %} in your organization
 
-{% ifversion ghec %}Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization. {% else %}Once you have set up your {% data variables.product.prodname_copilot_business_short %} subscription, you can manage your organization members' access to {% data variables.product.prodname_copilot %}.{% endif %} Granting access to {% data variables.product.prodname_copilot %} requires a seat for each organization member you want to include.
+{% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner has enabled a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription for an organization, an owner of that organization can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in the organization.{% else %}After setting up a {% data variables.product.prodname_copilot_business_short %} subscription, an organization owner can manage their organization members' access to {% data variables.product.prodname_copilot %}.{% endif %} Granting access to {% data variables.product.prodname_copilot %} requires a seat for each organization member you want to include.
 
 ### Enabling access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 
@@ -86,16 +91,20 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 1. To remove the member from the list of users who have access to {% data variables.product.prodname_copilot %}, select the checkbox to the left of their username, then click **Cancel seat**.
 1. In the "Confirm seat removal" dialog, click **Remove seats**.
 
-## Reviewing usage data for {% data variables.product.prodname_copilot_for_business %} in your organization
+## Reviewing usage data for {% data variables.product.prodname_copilot %} in your organization
 
-You can review usage data for {% data variables.product.prodname_copilot_for_business %} in your organization to help you make informed decisions about seat assignment.
+You can review usage data for {% data variables.product.prodname_copilot %} in your organization to help you make informed decisions about seat assignment.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% data variables.product.prodname_copilot_business_short %} subscription, and the estimated monthly cost.
+1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} subscription, and the estimated monthly cost.
 
-    ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview.png)
+   {% ifversion ghec %}
+   ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview-enterprise.png)
+   {% else %}
+   ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview.png)
+   {% endif %}
 
 1. For more detailed information, next to "Access for users and teams," click **Get report**.
     - {% data variables.product.prodname_dotcom %} will generate a report for you, which you can download as a CSV file.
