@@ -5,7 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Use the REST API to get information about codes of conduct.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
