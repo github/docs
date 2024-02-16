@@ -655,7 +655,7 @@ Examples:
 
 Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses). Product names are never possessive.
 
-Use product name variables to render product names - do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the data directory of the [`github/docs`](https://github.com/github/docs) repository.
+Use product name variables to render product names - do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the [data directory](https://github.com/github/docs/tree/main/data) of the [`github/docs`](https://github.com/github/docs) repository.
 
 Product names are always singular.
 - **Use:** {% data variables.product.prodname_actions %} helps you automate your software development workflows.
