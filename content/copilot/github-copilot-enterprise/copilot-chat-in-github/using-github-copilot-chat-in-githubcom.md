@@ -2,7 +2,6 @@
 title: Using GitHub Copilot Chat in GitHub.com
 shortTitle: Using Chat in GitHub.com
 intro: 'You can use {% data variables.product.prodname_copilot_chat_short %} to answer general questions about software development, or specific questions about the code in a repository.'
-product: '{% data reusables.gated-features.copilot-chat-in-github %}'
 versions:
   feature: 'copilot-on-dotcom'
 topics:
@@ -24,10 +23,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 
 ### Limitations
 
-The following limitations apply to this beta release of {% data variables.product.prodname_copilot_chat_dotcom %}:
-
-- {% data reusables.copilot.chat-limited-docset-availability %}
-- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository.
+- Chat responses may be suboptimal if you ask questions about a specific repository that you've selected as a context, and the repository has not been indexed for semantic code search. Anyone who gets access to {% data variables.product.prodname_copilot_short %} from the organization that owns a repository can index that repository. For more information, see "[Asking a question with a specific context](#asking-a-question-with-a-specific-context)."
 - The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ## Prerequisites
@@ -41,11 +37,11 @@ You can ask a general question about software development that is not focused on
 
 {% data reusables.copilot.go-to-copilot-page %}
 
-1. On the "Chat with {% data variables.product.prodname_copilot_short %}" page, click **General coding chat**.
+1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is displayed in the panel, click **General purpose chat**.
 
-   ![Screenshot of the main {% data variables.product.prodname_copilot_short %} page with 'General coding chat' highlighted.](/assets/images/help/copilot/general-coding-chat.png)
+   ![Screenshot of the "Ask {% data variables.product.prodname_copilot_short %}" panel page with "General purpose chat" highlighted with a dark orange outline.](/assets/images/help/copilot/chat-general-purpose-button.png)
 
-1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. At the bottom of the panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    Some examples of general questions you could ask are:
    - What are the advantages of the Go programming language?
@@ -62,16 +58,33 @@ You can ask a general question about software development that is not focused on
 
 ## Asking a question with a specific context
 
-You can choose a specific context, such as a particular repository or a documentation set (docset), and then ask a question with that context in mind. Organization owners can create organization-visible docsets from repositories within their organization. Organization members can then set those docsets as the context for {% data variables.product.prodname_copilot_chat_dotcom %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets)."
+You can choose a specific context for your question. This can be a particular repository, one or more files or symbols from the code, or a predefined knowledge base.
+
+{% note %}
+
+**Note:** A "symbol" is a named entity in code. This could be a variable, function, class, module, or any other identifier that's part of a codebase.
+
+{% endnote %}
+
+Organization owners can create organization-visible knowledge bases from repositories within their organization. Organization members can then choose one of these knowledge bases as the context for a conversation with {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets)." TODOCS: THIS WILL NEED REVISED AFTER KNOWLEDGE BASE DOCS ARE UPDATED.
 
 {% data reusables.copilot.go-to-copilot-page %}
-1. Click a docset or a repository to provide a context for your question.
+1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All topics**.
 
-   For example, you could choose a repository whose code you want to understand better, or the documentation for a technology you want to learn more about.
+   ![Screenshot of the "All topics" link at the top of the chat panel, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-all-topics-button.png)
 
-   You can search for a docset or repository, if you don't see one you want to use.
+1. On the "Ask {% data variables.product.prodname_copilot_short %}" page, search for and select a repository to provide a context for your question.
+1. Optionally, if you want to set particular files or symbols from the selected repository as your context, click the "Attach files or symbols" button (a paperclip icon) at the bottom of the chat panel, then search for and select one or more files and symbols.
 
-1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+   ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
+
+1. Optionally, if you want to use a knowledge base as the context for your question, click the "Attach knowledge" button (a book icon) at the bottom of the chat panel, then choose a knowledge base.
+
+   ![Screenshot of the "Attach knowledge" icon, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-book-icon.png)
+
+   Selecting a knowledge base replaces the existing repository context and any attachments.
+
+1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    For example, if you chose the repository you are working in as the context, you could ask:
 
@@ -87,30 +100,26 @@ You can choose a specific context, such as a particular repository or a document
 
    {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context.
 
-   If you get access to {% data variables.product.prodname_copilot_short %} from the organization that owns the repository, and the repository has not been indexed, an **Index this repository** button is displayed. Click this button to start the indexing process.
+   If you get access to {% data variables.product.prodname_copilot_short %} from the organization that owns the repository, and the repository has not been indexed, an **Index REPOSITORY NAME** button is displayed. Click this button to start the indexing process.
 
-   ![Screenshot showing the 'Index this repository' button highlighted with a dark orange outline.](/assets/images/help/copilot/index-this-repo.png)
+   ![Screenshot showing the 'Index REPOSITORY NAME' button highlighted with a dark orange outline.](/assets/images/help/copilot/index-this-repo.png)
 
    {% endnote %}
 
-   If you chose a documentation set as the context - for example, the Azure documentation - you could ask:
+   If you chose a knowledge base as the context - for example, a knowledge base relating to Azure - you could ask:
 
    - What advantages does Azure have over other types of cloud storage?
    - How do I block Azure from accessing locations on my network?
    - How can I reduce the cost of a hosted website?
    - How do I enable MFA?
 
-1. The response typically contains numbered references to files that {% data variables.product.prodname_copilot_short %} used to generate the answer, from the repository or docset you selected. To list the sources that were used, click **Search results from DOCSET**.
+1. The response typically contains numbered references to files that {% data variables.product.prodname_copilot_short %} used to generate the answer, from the repository or knowledge base you selected. To list the sources that were used, click **NUMBER references**.
 
    ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
 
-1. To display information about a source reference, click its entry in the list.
+1. To display a source reference in a popup, click its entry in the list.
 
-   Alternatively, to open the complete file, click the ellipsis (**...**), then select **Open**.
-
-1. To display the complete list of references, click the "Reference list" icon at the top right of the page.
-
-   ![Screenshot of the "Reference list" icon, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-references-button.png)
+   Alternatively, to navigate to the file, click the ellipsis (**...**), then select **Open**.
 
 {% data reusables.copilot.chat-conversation-buttons %}
 
