@@ -87,7 +87,7 @@ Style your CTAs using the following format.
 Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
-- Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml)" in the `github/docs` repository.
+- Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/code-languages.yml)" in the [`github/docs`](https://github.com/github/docs) repository.
 - Do not use HTML to style or markup a code block.
 - Style any placeholders that people need to replace with their own values in all caps.
   - **Use:** `git checkout -b BRANCH-NAME`
@@ -655,7 +655,7 @@ Examples:
 
 Use full product names. Do not abbreviate or shorten product names unless directly reproducing content from the product (e.g. UI copy or API responses). Product names are never possessive.
 
-Use product name variables to render product names - do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the data directory of the github/docs repository.
+Use product name variables to render product names - do not write product names in plain text. This makes product name changes easier to implement across the site and avoids typos in our product names. For more information about product name variables, see “[Reusables and variables](#reusables-and-variables)” in this document and the data directory of the [`github/docs`](https://github.com/github/docs) repository.
 
 Product names are always singular.
 - **Use:** {% data variables.product.prodname_actions %} helps you automate your software development workflows.
@@ -999,7 +999,7 @@ To signal to readers that you've added or changed a note, or to indicate the pub
 
 ## Reusables and variables
 
-Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](https://github.com/github/docs/tree/main/data) in the github/docs repository, "[Creating reusable content](/contributing/writing-for-github-docs/creating-reusable-content)", and the “[Product names](#product-names)” section of this document.
+Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](https://github.com/github/docs/tree/main/data) in the [`github/docs`](https://github.com/github/docs) repository, "[Creating reusable content](/contributing/writing-for-github-docs/creating-reusable-content)", and the “[Product names](#product-names)” section of this document.
 
 ## Sectional TOCs
 
