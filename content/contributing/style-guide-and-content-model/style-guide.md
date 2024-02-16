@@ -1386,8 +1386,8 @@ With {% data variables.product.company_short %}'s enterprise products, administr
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
 - {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}
-  - **Use:** With {% data variables.product.prodname_emus %} , you can create and manage user accounts for your enterprise members.
-  - **Avoid:** With {% data variables.product.prodname_emus %} , you can create and manage the personal accounts for your enterprise members.
+  - **Use:** With {% data variables.product.prodname_emus %}, you can create and manage user accounts for your enterprise members.
+  - **Avoid:** With {% data variables.product.prodname_emus %}, you can create and manage the personal accounts for your enterprise members.
 - {% data variables.product.prodname_ghe_server %}
   - **Use:** If you need to temporarily take over a user account…
   - **Avoid:** If you need to temporarily take over a personal account…
