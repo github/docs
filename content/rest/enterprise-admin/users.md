@@ -2,10 +2,8 @@
 title: Users
 intro: >-
   Use the REST API to suspend{% ifversion ghes %}, unsuspend, promote, and
-  demote{% endif %} users on your
-  enterprise.
+  demote{% endif %} users on your enterprise.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  ghae: '*'
   ghes: '*'
 topics:
   - API

@@ -18,9 +18,9 @@ shortTitle: GitHub Advanced Security
 
 {% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}. Other security features require a {% data variables.product.prodname_GH_advanced_security %} (GHAS){% ifversion fpt or ghec %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
-{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% elsif fpt %}To purchase a {% data variables.product.prodname_GH_advanced_security %} license, you must be using {% data variables.product.prodname_enterprise %}. For information about upgrading to {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
+{% data reusables.advanced-security.ghas-trial %}
 
-{% ifversion ghec %}{% data reusables.advanced-security.ghas-trial %}{% endif %}
+{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% elsif fpt %}To purchase a {% data variables.product.prodname_GH_advanced_security %} license, you must be using {% data variables.product.prodname_enterprise %}. For information about upgrading to {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
 
 {% ifversion ghas-for-azure-devops %}
 {% note %}
@@ -89,17 +89,6 @@ For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-
 {% ifversion ghec or ghes %}
 If you have an enterprise account, license use for the entire enterprise is shown on your enterprise license page. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)."
 {% endif %}
-
-{% endif %}
-
-{% ifversion fpt or ghec %}
-
-## About starter workflows for {% data variables.product.prodname_advanced_security %}
-
-{% data reusables.advanced-security.starter-workflows-beta %}
-{% data reusables.advanced-security.starter-workflow-overview %}
-
-For more information on starter workflows, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)" and "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
 
 {% endif %}
 

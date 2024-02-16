@@ -5,7 +5,6 @@ intro: >-
   variables.product.prodname_code_scanning %} alerts from a repository.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

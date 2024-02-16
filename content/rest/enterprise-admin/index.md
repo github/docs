@@ -8,7 +8,6 @@ redirect_from:
   - /rest/reference/enterprise-admin
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

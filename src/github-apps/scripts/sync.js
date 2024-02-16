@@ -15,7 +15,7 @@ import { validateJson } from '#src/tests/lib/validate-json-schema.js'
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
 
-export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource = false) {
+export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource) {
   const { progAccessData, progActorResources } = await getProgAccessData(progAccessSource)
 
   for (const schemaName of sourceSchemas) {
@@ -153,9 +153,10 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
   }
 }
 
-export async function getProgAccessData(progAccessSource = false) {
+export async function getProgAccessData(progAccessSource) {
+  const useRemoteGitHubFiles = progAccessSource === 'rest-api-description'
   // check for required PAT
-  if (progAccessSource && !process.env.GITHUB_TOKEN) {
+  if (useRemoteGitHubFiles && !process.env.GITHUB_TOKEN) {
     throw new Error(
       'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.',
     )
@@ -167,7 +168,7 @@ export async function getProgAccessData(progAccessSource = false) {
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
   const progActorFilepath = 'config/locales/programmatic_actor_fine_grained_resources.en.yml'
 
-  if (progAccessSource) {
+  if (!useRemoteGitHubFiles) {
     progAccessDataRaw = yaml.load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
     )

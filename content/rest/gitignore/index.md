@@ -7,7 +7,6 @@ intro: >-
   files and directories.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

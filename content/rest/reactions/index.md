@@ -7,7 +7,6 @@ intro: >-
   variables.product.prodname_dotcom %}.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

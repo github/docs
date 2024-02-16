@@ -1,0 +1,1 @@
+{% ifversion ghec %}You can set up a trial if you pay for {% data variables.product.prodname_ghe_cloud %} by credit card or PayPal, or if you are already taking part in a free trial of {% data variables.product.prodname_ghe_cloud %}.{% endif %}

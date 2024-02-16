@@ -5,7 +5,6 @@ allowTitleToDifferFromFilename: true
 intro: Use the REST API to render a Markdown document as an HTML page or as raw text.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
