@@ -649,7 +649,7 @@ Examples:
 - Under your organization name, click **Settings**.
 - To confirm your change, click **Remove credit card**.
 - Optionally, to see your plan’s details, click **Show details**.
-- Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click [down arrow octicon] next to your sponsored amount, then click **Change tier**.
+- Under "{% data variables.product.prodname_sponsors %}", to the right of the sponsored open source contributor, click {% octicon "triangle-down" aria-label="More options" %} next to your sponsored amount, then click **Change tier**.
 
 ## Product names
 
