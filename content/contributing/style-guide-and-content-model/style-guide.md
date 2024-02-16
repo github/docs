@@ -213,7 +213,7 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 
 Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
 
-- **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %} (classic).
+- **Use:** _{% data variables.product.pat_v2 %}s_ have several security advantages over {% data variables.product.pat_v1_plural %}.
 - **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
 - **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
