@@ -294,8 +294,8 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Express the core idea or meaning of the image, rather than describing it literally.
 - Use 40–150 characters.
 - End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
-- Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
-- Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
+- Don't start with "Image…" or "Graphic…". Screen readers say this automatically.
+- Do begin with the _type_ of graphic: "Screenshot of…" or "Diagram that shows…"
 - Follow standard language used to describe UI elements in article text.
 - Put multi-word titles, such as names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
@@ -315,7 +315,7 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `{% data variables.product.company_short %}` as we do in running copy: `{% raw %}{% data variables.product.prodname_dotcom %}{% endraw %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}..." rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in {% data variables.product.prodname_vscode %}…" rather than "Screenshot of the {% data variables.product.prodname_vscode %} Debug menu…," to avoid multiple nouns in a row.
 
 ##### Examples
 
@@ -877,7 +877,7 @@ A release note for a bug fix answers the following questions.
 > _AUDIENCE_ (**1**) _DESCRIPTION OF BEHAVIOR_ (**2**).
 
 - Because the bug is now fixed, write in the past tense.
-- Language like "fixed a bug..." or "fixed an issue..." is implied and unnecessary.
+- Language like "fixed a bug…" or "fixed an issue…" is implied and unnecessary.
 - To reduce repetition and unnecessary words, "now" is usually implied.
 - To clarify actors and impact, avoid passive language when possible.
 - If the release note includes an error message, format the message according to the guidance in "[Error messages](#error-messages)."
@@ -1386,11 +1386,11 @@ With {% data variables.product.company_short %}'s enterprise products, administr
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
 - {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}
-  - **Use:** With {% data variables.product.prodname_emus %} , you can create and manage user accounts for your enterprise members.
-  - **Avoid:** With {% data variables.product.prodname_emus %} , you can create and manage the personal accounts for your enterprise members.
+  - **Use:** With {% data variables.product.prodname_emus %}, you can create and manage user accounts for your enterprise members.
+  - **Avoid:** With {% data variables.product.prodname_emus %}, you can create and manage the personal accounts for your enterprise members.
 - {% data variables.product.prodname_ghe_server %}
-  - **Use:** If you need to temporarily take over a user account...
-  - **Avoid:** If you need to temporarily take over a personal account...
+  - **Use:** If you need to temporarily take over a user account…
+  - **Avoid:** If you need to temporarily take over a personal account…
 
 The following documentation should reference "user accounts."
 
@@ -1465,7 +1465,7 @@ For subsequent references to currency in an article or where appropriate (such a
 - **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
 - **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
 
-Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
+Where the first reference concerns cents or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
 
 - **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
 - **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
@@ -1484,18 +1484,18 @@ A person's **access** refers generally to all the abilities the person has in a 
 
 Only use **permission** or **role** when the distinction between the two is important. Otherwise, use **access**.
 
-- **Use:** `To create a custom repository role, you choose an inherited role and then add individual permissions.`
-- **Use:** `Managing a team's access to your organization's repository`
-- **Use:** `If your team membership gives you a different level of access than your role as organization owner...`
-- **Use:** `People with write access can...`
-- **Avoid:** `People with the write role can...`
-- **Avoid:** `People with write permissions can...`
-- **Avoid:** `People with write privileges can...`
+- **Use:** To create a custom repository role, you choose an inherited role and then add individual permissions.
+- **Use:** Managing a team's access to your organization's repository
+- **Use:** If your team membership gives you a different level of access than your role as organization owner…
+- **Use:** People with write access can…
+- **Avoid:** People with the write role can…
+- **Avoid:** People with write permissions can…
+- **Avoid:** People with write privileges can…
 
 When specifying the access required to take an action, refer only to the role at the same level as the action. For example, you need admin access to a repository, which is a repository-level role, to configure protected branches. You can get admin access to a repository by being an organization owner, an organization-level role, but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned.
 
-- **Use:** `People with write access to a repository can do X to the repository.`
-- **Avoid:** `Organization owners and people with write access can do X to the repository.`
+- **Use:** People with write access to a repository can do X to the repository.
+- **Avoid:** Organization owners and people with write access can do X to the repository.
 
 For more information about word choice for permissions statements, see "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements)" in the content model.
 
