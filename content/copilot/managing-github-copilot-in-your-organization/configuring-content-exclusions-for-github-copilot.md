@@ -2,7 +2,7 @@
 title: Configuring content exclusions for GitHub Copilot
 shortTitle: Excluding content
 intro: 'You can prevent specified files from being used to inform code completion suggestions made by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} will not be available in excluded files.'
-product: 'This feature is available for organizations{% ifversion ghec %} and enterprise accounts{% endif %} with a {% data variables.product.prodname_copilot_business_short %} subscription.'
+product: 'This feature is available for organization{% ifversion ghec %} and enterprise{% endif %} accounts with a {% data variables.product.prodname_copilot_business_short %} subscription{% ifversion ghec %}, and for enterprise accounts with a {% data variables.product.prodname_copilot_enterprise_short %} subscription{% endif %}.'
 permissions: 'Repository administrators and organization owners can manage the content exclusion settings for {% data variables.product.prodname_copilot %}.
 <br><br>
 People with the "Maintain" role for a repository can view the content exclusion settings for that repository, but can''t change these settings. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."'
@@ -56,7 +56,7 @@ ssh://[user@]host.xz[:port]/path/to/repo.git/
 
 {% note %}
 
-**Note**: It's important to be aware that content can be excluded by the settings of any {% data variables.product.prodname_dotcom %} organization with a {% data variables.product.prodname_copilot_for_business %} subscription. Excluded files may be in a repository that is not owned by the organization in which the exclusion was defined. The excluded files may also be located in a Git-based repository that is not hosted on {% data variables.product.prodname_dotcom %}.
+**Note:** It's important to be aware that content can be excluded by the settings of any {% data variables.product.prodname_dotcom %} organization with a {% data variables.product.prodname_copilot_business_short %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} subscription. Excluded files may be in a repository that is not owned by the organization in which the exclusion was defined. The excluded files may also be located in a Git-based repository that is not hosted on {% data variables.product.prodname_dotcom %}.
 
 {% endnote %}
 
@@ -67,11 +67,11 @@ ssh://[user@]host.xz[:port]/path/to/repo.git/
 {% ifversion fpt %}All exclusions, whether they are defined in repository settings or in organization settings, apply to all members of the organization who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription.{% endif %}
 
 {% ifversion ghec %}
-You can't specify content exclusions in the settings for an enterprise. However, all content exclusions defined in organization or repository settings apply to all members of the enterprise who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription.
+You can't specify content exclusions in the settings for an enterprise. However, all content exclusions defined in organization or repository settings apply to all members of the enterprise who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription.
 
-This means, for example, that if you are an admin of an organization that belongs to Enterprise X, you can set up an exclusion for files in any Git-based repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to anyone who gets their {% data variables.product.prodname_copilot_business_short %} license from any organization in Enterprise X.
+This means, for example, that if you are an admin of an organization that belongs to Enterprise X, you can set up an exclusion for files in any Git-based repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to anyone who gets their {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} license from any organization in Enterprise X.
 
-However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository, or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.
+However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.
 {% endif %}
 
 ### Data sent to {% data variables.product.prodname_dotcom %}
@@ -257,7 +257,7 @@ If you are an organization owner, you can check any changes that have been made 
 
 When you change {% data variables.product.prodname_copilot_short %}'s content exclusions you can check that the setting blocks {% data variables.product.prodname_copilot_short %} from suggesting code in the specified files.
 
-To confirm that {% data variables.product.prodname_copilot_short %} is disabled for a file, open the file in the editor and start typing a line of code, such as a comment. Normally you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. If {% data variables.product.prodname_copilot_short %} is disabled by a content exclusion, code completion suggestions will not be offered, and the file's contents will not be used to generate suggestions in other files.
+To confirm that {% data variables.product.prodname_copilot_short %} is disabled for a file, open the file in the editor and start typing a line of code, such as a comment. Normally, you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. If {% data variables.product.prodname_copilot_short %} is disabled by a content exclusion, code completion suggestions will not be offered, and the file's contents will not be used to generate suggestions in other files.
 
 ### Checking settings changes in your IDE
 
@@ -279,7 +279,7 @@ If you are working in {% data variables.product.prodname_vs %}, {% data variable
 
 ### Propagating content exclusion changes to your IDE
 
-If you are working in neovim, content exclusions are fetched from {% data variables.product.prodname_dotcom %} each time you open a file. However, if you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, you may have to wait up to 30 minutes to see the effect of a settings change. Alternatively, you can manually reload the content exclusion settings into your IDE.
+If you are working in Neovim, content exclusions are fetched from {% data variables.product.prodname_dotcom %} each time you open a file. However, if you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, you may have to wait up to 30 minutes to see the effect of a settings change. Alternatively, you can manually reload the content exclusion settings into your IDE.
 
 To reload content exclusions into {% data variables.product.prodname_vs %}, close and reopen the application.
 

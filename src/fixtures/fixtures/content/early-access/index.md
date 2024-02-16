@@ -4,7 +4,6 @@ hidden: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /secrets

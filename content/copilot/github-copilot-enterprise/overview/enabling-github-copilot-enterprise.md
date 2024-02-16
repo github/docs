@@ -1,22 +1,22 @@
 ---
 title: Enabling GitHub Copilot Enterprise
 shortTitle: Enabling Copilot Enterprise
-intro: 'Learn how to enable the features available with {% data variables.product.prodname_copilot_enterprise %}.'
+intro: 'Learn how to enable or disable the features available with {% data variables.product.prodname_copilot_enterprise %}.'
 versions:
   ghec: '*'
 topics:
   - Copilot
 ---
 
-## About {% data variables.product.prodname_copilot_enterprise_short %} features
+## About enabling and disabling {% data variables.product.prodname_copilot_enterprise_short %} features
 
-To use {% data variables.product.prodname_copilot_enterprise %}, you need to set up a subscription for your enterprise account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
+If your enterprise has a {% data variables.product.prodname_copilot_enterprise_short %} subscription, then all members of organizations in the enterprise who have access to {% data variables.product.prodname_copilot_short %} can also be granted access to the features of {% data variables.product.prodname_copilot_enterprise_short %}.
 
-To use {% data variables.product.prodname_copilot_enterprise %} features, you can nominate an organization or enterprise that you're a member of for the [{% data variables.product.prodname_copilot_enterprise_short %} waitlist](https://github.com/github-copilot/copilot_enterprise_waitlist_signup/join). To join the waitlist, the organization or enterprise must use {% data variables.product.prodname_ghe_cloud %} and have an active {% data variables.product.prodname_copilot_for_business %} subscription. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
+For information about setting up {% data variables.product.prodname_copilot_enterprise %} for your enterprise account, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)." For information about the features of {% data variables.product.prodname_copilot_enterprise_short %}, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
 
-If an enterprise or organization is granted access to the {% data variables.product.prodname_copilot_enterprise_short %} beta, an administrator must enable the {% data variables.product.prodname_copilot_enterprise_short %} features before members can start using the features. You can enable features in the settings of the enterprise or organization. Enabling or disabling the {% data variables.product.prodname_copilot_enterprise_short %} features does not affect the features already included in your {% data variables.product.prodname_copilot_for_business %} subscription.
+Enterprise owners can enable or disable {% data variables.product.prodname_copilot_enterprise_short %} features for the entire enterprise. Depending on the choice of policy at the enterprise level, organization owners may be able to enable or disable {% data variables.product.prodname_copilot_enterprise_short %} features for their organization.
 
-When members are granted access to the features, they will be notified that they have access, and receive instructions on how to start using the features.
+{% data variables.product.prodname_copilot_enterprise_short %} features are additional to the features available with a {% data variables.product.prodname_copilot_business_short %} subscription. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/copilot-business/github-copilot-business-feature-set)." When members are granted access to the features, they'll be notified by email that they have access. The message includes instructions on how to start using the features.
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_enterprise %} features for an enterprise
 
@@ -27,18 +27,28 @@ An enterprise owner can choose whether to enable {% data variables.product.prodn
 1. Click the **Technical preview features** tab.
 1. Next to "{% data variables.product.prodname_copilot_enterprise %}", select the dropdown menu (labeled **No policy** by default), then choose from the following options.
 
-   - **No policy**: Each organization can choose whether to enable the feature for its members.
+   - **No policy**: Each organization can choose to enable the feature for its members.
    - **Enabled**: The feature is enabled for members of all organizations.
    - **Disabled**: The feature is disabled for members of all organizations.
 
+{% note %}
+
+**Note**: If you choose **No policy**, {% data variables.product.prodname_copilot_enterprise %} will initially be disabled for all organizations, but can be enabled by organization owners in their organization settings.
+
+{% endnote %}
+
 ## Enabling or disabling {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
 
-If you use a standalone organization on {% data variables.product.prodname_ghe_cloud %}, or if your organization's parent enterprise has selected **No policy**, an organization owner can choose whether to enable or disable {% data variables.product.prodname_copilot_enterprise %} features for the organization's members.
+If your organization's parent enterprise has selected **No policy**, {% data variables.product.prodname_copilot_enterprise %} will be disabled by default for your organization. An organization owner can choose to enable or disable the additional features provided by {% data variables.product.prodname_copilot_enterprise %} for all of the organization's members who have access to {% data variables.product.prodname_copilot_short %}.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies and features**.
-1. Next to "{% data variables.product.prodname_copilot_enterprise %}", select the dropdown menu (labeled **Enabled** by default), then choose from the following options.
+1. Next to "{% data variables.product.prodname_copilot_enterprise %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
    - **Enabled**: The feature is enabled for all members of the organization.
    - **Disabled**: The feature is disabled for all members of the organization.
+
+## Further reading
+
+- "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)"

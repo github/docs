@@ -6,7 +6,6 @@ versions:
   feature: copilot-private-docsets
 topics:
   - Copilot
-product: '{% data reusables.gated-features.copilot-enterprise-beta %}'
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets
 ---

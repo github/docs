@@ -8,4 +8,4 @@
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas-secret-scanning %}
 
-{% ifversion ghec %}{% data reusables.advanced-security.ghas-trial %}{% endif %}
+{% data reusables.advanced-security.ghas-trial %}

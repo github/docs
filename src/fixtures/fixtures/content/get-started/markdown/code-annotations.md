@@ -4,7 +4,6 @@ intro: This page has code annotations
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 layout: inline

@@ -8,8 +8,8 @@ topics:
   - Copilot
   - CLI
 children:
+  - /managing-access-for-copilot-in-your-organization
+  - /managing-policies-and-features-for-copilot-in-your-organization
   - /configuring-content-exclusions-for-github-copilot
-  - /managing-access-for-copilot-business-in-your-organization
-  - /managing-policies-for-copilot-business-in-your-organization
   - /reviewing-your-organization-or-enterprises-audit-logs-for-copilot-business
 ---
