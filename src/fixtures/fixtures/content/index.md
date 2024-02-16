@@ -4,6 +4,7 @@ featuredLinks:
   gettingStarted:
     - /get-started/start-your-journey/hello-world
     - /rest
+    - /webhooks
   popular:
     - /get-started
     - /get-started/foo/bar
@@ -31,6 +32,7 @@ children:
   - code-security
   - actions
   - rest
+  - webhooks
   # - account-and-profile
   # - authentication
   # - repositories
