@@ -579,7 +579,7 @@ For more information, follow the "[LEARNING PATH TITLE](/)" learning path.
 
 ### Links to external resources
 
-When linking to an external site, choose the most useful resource for the context of the link - you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
+When linking to an external site, choose the most useful resource for the context of the link—you can link to a whole site if it's a general reference or to a specific page if that would be more helpful.
 
 It's not necessary to link to an external product’s website when we mention an external product.
 
