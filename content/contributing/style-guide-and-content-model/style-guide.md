@@ -1465,7 +1465,7 @@ For subsequent references to currency in an article or where appropriate (such a
 - **Use:** `10 US dollars (USD)` for the first reference, and `$0.25 USD` for subsequent references.
 - **Avoid:** `$10 US dollars (USD)`, `USD$0.25`.
 
-Where the first reference concerns `cents` or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
+Where the first reference concerns cents or a non-dollar amount, capitalize the reference to the country or region of the currency used in parentheses immediately after the first reference. Subsequent currency references are treated using the guidelines above.
 
 - **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
 - **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
@@ -1484,18 +1484,18 @@ A person's **access** refers generally to all the abilities the person has in a 
 
 Only use **permission** or **role** when the distinction between the two is important. Otherwise, use **access**.
 
-- **Use:** `To create a custom repository role, you choose an inherited role and then add individual permissions.`
-- **Use:** `Managing a team's access to your organization's repository`
-- **Use:** `If your team membership gives you a different level of access than your role as organization owner…`
-- **Use:** `People with write access can…`
-- **Avoid:** `People with the write role can…`
-- **Avoid:** `People with write permissions can…`
-- **Avoid:** `People with write privileges can…`
+- **Use:** To create a custom repository role, you choose an inherited role and then add individual permissions.
+- **Use:** Managing a team's access to your organization's repository
+- **Use:** If your team membership gives you a different level of access than your role as organization owner…
+- **Use:** People with write access can…
+- **Avoid:** People with the write role can…
+- **Avoid:** People with write permissions can…
+- **Avoid:** People with write privileges can…
 
 When specifying the access required to take an action, refer only to the role at the same level as the action. For example, you need admin access to a repository, which is a repository-level role, to configure protected branches. You can get admin access to a repository by being an organization owner, an organization-level role, but the repository-level role is what actually governs your ability to take the action, so that is the only role that should be mentioned.
 
-- **Use:** `People with write access to a repository can do X to the repository.`
-- **Avoid:** `Organization owners and people with write access can do X to the repository.`
+- **Use:** People with write access to a repository can do X to the repository.
+- **Avoid:** Organization owners and people with write access can do X to the repository.
 
 For more information about word choice for permissions statements, see "[AUTOTITLE](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements)" in the content model.
 
