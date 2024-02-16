@@ -91,12 +91,7 @@ You can either disable {% data variables.product.prodname_copilot %} for all org
 
 {% endnote %}
 
-To cancel your {% data variables.product.prodname_copilot_business_short %} subscription for your enterprise account, you need to disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise.
-
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. Under "Manage organization access to {% data variables.product.prodname_copilot %}," select **Disabled** to disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise.
-1. Click **Save**.
+{% data reusables.copilot.disable-copilot-for-all-orgs %}
 
 ### Canceling your {% data variables.product.prodname_copilot_business_short %} subscription for your organization account {% endif %}
 
