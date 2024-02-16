@@ -214,3 +214,91 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+           [![Sync search Elasticsearch](https://github.com/github/docs/actions/workflows/sync-search-elasticsearch.yml/badge.svg?branch=dependabot%2Fgithub_actions%2Factions%2Fcache-4.0.0&event=create)](https://github.com/github/docs/actions/workflows/sync-search-elasticsearch.yml)
+                       - name: Pangea Vault Secrets Action
+  # You may pin to the exact commit or the version.
+  # uses: pangeacyber/pangea-github-action-vault@6bd58b585b52c76307edc6c895dbec719c3e6668
+  uses: pangeacyber/pangea-github-action-vault@1.0.2
+  with:
+    # Job command to run (ex - npm run dev)
+    pangea_token: # optional
+    # Pangea Domain
+    pangea_domain: # optional, default is aws.us.pangea.cloud
+    # Pangea folder to pull secrets from
+    pangea_default_folder: # optional
+    # Github personal access token
+    github_token: 
+                      - name: Deploy to Algorithmia
+  # You may pin to the exact commit or the version.
+  # uses: algorithmiaio/algorithmia-modeldeployment-action@14310c6bd07101452e0a1bc435aa2e306e62aa30
+  uses: algorithmiaio/algorithmia-modeldeployment-action@1.1.0
+  with:
+    # Algorithmia API Key, used when uploading the model file
+    algorithmia_api_key: 
+    # Algorithmia Username, used as Git Commit Username and as part of default model upload path
+    algorithmia_username: 
+    # Algorithmia Email, used as Git Commit Email
+    algorithmia_email: # optional, default is githubactions@placeholder.email
+    # Algorithmia Password. Only required if the algorithm is hosted on Algorithmia.
+    algorithmia_password: # optional
+    # Github username owning the algorithm repository, used to clone the algorithm repository. Only required if the algorithm is hosted on Github.
+    github_username: # optional
+    # Github Personal Access Token, used to clone the algorithm repository. Only required if the algorithm is hosted on Github.
+    github_pat: # optional
+    # Algorithmia Algorithm name
+    algorithmia_algoname: 
+    # Algorithmia data collection name to upload the model file
+    algorithmia_uploadpath: # default is data://$ALGORITHMIA_USERNAME/$ALGORITHMIA_ALGONAME
+    # Path of the model file to be uploaded to Algorithmia
+    model_path: # default is model.pkl
+    # Path of the notebook to be executed by this action
+    notebook_path: # optional, default is model_training.ipynb
+    # Git host for the Algorithmia algorithm repository. Change to git.algorithmia.com if the algorithm is hosted on Algorithmia Marketplace or git.YOUR_DOMAIN for enterprise installations.
+    git_host: # optional, default is github.com
+    # API endpoint Algorithmia installation, for enterprise customers.
+    algorithmia_api: # optional, default is https://api.algorithmia.com
+                - name: Setup Java JDK
+  uses: actions/setup-java@v4.0.0
+  with:
+    # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
+    java-version: # optional
+    # The path to the `.java-version` file. See examples of supported syntax in README file
+    java-version-file: # optional
+    # Java distribution. See the list of supported distributions in README file
+    distribution: 
+    # The package type (jdk, jre, jdk+fx, jre+fx)
+    java-package: # optional, default is jdk
+    # The architecture of the package (defaults to the action runner's architecture)
+    architecture: # optional
+    # Path to where the compressed JDK is located
+    jdkFile: # optional
+    # Set this option if you want the action to check for the latest available version that satisfies the version spec
+    check-latest: # optional
+    # ID of the distributionManagement repository in the pom.xml file. Default is `github`
+    server-id: # optional, default is github
+    # Environment variable name for the username for authentication to the Apache Maven repository. Default is $GITHUB_ACTOR
+    server-username: # optional, default is GITHUB_ACTOR
+    # Environment variable name for password or token for authentication to the Apache Maven repository. Default is $GITHUB_TOKEN
+    server-password: # optional, default is GITHUB_TOKEN
+    # Path to where the settings.xml file will be written. Default is ~/.m2.
+    settings-path: # optional
+    # Overwrite the settings.xml file if it exists. Default is "true".
+    overwrite-settings: # optional, default is true
+    # GPG private key to import. Default is empty string.
+    gpg-private-key: # optional
+    # Environment variable name for the GPG private key passphrase. Default is $GPG_PASSPHRASE.
+    gpg-passphrase: # optional
+    # Name of the build platform to cache dependencies. It can be "maven", "gradle" or "sbt".
+    cache: # optional
+    # The path to a dependency file: pom.xml, build.gradle, build.sbt, etc. This option can be used with the `cache` option. If this option is omitted, the action searches for the dependency file in the entire repository. This option supports wildcards and a list of file names for caching multiple dependencies.
+    cache-dependency-path: # optional
+    # Workaround to pass job status to post job step. This variable is not intended for manual setting
+    job-status: # optional, default is ${{ job.status }}
+    # The token used to authenticate when fetching version manifests hosted on github.com, such as for the Microsoft Build of OpenJDK. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+    token: # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Name of Maven Toolchain ID if the default name of "${distribution}_${java-version}" is not wanted. See examples of supported syntax in Advanced Usage file
+    mvn-toolchain-id: # optional
+    # Name of Maven Toolchain Vendor if the default name of "${distribution}" is not wanted. See examples of supported syntax in Advanced Usage file
+    mvn-toolchain-vendor: # optional
+          run
+          
