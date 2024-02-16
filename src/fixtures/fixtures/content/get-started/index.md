@@ -5,7 +5,6 @@ intro: 'This is the intro'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 layout: product-landing
 introLinks:

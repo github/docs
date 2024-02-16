@@ -5,7 +5,6 @@ permissions: 'People with **admin** can configure a {% data variables.product.pr
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

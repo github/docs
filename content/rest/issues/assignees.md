@@ -5,7 +5,6 @@ shortTitle: Assignees
 intro: Use the REST API to manage assignees on issues and pull requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

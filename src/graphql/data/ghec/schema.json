@@ -83217,6 +83217,10 @@
           "description": "<p>Patreon funding platform.</p>"
         },
         {
+          "name": "POLAR",
+          "description": "<p>Polar funding platform.</p>"
+        },
+        {
           "name": "TIDELIFT",
           "description": "<p>Tidelift funding platform.</p>"
         }

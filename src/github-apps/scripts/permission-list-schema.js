@@ -28,7 +28,7 @@ const permissionObjects = {
       type: 'string',
     },
     'additional-permissions': {
-      type: 'array',
+      type: 'boolean',
     },
   },
 }

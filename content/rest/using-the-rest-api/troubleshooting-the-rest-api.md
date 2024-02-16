@@ -41,18 +41,18 @@ If you get a `404 Not Found` response when you know that the resource that you a
   - The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
   - The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% ifversion pat-v2 %}
 - If you are using a {% data variables.product.pat_v2 %}, you should ensure that:
-  - The token has the permissions that are required to use the endpoint. For more information, see "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)."
+  - The token has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
   - The resource owner that was specified for the token matches the owner of the resource that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
   - The token has access to any private repositories that the endpoint will affect. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)."
   - The owner of the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
   - The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."{% endif %}
 - If you are using a {% data variables.product.prodname_github_app %} installation access token, you should ensure that:
-  - The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
+  - The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
   - The endpoint is only affecting resources owned by the account where the {% data variables.product.prodname_github_app %} is installed.
   - The {% data variables.product.prodname_github_app %} has access to any repositories that the endpoint will affect.
   - The token has not been expired or revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
 - If you are using a {% data variables.product.prodname_github_app %} user access token, you should ensure that:
-  - The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
+  - The {% data variables.product.prodname_github_app %} has the permissions that are required to use the endpoint. For more information about the required permissions, see the documentation for the endpoint.
   - The user that authorized the token has any permissions that are required to use the endpoint. For example, if an endpoint can only be used by organization owners, only users that are owners of the affected organization can use the endpoint.
   - The {% data variables.product.prodname_github_app %} has access to any repositories that the endpoint will affect.
   - The user has access to any repositories that the endpoint will affect.
@@ -95,7 +95,7 @@ You can check the status of the REST API at [githubstatus.com](https://www.githu
 
 ## Resource not accessible
 
-If you are using a {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} and you receive a "Resource not accessible by integration"{% ifversion pat-v2 %} or "Resource not accessible by {% data variables.product.pat_generic %}"{% endif %} error, then your token has insufficient permissions. For more information about the permissions required for each endpoint, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps){% ifversion pat-v2 %}" and "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens){% endif %}."
+If you are using a {% data variables.product.prodname_github_app %}{% ifversion pat-v2 %} or {% data variables.product.pat_v2 %}{% endif %} and you receive a "Resource not accessible by integration"{% ifversion pat-v2 %} or "Resource not accessible by {% data variables.product.pat_generic %}"{% endif %} error, then your token has insufficient permissions. For more information about the required permissions, see the documentation for the endpoint.
 
 {% ifversion rest-permissions-header %}
 

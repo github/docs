@@ -4,7 +4,6 @@ intro: 'Learn how you can use {% data variables.product.company_short %} product
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /github-glossary

@@ -3,7 +3,6 @@ title: '{% ifversion fpt %}Hello{% else %}Greetings{% endif %} {% data variables
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: quick_start
 ---

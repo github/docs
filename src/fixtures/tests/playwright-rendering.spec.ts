@@ -301,6 +301,12 @@ test.describe('test nav at different viewports', () => {
     // breadcrumbs show up in rest reference pages
     await page.goto('/rest/actions/artifacts')
     await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
+
+    // breadcrumbs show up in one of the pages that use the AutomatedPage
+    // component (e.g. graphql, audit log, etc.) -- we test the webhooks
+    // reference page here
+    await page.goto('/webhooks/webhook-events-and-payloads')
+    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
   })
 
   test('large -> x-large viewports - 1012+', async ({ page }) => {

@@ -1080,7 +1080,7 @@ git-import-svn-raw
 
 ### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell))."
+This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 
 ```shell
 git-import-tfs-raw
@@ -1172,6 +1172,26 @@ ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication St
 In this example, `ghe-repl-status -vv` sends verbose status information from a replica appliance. You should replace `ghe-repl-status -vv` with the specific data you'd like to stream to `STDIN`, and `Verbose Replication Status` with a brief description of the data. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 ## Upgrading {% data variables.product.prodname_ghe_server %}
+
+{% ifversion ghes-upgrade-complete-indicator %}
+
+### ghe-check-background-upgrade-jobs
+
+During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
+
+{% ifversion ghes < 3.12 %}
+{% note %}
+
+**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+
+{% endnote %}
+{% endif %}
+
+```shell
+ghe-check-background-upgrade-jobs
+```
+
+{% endif %}
 
 {% ifversion ghe-migrations-cli-utility %}
 
@@ -1274,7 +1294,7 @@ This utility will enforce the default organization membership visibility setting
 ghe-org-membership-update --visibility=SETTING
 ```
 
-### `ghe-user-csv`
+### ghe-user-csv
 
 This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the `-h` flag for more options.
 

@@ -5,7 +5,6 @@ intro: Use the REST API to bookmark a repository.
 allowTitleToDifferFromFilename: true
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

@@ -7,7 +7,6 @@ intro: >-
   %} uses for visualizing different types of repository activity.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

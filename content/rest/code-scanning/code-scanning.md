@@ -5,7 +5,6 @@ intro: >-
   variables.product.prodname_code_scanning %} alerts from a repository.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
