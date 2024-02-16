@@ -25,7 +25,7 @@ With {% data variables.product.prodname_copilot_business_short %}, you can manag
 
 {% data reusables.copilot.telemetry-setting-org %}
 
-### Understanding the differences between {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_individuals_short %}, and {% data variables.product.prodname_copilot_enterprise %}
+### Understanding the differences between {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_individuals_short %}, and {% data variables.product.prodname_copilot_enterprise_short %}
 
 {% data reusables.copilot.differences-cfi-cfb-table %}
 
@@ -39,9 +39,9 @@ After setting up a subscription, you can enable {% data variables.product.prodna
 
 {% data variables.product.prodname_copilot_business_short %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your organization{% ifversion ghec %} or enterprise{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-business)."
 
-## Requesting or granting access to {% data variables.product.prodname_copilot_for_business %}
+## Requesting or granting access to {% data variables.product.prodname_copilot_short %}
 
-Organization members can request access to {% data variables.product.prodname_copilot_for_business %} from their organization's owners.
+Organization members can request access to {% data variables.product.prodname_copilot %} from their organization's owners.
 
 ### Submitting a request for {% data variables.product.prodname_copilot_for_business %}
 

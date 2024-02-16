@@ -33,7 +33,7 @@ Using the chat feature, you can ask {% data variables.product.prodname_copilot_s
 
 - **Knowledge bases** _({% data variables.product.prodname_copilot_enterprise_short %} only)_ - Create and manage collections of documentation to use as a context for chatting with {% data variables.product.prodname_copilot_short %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets)."{% else %}"[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management)."{% endif %} TODOCS: NAMES/LINKS OF ARTICLES WILL NEED CHANGED.
 
-For a full list of the features and functionality available on each {% data variables.product.prodname_copilot %} plan, see "[AUTOTITLE](/copilot/copilot-individual/github-copilot-individual-feature-set)", "[AUTOTITLE](/copilot/copilot-business/github-copilot-business-feature-set)", or "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)." 
+For a full list of the features and functionality available on each {% data variables.product.prodname_copilot %} plan, see "[AUTOTITLE](/copilot/copilot-individual/github-copilot-individual-feature-set)", "[AUTOTITLE](/copilot/copilot-business/github-copilot-business-feature-set)", or "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
 
 ## Getting access to {% data variables.product.prodname_copilot %}
 
