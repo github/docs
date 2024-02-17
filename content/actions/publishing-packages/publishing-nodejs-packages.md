@@ -154,7 +154,7 @@ The `setup-node` action creates an `.npmrc` file on the runner. When you use the
 always-auth=true
 ```
 
-## Publishing packages using yarn
+## Publishing packages using Yarn
 
 If you use the Yarn package manager, you can install and publish packages using Yarn.
 
