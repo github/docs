@@ -153,7 +153,7 @@ The `setup-node` action creates an `.npmrc` file on the runner. When you use the
 always-auth=true
 ```
 
-## Publishing packages using yarn
+## Publishing packages using Yarn
 
 If you use the Yarn package manager, you can install and publish packages using Yarn.
 
@@ -179,3 +179,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
+
+To authenticate with the registry during publishing, ensure your authentication token is also defined in your `yarnrc.yml` file. For more information, see the [Settings](https://yarnpkg.com/configuration/yarnrc#npmAuthToken) article in the Yarn documentation.
