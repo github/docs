@@ -181,8 +181,4 @@ jobs:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
 
-To ensure authentication with the registry during publishing add a `npmAuthToken` entry to the `.yarnrc.yml`.
-
-```yaml
-npmAuthToken: '${NODE_AUTH_TOKEN:-}'
-```
+To authenticate with the registry during publishing, ensure your authentication token is also defined in your `yarnrc.yml` file. For more information, see the [Settings](https://yarnpkg.com/configuration/yarnrc#npmAuthToken) article in the Yarn documentation.
