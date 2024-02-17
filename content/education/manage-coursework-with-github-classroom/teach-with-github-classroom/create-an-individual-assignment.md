@@ -9,6 +9,9 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 shortTitle: Individual assignment
 ---
+
+{% data reusables.classroom.note-on-assignment-changes %}
+
 ## About individual assignments
 
 {% data reusables.classroom.assignments-individual-definition %}

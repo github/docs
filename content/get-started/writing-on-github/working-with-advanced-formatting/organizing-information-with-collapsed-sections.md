@@ -4,7 +4,6 @@ intro: You can streamline your Markdown by creating a collapsed section with the
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /github/writing-on-github/working-with-advanced-formatting/organizing-information-with-collapsed-sections

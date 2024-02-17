@@ -36,6 +36,7 @@ children:
   - /placing-a-legal-hold-on-a-user-or-organization
   - /auditing-ssh-keys
   - /rebuilding-contributions-data
+  - /enabling-guest-collaborators
 shortTitle: Manage users
 ---
 

@@ -48592,6 +48592,31 @@
       ]
     },
     {
+      "name": "PropertyTargetDefinition",
+      "kind": "objects",
+      "id": "propertytargetdefinition",
+      "href": "/graphql/reference/objects#propertytargetdefinition",
+      "description": "<p>A property that must match.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "PublicKey",
       "kind": "objects",
       "id": "publickey",
@@ -49215,7 +49240,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "deletions",
@@ -49282,6 +49309,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "headRef",
@@ -49371,6 +49406,22 @@
         {
           "name": "isDraft",
           "description": "<p>Identifies if the pull request is a draft.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isInMergeQueue",
+          "description": "<p>Indicates whether the pull request is in a merge queue.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isMergeQueueEnabled",
+          "description": "<p>Indicates whether the pull request's base ref has a merge queue enabled.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -49586,6 +49637,14 @@
           "id": "commit",
           "kind": "objects",
           "href": "/graphql/reference/objects#commit"
+        },
+        {
+          "name": "mergeQueue",
+          "description": "<p>The merge queue for the pull request's base branch.</p>",
+          "type": "MergeQueue",
+          "id": "mergequeue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#mergequeue"
         },
         {
           "name": "mergeQueueEntry",
@@ -51395,7 +51454,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "editor",
@@ -51404,6 +51465,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -51856,7 +51925,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "diffHunk",
@@ -51881,6 +51952,14 @@
           "id": "actor",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -60495,6 +60574,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasVulnerabilityAlertsEnabled",
           "description": "<p>Whether vulnerability alerts are enabled for the repository.</p>",
           "type": "Boolean!",
@@ -63297,6 +63384,31 @@
       ]
     },
     {
+      "name": "RepositoryPropertyConditionTarget",
+      "kind": "objects",
+      "id": "repositorypropertyconditiontarget",
+      "href": "/graphql/reference/objects#repositorypropertyconditiontarget",
+      "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "fields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of repository properties that must not match.</p>",
+          "type": "[PropertyTargetDefinition!]!",
+          "id": "propertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#propertytargetdefinition"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of repository properties that must match.</p>",
+          "type": "[PropertyTargetDefinition!]!",
+          "id": "propertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#propertytargetdefinition"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRule",
       "kind": "objects",
       "id": "repositoryrule",
@@ -63374,6 +63486,14 @@
           "id": "repositorynameconditiontarget",
           "kind": "objects",
           "href": "/graphql/reference/objects#repositorynameconditiontarget"
+        },
+        {
+          "name": "repositoryProperty",
+          "description": "<p>Configuration for the repository_property condition.</p>",
+          "type": "RepositoryPropertyConditionTarget",
+          "id": "repositorypropertyconditiontarget",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositorypropertyconditiontarget"
         }
       ]
     },
@@ -80402,6 +80522,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasWikiEnabled",
           "description": "<p>Indicates if the repository has wiki feature enabled.</p>",
           "type": "Boolean!",
@@ -83087,6 +83215,10 @@
         {
           "name": "PATREON",
           "description": "<p>Patreon funding platform.</p>"
+        },
+        {
+          "name": "POLAR",
+          "description": "<p>Polar funding platform.</p>"
         },
         {
           "name": "TIDELIFT",
@@ -97550,6 +97682,31 @@
       ]
     },
     {
+      "name": "PropertyTargetDefinitionInput",
+      "kind": "inputObjects",
+      "id": "propertytargetdefinitioninput",
+      "href": "/graphql/reference/input-objects#propertytargetdefinitioninput",
+      "description": "<p>A property that must match.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "PublishSponsorsTierInput",
       "kind": "inputObjects",
       "id": "publishsponsorstierinput",
@@ -98459,6 +98616,31 @@
       ]
     },
     {
+      "name": "RepositoryPropertyConditionTargetInput",
+      "kind": "inputObjects",
+      "id": "repositorypropertyconditiontargetinput",
+      "href": "/graphql/reference/input-objects#repositorypropertyconditiontargetinput",
+      "description": "<p>Parameters to be used for the repository_property condition.</p>",
+      "inputFields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of repository properties that must not match.</p>",
+          "type": "[PropertyTargetDefinitionInput!]!",
+          "id": "propertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#propertytargetdefinitioninput"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of repository properties that must match.</p>",
+          "type": "[PropertyTargetDefinitionInput!]!",
+          "id": "propertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#propertytargetdefinitioninput"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRuleConditionsInput",
       "kind": "inputObjects",
       "id": "repositoryruleconditionsinput",
@@ -98488,6 +98670,14 @@
           "id": "repositorynameconditiontargetinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#repositorynameconditiontargetinput"
+        },
+        {
+          "name": "repositoryProperty",
+          "description": "<p>Configuration for the repository_property condition.</p>",
+          "type": "RepositoryPropertyConditionTargetInput",
+          "id": "repositorypropertyconditiontargetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositorypropertyconditiontargetinput"
         }
       ]
     },
@@ -102823,6 +103013,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasSponsorshipsEnabled",
+          "description": "<p>Indicates if the repository displays a Sponsor button for financial contributions.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "hasWikiEnabled",
           "description": "<p>Indicates if the repository should have the wiki feature enabled.</p>",
           "type": "Boolean",
@@ -103217,6 +103415,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "countMembersAlreadyRequested",
+          "description": "<p>Count any members whose review has already been requested against the required number of members assigned to review.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "enabled",
           "description": "<p>Turn on or off review assignment.</p>",
           "type": "Boolean!",
@@ -103243,8 +103449,24 @@
           "isDeprecated": false
         },
         {
+          "name": "includeChildTeamMembers",
+          "description": "<p>Include the members of any child teams when assigning.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "notifyTeam",
           "description": "<p>Notify the entire team of the PR if it is delegated.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "removeTeamRequest",
+          "description": "<p>Remove the team review request when assigning.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

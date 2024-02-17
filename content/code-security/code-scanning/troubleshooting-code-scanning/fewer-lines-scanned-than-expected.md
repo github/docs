@@ -6,13 +6,10 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected
 ---
-
-{% data reusables.code-scanning.beta %}
 
 ## About analysis of compiled languages
 

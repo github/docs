@@ -5,7 +5,6 @@ intro: 'Learn how to diagnose and resolve common errors for webhooks.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks

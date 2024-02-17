@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '>= 3.4'
 topics:
   - Repositories
 shortTitle: Automated release notes

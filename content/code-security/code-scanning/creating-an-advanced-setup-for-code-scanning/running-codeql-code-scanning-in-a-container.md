@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -24,9 +23,6 @@ topics:
   - Containers
   - Java
 ---
-
-
-{% data reusables.code-scanning.beta %}
 
 ## About {% data variables.product.prodname_code_scanning %} with a containerized build
 

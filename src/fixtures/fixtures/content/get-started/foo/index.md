@@ -5,7 +5,6 @@ intro: 'The most basic of fixture data for {% data variables.product.product_nam
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /bar
@@ -17,4 +16,5 @@ children:
   - /html-short-title
   - /page-with-callout
   - /table-with-ifversions
+  - /code-snippet-with-hashbang
 ---

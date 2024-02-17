@@ -8,7 +8,6 @@ redirect_from:
   - /code-security/security-overview/about-the-security-overview
 versions:
   fpt: '*'
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -22,8 +21,6 @@ topics:
   - Secret scanning
   - Teams
 ---
-
-{% data reusables.security-overview.beta %}
 
 ## About security overview
 
@@ -115,16 +112,6 @@ For information about permissions, see "[Permission to view data in security ove
 
 {% endif %}
 
-{% ifversion ghae < 3.8 %}
-
-## About security overview for teams
-
-You can find security overview on the **Security** tab for any team in an organization that's owned by an enterprise.
-
-At the team level, security overview displays repository-specific security information for repositories that the team has admin privileges for. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
-
-{% endif %}
-
 {% ifversion security-overview-org-risk-coverage %}
 
 ## Permission to view data in security overview
@@ -177,7 +164,7 @@ For more information about access to security alerts and related views, see "[AU
 
 ### Enterprise-level overview
 
-{% ifversion ghec or ghes or ghae > 3.5 %}
+{% ifversion ghec or ghes %}
 {% note %}
 
 **Note:** If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in both the organization-level and enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."

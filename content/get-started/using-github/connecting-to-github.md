@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - CLI
   - Codespaces
@@ -32,7 +31,7 @@ Working directly on {% data variables.location.product_location %} is often the 
 - If you're already signed in to {% data variables.product.prodname_dotcom %}, you have access to any repository where you have the necessary permissions, so you don't need to set up any additional authentication on your computer.
 - You can commit changes in the user interface, so you don't need to use the command line or memorize any Git commands.
 
-For a tutorial to help you get started with making changes in the browser, see "[AUTOTITLE](/get-started/quickstart/hello-world)."
+For a tutorial to help you get started with making changes in the browser, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)."
 
 {% ifversion fpt or ghec %}
 
@@ -71,7 +70,7 @@ For more information about how to authenticate to {% data variables.product.prod
 
 | Tool | Use case | Browser or desktop |
 | ---- | -------- | ------------------ |
-| **On {% data variables.location.product_location %}** | You want a visual interface and need to make quick, simple changes, typically involving a single commit. For an introduction, see "[AUTOTITLE](/get-started/quickstart/hello-world)." | Browser |
+| **On {% data variables.location.product_location %}** | You want a visual interface and need to make quick, simple changes, typically involving a single commit. For an introduction, see "[AUTOTITLE](/get-started/start-your-journey/hello-world)." | Browser |
 {%- ifversion fpt or ghec %}
 | **github.dev** | You want to make more complex changes to a repository than is possible on {% data variables.product.prodname_dotcom_the_website %}, but don't need to work with a terminal or tools you have installed on your computer. For more information, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor)." | Browser |
 | **{% data variables.product.prodname_github_codespaces %}** | You need the resources of a computer to do things like run scripts, create a test build of your project, or install dependencies, and you want to get started quickly by working in a cloud-based environment. For more information, see "[AUTOTITLE](/codespaces/overview)." | Browser or desktop |

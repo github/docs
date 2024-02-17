@@ -75,6 +75,12 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 ## Creating a support ticket{% ifversion ghes %} using the {% data variables.contact.enterprise_portal %}{% endif %}
 
+{% note %}
+
+**Note:** Before you submit a ticket, you have the option of using {% data variables.product.prodname_copilot_in_support %} to receive an immediate response to your question. If {% data variables.product.prodname_copilot_in_support %} is unable to resolve your issue, you can continue submitting your ticket. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support)."
+
+{% endnote %}
+
 1. Navigate to the {% data variables.contact.contact_landing_page_portal %}.
 1. In the bottom-left corner of the page, click **Contact us**.
 {% data reusables.support.submit-a-ticket %}

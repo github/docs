@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -20,7 +19,6 @@ topics:
 shortTitle: Configure secret scans
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## Enabling {% data variables.secret-scanning.user_alerts %}
@@ -62,19 +60,6 @@ You can also enable {% data variables.product.prodname_secret_scanning %} for mu
 1. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
    ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section. The "Enable" button is highlighted in a dark orange outline in the "Push protection" section.](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
-
-{% endif %}
-{% ifversion ghae %}
-1. Before you can enable {% data variables.product.prodname_secret_scanning %}, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
-
-   ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
-
-1. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
-
-   ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
-
-1. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
-   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 
 {% endif %}
 

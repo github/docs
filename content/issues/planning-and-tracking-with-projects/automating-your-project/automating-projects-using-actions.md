@@ -48,8 +48,8 @@ For more information about authenticating in a {% data variables.product.prodnam
    {% endnote %}
 
 1. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
-1. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[AUTOTITLE](/rest/apps#get-an-app)."
-1. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
+1. Store your {% data variables.product.prodname_github_app %}'s ID as a configuration variable in your repository or organization. In the following workflow, replace `APP_ID` with the name of the configuration variable. You can find your app ID on the settings page for your app or through the App API. For more information, see "[AUTOTITLE](/rest/apps#get-an-app)." For more information about configuration variables, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+1. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 1. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 1.  In order for this specific example to work, your project must also have a "Date posted" date field.
 
    {% ifversion ghes < 3.12 %}{% note %}
@@ -73,17 +73,17 @@ jobs:
   track_pr:
     runs-on: ubuntu-latest
     steps:
-    # Uses the {% ifversion ghes < 3.12 %}[tibdex/github-app-token](https://github.com/tibdex/github-app-token){% else %}[actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token){% endif %} action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}`.
+    # Uses the {% ifversion ghes < 3.12 %}[tibdex/github-app-token](https://github.com/tibdex/github-app-token){% else %}[actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token){% endif %} action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}`.
     #
-    #Replace `APP_ID` with the name of the secret that contains your app ID.
+    # Replace `APP_ID` with the name of the configuration variable that contains your app ID.
     #
-    #Replace `APP_PEM` with the name of the secret that contains your app private key.
+    # Replace `APP_PEM` with the name of the secret that contains your app private key.
       - name: Generate token
-        id: generate_token
-        uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92{% else %}actions/create-github-app-token@v1{% endif %}
+        id: generate-token
+        uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@32691ba7c9e7063bd457bd8f2a5703138591fa58 # v1.9.0{% else %}actions/create-github-app-token@v1{% endif %}
         with:
-          app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
-          private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+          {% ifversion ghes < 3.12 %}app_id{% else %}app-id{% endif %}: {% raw %}${{ vars.APP_ID }}{% endraw %}
+          {% ifversion ghes < 3.12 %}private_key{% else %}private-key{% endif %}: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
       # Sets environment variables for this step.
       #
       # Replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`.
@@ -91,7 +91,7 @@ jobs:
       # Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
       - name: Get project data
         env:
-          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
           ORGANIZATION: YOUR_ORGANIZATION
           PROJECT_NUMBER: YOUR_PROJECT_NUMBER
         # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) to query the API for the ID of the project and return the name and ID of the first 20 fields in the project. `fields` returns a union and the query uses inline fragments (`... on`) to return information about any `ProjectV2Field` and `ProjectV2SingleSelectField` fields. The response is stored in a file called `project_data.json`.
@@ -125,7 +125,7 @@ jobs:
 #
 # - To get the ID of a field called `Team`, add `echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV`.
 # - To get the ID of an option called `Octoteam` for the `Team` single select field, add `echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV`.
-# 
+#
 # **Note:** This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
           echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
@@ -135,7 +135,7 @@ jobs:
 # Sets environment variables for this step. `GH_TOKEN` is the token generated in the first step. `PR_ID` is the ID of the pull request that triggered this workflow.
       - name: Add PR to project
         env:
-          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
           PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
         # Uses [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) and the API to add the pull request that triggered this workflow to the project. The `jq` flag parses the response to get the ID of the created item.
         run: |
@@ -158,7 +158,7 @@ jobs:
 # Sets environment variables for this step. `GH_TOKEN` is the token generated in the first step.
       - name: Set fields
         env:
-          GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
         # Sets the value of the `Status` field to `Todo`. Sets the value of the `Date posted` field.
         run: |
           gh api graphql -f query='
@@ -257,7 +257,7 @@ jobs:
 #
 # - To get the ID of a field called `Team`, add `echo 'TEAM_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") | .id' project_data.json) >> $GITHUB_ENV`.
 # - To get the ID of an option called `Octoteam` for the `Team` single select field, add `echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV`.
-# 
+#
 # **Note:** This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
           echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV

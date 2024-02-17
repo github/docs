@@ -142,7 +142,7 @@ sections:
 
         # https://github.com/github/releases/issues/3023
         - |
-          Users can use the GraphQL API to review dependencies submitted using the Dependency submission API. For more information, see "[AUTOTITLE](/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview)."
+          Users can use the GraphQL API to review dependencies submitted using the {% data variables.dependency-submission-api.name %}. For more information, see "[AUTOTITLE](/graphql/overview/schema-previews#access-to-a-repositorys-dependency-graph-preview)."
 
     - heading: GitHub Actions
       notes:

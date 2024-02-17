@@ -30,7 +30,7 @@ When you specify content exclusions it has two effects:
 - The content of the affected files will not be used by {% data variables.product.prodname_copilot %} to inform the code completion suggestions it makes in other files.
 - {% data variables.product.prodname_copilot %} code completion will not be available in the affected files.
 
-{% data reusables.copilot.content-exclusions-delay %} For more information, see "[Propagating content exclusion changes to {% data variables.product.prodname_vscode_shortname %}](#propagating-content-exclusion-changes-to-vs-code)."
+{% data reusables.copilot.content-exclusions-delay %} For more information, see "[Propagating content exclusion changes to your IDE](#propagating-content-exclusion-changes-to-your-ide)."
 
 ### Limitations
 
@@ -67,14 +67,14 @@ ssh://[user@]host.xz[:port]/path/to/repo.git/
 {% ifversion ghec %}
 You can't specify content exclusions in the settings for an enterprise. However, all content exclusions defined in organization or repository settings apply to all members of the enterprise who have been granted a {% data variables.product.prodname_copilot_short %} seat as part of a {% data variables.product.prodname_copilot_business_short %} subscription.
 
-This means, for example, that if you are an admin of organization that belongs to Enterprise X, you can set up an exclusion for files in any Git-based repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to anyone who gets their {% data variables.product.prodname_copilot_business_short %} license from any organization in Enterprise X.
+This means, for example, that if you are an admin of an organization that belongs to Enterprise X, you can set up an exclusion for files in any Git-based repositories, hosted on {% data variables.product.prodname_dotcom %} or elsewhere, and the exclusion will apply to anyone who gets their {% data variables.product.prodname_copilot_business_short %} license from any organization in Enterprise X.
 
-However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository, or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.
+However, it's recommended that, where an exclusion is being defined for a {% data variables.product.prodname_dotcom %} repository, you should define this either in the settings of that repository or in the settings for the organization that owns the repository. This makes it easier to identify the exclusions that are in place for a repository than if you define the exclusions in the settings of another organization in the enterprise.
 {% endif %}
 
 ### Data sent to {% data variables.product.prodname_dotcom %}
 
-After you configure content exclusion, the client (for example, the {% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_vscode_shortname %}) sends the current repository URL to the {% data variables.product.prodname_dotcom %} server so that the server can send the correct policy back to the client. URLs sent to the server in this way are not logged anywhere.
+After you configure content exclusion, the client (for example, the {% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_vscode_shortname %}) sends the current repository URL to the {% data variables.product.prodname_dotcom %} server so that the server can return the correct policy to the client. URLs sent to the server in this way are not logged anywhere.
 
 ## Configuring content exclusions for your repository
 
@@ -82,6 +82,7 @@ You can use your repository settings to specify content in your repository that 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
+
 1. In the "Code & automation" section of the side bar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
 
    If your repository inherits any exclusions from {%ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {%ifversion ghec %}one or more{% else %} a{% endif %} gray box{%ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
@@ -135,6 +136,7 @@ You can use your organization settings to specify content, in any repository, th
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
 1. In the box under "Repositories and paths to exclude," enter details of where {% data variables.product.prodname_copilot_short %} should be excluded.
 
@@ -253,7 +255,7 @@ If you are an organization owner, you can check any changes that have been made 
 
 When you change {% data variables.product.prodname_copilot_short %}'s content exclusions you can check that the setting blocks {% data variables.product.prodname_copilot_short %} from suggesting code in the specified files.
 
-To confirm that {% data variables.product.prodname_copilot_short %} is disabled for a file, open the file in the editor and start typing a line of code, such as a comment. Normally you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. If {% data variables.product.prodname_copilot_short %} is disabled by a content exclusion, code completion suggestions will not be offered, and the contents of the file will not be used to generate suggestions in other files.
+To confirm that {% data variables.product.prodname_copilot_short %} is disabled for a file, open the file in the editor and start typing a line of code, such as a comment. Normally, you would see a code completion suggestion from {% data variables.product.prodname_copilot_short %} as you type. If {% data variables.product.prodname_copilot_short %} is disabled by a content exclusion, code completion suggestions will not be offered, and the file's contents will not be used to generate suggestions in other files.
 
 ### Checking settings changes in your IDE
 
@@ -275,7 +277,7 @@ If you are working in {% data variables.product.prodname_vs %}, {% data variable
 
 ### Propagating content exclusion changes to your IDE
 
-If you are working in neovim, content exclusions are fetched from {% data variables.product.prodname_dotcom %} each time you open a file. However, if you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, you may have to wait up to 30 minutes to see the effect of a settings change. Alternatively, you can manually reload the content exclusion settings into your IDE.
+If you are working in Neovim, content exclusions are fetched from {% data variables.product.prodname_dotcom %} each time you open a file. However, if you are working in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or a supported JetBrains IDE, you may have to wait up to 30 minutes to see the effect of a settings change. Alternatively, you can manually reload the content exclusion settings into your IDE.
 
 To reload content exclusions into {% data variables.product.prodname_vs %}, close and reopen the application.
 

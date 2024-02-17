@@ -32,9 +32,9 @@ export const listFirstWordCapitalization = {
       const content = token.content.trim()
       const firstWord = content.trim().split(' ')[0]
 
-      // Liquid is considered a text node but we don't want to capitalize it
-      if (firstWord.startsWith('[{%') || firstWord.startsWith('{%') || firstWord.startsWith('{{'))
-        return
+      // If the first character in the first word is not an alphanumeric,
+      // don't bother. For example `"ubunut-latest"` or `{% data ... %}`.
+      if (/^[^a-z]/i.test(firstWord)) return
       // If the first letter is capitalized, it's not an error
       // And any special characters (like @) that can't be capitalized
       if (/[A-Z@]/.test(firstWord[0])) return

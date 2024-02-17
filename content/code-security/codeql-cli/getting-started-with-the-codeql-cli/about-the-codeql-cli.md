@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -127,4 +126,6 @@ If you are working with an Open Source Codebase (that is, a codebase that is rel
 - To perform analysis of the Open Source Codebase.
 - If the Open Source Codebase is hosted and maintained on {% data variables.product.prodname_dotcom_the_website %}, to generate {% data variables.product.prodname_codeql %} databases for or during automated analysis, continuous integration, or continuous delivery.
 
-{% data variables.product.prodname_codeql %} can’t be used for automated analysis, continuous integration or continuous delivery, whether as part of normal software engineering processes or otherwise, except in the express cases set forth herein. For these uses, contact the [sales team](https://enterprise.github.com/contact).
+{% data variables.product.prodname_codeql %} can’t be used for automated analysis, continuous integration or continuous delivery, whether as part of normal software engineering processes or otherwise, except in the express cases set forth herein unless you have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{% data reusables.advanced-security.ghas-trial %}

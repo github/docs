@@ -1,11 +1,12 @@
 ---
-title: Notifications
+title: REST API endpoints for notifications
+shortTitle: Notifications
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to manage {% data variables.product.product_name %}
   notifications.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -47,6 +48,7 @@ There are a few potential `reason`s for receiving a notification.
 
 Reason Name | Description
 ------------|------------
+`approval_requested` | You were requested to review and approve a deployment. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
 `assign` | You were assigned to the issue.
 `author` | You created the thread.
 `comment` | You commented on the thread.

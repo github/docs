@@ -4,7 +4,6 @@ intro: 'Organization owners can grant or revoke access for a user to manage some
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

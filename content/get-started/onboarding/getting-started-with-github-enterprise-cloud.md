@@ -31,7 +31,7 @@ An enterprise account allows you to centrally manage policy and settings for mul
 
 To create your enterprise account, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
-{% data reusables.enterprise.ghec-cta-button %}
+<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=getting+started+with+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 %}</a>
 
 ### 3. Adding organizations to your enterprise account
 
@@ -160,7 +160,7 @@ You and your enterprise members can use GitHub's learning and support resources 
 
 Enterprise members can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.
 
-For more information, see "[AUTOTITLE](/get-started/quickstart/git-and-github-learning-resources)."
+For more information, see "[AUTOTITLE](/get-started/start-your-journey/git-and-github-learning-resources)."
 
 ### 3. Supporting the open source community
 

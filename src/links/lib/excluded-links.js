@@ -71,6 +71,7 @@ export default [
   regex('https://support.patreon.com/'),
   'https://moodle.org',
   'https://azure.microsoft.com',
+  'https://api.octocorp.ghe.com',
 ]
 
 // Return a regular expression from a URL string that matches the URL

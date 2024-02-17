@@ -5,7 +5,6 @@ intro: You can write a script to handle failed deliveries of a repository webhoo
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks

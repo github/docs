@@ -1,5 +1,5 @@
 ---
-title: Git tags
+title: REST API endpoints for Git tags
 shortTitle: Tags
 allowTitleToDifferFromFilename: true
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   variables.product.product_name %}.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

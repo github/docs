@@ -6,7 +6,6 @@ product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Advanced Security

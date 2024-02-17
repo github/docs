@@ -87,7 +87,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
-1. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
+1. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, type a coding-related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
 1. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
 
    If your question is outside the scope of {% data variables.product.prodname_copilot_chat %}, it will tell you and may suggest an alternative question to ask.
@@ -115,9 +115,9 @@ When {% data variables.product.prodname_copilot_chat %} provides code suggestion
 
 1. In {% data variables.product.prodname_vscode %}, open the file you want {% data variables.product.prodname_copilot_chat %} to help you with.
 1. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
-    - To generate a description of the file's purpose, ask a question like, `What does this file do?`.
-    - To generate a unit test for the file, type a request like, `Write a unit test for this file`. Alternatively, highlight the code you want to generate a unit test for, then ask a question like, `Write a unit test for this code`.
-    - To generate a fix for a bug in the file, type a request like, `Fix this bug`.
+    - To generate a description of the file's purpose, ask a question like, "What does this file do?"
+    - To generate a unit test for the file, type a request like, "Write a unit test for this file." Alternatively, highlight the code you want to generate a unit test for, then ask a question like, "Write a unit test for this code."
+    - To generate a fix for a bug in the file, type a request like, "Fix this bug."
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
 
@@ -216,9 +216,9 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 
 1. In {% data variables.product.prodname_vs %}, open the file you want {% data variables.product.prodname_copilot_chat %} to help you with.
 1. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
-    - To generate a description of the file's purpose, ask a question like, `What does this file do?`.
-    - To generate a unit test for the file, type a request like, `Write a unit test for this file`. Alternatively, highlight the code you want to generate a unit test for, then ask a question like, `Write a unit test for this code`.
-    - To generate a fix for a bug in the file, type a request like, `Fix this bug`.
+    - To generate a description of the file's purpose, ask a question like, "What does this file do"
+    - To generate a unit test for the file, type a request like, "Write a unit test for this file." Alternatively, highlight the code you want to generate a unit test for, then ask a question like, "Write a unit test for this code."
+    - To generate a fix for a bug in the file, type a request like, "Fix this bug."
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
 
@@ -246,6 +246,18 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% data reusables.copilot.chat-procedural-intro %}
 
+## Joining the beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE
+
+The following customers are eligible to participate in the private beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE.
+
+- Users with **{% data variables.product.prodname_copilot_individuals_short %} subscriptions**. To join the private beta, sign up on the [waitlist](https://github.com/github-copilot/chat_jetbrains_waitlist_signup/join). You will be notified by email when you are granted access to the beta. Joining the waitlist does not guarantee access to the beta.
+- Owners of **invoiced organizations or enterprises with a {% data variables.product.prodname_copilot_business_short %} subscription** who also have an account manager. To join the private beta, contact your account manager or solutions engineer to request access.
+
+The following customers are not eligible for the private beta for {% data variables.product.prodname_copilot_chat %} in a JetBrains IDE at this time.
+
+- Customers on Free, Team, or Enterprise plans who do not have an account manager.
+- Customers on Enterprise plans who pay for {% data variables.product.product_name %} with a credit card or PayPal.
+
 ## Prerequisites
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
@@ -272,11 +284,12 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% note %}
 
-**Note:**  If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you can join the [waitlist](https://github.com/github-copilot/chat_jetbrains_waitlist_signup/join). You will be notified by email when you have been grated access. Joining the waitlist does not guarantee you access.
+**Notes:**  
+
+- If you have a {% data variables.product.prodname_copilot_for_individuals %} subscription, you can join the [waitlist](https://github.com/github-copilot/chat_jetbrains_waitlist_signup/join). You will be notified by email when you have been grated access. Joining the waitlist does not guarantee you access.
+- If you have a {% data variables.product.prodname_copilot_for_business %} subscription for an invoiced organization or enterprise, you can contact your account manager or solutions engineer to request access.
 
 {% endnote %}
-
-The {% data variables.product.prodname_copilot_chat %} public beta is available to all organizations and enterprises that have an active {% data variables.product.prodname_copilot_for_business %} license. You can enable or disable {% data variables.product.prodname_copilot_chat %} for your organization or enterprise in the {% data variables.product.prodname_copilot_for_business %} settings page.
 
 ### Enabling or disabling {% data variables.product.prodname_copilot_chat %} at the organization level
 
@@ -332,9 +345,9 @@ The following procedures will guide you through installing or updating the {% da
 
 1. In your JetBrains IDE, open the file you want {% data variables.product.prodname_copilot_chat %} to help you with.
 1. Ask {% data variables.product.prodname_copilot_chat %} a question about the file you have open. For example:
-    - To generate a description of the file's purpose, ask a question like, `What does this file do?`.
-    - To generate a unit test for the file, type a request like, `Write a unit test for this file`. Alternatively, highlight the code you want to generate a unit test for, then ask a question like, `Write a unit test for this code`.
-    - To generate a fix for a bug in the file, type a request like, `Fix this bug`.
+    - To generate a description of the file's purpose, ask a question like, "What does this file do?"
+    - To generate a unit test for the file, type a request like, "Write a unit test for this file." Alternatively, highlight the code you want to generate a unit test for, then ask a question like, "Write a unit test for this code."
+    - To generate a fix for a bug in the file, type a request like, "Fix this bug."
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat %}
 

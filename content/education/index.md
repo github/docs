@@ -14,8 +14,8 @@ featuredLinks:
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution
   guideCards:
-    - /get-started/quickstart/creating-an-account-on-github
-    - /get-started/quickstart/git-and-github-learning-resources
+    - /get-started/start-your-journey/creating-an-account-on-github
+    - /get-started/start-your-journey/git-and-github-learning-resources
   popular:
     - /education/manage-coursework-with-github-classroom/get-started-with-github-classroom/about-github-classroom
     - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students

@@ -5,10 +5,9 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: quick_start
-permissions: These are permissions details, for more pages info start at the beginning with this "[article intro link](#introduction)". Also here's [another link](/get-started/quickstart/hello-world).
+permissions: These are permissions details, for more pages info start at the beginning with this "[article intro link](#introduction)". Also here's [another link](/get-started/start-your-journey/hello-world).
 topics:
   - Pages
 shortTitle: Quickstart
@@ -21,7 +20,7 @@ This page has 6 links that should show preview popovers on hover.
 
 ## Regular internal link
 
-But learn more on "[AUTOTITLE](/get-started/quickstart)."
+But learn more on "[AUTOTITLE](/get-started/start-your-journey)."
 
 ## Internal links with formatted link text
 

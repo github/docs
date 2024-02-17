@@ -5,7 +5,6 @@ intro: 'Some REST API endpoints allow you to specify timezone information with y
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

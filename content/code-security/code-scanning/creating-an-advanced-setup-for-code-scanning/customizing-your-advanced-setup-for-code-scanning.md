@@ -13,7 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -30,7 +29,6 @@ allowTitleToDifferFromFilename: true
 <!--The CodeQL CLI man pages include a link to a section of the article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/config-file.-->
 
-{% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}

@@ -4,7 +4,6 @@ intro: You can deploy a Docker container to Azure App Service as part of your co
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:

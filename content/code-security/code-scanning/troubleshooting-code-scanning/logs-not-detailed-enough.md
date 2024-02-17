@@ -6,13 +6,10 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-code-scanning/logs-are-not-detailed-enough
 ---
-
-{% data reusables.code-scanning.beta %}
 
 If your logs are not detailed enough, there are several steps you can take to make them more useful.
 

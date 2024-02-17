@@ -1,0 +1,6 @@
+# Reference: #13703
+# Dependabot ruleset bypass - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.13'

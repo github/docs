@@ -6,7 +6,6 @@ intro: 'Introduction to code security with {% data variables.product.product_nam
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -21,4 +20,3 @@ children:
   - /auditing-security-alerts
   - /best-practices-for-preventing-data-leaks-in-your-organization
 ---
-

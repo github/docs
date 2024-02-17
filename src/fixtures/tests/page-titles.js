@@ -8,20 +8,20 @@ describe('page titles', () => {
   })
 
   test('fpt article', async () => {
-    const $ = await getDOM('/get-started/quickstart/hello-world')
+    const $ = await getDOM('/get-started/start-your-journey/hello-world')
     expect($('title').text()).toBe('Hello World - GitHub Docs')
   })
 
   test('ghes article', async () => {
-    const $ = await getDOM(`/enterprise-server@latest/get-started/quickstart/hello-world`)
+    const $ = await getDOM(`/enterprise-server@latest/get-started/start-your-journey/hello-world`)
     expect($('title').text()).toBe(
       `Hello World - GitHub Enterprise Server ${enterpriseServerReleases.latestStable} Docs`,
     )
   })
 
   test('fpt map topic page', async () => {
-    const $ = await getDOM('/en/get-started/quickstart')
-    expect($('title').text()).toBe('Quickstart - GitHub Docs')
+    const $ = await getDOM('/en/get-started/start-your-journey')
+    expect($('title').text()).toBe('Start your journey - GitHub Docs')
   })
 
   test('fpt category page', async () => {

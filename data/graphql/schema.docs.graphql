@@ -6686,17 +6686,20 @@ input CreateAttributionInvitationInput {
   """
   The Node ID of the owner scoping the reattributable data.
   """
-  ownerId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  ownerId: ID!
+    @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"], abstractType: "Account")
 
   """
   The Node ID of the account owning the data to reattribute.
   """
-  sourceId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  sourceId: ID!
+    @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"], abstractType: "Account")
 
   """
   The Node ID of the account which may claim the data.
   """
-  targetId: ID! @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"])
+  targetId: ID!
+    @possibleTypes(concreteTypes: ["Bot", "Enterprise", "Mannequin", "Organization", "User"], abstractType: "Account")
 }
 
 """
@@ -15997,6 +16000,11 @@ enum FundingPlatform {
   Patreon funding platform.
   """
   PATREON
+
+  """
+  Polar funding platform.
+  """
+  POLAR
 
   """
   Tidelift funding platform.
@@ -34917,6 +34925,36 @@ enum ProjectV2WorkflowsOrderField {
 }
 
 """
+A property that must match
+"""
+type PropertyTargetDefinition {
+  """
+  The name of the property
+  """
+  name: String!
+
+  """
+  The values to match for
+  """
+  propertyValues: [String!]!
+}
+
+"""
+A property that must match
+"""
+input PropertyTargetDefinitionInput {
+  """
+  The name of the property
+  """
+  name: String!
+
+  """
+  The values to match for
+  """
+  propertyValues: [String!]!
+}
+
+"""
 A user's public key.
 """
 type PublicKey implements Node {
@@ -35252,6 +35290,9 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
+    )
 
   """
   The number of deletions in this pull request.
@@ -35287,6 +35328,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     last: Int
   ): PullRequestChangedFileConnection
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   Identifies the head Ref associated with the pull request.
@@ -35342,6 +35388,16 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Identifies if the pull request is a draft.
   """
   isDraft: Boolean!
+
+  """
+  Indicates whether the pull request is in a merge queue
+  """
+  isInMergeQueue: Boolean!
+
+  """
+  Indicates whether the pull request's base ref has a merge queue enabled.
+  """
+  isMergeQueueEnabled: Boolean!
 
   """
   Is this pull request read by the viewer
@@ -35452,6 +35508,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   The commit that was created when this pull request was merged.
   """
   mergeCommit: Commit
+
+  """
+  The merge queue for the pull request's base branch
+  """
+  mergeQueue: MergeQueue
 
   """
   The merge queue entry of the pull request in the base branch's merge queue
@@ -36512,11 +36573,19 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
+    )
 
   """
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the PullRequestReview object
@@ -36754,6 +36823,9 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "`databaseId` will be removed because it does not support 64-bit signed integer identifiers. Use `fullDatabaseId` instead. Removal on 2024-07-01 UTC."
+    )
 
   """
   The diff hunk to which the comment applies.
@@ -36769,6 +36841,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   The actor who edited the comment.
   """
   editor: Actor
+
+  """
+  Identifies the primary key from the database as a BigInt.
+  """
+  fullDatabaseId: BigInt
 
   """
   The Node ID of the PullRequestReviewComment object
@@ -43621,6 +43698,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   hasProjectsEnabled: Boolean!
 
   """
+  Indicates if the repository displays a Sponsor button for financial contributions.
+  """
+  hasSponsorshipsEnabled: Boolean!
+
+  """
   Whether vulnerability alerts are enabled for the repository.
   """
   hasVulnerabilityAlertsEnabled: Boolean!
@@ -45145,6 +45227,11 @@ interface RepositoryInfo {
   hasProjectsEnabled: Boolean!
 
   """
+  Indicates if the repository displays a Sponsor button for financial contributions.
+  """
+  hasSponsorshipsEnabled: Boolean!
+
+  """
   Indicates if the repository has wiki feature enabled.
   """
   hasWikiEnabled: Boolean!
@@ -45912,6 +45999,36 @@ enum RepositoryPrivacy {
 }
 
 """
+Parameters to be used for the repository_property condition
+"""
+type RepositoryPropertyConditionTarget {
+  """
+  Array of repository properties that must not match.
+  """
+  exclude: [PropertyTargetDefinition!]!
+
+  """
+  Array of repository properties that must match
+  """
+  include: [PropertyTargetDefinition!]!
+}
+
+"""
+Parameters to be used for the repository_property condition
+"""
+input RepositoryPropertyConditionTargetInput {
+  """
+  Array of repository properties that must not match.
+  """
+  exclude: [PropertyTargetDefinitionInput!]!
+
+  """
+  Array of repository properties that must match
+  """
+  include: [PropertyTargetDefinitionInput!]!
+}
+
+"""
 A repository rule.
 """
 type RepositoryRule implements Node {
@@ -45954,6 +46071,11 @@ type RepositoryRuleConditions {
   Configuration for the repository_name condition
   """
   repositoryName: RepositoryNameConditionTarget
+
+  """
+  Configuration for the repository_property condition
+  """
+  repositoryProperty: RepositoryPropertyConditionTarget
 }
 
 """
@@ -45974,6 +46096,11 @@ input RepositoryRuleConditionsInput {
   Configuration for the repository_name condition
   """
   repositoryName: RepositoryNameConditionTargetInput
+
+  """
+  Configuration for the repository_property condition
+  """
+  repositoryProperty: RepositoryPropertyConditionTargetInput
 }
 
 """
@@ -58587,6 +58714,11 @@ input UpdateRepositoryInput {
   hasProjectsEnabled: Boolean
 
   """
+  Indicates if the repository displays a Sponsor button for financial contributions.
+  """
+  hasSponsorshipsEnabled: Boolean
+
+  """
   Indicates if the repository should have the wiki feature enabled.
   """
   hasWikiEnabled: Boolean
@@ -58931,6 +59063,11 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   clientMutationId: String
 
   """
+  Count any members whose review has already been requested against the required number of members assigned to review
+  """
+  countMembersAlreadyRequested: Boolean = true
+
+  """
   Turn on or off review assignment
   """
   enabled: Boolean!
@@ -58946,9 +59083,19 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   id: ID! @possibleTypes(concreteTypes: ["Team"])
 
   """
+  Include the members of any child teams when assigning
+  """
+  includeChildTeamMembers: Boolean = true
+
+  """
   Notify the entire team of the PR if it is delegated
   """
   notifyTeam: Boolean = true
+
+  """
+  Remove the team review request when assigning
+  """
+  removeTeamRequest: Boolean = true
 
   """
   The number of team members to assign

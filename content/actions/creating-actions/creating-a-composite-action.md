@@ -87,9 +87,6 @@ Before you begin, you'll create a repository on {% data variables.location.produ
 
 1. In the `hello-world-composite-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
 
-    {% raw %}
-    **action.yml**
-
     ```yaml copy
     name: 'Hello World'
     description: 'Greet someone'
@@ -101,26 +98,33 @@ Before you begin, you'll create a repository on {% data variables.location.produ
     outputs:
       random-number:
         description: "Random number"
-        value: ${{ steps.random-number-generator.outputs.random-number }}
+        value: {% raw %}${{ steps.random-number-generator.outputs.random-number }}{% endraw %}
     runs:
       using: "composite"
       steps:
-        - run: echo Hello ${{ inputs.who-to-greet }}.
+        - name: Set Greeting
+          run: echo "Hello $INPUT_WHO_TO_GREET."
           shell: bash
-        - id: random-number-generator{% endraw %}
-          {%- ifversion actions-save-state-set-output-envs %}
+          env:
+            INPUT_WHO_TO_GREET: {% raw %}${{ inputs.who-to-greet }}{% endraw %}
+
+        - name: Random Number Generator
+          id: random-number-generator
           run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-          {%- else %}
-          run: echo "::set-output name=random-number::$(echo $RANDOM)"
-          {%- endif %}{% raw %}
           shell: bash
-        - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+
+        - name: Set GitHub Path
+          run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
           shell: bash
-        - run: goodbye.sh
+          env:
+            GITHUB_ACTION_PATH: {% raw %}${{ github.action_path }}{% endraw %}
+
+        - name: Run goodbye.sh
+          run: goodbye.sh
           shell: bash
+
     ```
 
-    {% endraw %}
     This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, adds the action's path to the runner system path (to locate the `goodbye.sh` script during execution), and runs the `goodbye.sh` script.
 
     For more information about managing outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
@@ -148,8 +152,6 @@ The following workflow code uses the completed hello world action that you made 
 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 
-**.github/workflows/main.yml**
-
 ```yaml copy
 on: [push]
 
@@ -163,8 +165,10 @@ jobs:
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
+      - run: echo random-number "$RANDOM_NUMBER"
         shell: bash
+        env:
+          RANDOM_NUMBER: {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
 ```
 
 From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.

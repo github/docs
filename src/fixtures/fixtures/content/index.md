@@ -2,8 +2,9 @@
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Fixture Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/quickstart/hello-world
+    - /get-started/start-your-journey/hello-world
     - /rest
+    - /webhooks
   popular:
     - /get-started
     - /get-started/foo/bar
@@ -15,8 +16,8 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
+  ghae: '*'
 children:
   # The list of children in the fixtures has to be the same names
   # as we use in the real content. It can have fewer but can't include
@@ -31,6 +32,7 @@ children:
   - code-security
   - actions
   - rest
+  - webhooks
   # - account-and-profile
   # - authentication
   # - repositories

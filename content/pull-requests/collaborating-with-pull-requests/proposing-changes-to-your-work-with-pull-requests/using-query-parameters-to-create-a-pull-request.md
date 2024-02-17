@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -16,7 +15,7 @@ You can use query parameters to open pull requests. Query parameters are optiona
 
 {% tip %}
 
-**Tip:** You can also create pull request templates that open with default labels, assignees, and an pull request title. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+**Tip:** You can also create pull request templates that open with default labels, assignees, and a pull request title. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
 
 {% endtip %}
 

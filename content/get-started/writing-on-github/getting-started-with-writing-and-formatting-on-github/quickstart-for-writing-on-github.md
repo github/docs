@@ -1,39 +1,20 @@
 ---
 title: Quickstart for writing on GitHub
-intro: 'Learn advanced formatting features by creating a {% ifversion ghae %}gist to describe yourself{% else %}README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.'
+intro: 'Learn advanced formatting features by creating a README for your {% data variables.product.prodname_dotcom %} profile.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Quickstart
 ---
 
 ## Introduction
 
-{% data reusables.getting-started.what-is-markdown %} You can use Markdown syntax, along with some additional HTML tags, to format your writing on {% data variables.product.prodname_dotcom %}, in places like repository READMEs and comments on pull requests and issues. In this guide, you'll learn some advanced formatting features by creating {% ifversion ghae %}a gist{% else %}or editing a README for your {% data variables.product.prodname_dotcom %} profile{% endif %}.
+{% data reusables.getting-started.what-is-markdown %} You can use Markdown syntax, along with some additional HTML tags, to format your writing on {% data variables.product.prodname_dotcom %}, in places like repository READMEs and comments on pull requests and issues. In this guide, you'll learn some advanced formatting features by creating or editing a README for your {% data variables.product.prodname_dotcom %} profile.
 
 If you're new to Markdown, you might want to start with "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" or the [Communicate using Markdown](https://github.com/skills/communicate-using-markdown) {% data variables.product.prodname_learning %} course.
 
-{% ifversion not ghae %}
-
 If you already have a profile README, you can follow this guide by adding some features to your existing README, or by creating a gist with a Markdown file called something like `about-me.md`. For more information, see "[AUTOTITLE](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
-
-{% endif %}
-
-{% ifversion ghae %}
-
-## Creating a gist
-
-Gists let you store or share code snippets and other pieces of information with others on {% data variables.location.product_location %}. To use formatting features in gists, add a gist file with a `.md` extension.
-
-1. Navigate to your {% data variables.gists.gist_homepage %}.
-1. Optionally, type a description for the gist, such as "About me."
-1. In the **Filename including extension...** field, type `about-me.md`.
-
-For more information, see "[AUTOTITLE](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."
-
-{% else %}
 
 ## Creating or editing your profile README
 
@@ -49,15 +30,13 @@ If you already have a profile README, you can edit it from your profile page.
 {% data reusables.profile.navigating-to-profile %}
 {% data reusables.profile.edit-profile-readme %}
 
-{% endif %}
-
 ## Adding an image to suit your visitors
 
-You can include images in your communication on {% data variables.product.prodname_dotcom %}. Here, you'll add a responsive image, such as a banner, to the top of your {% ifversion ghae %}gist{% else %}profile README{% endif %}.
+You can include images in your communication on {% data variables.product.prodname_dotcom %}. Here, you'll add a responsive image, such as a banner, to the top of your profile README.
 
 By using the HTML `<picture>` element with the `prefers-color-scheme` media feature, you can add an image that changes depending on whether a visitor is using light or dark mode. For more information, see "[AUTOTITLE](/get-started/accessibility/managing-your-theme-settings)."
 
-1. Copy and paste the following markup into your {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} file.
+1. Copy and paste the following markup into your `README.md` file.
 
    ```html copy
    <picture>
@@ -89,7 +68,7 @@ For more information on using images in Markdown, see "[AUTOTITLE](/get-started/
 
 You can use Markdown tables to organize information. Here, you'll use a table to introduce yourself by ranking something, such as your most-used programming languages or frameworks, the things you're spending your time learning, or your favorite hobbies. When a table column contains numbers, it's useful to right-align the column by using the syntax `--:` below the header row.
 
-1. Return to the **Edit {% ifversion ghae %}new {% endif %}file** tab.
+1. Return to the **Edit file** tab.
 1. To introduce yourself, two lines below the `</picture>` tag, add an `## About me` header and a short paragraph about yourself, like the following.
 
    ```markdown
@@ -208,7 +187,7 @@ Markdown has many other options for formatting your content. Here, you'll add a 
 
 ## Adding a comment
 
-You can use HTML comment syntax to add a comment that will be hidden in the output. Here, you'll add a comment to remind yourself to update your {% ifversion ghae %}gist{% else %}README{% endif %} later.
+You can use HTML comment syntax to add a comment that will be hidden in the output. Here, you'll add a comment to remind yourself to update your README later.
 
 1. Two lines below the `## About me` header, insert a comment by using the following markup.
 
@@ -229,16 +208,9 @@ You can use HTML comment syntax to add a comment that will be hidden in the outp
 
 ## Saving your work
 
-When you're happy with your changes, save your {% ifversion ghae %}gist.
-
-- To keep your gist hidden from search engines but visible to anyone you share the URL with, click **Create secret gist**
-- If you're happy for your gist to be visible to anyone on {% data variables.location.product_location %}, click **Create internal gist**
-
-{% else %}profile README by clicking **Commit changes**.
+When you're happy with your changes, save your profile README by clicking **Commit changes**.
 
 Committing directly to the `main` branch will make your changes visible to any visitor on your profile. If you want to save your work but aren't ready to make it visible on your profile, you can select **Create a new branch for this commit and start a pull request**.
-
-{% endif %}
 
 ## Next steps
 

@@ -24,7 +24,7 @@ A classroom is the basic unit of {% data variables.product.prodname_classroom %}
 
 ---
 
-## group assignment  
+## group assignment
 
 {% data reusables.classroom.assignments-group-definition %} For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
 
@@ -50,4 +50,4 @@ A roster allows a teacher to manage students and assignment submissions in a cla
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/quickstart/github-glossary)"
+- "[AUTOTITLE](/get-started/learning-about-github/github-glossary)"

@@ -11,7 +11,11 @@ Object.assign(
   versionMapping,
   ...Object.entries(invertedVersionMapping).map(([a, b]) => ({ [b]: a })),
 )
-const openApiVersions = Object.values(allVersions)
+const openApiVersions = Object.entries(allVersions)
+  // As of Feb 2024, we can't remove ghae from all-versions.js so instead
+  // we deliberately filter it out.
+  .filter(([version]) => version !== 'github-ae@latest')
+  .map(([, value]) => value)
   .map((version) => version.openApiVersionName)
   .map((version) => (version in versionMapping ? versionMapping[version] : version))
   .join(', ')

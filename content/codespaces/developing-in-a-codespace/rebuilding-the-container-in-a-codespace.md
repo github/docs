@@ -49,7 +49,7 @@ If you want to preserve files outside the `/workspaces` directory over a rebuild
 
 ```json
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/base:alpine",
+    "image": "mcr.microsoft.com/devcontainers/base:alpine",
     "postCreateCommand": ".devcontainer/postCreate.sh"
 }
 ```

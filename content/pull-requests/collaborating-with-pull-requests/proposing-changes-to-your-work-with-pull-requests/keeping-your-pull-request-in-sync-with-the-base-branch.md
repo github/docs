@@ -5,7 +5,6 @@ permissions: People with write permissions to the repository to which the head b
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

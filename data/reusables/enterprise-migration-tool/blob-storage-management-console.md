@@ -10,7 +10,7 @@ After you set up an AWS S3 storage bucket or Azure Blob Storage storage account,
 
    {% note %}
 
-   **Note**: After copying your storage settings, you may still need to update the configuration of your cloud storage account to work with {% data variables.product.prodname_importer_proper_name %}. In particular, you must ensure that {% data variables.product.prodname_dotcom %}'s IP addresses are allowlisted. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#configuring-ip-allow-lists-for-migrations)."
+   **Note**: After copying your storage settings, you may still need to update the configuration of your cloud storage account to work with {% data variables.product.prodname_importer_proper_name %}. In particular, you must ensure that {% data variables.product.prodname_dotcom %}'s IP addresses are allowlisted. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 
    {% endnote %}
 
