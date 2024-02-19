@@ -20,7 +20,7 @@ shortTitle: Your business subscription
 
 ## About managing your {% data variables.product.prodname_copilot_for_business %} subscription
 
-This article applies to setting up and managing a {% data variables.product.prodname_copilot %} subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. If you want to set up {% data variables.product.prodname_copilot %} for your personal account, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account)."
+This article applies to setting up and managing a {% data variables.product.prodname_copilot %} subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. If you want to set up {% data variables.product.prodname_copilot %} for your personal account, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-personal-account)." If you want to benefit from {% data variables.product.prodname_copilot %} features in {% data variables.product.prodname_dotcom_the_website %}, you can set up a subscription to {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% ifversion ghec %}
 
@@ -91,12 +91,7 @@ You can either disable {% data variables.product.prodname_copilot %} for all org
 
 {% endnote %}
 
-To cancel your {% data variables.product.prodname_copilot_business_short %} subscription for your enterprise account, you need to disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise.
-
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. Under "Manage organization access to {% data variables.product.prodname_copilot %}," select **Disabled** to disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise.
-1. Click **Save**.
+{% data reusables.copilot.disable-copilot-for-all-orgs %}
 
 ### Canceling your {% data variables.product.prodname_copilot_business_short %} subscription for your organization account {% endif %}
 

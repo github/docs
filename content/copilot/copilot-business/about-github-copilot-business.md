@@ -31,13 +31,13 @@ With {% data variables.product.prodname_copilot_business_short %}, you can manag
 
 ## Enabling and setting up {% data variables.product.prodname_copilot_business_short %}
 
-To use {% data variables.product.prodname_copilot_business_short %}, you need to set up a subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-subscription-for-your-organization-or-enterprise)."
+To use {% data variables.product.prodname_copilot_business_short %}, you need to set up a subscription for your organization{% ifversion ghec %} or enterprise{% endif %} account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/managing-your-github-copilot-business-subscription)."
 
 After setting up a subscription, you can enable {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. For more information, see "[AUTOTITLE](/copilot/copilot-business/enabling-and-setting-up-github-copilot-business)."
 
 ## About billing for {% data variables.product.prodname_copilot_business_short %}
 
-{% data variables.product.prodname_copilot_business_short %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your organization{% ifversion ghec %} or enterprise{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-business)."
+{% data variables.product.prodname_copilot_business_short %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your organization{% ifversion ghec %} or enterprise{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise)."
 
 ## Requesting or granting access to {% data variables.product.prodname_copilot_short %}
 
