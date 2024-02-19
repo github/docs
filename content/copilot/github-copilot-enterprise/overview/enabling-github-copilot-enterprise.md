@@ -22,20 +22,7 @@ Enterprise owners can enable or disable {% data variables.product.prodname_copil
 
 An enterprise owner can choose whether to enable {% data variables.product.prodname_copilot_enterprise %} features for all organizations, disable for all organizations, or allow each organization to choose its own policy for the features. By default, each organization can choose its own policy.
 
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. Click the **Technical preview features** tab.
-1. Next to "{% data variables.product.prodname_copilot_enterprise %}", select the dropdown menu (labeled **No policy** by default), then choose from the following options.
-
-   - **No policy**: Each organization can choose to enable the feature for its members.
-   - **Enabled**: The feature is enabled for members of all organizations.
-   - **Disabled**: The feature is disabled for members of all organizations.
-
-{% note %}
-
-**Note**: If you choose **No policy**, {% data variables.product.prodname_copilot_enterprise %} will initially be disabled for all organizations, but can be enabled by organization owners in their organization settings.
-
-{% endnote %}
+{% data reusables.copilot.copilot-enterprise-enable %}
 
 ## Enabling or disabling {% data variables.product.prodname_copilot_enterprise_short %} features for an organization
 

@@ -42,6 +42,14 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 
 You can ask a general question about software development that is not focused on a particular context, such as a repository or a knowledge base.
 
+Depending on the question you ask, and your enterprise settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
+
+{% note %}
+
+**Note:** Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %} is currently in beta and is subject to change.
+
+{% endnote %}
+
 {% data reusables.copilot.go-to-copilot-page %}
 
 1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is displayed in the panel, click **General purpose chat**.
@@ -57,6 +65,7 @@ You can ask a general question about software development that is not focused on
    - Give me some examples of regular expressions.
    - Write a bash script to output today's date.
 
+1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Results from Bing" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 
    You can use your initial question as a foundation for follow-up questions. A detailed foundational prompt can help {% data variables.product.prodname_copilot_short %} provide more relevant answers to your follow-up questions. For more information, see "[Prompting {% data variables.product.prodname_copilot_chat %} to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/)" on the {% data variables.product.prodname_dotcom %} Blog.
