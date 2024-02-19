@@ -5325,116 +5325,6 @@
     "displayTitle": "Repository permissions for \"Metadata\"",
     "permissions": [
       {
-        "category": "gists",
-        "slug": "create-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist",
-        "subcategory": "gists",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "create-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/comments",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "get-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "get",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "fork-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/forks",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "star-a-gist",
-        "subcategory": "gists",
-        "verb": "put",
-        "requestPath": "/gists/{gist_id}/star",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
-        "category": "gists",
-        "slug": "unstar-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/star",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
         "category": "activity",
         "slug": "list-notifications-for-the-authenticated-user",
         "subcategory": "notifications",
@@ -7633,7 +7523,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7644,7 +7534,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7655,7 +7545,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7666,7 +7556,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7677,7 +7567,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7688,7 +7578,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7699,7 +7589,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7710,7 +7600,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "gists",
@@ -7721,7 +7611,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": false,
-        "additional-permissions": true
+        "additional-permissions": false
       }
     ]
   },
