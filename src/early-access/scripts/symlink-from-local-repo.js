@@ -8,7 +8,6 @@
 //
 // [end-readme]
 
-import { rimraf } from 'rimraf'
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
@@ -69,7 +68,7 @@ const destinationDirsMap = destinationDirNames.reduce((map, dirName) => {
 // Remove all existing early access directories from this repo
 destinationDirNames.forEach((dirName) => {
   const destDir = destinationDirsMap[dirName]
-  rimraf.sync(destDir)
+  fs.rmSync(destDir, { recursive: true, force: true })
   console.log(`- Removed symlink for early access directory '${dirName}' from this repo`)
 })
 

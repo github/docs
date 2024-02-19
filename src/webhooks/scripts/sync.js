@@ -1,7 +1,6 @@
-import { readFile, writeFile } from 'fs/promises'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 
 import { WEBHOOK_DATA_DIR, WEBHOOK_SCHEMA_FILENAME } from '../lib/index.js'
 import Webhook from './webhook.js'
@@ -37,7 +36,7 @@ export async function syncWebhookData(sourceDirectory, webhookSchemas) {
       const targetDirectory = path.join(WEBHOOK_DATA_DIR, versionName)
 
       if (!existsSync(targetDirectory)) {
-        await mkdirp(targetDirectory)
+        await mkdir(targetDirectory, { recursive: true })
       }
 
       const targetPath = path.join(targetDirectory, WEBHOOK_SCHEMA_FILENAME)

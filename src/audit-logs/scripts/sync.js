@@ -10,8 +10,7 @@
  * per page.
  */
 import { existsSync } from 'fs'
-import { readFile, writeFile } from 'fs/promises'
-import { mkdirp } from 'mkdirp'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import path from 'path'
 
 import { getContents, getCommitSha } from '#src/workflows/git-utils.js'
@@ -184,7 +183,7 @@ async function main() {
     const auditLogVersionDirPath = path.join(AUDIT_LOG_DATA_DIR, version)
 
     if (!existsSync(auditLogVersionDirPath)) {
-      await mkdirp(auditLogVersionDirPath)
+      await mkdir(auditLogVersionDirPath, { recursive: true })
     }
 
     auditLogTypes.forEach(async (type) => {

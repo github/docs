@@ -1,7 +1,6 @@
-import { readFile, writeFile } from 'fs/promises'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
-import { mkdirp } from 'mkdirp'
 
 import { updateRestFiles } from './update-markdown.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -51,7 +50,7 @@ export async function syncRestData(sourceDirectory, restSchemas, progAccessSourc
         )
       }
       if (!existsSync(targetDirectoryPath)) {
-        await mkdirp(targetDirectoryPath)
+        await mkdir(targetDirectoryPath, { recursive: true })
       }
       const targetPath = path.join(targetDirectoryPath, REST_SCHEMA_FILENAME)
       await writeFile(targetPath, JSON.stringify(formattedOperations, null, 2))

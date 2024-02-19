@@ -12,7 +12,6 @@ import path from 'path'
 import fs from 'fs'
 import scrape from 'website-scraper'
 import { program } from 'commander'
-import { rimraf } from 'rimraf'
 import http from 'http'
 
 import createApp from '#src/frame/lib/app.js'
@@ -149,7 +148,7 @@ async function main() {
   }
 
   // remove temp directory
-  rimraf.sync(tmpArchivalDirectory)
+  fs.rmSync(tmpArchivalDirectory, { recursive: true, force: true })
 
   const app = createApp()
   const server = http.createServer(app)

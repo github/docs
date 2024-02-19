@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 
-import { readFile, writeFile, copyFile } from 'fs/promises'
-import { existsSync } from 'fs'
+import { mkdir, readFile, writeFile, copyFile } from 'fs/promises'
+import { existsSync, rmSync } from 'fs'
 import walk from 'walk-sync'
-import { mkdirp } from 'mkdirp'
 import { execFileSync, execSync } from 'child_process'
 import path from 'path'
 import matter from 'gray-matter'
-import { rimraf } from 'rimraf'
 
 import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown.js'
 import { convertContentToDocs } from './convert-markdown-for-docs.js'
@@ -74,8 +72,8 @@ async function setupEnvironment() {
   }
 
   // refresh the temp directory
-  rimraf.sync(TEMP_DIRECTORY)
-  await mkdirp(TEMP_DIRECTORY)
+  rmSync(TEMP_DIRECTORY, { recursive: true, force: true })
+  await mkdir(TEMP_DIRECTORY, { recursive: true })
 }
 
 // copy the raw rst files to the temp directory and convert them

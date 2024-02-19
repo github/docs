@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import { existsSync } from 'fs'
-import { mkdirp } from 'mkdirp'
-import { readFile, writeFile } from 'fs/promises'
+import { mkdir, readFile, writeFile } from 'fs/promises'
 import path from 'path'
 import { slug } from 'github-slugger'
 import yaml from 'js-yaml'
@@ -130,7 +129,7 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
 
     // When a new version is added, we need to create the directory for it
     if (!existsSync(targetDirectory)) {
-      await mkdirp(targetDirectory)
+      await mkdir(targetDirectory, { recursive: true })
     }
 
     for (const pageType of Object.keys(githubAppsData)) {

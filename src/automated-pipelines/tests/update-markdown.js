@@ -1,8 +1,7 @@
 import { expect } from '@jest/globals'
 import { tmpdir } from 'os'
-import { mkdirp } from 'mkdirp'
 import { cp, rm, readFile } from 'fs/promises'
-import { existsSync } from 'fs'
+import { existsSync, mkdirSync } from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
@@ -56,7 +55,7 @@ describe('automated content directory updates', () => {
   // structure and contents after running updateContentDirectory.
   beforeAll(async () => {
     process.env.TEST_OS_ROOT_DIR = tempDirectory
-    mkdirp.sync(`${tempContentDirectory}`)
+    mkdirSync(`${tempContentDirectory}`, { recursive: true })
     await cp('src/automated-pipelines/tests/fixtures/content', tempContentDirectory, {
       recursive: true,
     })

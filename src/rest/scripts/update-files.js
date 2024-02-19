@@ -7,15 +7,13 @@
 //
 // [end-readme]
 
-import { readdir, copyFile, readFile, writeFile, rename } from 'fs/promises'
+import { mkdir, readdir, copyFile, readFile, writeFile, rename } from 'fs/promises'
 import path from 'path'
 import { program, Option } from 'commander'
 import { execSync } from 'child_process'
-import { rimraf } from 'rimraf'
-import { mkdirp } from 'mkdirp'
 import { fileURLToPath } from 'url'
 import walk from 'walk-sync'
-import { existsSync } from 'fs'
+import { existsSync, rmSync } from 'fs'
 
 import { syncRestData, getOpenApiSchemaFiles } from './utils/sync.js'
 import { validateVersionsOptions } from './utils/get-openapi-schemas.js'
@@ -72,8 +70,8 @@ main()
 async function main() {
   const pipelines = Array.isArray(output) ? output : [output]
   await validateInputParameters()
-  rimraf.sync(TEMP_OPENAPI_DIR)
-  await mkdirp(TEMP_OPENAPI_DIR)
+  rmSync(TEMP_OPENAPI_DIR, { recursive: true, force: true })
+  await mkdir(TEMP_OPENAPI_DIR, { recursive: true })
 
   // If the source repo is github, this is the local development workflow
   // and the files in github must be bundled and dereferenced first.
@@ -97,7 +95,7 @@ async function main() {
     await copyFile(file, path.join(TEMP_OPENAPI_DIR, baseName))
   }
 
-  rimraf.sync(TEMP_BUNDLED_OPENAPI_DIR)
+  rmSync(TEMP_BUNDLED_OPENAPI_DIR, { recursive: true, force: true })
   await normalizeDataVersionNames(TEMP_OPENAPI_DIR)
 
   // The REST_API_DESCRIPTION_ROOT repo contains all current and
@@ -118,7 +116,7 @@ async function main() {
     derefDir.forEach((schema) => {
       // if the schema does not start with a current version name, delete it
       if (!currentOpenApiVersions.find((version) => schema.startsWith(version))) {
-        rimraf.sync(path.join(TEMP_OPENAPI_DIR, schema))
+        rmSync(path.join(TEMP_OPENAPI_DIR, schema), { recursive: true, force: true })
       }
     })
   }
@@ -183,8 +181,8 @@ async function getBundledFiles() {
   }
 
   // Create a tmp directory to store schema files generated from github/github
-  rimraf.sync(TEMP_OPENAPI_DIR)
-  await mkdirp(TEMP_BUNDLED_OPENAPI_DIR)
+  rmSync(TEMP_OPENAPI_DIR, { recursive: true, force: true })
+  await mkdir(TEMP_BUNDLED_OPENAPI_DIR, { recursive: true })
 
   console.log(
     `\n🏃‍♀️🏃🏃‍♀️Running \`bin/openapi bundle\` in branch '${githubBranch}' of your github/github checkout to generate the dereferenced OpenAPI schema files.\n`,

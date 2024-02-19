@@ -9,7 +9,6 @@
 
 import fs from 'fs'
 import path from 'path'
-import { rimraf } from 'rimraf'
 import walk from 'walk-sync'
 
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -33,7 +32,7 @@ walk(ghesReleaseNotesDir)
   // Check if the directory name contains a deprecated GHES version
   .filter((dir) => deprecatedVersionsHyphenated.some((version) => dir.includes(version)))
   // Remove the directory
-  .map((dir) => rimraf.sync(path.join(ghesReleaseNotesDir, dir)))
+  .map((dir) => fs.rmSync(path.join(ghesReleaseNotesDir, dir), { recursive: true, force: true }))
 
 // webhooks and GraphQL
 const supportedMiscVersions = supportedEnterpriseVersions.map((v) => v.miscVersionName)
@@ -60,6 +59,6 @@ function removeFiles(dir, baseName, supportedVersions) {
     .forEach((file) => {
       const fullPath = path.join(dir, file)
       console.log(`removing ${fullPath}`)
-      rimraf.sync(fullPath)
+      fs.rmSync(fullPath, { recursive: true, force: true })
     })
 }

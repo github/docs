@@ -1,10 +1,8 @@
 import walk from 'walk-sync'
-import { existsSync, lstatSync, unlinkSync } from 'fs'
+import { existsSync, lstatSync, unlinkSync, rmSync } from 'fs'
 import path from 'path'
-import { readFile, writeFile, readdir } from 'fs/promises'
+import { mkdir, readFile, writeFile, readdir } from 'fs/promises'
 import matter from 'gray-matter'
-import { rimraf } from 'rimraf'
-import { mkdirp } from 'mkdirp'
 import { difference, isEqual } from 'lodash-es'
 
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -139,7 +137,7 @@ async function updateDirectory(
   const initialDirectoryListing = await getDirectoryInfo(directory)
   // If there are no children on disk, remove the directory
   if (initialDirectoryListing.directoryContents.length === 0 && !rootDirectoryOnly) {
-    rimraf(directory)
+    rmSync(directory, { recursive: true, force: true })
     return
   }
 
@@ -430,7 +428,7 @@ function isRootIndexFile(indexFile) {
 // Creates a new directory if it doesn't exist
 async function createDirectory(targetDirectory) {
   if (!existsSync(targetDirectory)) {
-    await mkdirp(targetDirectory)
+    await mkdir(targetDirectory, { recursive: true })
   }
 }
 

@@ -2,7 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import os from 'os'
 
-import { rimraf } from 'rimraf'
 import { expect, test, describe, beforeAll, afterAll } from '@jest/globals'
 import nock from 'nock'
 import getRemoteJSON, { cache } from '#src/frame/lib/get-remote-json.js'
@@ -23,7 +22,7 @@ describe('getRemoteJSON', () => {
 
   afterAll(() => {
     process.env.GET_REMOTE_JSON_DISK_CACHE_ROOT = envVarValueBefore
-    rimraf.sync(tempDir)
+    fs.rmSync(tempDir, { recursive: true, force: true })
   })
 
   afterEach(() => {

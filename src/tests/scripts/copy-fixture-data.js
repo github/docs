@@ -17,7 +17,6 @@ import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import { mkdirp } from 'mkdirp'
 
 // Here, write down all the files that are actually part of the rendering
 // functionality yet live in data.
@@ -77,7 +76,7 @@ async function main(opts) {
         if (error.code !== 'ENOENT') throw error
       }
       if (!opts.dryRun) {
-        await mkdirp(path.dirname(destination))
+        fs.mkdirSync(path.dirname(destination), { recursive: true })
         fs.writeFileSync(destination, source, 'utf-8')
         if (opts.verbose) {
           console.log(`Copied latest ${chalk.green(file)} to ${chalk.bold(destination)} 👍🏼`)
