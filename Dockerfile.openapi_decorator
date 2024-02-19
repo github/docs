@@ -1,4 +1,4 @@
-FROM node:18.15-alpine
+FROM node:18.19.1-alpine
 
 RUN apk add --no-cache git python make g++
 
