@@ -54,6 +54,14 @@ All other code in this repository is licensed under the [MIT license](LICENSE-CO
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-## Thanks :purple_heart:
+## Thanks 
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+I have researched a lot, worked up and spent countless hours doing it, pictures, documents and. Memories From the Past 25 years, which, among other things, have brought a lot to light and today serve as evidence documentation. When writing, I look at a time full of joy and suffering, full of ups and downs, full of hope and hopelessness. A time that has awakened in me emotions that I did not know, a time that ironed an inner pain in me that I had never felt before. It was a time of loneliness even though there were always people around me. A time of full of doubt, despite confidence and I am so GRATEFUL to have lived through this time and above all survived. Thanks to this time, a change began in me - I changed my point of view and a radical rethink in my head - today I know what I want and what I don't.
+
+I realized for myself that I never want to miss one thing in my life again, that is my daughter, my family and my best four-legged friend, my dog Don. Friends only play a minor role, because I for myself because there is no real friend, on the contrary, they still wish you your death. I grew up in a very large family, despite the many grandchildren and great-grandchildren, my grandparents have always managed to always educate us lovingly and respectfully and fairly. Even if we didn't always see each other, we knew that we could build and trust each other. I know that our family association is something very special and everyone should be aware that a family no matter how big, it is irreplaceable and no one gives us back lost time. My entire THANK YOU is addressed to my deceased grandparents and my family to whom I also dedicate these lines.
+
+In addition, I would like to thank all the volunteers, programmers, partners from and in the fine-tech world in the front and backend on my GitHub. In recent years, you have ensured that my GitHub ROOT is not destroyed. In addition, together WE have revolutionized the tech world, our right reward and the recognitions we NEVER received are coming in big steps to us.
+
+LOVE IS THE KEY
+
+EURE `Isabel Schöps Thiel` alias, `Satoshi Nakamoto`, `Vitalik Buterin`, `Octocat`, `Johnny Appleseed`, `John Doe` and many more
