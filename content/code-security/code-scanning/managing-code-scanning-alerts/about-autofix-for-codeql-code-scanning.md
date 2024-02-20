@@ -82,7 +82,7 @@ However, each project and codebase is unique, so developers may need to edit a l
 
 {% note %}
 
-**Note:** Fix generation for supported languages is subject to LLM capacity. In addition, each suggested fix is tested before it is added to a pull request. If no suggestion is available, or if the suggested fix fails internal testing, then no autofix suggestion is displayed.
+**Note:** Fix generation for supported languages is subject to LLM operational capacity. In addition, each suggested fix is tested before it is added to a pull request. If no suggestion is available, or if the suggested fix fails internal testing, then no autofix suggestion is displayed.
 
 {% endnote %}
 
