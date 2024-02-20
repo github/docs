@@ -3,10 +3,6 @@ import { getDOM } from '#src/tests/helpers/e2etest.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { getWebhooks } from '../lib/index.js'
 
-// GHAE is deprecated, but can't yet be removed from all-versions.js
-// This line can be removed once we remove GHAE from all-versions.js.
-delete allVersions['github-ae@latest']
-
 describe('webhooks events and payloads', () => {
   jest.setTimeout(300 * 1000)
 
