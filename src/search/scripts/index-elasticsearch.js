@@ -19,14 +19,6 @@ import { retryOnErrorTest } from './retry-on-error-test.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 
-const availableVersions = Object.fromEntries(
-  Object.entries(allVersions)
-    // GHAE is deprecated and not yet entirely deleted from all-versions
-    // Until so, we manually filter it out.
-    .filter(([version]) => version !== 'github-ae@latest')
-    .map(([key, value]) => [key, value]),
-)
-
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()
 
@@ -46,7 +38,7 @@ dotenv.config()
 // We need this later to be able to map CLI arguments to what the
 // records are called when found on disk.
 const shortNames = Object.fromEntries(
-  Object.values(availableVersions).map((info) => {
+  Object.values(allVersions).map((info) => {
     const shortName = info.hasNumberedReleases
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
