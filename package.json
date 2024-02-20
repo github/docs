@@ -330,7 +330,7 @@
     "@types/lodash": "^4.14.202",
     "@types/react": "18.2.46",
     "@types/react-dom": "^18.2.18",
-    "@typescript-eslint/eslint-plugin": "6.17.0",
+    "@typescript-eslint/eslint-plugin": "7.0.0",
     "@typescript-eslint/parser": "6.17.0",
     "chalk": "^5.0.1",
     "change-case": "^5.0.2",
