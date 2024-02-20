@@ -49,7 +49,7 @@ When autofix is enabled for a repository, {% data variables.product.prodname_cod
 
 Any autofix suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestion comments in the pull request. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating the pull request.
 
-The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_code_scanning %} autofix is strictly not employed for LLM training purposes.
+The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_code_scanning %} autofix is strictly not employed for LLM training purposes. For more information on  {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see "[AUTOTITLE](/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security).
 
 ## Quality of autofix suggestions
 
