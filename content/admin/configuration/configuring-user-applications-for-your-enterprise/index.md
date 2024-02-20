@@ -5,7 +5,6 @@ intro: 'You can configure applications for users in your enterprise.'
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:

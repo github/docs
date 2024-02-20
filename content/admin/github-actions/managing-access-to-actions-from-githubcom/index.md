@@ -5,7 +5,6 @@ redirect_from:
   - /enterprise/admin/github-actions/managing-access-to-actions-from-githubcom
 versions:
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:

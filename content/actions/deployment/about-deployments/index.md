@@ -5,7 +5,6 @@ intro: 'Learn how deployments can run with {% data variables.product.prodname_ac
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-continuous-deployment
