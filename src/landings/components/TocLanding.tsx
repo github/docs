@@ -9,7 +9,7 @@ import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
 import { ArticleList } from 'src/landings/components/ArticleList'
 import { ArticleGridLayout } from 'src/frame/components/article/ArticleGridLayout'
-import { Alert } from 'src/frame/components/ui/Alert'
+import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
 import { Lead } from 'src/frame/components/ui/Lead'
 import { LearningTrackNav } from 'src/learning-track/components/article/LearningTrackNav'
 import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
@@ -46,7 +46,7 @@ export const TocLanding = () => {
 
           {intro && <Lead data-search="lead">{intro}</Lead>}
 
-          {productCallout && <Alert html={productCallout} />}
+          <PermissionsStatement product={productCallout} />
 
           <div className="border-bottom border-xl-0 pb-4 mb-5 pb-xl-2 mb-xl-2" />
 
