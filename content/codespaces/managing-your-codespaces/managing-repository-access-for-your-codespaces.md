@@ -63,7 +63,7 @@ You configure repository permissions for {% data variables.product.prodname_gith
 
    {% note %}
 
-   **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+   **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in. To grant access to multiple repositories (e.g. all in an organisation) a wildcard can be used like `my_org/*`.
 
    {% endnote %}
 
