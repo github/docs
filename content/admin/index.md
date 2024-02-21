@@ -97,7 +97,6 @@ layout: product-landing
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /overview
   - /managing-your-enterprise-account

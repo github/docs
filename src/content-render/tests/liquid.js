@@ -19,7 +19,6 @@ const thirdOldestSupportedGhes =
 
 const shortVersionsTemplate = `
   {% ifversion fpt %} I am FPT {% endif %}
-  {% ifversion ghae %} I am GHAE {% endif %}
   {% ifversion ghec %} I am GHEC{% endif %}
   {% ifversion ghes %} I am GHES {% endif %}
   {% ifversion ghes = ${secondOldestSupportedGhes} %} I am GHES = ${secondOldestSupportedGhes} {% endif %}
@@ -29,7 +28,6 @@ const shortVersionsTemplate = `
   {% ifversion ghes < ${thirdOldestSupportedGhes} and ghes > ${oldestSupportedGhes} %} I am ${secondOldestSupportedGhes} only {% endif %}
 `
 const negativeVersionsTemplate = `
-  {% ifversion not ghae %} I am not GHAE {% endif %}
   {% ifversion not ghec %} I am not GHEC {% endif %}
   {% ifversion not ghes %} I am not GHES {% endif %}
   {% ifversion ghes != ${secondOldestSupportedGhes} %} I am not GHES ${secondOldestSupportedGhes} {% endif %}
@@ -64,18 +62,6 @@ describe('liquid template parser', () => {
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
         `I am FPT I am FTP or GHES < ${secondOldestSupportedGhes}`,
       )
-    })
-
-    test('GHAE works as expected', async () => {
-      req.context = {
-        currentVersion: 'github-ae@latest',
-        page: {},
-        allVersions,
-        enterpriseServerReleases,
-      }
-      contextualize(req)
-      const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
-      expect(output.trim()).toBe('I am GHAE')
     })
 
     test('GHEC works as expected', async () => {
@@ -120,7 +106,7 @@ describe('liquid template parser', () => {
 
     test('NOT statements work as expected on versions without numbered releases', async () => {
       req.context = {
-        currentVersion: 'github-ae@latest',
+        currentVersion: 'free-pro-team@latest',
         page: {},
         allVersions,
         enterpriseServerReleases,
@@ -142,7 +128,7 @@ describe('liquid template parser', () => {
       contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am not GHAE I am not GHEC I am not GHES ${secondOldestSupportedGhes}`,
+        `I am not GHEC I am not GHES ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -155,7 +141,7 @@ describe('liquid template parser', () => {
       }
       contextualize(req)
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
-      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHAE I am not GHEC')
+      expect(output.replace(/\s\s+/g, ' ').trim()).toBe('I am not GHEC')
     })
   })
 

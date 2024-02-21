@@ -17,7 +17,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-  ghae: '*'
 children:
   # The list of children in the fixtures has to be the same names
   # as we use in the real content. It can have fewer but can't include

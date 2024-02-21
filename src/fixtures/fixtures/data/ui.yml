@@ -47,7 +47,7 @@ pages:
   miniToc: In this article
   all_enterprise_releases: All Enterprise Server releases
   about_versions: About versions
-  permissions_statement: Who can use this feature
+  permissions_callout_title: Who can use this feature?
   video_from_transcript: See video for this transcript
 support:
   still_need_help: Still need help?

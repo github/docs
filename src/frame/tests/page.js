@@ -318,7 +318,6 @@ describe('Page class', () => {
       expect(page.versions.ghae).toBeUndefined()
       expect(page.applicableVersions.includes('free-pro-team@latest')).toBe(true)
       expect(page.applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
-      expect(page.applicableVersions.includes(`github-ae@latest`)).toBe(false)
     })
 
     test('index page', async () => {
@@ -327,7 +326,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../../content'),
         languageCode: 'en',
       })
-      expect(page.versions).toEqual({ fpt: '*', ghae: '*', ghec: '*', ghes: '*' })
+      expect(page.versions).toEqual({ fpt: '*', ghec: '*', ghes: '*' })
     })
 
     test('enterprise admin index page', async () => {

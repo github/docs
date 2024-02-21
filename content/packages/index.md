@@ -31,7 +31,6 @@ layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /quickstart
