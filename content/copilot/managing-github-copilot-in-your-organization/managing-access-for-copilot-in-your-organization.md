@@ -17,7 +17,7 @@ shortTitle: Managing access
 
 {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise %} and {% endif %}{% data variables.product.prodname_copilot_for_business %} {% ifversion ghec %}are{% else %}is a{% endif %} {% data variables.product.prodname_copilot %} subscription{% ifversion ghec %}s{% endif %}, billed and administered at the organization {% ifversion ghec %}or enterprise {% endif %}level. {% ifversion ghec %}
 
-Enterprise owners can enable or disable {% data variables.product.prodname_copilot %} for organizations within their enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-business-in-your-enterprise)." TODOCS: CHECK THIS LINKS TO THE SUBSECTION - THE NAME & LINK MAY CHANGE
+Enterprise owners can enable or disable {% data variables.product.prodname_copilot %} for organizations within their enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#managing-access-to-github-copilot-in-your-enterprise)."
 
 {% endif %}Organization owners can administer access to {% data variables.product.prodname_copilot_short %} for teams and individuals within the organization. Organization owners can also access usage data relating to {% data variables.product.prodname_copilot %} in their organization, and use that data to make informed decisions about seat assignment.
 
