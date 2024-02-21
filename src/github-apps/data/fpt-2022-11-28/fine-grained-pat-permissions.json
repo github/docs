@@ -521,28 +521,10 @@
       },
       {
         "category": "copilot",
-        "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "copilot",
         "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
         "subcategory": "copilot-business",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "copilot",
-        "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
         "additional-permissions": false,
         "access": "write"
       },
