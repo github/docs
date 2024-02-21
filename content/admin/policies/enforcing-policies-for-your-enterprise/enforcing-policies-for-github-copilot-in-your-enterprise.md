@@ -18,7 +18,7 @@ shortTitle: GitHub Copilot policies
 
 If you have a subscription to {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %}, you can enforce policies for {% data variables.product.prodname_copilot %} within your enterprise's organizations, or allow policies to be set in each organization.
 
-As an enterprise owner, you can grant and revoke access to {% data variables.product.prodname_copilot %} for organizations within your enterprise. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the admins of that organization can grant access to individuals and teams. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
+As an enterprise owner, you can grant and revoke access to {% data variables.product.prodname_copilot %} for organizations within your enterprise. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the owners of that organization can grant access to individuals and teams. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
 
 {% data variables.product.prodname_copilot %} subscriptions are billed monthly, based on the number of seats assigned to users within your enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#github-copilot-pricing-for-github-enterprise-cloud)."
 
