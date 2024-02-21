@@ -9,5 +9,5 @@ versions:
 children:
   - /about-github-copilot-enterprise
   - /github-copilot-enterprise-feature-set
-  - /enabling-github-copilot-enterprise
+  - /enabling-github-copilot-enterprise-features
 ---

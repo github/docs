@@ -57,21 +57,15 @@ Enterprise owners can choose whether to grant access to {% data variables.produc
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot %} features on {% data variables.product.prodname_dotcom_the_website %}
 
-With a {% data variables.product.prodname_copilot_enterprise_short %} license, members of your enterprise can access {% data variables.product.prodname_copilot_short %} features on {% data variables.product.prodname_dotcom_the_website %}. These features include:
+With a {% data variables.product.prodname_copilot_enterprise_short %} license, members of your enterprise can access AI features that enhance their experience on {% data variables.product.prodname_dotcom_the_website %}, such as the ability to chat with {% data variables.product.prodname_copilot_short %} in the browser and reference context for {% data variables.product.prodname_copilot_short %} across multiple repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)."
 
-- {% data variables.product.prodname_copilot_chat_dotcom_short %}
-- {% data variables.product.prodname_copilot_for_prs %}
-- {% data variables.product.prodname_copilot_for_docs %}
-
-For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
-
-You can enable or disable the use of these features for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to the features for each organization.
+You can enable or disable the use of these features for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to the features for their organization. By default, each organization can choose its own policy.
 
 {% data reusables.copilot.copilot-enterprise-enable %}
 
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_chat %} in IDEs
 
-{% data variables.product.prodname_copilot_chat %} is a feature that allows users to chat with {% data variables.product.prodname_copilot %} to get code suggestions and answers to coding-related questions. You can enable or disable the use of {% data variables.product.prodname_copilot_chat %} in IDEs for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to {% data variables.product.prodname_copilot_chat %} for each organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)."
+{% data variables.product.prodname_copilot_chat %} is a feature that allows users to chat with {% data variables.product.prodname_copilot %} to get code suggestions and answers to coding-related questions. You can enable or disable the use of {% data variables.product.prodname_copilot_chat %} in IDEs for organizations in your enterprise. Alternatively, you can allow organization owners to select their own policy to determine access to {% data variables.product.prodname_copilot_chat %} for their organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)."
 
 To manage the use of {% data variables.product.prodname_copilot_chat_dotcom_short %}, see "[Enforcing a policy to manage the use of {% data variables.product.prodname_copilot %} features on {% data variables.product.prodname_dotcom_the_website %}](#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
 
