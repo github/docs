@@ -218,6 +218,7 @@ There are a few simple tricks to avoid committing things you don't want committe
 - Avoid the catch-all commands `git add .` and `git commit -a` on the command line—use `git add filename` and `git rm filename` to individually stage files, instead.
 - Use `git add --interactive` to individually review and stage changes within each file.
 - Use `git diff --cached` to review the changes that you have staged for commit. This is the exact diff that `git commit` will produce as long as you don't use the `-a` flag.
+- Use [gitleaks](https://github.com/gitleaks/gitleaks) to detect and prevent commits which contain hardcoded secrets
 
 ## Further reading
 
