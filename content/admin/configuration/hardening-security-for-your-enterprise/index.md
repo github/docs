@@ -5,7 +5,6 @@ intro: 'You can configure features and settings to harden security for your ente
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:

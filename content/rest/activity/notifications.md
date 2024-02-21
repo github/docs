@@ -59,6 +59,7 @@ Reason Name | Description
 `mention` | You were specifically **@mentioned** in the content.
 `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
 `security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) in your repository.{% endif %}
+`security_advisory_credit` | You were credited for contributing to a security advisory.
 `state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
 `subscribed` | You're watching the repository.
 `team_mention` | You were on a team that was mentioned.

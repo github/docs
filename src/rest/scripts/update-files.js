@@ -107,14 +107,6 @@ async function main() {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
     const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
 
-    // This automation uses the all-versions.js file as the source of truth
-    // for deprecated and supported versions and releases. The all-versions.js
-    // file still includes the GHAE version, which is effectively deprecated.
-    // We need to manually remove it from the list of current versions.
-    // Delete these two line when GHAE is removed from all-versions.js.
-    const indexToRemove = currentOpenApiVersions.findIndex((openApiName) => openApiName === 'ghae')
-    currentOpenApiVersions.splice(indexToRemove, 1)
-
     derefDir.forEach((schema) => {
       // if the schema does not start with a current version name, delete it
       if (!currentOpenApiVersions.find((version) => schema.startsWith(version))) {
