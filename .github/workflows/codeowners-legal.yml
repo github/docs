@@ -5,7 +5,15 @@ name: Codeowners - Legal
 # **Who does it impact**: Content writers and the GitHub legal team.
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    paths:
+      - 'content/**'
 
 permissions:
   contents: read
