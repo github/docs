@@ -607,8 +607,8 @@
     "permissions": [
       {
         "category": "copilot",
-        "slug": "get-copilot-business-seat-information-and-settings-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "get-copilot-seat-information-and-settings-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing",
         "access": "write",
@@ -618,8 +618,8 @@
       },
       {
         "category": "copilot",
-        "slug": "list-all-copilot-business-seat-assignments-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "list-all-copilot-seat-assignments-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/copilot/billing/seats",
         "access": "write",
@@ -629,8 +629,19 @@
       },
       {
         "category": "copilot",
-        "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "add-teams-to-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-teams-from-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
         "access": "write",
@@ -640,8 +651,19 @@
       },
       {
         "category": "copilot",
-        "slug": "remove-users-from-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
+        "slug": "add-users-to-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "copilot",
+        "slug": "remove-users-from-the-copilot-subscription-for-an-organization",
+        "subcategory": "copilot-user-management",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_users",
         "access": "write",
@@ -651,8 +673,8 @@
       },
       {
         "category": "copilot",
-        "slug": "get-copilot-business-seat-assignment-details-for-a-user",
-        "subcategory": "copilot-business",
+        "slug": "get-copilot-seat-assignment-details-for-a-user",
+        "subcategory": "copilot-user-management",
         "verb": "get",
         "requestPath": "/orgs/{org}/members/{username}/copilot",
         "access": "write",
