@@ -959,7 +959,15 @@ services:
 
 ## `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a registry name.
+
+You may specify an empty image by passing `''` . This will result in the service not being started, and is useful to have _conditional_ services. For example,
+
+```yaml
+services:
+  nginx:
+    image: ${{ options.nginx == true && 'nginx' || '' }}
+```
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
