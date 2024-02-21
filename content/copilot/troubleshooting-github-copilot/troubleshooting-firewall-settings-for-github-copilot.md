@@ -15,7 +15,7 @@ If you or your organization employs security measures like a firewall or proxy s
 
 ## URLs to add to an allowlist
 
-Due to {% data variables.product.prodname_copilot_short %}'s interaction with a remote machine learning model and its update checking functionality, it is recommended to include the following domain URLs in the allowlist, marking them as trusted either in the user interface or within your deployment scripts.
+Due to {% data variables.product.prodname_copilot_short %}'s interaction with a remote machine learning model and its update-checking functionality, it is recommended to include the following domain URLs in the allowlist, marking them as trusted either in the user interface or within your deployment scripts.
 
 | Domain and/or URL                      | Purpose |
 | :------------------------------------- | :--------------------------------- |

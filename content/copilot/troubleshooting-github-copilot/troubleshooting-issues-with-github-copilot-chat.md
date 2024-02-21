@@ -19,7 +19,7 @@ If you can't find {% data variables.product.prodname_copilot_chat %} in your edi
 
 ## Troubleshooting authentication issues in your editor
 
-You can use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}. For troubleshooting information relevant to the editor you're using, use the tabs at the top of this article.
+You can use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}. You can use the tabs at the top of this article for troubleshooting information relevant to the editor you're using.
 
 {% vscode %}
 
@@ -39,7 +39,7 @@ If you are experiencing authentication issues after installing the {% data varia
 
 If you are experiencing authentication issues after installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}, you can try the following steps to resolve the issue.
 
-1. Check that the {% data variables.product.prodname_dotcom %} ID you are signed into {% data variables.product.prodname_vs %} with is the same as the one that you have been granted access to {% data variables.product.prodname_copilot_chat %} with.
+1. Check that the {% data variables.product.prodname_dotcom %} ID you are signed into {% data variables.product.prodname_vs %} with is the same as the one you have been granted access to {% data variables.product.prodname_copilot_chat %} with.
 1. Check whether your {% data variables.product.prodname_dotcom %} ID/credentials need refreshing in {% data variables.product.prodname_vs %}. For more information, see "[Work with {% data variables.product.prodname_dotcom %} accounts in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022)" in the {% data variables.product.prodname_vs %} documentation.
 1. Try removing and re-adding your {% data variables.product.prodname_dotcom %} ID to {% data variables.product.prodname_vs %} and restarting {% data variables.product.prodname_vs %}.
 1. If the above steps don't work, click the **Share feedback** button and select **Report a problem** to report the issue to the {% data variables.product.prodname_vs %} team.
