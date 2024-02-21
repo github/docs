@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 redirect_from:
   - /enterprise/admin/enterprise-support/overview
   - /admin/enterprise-support/overview

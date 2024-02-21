@@ -3,7 +3,6 @@ title: Outside Collaborators
 intro: Use the REST API to manage outside collaborators.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

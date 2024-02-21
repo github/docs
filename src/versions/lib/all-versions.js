@@ -49,23 +49,6 @@ const plans = [
     openApiBaseName: 'ghes-',
     miscBaseName: 'ghes-',
   },
-  // github-ae is gone, but we need to keep it in the array
-  // for the validation of front matter when it checks the `versions`
-  // keys.
-  // All requests for github-ae@latest will be redirected in getRedirect().
-  {
-    plan: 'github-ae',
-    planTitle: 'GitHub AE',
-    shortName: 'ghae',
-    releases: [latestNonNumberedRelease],
-    latestRelease: latestNonNumberedRelease,
-    // The below is used in lib/liquid-tags/ifversion.js and lib/get-applicable-versions.js.
-    // It lets us do semantic comparison internally while only exposing `@latest` in the UI.
-    internalLatestRelease: '3.6',
-    hasNumberedReleases: false,
-    openApiBaseName: 'ghae',
-    miscBaseName: 'ghae',
-  },
 ]
 
 const allVersions = {}

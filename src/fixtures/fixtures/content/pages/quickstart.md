@@ -5,7 +5,6 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: quick_start
 permissions: These are permissions details, for more pages info start at the beginning with this "[article intro link](#introduction)". Also here's [another link](/get-started/start-your-journey/hello-world).

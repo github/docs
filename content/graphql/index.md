@@ -27,7 +27,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /overview
   - /reference

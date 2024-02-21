@@ -91,12 +91,12 @@ The following {% data variables.product.prodname_GH_advanced_security %} feature
 {% elsif ghec %}
 Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
 
-{% data reusables.advanced-security.ghas-trial %}
-
 {% elsif ghes %}
 {% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 
 {% endif %}
+
+{% data reusables.advanced-security.ghas-trial %}
 
 ### {% data variables.product.prodname_code_scanning_caps %}
 

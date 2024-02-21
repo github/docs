@@ -6,7 +6,6 @@ permissions: 'You can use a user access token to access these endpoints using yo
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

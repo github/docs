@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import cx from 'classnames'
 import { LinkExternalIcon } from '@primer/octicons-react'
 
-import { Alert } from 'src/frame/components/ui/Alert'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { useArticleContext } from 'src/frame/components/context/ArticleContext'
@@ -62,12 +61,10 @@ export const ArticlePage = () => {
 
   const introCalloutsProp = (
     <>
-      {permissions && <PermissionsStatement permissions={permissions} />}
+      <PermissionsStatement permissions={permissions} product={product} />
 
       {includesPlatformSpecificContent && <PlatformPicker />}
       {includesToolSpecificContent && <ToolPicker />}
-
-      {product && <Alert className="mb-4" html={product} />}
     </>
   )
 

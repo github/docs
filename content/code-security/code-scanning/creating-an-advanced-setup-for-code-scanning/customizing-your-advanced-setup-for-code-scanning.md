@@ -235,62 +235,6 @@ If your workflow does not contain a matrix called `language`, then {% data varia
     languages: {% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %}, csharp, python
 ```
 
-{% ifversion codeql-python-no-auto-dependencies %}
-
-## Analyzing Python dependencies
-
-{% note %}
-
-**Notes:**
-- As of July 12, 2023, automatic dependency installation is disabled by default for new users of {% data variables.product.prodname_codeql %} for Python, with new users defined as those who have no prior Python projects set up for code scanning with {% data variables.product.prodname_codeql %} via advanced setup.
-- Existing code scanning users that have already set up {% data variables.product.prodname_codeql %} to scan at least one Python project will not see any changes in behavior, even to newly configured repositories. However, for improved scan times, we encourage users to disable dependency installation by setting `setup-python-dependencies: false` in the "Initialize CodeQL" step of the workflow.
-- Automatic installation of dependencies will be deprecated for all users by the end of 2023.
-
-{% endnote %}
-
-For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the {% data variables.product.prodname_codeql %} analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
-
-- If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
-
-- If the repository doesn't have any Python dependencies, or the dependencies are specified in an unexpected way, you'll get a warning and the action will continue with the remaining jobs. The action can run successfully even when there are problems interpreting dependencies, but the results may be incomplete.
-
-Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
-
-```yaml copy
-jobs:
-  CodeQL-Build:
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      actions: read
-
-    steps:
-      - name: Checkout repository
-        uses: {% data reusables.actions.action-checkout %}
-      - name: Set up Python
-        uses: {% data reusables.actions.action-setup-python %}
-        with:
-          python-version: '3.x'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ];
-          then pip install -r requirements.txt;
-          fi
-          # Set the `CODEQL-PYTHON` environment variable to the Python executable
-          # that includes the dependencies
-          echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
-      - name: Initialize CodeQL
-        uses: {% data reusables.actions.action-codeql-action-init %}
-        with:
-          languages: python
-          # Override the default behavior so that the action doesn't attempt
-          # to auto-install Python dependencies
-          setup-python-dependencies: false
-```
-
-{% endif %}
-
 ## Defining the alert severities that cause a check failure for a pull request
 
 {% data reusables.code-scanning.pull-request-checks %}

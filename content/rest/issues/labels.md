@@ -3,7 +3,6 @@ title: Labels
 intro: 'Use the REST API to manage labels for repositories, issues and pull requests.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

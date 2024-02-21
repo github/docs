@@ -7,7 +7,6 @@ intro: >-
   variables.projects.projects_v1_boards %} in a repository.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

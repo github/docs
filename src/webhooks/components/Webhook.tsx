@@ -27,23 +27,6 @@ async function webhookFetcher(url: string) {
   return response.json()
 }
 
-// We manually created decorated webhooks files for GHES versions older than
-// 3.7, returns whether the given version is one of these versions of GHES.
-//
-// TODO: once 3.7 is the oldest supported version of GHES, we won't need this
-// anymore.
-function isScrapedGhesVersion(version: ReturnType<typeof useVersion>) {
-  const scrapedVersions = ['3.6', '3.5', '3.4', '3.3', '3.2']
-
-  if (!version.isEnterprise) return false
-
-  // getting the number part e.g. '3.6' from a version string like
-  // 'enterprise-server@3.6'
-  const versionNumber = version.currentVersion.split('@')[1]
-
-  return scrapedVersions.includes(versionNumber)
-}
-
 export function Webhook({ webhook }: Props) {
   // Get version for requests to switch webhook action type
   const version = useVersion()
@@ -153,23 +136,13 @@ export function Webhook({ webhook }: Props) {
         />
         <ul>
           {currentWebhookAction.availability.map((availability) => {
-            // TODO: once 3.7 is the oldest supported version of GHES, we won't need this anymore.
-            if (isScrapedGhesVersion(version)) {
-              return (
-                <li
-                  dangerouslySetInnerHTML={{ __html: availability }}
-                  key={`availability-${availability}`}
-                ></li>
-              )
-            } else {
-              return (
-                <li key={`availability-${availability}`}>
-                  {availability in rephraseAvailability
-                    ? (rephraseAvailability[availability] as string)
-                    : availability}
-                </li>
-              )
-            }
+            return (
+              <li key={`availability-${availability}`}>
+                {availability in rephraseAvailability
+                  ? (rephraseAvailability[availability] as string)
+                  : availability}
+              </li>
+            )
           })}
         </ul>
         <h3
