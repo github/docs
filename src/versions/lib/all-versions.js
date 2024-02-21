@@ -49,20 +49,6 @@ const plans = [
     openApiBaseName: 'ghes-',
     miscBaseName: 'ghes-',
   },
-
-  {
-    plan: 'github-ae',
-    planTitle: 'GitHub AE',
-    shortName: 'ghae',
-    releases: [latestNonNumberedRelease],
-    latestRelease: latestNonNumberedRelease,
-    // The below is used in lib/liquid-tags/ifversion.js and lib/get-applicable-versions.js.
-    // It lets us do semantic comparison internally while only exposing `@latest` in the UI.
-    internalLatestRelease: '3.6',
-    hasNumberedReleases: false,
-    openApiBaseName: 'ghae',
-    miscBaseName: 'ghae',
-  },
 ]
 
 const allVersions = {}
@@ -132,15 +118,5 @@ export function getOpenApiVersion(version) {
   }
   return allVersions[version].openApiVersionName
 }
-
-export const allTestableVersions = Object.keys(allVersions).filter(
-  // Because of the deprecation of GHAE we can't delete it from `allVersions`
-  // until ALL cleaning up is done. Since we're now always redirecting
-  // all requests for `.../github-ae@latest/...` we also shouldn't test it.
-  // Other end-to-end tests will test the redirects of that legacy.
-  // The day `github-ae@latest` is no longer in all-versions.js
-  // this filtering can be deleted.
-  (version) => version !== 'github-ae@latest',
-)
 
 export { allVersions }

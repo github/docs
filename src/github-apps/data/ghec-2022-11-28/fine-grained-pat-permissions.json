@@ -929,28 +929,10 @@
       },
       {
         "category": "copilot",
-        "slug": "add-teams-to-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "copilot",
         "slug": "remove-teams-from-the-copilot-business-subscription-for-an-organization",
         "subcategory": "copilot-business",
         "verb": "delete",
         "requestPath": "/orgs/{org}/copilot/billing/selected_teams",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "copilot",
-        "slug": "add-users-to-the-copilot-business-subscription-for-an-organization",
-        "subcategory": "copilot-business",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/copilot/billing/selected_users",
         "additional-permissions": false,
         "access": "write"
       },
@@ -5758,96 +5740,6 @@
     "displayTitle": "Repository permissions for \"Metadata\"",
     "permissions": [
       {
-        "category": "gists",
-        "slug": "create-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist",
-        "subcategory": "gists",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "create-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/comments",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "get-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "get",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "update-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "patch",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "delete-a-gist-comment",
-        "subcategory": "comments",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "fork-a-gist",
-        "subcategory": "gists",
-        "verb": "post",
-        "requestPath": "/gists/{gist_id}/forks",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "star-a-gist",
-        "subcategory": "gists",
-        "verb": "put",
-        "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "gists",
-        "slug": "unstar-a-gist",
-        "subcategory": "gists",
-        "verb": "delete",
-        "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "activity",
         "slug": "list-notifications-for-the-authenticated-user",
         "subcategory": "notifications",
@@ -7941,7 +7833,7 @@
         "subcategory": "gists",
         "verb": "post",
         "requestPath": "/gists",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -7950,7 +7842,7 @@
         "subcategory": "gists",
         "verb": "patch",
         "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -7959,7 +7851,7 @@
         "subcategory": "gists",
         "verb": "delete",
         "requestPath": "/gists/{gist_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -7968,7 +7860,7 @@
         "subcategory": "comments",
         "verb": "post",
         "requestPath": "/gists/{gist_id}/comments",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -7977,7 +7869,7 @@
         "subcategory": "comments",
         "verb": "patch",
         "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -7986,7 +7878,7 @@
         "subcategory": "comments",
         "verb": "delete",
         "requestPath": "/gists/{gist_id}/comments/{comment_id}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -7995,7 +7887,7 @@
         "subcategory": "gists",
         "verb": "post",
         "requestPath": "/gists/{gist_id}/forks",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -8004,7 +7896,7 @@
         "subcategory": "gists",
         "verb": "put",
         "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -8013,7 +7905,7 @@
         "subcategory": "gists",
         "verb": "delete",
         "requestPath": "/gists/{gist_id}/star",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       }
     ]
