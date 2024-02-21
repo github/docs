@@ -63,7 +63,6 @@
     "test-local-dev": "node src/workflows/test-local-dev.js",
     "test-moved-content": "tsx src/content-render/scripts/test-moved-content.ts",
     "test-watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch --notify --notifyMode=change --coverage",
-    "toggle-ghae-feature-flags": "node src/versions/scripts/toggle-ghae-feature-flags.js",
     "tsc": "tsc --noEmit",
     "unallowed-contributions": "node src/workflows/unallowed-contributions.js",
     "update-data-and-image-paths": "node src/early-access/scripts/update-data-and-image-paths.js",
