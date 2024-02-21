@@ -131,7 +131,7 @@ You can choose a particular repository, file or symbol, and then ask a question 
 
 ## Asking a question about a knowledge base
 
-You can create a knowledge base, grouping together Markdown documentation across one or more repositories, and then ask questions with that context in mind.
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. You can use a knowledge base to ask questions with that context in mind.
 
 When you enter a query, {% data variables.product.prodname_copilot_short %} searches for relevant documentation snippets, synthesizes a summary of the relevant snippets to answer your question, and provides links to the source documentation for additional context.
 
