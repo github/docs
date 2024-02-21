@@ -63,7 +63,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 1. In the left-side menu of the **Settings** dialog box, click **Plugins**.
 1. At the top of the **Settings** dialog box, click **Marketplace**. In the search bar, search for `copilot`, then click **Install**.
 
-   ![Screenshot of the "Settings" window. A tab labeled "Marketplace" is highlighted with an orange outline. In a list of search results, the installed "GitHub Copilot" plugin is marked by a selected checkbox.](/assets/images/help/copilot/jetbrains-marketplace.png)
+   ![Screenshot of the "Marketplace" tab in the "Settings" dialog. The "GitHub Copilot" plugin is shown with a selected checkbox.](/assets/images/help/copilot/jetbrains-marketplace.png)
 
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 1. After your JetBrains IDE has restarted, click the **Tools** menu. Click **{% data variables.product.prodname_copilot %}**, then click **Login to {% data variables.product.prodname_dotcom %}**.
@@ -607,11 +607,14 @@ You may not want to accept an entire suggestion from {% data variables.product.p
 {% data reusables.copilot.next-steps %}
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/): See practical examples of how {% data variables.product.prodname_copilot %} can help you work.
-- [AUTOTITLE](/copilot/configuring-github-copilot): These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
-- [AUTOTITLE](/billing/managing-billing-for-github-copilot): Learn more about billing for {% data variables.product.prodname_copilot %}.
-- [AUTOTITLE](/copilot/troubleshooting-github-copilot): These guides provide information for troubleshooting {% data variables.product.prodname_copilot %}.
+- "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)"{% ifversion ghec %} and "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)"{% endif %}: Find out how to ask {% data variables.product.prodname_copilot %} for information and assistance.
+- "[AUTOTITLE](/copilot/configuring-github-copilot)": These guides provide details on how to configure {% data variables.product.prodname_copilot %} to your personal preferences.
+- "[AUTOTITLE](/billing/managing-billing-for-github-copilot)": Learn more about billing for {% data variables.product.prodname_copilot %}.
+- "[AUTOTITLE](/copilot/troubleshooting-github-copilot)": These guides provide information for troubleshooting {% data variables.product.prodname_copilot %}.
 
 ## Further reading
 
 - [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
-- [About {% data variables.product.prodname_copilot_for_individuals %}](/copilot/overview-of-github-copilot/about-github-copilot-individual#about-the-license-for-the-github-copilot-plugin-in-jetbrains-ides)
+- "[AUTOTITLE](/copilot/copilot-individual/about-github-copilot-individual)"
+- "[AUTOTITLE](/copilot/copilot-business/about-github-copilot-business)"
+{% ifversion ghec %}- "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)"{% endif %}
