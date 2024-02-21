@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Copilot Chat in GitHub.com
 shortTitle: Using Chat in GitHub.com
-intro: 'You can use {% data variables.product.prodname_copilot_chat_short %} to answer general questions about software development, or specific questions about the code in a repository.'
+intro: 'You can use {% data variables.product.prodname_copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the code in a repository.'
 versions:
   feature: 'copilot-on-dotcom'
 topics:
@@ -10,14 +10,21 @@ topics:
 
 ## Overview
 
-{% data variables.product.prodname_copilot_chat %} is a chat interface that lets you ask and receive answers to coding-related questions either on {% data variables.product.prodname_dotcom_the_website %} or within a supported IDE. For information on using {% data variables.product.prodname_copilot_chat %} in an IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)."
+{% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you ask and receive answers to coding-related questions on {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data variables.product.prodname_copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)."
+{% note %}
+
+**Note**: {% data variables.product.prodname_copilot_chat_short %} is also available in selected IDEs. For information on using {% data variables.product.prodname_copilot_chat %} in an IDE, see "[AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide)."
+
+{% endnote %}
+
+{% data variables.product.prodname_copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom)."
 
 On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
 
 - General software-related questions, without a particular context. For more information, see "[Asking a general question about software development](#asking-a-general-question-about-software-development)."
-- Questions asked in the context of your project, or a documentation set. For more information, see "[Asking a question with a specific context](#asking-a-question-with-a-specific-context)."
+- Questions asked in the context of a specific repository, file or symbol. For more information, see "[Asking a question about a specific repository, file or symbol](#asking-a-question-about-a-specific-repository-file-or-symbol)."
+- Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see "[Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base)."
 - Questions about a specific file or specified lines of code within a file. For more information, see "[Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code)."
 - Questions about a pull request diff. For more information, see "[Finding out about the changes in a pull request](#finding-out-about-the-changes-in-a-pull-request)."
 
@@ -65,9 +72,9 @@ Depending on the question you ask, and your enterprise settings, {% data variabl
 
 {% data reusables.copilot.chat-conversation-buttons %}
 
-## Asking a question with a specific context
+## Asking a question about a specific repository, file or symbol
 
-You can choose a specific context for your question. This can be a particular repository, one or more files or symbols from the code, or a predefined knowledge base.
+You can choose a particular repository, file or symbol, and then ask a question with that context in mind.
 
 {% note %}
 
@@ -75,27 +82,24 @@ You can choose a specific context for your question. This can be a particular re
 
 {% endnote %}
 
-Organization owners can create organization-visible knowledge bases from repositories within their organization. Organization members can then choose one of these knowledge bases as the context for a conversation with {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets)." TODOCS: THIS WILL NEED REVISED AFTER KNOWLEDGE BASE DOCS ARE UPDATED.
-
 {% data reusables.copilot.go-to-copilot-page %}
 1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All topics**.
 
    ![Screenshot of the "All topics" link at the top of the chat panel, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-all-topics-button.png)
 
-1. On the "Ask {% data variables.product.prodname_copilot_short %}" page, search for and select a repository to provide a context for your question.
-1. Optionally, if you want to set particular files or symbols from the selected repository as your context, click the "Attach files or symbols" button (a paperclip icon) at the bottom of the chat panel, then search for and select one or more files and symbols.
+1. On the "Ask {% data variables.product.prodname_copilot_short %}" page, select a repository to provide a context for your question.
+
+   For example, you could choose a repository whose code you want to understand better.
+
+   You can search for a repository if you don't see one you want to use.
+
+1. Optionally, after selecting a repository, if you want to set particular files or symbols from the selected repository as your context, click the "Attach files or symbols" button (a paperclip icon) at the bottom of the chat panel, then search for and select one or more files and symbols.
 
    ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
 
-1. Optionally, if you want to use a knowledge base as the context for your question, click the "Attach knowledge" button (a book icon) at the bottom of the chat panel, then choose a knowledge base.
-
-   ![Screenshot of the "Attach knowledge" icon, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-book-icon.png)
-
-   Selecting a knowledge base replaces the existing repository context and any attachments.
-
 1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
-   For example, if you chose the repository you are working in as the context, you could ask:
+   For example, you could ask:
 
    - What is the main purpose of this repo? What problem does it solve or what functionality does it provide?
    - What web frameworks are used in this project?
@@ -115,20 +119,54 @@ Organization owners can create organization-visible knowledge bases from reposit
 
    {% endnote %}
 
-   If you chose a knowledge base as the context - for example, a knowledge base relating to Azure - you could ask:
-
-   - What advantages does Azure have over other types of cloud storage?
-   - How do I block Azure from accessing locations on my network?
-   - How can I reduce the cost of a hosted website?
-   - How do I enable MFA?
-
-1. The response typically contains numbered references to files that {% data variables.product.prodname_copilot_short %} used to generate the answer, from the repository or knowledge base you selected. To list the sources that were used, click **NUMBER references**.
+1. The response typically contains numbered references to files that {% data variables.product.prodname_copilot_short %} used to generate the answer, from the repository you selected. To list the sources that were used, click **NUMBER references**.
 
    ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
 
 1. To display a source reference in a popup, click its entry in the list.
 
-   Alternatively, to navigate to the file, click the ellipsis (**...**), then select **Open**.
+   Alternatively, to open the complete file, click the ellipsis (**...**), then select **Open**.
+
+{% data reusables.copilot.chat-conversation-buttons %}
+
+## Asking a question about a knowledge base
+
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. You can use a knowledge base to ask questions with that context in mind.
+
+When you enter a query, {% data variables.product.prodname_copilot_short %} searches for relevant documentation snippets, synthesizes a summary of the relevant snippets to answer your question, and provides links to the source documentation for additional context.
+
+{% data reusables.copilot.go-to-copilot-page %}
+
+1. Start a conversation with {% data variables.product.prodname_copilot_short %} by either selecting a repository or clicking **General purpose chat**.
+1. Click the "Attach knowledge" button (a book icon) at the bottom of the chat panel, to view a list of the knowledge bases that you have access to.
+
+   ![Screenshot of the "Attach knowledge" icon, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-book-icon.png)
+
+1. Click the knowledge base that you want to use as context.
+
+   For example, you could choose a knowledge base containing your organization's internal developer documentation.
+
+   You can search for a knowledge base if you don't see one you want to use.
+
+   ![Screenshot showing the "Attach knowledge" popover with a list of knowledge bases.](/assets/images/help/copilot/attach-knowledge-popover.png)
+
+1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+
+   For example, if you chose a knowledge base with your organization's internal developer documentation, you could ask:
+
+   - How do I deploy a new application?
+   - What's the process for creating a new REST API?
+   - What are our best practices for logging?
+
+1. The response will typically contain numbered references to files that {% data variables.product.prodname_copilot_short %} uses to generate the answer, from the knowledge base you selected. To list the sources that were used, click **NUMBER references**.
+
+   ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
+
+1. To display information about a source reference, click its entry in the list.
+
+   Alternatively, to open the complete file, click the ellipsis (**...**), then select **Open**.
+
+1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detatch the knowledge base or select a different one.
 
 {% data reusables.copilot.chat-conversation-buttons %}
 
