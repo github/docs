@@ -53,7 +53,9 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
 
 {% ifversion ghec or ghes %}
 {% note %}
+
 **Note:** Authenticating ARC with a {% data variables.product.pat_v1 %} is the only supported authentication method to register runners at the enterprise level.
+
 {% endnote %}
 {% endif %}
 

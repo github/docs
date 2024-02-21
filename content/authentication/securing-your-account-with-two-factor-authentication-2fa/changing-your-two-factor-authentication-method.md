@@ -26,7 +26,7 @@ You can configure a different authenticator app or change your phone number, wit
 
 {% endif %}
 
-You can change the time-based one-time password (TOTP) application you use to generate authentication codes
+You can change the time-based one-time password (TOTP) application you use to generate authentication codes.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
