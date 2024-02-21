@@ -18,7 +18,7 @@ children:
   - /configuring-two-factor-authentication-recovery-methods
   - /accessing-github-using-two-factor-authentication
   - /recovering-your-account-if-you-lose-your-2fa-credentials
-  - /changing-your-preferred-two-factor-authentication-method
+  - /changing-your-two-factor-authentication-method
   - /about-mandatory-two-factor-authentication
   - /countries-where-sms-authentication-is-supported
   - /disabling-two-factor-authentication-for-your-personal-account

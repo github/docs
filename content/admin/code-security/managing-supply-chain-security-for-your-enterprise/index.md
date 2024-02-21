@@ -4,7 +4,6 @@ shortTitle: Supply chain security
 intro: 'You can visualize, maintain, and secure the dependencies in your developers'' software supply chain.'
 versions:
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:
