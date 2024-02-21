@@ -119,14 +119,4 @@ export function getOpenApiVersion(version) {
   return allVersions[version].openApiVersionName
 }
 
-export const allTestableVersions = Object.keys(allVersions).filter(
-  // Because of the deprecation of GHAE we can't delete it from `allVersions`
-  // until ALL cleaning up is done. Since we're now always redirecting
-  // all requests for `.../github-ae@latest/...` we also shouldn't test it.
-  // Other end-to-end tests will test the redirects of that legacy.
-  // The day `github-ae@latest` is no longer in all-versions.js
-  // this filtering can be deleted.
-  (version) => version !== 'github-ae@latest',
-)
-
 export { allVersions }
