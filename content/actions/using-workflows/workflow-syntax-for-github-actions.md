@@ -963,11 +963,15 @@ The Docker image to use as the service container to run the action. The value ca
 
 You may specify an empty image by passing `''` . This will result in the service not being started, and is useful to have _conditional_ services. For example,
 
+{% raw %}
+
 ```yaml
 services:
   nginx:
     image: ${{ options.nginx == true && 'nginx' || '' }}
 ```
+
+{% endraw %}
 
 ## `jobs.<job_id>.services.<service_id>.credentials`
 
