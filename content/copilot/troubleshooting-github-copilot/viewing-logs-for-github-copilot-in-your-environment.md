@@ -49,7 +49,7 @@ For more information, see the [Locating IDE log files](https://intellij-support.
 
 ## Enabling debug mode
 
-If you find the log file doesn't contain enough information to resolve an issue, it may help to temporarily enable debug logging. This can be especially helpful for debugging network-related issues.
+If you find the log file doesn't contain enough information to resolve an issue, it may help to enable debug logging temporarily. This can be especially helpful for debugging network-related issues.
 
 1. In the menu bar, click **Help**, select **Diagnostic Tools**, and click **Debug Log Settings...**.
 
