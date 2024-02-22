@@ -1,7 +1,6 @@
 ---
 title: Style guide
 intro: 'Follow this guide to make sure {% data variables.product.company_short %}''s documentation stays consistent and follows clear patterns that our readers can understand.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:
