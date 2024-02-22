@@ -1,6 +1,6 @@
 ---
 title: Setting up a trial of GitHub Advanced Security
-intro: 'You can evaluate the extra security features that {% data variables.product.prodname_dotcom %} makes available to customers with a {% data variables.product.prodname_GH_advanced_security %} license by setting up a free trial of {% data variables.product.prodname_GH_advanced_security %}.'
+intro: 'You can try {% data variables.product.prodname_GH_advanced_security %} for free.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghec: '*'
@@ -11,19 +11,21 @@ topics:
 shortTitle: Set up an Advanced Security trial
 ---
 
+## About {% data variables.product.prodname_GH_advanced_security %}
+
+{% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code, such as {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and dependency review. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+
 ## About trials of {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+{% data reusables.advanced-security.ghas-trial-availability %}
 
-{% note %}
+{% data reusables.advanced-security.ghas-trial-invoiced %}
 
-**Note:** You need an enterprise account to set up a trial to evaluate the features that come with {% data variables.product.prodname_GH_advanced_security %}, such as {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and dependency review. For more information about enterprise accounts, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+During a trial, you can add any number of committers and enable {% data variables.product.prodname_GH_advanced_security %} for any number of organizations. The standard length of the trial is 30 days. If you're taking part in a free trial of {% data variables.product.prodname_ghe_cloud %}, the trial of {% data variables.product.prodname_GH_advanced_security %} will last for the time you have remaining on your trial of {% data variables.product.prodname_ghe_cloud %}.
 
-{% endnote %}
+## Prerequisites
 
-During a trial, you can add any number of committers and enable {% data variables.product.prodname_GH_advanced_security %} for any number of organizations. You can set up a trial if you pay for {% data variables.product.prodname_ghe_cloud %} by credit card or PayPal, or if you are already taking part in a free trial of {% data variables.product.prodname_ghe_cloud %}.
-
-The standard length of the trial is 30 days. If you're taking part in a free trial of {% data variables.product.prodname_ghe_cloud %}, the trial of {% data variables.product.prodname_GH_advanced_security %} will last for the time you have remaining on your trial of {% data variables.product.prodname_ghe_cloud %}.
+To set up a trial of {% data variables.product.prodname_GH_advanced_security %}, you must be an owner of an enterprise account. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)" and "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
 
 ## Setting up your trial of {% data variables.product.prodname_GH_advanced_security %}
 
@@ -35,7 +37,7 @@ The standard length of the trial is 30 days. If you're taking part in a free tri
 
 ## Finishing your trial
 
-You can finish your trial at any time by purchasing {% data variables.product.prodname_GH_advanced_security %}. If you haven't purchased {% data variables.product.prodname_GH_advanced_security %} by the end of the 14 days, your trial will expire.
+You can finish your trial at any time by purchasing {% data variables.product.prodname_GH_advanced_security %}. If you haven't purchased {% data variables.product.prodname_GH_advanced_security %} by the end of the 30 days, your trial will expire.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

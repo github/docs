@@ -43,9 +43,9 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
 
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
-  await page.getByTestId('product-sidebar').getByText('Quickstart').click()
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
   await page.getByTestId('product-sidebar').getByText('Hello World').click()
-  await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
@@ -183,7 +183,10 @@ test.describe('hover cards', () => {
     await page.goto('/pages/quickstart')
 
     // hover over a link and check for intro content from hovercard
-    await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
+    await page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'Start your journey' })
+      .hover()
     await expect(
       page.getByText(
         'Get started using HubGit to manage Git repositories and collaborate with others.',
@@ -241,7 +244,10 @@ test.describe('hover cards', () => {
     await page.goto('/pages/quickstart')
 
     // Simply putting focus on the link should not open the hovercard
-    await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).focus()
+    await page
+      .locator('#article-contents')
+      .getByRole('link', { name: 'Start your journey' })
+      .focus()
     await expect(
       page.getByText(
         'Get started using GitHub to manage Git repositories and collaborate with others.',
@@ -267,7 +273,7 @@ test.describe('hover cards', () => {
 
   test('internal links get a aria-roledescription and aria-describedby', async ({ page }) => {
     await page.goto('/pages/quickstart')
-    const link = page.locator('#article-contents').getByRole('link', { name: 'Quickstart' })
+    const link = page.locator('#article-contents').getByRole('link', { name: 'Start your journey' })
     await expect(link).toHaveAttribute('aria-roledescription', 'hover card')
 
     // The link gets a `aria-describedby="...ID..."` attribute that points to
@@ -291,6 +297,16 @@ test.describe('test nav at different viewports', () => {
     expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+
+    // breadcrumbs show up in rest reference pages
+    await page.goto('/rest/actions/artifacts')
+    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
+
+    // breadcrumbs show up in one of the pages that use the AutomatedPage
+    // component (e.g. graphql, audit log, etc.) -- we test the webhooks
+    // reference page here
+    await page.goto('/webhooks/webhook-events-and-payloads')
+    await expect(page.getByTestId('breadcrumbs-in-article')).toBeVisible()
   })
 
   test('large -> x-large viewports - 1012+', async ({ page }) => {
@@ -355,7 +371,6 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
@@ -389,7 +404,6 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
@@ -558,10 +572,10 @@ test.describe('translations', () => {
   })
 
   test('switch to Japanese from English using widget on article', async ({ page }) => {
-    await page.goto('/get-started/quickstart/hello-world')
+    await page.goto('/get-started/start-your-journey/hello-world')
     await page.getByRole('button', { name: 'Select language: current language is English' }).click()
     await page.getByRole('menuitemradio', { name: '日本語' }).click()
-    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world')
+    await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
     await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
 
     // Having done this once, should now use a cookie to redirect
@@ -569,13 +583,13 @@ test.describe('translations', () => {
     // Playwright will cache this redirect, so we need to add something
     // to "cache bust" the URL
     const cb = `?cb=${Math.random()}`
-    await page.goto('/get-started/quickstart/hello-world' + cb)
-    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world' + cb)
+    await page.goto('/get-started/start-your-journey/hello-world' + cb)
+    await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world' + cb)
 
     // If you go, with the Japanese cookie, to the English page directly,
     // it will offer a link to the Japanese URL in a banner.
-    await page.goto('/en/get-started/quickstart/hello-world')
+    await page.goto('/en/get-started/start-your-journey/hello-world')
     await page.getByRole('link', { name: 'Japanese' }).click()
-    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world')
+    await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
   })
 })

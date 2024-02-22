@@ -11,7 +11,7 @@
 {%- ifversion fpt or ghec %}
 | `billing` | Contains activities related to an organization's billing.
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 | `business`  | Contains activities related to business settings for an enterprise.
 {%- endif %}
 {%- ifversion code-security-audit-log-events %}
@@ -59,15 +59,11 @@
 {%- ifversion fpt or ghec %}
 | `environment` | Contains activities related to {% data variables.product.prodname_actions %} environments.
 {%- endif %}
-{%- ifversion ghae %}
-| `external_group` | Contains activities related to Okta groups.
-| `external_identity` | Contains activities related to a user in an Okta group.
-{%- endif %}
 | `hook` | Contains activities related to webhooks.
 | `integration` | Contains activities related to integrations in an account.
 | `integration_installation` | Contains activities related to integrations installed in an account.
 | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
-{%- ifversion ghec or ghae %}
+{%- ifversion ghec %}
 | `ip_allow_list`   | Contains activities related to enabling or disabling the IP allow list for an organization.
 | `ip_allow_list_entry`   | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
 {%- endif %}
@@ -81,7 +77,7 @@
 | `members_can_create_pages`   | Contains activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 | `members_can_create_private_pages` | Contains activities related to managing the publication of private {% data variables.product.prodname_pages %} sites for repositories in the organization.
 | `members_can_create_public_pages` | Contains activities related to managing the publication of public {% data variables.product.prodname_pages %} sites for repositories in the organization.
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 | `members_can_delete_repos` | Contains activities related to enabling or disabling repository creation for an organization.
 {%- endif %}
 {%- ifversion fpt or ghec %}
@@ -94,7 +90,7 @@
 | `oauth_authorization` | Contains activities related to authorizing {% data variables.product.prodname_oauth_apps %}.
 {%- endif %}
 | `org`   | Contains activities related to organization membership.
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
 {%- endif %}
 {%- ifversion secret-scanning-validity-check-audit-log %}
@@ -106,7 +102,7 @@
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
 {%- ifversion fpt or ghec or ghes %}
 | `organization_domain` | Contains activities related to verified organization domains.
-| `organization_projects_change` | Contains activities related to organization-wide project boards in an enterprise.
+| `organization_projects_change` | Contains activities related to organization-wide {% data variables.projects.projects_v1_boards %} in an enterprise.
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `pages_protected_domain` | Contains activities related to verified custom domains for {% data variables.product.prodname_pages %}.
@@ -124,9 +120,9 @@
 {%- ifversion fpt or ghec %}
 | `profile_picture`   | Contains activities related to an organization's profile picture.
 {%- endif %}
-| `project` | Contains activities related to project boards.
-| `project_field` | Contains activities related to field creation and deletion in a project board.
-| `project_view` | Contains activities related to view creation and deletion in a project board.
+| `project` | Contains activities related to projects.
+| `project_field` | Contains activities related to field creation and deletion in a project.
+| `project_view` | Contains activities related to view creation and deletion in a project.
 | `protected_branch` | Contains activities related to protected branches.
 | `public_key` | Contains activities related to SSH keys and deploy keys.
 | `pull_request` | Contains activities related to pull requests.
@@ -141,7 +137,7 @@
 | `repository_image` | Contains activities related to images for a repository.
 | `repository_invitation` | Contains activities related to invitations to join a repository.
 | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 | `repository_secret_scanning`  | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 {%- endif %}
 {%- ifversion secret-scanning-validity-check-audit-log %}
@@ -170,17 +166,17 @@
 {%- ifversion custom-repository-roles %}
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 | `secret_scanning`   | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 | `secret_scanning_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} for new repositories created in the organization.
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 | `security_key` | Contains activities related to security keys registration and removal.
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `sponsors`  | Contains events related to sponsor buttons (see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)").
 {%- endif %}
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 | `ssh_certificate_authority` | Contains activities related to a SSH certificate authority in an organization or enterprise.
 | `ssh_certificate_requirement` | Contains activities related to requiring members use SSH certificates to access organization resources.
 {%- endif %}{% ifversion sso-redirect %}

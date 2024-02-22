@@ -31,11 +31,11 @@ An enterprise account allows you to centrally manage policy and settings for mul
 
 To create your enterprise account, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)."
 
-{% data reusables.enterprise.ghec-cta-button %}
+<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=getting+started+with+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 %}</a>
 
 ### 3. Adding organizations to your enterprise account
 
-You can add any number of new or existing organizations to manage within your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
+You can add any number of new or existing organizations to manage within your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)."
 
 ### 4. Viewing the subscription and usage for your enterprise account
 
@@ -43,23 +43,23 @@ You can view your current subscription, license usage, invoices, payment history
 
 ## Part 2: Managing your enterprise members with {% data variables.product.prodname_ghe_cloud %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, your members are fully managed through your identity provider. Adding members, making changes to their membership, and assigning roles is all managed using your IdP. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+If your enterprise uses {% data variables.product.prodname_emus %}, your members are fully managed through your identity provider. Adding members, making changes to their membership, and assigning roles is all managed using your IdP. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users)."
 
 If your enterprise does not use {% data variables.product.prodname_emus %}, follow the steps below.
 
 ### 1. Assigning roles in an enterprise
 
-By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+By default, everyone in an enterprise is a member of the enterprise. There are also administrative roles, including enterprise owner and billing manager, that have different levels of access to enterprise settings and data. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 
 ### 2. Inviting people to manage your enterprise
 
-You can invite people to manage your enterprise as enterprise owners or billing managers or remove administrators who no longer need access. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
+You can invite people to manage your enterprise as enterprise owners or billing managers or remove administrators who no longer need access. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
-You can also grant enterprise members the ability to manage support tickets in the support portal. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
+You can also grant enterprise members the ability to manage support tickets in the support portal. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 
 ### 3. Viewing people in your enterprise
 
-To audit access to enterprise-owned resources or user license usage, you can view every enterprise administrator, enterprise member, and outside collaborator in your enterprise. You can see the organizations that a member belongs to and the specific repositories that an outside collaborator has access to. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
+To audit access to enterprise-owned resources or user license usage, you can view every enterprise administrator, enterprise member, and outside collaborator in your enterprise. You can see the organizations that a member belongs to and the specific repositories that an outside collaborator has access to. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise)."
 
 ## Part 3: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
@@ -72,11 +72,11 @@ With {% data variables.product.prodname_emus %}, access and identity is managed 
 
 #### 1. Enabling SAML single sign-on and provisioning in your {% data variables.enterprise.prodname_emu_enterprise %}
 
-In an {% data variables.enterprise.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SSO and SCIM provisioning before you can start using your enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
+In an {% data variables.enterprise.prodname_emu_enterprise %}, all members are provisioned and managed by your identity provider. You must enable SSO and SCIM provisioning before you can start using your enterprise. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
 
 #### 2. Managing organization and team membership in your {% data variables.enterprise.prodname_emu_enterprise %} with your identity provider
 
-To manage organization and team membership within your enterprise from your IdP, you can connect teams in your organizations to security groups in your identity provider. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)."
+To manage organization and team membership within your enterprise from your IdP, you can connect teams in your organizations to security groups in your identity provider. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/managing-team-memberships-with-identity-provider-groups)."
 
 #### 3. Managing allowed IP addresses for organizations in your {% data variables.enterprise.prodname_emu_enterprise %}
 
@@ -98,11 +98,11 @@ For more information about enforcing two-factor authentication and allowed IP ad
 
 #### 2. Enabling and enforcing SAML single sign-on for organizations in your enterprise account
 
-You can centrally manage access to your enterprise's resources from your IdP using SAML single sign-on (SSO). Enterprise owners can enable SAML SSO across all organizations owned by an enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
+You can centrally manage access to your enterprise's resources from your IdP using SAML single sign-on (SSO). Enterprise owners can enable SAML SSO across all organizations owned by an enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-saml-for-enterprise-iam)."
 
 #### 3. Managing team synchronization
 
-You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
+You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.prodname_dotcom %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
 #### 4. Enforcing policies for Advanced Security features in your enterprise account
 
@@ -114,7 +114,7 @@ To manage and moderate your enterprise, you can set policies for organizations w
 
 ### 1. Managing policies for organizations in your enterprise account
 
-You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies)."
+You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, projects, and team policies. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies)."
 
 ### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
 
@@ -160,7 +160,7 @@ You and your enterprise members can use GitHub's learning and support resources 
 
 Enterprise members can learn new skills by completing fun, realistic projects in your very own GitHub repository with [{% data variables.product.prodname_learning %}](https://skills.github.com/). Each course is a hands-on lesson created by the GitHub community and taught by a friendly bot.
 
-For more information, see "[AUTOTITLE](/github/getting-started-with-github/quickstart/git-and-github-learning-resources)."
+For more information, see "[AUTOTITLE](/get-started/start-your-journey/git-and-github-learning-resources)."
 
 ### 3. Supporting the open source community
 

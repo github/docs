@@ -1,7 +1,6 @@
 ---
 title: Procedural content type
 intro: 'Procedural content gives context on how a task fits into someone''s larger goal.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

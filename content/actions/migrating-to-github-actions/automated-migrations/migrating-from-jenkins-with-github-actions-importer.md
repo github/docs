@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: tutorial
 topics:
   - Migration
@@ -64,7 +63,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    - For "Which CI providers are you configuring?", use the arrow keys to select `Jenkins`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
    - For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   - For "Base url of the GitHub instance", {% ifversion ghes or ghae %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   - For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
    - For "{% data variables.product.pat_generic_caps %} for Jenkins", enter the value for the Jenkins personal API token that you created earlier, and press <kbd>Enter</kbd>.
    - For "Username of Jenkins user", enter your Jenkins username and press <kbd>Enter</kbd>.
    - For "Base url of the Jenkins instance", enter the URL of your Jenkins instance, and press <kbd>Enter</kbd>.
@@ -93,7 +92,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    Updating ghcr.io/actions-importer/cli:latest...
-   ghcr.io/actions-importer/cli:latest up-to-date  
+   ghcr.io/actions-importer/cli:latest up-to-date
    ```
 
 ## Perform an audit of Jenkins
@@ -137,7 +136,7 @@ To install the `paginated-builds` plugin:
 To perform a forecast of potential {% data variables.product.prodname_actions %}, run the following command in your terminal. By default, {% data variables.product.prodname_actions_importer %} includes the previous seven days in the forecast report.
 
 ```shell
-gh actions-importer forecast jenkins --output-dir tmp/forecast 
+gh actions-importer forecast jenkins --output-dir tmp/forecast
 ```
 
 ### Inspecting the forecast report

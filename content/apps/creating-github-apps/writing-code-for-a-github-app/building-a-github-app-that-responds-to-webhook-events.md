@@ -5,7 +5,6 @@ intro: 'Learn how to build a {% data variables.product.prodname_github_app %} th
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps
@@ -33,7 +32,7 @@ For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-githu
 
 ## Prerequisites
 
-This tutorial requires your computer or codespace to run Node.js version 12 or greater and npm version 6.12.0 or greater. For more information, see [Node.js](https://nodejs.org).
+This tutorial requires your computer or codespace to run Node.js version 20 or greater and npm version 6.12.0 or greater. For more information, see [Node.js](https://nodejs.org).
 
 This tutorial assumes you have a basic understanding of JavaScript and ES6 syntax.
 
@@ -116,12 +115,12 @@ Make sure that you are on a secure machine before performing these steps since y
 1. In your terminal, navigate to the directory where your clone is stored.
 1. Create a file called `.env` at the top level of this directory.
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
-1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
+1. Add the following contents to your `.env` file. {% ifversion ghes %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
    ```text copy
    APP_ID="YOUR_APP_ID"
    WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
-   PRIVATE_KEY_PATH="YOUR_PRIVATE_KEY_PATH"{% ifversion ghes or ghae %}
+   PRIVATE_KEY_PATH="YOUR_PRIVATE_KEY_PATH"{% ifversion ghes %}
    ENTERPRISE_HOSTNAME="YOUR_HOSTNAME"{% endif %}
    ```
 
@@ -144,7 +143,7 @@ Add the following code to `app.js`. The code includes annotations that explain e
 //
 // You installed the `dotenv` and `octokit` modules earlier. The `@octokit/webhooks` is a dependency of the `octokit` module, so you don't need to install it separately. The `fs` and `http` dependencies are built-in Node.js modules.
 import dotenv from "dotenv";
-import {App{% ifversion ghes or ghae %}, Octokit{% endif %}} from "octokit";
+import {App{% ifversion ghes %}, Octokit{% endif %}} from "octokit";
 import {createNodeMiddleware} from "@octokit/webhooks";
 import fs from "fs";
 import http from "http";
@@ -155,7 +154,7 @@ dotenv.config();
 // This assigns the values of your environment variables to local variables.
 const appId = process.env.APP_ID;
 const webhookSecret = process.env.WEBHOOK_SECRET;
-const privateKeyPath = process.env.PRIVATE_KEY_PATH;{% ifversion ghes or ghae %}
+const privateKeyPath = process.env.PRIVATE_KEY_PATH;{% ifversion ghes %}
 const enterpriseHostname = process.env.ENTERPRISE_HOSTNAME;{% endif %}
 
 // This reads the contents of your private key file.
@@ -167,7 +166,7 @@ const app = new App({
   privateKey: privateKey,
   webhooks: {
     secret: webhookSecret
-  },{% ifversion ghes or ghae %}
+  },{% ifversion ghes %}
   Octokit: Octokit.defaults({
     baseUrl: `https://${enterpriseHostname}/api/v3`,
   }),{% endif %}

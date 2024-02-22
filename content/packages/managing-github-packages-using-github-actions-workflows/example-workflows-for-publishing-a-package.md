@@ -4,13 +4,11 @@ intro: 'To help you get started with your own custom workflows, review some exam
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Example workflows
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}
 
 You can find example workflows in "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)" or in any of these {% data variables.product.prodname_actions %} guides:
 

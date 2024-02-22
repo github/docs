@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -16,7 +15,7 @@ topics:
 
 To show forks in repository search results, add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories)."
 
-{% ifversion ghes or ghae %}Forks are only indexed for code search when they have more stars than the parent repository. You will not be able to search the code in a fork that has fewer stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-code)."{% endif %}
+{% ifversion ghes %}Forks are only indexed for code search when they have more stars than the parent repository. You will not be able to search the code in a fork that has fewer stars than its parent. To show forks with more stars than the parent repository in code search results, add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-code)."{% endif %}
 
 {% note %}
 

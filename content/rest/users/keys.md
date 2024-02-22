@@ -3,7 +3,6 @@ title: Git SSH Keys
 intro: Use the REST API to manage Git SSH keys of authenticated users.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

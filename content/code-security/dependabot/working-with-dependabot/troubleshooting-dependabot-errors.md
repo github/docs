@@ -23,8 +23,6 @@ topics:
   - Dependencies
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot %} errors
@@ -50,9 +48,6 @@ When {% data variables.product.prodname_dependabot %} is blocked from creating a
 There are several reasons why an alert may have no pull request link:
 
 1. {% data variables.product.prodname_dependabot_security_updates %} are not enabled for the repository.
-{% ifversion GH-advisory-db-supports-malware %}
-1. The alert is for malware and there is no secure version of the package.
-{% endif %}
 1. The alert is for an indirect or transitive dependency that is not explicitly defined in a lock file.
 1. An error blocked {% data variables.product.prodname_dependabot %} from creating a pull request.
 
@@ -111,6 +106,16 @@ my project
 If a security vulnerability is released for `B` versions `<2.0.0` and a patch is available at `2.0.0` then  {% data variables.product.prodname_dependabot %} will attempt to update `B` but will find that it's not possible due to the restriction in place by `A` which only allows lower vulnerable versions. To fix the vulnerability, {% data variables.product.prodname_dependabot %} will look for updates to dependency `A` which allow the fixed version of `B` to be used.
 
 {% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}
+
+### {% data variables.product.prodname_dependabot %} fails to close a open pull request for an update that has already been applied on the default branch
+
+{% data variables.product.prodname_dependabot %} will close pull requests for dependency updates, once it detects these updates have been committed to the default branch. However, in rare circumstances, the pull request may remain open. If you notice that you have committed an update to a dependency manually, and that the pull request for that same update is still open, you can use one of the following commands in a comment on the pull request:
+- `@dependabot recreate`, or
+- `@dependabot rebase`.
+
+Either comment will trigger {% data variables.product.prodname_dependabot %} to check if the dependency is no longer upgradable or vulnerable. If {% data variables.product.prodname_dependabot %} detects that the pull request is no longer required, it will close the pull request in this particular case.
+
+For more information about {% data variables.product.prodname_dependabot %} comment commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 ### {% data variables.product.prodname_dependabot %} cannot update to the required version as there is already an open pull request for the latest version
 

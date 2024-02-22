@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Events
@@ -27,7 +26,7 @@ Issue events all have the same object structure, except events that are only ava
 
 ## added_to_project
 
-The issue or pull request was added to a project board. {% data reusables.projects.disabled-projects %}
+The issue or pull request was added to a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
 
 This event is available for the following issue types.
 
@@ -247,7 +246,7 @@ This event is available for the following issue types.
 
 ## converted_note_to_issue
 
-The issue was created by converting a note in a project board to an issue. {% data reusables.projects.disabled-projects %}
+The issue was created by converting a note in a {% data variables.projects.projects_v1_board %} to an issue. {% data reusables.projects.disabled-projects %}
 
 This event is available for the following issue types.
 
@@ -559,7 +558,7 @@ This event is available for the following issue types.
 
 ## moved_columns_in_project
 
-The issue or pull request was moved between columns in a project board. {% data reusables.projects.disabled-projects %}
+The issue or pull request was moved between columns in a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
 
 This event is available for the following issue types.
 
@@ -638,7 +637,7 @@ This event is available for the following issue types.
 
 ## removed_from_project
 
-The issue or pull request was removed from a project board. {% data reusables.projects.disabled-projects %}
+The issue or pull request was removed from a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
 
 This event is available for the following issue types.
 

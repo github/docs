@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -32,7 +31,7 @@ When you disable {% data variables.projects.projects_v2 %} in a repository, link
 
 {% endif %}
 
-When you disable {% data variables.projects.projects_v1_boards %} in a repository, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. If you decide to re-enable project boards, any project boards that were previously added will be available.
+When you disable {% data variables.projects.projects_v1_boards %} in a repository, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. If you decide to re-enable {% data variables.projects.projects_v1_boards %}, any {% data variables.projects.projects_v1_boards %} that were previously added will be available.
 
 After you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or audit logs.
 

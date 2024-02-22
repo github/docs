@@ -8,6 +8,7 @@ import styles from './ArticleInlineLayout.module.scss'
 type Props = {
   breadcrumbs?: React.ReactNode
   intro?: React.ReactNode
+  introCallOuts?: React.ReactNode
   topper?: React.ReactNode
   toc?: React.ReactNode
   children?: React.ReactNode
@@ -17,6 +18,7 @@ type Props = {
 export const ArticleInlineLayout = ({
   breadcrumbs,
   intro,
+  introCallOuts,
   topper,
   toc,
   children,
@@ -36,6 +38,12 @@ export const ArticleInlineLayout = ({
         {intro && (
           <Box id="article-intro" gridArea="intro" className="f4">
             {intro}
+          </Box>
+        )}
+
+        {introCallOuts && (
+          <Box gridArea="intro" className="f4">
+            {introCallOuts}
           </Box>
         )}
 

@@ -46,7 +46,7 @@ run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
 on: [push]
 
 # Groups together all the jobs that run in the `learn-github-actions` workflow.
-  jobs:
+jobs:
 
 # Defines a job named `check-bats-version`. The child keys will define properties of the job.
   check-bats-version:

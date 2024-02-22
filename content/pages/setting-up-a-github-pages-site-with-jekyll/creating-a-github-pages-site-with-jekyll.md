@@ -9,7 +9,6 @@ permissions: 'People with admin permissions for a repository can create a {% dat
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pages
@@ -20,7 +19,7 @@ shortTitle: Create site with Jekyll
 
 ## Prerequisites
 
-Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -119,7 +118,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    git commit -m 'Initial GitHub pages site with Jekyll'
    ```
 
-1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and REPOSITORY with the name of the repository.
+1. Add your repository on {% data variables.location.product_location %} as a remote, replacing {% ifversion ghes %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes %},{% endif %} and REPOSITORY with the name of the repository.
 
    ```shell
    {% ifversion fpt or ghec %}

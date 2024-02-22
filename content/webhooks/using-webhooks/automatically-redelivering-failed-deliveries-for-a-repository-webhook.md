@@ -5,7 +5,6 @@ intro: You can write a script to handle failed deliveries of a repository webhoo
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -89,7 +88,7 @@ jobs:
       # - Replace `YOUR_REPO_NAME` with the name of the repository where the webhook was created.
       # - Replace `YOUR_HOOK_ID` with the ID of the webhook.
       # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
-      {% ifversion ghes or ghae %}# - Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
+      {% ifversion ghes %}# - Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
       - name: Run script
         env:
           TOKEN: {% raw %}${{ secrets.YOUR_SECRET_NAME }}{% endraw %}
@@ -97,7 +96,7 @@ jobs:
           REPO_NAME: 'YOUR_REPO_NAME'
           HOOK_ID: 'YOUR_HOOK_ID'
           LAST_REDELIVERY_VARIABLE_NAME: 'YOUR_LAST_REDELIVERY_VARIABLE_NAME'
-          {% ifversion ghes or ghae %}HOSTNAME: 'YOUR_HOSTNAME'{% endif %}
+          {% ifversion ghes %}HOSTNAME: 'YOUR_HOSTNAME'{% endif %}
           WORKFLOW_REPO_NAME: {% raw %}${{ github.event.repository.name }}{% endraw %}
           WORKFLOW_REPO_OWNER: {% raw %}${{ github.repository_owner }}{% endraw %}
         run: |
@@ -122,12 +121,12 @@ async function checkAndRedeliverWebhooks() {
   const REPO_NAME = process.env.REPO_NAME;
   const HOOK_ID = process.env.HOOK_ID;
   const LAST_REDELIVERY_VARIABLE_NAME = process.env.LAST_REDELIVERY_VARIABLE_NAME;
-  {% ifversion ghes or ghae %}const HOSTNAME = process.env.HOSTNAME;{% endif %}
+  {% ifversion ghes %}const HOSTNAME = process.env.HOSTNAME;{% endif %}
   const WORKFLOW_REPO_NAME = process.env.WORKFLOW_REPO_NAME;
   const WORKFLOW_REPO_OWNER = process.env.WORKFLOW_REPO_OWNER;
 
-  // Create an instance of `Octokit` using the token{% ifversion ghes or ghae %} and hostname{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
-  const octokit = new Octokit({ {% ifversion ghes or ghae %}
+  // Create an instance of `Octokit` using the token{% ifversion ghes %} and hostname{% endif %} values that were set in the {% data variables.product.prodname_actions %} workflow.
+  const octokit = new Octokit({ {% ifversion ghes %}
     baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
     auth: TOKEN,
   });

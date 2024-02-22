@@ -100,16 +100,16 @@ describeIfElasticsearchURL('search rendering page', () => {
   })
 
   test('links per version in pathname', async () => {
-    const $ = await getDOM('/en/github-ae@latest/search?query=foo')
-    expect($('[data-testid="search-results"]').text()).toMatch('Exclusively for GHAE')
+    const $ = await getDOM('/en/enterprise-cloud@latest/search?query=foo')
+    expect($('[data-testid="search-results"]').text()).toMatch('Exclusively for GHEC')
     // Note it testid being 'search-result', not 'search-results'
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBeGreaterThan(0)
-    // Each link should have github-ae@latest in the pathname
+    // Each link should have enterprise-cloud@latest in the pathname
     const links = $('[data-testid="search-result"] a')
     const hrefs = links.map((i, el) => $(el).attr('href')).get()
     for (const href of hrefs) {
-      expect(href).toMatch('/en/github-ae@latest/')
+      expect(href).toMatch('/en/enterprise-cloud@latest/')
     }
     expect.assertions(results.length + 2)
   })

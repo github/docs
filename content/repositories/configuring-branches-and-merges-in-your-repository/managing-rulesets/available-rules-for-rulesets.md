@@ -140,19 +140,13 @@ If someone force pushes to a branch or tag, commits that other collaborators hav
 
 Enabling force pushes will not override any other rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-{% ifversion ghes or ghae %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
+{% ifversion ghes %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
 
 {% ifversion repo-rules-required-workflows %}
 
 ## Require workflows to pass before merging
-
-{% note %}
-
-**Note:** This rule is replacing required workflows for {% data variables.product.prodname_actions %}. You can read more about this change on the [{% data variables.product.company_short %} blog](https://github.blog/changelog/2023-08-02-github-actions-required-workflows-will-move-to-repository-rules/).
-
-{% endnote %}
 
 You can require all changes made to a targeted branch to pass specified workflows before they can be merged. This rule can only be configured at the organization level.
 

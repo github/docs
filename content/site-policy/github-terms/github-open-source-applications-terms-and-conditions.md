@@ -14,7 +14,7 @@ These GitHub Open Source Applications Terms and Conditions ("Application Terms")
 
 ## Connecting to GitHub
 
-If you configure the Software to work with one or more accounts on the GitHub.com website or with a deployment of GitHub Enterprise Server or GitHub AE, your use of the Software will also be governed by your applicable GitHub.com website Terms of Service and/or the license agreement applicable to your deployment of GitHub Enterprise Server or GitHub AE ("GitHub Terms").
+If you configure the Software to work with one or more accounts on the GitHub.com website or with a deployment of GitHub Enterprise Server, your use of the Software will also be governed by your applicable GitHub.com website Terms of Service and/or the license agreement applicable to your deployment of GitHub Enterprise Server ("GitHub Terms").
 
 Any use of the Software that violates your applicable GitHub Terms will also be a violation of these Application Terms.
 

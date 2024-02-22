@@ -78,22 +78,22 @@ To migrate an organization, you must be an organization owner for the source org
 Additionally, you must be an enterprise owner on the destination enterprise account. You cannot grant the migrator role for enterprise accounts.
 
 1. Confirm that the person who will run your migrations is an enterprise owner of the destination enterprise account.
-1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
-{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %}
+1. If that person is not an organization owner for the source organization, grant them the migrator role for the organization. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
+{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 #### Deciding who will run repository migrations
 
 To migrate a repository, you must be an organization owner for both the source organization and the destination organization, or an organization owner must grant you the migrator role for each organization where you're not an owner.
 
 1. Decide whether you want an organization owner to perform your migrations, or whether you need to grant the migrator role to someone else.
-{% data reusables.enterprise-migration-tool.grant-migrator-tasks %}
+{% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
 
    {% note %}
 
    **Note:** Remember to grant the migrator role for both the source organization and the destination organization.
 
    {% endnote %}
-{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %}
+{% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 ### Do we want to maintain a similar organization structure after migrating?
 
@@ -118,9 +118,9 @@ Even if you change your organizational structure, you can still prepare a script
 For repository migrations, we recommend creating a test organization to use as a destination for your trial migrations. {% data reusables.enterprise-migration-tool.about-test-organizations %}
 
 1. If you're running a repository migration, create a test organization for your trial migrations.
-1. If your source organization uses IP allow lists, configure the list to allow access by {% data variables.product.prodname_importer_proper_name %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#configuring-ip-allow-lists-for-migrations)."
+1. If your source organization uses IP allow lists, configure the list to allow access by {% data variables.product.prodname_importer_proper_name %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 {% data reusables.enterprise-migration-tool.trial-migrations-tasks %}
-{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %}
+{% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 1. If you're running a repository migration and you want to migrate {% data variables.product.prodname_GH_advanced_security %} settings, enable {% data variables.product.prodname_GH_advanced_security %} for the destination organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 1. Run your production migrations. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer)" or "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-organizations-with-github-enterprise-importer)."
 {% data reusables.enterprise-migration-tool.delete-test-organization %}
@@ -177,9 +177,9 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
    - To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
 1. If you use {% data variables.actions.hosted_runner %}s, reconfigure your runners.
 
-   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
-   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
-   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
+   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
+   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 1. Re-add any encrypted secrets.
 
    - To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
@@ -190,7 +190,7 @@ If you were using {% data variables.actions.hosted_runner %}s, self-hosted runne
 
 If you added the IP ranges for {% data variables.product.prodname_importer_proper_name %} to the IP allow lists for your source or destination organizations, you can remove those entries. {% data reusables.enterprise-migration-tool.reenable-idp-ip-restrictions %}
 
-For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
+For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations)."
 
 ### Managing {% data variables.product.prodname_GH_advanced_security %}
 

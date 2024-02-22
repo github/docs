@@ -9,7 +9,6 @@ intro: 'If a commit message contains unclear, incorrect, or sensitive informatio
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 ## Rewriting the most recent commit message

@@ -6,7 +6,6 @@ defaultPlatform: mac
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 ---

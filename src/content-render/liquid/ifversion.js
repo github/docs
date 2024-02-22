@@ -114,7 +114,7 @@ export default class extends Tag {
     // Find the first index in the array that contains an operator.
     const operatorIndex = condArray.findIndex((el) => supportedOperators.find((op) => el === op))
 
-    // E.g., ['ghae', '<', '3.1']
+    // E.g., ['ghes', '<', '3.1']
     const condParts = condArray.slice(operatorIndex - 1, operatorIndex + 2)
 
     // Assign to vars.

@@ -3,7 +3,12 @@ import { ComponentProps } from 'react'
 type Props = ComponentProps<'svg'>
 export function OctocatHeader(props: Props) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1163.67 358.83" {...props}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1163.67 358.83"
+      aria-hidden="true"
+      {...props}
+    >
       <g data-name="Layer 2">
         <g data-name="octocat header">
           <ellipse cx={103.6} cy={346.72} rx={87.23} ry={8.57} fill="rgba(0,0,0,.15)" />

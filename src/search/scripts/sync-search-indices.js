@@ -133,9 +133,9 @@ async function main(opts, args) {
   const options = {
     language,
     notLanguage,
-    version: indexVersion,
     outDirectory,
     config,
+    versionsToBuild: indexVersion ? [indexVersion] : Object.keys(allVersions),
   }
   await searchSync(options)
 }

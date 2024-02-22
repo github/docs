@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -95,7 +94,7 @@ If your search query contains whitespace, you will need to surround it with quot
 - [cats NOT "hello world"](https://github.com/search?utf8=✓&q=cats+NOT+"hello+world"&type=Repositories) matches repositories with the word "cats" but not the words "hello world."
 - [build label:"bug fix"](https://github.com/search?utf8=%E2%9C%93&q=build+label%3A%22bug+fix%22&type=Issues) matches issues with the word "build" that have the label "bug fix."
 
-{% ifversion ghes or ghae %} Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.{% endif %}
+{% ifversion ghes %} Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.{% endif %}
 
 ## Queries with usernames
 

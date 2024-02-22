@@ -22,6 +22,11 @@ on:
         required: true
   # Required in lieu of `pull_request` so that the content changes tables can be posts to PRs opened from a fork.
   pull_request_target:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - 'content/**'
 
 permissions:
   contents: read
@@ -33,35 +38,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  PR-Preview-Links:
-    if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
-    name: Add staging/live links to PR
-    runs-on: ubuntu-latest
-    outputs:
-      filterContentDir: ${{ steps.filter.outputs.filterContentDir }}
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-
-      - name: Get files changed
-        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
-        id: filter
-        with:
-          # Base branch used to get changed files
-          base: ${{ github.event.pull_request.base.ref }}
-
-          # Enables setting an output in the format in `${FILTER_NAME}_files
-          # with the names of the matching files formatted as JSON array
-          list-files: json
-
-          # Returns list of changed files matching each filter
-          filters: |
-            filterContentDir:
-              - 'content/**/*'
-
   filterContentDir:
-    needs: PR-Preview-Links
-    if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs') }}
+    if: ${{ github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs') }}
     runs-on: ubuntu-latest
     env:
       PR_NUMBER: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
@@ -87,7 +65,7 @@ jobs:
         run: src/workflows/content-changes-table-comment.js
 
       - name: Find content directory changes comment
-        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
+        uses: peter-evans/find-comment@d5fe37641ad8451bdd80312415672ba26c86575e
         id: findComment
         with:
           issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
@@ -96,7 +74,7 @@ jobs:
 
       - name: Update comment
         if: ${{ steps.changes.outputs.changesTable != '' }}
-        uses: peter-evans/create-or-update-comment@3383acd359705b10cb1eeef05c0e88c056ea4666
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}

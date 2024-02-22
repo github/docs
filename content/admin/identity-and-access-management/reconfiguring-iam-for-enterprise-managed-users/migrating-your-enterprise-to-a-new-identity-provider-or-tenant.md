@@ -1,7 +1,7 @@
 ---
 title: Migrating your enterprise to a new identity provider or tenant
 shortTitle: Migrate to new IdP or tenant
-intro: You can migrate your enterprise to a different identity provider (IdP) or Azure AD tenant.
+intro: You can migrate your enterprise to a different identity provider (IdP) or Microsoft Entra ID (previously known as Azure AD) tenant.
 product: '{% data reusables.gated-features.emus %}'
 versions:
   feature: idp-tenant-migration
@@ -22,10 +22,12 @@ While using {% data variables.product.prodname_emus %}, you may need to migrate 
 
 {% warning %}
 
-**{% ifversion emu-public-scim-schema %}Warnings{% else %}Warning{% endif %}**:
+**Warnings**:
 
-{% ifversion emu-public-scim-schema %}-{% endif %} Migrating to a new IdP or tenant can cause disruption to integrations and automated flows in your enterprise. When your current SAML IdP is disabled, {% data variables.product.pat_generic_plural %} and SSH keys associated with {% data variables.enterprise.prodname_managed_users %} will be deleted. You should plan for a migration window after configuring your new IdP, during which you can create and deploy new keys to your integrations where necessary.
+Migrating to a new IdP or tenant can cause disruption to integrations and automated flows in your enterprise.
 
+- When your current SAML IdP is disabled, {% data variables.product.pat_generic_plural %} and SSH keys associated with {% data variables.enterprise.prodname_managed_users %} will be deleted. You should plan for a migration window after configuring your new IdP, during which you can create and deploy new keys to your integrations where necessary.
+- {% data reusables.enterprise_user_management.migration-teams-warning %}
 {%- ifversion emu-public-scim-schema %}
 - {% data reusables.enterprise_user_management.authentication-or-provisioning-migration-not-supported %}
 {% endif %}
@@ -50,7 +52,7 @@ To migrate to a new IdP or tenant, you cannot edit your existing SAML configurat
 
 1. If you don't already have single sign-on recovery codes for your enterprise, download the codes now. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
 1. In your current IdP, deactivate provisioning in the application for {% data variables.product.prodname_emus %}.
-    - If you use Azure AD, navigate to the "Provisioning" tab of the application, and then click **Stop provisioning**.
+    - If you use Entra ID, navigate to the "Provisioning" tab of the application, and then click **Stop provisioning**.
     - If you use Okta, navigate to the "Provisioning" tab of the application, click the **Integration** tab, and then click **Edit**. Deselect **Enable API integration**.
     - If you use PingFederate, navigate to the channel settings in the application. From the **Activation & Summary** tab, click **Active** or **Inactive** to toggle the provisioning status, and then click **Save**. For more information about managing provisioning, see "[Reviewing channel settings](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saaschanneltasklet_saasactivationstate)" and "[Managing channels](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saasmanagementtasklet_saasmanagementstate)" in the Ping Federate documentation.
 1. Use a recovery code to sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
@@ -60,7 +62,7 @@ To migrate to a new IdP or tenant, you cannot edit your existing SAML configurat
 
    After you configure provisioning for the new application, the {% data variables.enterprise.prodname_managed_users %} will be unsuspended, and your developers will be able to sign into their existing accounts again.
 
-   By default, this process can take up to 40 minutes for Azure AD. To expedite the process for an individual user, click the **Provision on Demand** button in the "Provisioning" tab of the application for {% data variables.product.prodname_emus %}.
+   By default, this process can take up to 40 minutes for Entra ID. To expedite the process for an individual user, click the **Provision on Demand** button in the "Provisioning" tab of the application for {% data variables.product.prodname_emus %}.
 
 ## Migrating when the normalized SCIM `userName` values will change
 

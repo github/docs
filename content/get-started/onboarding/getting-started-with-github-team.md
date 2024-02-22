@@ -17,7 +17,7 @@ Organizations are shared accounts where businesses and open-source projects can 
 
 ### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
 
-Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/quickstart/creating-an-account-on-github)."
+Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."
 
 Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
@@ -31,7 +31,7 @@ Only organization members with the _owner_ or _billing manager_ role can access 
 
 ## Part 2: Adding members and setting up teams
 
-After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, project boards, and apps.
+After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, projects, and apps.
 
 ### 1. Managing members of your organization
 
@@ -49,7 +49,7 @@ After creating your organization, you can invite members and set permissions and
 
 {% data reusables.getting-started.managing-team-settings %}
 
-### 5. Giving people and teams access to repositories, project boards and apps
+### 5. Giving people and teams access to repositories, projects, and apps
 
 {% data reusables.getting-started.giving-access-to-repositories-projects-apps %}
 
@@ -117,7 +117,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 ### 3. Reading about {% data variables.product.prodname_team %} on {% data variables.product.prodname_docs %}
 
-You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
+You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs)."
 
 ### 4. Learning with {% data variables.product.prodname_learning %}
 

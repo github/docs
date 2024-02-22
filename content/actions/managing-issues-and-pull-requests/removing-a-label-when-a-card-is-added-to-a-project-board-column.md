@@ -1,18 +1,18 @@
 ---
-title: Removing a label when a card is added to a project board column
+title: 'Removing a label when a card is added to a {% data variables.projects.projects_v1_board %} column'
 intro: 'You can use {% data variables.product.prodname_actions %} to automatically remove a label when an issue or pull request is added to a specific column on a {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /actions/guides/removing-a-label-when-a-card-is-added-to-a-project-board-column
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
   - Workflows
   - Project management
 shortTitle: Remove label when adding card
+allowTitleToDifferFromFilename: true
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -62,7 +62,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
 
      To find the column ID, navigate to your {% data variables.projects.projects_v1_board %}. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="Column menu" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
 
-     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different project boards.
+     If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different {% data variables.projects.projects_v1_boards %}.
    - Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
 1. {% data reusables.actions.commit-workflow %}
 

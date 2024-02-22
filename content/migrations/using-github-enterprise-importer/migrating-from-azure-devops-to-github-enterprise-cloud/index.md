@@ -9,6 +9,7 @@ versions:
 children:
   - /about-migrations-from-azure-devops-to-github-enterprise-cloud
   - /overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud
+  - /managing-access-for-a-migration-from-azure-devops
   - /migrating-repositories-from-azure-devops-to-github-enterprise-cloud
 ---
 

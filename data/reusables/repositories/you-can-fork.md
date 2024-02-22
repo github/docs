@@ -1,7 +1,4 @@
-{% ifversion ghae %}
-If the policies for your enterprise permit forking private and internal repositories, you can fork a repository to your personal account or to an organization where you have permission to create repositories. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
-
-{% elsif ghes or ghec %}
+{% ifversion ghes or ghec %}
 You can fork a private or internal repository to your personal account or to an organization on {% data variables.location.product_location %} where you have permission to create repositories, provided that the settings for the repository and your enterprise policies allow forking. Generally, you can fork any public repository to your personal account or to an organization where you have permission to create repositories{% ifversion ghec %}, unless you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}.
 
 {% elsif fpt %}

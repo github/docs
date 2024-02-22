@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -96,7 +95,7 @@ For example, this script gets all of the issues from the `octocat/Spoon-Knife` r
 ```javascript copy
 import { Octokit } from "octokit";
 
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
+const octokit = new Octokit({ {% ifversion ghes %}
   baseUrl: "{% data variables.product.api_url_code %}",
 {% endif %}});
 
@@ -123,7 +122,7 @@ The `getPaginatedData` function makes a request to an endpoint with `octokit.req
 ```javascript copy
 import { Octokit } from "octokit";
 
-const octokit = new Octokit({ {% ifversion ghes or ghae %}
+const octokit = new Octokit({ {% ifversion ghes %}
   baseUrl: "{% data variables.product.api_url_code %}",
 {% endif %}});
 

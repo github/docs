@@ -855,6 +855,12 @@
       "requestPath": "/networks/{owner}/{repo}/events"
     },
     {
+      "slug": "list-notifications-for-the-authenticated-user",
+      "subcategory": "notifications",
+      "verb": "get",
+      "requestPath": "/notifications"
+    },
+    {
       "slug": "list-public-organization-events",
       "subcategory": "events",
       "verb": "get",
@@ -977,6 +983,18 @@
       "subcategory": "apps",
       "verb": "get",
       "requestPath": "/apps/{app_slug}"
+    },
+    {
+      "slug": "list-app-installations-accessible-to-the-user-access-token",
+      "subcategory": "installations",
+      "verb": "get",
+      "requestPath": "/user/installations"
+    },
+    {
+      "slug": "list-repositories-accessible-to-the-user-access-token",
+      "subcategory": "installations",
+      "verb": "get",
+      "requestPath": "/user/installations/{installation_id}/repositories"
     }
   ],
   "billing": [
@@ -1433,6 +1451,12 @@
       "subcategory": "invitations",
       "verb": "get",
       "requestPath": "/user/repository_invitations"
+    },
+    {
+      "slug": "accept-a-repository-invitation",
+      "subcategory": "invitations",
+      "verb": "patch",
+      "requestPath": "/user/repository_invitations/{invitation_id}"
     },
     {
       "slug": "decline-a-repository-invitation",
@@ -2685,6 +2709,54 @@
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
     },
     {
+      "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}"
+    },
+    {
+      "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories"
+    },
+    {
+      "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}"
+    },
+    {
+      "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
+    },
+    {
       "slug": "list-public-organization-members",
       "subcategory": "members",
       "verb": "get",
@@ -2962,7 +3034,7 @@
       "slug": "create-a-github-pages-deployment",
       "subcategory": "pages",
       "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/pages/deployment"
+      "requestPath": "/repos/{owner}/{repo}/pages/deployments"
     }
   ],
   "projects": [
@@ -3493,7 +3565,7 @@
       "requestPath": "/repos/{owner}/{repo}/activity"
     },
     {
-      "slug": "list-all-autolinks-of-a-repository",
+      "slug": "get-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/autolinks"

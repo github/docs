@@ -32,7 +32,7 @@ Sometimes you may not be able to access a codespace from your browser. If this h
 
 Check that you have a stable internet connection and that your company network is not blocking the connection. If possible, check logging for rejected connections on your device.
 
-If you see rejected connections, make sure the domains documented by the `/meta` REST API endpoint are not blocked by your firewall. For more information, see "[AUTOTITLE](/rest/meta/meta?apiVersion=2022-11-28#get-github-meta-information)."
+If you see rejected connections, make sure the domains documented by the `/meta` REST API endpoint are not blocked by your firewall. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)."
 
 To get the list of domains required by {% data variables.product.prodname_github_codespaces %}, execute the following command using {% data variables.product.prodname_cli %}:
 

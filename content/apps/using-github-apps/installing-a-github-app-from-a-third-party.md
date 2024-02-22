@@ -4,12 +4,11 @@ intro: 'You can install {% data variables.product.prodname_github_apps %} direct
 versions:
   fpt: '*'
   ghec: '*'
-  ghae: '*'
   ghes: '*'
 shortTitle: Install from third party
 ---
 
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 
 You cannot install third-party {% data variables.product.prodname_github_apps %} on organizations owned by your instance.{% ifversion ghes %} If you want to use the functionality of a third-party {% data variables.product.prodname_github_app %}, you can contact the app developer about making the {% data variables.product.prodname_github_app %} available for {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server)."{% endif %}
 
@@ -45,7 +44,7 @@ The "app manager" role in an organization does not give a person the ability to 
 
 ## Installing a {% data variables.product.prodname_github_app %}
 
-During the installation process, the app owner will direct you to a {% data variables.product.company_short %} URL to install the {% data variables.product.prodname_github_app %}. The URL will look something like `{% data variables.product.oauth_host_code %}/{% ifversion ghes or ghae %}github-apps{% else %}apps{% endif %}/APP-NAME/installations/new`, where `APP-NAME` is the name of the {% data variables.product.prodname_github_app %}.
+During the installation process, the app owner will direct you to a {% data variables.product.company_short %} URL to install the {% data variables.product.prodname_github_app %}. The URL will look something like `{% data variables.product.oauth_host_code %}/{% ifversion ghes %}github-apps{% else %}apps{% endif %}/APP-NAME/installations/new`, where `APP-NAME` is the name of the {% data variables.product.prodname_github_app %}.
 
 1. Select the location where you want to install the {% data variables.product.prodname_github_app %}. You can select your personal account or an organization that you are a member of.
 

@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -64,6 +63,8 @@ You can use [{% data variables.product.prodname_github_codespaces %}](/codespace
 1. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
 
    ![Screenshot of a comment being added, reading "Yes, I agree, this is clearer." The "Start Review" button is shown below the comment.](/assets/images/help/codespaces/start-review.png)
+
+{% data reusables.codespaces.reviewing-a-pr %}
 
 1. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
 

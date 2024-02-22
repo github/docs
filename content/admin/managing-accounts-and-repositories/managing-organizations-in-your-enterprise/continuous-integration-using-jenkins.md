@@ -9,7 +9,6 @@ redirect_from:
 
 versions:
   ghes: '*'
-  ghae: '*'
 type: reference
 topics:
   - CI

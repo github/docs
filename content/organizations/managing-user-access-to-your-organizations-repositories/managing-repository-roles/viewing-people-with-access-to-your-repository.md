@@ -1,6 +1,6 @@
 ---
 title: Viewing people with access to your repository
-intro: 'You can view{% ifversion ghec or ghes or ghae %} and export{% endif %} a list of people with access to a repository within an organization.'
+intro: 'You can view{% ifversion ghec or ghes %} and export{% endif %} a list of people with access to a repository within an organization.'
 redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -30,7 +29,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can also 
 
 You can see a combined overview of teams and people with access to your repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)."
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 
 ## Exporting a list of people with access to your repository
 

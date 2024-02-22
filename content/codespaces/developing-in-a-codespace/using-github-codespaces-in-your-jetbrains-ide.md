@@ -19,11 +19,13 @@ redirect_from:
 
 If you use a JetBrains IDE to work on your code, you can take advantage of working in a codespace. You do this by using the JetBrains Gateway application.
 
-After installing the JetBrains Gateway, you can set JetBrains as your default editor and then whenever you open a codespace from {% data variables.product.prodname_dotcom_the_website %} the JetBrains Gateway will launch to allow you to choose your JetBrains IDE and connect to the codespace.
+After installing the JetBrains Gateway, you can set JetBrains as your default editor for {% data variables.product.prodname_codespaces %}. If you do, then whenever you open a codespace from {% data variables.product.prodname_dotcom_the_website %}, the JetBrains Gateway will launch to allow you to choose your JetBrains IDE and connect to the codespace.
+
+When you work in a codespace, you use the JetBrains thin client application on your local computer. This provides the graphical interface for the full JetBrains IDE of your choice, which runs on the remote virtual machine that hosts your codespace. The thin client is always used, even if the full JetBrains IDE is installed locally. Any local JetBrains IDE settings are imported and used by the thin client.
 
 {% note %}
 
-**Note**: Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+**Note:** Only existing codespaces are available in the JetBrains Gateway. You can create codespaces in {% data variables.product.prodname_dotcom_the_website %}, or by using {% data variables.product.prodname_cli %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 
 {% endnote %}
 
@@ -45,7 +47,7 @@ To work in a codespace in a JetBrains IDE you need:
 - A valid JetBrains license
 - The JetBrains Gateway application
 - {% data variables.product.prodname_cli %} version 2.18.0 or later
-- An existing codespace that's running an SSH server
+- An existing codespace that's running an SSH server. The codespace must have at least 4 cores.
 
 ### JetBrains license
 
@@ -75,7 +77,7 @@ For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 ### Codespace running an SSH server
 
-You must have an existing codespace to connect to. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+You must have an existing codespace to connect to, and the virtual machine that hosts the codespace must have at least 4 cores. {% data reusables.codespaces.ways-to-create-a-codespace %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
 
 {% data reusables.codespaces.ssh-server-installed %}
 

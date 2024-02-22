@@ -2,7 +2,7 @@ import { getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('glossary', () => {
   test('headings are sorted alphabetically', async () => {
-    const $ = await getDOM('/get-started/quickstart/github-glossary')
+    const $ = await getDOM('/get-started/learning-about-github/github-glossary')
     const headings = $('#article-contents h2')
     const headingTexts = headings.map((_, el) => $(el).text()).get()
     const cloned = [...headingTexts].sort((a, b) => a.localeCompare(b))
@@ -10,7 +10,7 @@ describe('glossary', () => {
     expect(equalStringArray(headingTexts, cloned)).toBe(true)
   })
   test('Markdown links are correct', async () => {
-    const $ = await getDOM('/get-started/quickstart/github-glossary')
+    const $ = await getDOM('/get-started/learning-about-github/github-glossary')
     const internalLink = $('#article-contents a[href="/en/get-started/foo"]')
     expect(internalLink.length).toBe(1)
     // That link used AUTOTITLE so it should be "expanded"
@@ -18,7 +18,7 @@ describe('glossary', () => {
   })
 
   test('all Liquid is evaluated', async () => {
-    const $ = await getDOM('/get-started/quickstart/github-glossary')
+    const $ = await getDOM('/get-started/learning-about-github/github-glossary')
     const paragraphs = $('#article-contents p')
     const paragraphTexts = paragraphs.map((_, el) => $(el).text()).get()
     expect(paragraphTexts.find((text) => text.includes('{%'))).toBe(undefined)
@@ -27,7 +27,7 @@ describe('glossary', () => {
   test('liquid in one of the description depends on version', async () => {
     // fpt
     {
-      const $ = await getDOM('/get-started/quickstart/github-glossary')
+      const $ = await getDOM('/get-started/learning-about-github/github-glossary')
       const paragraphs = $('#article-contents p')
       const paragraphTexts = paragraphs
         .map((_, el) => $(el).text())
@@ -38,7 +38,9 @@ describe('glossary', () => {
 
     // ghes
     {
-      const $ = await getDOM('/enterprise-server@latest/get-started/quickstart/github-glossary')
+      const $ = await getDOM(
+        '/enterprise-server@latest/get-started/learning-about-github/github-glossary',
+      )
       const paragraphs = $('#article-contents p')
       const paragraphTexts = paragraphs
         .map((_, el) => $(el).text())

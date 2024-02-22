@@ -35,7 +35,7 @@ You can use the `pack` command in the {% data variables.product.prodname_codeql_
 For more information about compatibility between published query packs and different {% data variables.product.prodname_codeql %} releases, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 {% endif %}
 
-The standard {% data variables.product.prodname_codeql %} packages for all supported languages are published in the [{% data variables.product.prodname_container_registry %}](https://github.com/orgs/codeql/packages). The [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql) contains source files for the standard {% data variables.product.prodname_codeql %} packs for all supported languages. The core query packs, which are included in the CodeQL CLI bundle, but you can otherwise download, are:
+The standard {% data variables.product.prodname_codeql %} packages for all supported languages are published in the [{% data variables.product.prodname_container_registry %}](https://github.com/orgs/codeql/packages). The [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql) contains source files for the standard {% data variables.product.prodname_codeql %} packs for all supported languages. The core query packs, which are included in the {% data variables.product.prodname_codeql %} CLI bundle, but you can otherwise download, are:
 
   - `codeql/cpp-queries`
   - `codeql/csharp-queries`

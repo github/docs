@@ -18,7 +18,7 @@ The Standard Terms of Service is an agreement between {% data variables.product.
 
 You can upgrade to the {% data variables.product.company_short %} Customer Agreement instead of using the Standard Terms of Service to help prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
 
-1. Navigate to your organization's settings and scroll to the **Terms of Service** section.
+1. Navigate to your organization's settings and scroll to the "Terms of Service" section.
 1. Click **Read the {% data variables.product.company_short %} Customer Agreement**.
 1. After you've read the {% data variables.product.company_short %} Customer Agreement, click **Sign {% data variables.product.company_short %} customer terms**.
 1. Select **Yes, I want to sign these terms on behalf of my business.**
@@ -27,4 +27,6 @@ You can upgrade to the {% data variables.product.company_short %} Customer Agree
 
 ## Further reading
 
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"
+- The [GitHub Customer Terms](https://github.com/customer-terms)
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)"

@@ -2,7 +2,6 @@
 title: pack resolve-dependencies
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -32,8 +31,7 @@ codeql pack resolve-dependencies <options>... -- <dir>
 
 ## Description
 
-\[Experimental] \[Plumbing] Compute the set of required dependencies
-for this QL pack.
+\[Plumbing] Compute the set of required dependencies for this QL pack.
 
 This command searches the configured registries for required
 dependencies and returns the list of resolved dependencies.

@@ -4,7 +4,6 @@ intro: Fixture for testing Mini TOCs with multiple headings
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

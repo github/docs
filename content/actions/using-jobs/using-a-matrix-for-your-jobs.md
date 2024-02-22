@@ -5,7 +5,6 @@ intro: Create a matrix to define variations for each job.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /actions/using-jobs/using-a-build-matrix-for-your-jobs

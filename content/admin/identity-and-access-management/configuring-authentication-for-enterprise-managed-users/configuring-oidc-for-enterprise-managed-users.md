@@ -22,7 +22,7 @@ With {% data variables.product.prodname_emus %}, your enterprise uses your ident
 
 {% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
 
-You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from your IdP. The default lifetime is one hour. For more information, see "[Configure token lifetime policies](https://learn.microsoft.com/en-us/azure/active-directory/develop/configure-token-lifetimes)" in the Azure AD documentation.
+You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from your IdP. The default lifetime is one hour. For more information, see "[Configure token lifetime policies](https://learn.microsoft.com/en-us/azure/active-directory/develop/configure-token-lifetimes)" on Microsoft Learn.
 
 {% note %}
 
@@ -36,9 +36,9 @@ You can adjust the lifetime of a session, and how often a {% data variables.ente
 
 ## Identity provider support
 
-Support for OIDC is available for customers using Azure Active Directory (Azure AD).
+Support for OIDC is available for customers using Entra ID.
 
-Each Azure AD tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Azure AD to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+Each Entra ID tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Entra ID to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
 OIDC does not support IdP-initiated authentication.
 
@@ -49,7 +49,7 @@ OIDC does not support IdP-initiated authentication.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "OpenID Connect single sign-on", select **Require OIDC single sign-on**.
-1. To continue setup and be redirected to Azure AD, click **Save**.
+1. To continue setup and be redirected to Entra ID, click **Save**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 1. Click **Enable OIDC Authentication**.
@@ -57,3 +57,9 @@ OIDC does not support IdP-initiated authentication.
 ## Enabling provisioning
 
 After you enable OIDC SSO, enable provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+
+## Enabling guest collaborators
+
+You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member.
+
+To use guest collaborators with OIDC authentication, you may need to update your settings in Entra ID. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators)."

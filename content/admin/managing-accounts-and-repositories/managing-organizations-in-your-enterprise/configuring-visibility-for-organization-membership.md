@@ -7,7 +7,6 @@ redirect_from:
   - /admin/user-management/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -20,7 +19,7 @@ You can also enforce your default setting on all current organization members in
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
+{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

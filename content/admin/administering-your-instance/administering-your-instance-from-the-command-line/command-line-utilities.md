@@ -307,8 +307,8 @@ ghe-saml-mapping-csv -d
 
 After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.7%}3.7{% endif %} your instance is running.
 
-- In version 3.{% ifversion ghes = 3.7%}7.7{% elsif ghes = 3.8 %}8.0{% endif %}{% ifversion ghes < 3.8 %} and earlier{% endif %}, the utility writes the file to `/tmp`.
-- In version 3.{% ifversion ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later,
+- In version 3.{% ifversion ghes = 3.8 %}8.0{% endif %}, the utility writes the file to `/tmp`.
+- In version 3.{% ifversion ghes = 3.8 %}8.1{% endif %} and later,
 
 {%- elsif ghes > 3.8 %}By default,{% endif %} the utility writes the file to `/data/user/tmp`.
 
@@ -529,6 +529,12 @@ You can use these additional options with the utility:
 ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
 ```
 
+To apply the configuration, run the following command. During a configuration run, services on {% data variables.location.product_location %} may restart, which can cause brief downtime for users.
+
+```shell copy
+ghe-config-apply
+```
+
 ### ghe-ssl-certificate-setup
 
 This utility allows you to update an SSL certificate for {% data variables.location.product_location %}.
@@ -672,30 +678,16 @@ This utility creates a support bundle tarball containing important logs from eac
 
 By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
-{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
-
 To create a standard bundle:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
-To create a standard bundle including data from the last 3 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
-```
-
 To create a standard bundle including data from the last 2 days:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
-```
-
-To create a standard bundle including data from the last 4 days and 8 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -903,11 +895,15 @@ This utility manually repackages a repository network to optimize pack storage. 
 
 You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
+{% ifversion ghes < 3.9 %}
+
 {% warning %}
 
 **Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)" and "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository)."
 
 {% endwarning %}
+
+{% endif %}
 
 ```shell
 ghe-repo-gc USERNAME/REPONAME
@@ -1084,7 +1080,7 @@ git-import-svn-raw
 
 ### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell))."
+This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 
 ```shell
 git-import-tfs-raw
@@ -1127,30 +1123,16 @@ This utility creates a support bundle tarball containing important logs from you
 
 By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
-{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
-
 To create a standard bundle:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
-To create a standard bundle including data from the last 3 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
-```
-
 To create a standard bundle including data from the last 2 days:
 
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
-```
-
-To create a standard bundle including data from the last 4 days and 8 hours:
-
-```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -1190,6 +1172,26 @@ ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication St
 In this example, `ghe-repl-status -vv` sends verbose status information from a replica appliance. You should replace `ghe-repl-status -vv` with the specific data you'd like to stream to `STDIN`, and `Verbose Replication Status` with a brief description of the data. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 ## Upgrading {% data variables.product.prodname_ghe_server %}
+
+{% ifversion ghes-upgrade-complete-indicator %}
+
+### ghe-check-background-upgrade-jobs
+
+During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
+
+{% ifversion ghes < 3.12 %}
+{% note %}
+
+**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.8 %}12{% elsif ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+
+{% endnote %}
+{% endif %}
+
+```shell
+ghe-check-background-upgrade-jobs
+```
+
+{% endif %}
 
 {% ifversion ghe-migrations-cli-utility %}
 
@@ -1292,7 +1294,7 @@ This utility will enforce the default organization membership visibility setting
 ghe-org-membership-update --visibility=SETTING
 ```
 
-### `ghe-user-csv`
+### ghe-user-csv
 
 This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the `-h` flag for more options.
 

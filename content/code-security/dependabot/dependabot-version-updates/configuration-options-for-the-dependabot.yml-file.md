@@ -21,7 +21,6 @@ topics:
 shortTitle: Configure dependabot.yml
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About the `dependabot.yml` file
@@ -273,7 +272,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}50{% elsif ghes < 3.8 or ghae < 3.8 %}15{% endif %} character limit.
+**Note:** The `prefix` and the `prefix-development` options have a 50-character limit.
 
 {% endnote %}
 
@@ -886,7 +885,7 @@ updates:
 The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
 
 You can give {% data variables.product.prodname_dependabot %} access to private package registries hosted by GitLab or Bitbucket by specifying a `type` of `git`. For more information, see [`git`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git).
-{% ifversion ghes > 3.7 %}
+{% ifversion ghes %}
 {% note %}
 
 **Note:** Private registries behind firewalls on private networks are supported for the following ecosystems:
@@ -895,8 +894,9 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 - Docker
 - Gradle
 - Maven
-- Npm
-- Nuget
+- npm
+- Nuget{% ifversion dependabot-updates-pub-private-registry %}
+- pub{% endif %}
 - Python
 - Yarn
 
@@ -1192,15 +1192,13 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
-{% data reusables.dependabot.dependabot-updates-path-match %}
-
 {% raw %}
 
 ```yaml
 registries:
   nuget-example:
     type: nuget-feed
-    url: https://nuget.pkg.github.com/my-org
+    url: https://nuget.example.com/v3/index.json
     username: octocat@example.com
     password: ${{secrets.MY_NUGET_PASSWORD}}
 ```
@@ -1213,12 +1211,39 @@ registries:
 registries:
   nuget-azure-devops:
     type: nuget-feed
-    url: https://pkgs.dev.azure.com
+    url: https://pkgs.dev.azure.com/.../_packaging/My_Feed/nuget/v3/index.json
     username: octocat@example.com
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
 
 {% endraw %}
+
+{% ifversion dependabot-updates-pub-private-registry %}
+
+### `pub-repository`
+
+The `pub-repository` type supports a URL and a token.
+
+{% raw %}
+
+```yaml
+registries:
+  my-pub-registry:
+    type: pub-repository
+    url: https://example-private-pub-repo.dev/optional-path
+    token: ${{secrets.MY_PUB_TOKEN}}
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - my-pub-registry
+```
+
+{% endraw %}
+
+{% endif %}
 
 ### `python-index`
 

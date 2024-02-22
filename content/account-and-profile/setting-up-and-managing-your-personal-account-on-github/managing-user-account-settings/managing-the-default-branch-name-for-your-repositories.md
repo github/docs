@@ -4,7 +4,6 @@ intro: 'You can set the default branch name for new repositories that you create
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts

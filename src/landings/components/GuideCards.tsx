@@ -23,7 +23,7 @@ export const GuideCards = () => {
   return (
     <div>
       <div className="d-lg-flex flex-items-stretch">
-        <ul className="d-flex flex-wrap gutter width-full">
+        <ul className="d-flex flex-wrap gutter">
           {(featuredLinks.guideCards || []).map((guide) => {
             return <GuideCard key={guide.href} guide={guide} />
           })}

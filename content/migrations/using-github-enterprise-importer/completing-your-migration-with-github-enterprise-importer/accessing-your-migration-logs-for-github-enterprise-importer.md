@@ -41,7 +41,7 @@ People with read access to a repository can access the migration log for the rep
 
 ## Downloading a repository migration log with the {% data variables.product.prodname_cli %}
 
-Organization owners and people with the migrator role can download migration logs using the {% data variables.product.prodname_cli %}. For more information about the migrator role, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/granting-the-migrator-role-for-github-enterprise-importer)."
+Organization owners and organization members with the migrator role can download migration logs using the {% data variables.product.prodname_cli %}.
 
 You can download the latest migration log for an individual repository with the `download-logs` command. The exact command depends on your migration source.
 
@@ -59,7 +59,7 @@ If your migration source is Azure DevOps, you can download the latest migration 
 gh ado2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %}
+{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
 
 ### Downloading a repository migration log with the {% data variables.product.prodname_bbs2gh_cli_short %}
 
@@ -69,7 +69,7 @@ If your migration source is Bitbucket Server, you can download the latest migrat
 gh bbs2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %}
+{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)."
 
 ### Downloading a repository migration log with the {% data variables.product.prodname_gei_cli_short %}
 
@@ -79,7 +79,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 gh gei download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %}
+{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
 
 ### Downloading all the repository migration logs for a migration script
 

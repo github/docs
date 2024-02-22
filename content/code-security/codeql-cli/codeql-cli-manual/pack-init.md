@@ -2,7 +2,6 @@
 title: pack init
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -30,7 +29,7 @@ codeql pack init [--dir=<dir>] [--extractor=<extractor>] <options>... -- <packag
 
 ## Description
 
-\[Experimental] Initializes a qlpack in the specified directory.
+Initializes a qlpack in the specified directory.
 
 The pack will be created in a child directory of the specified
 directory.

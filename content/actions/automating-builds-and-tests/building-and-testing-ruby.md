@@ -6,7 +6,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -41,7 +40,7 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
 1. Filter the selection of workflows by clicking **Continuous integration**.
 1. On the "Ruby" workflow, click {% ifversion actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.
 
-{%- ifversion ghes or ghae %}
+{%- ifversion ghes %}
 
    If you don't find the "Ruby" starter workflow, copy the following workflow code to a new file called `ruby.yml` in the `.github/workflows` directory of your repository.
 
@@ -188,8 +187,8 @@ To enable caching, set the following.
 ```yaml
 steps:
 - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
-    with:
-      bundler-cache: true
+  with:
+    bundler-cache: true
 ```
 
 {% endraw %}

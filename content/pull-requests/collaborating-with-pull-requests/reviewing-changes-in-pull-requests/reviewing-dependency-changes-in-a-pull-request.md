@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:

@@ -11,7 +11,6 @@ shortTitle: View Dependabot alerts
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -23,7 +22,6 @@ topics:
   - Repositories
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 Your repository's {% data variables.product.prodname_dependabot_alerts %} tab lists all open and closed {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes %} and corresponding {% data variables.product.prodname_dependabot_security_updates %}{% endif %}. You can filter alerts by package, ecosystem, or manifest. You can sort the list of alerts, and you can click into specific alerts for more details. {% ifversion dependabot-bulk-alerts %}You can also dismiss or reopen alerts, either one by one or by selecting multiple alerts at once.{% else %}You can also dismiss or reopen alerts. {% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
@@ -37,6 +35,8 @@ You can enable automatic security updates for any repository that uses {% data v
 ## About updates for vulnerable dependencies in your repository
 
 {% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that the default branch of your codebase is using dependencies with known security risks. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+
+{% data reusables.dependabot.no-dependabot-alerts-for-malware %}
 
 Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package. {% endif %}
 
@@ -114,7 +114,7 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 
 You can view all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %} in your repository's {% data variables.product.prodname_dependabot_alerts %} tab. You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by selecting a filter from the dropdown menu.
 
-{% ifversion ghec or ghes or ghae %}To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations)."{% endif %}
+{% ifversion ghec or ghes %}To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations)."{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -132,7 +132,7 @@ You can view all open and closed {% data variables.product.prodname_dependabot_a
 
 ## Reviewing and fixing alerts
 
-It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities {% ifversion GH-advisory-db-supports-malware %}or malware{% endif %} in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
+It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
 
 {% ifversion fpt or ghec or ghes %}
 
@@ -157,8 +157,6 @@ For supported languages, {% data variables.product.prodname_dependabot %} detect
    ![Screenshot of a {% data variables.product.prodname_dependabot %} alert with the "Create {% data variables.product.prodname_dependabot %} security update" button highlighted with a dark orange outline.](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
 
 1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
-{% elsif ghae %}
-1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
 {% endif %}
 1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request.
 

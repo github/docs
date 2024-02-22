@@ -13,7 +13,7 @@ runs:
   using: composite
   steps:
     - name: Send Slack notification if workflow fails
-      uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+      uses: someimportantcompany/github-actions-slack-message@a975b440de2bcef178d451cc70d4c1161b5a30cd
       with:
         channel: ${{ inputs.slack_channel_id }}
         bot-token: ${{ inputs.slack_token }}

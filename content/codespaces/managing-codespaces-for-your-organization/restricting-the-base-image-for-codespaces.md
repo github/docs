@@ -19,24 +19,32 @@ When you create a codespace, a development container is automatically created on
 You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
 
 ```json copy
-"image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
+"image": "mcr.microsoft.com/devcontainers/javascript-node:18",
 ```
 
-For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/) on the Development Containers website.
+For more information, see the [dev containers specification](https://containers.dev/implementors/json_reference/#image-specific) on the Development Containers website.
+
+Alternatively, you can specify the base image in a Dockerfile. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#dockerfile)."
 
 If you don't specify an image in the dev container configuration for a repository, the default dev container image is used. The default image contains a number of runtime versions for popular languages and commonly used tools. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-the-default-dev-container-configuration)."
 
 As an organization owner, you can add a policy to restrict which dev container images can be used for codespaces created within your organization.
 
-If the image specified in the dev container configuration does not match one of the allowed images, the following message is displayed when someone tries to create a codespace for the repository:
+If you attempt to create a codespace using a `devcontainer.json` that specifies an image that is not allowed by the policy, the following message is displayed in {% data variables.product.prodname_dotcom_the_website %}:
 
-> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization owner.
+> The codespace cannot be created because the image specified in your dev container configuration is not allowed. You may need to select a different branch, modify your container configuration, or adjust your organization's policy setting.
+
+Using the CLI, the error message is:
+
+> error creating codespace: HTTP 400: Base image 'IMAGE-REFERENCE' is not allowed based on an organization policy set by your organization administrator.
+
+If the image for a codespace is specified in a Dockerfile, and does not match the policy, a codespace is created in recovery mode, using the default recovery container rather than the specified image. A message to this effect is included at the end of the creation log. For more information about the creation log, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
 
 {% note %}
 
 **Notes**:
 - The dev container base image should not be confused with the host image. The host image is the image used to build the virtual machine on which the dev container runs. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image)."
-- The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle#rebuilding-a-codespace)."
+- The base image policy is applied when a codespace is created, and when you perform a full container rebuild. For more information, see "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle#rebuilding-a-codespace)."
 - The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
 
 {% endnote %}
@@ -56,18 +64,17 @@ For example, you could create an organization-wide policy that restricts the bas
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Base images**.
 1. Click {% octicon "pencil" aria-label="Edit policy" %} to edit the constraint.
-1. In the "Allowed values" field, enter the complete URL of an image you want to allow.
+1. In the "Allowed values" field, enter the image reference of the Docker image you want to allow.
 
-   ![Screenshot of the URL "mcr.microsoft.com/vscode/devcontainers/java" entered in the "Allowed values" field.](/assets/images/help/codespaces/image-allowed-values.png)
+   ![Screenshot of the image reference "mcr.microsoft.com/devcontainers/java" entered in the "Allowed values" field.](/assets/images/help/codespaces/image-allowed-values.png)
 
-   {% note %}
-
-   **Note**: You must specify an image URL that exactly matches the value specified in a dev container configuration.
-
-   {% endnote %}
+   You can use the `*` wildcard as the last character of the image reference to match all images that start with the same reference to the left of the wildcard. For example, `mcr.microsoft.com/devcontainers/*`.
 
 1. Click {% octicon "plus" aria-label="Add button" %} to add the value.
-1. If required, repeat the previous two steps to add more image URLs.
+1. If required, repeat the previous two steps to add more image references.
+
+   When you add multiple image references, if an image reference specified in the dev container configuration of a repository does not match any of the references in a policy that applies to the repository, you will not be able to create codespaces for that repository.
+
 1. Click outside of the dialog box to close it.
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
@@ -88,7 +95,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
 1. Click the name of the policy you want to edit.
 1. Beside the "Base images" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
-1. Add or remove image URLs.
+1. Add or remove image references.
 1. Click **Save**.
 
 ## Deleting a policy

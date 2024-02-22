@@ -7,7 +7,6 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Accounts

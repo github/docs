@@ -6,7 +6,6 @@ product: This is the callout text
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /map-topic

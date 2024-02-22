@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -34,7 +33,7 @@ Renaming a file also gives you the opportunity to [move the file to a new locati
 1. In your repository, browse to the file you want to rename.
 {% data reusables.repositories.edit-file-button %}
 1. In the filename field, change the name of the file to the new filename you want. You can also update the contents of your file at the same time. {% ifversion fpt or ghec or ghes > 3.8 %}
-![Screenshot showing a repository file open for editing in the web browser. The file name field is active and highlighted with a dark orange outline.](/assets/images/help/repository/changing-file-name.png) {% elsif ghes < 3.9 or ghae %}
+![Screenshot showing a repository file open for editing in the web browser. The file name field is active and highlighted with a dark orange outline.](/assets/images/help/repository/changing-file-name.png) {% elsif ghes < 3.9 %}
 ![Screenshot showing a repository file open for editing in the web browser. The file name field is active and shown in the foreground.](/assets/images/enterprise/repository/changing-file-name.png) {% endif %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
