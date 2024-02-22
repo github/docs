@@ -1,7 +1,6 @@
 ---
 title: Release note content type
 intro: 'Release notes enable readers to understand and prepare for the user-facing changes in each release of {% data variables.product.prodname_dotcom %}''s versioned enterprise products.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

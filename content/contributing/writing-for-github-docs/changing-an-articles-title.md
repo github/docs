@@ -2,7 +2,6 @@
 title: Changing an article's title
 shortTitle: Change an article's title
 intro: "When it's necessary to change the title of an article, the name may need to be updated in several places."
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:
