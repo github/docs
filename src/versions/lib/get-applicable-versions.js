@@ -58,17 +58,7 @@ function getApplicableVersions(versionsObj, filepath, opts = {}) {
   const foundStandardVersions = evaluateVersions(versionsObj)
 
   // Combine them!
-  let applicableVersions = Array.from(new Set(foundStandardVersions.concat(foundFeatureVersions)))
-
-  // GHAE is still around but can optionally be excluded.
-  // The reason is that we don't yet (early 2024) entirely delete it,
-  // but we don't want to encourage it either. The version is deprecated
-  // but we're not yet ready to remove it from all-versions.js.
-  if (opts.excludeGHAE) {
-    applicableVersions = applicableVersions.filter(
-      (applicableVersion) => !applicableVersion.startsWith('github-ae@'),
-    )
-  }
+  const applicableVersions = Array.from(new Set(foundStandardVersions.concat(foundFeatureVersions)))
 
   if (!applicableVersions.length && !opts.doNotThrow) {
     throw new Error(

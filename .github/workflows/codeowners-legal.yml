@@ -5,6 +5,7 @@ name: Codeowners - Legal
 # **Who does it impact**: Content writers and the GitHub legal team.
 
 on:
+  workflow_dispatch:
   pull_request:
     types:
       - edited
@@ -27,40 +28,31 @@ jobs:
           github.event.pull_request.head.ref != 'repo-sync' }}
     runs-on: ubuntu-latest
     steps:
-      - name: Get files changed
-        uses: dorny/paths-filter@0bc4621a3135347011ad047f9ecf449bf72ce2bd
-        id: filter
-        with:
-          # Base branch used to get changed files
-          base: 'main'
-
-          # Enables setting an output in the format in `${FILTER_NAME}_files
-          # with the names of the matching files formatted as JSON array
-          list-files: json
-
-          # Returns list of changed files matching each filter
-          filters: |
-            rai:
-              - 'content/**'
-
       - name: Check out repo
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@40526807ee1e208a1a8c1bbe6bd2d1b044ef6368 # v40.0.2
+        with:
+          files: 'content/**'
+          output_renamed_files_as_deleted_and_added: true
+
       - name: Set up Node and dependencies
+        if: steps.changed-files.outputs.any_changed == 'true'
         uses: ./.github/actions/node-npm-setup
 
       - name: Check content type
+        if: steps.changed-files.outputs.any_changed == 'true'
         id: checkContentType
         run: npm run check-content-type
         env:
-          FILE_PATHS_CONTENT_TYPES: ${{ steps.filter.outputs.rai_files }}
+          # all_changed_files does not include deleted files
+          CHANGED_FILE_PATHS: ${{ steps.changed-files.outputs.all_changed_files }}
           CONTENT_TYPE: 'rai'
-      - name: Logging
-        run: |
-          echo ${{ steps.checkContentType.outputs.contentType }}
 
       - name: Add Legal team as a reviewer
-        if: ${{ steps.checkContentType.outputs.contentType == 'true' }}
+        if: steps.checkContentType.outputs.containsContentType == 'true'
         env:
           # The GH CLI uses a slightly different env name for
           # the token than the GITHUB_TOKEN used by actions

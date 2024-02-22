@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.7', 'ghae'"
+        description: "Version to exclusively generate the search index for. E.g. 'dotcom', 'ghes-3.12'"
         required: false
         default: ''
       languages:

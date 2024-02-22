@@ -28,8 +28,7 @@ async function main() {
   for (const version of versionsToBuild) {
     // Get the relevant GraphQL name  for the current version
     // For example, free-pro-team@latest corresponds to dotcom,
-    // enterprise-server@2.22 corresponds to ghes-2.22,
-    // and github-ae@latest corresponds to ghae
+    // enterprise-server@2.22 corresponds to ghes-2.22.
     const graphqlVersion = allVersions[version].openApiVersionName
 
     // 1. UPDATE PREVIEWS

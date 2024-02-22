@@ -1,9 +1,10 @@
 ---
-title: GitHub Copilot Pre-release License Terms
+title: GitHub Pre-release License Terms
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /site-policy/github-terms/github-copilot-chat-pre-release-terms
   - /site-policy/github-terms/github-copilot-pre-release-terms
+  - /site-policy/github-terms/github-copilot-pre-release-license-terms
 versions:
   fpt: '*'
 topics:
@@ -11,7 +12,7 @@ topics:
   - Legal
 ---
 
-## GitHub Copilot Pre-release License Terms
+## GitHub Pre-release License Terms
 
 These terms apply to the pre-release software made available to you by GitHub. To the extent there is a conflict between these terms and any other Agreement you have with us, these terms govern.
 
@@ -38,17 +39,17 @@ These terms apply to the pre-release software made available to you by GitHub. T
   Unless applicable law gives you more rights despite this limitation, you may use the software only as expressly permitted in this Agreement. In doing so, you must comply with any technical limitations in the software that only allow you to use it in certain ways. You may not:
 
   a. work around any technical limitations in the software;
-  
+
   b. reverse engineer, decompile, or disassemble the software, or otherwise attempt to derive the source code for the software, except to the extent required by applicable third party licensing terms governing use of certain open source components that may be included in the software;
-  
+
   c. remove, minimize, block, or modify any notices of GitHub or its suppliers in the software;
-  
+
   d. share, publish, or lease the software;
-  
+
   e. provide the software as a stand-alone offering or combine it with any of your applications for others to use;
-  
+
   f. transfer the software or these terms to any third party; or
-  
+
   g. use the software to create or propagate malware, or in any way that is against the law
 
 ## 4. Data Collection and Usage.
@@ -57,7 +58,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
   b. **Use of Collected Data.** GitHub will use collected data for analytics and measurement to understand how our pre-release software and related products are used. The software will collect data and usage information about events generated when interacting with it. These events help us analyze and measure performance and features used. This usage information is used by GitHub and may be shared with affiliates and other third parties to help deliver, develop, evaluate, and improve the software and related products. We analyze data to ensure the pre-release software is working as intended, to evaluate the safety, reliability, and user experience of the software, and to investigate and detect potential abuse. We may combine the information we collect from the pre-release software with other data.
 
-  c. **Processing of Personal Data.** GitHub is the data controller in relation to the Personal Data processed in connection with the pre-release software.  
+  c. **Processing of Personal Data.** GitHub is the data controller in relation to the Personal Data processed in connection with the pre-release software.
 
   d. **Data Collection by You.** There may be some features in the pre-release software that enable you and GitHub to collect data from users of your applications. If you use these features, you must comply with all applicable laws on data collection, including providing appropriate notices to users of your applications as well as a copy of GitHub’s Privacy Statement. You can learn more about data collection and use in the software documentation.
 
