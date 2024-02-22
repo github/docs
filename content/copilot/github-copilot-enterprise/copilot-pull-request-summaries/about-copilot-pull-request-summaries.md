@@ -49,11 +49,7 @@ The feature is intended to supplement rather than replace a human's work to add 
 
 ### Provide feedback
 
-{% note %}
-
-**Note:** The ability to provide feedback to {% data variables.product.prodname_dotcom %} about {% data variables.product.prodname_copilot_for_prs %} is dependent on enterprise settings. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features#enabling-or-disabling-github-copilot-enterprise-features-for-an-enterprise)."
-
-{% endnote %}
+{% data reusables.rai.copilot-dotcom-feedback-collection %}
 
 If you encounter any issues or limitations with {% data variables.product.prodname_copilot_for_prs %}, you can provide feedback by clicking the "Bad summary" button (a thumbs down icon), which is displayed below the text box after a summary is generated and before you click **Create pull request** or **Update comment**.
 
