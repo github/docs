@@ -126,7 +126,11 @@ If you need help determining if modifying the `MaxValRange` is the right approac
 
 {% endnote %}
 
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys**.
+To enable LDAP Sync, in your LDAP settings, select **Synchronization**.
+
+To pick a synchronization interval for all users and all teams, click the dropdown menus. Then select **every 1 hour**, **every 4 hours**, or **every 24 hours**.
+
+To automatically synchronize certain attributes from LDAP, under "Synchronize User Emails, SSH & GPG Keys," click **Synchronize Emails**, **Synchronize SSH Keys**, and/or **Synchronize GPG Keys**.
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
