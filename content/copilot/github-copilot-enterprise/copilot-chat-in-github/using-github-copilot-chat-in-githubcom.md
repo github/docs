@@ -261,11 +261,15 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 To give feedback about a particular {% data variables.product.prodname_copilot_chat_short %} response:
 
-1. Click either the thumbs up or thumbs down icon at the bottom of each chat response.
-1. Optionally, provide information about why you liked or disliked the response.
+1. Click either the thumbs up or thumbs down icon at the bottom of each chat response. TODOCS: THERE IS STILL DEV WORK GOING ON HERE. IF THE USER CLICKS A THUMBS UP THERE'S LIKELY TO BE A SET OF CHECKBOXES SHOWN - SEE https://github.com/github/arguably-incorrectors/issues/133#issuecomment-1952207601
+1. TODOCS: THIS HAS CURRENTLY BEEN REMOVED BUT MAY BE REINSTATED, WITH CHECKBOXES. THE DISPLAY OF THIS WILL DEPEND ON THE ENTERPRISE SETTINGS FOR FEEDBACK COLLECTION OPT-IN.
+
+   Optionally, provide information about why you liked or disliked the response.
 
    ![Screenshot of the feedback form for {% data variables.product.prodname_copilot_chat_short %}.](/assets/images/help/copilot/feedback-form.png)
 
+   TODOCS: IF THIS IS HAPPENING FOR GA THE SCREENSHOT WILL NEED UPDATED.
+
 1. Click **Submit feedback**.
 
-To give feedback about {% data variables.product.prodname_copilot_chat_short %} in general, click the "Give feedback" link at the top right of any {% data variables.product.prodname_copilot_short %} page on {% data variables.product.prodname_dotcom_the_website %}.
+To give feedback about {% data variables.product.prodname_copilot_chat_short %} in general, click the ellipsis (**...**) at the top right of the chat panel, then click **Give feedback**. TODOCS: I'VE QUERIED WHETHER THIS OPTION WILL STILL BE THERE FOR GA, AND WHETHER ITS DISPLAY DEPENDS ON THE ENTERPRISE-LEVEL OPT-IN SETTING. IF IT'S STAYING, SHOW A SCREENSHOT?

@@ -33,7 +33,7 @@ You can initiate this feature when creating a pull request, by editing the pull 
 - A paragraph, written in prose, giving an overview of the changes in the pull request.
 - A bulleted list of the key changes, linked to the respective lines of code where those changes occur.
 
-Larger pull requests can take a couple minutes for {% data variables.product.prodname_copilot_short %} to generate. You can share your feedback on a summary directly from the UI after a summary is generated to help us continue to improve the feature.
+Larger pull requests can take a couple minutes for {% data variables.product.prodname_copilot_short %} to generate. Depending on your enterprise settings, you can share your feedback on a summary directly from the UI after a summary is generated to help us continue to improve the feature.
 
 ## Use case for pull request summaries
 
@@ -48,6 +48,12 @@ For many users, it could provide more helpful context for the changes that were 
 The feature is intended to supplement rather than replace a human's work to add context, and we encourage you to continue adding useful context and let {% data variables.product.prodname_copilot_short %} do the busy work of parsing the code and linking to specific files. It remains your responsibility to review and assess the accuracy of information in a pull request that you create.
 
 ### Provide feedback
+
+{% note %}
+
+**Note:** The ability to provide feedback to {% data variables.product.prodname_dotcom %} about {% data variables.product.prodname_copilot_for_prs %} is dependent on enterprise settings. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features#enabling-or-disabling-github-copilot-enterprise-features-for-an-enterprise)."
+
+{% endnote %}
 
 If you encounter any issues or limitations with {% data variables.product.prodname_copilot_for_prs %}, you can provide feedback by clicking the "Bad summary" button (a thumbs down icon), which is displayed below the text box after a summary is generated and before you click **Create pull request** or **Update comment**.
 
