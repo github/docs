@@ -1,0 +1,12 @@
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/chatbot', methods=['GET'])
+def get_response():
+    # Đây là nơi bạn có thể thêm mã để xử lý yêu cầu và trả về câu trả lời từ bạn
+    response = "Xin chào! Tôi là ChatGPT, bạn cần giúp gì không?"
+    return jsonify({'response': response})
+
+if __name__ == '__main__':
+    app.run(debug=True)
