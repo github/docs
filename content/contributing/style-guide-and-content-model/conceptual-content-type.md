@@ -1,7 +1,6 @@
 ---
 title: Conceptual content type
 intro: 'People most often use conceptual content when they are learning about something new to them.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---
