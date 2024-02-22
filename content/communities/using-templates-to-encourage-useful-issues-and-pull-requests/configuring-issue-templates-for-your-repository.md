@@ -26,7 +26,7 @@ shortTitle: Configure
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Features" section, under **Issues**, click **Set up templates**. You may need to enable **Issues** and refresh the page before you can see the button.
 
-  ![Screenshot of the "Set up templates" button](/assets/images/help/repository/set-up-issues-templates-button.png)
+   ![Screenshot of the "Set up templates" button](/assets/images/help/repository/set-up-issues-templates-button.png)
 1. Use the **Add template** dropdown menu, and click on the type of template you'd like to create.
 
    ![Screenshot of the "Add template" dropdown menu expanded to show the standard "Bug report" and "Feature request" templates. In addition, the "Custom template" is listed.](/assets/images/help/repository/add-template-drop-down-menu.png)
