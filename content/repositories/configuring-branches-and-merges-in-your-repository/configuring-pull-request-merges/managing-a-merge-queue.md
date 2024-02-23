@@ -76,6 +76,12 @@ Once you have enabled the "Require merge queue" setting, you can also access the
 -
   **Merge limits**: Select the minimum and maximum number of pull requests to merge in a single group (between `1` and `100`), and a timeout after which the queue should stop waiting for more entries and merge with fewer than the minimum number of pull requests. Exactly how many PRs are included in a group depends on a merge queue's settings:
 
+{% note %}
+
+**Note:** Merge limits do not combine `merge_group` **builds**. Merge limits only affect merges to the base branch once one or more `merge_group` has satisfied build checks.
+
+{% endnote %}
+
   | Merge Limit | Use Case |
   | ----------- | -------- |
   | Maximum pull requests to merge | You can specify a maximum group size, which is useful if merges to your base branch trigger a deployment, and you want to make sure you’re not deploying too many changes at once. |
