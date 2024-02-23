@@ -15,7 +15,7 @@ Building an application that integrates with {% data variables.product.prodname_
 
 ## Scratch an itch
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+Build your own tools that seamlessly integrate with the place you push code every day..
 
 ## Take on the enterprise
 
