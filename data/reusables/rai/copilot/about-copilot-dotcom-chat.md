@@ -10,7 +10,7 @@ The pre-processed prompt is then passed through the {% data variables.product.pr
 
 ### Response generation
 
-The language model generates a response based on its analysis of the input prompt and the context provided to it. The language model can gather additional context (for example repository data stored on GitHub or search results from Bing), and provide a response based on the prompt. This response can take the form of generated code, code suggestions, or explanations of existing code.
+The language model generates a response based on its analysis of the input prompt and the context provided to it. The language model can gather additional context (for example repository data stored on {% data variables.product.prodname_dotcom %} or search results from Bing), and provide a response based on the prompt. This response can take the form of generated code, code suggestions, or explanations of existing code.
 
 ### Output formatting
 
