@@ -25,7 +25,7 @@ export const ArticleGridLayout = ({
     <Box className={cx(styles.containerBox, className)}>
       {topper && <Box gridArea="topper">{topper}</Box>}
       {intro && (
-        <Box id="article-intro" gridArea="intro" className="f4">
+        <Box id="article-intro" gridArea="intro" className="f4 pb-4">
           {intro}
         </Box>
       )}

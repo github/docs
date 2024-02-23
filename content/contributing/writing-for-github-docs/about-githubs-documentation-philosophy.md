@@ -2,7 +2,6 @@
 title: About GitHub's documentation philosophy
 shortTitle: Documentation philosophy
 intro: 'Our documentation philosophy guides what content we create and how we create it.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

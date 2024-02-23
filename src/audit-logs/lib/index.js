@@ -39,11 +39,6 @@ export function getAuditLogEvents(page, version, categorized = false) {
     openApiVersion = openApiVersion.split('-')[0]
   }
 
-  // There's no ghae versioned audit log events
-  if (openApiVersion === 'ghae') {
-    openApiVersion = 'ghes'
-  }
-
   const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
 
   // If the data isn't cached for an entire version or a particular page, read

@@ -120,6 +120,8 @@ sections:
       Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
     - |
       {% data reusables.release-notes.2024-01-haproxy-upgrade-causing-increased-errors %} [Updated 2024-01-03]
+    - |
+      {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
   deprecations:
     - heading: Interactive maps in the web UI no longer allow authentication using an Azure Maps API key
       notes:
