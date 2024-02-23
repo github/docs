@@ -14,6 +14,12 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
 ---
 
+{% ifversion fpt %}
+
+{% data reusables.rai.copilot.enterprise-fpt-link %}
+
+{% endif %}
+
 ## About {% data variables.product.prodname_copilot_chat_dotcom %}
 
 {% data variables.product.prodname_copilot_chat_dotcom %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %}, to ask and receive answers to coding-related questions within {% data variables.product.prodname_dotcom_the_website %}.
