@@ -17,6 +17,8 @@ shortTitle: Local code
 
 ## About adding existing source code to {% data variables.product.product_name %}
 
+{% data reusables.repositories.importing-context %}
+
 If you have source code stored locally on your computer that is tracked by Git or not tracked by any version control system (VCS), you can add the code to {% data variables.product.product_name %} by typing commands in a terminal. You can do this by typing Git commands directly, or by using {% data variables.product.prodname_cli %}.
 
 {% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.prodname_dotcom %} from your computer's command line. {% data variables.product.prodname_cli %} can simplify the process of adding an existing project to {% data variables.product.product_name %} using the command line. To learn more about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
@@ -126,6 +128,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. To add the URL for the remote repository where your local repository will be pushed, run the following command. Replace `REMOTE-URL` with the repository's full URL on {% data variables.product.prodname_dotcom %}.
@@ -157,6 +160,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 1. At the top of your repository on {% data variables.location.product_location %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. To add the URL for the remote repository where your local repository will be pushed, run the following command. Replace `REMOTE-URL` with the repository's full URL on {% data variables.product.prodname_dotcom %}.

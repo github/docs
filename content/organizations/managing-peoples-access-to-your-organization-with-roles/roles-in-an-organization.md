@@ -156,7 +156,7 @@ Some of the features listed below are limited to organizations using {% data var
 {% endrowheaders %}
 
 {% elsif ghes %}
-<!-- GHES 3.3+ and eventual GHAE release don't have the extra columns for Moderators and Billing managers. -->
+<!-- GHES 3.3+ doesn't have the extra columns for Moderators and Billing managers. -->
 
 {% rowheaders %}
 
@@ -205,7 +205,7 @@ Some of the features listed below are limited to organizations using {% data var
 {% endrowheaders %}
 
 {% else %}
-<!-- GHES and GHAE older versions don't have columns for Moderators, Billing managers or Security managers. -->
+<!-- Older versions of GHES don't have columns for Moderators, Billing managers or Security managers. -->
 
 {% rowheaders %}
 
