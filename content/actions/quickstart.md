@@ -24,7 +24,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 
 ## Creating your first workflow
 
-1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist. The `.github/workflows` directory has special meaning to {% data variables.product.prodname_dotcom %} - any file placed is automatically discovered and registered as a workflow.
+1. Create a `.github/workflows` directory in  your repository on {% data variables.product.prodname_dotcom %} if this directory does not already exist. The `.github/workflows` directory has special significance to {% data variables.product.prodname_dotcom %} - any file placed in this directory is automatically discovered and registered as a workflow in {% data variables.product.prodname_actions %}.
 1. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)." The name of this file does not matter as long as it ends in `.yml` or `.yaml`. 
 1. Copy the following YAML contents into the `github-actions-demo.yml` file:
 
