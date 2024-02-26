@@ -65,7 +65,7 @@ For more information on formatting callouts, see “Callouts” in "[AUTOTITLE](
 
 Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The "[AUTOTITLE](/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
 
-If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in the `docs-strategy` repository to share your use case for approval by the Content Strategy team.
+If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, you must get approval from the {% data variables.product.prodname_docs %} team.
 
 ## Call to action (CTA) buttons
 
