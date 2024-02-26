@@ -120,7 +120,7 @@ A fork is a copy of a repository that you manage, where any changes you make wil
 
 ### 2. Importing your projects
 
-If you have existing projects you'd like to move over to {% data variables.product.product_name %} you can import projects using the {% data variables.product.prodname_importer %}, the command line, or external migration tools. For more information, see "[AUTOTITLE](/migrations/importing-source-code)."
+If you have existing projects you'd like to move over to {% data variables.product.product_name %} you can import projects using the {% data variables.product.prodname_dotcom %} Importer, the command line, or external migration tools. For more information, see "[AUTOTITLE](/migrations/importing-source-code)."
 
 ### 3. Managing collaborators and permissions
 
