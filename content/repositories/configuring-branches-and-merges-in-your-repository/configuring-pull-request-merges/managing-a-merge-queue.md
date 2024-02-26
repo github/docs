@@ -27,6 +27,7 @@ For more information on merging a pull request using a merge queue, see "[AUTOTI
 
 - A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
 - A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
+- Currently, merge queue and pull requests checks are coupled and configured under [branch protection rules](content/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) (`Require status checks to pass before merging`) or [rulesets](content/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) (`Require status checks to pass`).
 
 {% endnote %}
 
