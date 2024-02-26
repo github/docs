@@ -29,7 +29,7 @@ An organization owner can enable or disable {% data variables.product.prodname_c
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies and features**.
+{% data reusables.copilot.policy-settings %}
 1. To the right of "{% data variables.product.prodname_copilot_cli_short %}", select the dropdown menu, then click **Enabled** or **Disabled**.
 
 {% ifversion ghec %}
