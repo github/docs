@@ -68,7 +68,7 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request that you'd like to link to an issue.
-{% data reusables.pull_requests.click-development %}
+{% data reusables.pull_requests.click-development-in-pull-request %}
 1. Click the issue you want to link to the pull request.
 
 {% ifversion link-existing-branches-to-issue %}
@@ -82,7 +82,7 @@ You can manually link up to ten issues to each pull request. The issue can be in
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
 1. In the list of issues, click the issue that you'd like to link a pull request or branch to.
-{% data reusables.pull_requests.click-development %}
+{% data reusables.pull_requests.click-development-in-issue %}
 1. Click the repository containing the pull request or branch you want to link to the issue.
 1. Click the pull request or branch you want to link to the issue.
 1. Click **Apply**.
