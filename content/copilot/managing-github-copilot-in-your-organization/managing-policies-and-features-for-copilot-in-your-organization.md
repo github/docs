@@ -34,14 +34,15 @@ shortTitle: Managing policies
 
 {% ifversion ghec %}If your enterprise admin has selected **No policy** for the following features, you can enable or disable these for your organization.{% else %}You can enable or disable the following features for {% data variables.product.prodname_copilot %}.{% endif %}
 
-{% ifversion ghec %}- {% data variables.product.prodname_copilot_enterprise_short %}{% endif %}
+- Suggestions matching public code{% ifversion ghec %}
+- {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_dotcom_the_website %}{% endif %}
 - {% data variables.product.prodname_copilot_chat_short %} in the IDE
 - {% data variables.product.prodname_copilot_cli_short %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.policy-settings %}
-1. Under "Features", to the right of the relevant feature, in the dropdown, select **Enabled** or **Disabled**.
+1. Use the dropdown options to the right of each feature to enable or disable that feature for your organization.
 
 ## Further reading
 

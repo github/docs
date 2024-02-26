@@ -2,7 +2,6 @@
 title: Contents of a GitHub Docs article
 shortTitle: Contents of an article
 intro: 'Every article includes a few standard elements, and may include conditional or optional elements. We also use a standard order for content within an article.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

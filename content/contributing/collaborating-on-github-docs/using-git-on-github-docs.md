@@ -2,7 +2,6 @@
 title: Using Git on GitHub Docs
 shortTitle: Using Git
 intro: 'You can use Git on the command line to commit changes and then push them to the documentation repository.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

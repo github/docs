@@ -126,7 +126,11 @@ If you need help determining if modifying the `MaxValRange` is the right approac
 
 {% endnote %}
 
-To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys**.
+To enable LDAP Sync, in your LDAP settings, select **Synchronization**.
+
+To pick a synchronization interval for all users and all teams, click the dropdown menus. Then select **every 1 hour**, **every 4 hours**, or **every 24 hours**.
+
+To automatically synchronize certain attributes from LDAP, under "Synchronize User Emails, SSH & GPG Keys," click **Synchronize Emails**, **Synchronize SSH Keys**, and/or **Synchronize GPG Keys**.
 
 After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
@@ -227,3 +231,7 @@ If LDAP Sync is **not** enabled, you must manually suspend the {% data variables
 ## About logging for LDAP
 
 Log events for LDAP appear in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% else %}log files{% endif %} on {% data variables.location.product_location %}. You'll find events related to LDAP operations in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the logs for `github-unicorn` and `github-resqued`{% else %}`auth.log`, `ldap-sync.log`, and `ldap.log`{% endif %}. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs#{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}journal-logs-for-the-github-application{% else %}log-files-for-authentication{% endif %})."
+
+## Limitations for LDAP on {% data variables.product.product_name %}
+
+The {% data variables.product.product_name %} LDAP authentication timeout setting is 10 seconds. This means that all LDAP queries required for user authentication and group membership queries (when Administrators and Restricted User Groups are configured in the management console) must successfully complete within 10 seconds for an LDAP user who is logging into {% data variables.product.product_name %}. {% data variables.product.product_name %} does not currently support extending this 10 second LDAP authentication timeout as this can have a negative impact on other services on the appliance and lead to poor performance or unexpected outages. We recommend limiting the network latency between {% data variables.product.product_name %} and LDAP server(s) to help prevent authentication timeouts.

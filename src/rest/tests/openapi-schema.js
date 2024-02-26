@@ -194,8 +194,6 @@ describe('code examples are defined', () => {
       let domain = 'https://api.github.com'
       if (version.includes('enterprise-server')) {
         domain = 'http(s)://HOSTNAME/api/v3'
-      } else if (version === 'github-ae@latest') {
-        domain = 'https://HOSTNAME/api/v3'
       }
 
       const operation = await findOperation(version, 'GET', '/repos/{owner}/{repo}')

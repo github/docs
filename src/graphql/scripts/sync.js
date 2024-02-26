@@ -28,8 +28,7 @@ async function main() {
   for (const version of versionsToBuild) {
     // Get the relevant GraphQL name  for the current version
     // For example, free-pro-team@latest corresponds to dotcom,
-    // enterprise-server@2.22 corresponds to ghes-2.22,
-    // and github-ae@latest corresponds to ghae
+    // enterprise-server@2.22 corresponds to ghes-2.22.
     const graphqlVersion = allVersions[version].openApiVersionName
 
     // 1. UPDATE PREVIEWS
@@ -134,8 +133,6 @@ async function getBranchAsRef(options, graphqlVersion, branch = false) {
     fpt: defaultBranch,
     ghec: defaultBranch,
     ghes: `enterprise-${graphqlVersion.replace('ghes-', '')}-release`,
-    // TODO confirm the below is accurate after the release branch is created
-    ghae: 'github-ae-release',
   }
 
   // the first time this runs, it uses the branch found for the version above
@@ -156,7 +153,7 @@ async function getBranchAsRef(options, graphqlVersion, branch = false) {
 }
 
 // given a GraphQL version like `ghes-2.22`, return `ghes`;
-// given a GraphQL version like `ghae` or `dotcom`, return as is
+// given a GraphQL version like `dotcom`, return as is
 function getVersionType(graphqlVersion) {
   return graphqlVersion.split('-')[0]
 }

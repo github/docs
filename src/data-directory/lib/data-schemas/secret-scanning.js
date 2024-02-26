@@ -12,8 +12,7 @@ const versionsProps = Object.assign({}, schema.properties.versions)
 //   "versions": {
 //     "fpt": "*",
 //     "ghec": "*",
-//     "ghes": "*",
-//     "ghae": "<3.4"
+//     "ghes": "*"
 //   },
 //   "isPublic": true,
 //   "isPrivateWithGhas": true,

@@ -30,7 +30,7 @@ If your organization's parent enterprise has selected **No policy**, {% data var
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Policies and features**.
+{% data reusables.copilot.policy-settings %}
 1. Next to "{% data variables.product.prodname_copilot_enterprise %}", select the dropdown menu (labeled **Disabled** by default), then choose from the following options.
 
    - **Enabled**: The feature is enabled for all members of the organization.
