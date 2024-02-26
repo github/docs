@@ -28,11 +28,29 @@ There are two types of {% data variables.dependabot.auto_triage_rules %}:
 - {% data variables.dependabot.default_rules %}
 - {% data variables.dependabot.custom_rules_caps %}
 
-The {% data variables.product.company_short %}-curated default rule, `Dismiss low impact issues for development-scoped dependencies`, auto-dismisses certain types of vulnerabilities that are found in npm dependencies used in development. The rule has been curated to reduce false positives and reduce alert fatigue. The rule is enabled by default for public repositories and can be opted into for private repositories. However, you cannot modify {% data variables.dependabot.default_rules %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/using-github-curated-default-rules-to-prioritize-dependabot-alerts)."
+### About {% data variables.dependabot.default_rules %}
+
+{% note %}
+
+{% data reusables.dependabot.dependabot-default-auto-triage-rules %}
+
+{% endnote %}
+
+{% data reusables.dependabot.dismiss-low-impact-rule %}
+
+### About {% data variables.dependabot.custom_rules %}
+
+{% note %}
+
+{% data reusables.gated-features.dependabot-custom-auto-triage-rules %}
+
+{% endnote %}
 
 With {% data variables.dependabot.custom_rules %}, you can create your own rules to automatically dismiss or reopen alerts based on targeted metadata, such as severity, package name, CWE, and more. You can also specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts)."
 
-Whilst you may find it useful to auto-dismiss alerts, you can still reopen auto-dismissed alerts and filter to see which alerts have been auto-dismissed. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/managing-automatically-dismissed-alerts)."
+### About auto-dismissing alerts
+
+Whilst you may find it useful to use auto-triage rules to auto-dismiss alerts, you can still reopen auto-dismissed alerts and filter to see which alerts have been auto-dismissed. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/managing-automatically-dismissed-alerts)."
 
 Additionally, auto-dismissed alerts are still available for reporting and reviewing, and can be auto-reopened if the alert metadata changes, for example:
 - If you change the scope of a dependency from development to production.

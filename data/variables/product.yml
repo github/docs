@@ -263,6 +263,9 @@ prodname_command_palette: 'GitHub Command Palette'
 # Server Statistics
 prodname_server_statistics: 'Server Statistics'
 
+# GitHub Importer
+prodname_importer: 'GitHub Importer'
+
 # GitHub Actions Importer
 prodname_actions_importer: 'GitHub Actions Importer'
 
