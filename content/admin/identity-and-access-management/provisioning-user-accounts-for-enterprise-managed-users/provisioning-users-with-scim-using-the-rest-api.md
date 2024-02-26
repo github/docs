@@ -125,7 +125,7 @@ You can view this mapping on {% data variables.location.product_location %}. For
 
 ### Ensuring users have the access you intend
 
-If your integration manages access using groups on your IdP, you can validate that users get the access you intend. You can use the REST API to compare your IdP's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. For more information, see "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)" in the REST API documentation.
+If your integration manages access using groups on your IdP, you can validate that users get the access you intend. You can use the REST API to compare your IdP's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. For more information, see "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)."
 
 ### About suspension and reprovisioning of users
 
