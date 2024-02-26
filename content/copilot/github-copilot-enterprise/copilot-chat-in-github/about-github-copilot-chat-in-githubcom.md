@@ -100,7 +100,9 @@ While {% data variables.product.prodname_copilot_chat_short %} can generate synt
 
 ### Provide feedback
 
-If you encounter any issues or limitations with {% data variables.product.prodname_copilot_chat_short %}, we recommend that you provide feedback through the **share feedback** link in the {% data variables.product.prodname_copilot_chat_short %} interface of your IDE. This can help the developers to improve the tool and address any concerns or limitations.
+{% data reusables.rai.copilot-dotcom-feedback-collection %}
+
+If you encounter any issues or limitations with {% data variables.product.prodname_copilot_chat_dotcom_short %}, we recommend that you provide feedback by clicking the thumbs down icon below each chat response. This can help the developers to improve the tool and address any concerns or limitations.
 
 ### Stay up to date
 

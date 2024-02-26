@@ -259,6 +259,8 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 
+{% data reusables.rai.copilot-dotcom-feedback-collection %}
+
 To give feedback about a particular {% data variables.product.prodname_copilot_chat_short %} response:
 
 1. Click either the thumbs up or thumbs down icon at the bottom of each chat response. TODOCS: THERE IS STILL DEV WORK GOING ON HERE. IF THE USER CLICKS A THUMBS UP THERE'S LIKELY TO BE A SET OF CHECKBOXES SHOWN - SEE https://github.com/github/arguably-incorrectors/issues/133#issuecomment-1952207601
