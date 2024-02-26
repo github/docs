@@ -301,7 +301,7 @@ You can upload assets like images by dragging and dropping, selecting from a fil
 
 You can add emoji to your writing by typing `:EMOJICODE:`, a colon followed by the name of the emoji.
 
-`@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
+`@sanskaarz :+1: This PR looks great - it's ready to merge! :shipit:`
 
 ![Screenshot of rendered GitHub Markdown showing how emoji codes for +1 and shipit render visually as emoji.](/assets/images/help/writing/emoji-rendered.png)
 
