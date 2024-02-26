@@ -102,7 +102,7 @@ If you encounter any issues or limitations with {% data variables.product.prodna
 
 ### Stay up to date
 
-{% data variables.product.prodname_copilot_chat_short %} is a new technology and is likely to evolve over time For {% data variables.product.prodname_copilot_chat_dotcom %} you will always have access to the latest product experience. You should stay up to date with any new security risks or best practices that may emerge.
+{% data variables.product.prodname_copilot_chat_short %} is a new technology and is likely to evolve over time. For {% data variables.product.prodname_copilot_chat_dotcom %} you will always have access to the latest product experience. You should stay up to date with any new security risks or best practices that may emerge.
 
 ## Limitations of {% data variables.product.prodname_copilot_chat %}
 
