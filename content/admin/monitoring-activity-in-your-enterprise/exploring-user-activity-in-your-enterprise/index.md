@@ -8,6 +8,7 @@ topics:
   - Enterprise
 children:
   - /activity-dashboard
+  - /accessing-reports-for-your-instance
   - /viewing-push-logs
   - /log-forwarding
   - /managing-global-webhooks

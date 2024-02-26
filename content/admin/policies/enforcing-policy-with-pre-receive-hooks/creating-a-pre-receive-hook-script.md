@@ -91,7 +91,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>git refs create api</pre> | Creation of a ref via the API | "[AUTOTITLE](/rest/git#create-a-reference)" |
 | <pre>git refs delete api</pre> | Deletion of a ref via the API | "[AUTOTITLE](/rest/git#delete-a-reference)" |
 | <pre>git refs update api</pre> | Update of a ref via the API | "[AUTOTITLE](/rest/git#update-a-reference)" |
-| <pre>git repo contents api</pre> | Change to a file's contents via the API | "[AUTOTITLE](/rest/repos#create-or-update-file-contents)" in the REST API documentation |
+| <pre>git repo contents api</pre> | Change to a file's contents via the API | "[AUTOTITLE](/rest/repos#create-or-update-file-contents)" |
 {%- ifversion ghes %}
 | `merge` | Merge of a pull request using auto-merge | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
 {%- endif %}

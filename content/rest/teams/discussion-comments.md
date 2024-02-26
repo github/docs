@@ -1,5 +1,5 @@
 ---
-title: Team discussion comments
+title: REST API endpoints for team discussion comments
 allowTitleToDifferFromFilename: true
 shortTitle: Discussion comments
 intro: >-
