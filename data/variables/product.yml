@@ -21,7 +21,6 @@ prodname_dotcom_the_website: 'GitHub.com'
 ## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
 prodname_ghe_server: 'GitHub Enterprise Server'
 prodname_ghe_cloud: 'GitHub Enterprise Cloud'
-prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 prodname_free_user: 'GitHub Free'
@@ -263,6 +262,9 @@ prodname_command_palette: 'GitHub Command Palette'
 
 # Server Statistics
 prodname_server_statistics: 'Server Statistics'
+
+# GitHub Importer
+prodname_importer: 'GitHub Importer'
 
 # GitHub Actions Importer
 prodname_actions_importer: 'GitHub Actions Importer'

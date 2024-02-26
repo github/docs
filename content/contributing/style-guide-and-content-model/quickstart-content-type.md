@@ -1,7 +1,6 @@
 ---
 title: Quickstart content type
 intro: 'Quickstarts are best for people who want instructions quickly without lengthy explanations of how something works or why they would want to use it.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

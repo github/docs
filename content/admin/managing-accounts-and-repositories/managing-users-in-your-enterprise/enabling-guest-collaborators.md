@@ -47,7 +47,7 @@ If you use Microsoft Entra ID (previously known as Azure AD) or Okta for SAML au
      "isEnabled": true,
      "lang": null,
      "origin": "Application",
-     "value": "null"
+     "value": null
    },
    ```
 

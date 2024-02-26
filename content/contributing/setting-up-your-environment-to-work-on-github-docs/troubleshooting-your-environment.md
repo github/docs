@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting your environment
 intro: "Learn about troubleshooting problems in your local environment and the {% data variables.product.prodname_docs %} staging platform."
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

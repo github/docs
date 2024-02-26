@@ -1,5 +1,6 @@
 ---
-title: Repositories
+title: REST API endpoints for repositories
+shortTitle: Repositories
 intro: >-
   Use the REST API to create, manage and control the workflow of public and
   private {% data variables.product.product_name %} repositories.
