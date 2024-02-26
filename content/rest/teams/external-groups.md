@@ -1,5 +1,7 @@
 ---
-title: External groups
+title: REST API endpoints for external groups
+shortTitle: External groups
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to view the external identity provider groups that are
   available to your organization and manage the connection between external
