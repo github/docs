@@ -116,7 +116,7 @@ Depending on factors such as your codebase and input data, you may experience di
 
 ### Potential biases
 
-{% data variables.product.prodname_copilot_short %}'s training data (drawn from existing code repositories) and context gathered by the large language model (for example Bing search results) may contain biases and errors that can be perpetuated by the tool. Additionally, {% data variables.product.prodname_copilot_chat_short %} may be biased towards certain programming languages or coding styles, which can lead to suboptimal or incomplete code suggestions.
+{% data variables.product.prodname_copilot_short %}'s training data (drawn from existing code repositories) and context gathered by the large language model (for example, Bing search results) may contain biases and errors that can be perpetuated by the tool. Additionally, {% data variables.product.prodname_copilot_chat_short %} may be biased towards certain programming languages or coding styles, which can lead to suboptimal or incomplete code suggestions.
 
 ### Security risks
 
