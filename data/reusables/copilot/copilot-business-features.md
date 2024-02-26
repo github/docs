@@ -6,10 +6,6 @@ These features are availabe to organization owners and administrators to manage 
 
 Content exclusions allow you to configure {% data variables.product.prodname_copilot %} to ignore certain files in your repository. This can be useful if you have files that you don't want to be available to {% data variables.product.prodname_copilot %}. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/configuring-content-exclusions-for-github-copilot)."
 
-### Custom certificates
-
-For organizations using {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}, {% data variables.product.prodname_copilot %} can read custom SSL certificates installed on a user's machine. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#allowing-github-copilot-to-use-custom-certificates)."
-
 ### Managing access to {% data variables.product.prodname_copilot %}
 
 Organization owners can manage access to {% data variables.product.prodname_copilot %} for their organization, and review usage data to inform their decision. For more information, see "[AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/managing-access-for-copilot-business-in-your-organization)."
