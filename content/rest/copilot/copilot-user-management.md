@@ -16,7 +16,7 @@ redirect_from:
 
 {% note %}
 
-**Note:** The {% data variables.product.prodname_copilot_for_business %} API endpoints are in public beta and subject to change.
+**Note:** These endpoints are in public beta and subject to change.
 
 {% endnote %}
 

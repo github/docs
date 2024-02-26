@@ -83,8 +83,10 @@ You can enable and configure additional scanning that will alert you about accid
    - public repositories on {% data variables.product.prodname_dotcom_the_website %}.
    - an organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
-{% elsif ghec %}
-Additionally, if your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
+{% elsif secret-scanning-user-owned-repos %}
+If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
+
+You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users)."
 {% else %}
 You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}

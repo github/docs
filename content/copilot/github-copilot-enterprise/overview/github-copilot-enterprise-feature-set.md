@@ -8,6 +8,12 @@ topics:
 shortTitle: Copilot Enterprise feature set
 ---
 
+{% ifversion fpt %}
+
+{% data reusables.copilot.enterprise-fpt-link %}
+
+{% endif %}
+
 ## About {% data variables.product.prodname_copilot_enterprise %}
 
 {% data variables.product.prodname_copilot_enterprise %} is a {% data variables.product.prodname_copilot %} plan available to {% data variables.product.prodname_ghe_cloud %} customers. For more information on {% data variables.product.prodname_copilot_enterprise %}, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."

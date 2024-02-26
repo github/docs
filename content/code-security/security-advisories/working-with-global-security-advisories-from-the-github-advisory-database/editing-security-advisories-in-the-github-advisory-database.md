@@ -43,7 +43,7 @@ Only repository owners and administrators can edit repository-level security adv
 
 You can also open a pull request directly on an advisory file in the [github/advisory-database](https://github.com/github/advisory-database) repository. For more information, see the [contribution guidelines](https://github.com/github/advisory-database/blob/main/CONTRIBUTING.md).
 
-{% ifversion security-advisories-ghes-ghae %}
+{% ifversion security-advisories-ghes %}
 
 ## Editing advisories from {% data variables.location.product_location %}
 

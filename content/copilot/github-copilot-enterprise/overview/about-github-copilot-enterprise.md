@@ -9,6 +9,15 @@ topics:
   - Copilot
 ---
 
+
+{% ifversion fpt %}
+
+{% data reusables.copilot.enterprise-fpt-link %}
+
+{% endif %}
+
+## About the {% data variables.product.prodname_copilot_enterprise_short %} beta
+
 {% data reusables.copilot.get-copilot-enterprise-cta-button %}
 
 ## About {% data variables.product.prodname_copilot_enterprise_short %}

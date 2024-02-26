@@ -13,10 +13,7 @@
 | Organization-wide policy management         | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |{% octicon "check" aria-label="Included" %} |
 | Exclude specified files                     | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |{% octicon "check" aria-label="Included" %} |
 | Audit logs                                  | {% octicon "x" aria-label="Not included" %} |{% octicon "check" aria-label="Included" %}  |{% octicon "check" aria-label="Included" %} |
-| HTTP proxy support via custom certificates  | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |{% octicon "check" aria-label="Included" %} |
 |{% data variables.product.prodname_copilot_chat_dotcom_short %}|{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 |{% data variables.product.prodname_copilot_for_prs %}|{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
-
-For more information about proxy support with custom certificates, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot)".
