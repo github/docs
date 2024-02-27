@@ -1,6 +1,6 @@
 When a concurrent job or workflow is queued, if another job or workflow using the same concurrency group in the repository is in progress, the queued job or workflow will be `pending`. Any pending job or workflow in the concurrency group will be canceled.  This means that there can be at most one running and one pending job in a concurrency group at any time.
 
-To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`.  To conditionally cancel currently running jobs or workflows in the same concurrency group, you can specify `cancel-in-progress` as an expression if you use any of the following allowed expression contexts: [`github`](/actions/learn-github-actions/contexts#github-context), [`inputs`](/actions/learn-github-actions/contexts#inputs-context), [`vars`](/actions/learn-github-actions/contexts#vars-context), [`needs`](/actions/learn-github-actions/contexts#needs-context), [`strategy`](/actions/learn-github-actions/contexts#strategy-context), and [`matrix`](/actions/learn-github-actions/contexts#matrix-context).
+To also cancel any currently running job or workflow in the same concurrency group, specify `cancel-in-progress: true`.  To conditionally cancel currently running jobs or workflows in the same concurrency group, you can specify `cancel-in-progress` as an expression with any of the allowed expression contexts.
 
 {% note %}
 
