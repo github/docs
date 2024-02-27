@@ -46356,6 +46356,14 @@
           ]
         },
         {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the ProjectV2Item object.</p>",
           "type": "ID!",
