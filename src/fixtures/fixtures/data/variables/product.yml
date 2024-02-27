@@ -1,7 +1,7 @@
 company_short: 'HubGit'
 
 product_name: >-
-  {% ifversion ghec %}HubGit Enterprise Cloud{% elsif ghes %}HubGit Enterprise Server{% elsif ghae %}HubGit AE{% else %}HubGit{% endif %}
+  {% ifversion ghec %}HubGit Enterprise Cloud{% elsif ghes %}HubGit Enterprise Server{% else %}HubGit{% endif %}
 
 prodname_dotcom: 'HubGit'
 

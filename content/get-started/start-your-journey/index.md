@@ -4,7 +4,6 @@ intro: 'Learn the basics of {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests

@@ -5,7 +5,6 @@ intro: 'Learn how to create a JSON Web Token (JWT) to authenticate to certain RE
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

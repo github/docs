@@ -4,6 +4,7 @@ featuredLinks:
   gettingStarted:
     - /get-started/start-your-journey/hello-world
     - /rest
+    - /webhooks
   popular:
     - /get-started
     - /get-started/foo/bar
@@ -15,7 +16,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   # The list of children in the fixtures has to be the same names
@@ -31,6 +31,7 @@ children:
   - code-security
   - actions
   - rest
+  - webhooks
   # - account-and-profile
   # - authentication
   # - repositories

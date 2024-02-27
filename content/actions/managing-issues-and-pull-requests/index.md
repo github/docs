@@ -5,7 +5,6 @@ intro: 'You can automatically manage your issues and pull requests using {% data
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /using-github-actions-for-project-management

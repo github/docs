@@ -23,7 +23,7 @@ shortTitle: Review audit log
 
 {% endnote %}
 
-The audit log lists events triggered by activities that affect your organization within the current month and previous six months. Only owners can access an organization's audit log.
+The audit log lists events triggered by activities that affect your organization within the last 180 days. Only owners can access an organization's audit log.
 
 {% data reusables.audit_log.only-three-months-displayed %}
 
@@ -47,7 +47,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `billing` | Contains all activities related to your organization's billing.{% endif %}{% ifversion fpt or ghec %}
 | `business` | Contains activities related to business settings for an enterprise. |{% endif %}{% ifversion fpt or ghec %}
 | `codespaces` | Contains all activities related to your organization's codespaces. |{% endif %}
-| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} subscription.
+| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
 | `dependabot_alerts` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% ifversion fpt or ghec or ghes %}
 | `dependabot_security_updates` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
@@ -123,7 +123,7 @@ For example:
 
 {% note %}
 
-**Note**: The audit log contains data for the current month and every day of the previous six months.
+**Note**: The audit log contains data for the last 180 days.
 
 {% endnote %}
 

@@ -15,7 +15,7 @@ versions:
 
 GitHub Desktop keyboard shortcuts on macOS
 
-## Site wide shortcuts
+## Application wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -75,7 +75,7 @@ GitHub Desktop keyboard shortcuts on macOS
 
 GitHub Desktop keyboard shortcuts on Windows
 
-## Site wide shortcuts
+## Application wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------

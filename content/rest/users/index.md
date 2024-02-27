@@ -1,5 +1,7 @@
 ---
-title: Users
+title: REST API endpoints for users
+shortTitle: Users
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to get public and private information about authenticated users.
 redirect_from:
   - /v3/users
@@ -7,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

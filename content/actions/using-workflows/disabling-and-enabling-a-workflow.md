@@ -4,7 +4,6 @@ intro: 'You can disable and re-enable a workflow using the {% data variables.pro
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Disable & enable a workflow
 redirect_from:

@@ -21,7 +21,6 @@ prodname_dotcom_the_website: 'GitHub.com'
 ## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
 prodname_ghe_server: 'GitHub Enterprise Server'
 prodname_ghe_cloud: 'GitHub Enterprise Cloud'
-prodname_ghe_managed: 'GitHub AE'
 prodname_ghe_one: 'GitHub One'
 prodname_docs: 'GitHub Docs'
 prodname_free_user: 'GitHub Free'
@@ -251,17 +250,19 @@ prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub.com'
 prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub.com'
 prodname_copilot_cli: 'GitHub Copilot in the CLI'
 prodname_copilot_cli_short: 'Copilot in the CLI'
-prodname_copilot_for_docs: 'Copilot docset management'
-prodname_copilot_docs_short: 'docset management'
 prodname_copilot_for_prs: 'Copilot pull request summaries'
 prodname_copilot_prs_short: 'pull request summaries'
 prodname_copilot_customization: 'Copilot Customization'
+prodname_copilot_in_support: 'Copilot in GitHub Support'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'
 
 # Server Statistics
 prodname_server_statistics: 'Server Statistics'
+
+# GitHub Importer
+prodname_importer: 'GitHub Importer'
 
 # GitHub Actions Importer
 prodname_actions_importer: 'GitHub Actions Importer'

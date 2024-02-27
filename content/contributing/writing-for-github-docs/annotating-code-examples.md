@@ -2,7 +2,6 @@
 title: Annotating code examples
 shortTitle: Annotating code examples
 intro: "You can annotate longer code examples to explain how they work and how people can customize them for other uses."
-product: '{% data reusables.contributing.product-note %}'
 layout: inline
 versions:
   feature: 'contributing'

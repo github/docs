@@ -17,6 +17,7 @@
 | [Information exposure through a stack trace](https://codeql.github.com/codeql-query-help/go/go-stack-trace-exposure/) | 209, 497 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Insecure TLS configuration](https://codeql.github.com/codeql-query-help/go/go-insecure-tls/) | 327 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Log entries created from user input](https://codeql.github.com/codeql-query-help/go/go-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| [Missing JWT signature check](https://codeql.github.com/codeql-query-help/go/go-missing-jwt-signature-check/) | 347 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Missing regular expression anchor](https://codeql.github.com/codeql-query-help/go/go-regex-missing-regexp-anchor/) | 20 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Open URL redirect](https://codeql.github.com/codeql-query-help/go/go-unvalidated-url-redirection/) | 601 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Potentially unsafe quoting](https://codeql.github.com/codeql-query-help/go/go-unsafe-quoting/) | 078, 089, 094 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

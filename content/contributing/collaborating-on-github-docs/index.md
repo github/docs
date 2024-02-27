@@ -2,7 +2,6 @@
 title: Collaborating on GitHub Docs
 shortTitle: Collaborate on GitHub Docs
 intro: 'Find out about collaborating on GitHub Docs.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 children:

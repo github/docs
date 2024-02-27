@@ -11,7 +11,6 @@ intro: 'With roles, you can control who has access to your accounts and resource
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Permissions

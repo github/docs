@@ -1,0 +1,1 @@
+<a href="https://github.com/github-copilot/enterprise_signup/choose_enterprise/?utm_source=copilot_enterprise_docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Get {% data variables.product.prodname_copilot_enterprise %}</span> {% octicon "link-external" height:16 %}</a>

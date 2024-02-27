@@ -2,7 +2,6 @@
 title: About contributing to GitHub Docs
 shortTitle: About contributing
 intro: 'You can contribute to GitHub Docs content in several ways.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

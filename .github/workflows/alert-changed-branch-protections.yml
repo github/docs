@@ -1,0 +1,47 @@
+name: Alert Changed Branch Protections
+
+on:
+  branch_protection_rule:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-branch-protections:
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal'
+
+    strategy:
+      matrix:
+        # List of branches we want to monitor for protection changes
+        branch: [main]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Fetch branch protections
+        id: fetch
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+        run: |
+          # Fetch branch protections and store them in a file
+          gh api /repos/GitHub/docs-internal/branches/${{ matrix.branch }}/protection > ${{ matrix.branch }}-actual.json
+
+      - name: Format fetched settings with prettier for comparison
+        id: format
+        run: |
+          npx prettier --write ${{ matrix.branch }}-actual.json
+
+      - name: Compare branch protections
+        id: compare
+        run: |
+          # Compare the fetched branch protections with the committed ones
+          git diff --no-index .github/branch_protection_settings/${{ matrix.branch }}.json ${{ matrix.branch }}-actual.json
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

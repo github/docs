@@ -1,11 +1,10 @@
 ---
 title: Importing source code
-intro: "To import source code only, you can use{% ifversion fpt or ghec %} {% data variables.product.prodname_dotcom %} Importer or{% endif %} command line tools."
+intro: "To import source code only, you can use{% ifversion fpt or ghec %} {% data variables.product.prodname_importer %} or{% endif %} command line tools."
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 # topics:
 redirect_from:
   - /categories/67/articles

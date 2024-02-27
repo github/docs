@@ -4,11 +4,17 @@ shortTitle: About PR summaries
 intro: 'With {% data variables.product.prodname_copilot_for_prs %}, you can create an AI-generated description for a pull request.'
 versions:
   feature: copilot
+product: '{% data reusables.gated-features.copilot-enterprise %}'
 topics:
   - Copilot
 type: rai
-product: '{% data reusables.gated-features.copilot-enterprise-beta %}'
 ---
+
+{% ifversion fpt %}
+
+{% data reusables.rai.copilot.enterprise-fpt-link %}
+
+{% endif %}
 
 ## About {% data variables.product.prodname_copilot_for_prs %}
 
@@ -33,7 +39,7 @@ You can initiate this feature when creating a pull request, by editing the pull 
 - A paragraph, written in prose, giving an overview of the changes in the pull request.
 - A bulleted list of the key changes, linked to the respective lines of code where those changes occur.
 
-Larger pull requests can take a couple minutes for {% data variables.product.prodname_copilot_short %} to generate. You can share your feedback on a summary directly from the UI after a summary is generated to help us continue to improve the feature.
+Larger pull requests can take a couple minutes for {% data variables.product.prodname_copilot_short %} to generate. Depending on your enterprise settings, you can share your feedback on a summary directly from the UI after a summary is generated to help us continue to improve the feature.
 
 ## Use case for pull request summaries
 
@@ -49,7 +55,13 @@ The feature is intended to supplement rather than replace a human's work to add 
 
 ### Provide feedback
 
-This feature is currently in beta. If you encounter any issues or limitations with {% data variables.product.prodname_copilot_for_prs %}, we recommend that you provide feedback through the link that appears the UI after a summary is generated. You can provide feedback through the text link which takes you to our survey.
+{% data reusables.rai.copilot-dotcom-feedback-collection %}
+
+If you encounter any issues or limitations with {% data variables.product.prodname_copilot_for_prs %}, you can provide feedback by clicking the "Bad summary" button (a thumbs down icon), which is displayed below the text box after a summary is generated and before you click **Create pull request** or **Update comment**.
+
+![Screenshot of the bottom of a pull request comment. The feedback icons, thumbs up and thumbs down, are highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-summary-feedback.png)
+
+After you rate a summary as good or bad, you can provide written feedback by clicking the link that's displayed.
 
 ## Limitations of pull request summaries
 
@@ -65,7 +77,11 @@ In general, we expect a summary to be returned in 40 seconds or less after a use
 
 ### Inaccurate responses
 
-The more inputs and context provided to {% data variables.product.prodname_copilot_short %}, the better the outputs will be. However, since the feature is quite new, it will take time to reach exact precision with the summaries that are generated. In the meantime, there may be cases where a user's generated summary is less accurate and requires the user to make modifications before saving and publishing their pull request with this description. Reviewing is a requirement, and careful review of the output is highly recommended by our team during the beta.
+The more inputs and context that {% data variables.product.prodname_copilot_short %} can learn from, the better the outputs will become. However, since the feature is quite new, it will take time to reach exact precision with the summaries that are generated. In the meantime, there may be cases where a generated summary is less accurate and requires the user to make modifications before saving and publishing their pull request with this description. In addition, there is a risk of "hallucination," where {% data variables.product.prodname_copilot_short %} generates statements that are inaccurate. For these reasons, reviewing is a requirement, and careful review of the output is highly recommended by our team.
+
+### Regenerating summaries
+
+Pull request summaries are only created when users request them manually. When users submit updates or changes to their pull request, the summary is not automatically updated. Users can ask {% data variables.product.prodname_copilot_short %} to generate a new summary if required. Manual review of the updated {% data variables.product.prodname_copilot_short %} summary is highly recommended. The updated summary carries the same risks of inaccuracy as the original summary.
 
 ### Replication of pull request content
 

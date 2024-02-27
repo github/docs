@@ -42,7 +42,7 @@ and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dep
 
 {% ifversion dependabot-auto-triage-rules %}
 
-{% data reusables.dependabot.dependabot-alert-rules %}
+You can use default {% data variables.dependabot.auto_triage_rules %} curated by {% data variables.product.prodname_dotcom %} to automatically filter out a substantial amount of false positives. {% data reusables.dependabot.dismiss-low-impact-rule %}
 
 {% endif %}
 
@@ -91,12 +91,12 @@ The following {% data variables.product.prodname_GH_advanced_security %} feature
 {% elsif ghec %}
 Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that have a {% data variables.product.prodname_GH_advanced_security %} license can use the following features on all their repositories. {% data reusables.advanced-security.more-info-ghas %}
 
-{% data reusables.advanced-security.ghas-trial %}
-
 {% elsif ghes %}
 {% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
 
 {% endif %}
+
+{% data reusables.advanced-security.ghas-trial %}
 
 ### {% data variables.product.prodname_code_scanning_caps %}
 
@@ -105,6 +105,14 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
 Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-users){% elsif ghes %}"[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-on-github-enterprise-server){% endif %}."
+
+{% ifversion dependabot-auto-triage-rules %}
+
+### {% data variables.dependabot.custom_rules_caps %}
+
+{% data reusables.dependabot.dependabot-custom-rules-ghas %}
+
+{% endif %}
 
 ### Dependency review
 

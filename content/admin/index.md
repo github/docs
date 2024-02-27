@@ -66,7 +66,7 @@ redirect_from:
 introLinks:
   overview: '{% ifversion ghes %}/admin/overview/about-github-enterprise-server{% elsif ghec %}/admin/overview/about-github-enterprise-cloud{% endif %}'
   releases: '{% ifversion ghes %}/admin/all-releases{% endif %}'
-  try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new{% endif %}'
+  try_ghec_for_free: '{% ifversion ghec %}https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=enterprise+administrators+landing+page&ref_page=docs{% endif %}'
 changelog:
   label: enterprise
 featuredLinks:
@@ -97,7 +97,6 @@ layout: product-landing
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /overview
   - /managing-your-enterprise-account

@@ -108,4 +108,4 @@ jobs:
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label "codeql-cli-pipeline,skip FR board"
+            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review"

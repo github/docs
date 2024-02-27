@@ -4,7 +4,6 @@ intro: 'You can use the REST API to build {% data variables.product.prodname_git
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

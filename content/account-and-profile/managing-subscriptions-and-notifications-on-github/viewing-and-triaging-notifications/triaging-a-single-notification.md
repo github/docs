@@ -4,7 +4,6 @@ intro: 'When you review and investigate a single notification, you have several 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Notifications

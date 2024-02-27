@@ -7,7 +7,6 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

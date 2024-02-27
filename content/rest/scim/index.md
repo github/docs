@@ -1,5 +1,7 @@
 ---
-title: SCIM
+title: REST API endpoints for SCIM
+shortTitle: SCIM
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to control and manage your GitHub organization members' access
   with SCIM.

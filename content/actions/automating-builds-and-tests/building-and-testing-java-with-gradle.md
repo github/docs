@@ -65,21 +65,24 @@ We recommend that you have a basic understanding of Java and the Gradle framewor
    jobs:
      build:
        runs-on: ubuntu-latest
-
        steps:
        - uses: {% data reusables.actions.action-checkout %}
-       - name: Set up JDK 11
+       - name: Set up JDK 17
          uses: {% data reusables.actions.action-setup-java %}
          with:
-           java-version: '11'
+           java-version: '17'
            distribution: 'temurin'
+
+       - name: Setup Gradle
+         uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
        - name: Build with Gradle
-         uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
-         with:
-           arguments: build
+         run: ./gradlew build
    ```
 
 {%- endif %}
+{% data reusables.actions.gradle-workflow-steps %}
+1. The "Build with Gradle" step executes the `build` task using the [Gradle Wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html).
 
 1. Edit the workflow as required. For example, change the Java version.
 
@@ -108,21 +111,21 @@ steps:
     with:
       java-version: '17'
       distribution: 'temurin'
-  - name: Validate Gradle wrapper
-    uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
-  - name: Run the Gradle package task
-    uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-    with:
-      arguments: -b ci.gradle package
+
+  - name: Setup Gradle
+    uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
+  - name: Build with Gradle
+    run: ./gradlew -b ci.gradle package
 ```
 
 {% ifversion actions-caching %}
 
 ## Caching dependencies
 
-Your build dependencies can be cached to speed up your workflow runs. After a successful run, the `gradle/gradle-build-action` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
+Your build dependencies can be cached to speed up your workflow runs. After a successful run, `gradle/actions/setup-gradle` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
 
-Caching is enabled by default when using the `gradle/gradle-build-action` action. For more information, see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
+Caching is enabled by default when using the `gradle/actions/setup-gradle` action. For more information, see [`gradle/actions/setup-gradle`](https://github.com/gradle/actions/blob/main/setup-gradle/README.md#caching-build-state-between-jobs).
 
 {% endif %}
 
@@ -139,13 +142,15 @@ steps:
     with:
       java-version: '17'
       distribution: 'temurin'
-  - name: Validate Gradle wrapper
-    uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
+
+  - name: Setup Gradle
+    uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
   - name: Build with Gradle
-    uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
-    with:
-      arguments: build
-  - uses: {% data reusables.actions.action-upload-artifact %}
+    run: ./gradlew build
+
+  - name: Upload build artifacts
+    uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: build/libs

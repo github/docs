@@ -4,7 +4,6 @@ intro: Exists for a Playwright test
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

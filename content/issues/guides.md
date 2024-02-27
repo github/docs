@@ -7,7 +7,6 @@ layout: product-guides
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 includeGuides:
   - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions

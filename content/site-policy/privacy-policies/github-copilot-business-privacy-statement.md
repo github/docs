@@ -19,7 +19,7 @@ GitHub Copilot Business collects personal data from three categories of data: Us
 
 ### User engagement data
 
-User engagement data is usage information about events generated when interacting with a code editor. These events include user edit actions (for example completions accepted and dismissed), error messages, and general usage data to identify user metrics such as latency and feature engagement. This information may include personal data, such as pseudonymous identifiers.
+User engagement data is usage information about events generated when interacting with a code editor. These events include user edit actions (for example suggestions accepted and dismissed), error messages, and general usage data to identify user metrics such as latency and feature engagement. This information may include personal data, such as pseudonymous identifiers.
 
 ### Prompts
 

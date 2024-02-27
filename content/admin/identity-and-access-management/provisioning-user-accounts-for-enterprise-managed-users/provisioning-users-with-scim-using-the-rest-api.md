@@ -46,7 +46,7 @@ Alternatively, you can use a partner IdP for both authentication and provisionin
 
 The audit log for your enterprise displays details about activity in your enterprise. You can use the audit log to support your configuration of SCIM. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
-Due to the volume of events in this log, {% data variables.product.company_short %} retains the data for six months. To ensure that you don't lose audit log data, and to view more granular activity in the audit log, {% data variables.product.company_short %} recommends that you configure audit log streaming. When you stream the audit log, you can optionally choose to stream events for API requests, including requests to endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+Due to the volume of events in this log, {% data variables.product.company_short %} retains the data for 180 days. To ensure that you don't lose audit log data, and to view more granular activity in the audit log, {% data variables.product.company_short %} recommends that you configure audit log streaming. When you stream the audit log, you can optionally choose to stream events for API requests, including requests to endpoints for SCIM provisioning. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
 
 ## Understanding the REST API for SCIM
 
@@ -125,7 +125,7 @@ You can view this mapping on {% data variables.location.product_location %}. For
 
 ### Ensuring users have the access you intend
 
-If your integration manages access using groups on your IdP, you can validate that users get the access you intend. You can use the REST API to compare your IdP's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. For more information, see "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)" in the REST API documentation.
+If your integration manages access using groups on your IdP, you can validate that users get the access you intend. You can use the REST API to compare your IdP's group memberships with {% data variables.product.prodname_dotcom %}'s understanding of those groups. For more information, see "[AUTOTITLE](/rest/teams/external-groups#about-external-groups)" and "[AUTOTITLE](/rest/teams/teams#get-a-team-by-name)."
 
 ### About suspension and reprovisioning of users
 

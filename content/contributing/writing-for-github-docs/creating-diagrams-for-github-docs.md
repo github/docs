@@ -2,7 +2,6 @@
 title: Creating diagrams for {% data variables.product.prodname_docs %}
 shortTitle: Creating diagrams
 intro: 'This guide explains when and how to create diagrams for {% data variables.product.prodname_docs %}.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 allowTitleToDifferFromFilename: true

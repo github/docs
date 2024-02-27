@@ -8,7 +8,6 @@ redirect_from:
   - /admin/github-actions/about-using-actions-in-your-enterprise
 versions:
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Actions
