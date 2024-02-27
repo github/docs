@@ -1,5 +1,7 @@
 ---
-title: Emails
+title: REST API endpoints for emails
+shortTitle: Emails
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage email addresses of authenticated users.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
