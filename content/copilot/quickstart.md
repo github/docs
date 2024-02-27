@@ -133,7 +133,9 @@ As an enterprise owner, you must decide whether to allow all organizations in yo
 
    If you select **Enabled**, use the check boxes that are displayed to specify whether you want to:
    - Allow {% data variables.product.prodname_copilot_chat_short %} to use Bing search when responding to questions on {% data variables.product.prodname_dotcom_the_website %}.
-   - Allow users to provide feedback to {% data variables.product.prodname_dotcom %}, about {% data variables.product.prodname_copilot_short %}, from within {% data variables.product.prodname_dotcom_the_website %}.
+   - Allow {% data variables.product.prodname_dotcom %} to collect user feedback, optionally submitted after using {% data variables.product.prodname_copilot_short %} to generate a pull request summary.
+
+   For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features#enabling-or-disabling-github-copilot-enterprise-features-for-an-enterprise)."
 
 1. Under "{% data variables.product.prodname_copilot_chat_short %} in the IDE," click the dropdown menu and select the policy for managing the use of {% data variables.product.prodname_copilot_chat_short %} in code editor applications.
    - To allow each of your organizations to set their own policy, select **No policy**.

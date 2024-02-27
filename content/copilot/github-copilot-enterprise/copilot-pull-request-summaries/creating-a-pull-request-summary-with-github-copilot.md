@@ -39,10 +39,10 @@ To learn more about {% data variables.product.prodname_copilot_for_prs %} and ho
 
 1. In the header of the text field, select {% octicon "copilot" aria-label="Copilot actions" %}, then click **Summary**.
 
-   ![Screenshot of the form for creating a pull request. In the header of the "Description" field, a Copilot icon is highlighted in orange, and a box appears with the "Summary" command.](/assets/images/help/copilot/copilot-description-suggestion.png)
+   ![Screenshot of the form for creating a pull request. A Copilot icon is highlighted, and a box appears with the "Summary" command.](/assets/images/help/copilot/copilot-description-suggestion.png)
 
 1. Wait for {% data variables.product.prodname_copilot %} to produce the summary, then check over the results carefully.
-1. Optionally, provide feedback about the summary by clicking one of the buttons that are displayed below the text box, next to "How did Copilot perform?"
+1. Optionally, depending on your enterprise settings, you can provide feedback about the summary by clicking one of the buttons that are displayed below the text box, next to "How did Copilot perform?"
 
    ![Screenshot of the bottom of a pull request comment. The feedback icons, thumbs up and thumbs down, are highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-summary-feedback.png)
 

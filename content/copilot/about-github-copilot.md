@@ -41,4 +41,10 @@ You can access {% data variables.product.prodname_copilot %} as part of one of t
 
 - **{% data variables.product.prodname_copilot_individuals_short %}** - Get access to {% data variables.product.prodname_copilot %} in an IDE, or on the command line, for your personal or independent use. For more information, see "[AUTOTITLE](/copilot/copilot-individual/about-github-copilot-individual)."
 - **{% data variables.product.prodname_copilot_business_short %}** - Access {% data variables.product.prodname_copilot %} as a member of an organization. Owners of the organization can manage access for individual members or for teams. For more information, see "[AUTOTITLE](/copilot/copilot-business/about-github-copilot-business)."
-- **{% data variables.product.prodname_copilot_enterprise_short %}** - In addition to accessing {% data variables.product.prodname_copilot_short %} in an IDE or on the command line, use {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}. This includes the ability to created tailored knowledge bases to use as the context for chat, and the ability to generate automatic summaries of pull requests. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."
+- **{% data variables.product.prodname_copilot_enterprise_short %}** - In addition to accessing {% data variables.product.prodname_copilot_short %} in an IDE or on the command line, use {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}. This includes the ability to:
+
+  - Chat with {% data variables.product.prodname_copilot_short %} to get help with your code, or to ask general tech-related questions.
+  - Create tailored knowledge bases to use as the context for chat.
+  - Generate automatic summaries of pull requests.
+
+  For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)."

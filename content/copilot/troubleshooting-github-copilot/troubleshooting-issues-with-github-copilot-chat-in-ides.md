@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting issues with GitHub Copilot Chat
-intro: Troubleshooting help for common issues with {% data variables.product.prodname_copilot_chat %}.
+title: Troubleshooting issues with GitHub Copilot Chat in IDEs
+intro: Troubleshooting help for common issues with {% data variables.product.prodname_copilot_chat %} in your IDE.
 product: '{% data reusables.gated-features.copilot-chat-callout %}'
 defaultTool: vscode
 topics:
@@ -10,6 +10,7 @@ versions:
   feature: copilot
 shortTitle: Copilot Chat
 redirect_from:
+  - /copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat
   - /copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat
 ---
 

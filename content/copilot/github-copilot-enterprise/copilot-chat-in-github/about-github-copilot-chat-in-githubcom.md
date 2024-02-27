@@ -2,7 +2,7 @@
 title: About GitHub Copilot Chat in GitHub.com
 shortTitle: About Copilot Chat in GitHub.com
 intro: '{% data variables.product.prodname_copilot_chat_dotcom %} can help you by providing answers to coding related questions directly within {% data variables.product.prodname_dotcom_the_website %}.'
-product: 'Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.product.prodname_copilot_enterprise %} subscription can decide whether to grant access to the {% data variables.product.prodname_copilot_enterprise_short %} functionality for an organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)."'
+product: 'Owners of organizations {% ifversion ghec %}or enterprises {% endif %}with a {% data variables.product.prodname_copilot_enterprise %} subscription can decide whether to grant access to the {% data variables.product.prodname_copilot_enterprise_short %} functionality for an organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."'
 versions:
   feature: 'copilot-on-dotcom'
   fpt: '*'
@@ -100,7 +100,9 @@ While {% data variables.product.prodname_copilot_chat_short %} can generate synt
 
 ### Provide feedback
 
-If you encounter any issues or limitations with {% data variables.product.prodname_copilot_chat_short %}, we recommend that you provide feedback through the **share feedback** link in the {% data variables.product.prodname_copilot_chat_short %} interface. This can help the developers to improve the tool and address any concerns or limitations.
+{% data reusables.rai.copilot-dotcom-feedback-collection %}
+
+If you encounter any issues or limitations with {% data variables.product.prodname_copilot_chat_dotcom_short %}, we recommend that you provide feedback by clicking the thumbs down icon below each chat response. This can help the developers to improve the tool and address any concerns or limitations.
 
 ### Stay up to date
 

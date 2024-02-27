@@ -24,9 +24,9 @@ topics:
 
 {% data reusables.copilot.about-copilot %}
 
-{% data variables.product.prodname_copilot_enterprise %} is a {% data variables.product.prodname_copilot_short %} plan available for enterprises that use {% data variables.product.prodname_ghe_cloud %}. It provides AI features to enhance your experience on Github.com, such as the ability to chat with {% data variables.product.prodname_copilot_short %} in the browser and reference context for {% data variables.product.prodname_copilot_short %} from across your project repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)." For details of the differences between {% data variables.product.prodname_copilot_enterprise %} and the other {% data variables.product.prodname_copilot_short %} plans, see the comparison table below.
+{% data variables.product.prodname_copilot_enterprise %} is a {% data variables.product.prodname_copilot_short %} plan available for enterprises that use {% data variables.product.prodname_ghe_cloud %}. It provides AI features to enhance your experience on {% data variables.product.prodname_dotcom_the_website %}, such as the ability to chat with {% data variables.product.prodname_copilot_short %} in the browser and reference context for {% data variables.product.prodname_copilot_short %} from across your project repositories. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/github-copilot-enterprise-feature-set)." For details of the differences between {% data variables.product.prodname_copilot_enterprise %} and the other {% data variables.product.prodname_copilot_short %} plans, see the comparison table below.
 
-Enterprise owners can allow some or all organizations in the enterprise to access {% data variables.product.prodname_copilot %}. If an organization has access to {% data variables.product.prodname_copilot_short %}, owners of the organization can assign {% data variables.product.prodname_copilot_enterprise_short %} seats to some or all members of the organization. {% ifversion ghec %}For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)."{% endif %}
+Enterprise owners can allow some or all organizations in the enterprise to access {% data variables.product.prodname_copilot %}. If an organization has access to {% data variables.product.prodname_copilot_short %}, owners of the organization can assign {% data variables.product.prodname_copilot_enterprise_short %} seats to some or all members of the organization. {% ifversion ghec %}For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."{% endif %}
 
 ### Understanding the differences between {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_individuals_short %}, and {% data variables.product.prodname_copilot_enterprise_short %}
 
@@ -36,7 +36,7 @@ Enterprise owners can allow some or all organizations in the enterprise to acces
 
 To use {% data variables.product.prodname_copilot_enterprise_short %}, you need to set up a subscription for your enterprise account. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription)."
 
-After setting up a subscription, enterprise owners and organization owners can enable {% data variables.product.prodname_copilot_enterprise_short %} for their enterprise or organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)."
+After setting up a subscription, enterprise owners and organization owners can enable {% data variables.product.prodname_copilot_enterprise_short %} for their enterprise or organization. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."
 
 ## Assigning {% data variables.product.prodname_copilot %} seats
 

@@ -36,7 +36,7 @@ On {% data variables.product.prodname_dotcom_the_website %}, you can use {% data
 ## Prerequisites
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
-- To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have been granted access to {% data variables.product.prodname_copilot_chat %} as part of {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise)."
+- To use {% data variables.product.prodname_copilot_chat_dotcom %}, you must have been granted access to {% data variables.product.prodname_copilot_chat %} as part of {% data variables.product.prodname_copilot_enterprise %}. For more information, see "[AUTOTITLE](/copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features)."
 
 ## Asking a general question about software development
 
@@ -260,13 +260,8 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 
-To give feedback about a particular {% data variables.product.prodname_copilot_chat_short %} response:
+{% data reusables.rai.copilot-dotcom-feedback-collection %}
 
-1. Click either the thumbs up or thumbs down icon at the bottom of each chat response.
-1. Optionally, provide information about why you liked or disliked the response.
+To give feedback about a particular {% data variables.product.prodname_copilot_chat_short %} response, click either the thumbs up or thumbs down icon at the bottom of each chat response.
 
-   ![Screenshot of the feedback form for {% data variables.product.prodname_copilot_chat_short %}.](/assets/images/help/copilot/feedback-form.png)
-
-1. Click **Submit feedback**.
-
-To give feedback about {% data variables.product.prodname_copilot_chat_short %} in general, click the "Give feedback" link at the top right of any {% data variables.product.prodname_copilot_short %} page on {% data variables.product.prodname_dotcom_the_website %}.
+To give feedback about {% data variables.product.prodname_copilot_chat_short %} in general, click the ellipsis (**...**) at the top right of the chat panel, then click **Give feedback**.

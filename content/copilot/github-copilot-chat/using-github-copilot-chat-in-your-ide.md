@@ -58,7 +58,7 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
 {% note %}
 
-**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor)."
+**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
 
 {% endnote %}
 
@@ -106,13 +106,13 @@ When {% data variables.product.prodname_copilot_chat %} provides code suggestion
 
 To share feedback about {% data variables.product.prodname_copilot_chat %}, you can use the **share feedback** button in the {% data variables.product.prodname_copilot_chat %} window.
 
-1. Scroll to the top of the {% data variables.product.prodname_copilot_chat %} window.
-1. Click the **share feedback** button.
-1. In your browser, in the **vscode-copilot-release** repository, create a new issue or open the {% data variables.product.prodname_copilot %} community discussion.
-    - To open an issue to report a bug, next to **Bug report for {% data variables.product.prodname_copilot_chat %}**, click **Get started**.
-    - To open an issue to request a feature, next to **Feature request for {% data variables.product.prodname_copilot_chat %}**, click **Get started**.
-    - To report a security vulnerability, next to **Report a security vulnerability**, click **View policy**.
-    - To ask a question in a discussion, next to **Questions**, click **Open**.
+1. At the top of the {% data variables.product.prodname_copilot_chat %} window, click the ellipsis (**...**), then click **Send Chat Feedback**.
+1. In your browser, in the **vscode-copilot-release** repository, click **New issue**.
+1. Choose one of the options that are displayed:
+    - To open an issue to report a bug, click **Bug report for {% data variables.product.prodname_copilot_chat %}**.
+    - To open an issue to request a feature, click **Feature request for {% data variables.product.prodname_copilot_chat %}**.
+    - To report a security vulnerability, click **Report a security vulnerability**.
+    - To ask a question in a discussion, click **Questions**.
 
 ## Further reading
 
@@ -161,7 +161,7 @@ To use {% data variables.product.prodname_copilot_chat %} with {% data variables
 
 {% note %}
 
-**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor)."
+**Note:** If you experience authentication issues after installing the extension, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides#troubleshooting-authentication-issues-in-your-editor)."
 
 {% endnote %}
 

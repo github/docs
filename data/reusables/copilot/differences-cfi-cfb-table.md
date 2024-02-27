@@ -15,6 +15,5 @@
 | Audit logs                                  | {% octicon "x" aria-label="Not included" %} |{% octicon "check" aria-label="Included" %}  |{% octicon "check" aria-label="Included" %} |
 |{% data variables.product.prodname_copilot_chat_dotcom_short %}|{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 |{% data variables.product.prodname_copilot_for_prs %}|{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
-|{% data variables.product.prodname_copilot_for_docs %}|{% octicon "x" aria-label="Not included" %}| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
