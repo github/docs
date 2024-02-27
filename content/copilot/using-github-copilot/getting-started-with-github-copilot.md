@@ -187,7 +187,7 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 
 {% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.6 or later installed. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
+- To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have {% data variables.product.prodname_vs %} 2022 17.6 or later installed. For more information about using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot_chat_short %}](https://learn.microsoft.com/en-gb/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022) documentation.
 
 {% data reusables.copilot.vs-for-mac-note %}
 
@@ -195,9 +195,11 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_copilot %} extension.
 
+{% data reusables.copilot.link-to-vs-docs %}
+
 {% data reusables.copilot.vs-extensions %}
 
-1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
+1. In the "Manage Extensions" window, click **{% data variables.product.prodname_vs %} Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
 
    ![Screenshot of a list of search results. Next to the {% data variables.product.prodname_copilot %} extension, the "Download" button is highlighted with an orange outline.](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
 

@@ -134,13 +134,13 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## About {% data variables.product.prodname_copilot_chat %} and {% data variables.product.prodname_vs %}
 
-{% data reusables.copilot.chat-procedural-intro %}
+{% data reusables.copilot.chat-procedural-intro %} For more information about using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot_chat_short %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022) documentation.
 
 ## Prerequisites
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.6 or higher. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation.
+- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.6 or higher. For more information, see the [{% data variables.product.prodname_vs %} {% data variables.product.prodname_copilot %}](https://visualstudio.microsoft.com/github-copilot/) documentation.
 
 - To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has access to {% data variables.product.prodname_copilot %}.
 
@@ -151,8 +151,12 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 ## Installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}
 
 To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension.
+
+{% data reusables.copilot.link-to-vs-docs %}
+
 {% data reusables.copilot.vs-extensions %}
-1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for "{% data variables.product.prodname_copilot_chat %}", then click **Download**.
+
+1. In the "Manage Extensions" window, click **{% data variables.product.prodname_vs %} Marketplace**, search for "{% data variables.product.prodname_copilot_chat %}", then click **Download**.
 {% data reusables.copilot.vs-exit-and-relaunch %}
 
 {% note %}
@@ -204,6 +208,8 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 - [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot){% ifversion ghec %}
 - [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-business-privacy-statement){% endif %}
 - [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
+- [Using {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vs %} in the Microsoft Learn documentation](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat?view=vs-2022#use-copilot-chat-in-visual-studio)
+- [Tips to improve {% data variables.product.prodname_copilot_chat %} results in the Microsoft Learn documentation](https://learn.microsoft.com/en-us/visualstudio/ide/copilot-chat-context?view=vs-2022)
 
 {% endvisualstudio %}
 
