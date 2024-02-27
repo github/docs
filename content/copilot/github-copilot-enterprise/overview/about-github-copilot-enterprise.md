@@ -16,7 +16,7 @@ topics:
 
 {% endif %}
 
-{% data reusables.copilot.get-copilot-enterprise-cta-button %}
+<a href="https://github.com/github-copilot/enterprise_signup/choose_enterprise/?ref_cta=Copilot+Enterprise+trial&ref_loc=about+github+copilot+enterprise&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Get {% data variables.product.prodname_copilot_enterprise %}</span> {% octicon "link-external" height:16 %}</a>
 
 ## About {% data variables.product.prodname_copilot_enterprise_short %}
 

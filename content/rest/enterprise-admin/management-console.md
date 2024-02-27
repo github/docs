@@ -1,5 +1,7 @@
 ---
-title: Management Console
+title: REST API endpoints for Management Console
+shortTitle: Management Console
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to manage your {% data variables.product.product_name %}
   installation.
