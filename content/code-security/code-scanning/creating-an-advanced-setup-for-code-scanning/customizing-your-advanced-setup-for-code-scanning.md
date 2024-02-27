@@ -615,7 +615,7 @@ This step in a {% data variables.product.prodname_actions %} workflow file uses 
         - uses: security-extended
       query-filters:
         - exclude:
-          tags: /cwe-020/
+            tags: /cwe-020/
 ```
 
 You can use the same approach to specify any valid configuration options in the workflow file.
