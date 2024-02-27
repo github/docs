@@ -42,7 +42,7 @@ The following features are not included in the trial of {% data variables.produc
 
 - {% data variables.product.prodname_emus %}: If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 - {% data variables.product.prodname_github_codespaces %}
-- {% data variables.product.prodname_copilot_for_business %}
+- {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 - {% data variables.product.prodname_sponsors %}
 - Paid {% data variables.product.prodname_marketplace %} apps (free apps are supported for new organizations as part of the trial)
 - {% data variables.product.prodname_github_connect %}

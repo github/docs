@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal that allows you to ask questions about commands you run from the command line.

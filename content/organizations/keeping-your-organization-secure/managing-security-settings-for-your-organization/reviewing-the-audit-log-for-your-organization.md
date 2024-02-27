@@ -47,7 +47,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `billing` | Contains all activities related to your organization's billing.{% endif %}{% ifversion fpt or ghec %}
 | `business` | Contains activities related to business settings for an enterprise. |{% endif %}{% ifversion fpt or ghec %}
 | `codespaces` | Contains all activities related to your organization's codespaces. |{% endif %}
-| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} subscription.
+| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
 | `dependabot_alerts` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% ifversion fpt or ghec or ghes %}
 | `dependabot_security_updates` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
