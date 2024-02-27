@@ -1,5 +1,6 @@
 ---
-title: Blocking users
+title: REST API endpoints for blocking users
+shortTitle: Blocking users
 intro: Use the REST API to manage blocked users.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'

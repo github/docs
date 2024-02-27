@@ -30510,7 +30510,7 @@
       "kind": "objects",
       "id": "linkedbranchconnection",
       "href": "/graphql/reference/objects#linkedbranchconnection",
-      "description": "<p>The connection type for LinkedBranch.</p>",
+      "description": "<p>A list of branches linked to an issue.</p>",
       "fields": [
         {
           "name": "edges",
@@ -30750,7 +30750,7 @@
       "kind": "objects",
       "id": "mannequinconnection",
       "href": "/graphql/reference/objects#mannequinconnection",
-      "description": "<p>The connection type for Mannequin.</p>",
+      "description": "<p>A list of mannequins.</p>",
       "fields": [
         {
           "name": "edges",
@@ -42408,7 +42408,7 @@
       "kind": "objects",
       "id": "organizationmemberconnection",
       "href": "/graphql/reference/objects#organizationmemberconnection",
-      "description": "<p>The connection type for User.</p>",
+      "description": "<p>A list of users who belong to the organization.</p>",
       "fields": [
         {
           "name": "edges",
@@ -63331,7 +63331,7 @@
       "kind": "objects",
       "id": "repositorymigrationconnection",
       "href": "/graphql/reference/objects#repositorymigrationconnection",
-      "description": "<p>The connection type for RepositoryMigration.</p>",
+      "description": "<p>A list of migrations.</p>",
       "fields": [
         {
           "name": "edges",
@@ -66535,7 +66535,7 @@
       "kind": "objects",
       "id": "sponsorconnection",
       "href": "/graphql/reference/objects#sponsorconnection",
-      "description": "<p>The connection type for Sponsor.</p>",
+      "description": "<p>A list of users and organizations sponsoring someone via GitHub Sponsors.</p>",
       "fields": [
         {
           "name": "edges",
@@ -67631,7 +67631,7 @@
       "kind": "objects",
       "id": "sponsorshipconnection",
       "href": "/graphql/reference/objects#sponsorshipconnection",
-      "description": "<p>The connection type for Sponsorship.</p>",
+      "description": "<p>A list of sponsorships either from the subject or received by the subject.</p>",
       "fields": [
         {
           "name": "edges",
@@ -76784,7 +76784,7 @@
       "kind": "objects",
       "id": "userconnection",
       "href": "/graphql/reference/objects#userconnection",
-      "description": "<p>The connection type for User.</p>",
+      "description": "<p>A list of users.</p>",
       "fields": [
         {
           "name": "edges",

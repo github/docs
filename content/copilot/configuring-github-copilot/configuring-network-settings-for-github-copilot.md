@@ -21,8 +21,6 @@ By default, {% data variables.product.prodname_copilot %} connects to {% data va
 
 Some networks use an HTTP proxy server to intercept Internet traffic before sending it to its intended location. Companies often use an HTTP proxy to detect suspicious traffic or restrict the content entering their networks. If you're working on a corporate network, you may need to configure {% data variables.product.prodname_copilot_short %} to connect via an HTTP proxy.
 
-If you have a license for {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine. This allows a proxy server to be identified as the intended recipient of {% data variables.product.prodname_copilot_short %}'s secure connection, so network traffic can be inspected. Without a custom certificate, a company can use an HTTP proxy to monitor, route, and terminate {% data variables.product.prodname_copilot_short %}'s connection, but cannot inspect the contents of the traffic.
-
 ## Configuring proxy settings for {% data variables.product.prodname_copilot %}
 
 {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups. If you need to authenticate to a proxy, {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If the proxy URL starts `https://`, the proxy is not currently supported.
@@ -137,7 +135,7 @@ If the default SPN isn't correct for your proxy, you can override the SPN in {% 
 
 ## Allowing {% data variables.product.prodname_copilot %} to use custom certificates
 
-If your organization uses {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine.
+{% data variables.product.prodname_copilot_short %} can read custom SSL certificates installed on a user's machine. This allows a proxy server to be identified as the intended recipient of {% data variables.product.prodname_copilot_short %}'s secure connection, so network traffic can be inspected. Without a custom certificate, an HTTP proxy can be used to monitor, route, and terminate {% data variables.product.prodname_copilot_short %}'s connection, but not to inspect the contents of the traffic.
 
 {% data variables.product.prodname_copilot_short %} reads certificates from the operating system's trust store. It also reads extra certificates from the file specified by the standard Node.js environment variable `NODE_EXTRA_CA_CERTS`. For more information, see the [Node.js documentation](https://nodejs.org/docs/latest-v18.x/api/cli.html#node_extra_ca_certsfile).
 
