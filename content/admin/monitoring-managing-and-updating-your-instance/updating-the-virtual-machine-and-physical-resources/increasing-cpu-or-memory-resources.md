@@ -123,3 +123,35 @@ To increase the resources available to a {% data variables.product.prodname_ghe_
 {% data reusables.enterprise_installation.configuration-recognized %}
 {% data reusables.enterprise_installation.increase-resources-test-in-maintenance-mode %}
 {% data reusables.enterprise_installation.increase-resources-disable-message-and-maintenance-mode %}
+
+## Adding CPU or memory resources for Google Cloud Platform
+
+### Resizing considerations for Google Cloud Platform
+
+Before increasing CPU or memory resources for your GitHub Enterprise Server instance, review the following recommendations.
+
+- Scale your memory with CPUs: When you increase CPU resources, GitHub recommends adding at least 6.5 GB of memory for each vCPU (up to 16 vCPUs) that you provision for the instance. When you use more than 16 vCPUs, you don't need to add 6.5 GB of memory for each vCPU, but you should monitor your instance to ensure it has enough memory.
+- Assign a static IP address to the instance: If you haven't assigned a static IP to your instance, you might have to adjust the DNS A records for your GitHub Enterprise Server host after the restart to account for the change in IP address.
+
+### Supported Google Cloud Platform instance sizes
+
+The memory-optimized machine family provides the most compute and memory resources of any Compute Engine machine family offering. They are ideal for workloads that require higher memory-to-vCPU ratios than the high-memory machine types in the general-purpose N1 machine series.
+
+The M1 machine series has up to 4TB of memory, the M2 machine series has up to 12TB of memory, and the M3 machine series has 1 to 4 TB of memory. These machine series are well-suited for large in-memory databases such as SAP HANA, as well as online analytical processing (OLAP) and in-memory data analytics workloads.
+
+The M1, M2, and M3 machine series offer the lowest cost per GB of memory on Compute Engine, making them a great choice for workloads that utilize higher memory configurations with low compute resources requirements. Additionally, M1 and M2 offer up to 30% sustained use discounts. M1, M2, and M3 are also eligible for committed use discounts (CUDs), that bring savings of greater than 60% in exchange for 3-year commitments.
+
+**Note:** The commitment type that you must use to purchase M3 VMs is separate from the one for M1 or M2 VMs. As a result, you can purchase a single commitment to cover both M1 and M2 VMs, but you can't group M3 VMs in that commitment.
+
+For memory-intensive workloads on Google Cloud Platform, I recommend using the n1-highmem machine types. These machine types are optimized for memory-intensive tasks and offer a balance of high memory and CPU resources. You can choose from various configurations within the n1-highmem family based on your specific memory requirements.
+
+For example, the n1-highmem-8 machine type offers 8 virtual CPUs and 52 GB of memory, making it suitable for applications that demand substantial memory capacity while still requiring decent CPU performance. If your workload requires even more memory, you can opt for higher configurations such as n1-highmem-16 or n1-highmem-32, which provide even greater memory capacity.
+
+### Resizing for Google Cloud Platform
+
+Unlike AWS, Google Cloud Platform does not allow direct addition of CPU and memory resources. To resize resources:
+
+1. **Stop** the VM instance.
+2. **Change type** to the desired machine type with the appropriate CPU and memory configuration.
+3. **Start** the VM instance
+4. **SSH** into the instance to verify the changes and ensure proper functionality.
