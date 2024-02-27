@@ -15,7 +15,6 @@
    {% note %}
 
    **Notes:**
-   -
    - If you choose **No policy** for the "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" option, Bing access and collection of user feedback will be allowed for any organization that enables {% data variables.product.prodname_copilot_enterprise %}.
    - Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %} is currently in beta and is subject to change.
 
