@@ -132,6 +132,12 @@ One of the limitations of {% data variables.product.prodname_copilot_chat_short 
 
 {% data variables.product.prodname_copilot_chat_short %} is not designed to answer non-coding questions, and therefore its responses may not always be accurate or helpful in these contexts. If a user asks {% data variables.product.prodname_copilot_chat_short %} a non-coding question, it may generate an answer that is irrelevant or nonsensical, or it may simply indicate that it is unable to provide a useful response.
 
+### Leveraging a web search to answer a question
+
+Depending on the question you ask, {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_dotcom_the_website %} can optionally use a Bing search to help answer your question. {% data variables.product.prodname_copilot_short %} will use Bing for queries about recent events, new trends or technologies, highly specific subjects, or when a web search is explicitly requested by the user. Your {% data variables.product.prodname_enterprise %} administrator can enable Bing for your whole enterprise, or can delegate this decision to the organizational administrator. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-copilot-in-your-enterprise#enforcing-a-policy-to-manage-the-use-of-github-copilot-features-on-githubcom)."
+
+When leveraging Bing, {% data variables.product.prodname_copilot_short %} will use the content of your prompt, as well as additional available context, to generate a Bing search query on your behalf that is sent to the Bing Search API. {% data variables.product.prodname_copilot_short %} will provide a link to the search results with its response. The search query sent to Bing is governed by [Microsoft's Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
+
 ## Next steps
 
 For details of how to use {% data variables.product.prodname_copilot_chat_dotcom %}, see:
