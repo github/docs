@@ -8,6 +8,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management/creating-private-docsets
+  - /copilot/github-copilot-enterprise/copilot-docset-management
 ---
 
 ## About knowledge bases

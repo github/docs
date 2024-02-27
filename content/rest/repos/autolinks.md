@@ -1,5 +1,5 @@
 ---
-title: Repository autolinks
+title: REST API endpoints for repository autolinks
 allowTitleToDifferFromFilename: true
 shortTitle: Autolinks
 intro: Use the REST API to add autolinks to external resources.

@@ -104,6 +104,7 @@ You can choose a particular repository, file or symbol, and then ask a question 
    - What is the main purpose of this repo? What problem does it solve or what functionality does it provide?
    - What web frameworks are used in this project?
    - Where is rate limiting implemented in our API?
+   - How does the WidgetFactory class work?
    - How is the code organized? Explain the project architecture.
    - Are there any specific environment requirements for working on this project?
 
