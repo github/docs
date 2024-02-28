@@ -163,8 +163,10 @@ You can use `publishConfig` element in the `package.json` file to specify the re
    If your instance has subdomain isolation disabled:
 
    ```shell
+   
    "publishConfig": {
      "registry": "https://HOSTNAME/_registry/npm/"
+   
    },
    ```
 
@@ -234,8 +236,10 @@ If your instance has subdomain isolation enabled:
 If your instance has subdomain isolation disabled:
 
 ```shell
+
 @NAMESPACE:registry=https://HOSTNAME/_registry/npm
 @NAMESPACE:registry=https://HOSTNAME/_registry/npm
+
 ```
 
 {% endif %}
