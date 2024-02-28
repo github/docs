@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { writeFileSync } from 'fs'
+import type { Rule, Config } from '../types.ts'
 import { allRules, allConfig } from '../lib/helpers/get-rules.js'
 
 main()
@@ -13,11 +14,12 @@ function main() {
   )
   markdown.push('| Rule ID | Rule Name(s) | Description | Severity | Tags |')
   markdown.push('| ------- | ------------ | ----------- | -------- | ---- |')
-  for (const rule of allRules) {
-    const ruleName = rule.names.find((name) => allConfig[name] !== undefined)
-    if (allConfig[ruleName] === undefined) continue
+
+  for (const rule of allRules as Rule[]) {
+    const ruleName = rule.names.find((name) => name in allConfig)
+    if (!ruleName) continue
     if (rule.names.includes('search-replace')) {
-      markdown.push(...getSearchRepolaceRules(rule, allConfig[ruleName]))
+      markdown.push(...getSearchReplaceRules(rule, allConfig[ruleName]))
       continue
     }
     const row = []
@@ -34,10 +36,10 @@ function main() {
 
 // The search-replace rule configures multiple psuedo-rules
 // under the rules key.
-function getSearchRepolaceRules(srRule, ruleConfig) {
+function getSearchReplaceRules(srRule: Rule, ruleConfig: Config) {
   const name = srRule.information ? `[search-replace](${srRule.information})` : 'search-replace'
   const markdown = []
-  for (const rule of ruleConfig.rules) {
+  for (const rule of ruleConfig.rules || []) {
     const row = []
     row.push(name)
     row.push(rule.name)

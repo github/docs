@@ -32,7 +32,7 @@ Manage custom organization roles | Access to create, view, update, and delete cu
 View organization roles | Access to view the organization's custom organization roles. | "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles)"
 Manage custom repository roles | Access to create, view, update, and delete the organization's custom repository roles. |"[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)"
 View custom repository roles | Access to view the organization's custom repository roles. | "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)"
-Manage organization webhooks | Access to register and manage webhooks for the organization. Users with this permission will be able to view webhook payloads, which may contain metadata for repositories in the organization. | "[AUTOTITLE](/rest/orgs/webhooks#about-organization-webhooks)" in the REST API documentation
+Manage organization webhooks | Access to register and manage webhooks for the organization. Users with this permission will be able to view webhook payloads, which may contain metadata for repositories in the organization. | "[AUTOTITLE](/rest/orgs/webhooks#about-organization-webhooks)"
 {%- ifversion ghec %}
 Manage organization OAuth application policies | Access to the "OAuth application policy" settings for the organization. | "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
 {%- endif %}
