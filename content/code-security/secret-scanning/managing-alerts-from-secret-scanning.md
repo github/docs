@@ -134,7 +134,7 @@ If your repository has validity checks enabled, you can also perform an on-deman
 
 You can filter alerts for supported partner patterns by their validation status, and use the status of a leaked secret to help prioritize the secrets needing remediation steps.
 
-You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation.
+You can use the REST API to retrieve a list of the most recent validation status for each of your tokens. For more information, see "[AUTOTITLE](/rest/secret-scanning)" in the REST API documentation. You can also use webhooks to be notified of activity relating to a {% data variables.product.prodname_secret_scanning %} alert. For more information, see the `secret_scanning_alert` event in "[AUTOTITLE](/webhooks/webhook-events-and-payloads?actionType=created#secret_scanning_alert)."
 
 {% data reusables.secret-scanning.validity-check-table %}
 
