@@ -25,7 +25,7 @@
 | [MD049](https://github.com/DavidAnson/markdownlint/blob/v0.28.2/doc/md049.md) | emphasis-style | Emphasis style should be consistent | error | emphasis |
 | [MD050](https://github.com/DavidAnson/markdownlint/blob/v0.28.2/doc/md050.md) | strong-style | Strong style should be consistent | error | emphasis |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | todocs-placeholder | Catch occurrences of TODOCS placeholder. | error |  |
-| [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | docs-domain | Catch occurrences of docs.gitub.com domain. | warning |  |
+| [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | docs-domain | Catch occurrences of docs.gitub.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | help-domain | Catch occurrences of help.github.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | preview-domain | Catch occurrences of preview.ghdocs.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |
@@ -59,3 +59,5 @@
 | GHD018 | liquid-syntax | Markdown content must use valid Liquid | error | liquid |
 | GHD019 | liquid-if-tags | Liquid `ifversion` tags should be used instead of `if` tags when the argument is a valid version | error | liquid, versioning |
 | GHD020 | liquid-ifversion-tags | Liquid `ifversion` tags should contain valid version names as arguments | error | liquid, versioning |
+| GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
+| GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
