@@ -33,12 +33,6 @@ export type ReleaseNotePatch = {
   sections: Record<string, Array<ReleaseNoteSection>>
 }
 
-export type GHAEReleaseNotesContextT = {
-  releaseNotes: Array<ReleaseNotePatch>
-  releases: Array<{ version: string; patches: Array<ReleaseNotePatch> }>
-  currentVersion: CurrentVersion
-}
-
 export type GHESReleaseNotesContextT = {
   latestPatch: string
   latestRelease: string

@@ -34,6 +34,7 @@
     "lint-content": "node src/content-linter/scripts/lint-content.js",
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src/content-linter/tests/lint-files.js",
     "generate-code-scanning-query-list": "tsx src/code-scanning/scripts/generate-code-scanning-query-list.ts",
+    "generate-content-linter-docs": "tsx src/content-linter/scripts/generate-docs.ts",
     "move-content": "node src/content-render/scripts/move-content.js",
     "openapi-docs": "node src/rest/docs.js",
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",

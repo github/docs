@@ -1,5 +1,5 @@
 ---
-title: Organization webhooks
+title: REST API endpoints for organization webhooks
 allowTitleToDifferFromFilename: true
 shortTitle: Webhooks
 intro: Use the REST API to interact with webhooks in an organization.
