@@ -2,6 +2,6 @@
 
 auto_triage_rules: 'Dependabot auto-triage rules'
 auto_triage_rules_short: 'auto-triage rules'
-default_rules: 'GitHub-curated default rules'
+github_presets: 'GitHub presets'
 custom_rules_caps: 'Custom auto-triage rules'
 custom_rules: 'custom auto-triage rules'
