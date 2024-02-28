@@ -1,0 +1,48 @@
+name: 'Check content-linter rules docs'
+
+# **What it does**: Makes sure the content-linter-rules.md is up-to-date.
+# **Why we have it**: So what's automated doesn't fall behind
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/content-linter/**'
+      # In case imported markdownlint rules are updated
+      - package-lock.json
+      # In case manual changes are made to the content-linter-rules.md file
+      - data/reusables/contributing/content-linter-rules.md
+      # Self-test
+      - .github/workflows/content-linter-rules-docs.yml
+
+permissions:
+  contents: read
+
+jobs:
+  check-content-linter-rules-docs:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check that content-linter-rules.md is up-to-date
+        run: npm run generate-content-linter-docs
+
+      - name: Fail if it isn't up-to-date
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git status
+            git diff
+
+            # Some whitespace for the sake of the message below
+            echo ""
+            echo ""
+
+            echo "content-linter-rules.md is out of date."
+            echo "Please run 'npm run generate-content-linter-docs' and commit the changes."
+            exit 1;
+          fi
