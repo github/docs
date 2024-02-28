@@ -126,8 +126,6 @@ To increase the resources available to a {% data variables.product.prodname_ghe_
 
 ## Adding CPU or memory resources for Google Cloud Platform
 
-### Resizing considerations for Google Cloud Platform
-
 To add CPU or memory resources for an instance on Google Cloud, you must change the instance's size, have access to your company's Google Cloud infrastructure, and be familiar with  Google Cloud Run to manage Google Cloud instances.
 
 ### Supported Google Cloud Platform instance sizes
