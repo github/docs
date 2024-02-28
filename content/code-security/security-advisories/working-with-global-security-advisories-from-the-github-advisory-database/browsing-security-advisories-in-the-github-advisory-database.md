@@ -13,7 +13,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Security advisories
@@ -89,7 +88,7 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 1. Optionally, to filter the list, use the search bar or the drop-down menus. The "Organization" drop-down menu allows you to filter the {% data variables.product.prodname_dependabot_alerts %} per owner (organization or user).
 1. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
-{% ifversion security-advisories-ghes-ghae %}
+{% ifversion security-advisories-ghes %}
 
 ## Accessing the local advisory database on {% data variables.location.product_location %}
 

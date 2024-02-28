@@ -76,7 +76,7 @@ If you are using default setup for {% data variables.product.prodname_code_scann
 
 You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
 
-{% ifversion default-setup-self-hosted-runners-GHEC or ghes or ghae > 3.7 %}
+{% ifversion default-setup-self-hosted-runners-GHEC or ghes %}
 {% note %}
 
 **Note:** If you use {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} to analyze code written in Python in your enterprise, you must make sure that your self-hosted runner has Python 3 installed.

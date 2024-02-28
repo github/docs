@@ -45,6 +45,8 @@ For other tasks, such as downloading a migration log, you only need one {% data 
 
 Your Azure DevOps {% data variables.product.pat_generic %} must have `work item (read)`, `code (read)`, and `identity (read)` scopes.
 
+If you want to use the `--integrate-boards` or `--rewire-pipelines` flags when generating a migration script, you will also need `Build (Read)` scope.
+
 If you want to migrate from multiple organizations, allow the {% data variables.product.pat_generic %} to access all accessible organizations. For more information, see [Use {% data variables.product.pat_generic %}s](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) in Microsoft Docs.
 
 ## Granting the migrator role

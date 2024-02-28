@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: reference
 topics:
@@ -21,9 +20,6 @@ topics:
   - Integration
   - SARIF
 ---
-
-
-{% data reusables.code-scanning.beta %}
 
 ## About SARIF support
 

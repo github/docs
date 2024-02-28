@@ -5,7 +5,6 @@ intro: 'The permissions and visibility of forks depend on whether the upstream r
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -27,7 +26,7 @@ Organizations can allow or prevent the forking of any private repositories owned
 
 ## About visibility of forks
 
-A fork is a new repository that shares code and visibility settings with the upstream repository. {% ifversion not ghae %}All forks of public repositories are public.{% endif %} You cannot change the visibility of a fork.
+A fork is a new repository that shares code and visibility settings with the upstream repository. All forks of public repositories are public. You cannot change the visibility of a fork.
 
 All repositories belong to a repository network. A repository network contains the upstream repository, the upstream repository's direct forks, and all forks of those forks. All forks in the repository network have the same visibility setting. For more information, see “[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).”
 

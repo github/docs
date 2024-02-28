@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-monitoring-and-troubleshooting

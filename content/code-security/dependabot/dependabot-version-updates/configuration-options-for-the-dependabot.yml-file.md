@@ -21,7 +21,6 @@ topics:
 shortTitle: Configure dependabot.yml
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About the `dependabot.yml` file
@@ -273,7 +272,7 @@ Supported options
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a {% ifversion fpt or ghec or ghes or ghae > 3.7 %}50{% elsif ghae < 3.8 %}15{% endif %} character limit.
+**Note:** The `prefix` and the `prefix-development` options have a 50-character limit.
 
 {% endnote %}
 
@@ -895,8 +894,9 @@ You can give {% data variables.product.prodname_dependabot %} access to private 
 - Docker
 - Gradle
 - Maven
-- Npm
-- Nuget
+- npm
+- Nuget{% ifversion dependabot-updates-pub-private-registry %}
+- pub{% endif %}
 - Python
 - Yarn
 
@@ -1217,6 +1217,33 @@ registries:
 ```
 
 {% endraw %}
+
+{% ifversion dependabot-updates-pub-private-registry %}
+
+### `pub-repository`
+
+The `pub-repository` type supports a URL and a token.
+
+{% raw %}
+
+```yaml
+registries:
+  my-pub-registry:
+    type: pub-repository
+    url: https://example-private-pub-repo.dev/optional-path
+    token: ${{secrets.MY_PUB_TOKEN}}
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    registries:
+      - my-pub-registry
+```
+
+{% endraw %}
+
+{% endif %}
 
 ### `python-index`
 

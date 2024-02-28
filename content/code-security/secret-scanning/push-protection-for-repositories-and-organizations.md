@@ -16,7 +16,6 @@ topics:
 shortTitle: Push protection for repositories
 ---
 
-{% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 ## About push protection for repositories and organizations
@@ -57,12 +56,12 @@ For information on the secrets and service providers supported for push protecti
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 
-For you to use {% data variables.product.prodname_secret_scanning %} as a push protection in public repositories, the {% ifversion secret-scanning-enterprise-level %}enterprise,{% endif %} organization{% ifversion secret-scanning-enterprise-level %},{% endif %} or repository needs to have {% data variables.product.prodname_secret_scanning %} enabled.{% ifversion secret-scanning-push-protection-private-internal %} To use {% data variables.product.prodname_secret_scanning %} as a push protection in private or internal repositories, the enterprise or organization also needs to have {% data variables.product.prodname_GH_advanced_security %} enabled.{% endif %} For more information, see {% ifversion secret-scanning-enterprise-level %}"[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise),"{% endif %} "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)," "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)," and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+For you to use {% data variables.product.prodname_secret_scanning %} as a push protection in public repositories, the {% ifversion secret-scanning-enterprise-level %}enterprise,{% endif %} organization{% ifversion secret-scanning-enterprise-level %},{% endif %} or repository needs to have {% data variables.product.prodname_secret_scanning %} enabled.{% ifversion secret-scanning-push-protection-private-internal %} To use {% data variables.product.prodname_secret_scanning %} as a push protection in private or internal repositories,{% ifversion secret-scanning-user-owned-repos %} or in user-owned repositories{% ifversion ghec %} for {% data variables.product.prodname_emus %}{% endif %},{% endif %} the enterprise or organization also needs to have {% data variables.product.prodname_GH_advanced_security %} enabled.{% endif %} For more information, see {% ifversion secret-scanning-enterprise-level %}"[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise),"{% endif %} "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)," "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)," and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
-Organization owners, security managers, and repository administrators can also enable push protection for {% data variables.product.prodname_secret_scanning %} via the API. For more information, see "[AUTOTITLE](/rest/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
+Organization owners, security managers, and repository administrators can also enable push protection for {% data variables.product.prodname_secret_scanning %} via the API. For more information, see "[AUTOTITLE](/rest/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section.
 
 {% ifversion secret-scanning-enterprise-level-api %}
-Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis)" in the REST API documentation.{% endif %}
+Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis)."{% endif %}
 
 {% note %}
 
@@ -186,16 +185,6 @@ Organization owners can provide a custom link that will be displayed when a push
 If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. Real secrets that have been exposed must be revoked to avoid unauthorized access. You might consider first rotating the secret before revoking it. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
-
-{% ifversion ghae < 3.6 %}
-
-{% tip %}
-
-**Tip:** You can use {% data variables.product.prodname_secret_scanning %} as a push protection from the web UI, as well as the command line, in {% data variables.product.product_name %} version 3.6 or later.
-
-{% endtip %}
-
-{% endif %}
 
 ### Allowing a blocked secret to be pushed
 

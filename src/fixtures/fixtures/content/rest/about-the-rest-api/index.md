@@ -5,7 +5,6 @@ intro: 'Learn about resources, libraries, previews and troubleshooting for {% da
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /comparing-githubs-rest-api-and-graphql-api

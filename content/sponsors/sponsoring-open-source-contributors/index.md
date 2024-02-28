@@ -15,6 +15,7 @@ children:
   - /managing-your-sponsorship
   - /attributing-sponsorships-to-your-organization
   - /paying-for-github-sponsors-by-invoice
-  - /unlinking-your-patreon-account-from-your-github-account
+  - /unlinking-your-patreon-account-from-github
 shortTitle: Sponsor contributors
 ---
+

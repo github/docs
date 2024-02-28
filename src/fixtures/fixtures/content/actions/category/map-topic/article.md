@@ -5,7 +5,6 @@ intro: 'This page uses < and > in the title and `shortTitle` to demonstrate that
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 ---

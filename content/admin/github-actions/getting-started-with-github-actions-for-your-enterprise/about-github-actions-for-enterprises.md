@@ -5,7 +5,6 @@ intro: '{% data variables.product.prodname_actions %} can improve developer prod
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Actions
@@ -46,7 +45,7 @@ You can create your own unique automations, or you can use and adapt workflows f
 {% data reusables.actions.ghes-actions-not-enabled-by-default %} After you finish planning, you can follow the instructions for enabling {% data variables.product.prodname_actions %}. For example, you may need to upgrade the CPU and memory resources for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
 {% else %}
-After you finish planning, you can follow the instructions for getting started with {% data variables.product.prodname_actions %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud)."{% elsif ghae %}"[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."{% endif %}
+After you finish planning, you can follow the instructions for getting started with {% data variables.product.prodname_actions %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud)."{% endif %}
 {% endif %}
 
 ## Further reading

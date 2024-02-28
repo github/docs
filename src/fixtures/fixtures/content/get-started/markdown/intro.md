@@ -4,7 +4,6 @@ intro: This intro has **Markdown** `syntax` for *{% data variables.product.produ
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 ---

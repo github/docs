@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 layout: graphql-explorer
 topics:
   - API

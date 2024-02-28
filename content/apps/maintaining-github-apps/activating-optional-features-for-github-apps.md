@@ -8,7 +8,6 @@ redirect_from:
   - /apps/maintaining-github-apps/activating-optional-features-for-apps
 versions:
   fpt: '*'
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 topics:

@@ -5,7 +5,6 @@ intro: You can subscribe to notifications about workflow runs that you trigger.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
  

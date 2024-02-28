@@ -7,7 +7,6 @@ product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -18,4 +17,3 @@ children:
   - /using-the-advanced-functionality-of-the-codeql-cli
   - /codeql-cli-manual
 ---
-

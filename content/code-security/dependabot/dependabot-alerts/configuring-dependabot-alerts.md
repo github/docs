@@ -5,7 +5,6 @@ shortTitle: Configure Dependabot alerts
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: how_to
 topics:
@@ -85,7 +84,7 @@ An enterprise owner must first set up {% data variables.product.prodname_dependa
 1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** to enable alerts or **Disable** to disable alerts.
 
 {% endif %}
-{% ifversion ghes < 3.9 or ghae %}
+{% ifversion ghes < 3.9 %}
 
 {% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
@@ -116,7 +115,7 @@ You can use the organization settings page for "Code security and analysis" to e
 1. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories in your organization.
 {% endif %}
 
-{% ifversion ghes < 3.9 or ghae %}
+{% ifversion ghes < 3.9 %}
 {% data variables.product.prodname_dependabot_alerts %} for your organization can be enabled or disabled by your enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 

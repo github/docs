@@ -4,7 +4,6 @@ intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST A
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

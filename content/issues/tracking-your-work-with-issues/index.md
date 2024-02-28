@@ -5,7 +5,6 @@ intro: 'Use {% data variables.product.prodname_github_issues %} to track ideas a
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Issues

@@ -2,7 +2,6 @@
 title: About topics
 shortTitle: About topics
 intro: 'Use topics to make articles searchable.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

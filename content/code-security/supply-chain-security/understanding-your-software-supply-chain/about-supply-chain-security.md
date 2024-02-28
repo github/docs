@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: overview
 topics:
@@ -26,7 +25,7 @@ With the accelerated use of open source, most projects depend on hundreds of ope
 
 You add dependencies directly to your supply chain when you specify them in a manifest file or a lockfile. Dependencies can also be included transitively, that is, even if you don’t specify a particular dependency, but a dependency of yours uses it, then you’re also dependent on that dependency.
 
-{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment{% ifversion ghae %} and know about vulnerabilities in those dependencies{% endif %}{% ifversion fpt or ghec or ghes %}, know about vulnerabilities in those dependencies, and patch them{% endif %}.
+{% data variables.product.product_name %} offers a range of features to help you understand the dependencies in your environment, know about vulnerabilities in those dependencies, and patch them.
 
 The supply chain features on {% data variables.product.product_name %} are:
 - **Dependency graph**
@@ -95,10 +94,6 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 {% elsif ghes %}
 
 {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_dependabot_version_updates %} require {% data variables.product.prodname_actions %} to run on {% data variables.product.product_name %}. {% data variables.product.prodname_dependabot_alerts %} do not require {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
-
-{% elsif ghae %}
-
-{% data variables.product.prodname_actions %} is not required for {% data variables.product.prodname_dependabot_alerts %} to run on {% data variables.product.product_name %}.
 
 {% endif %}
 

@@ -6,11 +6,8 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.code-scanning.beta %}
 
 ## About this warning
 

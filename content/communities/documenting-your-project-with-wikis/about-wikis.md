@@ -9,7 +9,6 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -21,9 +20,9 @@ With wikis, you can write content just like everywhere else on {% data variables
 
 {% data reusables.getting-started.math-and-diagrams %}
 
-{% ifversion fpt or ghes or ghec %}If you create a wiki in a public repository, the wiki is available to {% ifversion ghes %}anyone with access to {% data variables.location.product_location %}{% else %}the public{% endif %}. {% endif %}If you create a wiki in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, only {% ifversion fpt or ghes or ghec %}people{% elsif ghae %}enterprise members{% endif %} with access to the repository can access the wiki. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
+If you create a wiki in a public repository, the wiki is available to {% ifversion ghes %}anyone with access to {% data variables.location.product_location %}{% else %}the public{% endif %}. If you create a wiki in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, only people with access to the repository can access the wiki. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 
-You can edit wikis directly on {% data variables.product.product_name %}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.location.product_location %} to contribute to a wiki in {% ifversion ghae %}an internal{% else %}a public{% endif %} repository. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
+You can edit wikis directly on {% data variables.product.product_name %}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.location.product_location %} to contribute to a wiki in a public repository. For more information, see "[AUTOTITLE](/communities/documenting-your-project-with-wikis/changing-access-permissions-for-wikis)."
 
 {% ifversion fpt or ghec %}
 {% note %}

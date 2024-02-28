@@ -6,7 +6,6 @@ intro: 'View, sort, and filter security alerts and coverage information from acr
 product: '{% data reusables.gated-features.security-overview %}'
 versions:
   fpt: '*'
-  ghae: '*'
   ghes: '*'
   ghec: '*'
 topics:

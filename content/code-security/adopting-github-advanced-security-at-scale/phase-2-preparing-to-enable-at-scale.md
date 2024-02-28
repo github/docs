@@ -3,7 +3,6 @@ title: 'Phase 2: Preparing to enable at scale'
 intro: 'In this phase you will prepare developers and collect data about your repositories to ensure your teams are ready and you have everything you need for pilot programs and rolling out {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}.'
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -158,14 +157,6 @@ If you are enabling {% data variables.product.prodname_secret_scanning %} on a l
 {% data variables.product.prodname_secret_scanning_caps %} can be enabled for individual repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)." {% data variables.product.prodname_secret_scanning_caps %} can also be enabled for all repositories in your organization, as described above. For more information on enabling for all repositories, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 ### Custom patterns for {% data variables.product.prodname_secret_scanning %}
-
-{% ifversion ghae %}
-{% note %}
-
-**Note:** Custom patterns for {% data variables.product.prodname_secret_scanning %} is currently in beta and is subject to change.
-
-{% endnote %}
-{% endif %}
 
 {% data variables.product.prodname_secret_scanning_caps %} detects a large number of default patterns but can also be configured to detect custom patterns, such as secret formats unique to your infrastructure or used by integrators that {% data variables.product.product_name %}'s {% data variables.product.prodname_secret_scanning %} does not currently detect. For more information about supported secrets for partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
 

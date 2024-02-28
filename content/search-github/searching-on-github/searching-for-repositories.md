@@ -157,12 +157,6 @@ You can filter your search based on the visibility of the repositories. For more
 
 ## Search based on repository custom property
 
-{% note %}
-
-**Note:** Repository properties are in public beta and subject to change.
-
-{% endnote %}
-
 You can filter repositories based on custom properties using the `props.` prefixed qualifiers. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
 
 For these qualifiers to work, the search must be limited to a single organization. Otherwise, `props.` qualifiers are ignored.

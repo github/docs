@@ -23,13 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
-
-      - name: Set up Node and dependencies
-        uses: ./.github/actions/node-npm-setup
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Get files changed
-        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        uses: dorny/paths-filter@0bc4621a3135347011ad047f9ecf449bf72ce2bd
         id: filter
         with:
           # Base branch used to get changed files
@@ -42,6 +39,10 @@ jobs:
           # Returns list of changed files matching each filter
           filters: 'src/workflows/unallowed-contribution-filters.yml'
 
+      - name: Set up Node and dependencies
+        if: ${{ steps.filter.outputs.notAllowed || steps.filter.outputs.contentTypes}}
+        uses: ./.github/actions/node-npm-setup
+
       # When there are changes to files we can't accept, leave a comment
       # explaining this to the PR author
       - name: "Comment about changes we can't accept"
@@ -51,5 +52,6 @@ jobs:
           REPO_OWNER_AND_NAME: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.number }}
           FILE_PATHS_NOT_ALLOWED: ${{ steps.filter.outputs.notAllowed_files }}
-          FILE_PATHS_CONTENT_TYPES: ${{ steps.filter.outputs.contentTypes_files }}
+          CHANGED_FILE_PATHS: ${{ steps.filter.outputs.contentTypes_files }}
+          ADDED_CONTENT_FILES: ${{ steps.filter.outputs.added_files }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

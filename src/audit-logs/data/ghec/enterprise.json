@@ -596,12 +596,12 @@
   },
   {
     "action": "codespaces.business_enablement_updated",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Enterprise setting for Codespaces ownership was updated.",
+    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization"
   },
   {
     "action": "codespaces.connect",
-    "description": "A codespace was started.",
+    "description": "Credentials for a codespace were refreshed.",
     "docs_reference_links": "N/A"
   },
   {
@@ -616,27 +616,27 @@
   },
   {
     "action": "codespaces.export_environment",
-    "description": "N/A",
+    "description": "A codespace was exported to a branch on GitHub.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "codespaces.policy_group_created",
-    "description": "N/A",
+    "description": "Policies were applied to codespaces in an organization or enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "codespaces.policy_group_deleted",
-    "description": "N/A",
+    "description": "Policies were removed from codespaces in an organization or enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "codespaces.policy_group_updated",
-    "description": "N/A",
+    "description": "Policies were updated for codespaces in an organization or enterprise.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "codespaces.restore",
-    "description": "N/A",
+    "description": "A codespace was restored.",
     "docs_reference_links": "N/A"
   },
   {
@@ -646,12 +646,12 @@
   },
   {
     "action": "codespaces.suspend_environment",
-    "description": "N/A",
+    "description": "A codespace was stopped.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "codespaces.trusted_repositories_access_update",
-    "description": "Triggered when you change your personal account's access and security setting for Codespaces.",
+    "description": "A personal account's access and security setting for Codespaces were updated.",
     "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
   },
   {
@@ -727,6 +727,11 @@
   {
     "action": "copilot.content_exclusion_changed",
     "description": "The excluded paths for GitHub Copilot were updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.enterprise_enablement_changed",
+    "description": "The Copilot Business enablement policy changed at the enterprise level.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1636,22 +1641,22 @@
   },
   {
     "action": "org.codespaces_access_updated",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Access to use Codespaces on internal and private repositories was updated for an organization.",
+    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization"
   },
   {
     "action": "org.codespaces_ownership_updated",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
+    "description": "Ownership and payment for codespaces was updated for an organization.",
+    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization"
   },
   {
     "action": "org.codespaces_team_access_allowed",
-    "description": "N/A",
+    "description": "A team has been allowed to use Codespaces for an organization.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "org.codespaces_team_access_revoked",
-    "description": "N/A",
+    "description": "A team has been prevented from using Codespaces for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1666,12 +1671,12 @@
   },
   {
     "action": "org.codespaces_user_access_allowed",
-    "description": "N/A",
+    "description": "A user has been allowed to use Codespaces for an organization.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "org.codespaces_user_access_revoked",
-    "description": "N/A",
+    "description": "A user has been prevented from using Codespaces for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2831,12 +2836,12 @@
   },
   {
     "action": "repo.codespaces_trusted_repo_access_granted",
-    "description": "N/A",
+    "description": "GitHub Codespaces was granted trusted repository access to this repository.",
     "docs_reference_links": "N/A"
   },
   {
     "action": "repo.codespaces_trusted_repo_access_revoked",
-    "description": "N/A",
+    "description": "GitHub Codespaces trusted repository access to this repository was revoked.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3443,6 +3448,11 @@
     "action": "secret_scanning_alert.revoke",
     "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.validate",
+    "description": "A secret scanning alert was validated.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
     "action": "secret_scanning.disable",

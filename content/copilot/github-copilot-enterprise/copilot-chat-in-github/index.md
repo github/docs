@@ -5,6 +5,7 @@ versions:
   feature: 'copilot-on-dotcom'
   fpt: '*'
 children:
-  - /about-github-copilot-chat
+  - /about-github-copilot-chat-in-githubcom
   - /using-github-copilot-chat-in-githubcom
+  - /managing-copilot-knowledge-bases
 ---

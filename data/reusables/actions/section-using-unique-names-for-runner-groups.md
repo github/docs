@@ -1,5 +1,5 @@
 
-{% ifversion target-runner-groups %}{% ifversion ghec or ghae or ghes %}
+{% ifversion target-runner-groups %}{% ifversion ghec or ghes %}
 
 ## Using unique names for runner groups
 

@@ -5,7 +5,6 @@ intro: 'You can safely publish and consume packages by building custom workflows
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /publishing-and-installing-a-package-with-github-actions
@@ -13,4 +12,3 @@ children:
   - /about-github-packages-and-github-actions
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
-{% data reusables.package_registry.packages-ghae-release-stage %}

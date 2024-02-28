@@ -4,7 +4,6 @@ intro: '{% data reusables.cli.cli-intro %}'
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI

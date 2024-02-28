@@ -16,7 +16,6 @@ intro: 'You can use organizations to group users within your company, such as di
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:

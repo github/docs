@@ -1,7 +1,6 @@
 ---
 title: Versioning documentation
 intro: '{% data variables.product.prodname_docs %} uses YAML frontmatter and liquid operators to support multiple versions of {% data variables.product.company_short %} with a single-source approach.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 redirect_from:

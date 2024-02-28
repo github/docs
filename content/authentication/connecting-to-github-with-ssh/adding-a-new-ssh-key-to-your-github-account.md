@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -21,7 +20,7 @@ shortTitle: Add a new SSH key
 
 {% ifversion ssh-commit-verification %}You can also use SSH to sign commits and tags. For more information about commit signing, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."{% endif %}
 
-After you generate an SSH key pair, you must add the public key to {% ifversion fpt or ghec or ghes %}{% data variables.location.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %} to enable SSH access for your account.
+After you generate an SSH key pair, you must add the public key to {% data variables.location.product_location %} to enable SSH access for your account.
 
 ## Prerequisites
 
@@ -63,12 +62,10 @@ After adding a new SSH authentication key to your account on {% data variables.l
 
 Before you can use the {% data variables.product.prodname_cli %} to add an SSH key to your account, you must authenticate to the {% data variables.product.prodname_cli %}. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login) in the {% data variables.product.prodname_cli %} documentation.
 
-{% ifversion ssh-commit-verification %}At present, you can only use {% data variables.product.prodname_cli %} to add SSH authentication keys, you cannot add SSH signing keys.{% endif %}
-
-To add an SSH authentication key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key. If you're prompted to request additional scopes, follow the instructions in the command line.
+To add an SSH key to your GitHub account, use the `ssh-key add` subcommand, specifying your public key. For authentication keys, if you're prompted to request additional scopes, follow the instructions in the command line.
 
 ```shell
-gh ssh-key add KEY-FILE
+gh ssh-key add KEY-FILE --type {authentication|signing}
 ```
 
 To include a title for the new key, use the `-t` or `--title` flag.
@@ -80,7 +77,7 @@ gh ssh-key add KEY-FILE --title "personal laptop"
 If you generated your SSH key by following the instructions in "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
 
 ```shell
-gh ssh-key add ~/.ssh/id_ed25519.pub
+gh ssh-key add ~/.ssh/id_ed25519.pub --type signing
 ```
 
 {% endcli %}

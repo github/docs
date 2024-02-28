@@ -6,8 +6,9 @@ versions:
   feature: copilot
 children:
   - /about-billing-for-github-copilot
-  - /managing-your-github-copilot-subscription-for-your-personal-account
-  - /managing-your-github-copilot-subscription-for-your-organization-or-enterprise
+  - /managing-your-github-copilot-individual-subscription
+  - /managing-your-github-copilot-business-subscription
+  - /managing-your-github-copilot-enterprise-subscription
   - /viewing-your-github-copilot-usage
 ---
 

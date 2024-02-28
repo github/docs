@@ -3,7 +3,6 @@ title: 'Phase 6: Rollout and scale secret scanning'
 intro: 'For the final phase, you will focus on the rollout of {% data variables.product.prodname_secret_scanning %}. {% data variables.product.prodname_secret_scanning_caps %} is a more straightforward tool to rollout than {% data variables.product.prodname_code_scanning %}, as it involves less configuration, but it''s critical to have a strategy for handling new and old results.'
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -16,7 +15,7 @@ This article is part of a series on adopting {% data variables.product.prodname_
 
 {% endnote %}
 
-You can enable secret scanning for individual repositories or for all repositories in an organization. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" or "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+You can enable secret scanning for individual repositories or for all repositories in an organization or enterprise. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)", "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)", or "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
 This article explains a high-level process focusing on enabling {% data variables.product.prodname_secret_scanning %} for all repositories in an organization. The principles described in this article can still be applied even if you take a more staggered approach of enabling {% data variables.product.prodname_secret_scanning %} for individual repositories.
 
@@ -77,8 +76,8 @@ Once you have decided on the secret types, you can do the following:
    {% endnote %}
 
 1. When you have created the process that teams will follow for revoking credentials, you can collate information about the types of secrets and other metadata associated with the leaked secrets so you can discern who to communicate the new process to.
-   {% ifversion not ghae %}
-   You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."{% endif %}
+
+   You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
 
    Some information you may want to collect includes:
 

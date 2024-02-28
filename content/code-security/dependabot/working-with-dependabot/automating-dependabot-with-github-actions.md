@@ -6,7 +6,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Actions
@@ -21,7 +20,6 @@ redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}

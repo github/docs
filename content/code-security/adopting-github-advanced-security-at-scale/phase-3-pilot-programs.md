@@ -3,7 +3,6 @@ title: 'Phase 3: Pilot programs'
 intro: 'You may benefit from beginning with a few high-impact projects and teams with which to pilot an initial rollout. This will allow an initial group within your company to get familiar with GHAS, learn how to enable and configure GHAS, and build a solid foundation on GHAS before rolling out to the remainder of your company.'
 versions:
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -37,10 +36,6 @@ You need to enable GHAS for each pilot project, either by enabling the GHAS feat
 {% ifversion ghes %}
 
 To enable {% data variables.product.prodname_code_scanning %} on your {% data variables.product.prodname_ghe_server %} instance, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
-
-{% elsif ghae %}
-
-To enable {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_actions %} you must make runners available to run workflows in {% data variables.product.prodname_ghe_managed %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
 
 {% endif %}
 {% ifversion default-setup-ghas-enablement %}

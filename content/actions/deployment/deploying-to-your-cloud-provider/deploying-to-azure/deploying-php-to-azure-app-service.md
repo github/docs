@@ -4,7 +4,6 @@ intro: You can deploy your PHP project to Azure App Service as part of your cont
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:

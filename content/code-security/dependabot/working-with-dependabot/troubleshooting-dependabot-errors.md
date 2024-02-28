@@ -23,8 +23,6 @@ topics:
   - Dependencies
 ---
 
-{% data reusables.dependabot.beta-security-and-version-updates %}
-
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot %} errors

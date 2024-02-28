@@ -153,6 +153,30 @@
       "owner": "deborah-digges"
     },
     {
+      "location": "PullRequestReviewComment.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "PullRequestReview.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
+      "location": "PullRequest.databaseId",
+      "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
+      "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
+      "date": "2024-07-01",
+      "criticality": "breaking",
+      "owner": "JanKoszewski"
+    },
+    {
       "location": "OrganizationInvitation.inviter",
       "description": "<p><code>inviter</code> will be removed. <code>inviter</code> will be replaced by <code>inviterActor</code>.</p>",
       "reason": "<p><code>inviter</code> will be removed.</p>",

@@ -14,7 +14,6 @@ intro: 'GitHub''s collaborative approach to development depends on publishing co
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 ## About remote repositories

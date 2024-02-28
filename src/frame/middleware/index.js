@@ -38,14 +38,13 @@ import categoriesForSupport from './categories-for-support.js'
 import triggerError from '#src/observability/middleware/trigger-error.js'
 import secretScanning from '#src/secret-scanning/middleware/secret-scanning.js'
 import ghesReleaseNotes from '#src/release-notes/middleware/ghes-release-notes.js'
-import ghaeReleaseNotes from '#src/release-notes/middleware/ghae-release-notes.js'
 import whatsNewChangelog from './context/whats-new-changelog.js'
 import layout from './context/layout.js'
 import currentProductTree from './context/current-product-tree.js'
 import genericToc from './context/generic-toc.js'
 import breadcrumbs from './context/breadcrumbs.js'
 import glossaries from './context/glossaries.js'
-import renderProductMap from './context/render-product-map.js'
+import renderProductName from './context/render-product-name.js'
 import features from '#src/versions/middleware/features.js'
 import productExamples from './context/product-examples.js'
 import productGroups from './context/product-groups.js'
@@ -218,6 +217,7 @@ export default function (app) {
   app.use(asyncMiddleware(reloadTree)) // Must come before context
   app.use(asyncMiddleware(context)) // Must come before early-access-*, handle-redirects
   app.use(shortVersions) // Support version shorthands
+  app.use(asyncMiddleware(renderProductName)) // Must come after shortVersions
 
   // Must come before handleRedirects.
   // This middleware might either redirect to serve something.
@@ -265,7 +265,6 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
-  app.use(asyncMiddleware(ghaeReleaseNotes))
   app.use(asyncMiddleware(whatsNewChangelog))
   app.use(layout)
   app.use(features) // needs to come before product tree
@@ -278,7 +277,6 @@ export default function (app) {
   app.use(asyncMiddleware(contextualizeSearch))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(learningTrack))
-  app.use(asyncMiddleware(renderProductMap))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

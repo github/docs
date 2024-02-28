@@ -113,17 +113,13 @@ There are a number of different approaches available to help you mitigate the ri
 
 ### Using an action instead of an inline script (recommended)
 
-The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
-
-{% raw %}
+The recommended approach is to create a JavaScript action that processes the context value as an argument. This approach is not vulnerable to the injection attack, since the context value is not used to generate a shell script, but is instead passed to the action as an argument:
 
 ```yaml
 uses: fakeaction/checktitle@v3
 with:
-    title: ${{ github.event.pull_request.title }}
+    title: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
 ```
-
-{% endraw %}
 
 ### Using an intermediate environment variable
 
@@ -131,12 +127,10 @@ For inline scripts, the preferred approach to handling untrusted input is to set
 
 The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
 
-{% raw %}
-
 ```yaml
       - name: Check PR title
         env:
-          TITLE: ${{ github.event.pull_request.title }}
+          TITLE: {% raw %}${{ github.event.pull_request.title }}{% endraw %}
         run: |
           if [[ "$TITLE" =~ ^octocat ]]; then
           echo "PR title starts with 'octocat'"
@@ -146,8 +140,6 @@ The following example uses Bash to process the `github.event.pull_request.title`
           exit 1
           fi
 ```
-
-{% endraw %}
 
 In this example, the attempted script injection is unsuccessful, which is reflected by the following lines in the log:
 
@@ -208,12 +200,9 @@ You can help mitigate this risk by following these good practices:
 
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
-{% ifversion not ghae %}
-
 ## Using {% data variables.product.prodname_dependabot_version_updates %} to keep actions up to date
 
 You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
-{% endif %}
 
 {% ifversion internal-actions %}
 
@@ -398,6 +387,6 @@ For the full list of events that you can find in the audit log for each account 
 
 - "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
 - "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
-{%- ifversion ghec or ghes or ghae %}
+{%- ifversion ghec or ghes %}
 - "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
 {%- endif %}
