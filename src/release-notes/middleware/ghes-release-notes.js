@@ -8,7 +8,6 @@ export default async function ghesReleaseNotesContext(req, res, next) {
   const [requestedPlan, requestedRelease] = req.context.currentVersion.split('@')
   if (requestedPlan !== 'enterprise-server') return next()
 
-  // (This applies to ghae release notes too)
   // We deliberately force the language to be English for now.
   // The underlying reason is that the content (in data/release-notes/**/*.yml)
   // is Markdown that does NOT use variables controlled by English-only
