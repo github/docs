@@ -1,7 +1,6 @@
 ---
 title: Label reference
 intro: "Labels can help you find an issue you'd like to help with."
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

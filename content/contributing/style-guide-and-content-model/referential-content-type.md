@@ -1,7 +1,6 @@
 ---
 title: Referential content type
 intro: 'Referential content provides detailed information that people need while they are actively using a feature.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 ---

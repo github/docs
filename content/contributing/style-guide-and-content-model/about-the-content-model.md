@@ -2,7 +2,6 @@
 title: About the content model
 shortTitle: About the content model
 intro: 'The content model describes the structure and types of content that we publish.'
-product: '{% data reusables.contributing.product-note %}'
 redirect_from:
   - /contributing/writing-for-github-docs/content-model
 versions:

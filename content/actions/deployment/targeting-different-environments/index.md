@@ -5,7 +5,6 @@ intro: You can configure environments with protection rules and secrets. A workf
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /using-environments-for-deployment

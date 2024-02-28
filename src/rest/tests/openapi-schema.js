@@ -13,10 +13,6 @@ import getApplicableVersions from '../../versions/lib/get-applicable-versions.js
 import { getAutomatedMarkdownFiles } from '../scripts/test-open-api-schema.js'
 import { nonAutomatedRestPaths } from '../lib/config.js'
 
-// GHAE is deprecated, but can't yet be removed from all-versions.js
-// This line can be removed once we remove GHAE from all-versions.js.
-delete allVersions['github-ae@latest']
-
 const schemasPath = 'src/rest/data'
 
 async function getFlatListOfOperations(version) {
@@ -198,8 +194,6 @@ describe('code examples are defined', () => {
       let domain = 'https://api.github.com'
       if (version.includes('enterprise-server')) {
         domain = 'http(s)://HOSTNAME/api/v3'
-      } else if (version === 'github-ae@latest') {
-        domain = 'https://HOSTNAME/api/v3'
       }
 
       const operation = await findOperation(version, 'GET', '/repos/{owner}/{repo}')

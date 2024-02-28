@@ -730,6 +730,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.enterprise_enablement_changed",
+    "description": "The Copilot Business enablement policy changed at the enterprise level.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "copilot.plan_changed",
     "description": "The plan for GitHub Copilot was updated.",
     "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot"
@@ -3443,6 +3448,11 @@
     "action": "secret_scanning_alert.revoke",
     "description": "A secret scanning alert was revoked.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.validate",
+    "description": "A secret scanning alert was validated.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
     "action": "secret_scanning.disable",
