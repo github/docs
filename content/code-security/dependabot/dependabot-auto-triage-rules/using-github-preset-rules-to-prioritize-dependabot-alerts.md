@@ -1,7 +1,7 @@
 ---
-title: Using GitHub-curated default rules to prioritize Dependabot alerts
-intro: 'You can use a {% data variables.product.company_short %}-curated default rule to auto-dismiss low impact development alerts for npm dependencies.'
-permissions: 'People with write permissions can view {% data variables.dependabot.auto_triage_rules %} for the repository. People with admin permissions to a repository can enable or disable {% data variables.dependabot.default_rules %} for the repository. Organization owners and security managers can enable or disable {% data variables.dependabot.default_rules %} at the organization-level and optionally choose to enforce rules for repositories in the organization.'
+title: Using GitHub preset rules to prioritize Dependabot alerts
+intro: 'You can use {% data variables.dependabot.github_presets %}, which are rules curated by {% data variables.product.company_short %}, to auto-dismiss low impact development alerts for npm dependencies.'
+permissions: 'People with write permissions can view {% data variables.dependabot.auto_triage_rules %} for the repository. People with admin permissions to a repository can enable or disable {% data variables.dependabot.github_presets %} for the repository. Organization owners and security managers can enable or disable {% data variables.dependabot.github_presets %} at the organization-level and optionally choose to enforce rules for repositories in the organization.'
 versions:
   feature: dependabot-auto-triage-rules
 type: how_to
@@ -11,16 +11,17 @@ topics:
   - Vulnerabilities
   - Repositories
   - Dependencies
-shortTitle: GitHub-curated default rules
+shortTitle: GitHub preset rules
 redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/using-github-curated-alert-rules-to-prioritize-dependabot-alerts
+  - /code-security/dependabot/dependabot-auto-triage-rules/using-github-curated-default-rules-to-prioritize-dependabot-alerts
 ---
 
 {% data reusables.dependabot.dependabot-auto-triage-rules-beta %}
 
-## About {% data variables.dependabot.default_rules %}
+## About {% data variables.dependabot.github_presets %}
 
-The {% data variables.product.company_short %}-curated default rule, `Dismiss low impact issues for development-scoped dependencies`, auto-dismisses certain types of vulnerabilities that are found in npm dependencies used in development. These alerts cover cases that feel like false alarms to most developers as the associated vulnerabilities:
+The `Dismiss low impact issues for development-scoped dependencies` rule is a {% data variables.product.company_short %} preset that auto-dismisses certain types of vulnerabilities that are found in npm dependencies used in development. These alerts cover cases that feel like false alarms to most developers as the associated vulnerabilities:
 
 - Are unlikely to be exploitable in a developer (non-production or runtime) environment.
 - May relate to resource management, programming and logic, and information disclosure issues.
@@ -33,11 +34,11 @@ The {% data variables.product.company_short %}-curated default rule, `Dismiss lo
 
 {% endnote %}
 
-The {% data variables.product.company_short %}-curated default rule, `Dismiss low impact issues for development-scoped dependencies`, includes vulnerabilities relating to resource management, programming and logic, and information disclosure issues. For more information, see "[Publicly disclosed CWEs used by the `Dismiss low impact issues for development-scoped dependencies` rule](#publicly-disclosed-cwes-used-by-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule)."
+The `Dismiss low impact issues for development-scoped dependencies` rule includes vulnerabilities relating to resource management, programming and logic, and information disclosure issues. For more information, see "[Publicly disclosed CWEs used by the `Dismiss low impact issues for development-scoped dependencies` rule](#publicly-disclosed-cwes-used-by-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule)."
 
 Filtering out these low impact alerts allows you to focus on alerts that matter to you, without having to worry about missing potentially high-risk development-scoped alerts.
 
-The {% data variables.product.company_short %}-curated default rule, `Dismiss low impact issues for development-scoped dependencies`, is enabled by default on public repositories and disabled for private repositories. Administrators of private repositories can opt in by enabling the rule for their repository.
+The `Dismiss low impact issues for development-scoped dependencies` rule is enabled by default on public repositories and disabled for private repositories. Administrators of private repositories can opt in by enabling the rule for their repository.
 
 ## Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository
 

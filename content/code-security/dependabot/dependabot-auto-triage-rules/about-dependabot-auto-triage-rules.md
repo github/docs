@@ -1,6 +1,6 @@
 ---
 title: About Dependabot auto-triage rules
-intro: '{% data variables.dependabot.auto_triage_rules %} are a powerful tool to help you better manage your security alerts at scale. {% data variables.product.prodname_dependabot %}''s default rules are curated for you and filter out a substantial amount of false positives. {% data variables.dependabot.custom_rules_caps %} provide control over which alerts are ignored, snoozed, or trigger a {% data variables.product.prodname_dependabot %} security update to resolve the alert.'
+intro: '{% data variables.dependabot.auto_triage_rules %} are a powerful tool to help you better manage your security alerts at scale. {% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %} that you can use to filter out a substantial amount of false positives. {% data variables.dependabot.custom_rules_caps %} provide control over which alerts are ignored, snoozed, or trigger a {% data variables.product.prodname_dependabot %} security update to resolve the alert.'
 permissions: 'People with write permissions can view {% data variables.dependabot.auto_triage_rules %} for the repository. People with admin permissions to a repository can enable or disable {% data variables.dependabot.auto_triage_rules_short %} for the repository, as well as create {% data variables.dependabot.custom_rules %}. Additionally, organization owners and security managers can set {% data variables.dependabot.auto_triage_rules_short %} at the organization-level and optionally choose to enforce rules for repositories in the organization.'
 versions:
   feature: dependabot-auto-triage-rules
@@ -25,18 +25,18 @@ redirect_from:
 
 There are two types of {% data variables.dependabot.auto_triage_rules %}:
 
-- {% data variables.dependabot.default_rules %}
+- {% data variables.dependabot.github_presets %}
 - {% data variables.dependabot.custom_rules_caps %}
 
-### About {% data variables.dependabot.default_rules %}
+### About {% data variables.dependabot.github_presets %}
 
 {% note %}
 
-{% data reusables.dependabot.dependabot-default-auto-triage-rules %}
+{% data reusables.dependabot.dependabot-github-preset-auto-triage-rules %}
 
 {% endnote %}
 
-{% data reusables.dependabot.dismiss-low-impact-rule %}
+{% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %}. {% data reusables.dependabot.dismiss-low-impact-rule %}
 
 ### About {% data variables.dependabot.custom_rules %}
 
@@ -60,5 +60,5 @@ Auto-dismissed alerts are defined by the `resolution:auto-dismiss` close reason.
 
 ## Further reading
 
-- [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/using-github-curated-default-rules-to-prioritize-dependabot-alerts)
+- [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/using-github-preset-rules-to-prioritize-dependabot-alerts)
 - [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts)
