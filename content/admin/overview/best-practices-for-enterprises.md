@@ -47,6 +47,14 @@ We recommend collaborating in organization-owned repositories whenever possible 
 
 You can manage the display of usernames within your enterprise's private repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)."
 
+{% ifversion enterprise-readme %}
+
+## Create a README
+
+{% data reusables.enterprise.about-readmes %} For more information, see "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)."
+
+{% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories)"
