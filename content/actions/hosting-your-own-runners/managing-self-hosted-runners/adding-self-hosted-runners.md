@@ -29,11 +29,7 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 
 {% endwarning %}
 
-{% ifversion fpt or ghec or ghes %}
-
 You can set up automation to scale the number of self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners)."
-
-{% endif %}
 
 {% ifversion actions-single-use-tokens %}
 
