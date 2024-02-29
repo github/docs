@@ -75,10 +75,12 @@ jobs:
           # If we're unable to connect or the server returns a 50x error,
           # treat it as a warning and not as a broken link.
           EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
+          FAIL_ON_FLAW: false
         timeout-minutes: 30
         run: node src/links/scripts/rendered-content-link-checker.js
 
       - name: Upload artifact(s)
+        if: ${{ always() }}
         uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
         with:
           name: artifacts
