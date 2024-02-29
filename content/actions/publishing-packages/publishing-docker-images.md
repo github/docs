@@ -44,11 +44,7 @@ You might also find it helpful to have a basic understanding of the following:
 
 This guide assumes that you have a complete definition for a Docker image stored in a {% data variables.product.prodname_dotcom %} repository. For example, your repository must contain a _Dockerfile_, and any other files needed to perform a Docker build to create an image.
 
-{% ifversion fpt or ghec or ghes %}
-
 {% data reusables.package_registry.about-annotation-keys %} For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#labelling-container-images)."
-
-{% endif %}
 
 In this guide, we will use the Docker `build-push-action` action to build the Docker image and push it to one or more Docker registries. For more information, see [`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images).
 
