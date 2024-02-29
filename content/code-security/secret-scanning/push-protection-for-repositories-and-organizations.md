@@ -1,7 +1,7 @@
 ---
 title: Push protection for repositories and organizations
-intro: 'You can use {% data variables.product.prodname_secret_scanning %} to prevent supported secrets from being pushed into your {% ifversion secret-scanning-enterprise-level %}enterprise,{% endif %} organization{% ifversion secret-scanning-enterprise-level %},{% endif %} or repository by enabling push protection.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+intro: 'With push protection for repositories and organizations, {% data variables.product.prodname_secret_scanning %} blocks contributors from pushing secrets to a repository and generates an alert whenever a contributor bypasses the block.'
+product: '{% data reusables.gated-features.push-protection-for-repos %}'
 versions:
   feature: secret-scanning-push-protection
 redirect_from:
@@ -196,6 +196,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 1. Visit the URL returned by {% data variables.product.prodname_dotcom %} when your push was blocked.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
+{% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow me to push this secret**.
 1. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
@@ -228,6 +229,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 1. In dialog box that appeared when {% data variables.product.prodname_dotcom %} blocked your commit, review the name and location of the secret.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
+{% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow secret**.
 
 {% endif %}
