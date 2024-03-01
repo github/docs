@@ -74,11 +74,11 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 
 #### {% data variables.product.prodname_actions %}
 
-{% data variables.product.prodname_dependabot %} supports version updates for {% data variables.product.prodname_actions %} with the following caveats.
+{% data variables.product.prodname_dependabot %} only supports updates to {% data variables.product.prodname_actions %} using the {% data variables.product.prodname_dotcom %} repository syntax, such as `{% data reusables.actions.action-checkout %}`. {% data variables.product.prodname_dependabot %} will ignore actions or reusable workflows referenced locally (for example, `./.github/actions/foo.yml`).
 
-{% data reusables.actions.dependabot-version-updates-actions-caveats %}
+Docker Hub and {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} URLs are currently not supported. For example, references to Docker container actions using `docker://` syntax aren't supported.
 
-For more information about using {% data variables.product.prodname_dependabot_version_updates %} with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions#keeping-the-actions-in-your-workflows-secure-and-up-to-date)."
+{% data variables.product.prodname_dependabot %} supports both public and private repositories for {% data variables.product.prodname_actions %}. For private registry configuration options, see "`git`" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#git)."
 
 #### Gradle
 
