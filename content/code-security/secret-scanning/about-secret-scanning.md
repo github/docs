@@ -115,10 +115,9 @@ You can also use the REST API to monitor results from {% data variables.product.
 ## Further reading
 
 - "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"{% ifversion fpt or ghec or ghes %}
-- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"{% endif %}
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
+- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
 {%- ifversion fpt or ghec %}
 - "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"{% endif %}
-{%- ifversion fpt or ghec or ghes %}
-- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)"{% endif %}
+- "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)"
 - "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"
