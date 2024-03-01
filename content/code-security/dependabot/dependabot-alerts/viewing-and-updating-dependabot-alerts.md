@@ -108,7 +108,7 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 
 ## Viewing {% data variables.product.prodname_dependabot_alerts %}
 
-You can view all open and closed {% data variables.product.prodname_dependabot_alerts %} and corresponding {% data variables.product.prodname_dependabot_security_updates %} in your repository's {% data variables.product.prodname_dependabot_alerts %} tab. You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by selecting a filter from the dropdown menu.
+{% data reusables.dependabot.where-to-view-dependabot-alerts %} You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by selecting a filter from the dropdown menu.
 
 {% ifversion ghec or ghes %}To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations)."{% endif %}
 
