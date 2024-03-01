@@ -1479,8 +1479,8 @@ A **permission** is the ability to perform a specific action. For example, the a
 A **role** is a set of permissions that can be assigned to a user. Roles exist at different levels.
 
 - Accounts (e.g., organization owner, billing manager for an enterprise account)
-- Resources (e.g., "Write" for a repository, "Admin" for a security advisory)
-- Teams (e.g., "team maintainer")
+- Resources (e.g., "write" for a repository, "admin" for a security advisory)
+- Teams (e.g., team maintainer)
 
 A person's **access** refers generally to all the abilities the person has in a particular context, regardless of which roles or individual permissions those abilities come from.
 
